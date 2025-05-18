@@ -7,7 +7,9 @@ import re
 import sys
 from datetime import datetime
 
-def analyze_termination(file_path, timeout=300, context_sensitive=True):
+def analyze_termination(file_path, 
+                        timeout=300, 
+                        context_sensitive=True):
     """运行2ls终止性分析，返回结果和可能的错误"""
     cmd = ["src/2ls/2ls", "--termination"]
     
@@ -35,13 +37,27 @@ def analyze_termination(file_path, timeout=300, context_sensitive=True):
         elif "VERIFICATION FAILED" in result.stdout:
             return "No", None
         else:
+            # 检查是否有.i文件可用
+            i_file_path = file_path.replace('.c', '.i')
+            if os.path.exists(i_file_path):
+                print(f"  Trying with preprocessed .i file: {i_file_path}")
+                return analyze_termination(i_file_path, timeout, context_sensitive)
             return "Failed", f"Unexpected output: {result.stdout[:200]}..."
-    # 如果遇到 Conversion error，则查看是否有后缀.i文件再进行运行
-    # 这个可以后续补全；
 
     except subprocess.TimeoutExpired:
+        # 检查是否有.i文件可用
+        i_file_path = file_path.replace('.c', '.i')
+        if os.path.exists(i_file_path):
+            print(f"  TIMEOUT - Trying with preprocessed .i file: {i_file_path}")
+            return analyze_termination(i_file_path, timeout, context_sensitive)
         return "TIMEOUT", f"Analysis timed out after {timeout} seconds"
+    
     except Exception as e:
+        # 检查是否有.i文件可用
+        i_file_path = file_path.replace('.c', '.i')
+        if os.path.exists(i_file_path):
+            print(f"  ERROR - Trying with preprocessed .i file: {i_file_path}")
+            return analyze_termination(i_file_path, timeout, context_sensitive)
         return "ERROR", str(e)
 
 def check_workdir():
@@ -101,7 +117,7 @@ def main():
     print(f"Found {len(c_files)} C files to analyze")
     
     with open(args.output, "w") as f:
-        f.write("file,result,error,time_taken,timestamp\n")
+        f.write("file,result,error,time_taken\n")
     
     for i, file_path in enumerate(c_files):
         print(f"[{i+1}/{len(c_files)}] Analyzing {file_path}...")
@@ -123,7 +139,7 @@ def main():
         with open(args.output, "a") as f:
             file_path_escaped = file_path.replace('/root/term/TerminationDatabase/', '').replace('"', '""')
             error_escaped = "" if error is None else error.replace('"', '""')
-            f.write(f'"{file_path_escaped}",{result},"{error_escaped}",{time_taken:.2f},{timestamp}\n')
+            f.write(f'"{file_path_escaped}",{result},"{error_escaped}",{time_taken:.2f}\n')
 
 if __name__ == "__main__":
     main()
