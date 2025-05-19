@@ -9,7 +9,8 @@ from datetime import datetime
 
 def analyze_termination(file_path, 
                         timeout=300, 
-                        context_sensitive=True):
+                        context_sensitive=True,
+                        using_i_file=False):  # 添加标志表示是否已经在使用.i文件
     """运行2ls终止性分析，返回结果和可能的错误"""
     cmd = ["src/2ls/2ls", "--termination"]
     
@@ -37,29 +38,29 @@ def analyze_termination(file_path,
             # 检查是否是非终止性结果
             return "Maybe", None, file_path
         elif "VERIFICATION FAILED" in result.stdout:
-            return "No", None, file_path  # 返回原始文件路径
+            return "No", None, file_path
         else:
-            # 检查是否有.i文件可用
+            # 检查是否有.i文件可用且当前不是已经在处理.i文件
             i_file_path = file_path.replace('.c', '.i')
-            if os.path.exists(i_file_path) and file_path.endswith('.c'):
+            if os.path.exists(i_file_path) and not using_i_file:
                 print(f"  Trying with preprocessed .i file: {i_file_path}")
-                return analyze_termination(i_file_path, timeout, context_sensitive)
+                return analyze_termination(i_file_path, timeout, context_sensitive, using_i_file=True)
             return "Failed", f"Unexpected output: {result.stdout[:200]}...", file_path
 
     except subprocess.TimeoutExpired:
-        # 检查是否有.i文件可用
+        # 检查是否有.i文件可用且当前不是已经在处理.i文件
         i_file_path = file_path.replace('.c', '.i')
-        if os.path.exists(i_file_path) and file_path.endswith('.c'):
+        if os.path.exists(i_file_path) and not using_i_file:
             print(f"  TIMEOUT - Trying with preprocessed .i file: {i_file_path}")
-            return analyze_termination(i_file_path, timeout, context_sensitive)
+            return analyze_termination(i_file_path, timeout, context_sensitive, using_i_file=True)
         return "TIMEOUT", f"Analysis timed out after {timeout} seconds", file_path
     
     except Exception as e:
-        # 检查是否有.i文件可用
+        # 检查是否有.i文件可用且当前不是已经在处理.i文件
         i_file_path = file_path.replace('.c', '.i')
-        if os.path.exists(i_file_path) and file_path.endswith('.c'):
+        if os.path.exists(i_file_path) and not using_i_file:
             print(f"  ERROR - Trying with preprocessed .i file: {i_file_path}")
-            return analyze_termination(i_file_path, timeout, context_sensitive)
+            return analyze_termination(i_file_path, timeout, context_sensitive, using_i_file=True)
         return "ERROR", str(e), file_path
 
 def check_workdir():
@@ -132,7 +133,6 @@ def main():
         )
         
         time_taken = (datetime.now() - start_time).total_seconds()
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         print(f"  Result: {result} (took {time_taken:.2f}s)")
         if error:
