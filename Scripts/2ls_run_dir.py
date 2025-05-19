@@ -28,37 +28,39 @@ def analyze_termination(file_path,
             universal_newlines=True
         )
 
+        # 如果遇到 Conversion error，则查看是否有后缀.i文件再进行运行
+
         # 分析输出，判断终止性结果
         if "VERIFICATION SUCCESSFUL" in result.stdout:
-            return "YES", None
+            return "YES", None, file_path
         elif "VERIFICATION INCONCLUSIVE" in result.stdout:
             # 检查是否是非终止性结果
-            return "Maybe", None
+            return "Maybe", None, file_path
         elif "VERIFICATION FAILED" in result.stdout:
-            return "No", None
+            return "No", None, file_path  # 返回原始文件路径
         else:
             # 检查是否有.i文件可用
             i_file_path = file_path.replace('.c', '.i')
-            if os.path.exists(i_file_path):
+            if os.path.exists(i_file_path) and file_path.endswith('.c'):
                 print(f"  Trying with preprocessed .i file: {i_file_path}")
                 return analyze_termination(i_file_path, timeout, context_sensitive)
-            return "Failed", f"Unexpected output: {result.stdout[:200]}..."
+            return "Failed", f"Unexpected output: {result.stdout[:200]}...", file_path
 
     except subprocess.TimeoutExpired:
         # 检查是否有.i文件可用
         i_file_path = file_path.replace('.c', '.i')
-        if os.path.exists(i_file_path):
+        if os.path.exists(i_file_path) and file_path.endswith('.c'):
             print(f"  TIMEOUT - Trying with preprocessed .i file: {i_file_path}")
             return analyze_termination(i_file_path, timeout, context_sensitive)
-        return "TIMEOUT", f"Analysis timed out after {timeout} seconds"
+        return "TIMEOUT", f"Analysis timed out after {timeout} seconds", file_path
     
     except Exception as e:
         # 检查是否有.i文件可用
         i_file_path = file_path.replace('.c', '.i')
-        if os.path.exists(i_file_path):
+        if os.path.exists(i_file_path) and file_path.endswith('.c'):
             print(f"  ERROR - Trying with preprocessed .i file: {i_file_path}")
             return analyze_termination(i_file_path, timeout, context_sensitive)
-        return "ERROR", str(e)
+        return "ERROR", str(e), file_path
 
 def check_workdir():
     '''
@@ -123,7 +125,7 @@ def main():
         print(f"[{i+1}/{len(c_files)}] Analyzing {file_path}...")
         start_time = datetime.now()
         
-        result, error = analyze_termination(
+        result, error, real_file_path = analyze_termination(
             file_path, 
             timeout=args.timeout,
             context_sensitive=not args.no_context_sensitive
@@ -137,7 +139,7 @@ def main():
             print(f"  Error: {error}")
         
         with open(args.output, "a") as f:
-            file_path_escaped = file_path.replace('/root/term/TerminationDatabase/', '').replace('"', '""')
+            file_path_escaped = real_file_path.replace('/root/term/TerminationDatabase/', '').replace('"', '""')
             error_escaped = "" if error is None else error.replace('"', '""')
             f.write(f'"{file_path_escaped}",{result},"{error_escaped}",{time_taken:.2f}\n')
 
