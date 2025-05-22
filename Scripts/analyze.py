@@ -83,7 +83,7 @@ class chat_interface:
         # "if you cannot decide, then you should output [RESULT]\nUNKNOWN\n"
 
         answer = self.ask_question_with_role_and_record(role_prompt, program)
-        print(answer)
+        print(answer.content)
         return answer
     
 
