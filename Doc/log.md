@@ -14,4 +14,8 @@
 - 0519
     - 部分2ls的.i由于脚本策略，陷入了递归死循环，重新跑；TPDB的copy重新跑完，但是copy的结果中，似乎Failed的151例并没有得到改善，csv也没有记录是否切换了.i文件进行运行，修正脚本再次运行
 
+- 0522 
+    - 2ls copy3上传，但是SVComp 的 copy3没有运行完整
+    - irank 把内存占满了，靠`ssh user@host "pkill -9 tmux"`给终止了
+
 ```
