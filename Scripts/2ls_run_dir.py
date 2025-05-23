@@ -5,14 +5,38 @@ import subprocess
 import argparse
 import re
 import sys
+import csv
 from datetime import datetime
+
+COMMAND = '../2ls/src/2ls/2ls'
+
+def get_processed_files(csv_file):
+    """读取已存在的CSV文件，获取已处理的文件列表"""
+    processed_files = set()
+    if not os.path.exists(csv_file):
+        return processed_files
+    
+    try:
+        with open(csv_file, 'r') as f:
+            reader = csv.reader(f)
+            next(reader)  # 跳过表头
+            for row in reader:
+                if row and len(row) > 0:
+                    # 提取文件路径（第一列）
+                    file_path = row[0].strip('"')
+                    processed_files.add(file_path)
+        print(f"[INFO] 从CSV文件中读取到 {len(processed_files)} 个已处理文件记录")
+    except Exception as e:
+        print(f"[WARNING] 读取CSV文件时出错: {e}")
+    
+    return processed_files
 
 def analyze_termination(file_path, 
                         timeout=300, 
                         context_sensitive=True,
                         using_i_file=False):  # 添加标志表示是否已经在使用.i文件
     """运行2ls终止性分析，返回结果和可能的错误"""
-    cmd = ["src/2ls/2ls", "--termination"]
+    cmd = [COMMAND, "--termination"]
     
     if context_sensitive:
         cmd.append("--context-sensitive")
@@ -82,19 +106,21 @@ def check_workdir():
             sys.exit(1)
 
 def main():
-    check_workdir()
+    #check_workdir()
 
     parser = argparse.ArgumentParser(description="Run 2LS termination analysis on C files")
     parser.add_argument("--directory", 
-                        default="/root/term/TerminationDatabase/SVComp_C/",
+                        default="SVComp_C/",
                         help="Directory containing C files to analyze")
     parser.add_argument("--output", "-o", 
-                        default="2ls_Term_Res_SVCOMP.csv", 
+                        default="Results/2ls_SVComp_copy3-2.csv.csv", 
                         help="Output file for results (default: termination_results.csv)")
     parser.add_argument("--timeout", "-t", type=int, default=300,
                         help="Timeout in seconds for each file (default: 300)")
     parser.add_argument("--no-context-sensitive", action="store_true",
                         help="Disable context-sensitive analysis")
+    parser.add_argument("--force", "-f", action="store_true",
+                        help="强制重新分析所有文件（忽略已分析过的文件）")
     args = parser.parse_args()
     
     if not os.path.isdir(args.directory):
@@ -102,7 +128,7 @@ def main():
         sys.exit(1)
     
     # 确保2ls存在
-    if not os.path.exists("src/2ls/2ls"):
+    if not os.path.exists(COMMAND):
         print("Error: 2LS executable not found at src/2ls/2ls")
         print("Make sure you're running this script from the 2ls root directory")
         sys.exit(1)
@@ -119,10 +145,31 @@ def main():
     
     print(f"Found {len(c_files)} C files to analyze")
     
-    with open(args.output, "w") as f:
-        f.write("file,result,error,time_taken\n")
+    # 检查是否为续传模式
+    is_continuation = os.path.exists(args.output) and not args.force
+    processed_files = set()
+    
+    if is_continuation:
+        processed_files = get_processed_files(args.output)
+        print(f"Continuing from previous run, skipping {len(processed_files)} already processed files")
+    else:
+        # 创建新CSV文件
+        with open(args.output, "w") as f:
+            f.write("file,result,error,time_taken,processed_time\n")
+    
+    skipped_count = 0
+    analyzed_count = 0
     
     for i, file_path in enumerate(c_files):
+        # 标准化文件路径用于比较
+        normalized_path = file_path.replace('/root/term/TerminationDatabase/', '')
+        
+        # 检查是否已经处理过
+        if normalized_path in processed_files:
+            print(f"[{i+1}/{len(c_files)}] Skipping already processed file: {file_path}")
+            skipped_count += 1
+            continue
+        
         print(f"[{i+1}/{len(c_files)}] Analyzing {file_path}...")
         start_time = datetime.now()
         
@@ -133,6 +180,7 @@ def main():
         )
         
         time_taken = (datetime.now() - start_time).total_seconds()
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         print(f"  Result: {result} (took {time_taken:.2f}s)")
         if error:
@@ -141,7 +189,11 @@ def main():
         with open(args.output, "a") as f:
             file_path_escaped = real_file_path.replace('/root/term/TerminationDatabase/', '').replace('"', '""')
             error_escaped = "" if error is None else error.replace('"', '""')
-            f.write(f'"{file_path_escaped}",{result},"{error_escaped}",{time_taken:.2f}\n')
+            f.write(f'"{file_path_escaped}",{result},"{error_escaped}",{time_taken:.2f},"{current_time}"\n')
+        
+        analyzed_count += 1
+    
+    print(f"Analysis complete: {analyzed_count} files analyzed, {skipped_count} files skipped.")
 
 if __name__ == "__main__":
     main()

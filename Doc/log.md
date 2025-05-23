@@ -18,4 +18,9 @@
     - 2ls copy3上传，但是SVComp 的 copy3没有运行完整
     - irank 把内存占满了，靠`ssh user@host "pkill -9 tmux"`给终止了
 
+- 0523
+    - irankfinder会创建子进程，不杀光的话会吃完内存
+    - 为irankfinder加入断点续传功能
+    - 为2ls加入断点续传功能，并且在copy3的结果中，复制一份作为copy3-2来测试断点续传，尝试完成所有的2ls for SVComp工作
+
 ```
