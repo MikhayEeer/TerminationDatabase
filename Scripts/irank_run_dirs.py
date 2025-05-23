@@ -290,7 +290,7 @@ def main(directories: List[str], csv_file: str, command_group: int = 1, force: b
     # 处理文件并实时写入CSV
     process_files(files_info, csv_file, command_group)
 
-    print(f"[INFO] Processed {len(results)} files, results have saved into {csv_file}")
+    print(f"[INFO] Results have saved into {csv_file}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='处理 .c 和 .i 文件并保存结果')
