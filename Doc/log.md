@@ -22,5 +22,6 @@
     - irankfinder会创建子进程，不杀光的话会吃完内存
     - 为irankfinder加入断点续传功能
     - 为2ls加入断点续传功能，并且在copy3的结果中，复制一份作为copy3-2来测试断点续传，尝试完成所有的2ls for SVComp工作
-
+        - 2ls断点续传没有起到效果，需要有时间进行检修
+        - Solve: output有误
 ```

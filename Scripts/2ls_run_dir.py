@@ -113,7 +113,7 @@ def main():
                         default="SVComp_C/",
                         help="Directory containing C files to analyze")
     parser.add_argument("--output", "-o", 
-                        default="Results/2ls_SVComp_copy3-2.csv.csv", 
+                        default="Results/2ls_SVComp_copy3-2.csv", 
                         help="Output file for results (default: termination_results.csv)")
     parser.add_argument("--timeout", "-t", type=int, default=300,
                         help="Timeout in seconds for each file (default: 300)")
