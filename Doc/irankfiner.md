@@ -1,5 +1,23 @@
 # How to Use
 
+## Run
+```bash
+# 该命令建议在~/term/TerminationDatabase 运行
+
+# 测试一下：
+python Scripts/irank_run_dirs.py SVComp_C/loop-new/ --output Results/test_irank_SV_TP_simpleArgs.csv -cg 1
+
+# 设置了两组参数组，参数组1是simple后缀，分析线性循环，较为简单的分析
+python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_SV_TP_simpleArgs.csv -cg 1
+
+# 参数组2会更加细致的分析
+python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_SV_TP_complexArgs.csv -cg 2
+
+# 限制内存，iRankFinder Simple args, Limit memory 16GB:
+ulimit -Sv $((16*1024*1024)) && python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_SV_TP_simpleArgs.csv -cg 1
+
+```
+
 ## ~~Build From Source Code~~
 安装脚本
 ```bash
