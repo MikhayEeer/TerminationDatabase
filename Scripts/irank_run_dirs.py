@@ -17,7 +17,7 @@ import subprocess
 import time
 import signal
 from pathlib import Path
-from typing import List, Dict, Tuple, Any, Optional
+from typing import List, Dict, Tuple, Any, Optional, Set
 from tqdm import tqdm
 
 COMMAND = '../irankfinder-exe/irankfinder'
@@ -92,7 +92,6 @@ def cleanup_irankfinder():
 
 def solve(file_path: str, command_group: int = 1) -> Dict[str, Any]:
     """处理给定的文件"""
-    # 根据命令组选择相应的命令参数
     if command_group == 1:
         cmd_params = CMD_GROUP_1.copy()
     elif command_group == 2:
@@ -104,11 +103,9 @@ def solve(file_path: str, command_group: int = 1) -> Dict[str, Any]:
             'file_type': '.i' if file_path.endswith('.i') else '.c'
         }
     
-    # 构建完整命令
     cmd = [COMMAND] + cmd_params + ['--file', file_path]
     
     try:
-        # 确保启动前没有残留进程
         cleanup_irankfinder()
         
         start_time = time.time()
@@ -116,11 +113,10 @@ def solve(file_path: str, command_group: int = 1) -> Dict[str, Any]:
                                   stdout=subprocess.PIPE, 
                                   stderr=subprocess.PIPE, 
                                   text=True,
-                                  preexec_fn=os.setsid)  # 创建新进程组
+                                  preexec_fn=os.setsid)
         
         stdout, stderr = process.communicate(timeout=TIMEOUT)
-        
-        # 计算运行时间
+
         execution_time = time.time() - start_time
         
         # 检查第一行输出是否为 YES/NO/MAYBE
@@ -131,13 +127,11 @@ def solve(file_path: str, command_group: int = 1) -> Dict[str, Any]:
         else:
             result = 'ERROR'
             error = f'Unexpected output: {first_line}'
-            
-        # 如果有stderr输出，则视为错误
+
         if stderr:
             result = 'ERROR'
             error = stderr
             
-        # 确保进程及其子进程都被终止
         try:
             os.killpg(os.getpgid(process.pid), signal.SIGKILL)
         except:
@@ -150,13 +144,11 @@ def solve(file_path: str, command_group: int = 1) -> Dict[str, Any]:
             'execution_time': execution_time
         }
     except subprocess.TimeoutExpired:
-        # 超时处理 - 彻底终止进程组
         try:
             os.killpg(os.getpgid(process.pid), signal.SIGKILL)
         except:
             process.kill()
-            
-        # 确保没有残留进程
+
         cleanup_irankfinder()
             
         return {
@@ -166,14 +158,39 @@ def solve(file_path: str, command_group: int = 1) -> Dict[str, Any]:
             'execution_time': TIMEOUT
         }
     except Exception as e:
-        # 其他异常处理
-        cleanup_irankfinder()  # 确保清理
+        cleanup_irankfinder()
         return {
             'result': 'ERROR',
             'error': str(e),
             'file_type': '.i' if file_path.endswith('.i') else '.c',
             'execution_time': 0
         }
+
+def get_processed_files(csv_file: str) -> Set[str]:
+    """
+    从已存在的CSV文件中获取已处理过的文件路径
+    
+    Args:
+        csv_file: CSV文件路径
+    
+    Returns:
+        已处理文件路径的集合
+    """
+    processed_files = set()
+    if not os.path.exists(csv_file):
+        return processed_files
+        
+    try:
+        with open(csv_file, 'r', newline='') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if 'c_path' in row:
+                    processed_files.add(row['c_path'])
+    except Exception as e:
+        print(f"[WARNING] 读取已存在的CSV文件时出错: {e}")
+        
+    print(f"[INFO] 从CSV文件中读取到 {len(processed_files)} 个已处理文件记录")
+    return processed_files
 
 def write_result_to_csv(result: Dict[str, Any], csv_file: str, is_first: bool = False) -> None:
     """
@@ -184,64 +201,86 @@ def write_result_to_csv(result: Dict[str, Any], csv_file: str, is_first: bool = 
         csv_file: CSV文件路径
         is_first: 是否是第一条记录(需要写入表头)
     """
-    fieldnames = ['c_path', 'result', 'error', 'status', 'execution_time']
+    fieldnames = ['c_path', 'result', 'error', 'status', 'execution_time', 'processed_time']
     
-    # 转换为CSV行
     row = {
         'c_path': result['c_path'],
         'result': result['result'],
         'error': result['error'],
         'status': 'success' if result['error'] is None else 'failed',
-        'execution_time': result.get('execution_time', 0)
+        'execution_time': result.get('execution_time', 0),
+        'processed_time': time.strftime('%Y-%m-%d %H:%M:%S')  # 记录处理时间
     }
     
-    # 写入模式：第一次为'w'创建文件，之后为'a'追加
-    mode = 'w' if is_first else 'a'
+    # 如果文件不存在则创建，否则追加
+    if is_first and not os.path.exists(csv_file):
+        mode = 'w'
+    else:
+        mode = 'a'
     
     with open(csv_file, mode, newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
-        if is_first:
+        if is_first and mode == 'w':
             writer.writeheader()
         writer.writerow(row)
 
 def process_files(files_info: List[Dict[str, Any]], csv_file: str, command_group: int = 1) -> None:
     """
-    处理文件并实时写入结果到CSV
+    处理文件并实时写入结果到CSV，支持断点续传
     
     Args:
         files_info: 包含文件信息的字典列表
         csv_file: 输出CSV文件路径
         command_group: 使用的命令组
     """
-    processed_count = 0
+    # 获取已处理文件列表
+    processed_files = get_processed_files(csv_file)
     
+    processed_count = 0
+    skipped_count = 0
+    
+    # 写入标题行（如果是新文件）
+    is_new_file = not os.path.exists(csv_file)
+    
+    # 使用tqdm显示进度
     for idx, file_info in enumerate(tqdm(files_info, desc="[Processing]", unit="file")):
+        c_path = file_info['c_path']
+        
+        # 如果文件已处理过，则跳过
+        if c_path in processed_files:
+            skipped_count += 1
+            continue
+        
         # 处理当前文件
-        c_result = solve(file_info['c_path'], command_group)
+        c_result = solve(c_path, command_group)
         
         # 准备结果
         result = {
-            'c_path': file_info['c_path'],
+            'c_path': c_path,
             'has_i': file_info['has_i'],
-            'processed_file': file_info['c_path'],
+            'processed_file': c_path,
             'result': c_result['result'],
             'error': c_result['error'],
             'file_type': c_result['file_type'],
             'execution_time': c_result['execution_time']
         }
         
-        # 立即写入CSV (第一个文件需要写入表头)
-        write_result_to_csv(result, csv_file, is_first=(idx==0))
+        # 立即写入CSV
+        write_result_to_csv(result, csv_file, is_first=(is_new_file and idx==0))
         
         processed_count += 1
         
         # 确保在处理下一个文件前没有残留进程
         cleanup_irankfinder()
     
-    print(f"[INFO] Processed {processed_count} files, results saved into {csv_file}")
+    print(f"[INFO] 新处理 {processed_count} 个文件, 跳过 {skipped_count} 个已处理文件, 结果保存到 {csv_file}")
 
-def main(directories: List[str], csv_file: str, command_group: int = 1) -> None:
+def main(directories: List[str], csv_file: str, command_group: int = 1, force: bool = False) -> None:
     """主函数：查找文件、处理文件并保存结果"""
+    # 检查CSV文件是否存在
+    if os.path.exists(csv_file) and not force:
+        print(f"[INFO] 检测到已存在的结果文件 {csv_file}，将继续处理未完成的文件")
+    
     # 初始清理
     cleanup_irankfinder()
     
@@ -261,10 +300,12 @@ if __name__ == "__main__":
                         default='Results/default_results.csv', help='输出 CSV 文件路径')
     parser.add_argument('--command-group', '-cg', type=int, choices=[1, 2], default=1,
                         help='使用的命令组 (1 或 2)')
+    parser.add_argument('--force', '-f', action='store_true',
+                        help='强制覆盖已存在的 CSV 文件（不会继续之前的处理）')
     args = parser.parse_args()
+    
     if not args.output.endswith('.csv'):
         raise ValueError("Output file must have .csv extension")
-    if os.path.exists(args.output):
-        raise FileExistsError(f"CSV文件 {args.output} 已存在，请指定一个新的文件名以避免覆盖")
-   
-    main(args.directories, args.output, args.command_group)
+    
+    # 删除文件存在检查，改为在main函数中处理
+    main(args.directories, args.output, args.command_group, args.force)
