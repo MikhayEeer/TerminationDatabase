@@ -8,7 +8,7 @@ python Scripts/irank_run_dirs.py SVComp_C/loop-new/ --output Results/test_irank_
 python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_SV_TP_simpleArgs.csv -cg 1
 
 参数组2会更加细致的分析
-python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_SV_TP_complexArgs.csv -cg 2
+python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_ALL_complexArgs.csv -cg 2
 '''
 import os
 import csv

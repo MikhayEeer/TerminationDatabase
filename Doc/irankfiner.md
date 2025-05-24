@@ -16,6 +16,9 @@ python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Res
 # 限制内存，iRankFinder Simple args, Limit memory 16GB:
 ulimit -Sv $((16*1024*1024)) && python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_SV_TP_simpleArgs.csv -cg 1
 
+# 限制内存，iRankFinder Complex args, Limit memory 64GB:
+ulimit -Sv $((64*1024*1024)) && python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_ALL_complexArgs.csv -cg 2
+
 ```
 
 ## ~~Build From Source Code~~
