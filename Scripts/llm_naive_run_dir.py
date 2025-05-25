@@ -1,9 +1,12 @@
 import os
 import sys
+import time
+import csv
+from datetime import datetime
 
 from openai import OpenAI
 
-secrete = "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"
+secrete = "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"
 chatgpt_model = "openai/gpt-4o"
 
 LLM_results_folder_YES = os.path.join(os.getcwd(), "Results", "LLM_results", "YES")
@@ -104,6 +107,7 @@ def parse_llm_result(result_str):
     is_unknown = False
     is_collecting_RF_Type = False
     is_collecting_RF =  False
+    parse_failed = False
     for line in result_lines:
         if  "[RESULT]" in line:
             is_collecting_result = True
@@ -129,49 +133,124 @@ def parse_llm_result(result_str):
                 is_terminating = False
                 is_unknown = True
             else:
-                print("ERROR: llm result parsing error")
+                print("[Error] : llm result parsing error")
+                parse_failed = True
 
         if is_terminating and is_collecting_RF_Type:
             rf_type_str = rf_type_str + line.strip()
         
         if is_terminating and is_collecting_RF:
             rf_content_str = rf_content_str + line.strip()
+    if parse_failed:
+        raise ValueError("ERROR: llm result parsing error")
 
     return (is_terminating, is_unknown, rf_type_str, rf_content_str)
-                
 
-def run_experiment_for_program(interface, file_name, curr_program, ref_is_terminating, ref_is_unknown, repeat_num):
+
+def run_experiment_for_program(interface, 
+                               file_name, curr_program, 
+                               ref_is_terminating, ref_is_unknown, 
+                               repeat_num):
     is_stable = True
     final_is_terminating = False
     final_is_unknown = False
     curr_prog_result_list = []
+    responses = []
     for i in range(repeat_num):
         ith_response = interface.ask_naive_question_of_termination(curr_program)
-        ith_llm_parse_result = parse_llm_result(ith_response.content)
-        curr_prog_result_list.append(ith_llm_parse_result)
-        for existing_res in curr_prog_result_list:
-            if not (existing_res[0] == ith_llm_parse_result[0] and existing_res[1] == ith_llm_parse_result[1]):
-                is_stable = False
-        if not is_stable:
-            return (file_name, is_stable, final_is_terminating, final_is_unknown, ref_is_terminating, ref_is_unknown, repeat_num)
-    return (file_name, is_stable, curr_prog_result_list[0][0], curr_prog_result_list[0][1], ref_is_terminating, ref_is_unknown, repeat_num)
+        responses.append(ith_response.content)
+        try:
+            ith_llm_parse_result = parse_llm_result(ith_response.content)
+            curr_prog_result_list.append(ith_llm_parse_result)
+            for existing_res in curr_prog_result_list:
+                if not (existing_res[0] == ith_llm_parse_result[0] and existing_res[1] == ith_llm_parse_result[1]):
+                    is_stable = False
+            if not is_stable:
+                return (file_name, is_stable, final_is_terminating, final_is_unknown, 
+                       ref_is_terminating, ref_is_unknown, repeat_num, responses)
+                
+        except ValueError as e:
+            print(f"Parsing LLM Response failed, got: \n\t{str(e)}")
+            return (file_name, False, final_is_terminating, final_is_unknown, 
+                   ref_is_terminating, ref_is_unknown, repeat_num, responses)
+
+    return (file_name, is_stable, curr_prog_result_list[0][0], curr_prog_result_list[0][1], 
+           ref_is_terminating, ref_is_unknown, repeat_num, responses)
 
 
-    
+# 容易 parsing error?
+# 可以考虑先生成result，再对result使用llm，完成解析；    
 def run_certain_experiments(interface):
+    os.makedirs("LLM_Results", exist_ok=True)
+    csv_file_path = os.path.join("LLM_Results", f"llm_results_Certain.csv")
+
+    with open(csv_file_path, 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['file_name', 'category', 'is_stable', 'llm_is_terminating', 
+                     'llm_is_unknown', 'ref_is_terminating', 'ref_is_unknown', 
+                     'repeat_count', 'processing_time']
+        csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        csv_writer.writeheader()
+
+    all_programs = []
     for item in os.listdir(YES_program_folder):
-        curr_yes_file = open(item)
-        curr_program = curr_yes_file.read()
-        # 
+        all_programs.append((os.path.join(YES_program_folder, item), item, 'YES', True, False))
     for item in os.listdir(NO_program_folder):
-        print(item)
-    print(len(os.listdir(YES_program_folder)))
-    print(len(os.listdir(NO_program_folder)))
+        all_programs.append((os.path.join(NO_program_folder, item), item, 'NO', False, False))
+    
+    for file_path, file_name, category, ref_is_terminating, ref_is_unknown in all_programs:
+        try:
+            print(f"[Info] Processing {category} program: {file_name}")
+            start_time = time.time()
+            with open(file_path, 'r', errors='ignore') as f:
+                curr_program = f.read()
+            exp_result = run_experiment_for_program(interface, 
+                                                   file_name, 
+                                                   curr_program, 
+                                                   ref_is_terminating, 
+                                                   ref_is_unknown, 
+                                                   2)
+            end_time = time.time()
+            processing_time = end_time - start_time
+
+            file_name, is_stable, llm_is_terminating, llm_is_unknown, \
+            ref_is_terminating, ref_is_unknown, repeat_count, responses = exp_result
+            
+            with open(csv_file_path, 'a', newline='', encoding='utf-8') as csvfile:
+                csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                csv_writer.writerow({
+                    'file_name': file_name,
+                    'category': category,
+                    'is_stable': is_stable,
+                    'llm_is_terminating': llm_is_terminating,
+                    'llm_is_unknown': llm_is_unknown,
+                    'ref_is_terminating': ref_is_terminating,
+                    'ref_is_unknown': ref_is_unknown,
+                    'repeat_count': repeat_count,
+                    'processing_time': round(processing_time, 2)
+                })
+            
+            os.makedirs(os.path.join("LLM_Results", "responses"), exist_ok=True)
+            response_file = os.path.join("Results", "responses", f"{category}_{file_name}.txt")
+            with open(response_file, 'w', encoding='utf-8') as f:
+                for i, response in enumerate(responses):
+                    f.write(f"=== Response {i+1} ===\n{response}\n\n")
+            
+            print(f"Result: {'Stable' if is_stable else 'Unstable'}, "
+                  f"LLM Decision: {'Terminate' if llm_is_terminating else 'Non-terminate/Unknown'}, "
+                  f"Time elapsed: {processing_time:.2f} seconds")
+        except Exception as e:
+            print(f"Error occurred while processing {file_name}: {str(e)}")
+    
+    yes_count = len([p for p in all_programs if p[2] == 'YES'])
+    no_count = len([p for p in all_programs if p[2] == 'NO'])
+    print(f"\nExperiment results have been saved to: {csv_file_path}")
+    print(f"Termination Yes Programs : {yes_count}")
+    print(f"Termination No Programs : {no_count}")
 
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
-    # run_certain_experiments(interface)
+    run_certain_experiments(interface)
     program = "	int main() {\n"\
     "	int x, y, z;\n"	\
     "		while (z > 0) {\n"\
@@ -180,8 +259,5 @@ if __name__ == "__main__":
     "		}\n"\
 	"}\n"
 
-    exp_result = run_experiment_for_program(interface, "test_file_name.c", program, True, False, 2)
-    print(exp_result)
-        
-
-
+    #exp_result = run_experiment_for_program(interface, "test_file_name.c", program, True, False, 2)
+    #print(exp_result)
