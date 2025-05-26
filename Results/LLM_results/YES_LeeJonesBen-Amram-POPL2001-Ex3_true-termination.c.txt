@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: Decrease in the first argument until `m <= 0`. The function calls `a(m - 1, 1)` or `a(m - 1, ...)`, ensuring `m` eventually decreases and reaches a base case.  
+Phase 2: Imposed by the recursive call structure. In the recursive call `a(m - 1, a(m, n - 1))`, the inner call to `a(m, n - 1)` ensures `n` decreases until `n <= 0`, which guarantees a transition to Phase 1.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+The function `a(m, n)` can be shown to terminate using the concept of lexicographic ordering based on two arguments, `m` and `n`. The steps follow:
+
+- There are two base cases where termination is explicit:
+  1. If `m <= 0`, the function returns `n + 1`, which is a base case termination.
+  2. If `n <= 0`, the function calls `a(m-1, 1)`, and since the first argument `m` decreases, we can confirm termination by moving towards the base case when `m` becomes non-positive.
+  
+- For the recursive call `a(m - 1, a(m, n - 1))`, notice that:
+  - The first argument of the outer `a()` call, `m - 1`, is strictly decreasing.
+  - The recursive call `a(m, n - 1)` in the second argument ensures that the second argument will decrease until it reaches a base case or until `m` further decreases due to the recursive structure.
+
+Therefore, a nested ranking function involving the lexicographic tuple `(m, n)` can be established such that:
+1. Decrease in `m` is a larger step that ensures eventual termination.
+2. `n` decreases as long as `m` remains constant.
+
+This reasoning applies for all `m, n` greater than or equal to zero as constrained by the pre-condition `if ( m >= 0 && n >= 0)`. Thus, each recursive call progresses towards termination.
+

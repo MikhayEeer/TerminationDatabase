@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `(*i_ref <= 100) && (*j_ref <= k)` does not guarantee termination since the variable `k_ref` is decremented in each iteration without a lower bound, making it possible for the loop to run indefinitely if `j_ref` remains less than or equal to a non-positive decrementing `k_ref`.
+

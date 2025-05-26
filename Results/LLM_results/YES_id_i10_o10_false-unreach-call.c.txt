@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * input^1
+
+Explanation: The function `id` is a recursive function that decrements its input by 1 on each call until it reaches 0. This means the recursive calls will eventually terminate as the base case of `x == 0` is always reached. In the `main` function, the input to `id` is the constant value 10. The recursive function `id` will compute the identity of the input, which is 10 in this case (using 10 recursive calls). Once the computation is done, control will return back to `main`. As there is no actual looping construct such as `while` or `for` in the function, the program terminates naturally after computations finish. Hence, we use a simple linear ranking function `1.0 * input` to show the input reduces by 1 on each recursive call until it terminates when input becomes 0.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+input - x
+
+This program has a recursive function `id` that decreases its input `x` by 1 in each recursive call, effectively counting down from `x` to 0. The recursion will terminate when `x` reaches 0. Since the main function calls `id` with a constant input value of 10, the recursion will terminate after 10 calls. Thus, the program is terminating. The ranking function `input - x` indicates that with every recursive call, the value of `input - x` decreases by 1, eventually reaching 0, proving termination.
+

@@ -1,0 +1,23 @@
+=== Response 1 ===
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+```
+
+The function `cstrncmp` in the provided program will terminate because the loop inside `cstrncmp` decrements `n` with each iteration, and the loop terminates when `n` reaches zero. Thus, the value of `n` serves as a linear ranking function that demonstrates termination. The process will stop once `n` is no longer greater than zero, indicating the program will eventually reach termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n  
+
+Explanation:  
+The function `cstrncmp` essentially compares two strings for up to `n` characters or until a null character is detected. The loop iterates `n` times or until a null terminator is detected in either string. Each iteration of the loop strictly reduces the value of `n` by 1, unless a return condition is met earlier if a null character is encountered or a differing character is found. This provides a straightforward linear ranking function based on the parameter `n`. Assuming `n` is initialized to a finite non-negative integer, the loop will terminate. Hence, the program is terminating.
+

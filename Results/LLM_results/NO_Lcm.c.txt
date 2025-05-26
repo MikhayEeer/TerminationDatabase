@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variables `am` and `bm` can indefinitely oscillate without meeting the termination condition `am == bm` depending on the initial values of `a` and `b`. Specifically, if `a` and `b` are positive and different, `am` and `bm` can keep increasing without ever becoming equal.
+

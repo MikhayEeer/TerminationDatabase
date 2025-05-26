@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1073741823 - k  
+Phase 2: z^1  
+Phase 3: x^1 + y^1  
+
+Explanation:  
+The program consists of several phases that can be ordered to show termination.  
+- Phase 1: The value of `k` is bounded by `1073741823`, so the function immediately returns if `k` exceeds this. 
+- Phase 2: The loop labeled `L1` doubles `z` while `z < k`. This loop will terminate as long as `k` is not exceedingly large, which is ensured by the bound on `k`.
+- Phase 3: The loop labeled `L2` operates with decreasing values computed from the original values of `x` and `y`. The loop makes progress towards termination either via `x` being decremented by `d` when the condition for `P1` is true, or `y` being decremented by `d`. In either case, progress is made because `x` or `y` decrease towards zero.  
+
+Thus, the function guarantees termination under the described ranking functions.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1:
+1. `z^1 - k` shows that the loop at label `L1` terminates since `z` is doubled in each iteration and eventually surpasses `k`.
+Phase 2:
+- for the loop at `L2`, a possible two-dimensional ranking function of the form `(x, y)` can be used. Specifically, `x + y` serves as a decreasing ranking function because each condition in the loop operations eventually decreases `x + y`. When `d` is positive, the value of either `x` or `y` reduces each time the loop is executed, and `z` does not become negative due to its prior increase in phase 1 and `d` is assumed positive when `f` is called.
+

@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+a  
+
+The function `rec(int a)` is recursive and decreases the value of `a` by 1 for each recursive call until it reaches 0, at which point it terminates. The ranking function `a` is linear in nature and decreases with every recursive call, ensuring termination of the program.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+Main Function Call:  
+1.0 * i^1
+
+Recursive Function Call `rec(a)`:  
+1.0 * a^1  
+
+Inner While Loop within `rec(a)`:  
+1.0 * rescopy^1  
+
+The program is terminating since each call to `rec(a)` reduces `a` by 1, and the inner loop reduces `rescopy` to 0, providing a clear termination argument through nested ranking functions.
+

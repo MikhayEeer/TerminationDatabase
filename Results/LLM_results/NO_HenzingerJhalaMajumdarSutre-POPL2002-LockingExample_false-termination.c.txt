@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1st phase: non-deterministic bounded loop (do-while with got_lock mechanism)
+2nd phase: strictly decreasing on integer variable `new` in relation to `old` 
+
+Explanation: 
+- The first `do-while` loop is driven by non-deterministic invocations and holds no direct relation between iterations. 
+- The second `do-while` loop is bounded by the condition `new != old` which will eventually become false as `new` increases deterministically when the condition `__VERIFIER_nondet_int()` results in true, causing the control flow to exit, leading to termination.
+- The unlocking after the loop satisfies the LOCK invariant.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+
+1. For the first loop (if statement with a do-while loop):
+   - Since `__VERIFIER_nondet_int()` is non-deterministic, the loop can execute zero or more times. However, the presence of the non-deterministic condition controlled by `if (__VERIFIER_nondet_int())` and the atomic operations `lock()` and `unlock()`, combined with `got_lock` prevent indefinite lock acquisition, ensuring that the loop will eventually terminate.
+
+2. For the second loop (do-while loop):
+   - The ranking function is based on the variable `new` which increases whenever the unlock branch is taken (`if (__VERIFIER_nondet_int())`), ensuring that `new` will eventually equal `old`, terminating the loop.  
+   - The ranking function is `new - old`, which decreases and ensures progress towards termination.
+

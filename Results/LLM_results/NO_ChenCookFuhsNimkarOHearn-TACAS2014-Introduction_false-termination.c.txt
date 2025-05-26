@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The non-deterministic assignment of `i` inside the loop can always be chosen to keep `i >= 0`, leading to potential infinite execution of the loop.
+

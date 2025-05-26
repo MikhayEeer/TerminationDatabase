@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+
+Explanation:  
+The function `foo()` always decrements the value of `x` by 1, regardless of the branch taken in the `if` statement. Since the loop invariant is `x > 0`, `x` will eventually reach 0 or below, at which point the condition of the while loop (`x > 0`) will no longer be satisfied. Thus, the program is guaranteed to terminate. The linear ranking function `1.0 * x^1` proves that the program decreases in well-founded order towards termination.
+

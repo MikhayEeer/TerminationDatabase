@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains a non-terminating recursive call within function `rec` when `x` is within the range [-42, 23]. The call `rec(2*y-2, x + 1)` does not change the condition related to `x`, as `x` remains within bounds and the eventual recursive calls continuously keep satisfying the condition `x <= 23 && x >= -42`.
+

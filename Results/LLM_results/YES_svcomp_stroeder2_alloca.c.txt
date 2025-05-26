@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1 - 1.0 * i^1 (in the outer loop)
+5 - 1.0 * *p^1 (in the inner loop)
+
+The program is terminating because:
+
+1. The outer loop, iterating over the range from 0 to `array_size - 1`, will always terminate as `i` is incremented in each iteration and `array_size` is finite and non-negative after the check in `main`.
+2. The inner loop, decrements the third byte of each integer until it becomes non-positive, ensuring termination for each inner loop pass. Since bytes have an upper limit, this loop will always stop after a finite number of decrements.
+
+These ranking functions guarantee a decrease towards termination in both loops and the transitions are bounded.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. Decrement of each byte in the loop: (*p) decreases to 0 upon each iteration.
+2. The loop over `i` from 0 to `array_size - 1`, which is a bounded loop. 
+
+The program is guaranteed to terminate because for each `i` in the loop `for (i = 0; i < array_size; i++)`, the inner while loop `while (*p > 0)` is decremented until `*p` becomes zero, thus ensuring eventual termination. The outer loop iterates a fixed number of times determined by the bounded `array_size`.
+

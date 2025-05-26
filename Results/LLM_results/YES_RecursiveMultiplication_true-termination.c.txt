@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+recursive  
+[RANKING FUNCTIONS]  
+The termination of the recursive function `mult` can be proved by considering the second parameter `m` as the ranking function. Specifically, the function `mult(n, m)` decreases the value of `m` by 1 in each recursive call when `m > 0`, and thus, this forms a decreasing, well-founded order. When `m` becomes zero, a base case is reached, terminating the recursion. For the case where `m < 0`, the function converts it to positive by negating both `m` and the result of the recursive call, ensuring the recursion still descends and terminates when `m` reaches zero.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+m^1  
+
+The `mult` function terminates because the second argument `m` strictly decreases with each recursive call until it reaches zero. When `m` is zero, the function reaches the base case and returns a result. The ranking function for termination is the linear function `m`, as it decreases with each recursive call and reaches a base case that terminates the recursion.
+

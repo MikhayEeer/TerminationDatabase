@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x + 1.0
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x + y * (y - 1) / 2
+
+The program is terminating because in each iteration of the loop, the value of `x` decreases and `y` decreases in a way that eventually causes `x < 0` to hold, thus terminating the loop.
+

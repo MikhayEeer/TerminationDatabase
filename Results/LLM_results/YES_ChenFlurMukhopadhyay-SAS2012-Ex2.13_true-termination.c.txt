@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (x - y)^1  
+
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (x - y)^1   
+This ranking function decreases with each loop iteration as `x` and `y` are updated such that `x - y` decreases. Since `1.0 * (x - y)^1` is bounded and decreases, the loop is guaranteed to terminate.
+

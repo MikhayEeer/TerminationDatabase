@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+f(x, y) = x  
+
+The program terminates because the variable `x` in the loop condition `x > 0` is assigned the value of `y` in each iteration. When the loop exits (either due to `x <= 0` or entering the `if` branch to break), the value of `x` is non-positive, causing the loop to terminate. The while loop's progress measure is the `x` variable value itself, resulting in a linear ranking function `f(x, y) = x`, showing a decrease in iterations.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+

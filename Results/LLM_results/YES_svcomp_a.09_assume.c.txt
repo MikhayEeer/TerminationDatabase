@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `x >= z` along with the operation `z = z + y` can lead to a situation where `z` never surpasses `x` as `y` can be zero or negative, allowing the loop to run indefinitely when `y <= 0`.
+

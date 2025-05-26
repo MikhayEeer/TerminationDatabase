@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+(1) |i| + |j| with lexicographic order  
+
+Explanation:   
+The program consists of a loop, which executes while both `i` and `j` are non-zero. Within the loop, `i` is replaced by `j`, and `j` is replaced by the previous value of `i`. This effectively swaps `i` and `j` only if they are both non-zero, meaning one of them must become zero eventually, causing the loop to terminate. The ranking function decreases lexicographically, since the absolute values of `i` and `j` do not increase in the loop (the condition `i != 0 && j != 0` ensures progress towards termination).
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * abs(i) + 1.0 * abs(j)  
+
+The program terminates because with each swap of `i` and `j`, at least one of them eventually reaches zero due to swapping values without any increments or decrements, breaking the loop condition. The absolute values of `i` and `j` continue to decrease or remain the same, eventually reaching a state where one of them is zero, causing loop termination.
+

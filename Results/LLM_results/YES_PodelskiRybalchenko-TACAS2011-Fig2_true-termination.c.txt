@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+(x, x - y)
+
+In this program, there are two nested loops. The outer loop decreases the value of `x` by 1 in each iteration, and runs as long as `x` is non-negative. The inner loop increases `y` until it becomes equal to or greater than `x`, but does not affect `x`. 
+
+The lexicographic ranking function `(x, x - y)` demonstrates the termination of the program:
+- The first component `x` decreases consistently with each iteration of the outer loop and bounds the running of the entire program.
+- The second component `x - y` decreases during each iteration of the inner loop, ensuring the inner loop terminates for a given value of `x`.
+
+These two decreasing measures in lexicographic order ensure that the program as a whole eventually terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x
+x - y
+
+The program is terminating, and this can be shown using a nested ranking function. The outer loop decreases the variable `x` until it reaches a value less than 0, and the inner loop ensures that `y` increases until it is at least equal to `x` before the next iteration.
+

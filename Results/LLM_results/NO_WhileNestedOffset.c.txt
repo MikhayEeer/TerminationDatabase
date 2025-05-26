@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+10 - i
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The inner loop `while (j > 5)` increments `j` indefinitely when `j` is greater than 5, causing an infinite loop.
+

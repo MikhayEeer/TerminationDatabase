@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The primary loop (the for loop with `i`) has a ranking function that decreases linearly with respect to its iterator: the value of `array_size - 1 - i` decreases with each iteration, thus providing a proper ranking function for termination. The inner loop (the for loop with `j`) is bounded by `array_size`, ensuring that it will always finish. Therefore, the overall function is guaranteed to terminate as the outer loop ensures finite iterations.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (array_size - 1 - i)^1
+1.0 * (array_size - 1 - j)^1
+
+The nested loops in the `SelectionSort` function form a straightforward selection sorting algorithm, which guarantees that the inner loop iterates over a progressively decreasing number of elements. Each pass of the outer loop reduces the sorting problem size by one, and the inner loop resolves the location of the next smallest unsorted element. Therefore, both loops have ranking functions that ensure termination. The outer loop's iteration count decreases linearly from `array_size - 1` to `0`, and the inner loop iterates over remaining unsorted elements, also from a decreasing start point downwards. As such, the program always terminates for any allowed input size.
+

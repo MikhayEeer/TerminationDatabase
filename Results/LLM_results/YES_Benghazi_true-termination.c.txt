@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+f(x, d1, d2) = x  
+
+Explanation:  
+The program has a ranking function f(x, d1, d2) = x which decreases in each iteration of the loop when x is non-negative, ensuring termination. The assignments `d1 = d2 + 1` and `d2 = d1old + 1` do not affect termination as they solely influence d1 and d2, which maintain the invariant d1 >= 1 /\ d2 >= 1, allowing f to be a valid multi-phase ranking function for the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+
+

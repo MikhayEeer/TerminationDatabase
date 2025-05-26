@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (x - y)^1 + 1.0
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  (*x_ref - *y_ref)^1 + 0.0 * 1
+
+This program is terminating. The linear ranking function `(*x_ref - *y_ref)` strictly decreases with each iteration of the loop since `*x_ref` is decremented by 1 and `*y_ref` is incremented by 1, thus guaranteeing termination.
+

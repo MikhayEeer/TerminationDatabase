@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating because if `x` is initialized with a negative value and `y` is initialized with `0`, the condition `x < 0` will always hold true as the value of `x` will never change (since `y--` does not affect it), leading to an infinite loop.
+

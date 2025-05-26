@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y1 + 1.0 * y2 
+0.5 * y1 
+
+Explanation:
+The program is a recursive implementation of Euclid's algorithm for computing the greatest common denominator (GCD), which is known to terminate for positive integers. The first ranking function, `1.0 * y1 + 1.0 * y2`, decreases with each recursive call, as one of the arguments either decreases or becomes zero at each step. Once one of the arguments is zero, the function returns immediately, ensuring termination. Note that the constraints in `main` ensure that both initial values `m` and `n` for `gcd` are positive, and thus the recursion will definitely reach a base case.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+recursive  
+[RANKING FUNCTIONS]  
+The recursive calls in the `gcd` function decrease the sum of the arguments `y1 + y2` in every call unless terminated by a base case (reducing either argument by the other until one is zero), ensuring termination.  
+
+The reasoning is that in each recursive call of `gcd`, either `y1 - y2` or `y2 - y1` decreases the sum `y1 + y2` because the call is made only when `y1` is not equal to `y2`. This ensures that the total sum of `y1` and `y2` is strictly decreasing, leading to eventual termination. If `y1 = y2`, the function directly returns `y1`, making it a base case. If either `y1` or `y2` becomes zero, the function also terminates by returning `0`.
+

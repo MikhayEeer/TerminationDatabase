@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+The program is terminating. The `cbzero` function contains a loop that iterates from `n` down to `0`, decrementing `length` each iteration until it reaches `0`. The variable `n` is initialized to a non-negative value prior to the loop, and it is bounded such that `0 <= n <= length`. Hence, the loop is guaranteed to terminate as `length--` eventually becomes `0`. The ranking function `1.0 * n^1` demonstrates that the value of `n` is monotonically decreasing with each loop iteration, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+The program is terminating. The `cbzero` function decrements the `length` with each iteration of the loop, starting from `n`. Once `length` becomes zero, the loop terminates. Since `n` is initialized to be at least 1, the loop will always reach termination. Thus, the ranking function `n` decreases with each iteration, demonstrating termination.
+

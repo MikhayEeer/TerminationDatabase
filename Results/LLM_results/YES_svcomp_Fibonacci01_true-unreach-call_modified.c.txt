@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+For the `fibonacci(int n)` function:  
+The ranking function is the decreasing order of `n` in each recursive call, i.e., `n` decreases in the form:  
+`if (n < 1)` returns, terminating that function call,  
+and for `n >= 1`, each recursive step decreases `n` by either 1 or 2. Since `n` is a positive integer input, this will eventually reach a base case, terminating the recursion.  
+The main function does not have any loops or further recursive calls once `fibonacci` returns, thus it is also terminating.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For `fibonacci(n)`:
+- If `n < 1`: The function returns immediately, hence terminates.
+- If `n == 1`: The function returns immediately, hence terminates.
+- If `n > 1`: The function makes bounded recursive calls with decreasing values n-1 and n-2. This is guaranteed to terminate as `n` approaches the base cases.
+
+For `main`:
+- The function calls `fibonacci(x)` where `x` is a non-negative integer determined at runtime by `__VERIFIER_nondet_int()`.
+- If `x < 1`, it returns immediately, so it terminates.
+- The non-deterministic value `x` determines the number of iterations essentially made by recursive calls in `fibonacci(x)`, leading to termination as all recursive calls eventually reduce to base cases.
+
+The overall program exhibits piece-wise termination based on each part's conditions, where main completes without infinite computation.
+

@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(1) if i > 0, then use the ranking function f(i) = i
+(2) if i < 0, then use the ranking function f(i) = -i
+
+The program is terminating because for each case (i > 0 and i < 0), the absolute value of i decreases monotonically towards zero, leading to eventual exit from the loop. When i reaches zero, it stays zero because neither condition (i > 0 nor i < 0) is satisfied, resulting in loop termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|i| 
+
+Explanation: The program is terminating because the value of `i` incrementally approaches 0 from any initial value between -5 and 5 through the operations `i = i - 1` and `i = i + 1`. This can be observed as a linear descending ranking function where |i| (the absolute value of i) decreases with each iteration of the loop, eventually leading the loop condition to fail.
+

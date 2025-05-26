@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTION]  
+The ranking function for this program is `min(x, y)`.  
+
+This function is non-linear but it effectively decreases on every loop iteration. When the program makes a choice and decrements either `x` or `y` based on the conditions provided, the minimum of `(x, y)` will decrease by at least one on each iteration, ensuring the termination of the loop when both variables become non-positive. This proves that the program will eventually terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.5 * min(x, y)^1 + 0.5 * 1
+

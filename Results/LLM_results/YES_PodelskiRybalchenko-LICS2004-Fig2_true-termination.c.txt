@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1
+0.5 * x^1 + 0.5 * y^1
+
+Explanation: The program is terminating because in each iteration of the loop, the values of `x` and `y` decrease with respect to the provided multi-phase ranking functions, indicating progress towards the termination condition `x <= 0 || y <= 0`. The first phase indicates that `x` is strictly decreasing, and the second phase combines both variables `x` and `y`, also demonstrating a decrease.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. primary: x + 2*y
+2. secondary: x
+

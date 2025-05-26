@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+f(n) = n^1 
+
+Explanation: The program decrements `n` by 1 in each iteration of the loop. Since `n` decreases monotonically and the loop condition is based on `n` being non-zero, the program will eventually reach a point where `n` becomes 0, causing the loop to terminate.
+

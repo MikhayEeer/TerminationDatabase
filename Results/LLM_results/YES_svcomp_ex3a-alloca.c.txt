@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program potentially enters an infinite loop when `*x_ref` is between 1 and 100 (exclusive). The value of `*x_ref` is squared in each iteration, and so `*x_ref` can remain in the range [2, 100) indefinitely, thus causing non-termination.
+

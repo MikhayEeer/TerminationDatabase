@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+This program is terminating because the function `main` initializes a linked list with `n` elements and then traverses it. The traversal is guaranteed to terminate because the linked list will have finitely many nodes (all initialized during `init_list(n)`), and the recursive `traverse` function will terminate once it reaches the end of the list (`curr->next == NULL`). The ranking function `n` decreases with each recursive call in `init_list`, ensuring that list initialization is also terminating.
+

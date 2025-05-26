@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+f(p, q) = min(p, q)  
+
+The program is terminating as it uses a piecewise ranking function `f(p, q) = min(p, q)`. Each iteration of the loop decreases the minimum of `p` and `q`, approaching the termination condition when `p` or `q` becomes zero, hence leading to loop termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+min(p, q)
+
+This function captures the idea that, in every iteration of the loop, either `p` or `q` is decremented by 1. Since both `p` and `q` are initialized with some non-deterministically chosen values but strictly decremented, and the loop condition ensures that neither can be zero without terminating the loop, the minimum of `p` and `q` serves as a piecewise ranking function. As a result, this guarantees that the loop will eventually terminate.
+

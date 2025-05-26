@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program can be non-terminating when called with inputs such that one number is zero and the other is non-zero. In particular, if one of the inputs is zero while the other is a positive number, the while loop in the `gcd` function will never terminate, as the condition `*y1 != *y2` will always hold, and subtraction does not change the zero value to reach equality.
+

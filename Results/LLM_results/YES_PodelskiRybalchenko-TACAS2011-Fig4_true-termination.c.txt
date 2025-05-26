@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0 * 1  
+1.0 * y^1 + 0.0 * 1  
+
+The program terminates because in each phase of the loop, either `x` or `y` is guaranteed to decrease while both remain non-negative, leading to a decrease in the lexicographic pair (x, y).
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+x,  
+y  
+

@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st phase: 1.0 * x^1  
+2nd phase: 1.0 * y^1   
+3rd phase: Alternating behavior of z enforces y to reduce continuously to stabilize x decrease. 
+
+Explanation: The provided program demonstrates termination through a multi-phase ranking function. Initially, the ranking function focuses on decreasing the value of `x` each time the loop iterates. As `x` decreases below 0 due to the subtraction of `y`, the loop condition `x >= 0` eventually becomes false, terminating the loop. The alternating behavior of `z` ensures that `y` is effectively reduced over iterations, allowing control over the decrement of `x` in subsequent phases.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st phase: y  
+2nd phase: x (once y reaches a value less than 1)  
+
+The program is terminating. It uses a multi-phase ranking function. In the first phase, the variable `y` serves as the ranking function, as it decreases whenever `z` is positive. Once `y` is reduced to less than 1, the program transitions to the second phase, where `x` becomes the ranking function due to the decrement `x = x - y` and `y` being lower than `z`. Interestingly, the sign of `z` oscillates, preventing a simple linear function. This two-phase structure with decreasing order signals the program termination after some steps.
+

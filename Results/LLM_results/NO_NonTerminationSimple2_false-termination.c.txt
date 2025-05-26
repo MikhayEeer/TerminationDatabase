@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `x` is incremented in every iteration and the condition `x >= 0` will always hold true once `x` is non-negative, resulting in an infinite loop.
+

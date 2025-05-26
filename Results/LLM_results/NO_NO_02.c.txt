@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+100 - i
+
+The program is terminating because the outer `while` loop increments `i` by 1 in each iteration until it reaches 100, effectively functioning as a countdown. The inner `while` loop is irrelevant to termination since `j` doesn't change, making it exit only when `j < 1` condition is checked once (since `j = 0` initially, it trivially satisfies the condition). Hence, the linear ranking function 100 - i demonstrates termination by decreasing with each iteration until `i` equals 100, at which point the loop terminates.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+100 - i  
+
+
+

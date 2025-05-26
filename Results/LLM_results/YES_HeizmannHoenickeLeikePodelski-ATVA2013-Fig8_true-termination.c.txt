@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 2.0 * y
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop in the program can potentially run indefinitely if `2*y >= 1` and `x` is initialized with a non-negative value such that the decrement `x = x - 2*y + 1` does not lead `x` to become negative. For instance, if `x = 2*y - 1`, the value of `x` will be reset to itself in each iteration of the loop. Thus, no global ranking function can be established to prove termination for all possible inputs.
+

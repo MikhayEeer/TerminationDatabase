@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (*x_ref - *y_ref - *z_ref)^1  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x_ref - (y_ref + z_ref)  
+
+The program is terminating because the loop invariant `*x_ref > *y_ref + *z_ref` strictly decreases by 1 each iteration as both `*y_ref` and `*z_ref` are incremented by 1, eventually making the condition false and exiting the loop.
+

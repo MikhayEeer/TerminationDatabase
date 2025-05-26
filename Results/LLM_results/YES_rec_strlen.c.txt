@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+strlen_rec(p): strlen_rec(p) decreases by 1 with each recursive call, and terminates when *p is '\0'.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length1 - 1
+
+The program terminates because the recursive function `strlen_rec` is called with a string that is guaranteed to have a null terminator in its last position. The value of the length of the string (denoted as `length1`) decreases as each recursive call processes a part of the string until it reaches the null character. The ranking function `length1 - 1` indicates that as `strlen_rec` is called recursively, the length of the unprocessed part of the string decreases linearly until termination.
+

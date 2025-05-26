@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program has a loop that can interchange the values of `x` and `y` without making progress toward termination. If `x > y`, it performs a swap, resulting in the same condition for the next iteration, leading to potential infinite looping. 
+

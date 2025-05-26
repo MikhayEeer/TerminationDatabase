@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `i < 100` will always be true because `i` is incremented and then decremented in each iteration, resulting in no change to its value. Thus, the loop runs indefinitely.
+

@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. Decrease in the externally provided integer 'n' until the initial list is fully constructed and 'n' is depleted.
+2. The search decreases the remaining length of the list until the end of the list is reached or the value 'm' is found. 
+
+The program is terminating as it maintains and traverses a finite list, which is initialized with a finite number of elements (`n`), thus reducing the list size in each step of traversal through the list in the `search` function. Once constructed, the `search` function will incrementally move through a finite sequence of list nodes, guaranteeing termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - the length of the list
+
+The program is terminating. The `main` function initializes a linked list of length `n` where `n` is a non-deterministic integer, but constrained to be greater than or equal to 1. The `search` function iterates through the list, moving towards the end or until it finds a node with `value` equal to `m`. Since the list is finite in length (of size `n`), and the loop iterates linearly through the nodes, the loop will terminate once all nodes are traversed. Therefore, the length `n` of the list serves as a linear ranking function that ensures termination.
+

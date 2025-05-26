@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (length^1) + 0.0 * 1
+1.0 * (length*fac^1) + 0.0 * 1
+
+Explanation: 
+
+The program contains two loops. The first loop runs from `i = 0` to `i < length`, and the second loop runs from `j = 0` to `j < length*fac`. Both these loops have fixed bounds defined by non-negative values (`length` and `fac`), which are determined before entering the loops. Therefore, these loops will iterate a fixed, finite number of times, guaranteeing termination.
+
+The ranking functions for the loops are based on the loop counter `i` which decreases in the first loop and `j` which decreases in the second loop, until they reach their bounds (`length` and `length*fac`, respectively). This decreasing ordering shows that the program steps towards termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+length - i  
+

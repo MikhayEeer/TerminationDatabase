@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n^1
+
+The program is terminating because the function `sum` uses recursion with the first parameter `n` decreasing by 1 in each recursive call, and the recursion stops when `n` is no longer greater than 0. Therefore, the recursion depth is bounded by the initial value of `n`, which provides a linear ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+The recursive function `sum(n, m)` uses a ranking function based on the decrease of `n`, with `n` as the primary variable being decremented each recursive call. The process terminates when `n <= 0`. 
+
+Explanation: 
+
+1. `n` initially takes the value `a`, which is 2. In each recursive call, `n` is decreased by 1 until it reaches 0, at which point the recursion terminates and exits the conditional with `m + n`.
+
+2. The program will always terminate because it moves towards the base case `n <= 0` with each call by decreasing `n`.
+
+3. The function sum will return a value of `5` (since it starts with `sum(2,3)`, then `sum(1,4)`, then `sum(0,5)`) which will not trigger `__VERIFIER_error()` because `5 != a + b` (`5`). Therefore, `__VERIFIER_error()` will not be called, ensuring that the program terminates without errors.
+

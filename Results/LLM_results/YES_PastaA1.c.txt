@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+The program is terminating because the outer loop decreases `x` by 1 in each iteration, which is a positive integer. The inner loop increments `y` until it is equal to `x`, but since `x` is eventually decremented to zero, it guarantees termination. The linear ranking function `x` shows that with each iteration of the outer loop, the value of `x` decreases, ensuring the program's termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+1.0 * -y^1 + 1.0 * x^1
+

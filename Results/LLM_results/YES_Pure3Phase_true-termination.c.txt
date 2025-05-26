@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * z^1  
+1.0 * y^1  
+1.0 * x^1  
+
+Explanation:
+This program uses a multi-phase ranking function to demonstrate termination. The values of the variables `z`, `y`, and `x` are used in phases to prove the program’s termination. In each iteration of the loop:
+- The value `z` is decreased by 1, eventually making it negative.
+- The value `y` is impacted by `z`, potentially decreasing and moving towards termination.
+- Finally, the value `x` acts as a last resort check, ensuring termination once `z` and `y` have become non-positive in the context of moving towards exiting the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * z^1  
+1.0 * y^1  
+1.0 * x^1  
+
+This program has a multi-phase ranking function composed of three distinct phases: first relying on `z`, next on `y`, and finally on `x`. Each phase decreases in a stepwise manner, ensuring termination of the loop. Initially, `z` decreases with each iteration until it becomes non-positive; then `y` decreases similarly, followed by `x`, which when no longer non-negative, breaks the loop.
+

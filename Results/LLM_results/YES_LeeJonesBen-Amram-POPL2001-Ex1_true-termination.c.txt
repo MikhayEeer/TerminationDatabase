@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 * ls^2 + 0.5 * ls^1  
+1 * ls^1 + 0 * 1 
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1. Primary component: ls (decreases) 
+2. Secondary component: a (increases but bounded by ls)
+
+[EXPLANATION]
+The program terminates because the primary parameter `ls` in function `r1` strictly decreases by 1 in each recursive call and it is initially non-negative. Although `a` increases, it's secondary and bounded by `ls`. Once `ls` reaches zero, the recursion stops, ensuring termination.
+

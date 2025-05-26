@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0
+-1.0 * z^1 + 1.0 * y^1 + 1.0
+
+Explanation: The program is terminating because the sequence of operations in the loop eventually causes `x` to become negative due to the influence of `z` being alternately subtracted and incremented by 1, and these dynamics ensure the loop exits. The multi-phase ranking function ensures the decrease of the loop metric over two phases.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (x + 1) * (x + 1) + 1.0 * 1  
+
+

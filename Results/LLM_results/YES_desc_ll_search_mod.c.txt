@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1. If `m % n` is in the list, the program terminates because the loop in `search` traverses the list linearly and finds the match.
+2. If `m % n` is not in the list, the function `search` will cause the loop to eventually reach a `NULL` pointer as the input condition `curr->value != m%n` will never be false, resulting in termination of the loop due to the structure of the list and the modulus operation ensuring bounds.
+
+Thus, because the loop will always reach a terminating condition irrespective of the input values, the program is terminating.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+(n + 1) - (length of list from `head` to `curr` in `search`)  
+0  
+
+Explanation:  
+The program consists of two main parts. The `init_list` function creates a linked list of length `n` initialized with values from `0` to `n-1`. The `search` function then searches for a node within this list that matches the value `m % n`. The search loop will terminate when it finds the corresponding value, since the list is created with values from `0` to `n-1`, ensuring that `m % n` is a valid value, thus guaranteeing the loop in `search` function will terminate. Additionally, the program guards against undefined behavior by returning when negative or zero values that lead to problematic situations are provided by the verifier.
+

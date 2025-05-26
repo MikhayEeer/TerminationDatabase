@@ -1,0 +1,7 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop runs indefinitely unless `cond == 0`, and `cond` can be any integer value due to its nondeterministic nature. Since there's no guarantee that `cond` will become 0 (as it is nondeterministic and could be set to a non-zero value indefinitely), the loop may never exit, leading to potential non-termination.
+
+

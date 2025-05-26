@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+-1.0 * x^1 + 5.0 * 1  
+0.5 * abs(y)^1 + 0.5 * 1 + 0.5 * 1  
+
+Explanation:  
+The program terminates because the value of x decreases in each iteration of the loop as `x = x + y - 5`, especially when y becomes large negative as it doubles its negative magnitude in each iteration with `y = -2*y`. Thus, x will eventually become non-positive, causing the loop condition `(x > 0)` to become false, ensuring the termination of the loop. The multi-phase ranking function captures this behavior by providing a pair of functions: the first function shows that x decreases by at least 5 in each loop iteration, and the second function handles the exponential decrease of y maintaining the termination trace in a broader scope.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0 * 1  
+1.0 * y^2  
+

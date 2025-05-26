@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating when x > 0 and y >= 0 because the value of x can increase indefinitely due to the assignment x = x + y in the loop, making the loop condition x > 0 always true.
+

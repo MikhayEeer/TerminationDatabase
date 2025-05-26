@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+Mutually recursive calls between `rec1` and `rec2` can lead to infinite recursion without a base case that guarantees termination.
+

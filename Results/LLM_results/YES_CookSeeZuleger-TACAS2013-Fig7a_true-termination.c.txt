@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 2.0 * x^1 + 1.0 * y^1  
+Phase 2: 1.0 * y^1 + 1.0 * d^1  
+
+The program is terminating. The ranking functions demonstrate the decrease in the values of `x` and `y` in phase 1, and `y` and `d` in phase 2, ensuring progress towards termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  y^1 + 0.0 *  x^1 + 0.0 *  d^1 
+

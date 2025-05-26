@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1
+-1.0 * i^1 + 1.0 * y^1
+
+The program terminates as the function `subxy` makes progress towards termination through two distinct phases. In the first `while` loop, the variable `i` is decreased from `x` to `0`. In the second `while` loop, `i` is incremented from `0` to `y`. The ranking function for the first phase is linear and reduces with each iteration, and the second phase also has a linear ranking function ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1
+1.0 * y^1 - 1.0 * i^1
+

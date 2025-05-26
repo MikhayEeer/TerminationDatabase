@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The sum of the remaining processes that can become a leader decreases with each iteration of all nodes. Given the conditions on message passing and state updates, the loop counter `i2` guarantees termination after a fixed number of iterations (12 in this case). The ranking function, therefore, is based on the loop counter `i2`, which is linearly decreasing until termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+5.0 * 1 + 1.0 * (r1 < 6) + 5.0 * 1
+0.5 * (5 - r1)^1 + 1.0 * 1 + 1.0 * 1
+
+Explanation: 
+
+The program consists of a series of node processing functions that operate in a manner consistent with certain state and message passing assumptions. Each node has a mode switch to determine its processing state. The main loop executes a sequence of operations capped at a maximum of 12 iterations, a constant quitting condition that implies termination.
+
+The ranking function for the first phase is based on the changing nature of the counter `r1`, restricted by an assumption (`r1 < 6`) that ensures the operations in each node's processing should typically complete, leading to a halting condition before any limit is reached. After each node, `r1` increments, driving the loop toward termination. 
+
+In the second phase, once `r1` is close to exhausting its valid range, the program completes earlier based on additional increments, effectively reducing upon conditions unique to each processing unit, ensuring that state completion (`stX == 1` for some unique X) limits further operations, therefore establishing eventual completion via this compound ranking method.
+

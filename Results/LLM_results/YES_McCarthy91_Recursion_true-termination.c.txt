@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1 + 0.0  (when `n > 100`)  
+2.0 * 100^1 + 9.0  (when `n <= 100`)  
+
+Explanation:  
+1. When `n` is greater than 100, the function `mc91` returns `n-10`, which decreases the input value linearly.  
+2. When `n` is 100 or less, it recursively calls `mc91(mc91(n+11))`. This eventually reaches a number greater than 100 due to the inner call adding 11 to `n` and repeatedly processing until `n` exceeds 100, after which the linear decrease phase takes over. The process will terminate as each recursive call brings the sequence closer to the base condition of `n > 100`. These phases together ensure the termination of the program.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For the function `mc91`, consider the following reasoning:
+
+- When `n > 100`, the function returns immediately with `n - 10`. This results in immediate termination for those cases.
+
+- When `n ≤ 100`, the function makes a recursive call with `mc91(n + 11)`. Upon reaching a value greater than 100 through these recursive calls, the function eventually returns through multiple nested calls reducing `n` until all calls are resolved. The function always moves towards this state due to the increment by 11, ensuring that it eventually reaches a value greater than 100.
+
+The piecewise ranking function considers each condition separately ensuring the function is decreasing towards termination:
+
+1. `n > 100`: Returns immediately with `n - 10`.
+2. `n ≤ 100`: Recursive call to get `n + 11`, eventually resolved when `n > 100`.
+

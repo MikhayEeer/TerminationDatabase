@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program enters into a potentially infinite loop if `*tmp` keeps cycling back to `0` after exceeding `*maxId`, and `*tmp != *id` and the nondeterministic condition `__VERIFIER_nondet_int()` always return `true`. Thus, the loop can keep iterating indefinitely without any guarantee of termination.
+

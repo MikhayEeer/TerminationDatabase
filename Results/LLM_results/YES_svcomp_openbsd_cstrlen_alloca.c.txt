@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length1
+
+The program is terminating because the loop in `cstrlen` iterates through the characters of a null-terminated string. The allocator ensures at least a one-character null-terminated string by setting `nondetString1[length1-1] = '\0'`. The pointer `s` will always find a null character eventually, causing the loop to terminate. The ranking function `length1` measures the progress of the loop because `s` moves through each character of the string until it reaches the null character. This guarantees termination as the loop makes steady progress towards reaching the null character at the end.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The `cstrlen` function iterates over the string until it finds the null terminator (`'\0'`). Since `nondetString1[length1-1] = '\0';` ensures that the string is null-terminated, the loop in `cstrlen` will always terminate when it reaches that null character. Thereby, the ranking function is the length of the string, which monotonically decreases with each iteration of the loop, so the function will always terminate.
+

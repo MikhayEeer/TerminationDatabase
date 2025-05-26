@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * z^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * z^1 + 0.0
+
+The given program is terminating. The while loop in the program iterates as long as the variable `z` is greater than 0. In each iteration, the value of `z` is decreased by 1. This results in `z` eventually reaching 0, at which point the loop condition `z > 0` becomes false, leading to the termination of the loop. 
+
+The ranking function is linear and is defined by the value of `z`, as `z` is decremented by 1 in each iteration, driving the loop towards termination.
+

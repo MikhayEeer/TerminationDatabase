@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x - max(y, z)  
+
+This ranking function, `x - max(y, z)`, decreases by 1 on each iteration of the loop as both `y` and `z` are incremented while `x` remains constant. Once `x` is no longer greater than `max(y, z)`, the loop terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - max(y, z)
+
+The program is terminating because the value of `x - max(y, z)` strictly decreases in each iteration of the loop, where `max(y, z)` represents the maximum of the two variables `y` and `z`. Initially, `x > y` and `x > z`, and in each iteration, both `y` and `z` are incremented by 1, reducing the difference `x - max(y, z)` by 1. Eventually, this difference becomes zero or negative, causing the loop condition `(x > y) && (x > z)` to become false, thus terminating the loop.
+

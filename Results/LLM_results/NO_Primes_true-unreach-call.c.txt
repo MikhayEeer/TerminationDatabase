@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+n - m
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+23.0 * 1 + 9.0 *  n^1 + 15.0 *  m^1
+5.0 * 1 + 0.5 *  n^1 + 0.5 *  m^1
+
+The recursive nature of the `is_prime_` function and the decrementing of the variable `m` guarantee termination because the parameter `m` decreases in each recursive call until the base case is reached. Additionally, `multiple_of` does not introduce any infinite loops since `n` decreases with each call. So, the combination of both functions ensures the main program terminates. The indirect verification through the ranking functions also confirms this termination.
+

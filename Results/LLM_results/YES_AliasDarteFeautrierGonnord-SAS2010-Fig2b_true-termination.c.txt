@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st phase:  
+Derived from the outer loop:  
+f(x, y) = x  
+
+2nd phase (within the first inner while loop):  
+Derived from the conditions y >= x + 1:  
+f(y, x) = y - x  
+
+3rd phase (within the second inner while loop):  
+Derived from the conditions y >= x + 3:  
+f(y, x) = y - (x + 3)  
+
+The program is terminating and is proven by the use of a multi-phase ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * y^1 + 2.0 * x^1
+1.0 * x^1 - 3.0 * y^1
+

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 1.0 *  y^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+f(x, y, z) = x + 1
+
+The program is terminating. The ranking function `f(x, y, z) = x + 1` decreases with every iteration of the loop given the loop conditions `x >= 0` and `x + y >= 0`. As `x` decreases when `y` and `z` are nondeterministically assigned, and `y` is reassigned a value that decreases in the loop, eventually `x` will become less than zero or `x + y` will become less than zero, thus terminating the loop.
+

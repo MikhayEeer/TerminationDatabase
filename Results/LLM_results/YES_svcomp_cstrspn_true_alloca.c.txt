@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (length1 - (sc1 - s1))^1 + 0.0 * 1  
+1.0 * (length2 - (s - s2))^1 + 0.0 * 1  
+
+The program terminates because the outer loop iterates over each character in `s1`, and the inner loop searches through `s2` for the current character from `s1`. Both loops traverse finite strings (terminated by the null character), which guarantees termination. Each phase decreases the distance towards the end of the string, ensuring progress towards termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+(length1 - index(sc1))^1
+
+The function `cstrspn` iterates over the first string `s1` (represented by `sc1`) and for each character of `s1`, traverses `s2` to search for a match. When a non-matching character is found, the function returns the position where the mismatch occurs. If the string ends, it simply returns the length covered. The loop progress is ranked by the difference between `length1` and the current position of `sc1`, which decreases with each iteration, ensuring termination.
+

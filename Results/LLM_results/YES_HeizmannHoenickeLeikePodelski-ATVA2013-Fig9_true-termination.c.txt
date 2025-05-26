@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop `while (x >= 0 && z == 1)` can execute indefinitely if `2*y <= z` and `z == 1` since the condition `x >= 0` can be satisfied continuously without changing `z` or breaking the loop.
+

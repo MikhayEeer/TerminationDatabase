@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+The functions `applyHanoi` and `hanoi` terminate due to the decreasing nature of `n` in each recursive call, which ensures progress towards the base case of `n == 0` for `applyHanoi` and `n == 1` for `hanoi`. These base cases are reached for all positive starting values of `n` within the valid range (1 to 31).
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1 + 31.0 * 1  
+1.0 * 0 + 0.0 * 1  
+
+Explanation: The program terminates because when `n` is less than 1 or greater than 31, it exits immediately. For values between 1 and 31, the recursion processes finite iterations because the function `applyHanoi` handles a decreasing variable `n`. Hence, it can be proven to terminate. The ranking function provided ties to the phase of decrements of `n` showing progress towards termination.
+

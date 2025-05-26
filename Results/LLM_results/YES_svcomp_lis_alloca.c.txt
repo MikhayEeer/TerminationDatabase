@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+none
+[REASON]
+The program terminates because:
+1. The 'array_size' is ensured to be at least 1, hence the 'alloca' calls for 'best' and 'prev' are valid.
+2. The nested loops (the 'lis' function) have a fixed upper bound determined by 'N', which is a positive integer.
+3. There are no unbounded or infinite loops present.
+Therefore, no ranking function is necessary.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+2 * N - i  
+

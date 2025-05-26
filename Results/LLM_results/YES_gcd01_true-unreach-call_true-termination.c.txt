@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+If \( y1 > y2 \):  
+   \( \text{{Ranking Function for }} y1 = y1 - y2 \)  
+   -> \( y1 \) decreases in each recursive call.
+
+If \( y2 > y1 \):  
+   \( \text{{Ranking Function for }} y2 = y2 - y1 \)  
+   -> \( y2 \) decreases in each recursive call.
+
+Explanation:  
+The recursive function `gcd(y1, y2)` is based on Euclid's algorithm, which is known to terminate. The decreasing nature of either \( y1 \) or \( y2 \) ensures that eventually one becomes zero, leading to a base case end of recursion. Since every recursive call reduces the value of either \( y1 \) or \( y2 \), the recursion sequence is finite.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For gcd(y1, y2) with condition (y1 > y2): y1 - y2
+For gcd(y1, y2) with condition (y1 <= y2): y2 - y1
+
+The program is essentially a recursive implementation of Euclid's algorithm for computing the greatest common divisor of two numbers. The recursion reduces either y1 or y2 by the other, ensuring the inputs decrease over time towards a base case, which satisfies termination conditions.
+

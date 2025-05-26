@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * l1^1 + 0.0  
+0.0 * l2^1 + 1.0 * i^1 + 0.0  
+
+This program is terminating. The `diff` function has two nested loops. The outer loop runs `i` from 0 to `l1 - 1`, and the inner loop runs `j` from 0 to `l2 - 1`. Both `l1` and `l2` are finite, non-negative integers derived directly from `Alen` and `Blen` respectively, which makes both loops bounded. Each loop has a clear terminating condition (`i < l1` for the outer loop and `j < l2` for the inner loop), making the entire function terminating. The ranking functions provided illustrate that the outer loop `i` is decreased with each iteration, while the inner loop `j` is reset and decreased as well until it reaches the condition.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1st Phase: l1 - i
+2nd Phase: l2 - j
+
+The function `diff` contains two nested loops: 
+
+- The outer loop runs as long as `i < l1`, where `l1` is initialized to `Alen`. Since `i` is incremented in every iteration, the loop is guaranteed to terminate with the ranking function `l1 - i`, which is a natural number and decreases in every step.
+  
+- The inner loop runs as long as `j < l2` and `!found`. The variable `j` starts at 0 and is incremented in each iteration until it either reaches l2 or a matching element is found in `B`. Hence, the inner loop also terminates with the ranking function `l2 - j`.
+
+Both loops have a clear bound and decrement behavior, guaranteeing termination of the whole function.
+

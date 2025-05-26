@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (31 - n)^1  
+This program is terminating because the main function calls the `hanoi` function recursively, decreasing the argument `n` by 1 in each recursive call. The recursion stops when `n` equals 1. The constraint `if (n < 1 || n > 31)` ensures that `n` is always between 1 and 31, providing an upper bound to the recursion depth. The ranking function is `31 - n`, which decreases with each recursive call until termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * -1 + 1.0 *  n^1 + 0.0 * 1 
+
+The program terminates because it contains a function, `hanoi`, which recursively computes a value based on the input `n`. The recursion depth decreases with each call (`n-1`), ensuring termination when `n` reaches 1, the base case. The main function checks if `n` is within a valid range [1, 31] before calling `hanoi`. This ensures that the recursion depth will always reach the base case, leading to termination. The condition checking `result >= 0` after the recursive call is always true as the `hanoi` function returns a non-negative number for valid `n`, ensuring the program does not reach the `__VERIFIER_error()` point.
+

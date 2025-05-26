@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  x^1  
+
+The program is terminating, and the termination can be demonstrated using a multi-phase ranking function. The variable `x` is non-negative initially and is decremented by 1 in each iteration of the outer loop. This guarantees that `x` will eventually become negative, causing the loop to terminate. The ranking function `1.0 * x^1` decreases with each iteration of the loop, providing evidence of termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * (x + 1)  
+Phase 2: 1.0 * (x - y + 1)  
+
+The program is terminating because it has two phases where each phase has a separate ranking function that demonstrates a decrease. The first ranking function 1.0 * (x + 1) decreases as `x` decreases in the outer loop. The second ranking function 1.0 * (x - y + 1) decreases as `y` doubles and becomes greater than or equal to `x`, terminating the inner loop. This multi-phase ranking function ensures eventual termination of both loops.
+

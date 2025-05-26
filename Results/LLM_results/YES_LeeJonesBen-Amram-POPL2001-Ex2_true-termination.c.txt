@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1st invocation depth of `f`, decreases with the value of `i`   
+Phase 2: 2nd invocation depth of `f`, decreases with the value of `a` while using `g`  
+
+Explanation: 
+
+The main function invokes `f` with non-negative values of `i` and `x`. 
+1. If `i == 0`, `f` immediately terminates returning `x`. 
+2. If `i > 0`, `f` calls `g(i-1, x, i)`. Then `g` calls `f(a, b + c)`, where `a = i - 1`. Thus, the recursive call `f(a, b + c)` decreases the depth along with the value of `i`.  
+
+The function `g` decreases the recursive depth by calling `f` with `a = i - 1`, and the size of `a` decreases with each recursive call until it reaches 0, where it terminates by returning `x`. 
+
+Given the depth decrease through `i` and `a`, the process will always reach a terminating base case where `i == 0`. Therefore, the overall program is terminating.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+multi-phase  
+
+[RANKING FUNCTIONS]  
+1.0 * i^1
+

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.5 * (x - y)^2
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * |x - y|^1 + 0.0 * 1 
+
+This means the program is terminating, and the termination can be proved using a multi-phase ranking function, where the absolute difference between `x` and `y` decreases in each iteration of the loop until the condition `x - y > 2 || y - x > 2` is no longer satisfied.
+

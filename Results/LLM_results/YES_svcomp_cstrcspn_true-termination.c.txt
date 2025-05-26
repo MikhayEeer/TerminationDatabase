@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (strlen(s1) - (sc1 - s1))^1 + 0.0 * 1  
+0.0 * 1  
+
+Explanation:  
+The function `cstrcspn` processes a string `s1` and searches for any character in string `s2`. It has an outer loop which iterates through each character in `s1` until it finds a match with a character in `s2` or it reaches the null terminator. The termination is guaranteed because `sc1` proceeds through `s1` from start to end, and thus this loop iterates a finite number of times (at most the length of `s1`). This multi-phase ranking function shows that the loop in `cstrcspn` strictly decreases based on the remaining length of `s1` to be checked (`strlen(s1) - (sc1 - s1)`). The second phase is a constant function indicating termination happens after completion of the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * 1 + 1.0 * (length of s1)^1  
+0.5 * (steps while iterating through s2)^1 + 0.5 * 1  
+

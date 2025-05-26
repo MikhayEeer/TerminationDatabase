@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * z^1  
+
+The program is terminating and can be proved by the multi-phase ranking function. Here, the ranking function is based on the variable `z`, which decreases in each iteration of the loop and eventually leads to the loop's termination when z becomes non-positive.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.5 * z^1 + 0.5 * y^1 + 0.5 * x^1
+
+

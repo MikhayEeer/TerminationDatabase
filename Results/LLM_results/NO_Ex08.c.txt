@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program enters an infinite loop when `i` becomes 10, as `up` is set to 0 and `i` decrements until it reaches 1, at which point `up` is set to 1 and `i` increments back to 10, creating a cycle.
+

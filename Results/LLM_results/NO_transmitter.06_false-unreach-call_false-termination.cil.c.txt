@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The function `transmit6` contains an infinite loop with a call to `error()`, which calls `__VERIFIER_error()` leading to an assumption violation and non-termination in the `while (1)` loop.
+

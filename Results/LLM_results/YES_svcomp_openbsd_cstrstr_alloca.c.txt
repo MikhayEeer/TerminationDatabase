@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1. length1 - 1
+0. length2 - 1
+
+The provided program leverages functions to compute the string length and compare characters in a string. The `cstrstr` function looks for the first occurrence of `find` in `s`. The `main` function in the program sets up two strings with consistent null-termination using `\0`. Given this setup:
+
+1. `nondetString1` and `nondetString2` are initialized with a size at least 1 to ensure proper null-termination.
+2. In `cstrstr`, the outer do-while loop guards against infinite execution, as it decrements based on the length of the `find` string (`cstrlen(find)`), and fails to find due to the conditions shown in `cstrncmp`.
+3. The inner comparison functions (`cstrlen` and `cstrncmp`) are robust against the edge condition where the strings reach termination, thus ensuring that operations will not proceed beyond the array bounds, and will ultimately return a value (either NULL or match).
+
+The loop termination relies on the finite length of strings; each loop iteration consumes characters from the string, resulting in eventual termination when the string end is reached.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1. Phase: length1 * 1  
+2. Phase: length2 * 1  
+
+The program is terminating because the functions `cstrlen` and `cstrncmp` will traverse the strings with their lengths as bounds. The `cstrstr` function iterates through the first string (`nondetString1`). In each loop iteration, the length of the remaining portion of `nondetString1` decreases (first phase), which will eventually hit the null terminator. If the character matches the first character of `nondetString2`, it then checks the substring using `cstrncmp`. The length of `nondetString2` acts as a bound for comparison (second phase). This ensures that the traversal must terminate when one of the strings is fully consumed. All loops, therefore, exhibit a decrease in string length, proving termination.
+

@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * (x_ref - z_ref) + 1.0 * (y_ref - z_ref)  
+0.0 * 1  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 *  x^1 + 0.5 *  y^1 - 1.0 *  z^1  
+0.5 *  x^1 - 1.0 *  z^1  
+0.5 *  y^1 - 1.0 *  z^1  
+
+This program is terminating because the values of `*x_ref` and `*y_ref` are continually decreasing with respect to the constant value of `*z_ref` whenever they are greater than `*z_ref`, leading to the eventual satisfaction of the loop exit condition `(*x_ref <= *z_ref)` and `(*y_ref <= *z_ref)`. The combination and order of the reductions in `*x_ref` and `*y_ref` relative to `*z_ref` establish a multi-phase ranking function, proving termination.
+

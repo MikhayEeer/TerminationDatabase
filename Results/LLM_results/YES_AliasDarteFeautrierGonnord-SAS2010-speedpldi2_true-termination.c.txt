@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * v1^1   
+0.0796 * v2^1  + 0.482 * 1  + 0.482 * 1  
+
+The program enters the loop if `n >= 0` and `m > 0`. Within the loop, `v1` is decremented while `v2` is incremented until `v2` reaches `m`, at which point `v2` is reset to `0`. The first phase of the ranking function demonstrates the decrease of `v1` towards `0`, ensuring termination. The second phase involves `v2`, which is bounded by `m`, and does not affect termination since it resets after reaching the count. Hence, the program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * v1^1 + 0.0 * 1 + 0.0 * 1
+0.0 * v2^1 + 1.0 * v1^1 + 0.0 * 1
+
+This program is terminating. The first phase ranking function decreases with each iteration of the outer loop, as `v1` decreases. The second phase handles the reset of `v2` and represents the inner adjustment, but ultimately the outer loop's control variable, `v1`, strictly decreases until it reaches zero, ensuring termination.
+

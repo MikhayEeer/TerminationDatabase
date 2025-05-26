@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program can enter an infinite loop if `i` is initialized as any negative value except -5. For such values, the condition `i < 0` will always be true, and `i` will increment by 1 eventually reaching -5, where it remains stuck because the if-condition `i != -5` becomes false, preventing further increments. Thus, the program does not terminate.
+

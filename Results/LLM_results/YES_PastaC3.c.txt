@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+y - x
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+y - x   
+  
+The program is terminating because in each iteration of the loop, the value of `x` is incremented by 1. This reduces the value of `y - x` by 1, making it an appropriate linear ranking function. Once `x` is no longer less than `y`, the loop terminates.
+

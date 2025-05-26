@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+f(x, y) = x
+
+[EXPLANATION]
+The program is terminating because the loop variable `x` is decreased by `y` in each iteration, where `y >= 1`. Since `x` starts as a non-negative integer and `y` is at least 1, the value of `x` will eventually become negative, terminating the loop. The linear ranking function `f(x, y) = x` demonstrates that `x` is decreased in every iteration until the loop condition `x >= 0` is no longer satisfied.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1
+

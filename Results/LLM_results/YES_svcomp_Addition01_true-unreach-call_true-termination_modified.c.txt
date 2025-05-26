@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * n when n > 0
+-1.0 * n when n < 0
+
+Explanation: The program consists of a main function and a recursive function `addition`. The recursion occurs in the `addition` function where it modifies the parameters `m` and `n`. The program will reach the base case and terminate because each recursive call decreases the absolute value of `n` by 1 due to either `n-1` or `n+1`, eventually turning `n` to 0, at which point the function returns `m`. This guarantees termination for each call, and hence for the entire program as both `m` and `n` are initialized within finite bounds in `main`.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. Phase 1: For `n > 0`, use `n` as the ranking function. Each recursive call decreases `n` by 1.  
+2. Phase 2: For `n < 0`, use `-n` as the ranking function. Each recursive call increases `n` by 1.  
+
+The program terminates as each recursive call decreases `|n|` by 1 in absolute terms, bringing it toward 0 which is the base case.
+

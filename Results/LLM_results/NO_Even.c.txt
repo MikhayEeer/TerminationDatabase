@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+0.5 * i^1 + 0.5
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.5 * i^1 + 0.5 * 1
+
+Explanation: The program will terminate because for any initial integer value of `i`, the value of `i` is continuously decreased by 2 in each loop iteration. This ensures that `i` will eventually become either 1 or 0, leading to the exit from the loop. The ranking function `0.5 * i + 0.5` is a linear ranking function that decreases with each iteration, ensuring termination.
+

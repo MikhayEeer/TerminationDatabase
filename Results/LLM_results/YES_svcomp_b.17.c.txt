@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+x - z;  
+y - z  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 
+1.0 * y^1 
+
+The program is terminating. The outer loop decreases the value of `x` in each iteration, and the inner loop decreases the value of `y` in each iteration, both of which ensure progress towards termination since both variables are compared against a constant `z`. The nested ranking function first decreases based on `y`, and once `y` reaches `z`, it allows `x` to decrease, ensuring the loops will both eventually terminate.
+

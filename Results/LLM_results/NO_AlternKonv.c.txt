@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+abs(i) 
+
+Explanation: The program will always make `i` move towards 0 due to the conditional operations inside the loop. If `i` is negative, the operations will increase its absolute value by 2 at most once and then toggle it to a non-negative value that will keep decreasing towards zero. If `i` is positive, it will decrease and eventually toggle to a non-positive value. Each operation in the loop ensures that the absolute value of `i` decreases, leading to termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+|i|  
+

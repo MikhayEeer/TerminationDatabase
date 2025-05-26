@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0 * 1  
+1.0 * (n - y)^1 + 0.0 * 1  
+
+The program is terminating and can be proved by a multi-phase ranking function. The first phase decreases `x` and the second phase decreases `(n - y)`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n - 1.0 * y^1
+1.0 * x + 1.0 * 1
+
+The program terminates as it uses a multi-phase ranking function that decreases deterministically across phases: the first ranking function `1.0 * n - 1.0 * y` ensures that `y` gradually approaches `n` bounding the loop to finite iterations, and the second ranking function `1.0 * x + 1.0` guarantees that `x` decreases to end the loop condition.
+

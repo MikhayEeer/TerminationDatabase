@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The values of *y and *z can potentially change indefinitely without satisfying the termination condition (*y >= 100 || *z >= 100). If *x is set to 1, *y and *z are incremented and decremented respectively by 1 indefinitely; if *x is set to -1, *y and *z are decremented and incremented respectively by 1 indefinitely. In both cases, one of the two variables is decreased infinitely, thus causing non-termination.
+

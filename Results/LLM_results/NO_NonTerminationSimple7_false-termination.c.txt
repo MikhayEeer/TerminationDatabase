@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+If `c` is not zero, the loop executes indefinitely since `x` is continuously incremented or decremented by `c`, which never allows `x` to become negative if it starts non-negative.
+

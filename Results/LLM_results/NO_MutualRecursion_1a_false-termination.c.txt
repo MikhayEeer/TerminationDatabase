@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+When \( f(x) \) or \( g(x) \) is called with positive \( x \), they make recursive calls with strictly smaller arguments, ultimately reaching arguments less than or equal to zero where they terminate.  
+1. For \( f(x) \): if \( x > 0 \), it calls \( g(x) + g(x+1) \) reducing the problem to smaller arguments.  
+2. For \( g(x) \): if \( x > 0 \), it calls \( f(x-1) + f(x-2) \) further reducing the argument size.
+
+The mutually recursive calls ensure that each path in the recursion decreases the problem size, leading to termination when \( x \) reaches 0 or a negative value.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For `f(x)`:
+1. When `x > 0`, ranking function: `x`
+2. When `x <= 0`, ranking function: `0`
+
+For `g(x)`:
+1. When `x > 0`, ranking function: `x`
+2. When `x <= 0`, ranking function: `0`
+
+The program involves mutually recursive functions `f` and `g`. Both functions have branch conditions based on `x` and call each other in a manner that decreases `x`. When `x` is non-positive, both functions return immediately. Hence, the initial value of `x` is steadily decreased until it becomes non-positive, ensuring termination. The piecewise ranking function above captures the decrease in `x`.
+

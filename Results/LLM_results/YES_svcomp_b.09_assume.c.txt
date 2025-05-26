@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. 0 if x <= 0 || y <= 0  
+2. Decreases by at least 1 in every iteration of the loop where x > y  
+3. Bounded by nonnegative values of c in every iteration 
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1. Phase 1: if x > y: x
+2. Phase 2: if x <= y: x
+

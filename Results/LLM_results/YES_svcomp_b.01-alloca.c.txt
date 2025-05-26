@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+1.0 * x_ref^1 + 0.0 * 1  
+
+The program is terminating because the while loop condition `*x_ref > *y_ref` ensures that the loop will only continue as long as `*x_ref` is greater than `*y_ref`. During each iteration of the loop, `*x_ref` is decremented by 1, which means that `*x_ref` is strictly decreasing. Therefore, the loop is guaranteed to terminate when `*x_ref` is no longer greater than `*y_ref`. The ranking function `1.0 * x_ref` indicates the measure is reduced in each step, proving termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x_ref^1 + -1.0 * y_ref^1 
+

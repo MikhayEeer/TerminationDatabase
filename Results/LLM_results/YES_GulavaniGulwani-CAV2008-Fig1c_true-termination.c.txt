@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - x
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n - x  
+
+The program will terminate because in each iteration of the loop, the value of `x` is increased by 1. Since `n` is constant, the condition `x < n` will eventually become false, causing the loop to terminate. The ranking function `n - x` decreases by 1 in every iteration, which proves termination.
+

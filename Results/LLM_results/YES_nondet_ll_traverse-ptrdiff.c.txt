@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The function `traverse` processes the linked list node by node in a linear manner until it reaches the end (i.e., a NULL pointer). The ranking function can be the number of nodes left to process in the list, which strictly decreases with each iteration of the `while` loop until it reaches 0. Thus, the program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+The program terminates as long as `n` is non-negative when calling the main function. The function `init_list` is creating a list of `n` elements. If `n` is less than 1, the program returns immediately. The `traverse` function iterates over the list and will terminate since the list has a definite end. The ranking function `1.0 * n^1` shows that the primary controlling parameter `n` dictates the finite iterations of the loop in the `init_list`, leading to termination.
+

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. First Level: \( x \) decreases with each iteration of the outer loop.
+2. Second Level: \( x - y \) decreases with each iteration of the inner loop. 
+
+The outer loop decreases the variable \( x \) until it becomes zero, while the inner loop increases \( y \) until it equals \( x \). Overall, each iteration of the inner loop decreases the difference \( x - y \) to zero. Once the inner loop finishes, \( x \) is decremented, eventually terminating the outer loop. Thus, the program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+x^1
+y^1
+

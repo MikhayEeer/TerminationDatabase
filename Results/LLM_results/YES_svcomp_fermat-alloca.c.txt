@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * 1 + 1.0 *  -c^1 + 1.0 * MAX  
+0.001 * 1 + 1.0 *  -b^1 + 1.0 * MAX  
+0.000001 * 1 + 1.0 *  -a^1 + 1.0 * MAX  
+
+The program is terminating because it performs a bounded exploration of combinations of `a`, `b`, and `c`, where each variable has a finite limit (`MAX`). The outermost loop iterates over all combinations and eventually terminates when `c` exceeds `MAX`.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * MAX^3 + 1.0 * MAX^2 + b^1  
+(MAX - b)^1 + 1.0 * c^1 + (MAX - a)^1  
+
+Explanation:  
+The program iterates through all possible combinations of (a, b, c) triplet values constrained by MAX, searching for a solution to the condition `a^3 = b^3 + c^3`. If no such triplet is found, the loops terminate when counter `c` exceeds MAX. The multi-phase ranking function decreases as we exhaust all b's for a given c, and eventually move to the next c, guaranteeing termination.
+

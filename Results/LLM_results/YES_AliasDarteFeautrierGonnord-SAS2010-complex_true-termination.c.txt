@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  (30 - a)^1 + 0.0 * 1 + 0.0 * 1
+1.0 *  (a - b)^1 + 0.0 * 1 + 0.0 * 1
+
+The program terminates as follows: 
+
+1. The outer while-loop decreases the value of \(30 - a\) because once \(b\) is greater than or equal to \(a\), \(a\) is strictly increased by at least \(2\) in each iteration of the outer loop until \(a \geq 30\).
+
+2. The inner while-loop decreases the value of \(a - b\) because it increases \(b\) at a faster rate compared to the increase in \(a\). Once \(b\) catches up to \(a\), the inner while-loop terminates, allowing the outer loop to progress in making \(a \geq 30\). 
+
+Thus, both loops consistently reduce their respective ranking functions, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (30 - a)^1
+0.5 * (a - b)^1 + 1.0 * 1
+

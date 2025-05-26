@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (range - |i|)  
+
+The program is terminating because the quantity \(range - |i|\) strictly decreases. The `range` variable initially starts at 20 and increases or remains constant, but can only increase by at most 1 in each loop iteration. However, the absolute value of `i` is decremented by 1 when `range-i >= 5` and `range+i >= 5`. When `i` meets any condition to change `i *= -1`, it implies an indirect termination force as it helps to balance termination constraints. The key factor is when `i == 0`, we set `range = -1`, which immediately leads to a false condition for the loop (-range > i), thus guaranteeing eventual termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+First Phase:  
+1.0 * (range - i) + 1.0 * 1  
+Second Phase:  
+1.0 * range + 1.0 * 1  
+
+The program terminates because the control variable `range` strictly increases when `i` is non-zero, bringing it eventually out of the loop conditional. When `i` becomes zero, `range` is set to a negative value, causing an exit from the loop. The multi-phase ranking function allows us to demonstrate that the first sub-phase measures the progress of the loop counter `i`, and the second sub-phase shows the intervention of `range` being eventually assigned a negative value, leading to termination.
+

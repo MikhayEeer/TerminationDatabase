@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+f(x) = x
+
+Explanation:
+The program will terminate due to the manipulation of `x`. Initially, `x` can be any integer, and in each iteration of the loop, it decrements `x` by 1. The loop will break when `b` becomes false, which happens when `x` becomes less than 0 (since `b = (x >= 0)` is evaluated at the end of each loop iteration). The ranking function `f(x) = x` decreases by 1 in every iteration, hence proving termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1
+

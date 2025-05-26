@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+(n - index of the nth character copied) followed by (length - index of the length-th character accessed in the source) 
+
+The program terminates because the nested loops within the `cstrlcpy` function each have a clear decreasing measure that is bounded. The loop copying source characters will definitely terminate because it iterates at most `n-1` times, and in each iteration, it either finds a `'\0'` or decrements `n`. Similarly, if the destination buffer isn't big enough, any remaining characters in the source are traversed only until the end of the string is reached (denoted by `'\0'`). Hence, both loops have a defined termination point.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+s - src - 1
+
+The program is terminating because the `cstrlcpy` function has a decreasing linear loop constraint in the `while (--n != 0)` loop, which reduces `n` until it reaches 0 or until a null terminator is copied, ensuring the loop will exit. Additionally, the code outside the loop does not produce any infinite loops, leading to an overall finite execution.
+

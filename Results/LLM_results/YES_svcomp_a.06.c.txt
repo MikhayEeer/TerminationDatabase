@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x - y - z
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The condition `x > y + z` may continue to hold indefinitely if `x` is sufficiently larger than the initial sum of `y` and `z`, as both `y` and `z` increase by 1 in each iteration while `x` remains constant.
+

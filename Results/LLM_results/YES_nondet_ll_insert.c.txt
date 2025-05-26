@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1. Phase 1: n (decreases in init_list until 0)  
+2. Phase 2: finite operations during insert until insertion completes  
+
+This program will terminate as the `init_list` function operates in a loop that iterates `n` times, where `n` is a nondeterministic integer, and it decreases to 0. After `init_list`, the `insert` function performs a finite number of operations to place a new element in the appropriate position in an already constructed linked list. Both parts guarantee that the operations will complete and lead to termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1. Phase 1: Decreasing function on the number of insertions applied to the list, which starts with a bounded size n and can be taken to completion in finite steps. In each call to `insert`, at most one element (`m`) is either prepended or inserted in the list.  
+2. Phase 2: Constant function during initialization of the list (finite loop over integer n which is checked > 0).
+
+The non-deterministic nature of `__VERIFIER_nondet_int()` does not affect the termination property due to bounded loops governed by concrete conditions (e.g., comparison operations and finite iterations). The program structure (loop over n elements and finite list insertions) together dictate the completion of execution in finite steps.
+

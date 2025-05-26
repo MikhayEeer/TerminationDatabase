@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The ranking function is based on the lexicographical position in the string comparison. The loop in the `cstrcmp` function iterates over the characters of the strings `s1` and `s2` until a mismatch is found or the end of the string is reached. The decreasing measure is the remaining length of the string from the current position to the null terminator, which always decreases since one of the strings' current character will eventually differ or reach the null terminator. Therefore, this ensures termination of the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+length1 - position_in_s1, length2 - position_in_s2
+
+The program terminates as the `cstrcmp` function progresses through the strings `nondetString1` and `nondetString2`, advancing one character at a time. The ranking function can be expressed using the lexicographic order of `(length1 - position_in_s1, length2 - position_in_s2)`, where `position_in_s1` and `position_in_s2` are current positions in the respective strings. The loop conditions ensure that eventually one of the strings will reach the null-terminator, thus causing the function to exit the loop and return.
+

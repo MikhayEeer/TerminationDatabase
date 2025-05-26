@@ -6,12 +6,10 @@ from datetime import datetime
 
 from openai import OpenAI
 
-secrete = "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"
+secrete = ""
 chatgpt_model = "openai/gpt-4o"
 
-LLM_results_folder_YES = os.path.join(os.getcwd(), "Results", "LLM_results", "YES")
-LLM_results_folder_NO = os.path.join(os.getcwd(), "Results", "LLM_results", "NO")
-LLM_results_folder_MAYBE = os.path.join(os.getcwd(), "Results", "LLM_results", "MAYBE")
+LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 
 YES_program_folder = os.path.join(os.getcwd(), "TPDB_YES")
 NO_program_folder = os.path.join(os.getcwd(), "TPDB_NO")
@@ -76,6 +74,17 @@ class chat_interface:
         self.msg_list.append(answer)
         return answer
     
+    def ask_question_with_role_no_history_and_record(self, role_prompt, content):
+        self.msg_list.clear()
+        self.msg_list.append({"role": "system", "content": role_prompt})
+        self.msg_list.append({"role": "user", "content": content})
+        res = self.client.chat.completions.create(
+            model=chatgpt_model,
+            messages=self.msg_list
+        )
+        answer = res.choices[0].message
+        return answer
+    
     def ask_naive_question_of_termination(self, program):
         role_prompt = "You are a expert of program termination analysis. In the following you will be given a program in C and you will judge whether it is terminating or not.\n" \
         "If you judge that the program is terminating, then you will produce a ranking function to prove your judgement, e.g.\n" \
@@ -93,8 +102,9 @@ class chat_interface:
         "if the program is non-terminating, you only needs to output: [RESULT]\nNONTERM\n[REASON]\nxxx\n, where xxx should be a very concise explanation.\n"\
         # "if you cannot decide, then you should output [RESULT]\nUNKNOWN\n"
         "Notice that the function __VERIFIER_nondet_int() in the program identifies a function returns a nondeterministic integer.\n"
+        "YOU MUST FOLLOW THE output format that if it is termination, you should not generate any explanation and when it is nontermination, you should generate explanation under [REASON] label"
 
-        answer = self.ask_question_with_role_and_record(role_prompt, program)
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
         return answer
 
@@ -229,9 +239,8 @@ def run_certain_experiments(interface):
                     'processing_time': round(processing_time, 2)
                 })
             
-            os.makedirs(os.path.join("LLM_Results", "responses"), exist_ok=True)
-            response_file = os.path.join("Results", "responses", f"{category}_{file_name}.txt")
-            with open(response_file, 'w', encoding='utf-8') as f:
+            response_file = os.path.join(LLM_results_folder, f"{category}_{file_name}.txt")
+            with open(response_file, 'w+', encoding='utf-8') as f:
                 for i, response in enumerate(responses):
                     f.write(f"=== Response {i+1} ===\n{response}\n\n")
             
@@ -251,13 +260,13 @@ if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
     run_certain_experiments(interface)
-    program = "	int main() {\n"\
-    "	int x, y, z;\n"	\
-    "		while (z > 0) {\n"\
-    "			x = x + z;\n"\
-    "			z = z - 1;\n"\
-    "		}\n"\
-	"}\n"
+    # program = "	int main() {\n"\
+    # "	int x, y, z;\n"	\
+    # "		while (z > 0) {\n"\
+    # "			x = x + z;\n"\
+    # "			z = z - 1;\n"\
+    # "		}\n"\
+	# "}\n"
 
     #exp_result = run_experiment_for_program(interface, "test_file_name.c", program, True, False, 2)
     #print(exp_result)

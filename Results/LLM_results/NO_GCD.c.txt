@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1st Level Nested: x^1
+2nd Level Nested: y^1
+
+In the given program, the outer while loop continues while `y != 0`, and the inner while loop reduces `xtmp` by `y` repeatedly until `xtmp <= y`. Each iteration of the outer loop effectively executes a variant of the Euclidean algorithm for computing the greatest common divisor (GCD) of two numbers. This process always results in either `x` or `y` becoming zero after a finite number of iterations, hence ensuring program termination. The nested ranking functions are based on the non-negative integers `x` and `y` which decrease lexicographically.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+0.5 * |y|^1 + 0.5 * 1  
+0.5 * x^1 + 0.5 * |y|^1 + 0.5 * 1  
+
+The program is terminating due to the nature of `y` eventually reducing to 0, either through the outer or inner while loops, with both `x` and `y` making progress towards this termination condition. This is captured by the nested ranking functions that show progress in each phase of the loops.
+

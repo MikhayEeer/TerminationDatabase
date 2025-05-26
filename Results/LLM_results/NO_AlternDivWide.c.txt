@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1.0 * (|i| - |w|) if |i| > |w|  
+0 otherwise  
+
+The program terminates as every iteration of the loop reduces the absolute value of `i` when `|i| > w`, until `|i|` is not greater than `w` anymore, at which point `i` is set to 0, causing the loop to terminate. This is effectively captured by the piecewise ranking function above.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(i < -5): -i^1 -1
+(i > 5): i^1 +1
+Otherwise: 0
+
+This program is terminating because the value of `i` is continually adjusted to move towards zero, finally reaching zero and exiting the while loop. The ranking function is defined piecewise, depending on the range in which `i` falls.
+

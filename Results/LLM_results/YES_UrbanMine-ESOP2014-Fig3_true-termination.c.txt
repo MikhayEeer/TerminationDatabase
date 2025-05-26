@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0 * |x|
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * y^1 + 0.0 * x^1  
+0.5 * x^1 + 0.0 * 1  
+
+This program terminates as it has a multi-phase ranking function. In the first phase, the value of `y` strictly decreases when `x` is positive and `y` is decreased directly in one of the branches. In the second phase, for negative `x`, the value of `x` either increases towards zero in one branch or keeps decreasing as `y` is decreased in the nested condition. Thus, the program is guaranteed to terminate.
+

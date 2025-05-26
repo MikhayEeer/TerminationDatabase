@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+f(x, y) = x - (y * (y - 1) / 2)  
+
+Explanation:  
+The program uses a decreasing linear ranking function \( f(x, y) = x - (y * (y - 1) / 2) \). Initially, \( x \) is an arbitrary integer, and \( y \) starts at 23. In each loop iteration, the value of \( f(x, y) \) decreases because \( x \) decreases by \( y \) and \( y \) increases by 1. The term \( (y * (y - 1) / 2) \) represents the cumulative increment due to the increasing value of \( y \), which ensures that \( f(x, y) \) eventually becomes negative, proving termination of the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x + 0.5 * y
+

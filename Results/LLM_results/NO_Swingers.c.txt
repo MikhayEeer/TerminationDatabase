@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - (bob + samantha)
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program swaps the values of `bob` and `samantha` in the loop without changing their sum, thus the condition `bob + samantha < 100` remains true indefinitely, leading to non-termination.
+

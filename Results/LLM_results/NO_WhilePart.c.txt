@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating because if `i` starts with a value greater than 10, the condition `i < 10` will be false, and `i` will never change within the loop. Thus, the loop will run indefinitely.
+

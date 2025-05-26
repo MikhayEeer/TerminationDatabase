@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+   
+For the `mult` function:  
+
+- When `m < 0`: Rank remains constant as this branch results in a call with `-m`, reducing the absolute value of `m`.  
+- When `m == 0`: Immediate termination with a result of 0.   
+- Otherwise (`m > 0`): Each recursive call decreases `m` by 1, which guarantees termination. The ranking function can be `m`, which decreases on each recursive call.  
+
+For the `main` function:  
+
+- It only calls `mult` with `m` and `n` both non-negative and allows the computation to continue to result in valid integers or terminate with 0. The analysis of `mult` covers both scenarios.  
+
+Thus, the entire program is terminating.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+For the function `mult(int n, int m)`, consider it as a recursive function with the parameters (n, m):
+
+1. First Phase: when `m < 0`, convert it to its positive counterpart. `mult(n, -m)` is reached, which eventually leads to non-negative m.
+   
+2. Second Phase: which is the main recursive decrement phase of `m`, i.e., `m` becomes 0. Each recursive call decreases `m` by 1 until the base case `m == 0` is met.
+
+The nested ranking function:
+- Primary ranking dimension: `m` is strictly decreasing with each call `mult(n, m - 1)`, until it hits base condition `m == 0`.
+

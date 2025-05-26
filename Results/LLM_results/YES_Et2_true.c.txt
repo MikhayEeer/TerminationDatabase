@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The recursive function `loop` can be called indefinitely for large enough values of `a` and `b`. Since `r` (random value) is non-deterministic and can be arbitrarily large, `a` and `b` may not decrease enough to ensure termination.
+

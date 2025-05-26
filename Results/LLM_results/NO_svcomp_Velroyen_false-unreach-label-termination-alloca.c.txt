@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. if \(-5 \leq x \leq 35\), then a ranking function is \(35 - x\).  
+2. if \(x < -5\) or \(x > 35\), then the program immediately sets \(x\) to 0.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * *x^1 + 0.0
+

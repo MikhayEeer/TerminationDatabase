@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (x + y)  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE
+
+[RANKING FUNCTION TYPE]  
+linear
+
+[RANKING FUNCTION]  
+x + y
+
+The program is terminating because the linear ranking function \(x + y\) strictly decreases in every loop iteration while being bounded below by zero.
+

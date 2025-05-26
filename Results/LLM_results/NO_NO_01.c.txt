@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+There is a loop with the condition `while (i < 103)` where the loop body does not affect the value of `i`, causing it to run indefinitely and making the program non-terminating.
+

@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The outer loop increments `x` by 1 before starting the inner loop and decrements `x` by 2 after the inner loop, resulting in a net effect of decrementing `x` by 1. However, the inner loop resets `y` for each iteration of the outer loop, and `x` can be increased infinitely since there's no condition to break this cycle when `x` becomes negative. Therefore, the program can continue indefinitely with the non-deterministic initial value of `x`, leading to non-termination.
+

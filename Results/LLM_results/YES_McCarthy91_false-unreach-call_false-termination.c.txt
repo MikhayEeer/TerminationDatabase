@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: 101 - x for x > 100
+Phase 2: Oscillating function call for x <= 100
+
+The program implements the McCarthy 91 function, which terminates for all integer inputs. For `x > 100`, the function behaves like a linear function with a ranking function of `101 - x` that decreases towards termination. For `x <= 100`, the recursive calls eventually lead to inputs greater than 100, at which point the first case takes over. Thus, the program is terminating.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+- If x > 100, the function returns immediately with x - 10, no recursive calls, so it always reaches termination.  
+- If x <= 100, the recursive call structure ensures that each recursive call reduces the argument by a mechanism ensuring it will eventually increase above 100 when invoking f91(x+11), and then immediately lead to termination since x+11 > 100 will eventually hold after a finite number of iterations.  
+
+The McCarthy 91 function is well-defined and designed to terminate for all integer inputs.
+

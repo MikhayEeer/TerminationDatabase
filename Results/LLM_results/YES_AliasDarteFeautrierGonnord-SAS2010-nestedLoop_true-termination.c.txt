@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (n - i)^1 + 0.0 * 1 + 0.0 * 1
+1.0 * (m - j)^1 + 0.0 * 1 + 0.0 * 1
+1.0 * (N - k)^1 + 0.0 * 1 + 0.0 * 1
+
+Explanation:  
+The program consists of three nested loops. The outermost loop runs while `i < n`, the middle loop runs while `j < m`, and the innermost loop is a self-contained loop running while `k < N`. Each loop reduces some measure monotonically: 
+
+1. The top-level loop variable `i` increases up to `n`.
+2. At the next level, within the `i` loop, `j` increases up to `m`.
+3. At the innermost level, within the `k` loop, `k` increases up to `N`.
+
+These act as ranking functions demonstrating a reduction to termination for each corresponding loop phase. As each loop moves consistently in a positive direction towards its respective bound and all involved variables (n, m, N) are non-negative, the program is guaranteed to eventually terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERM  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1:  
+1.0 * (n - i) + 0.0 * 1  
+Phase 2:  
+1.0 * (m - j) + 0.0 * 1  
+Phase 3:  
+1.0 * (N - k) + 0.0 * 1  
+
+This program is terminating. The phases correspond to the loop nesting levels:   
+- Phase 1 corresponds to the outermost loop with variable `i`, terminating as `i` reaches `n`.  
+- Phase 2 corresponds to the middle loop with variable `j`, which increments up to `m`.  
+- Phase 3 handles the innermost loop with variable `k`, proceeding until `k` reaches `N`.  
+Each phase decreases monotonically and eventually results in the termination of its corresponding loop due to the bounded non-negative conditions on `n`, `m`, and `N`.
+

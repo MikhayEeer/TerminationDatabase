@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+f(x) = x  
+
+The program is terminating, and its termination can be proven by the linear ranking function \( f(x) = x \). The variable \( x \) is decremented in each iteration of the while loop, and the loop condition \( x \neq 0 \) ensures that the loop will terminate once \( x \) reaches 0, given that \( x \) starts with a non-negative integer value.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+f(x) = x
+
+The given program is terminating. The ranking function \( f(x) = x \) shows that with each iteration of the loop, the value of \( x \) decreases by 1. Since \( x \) starts as a non-negative integer and decreases monotonically towards 0, eventually the condition \( x \neq 0 \) becomes false, and the loop terminates. The function \( f(x) = x \) is a linear ranking function, as it decreases by 1 in each iteration and is bounded below by 0.
+

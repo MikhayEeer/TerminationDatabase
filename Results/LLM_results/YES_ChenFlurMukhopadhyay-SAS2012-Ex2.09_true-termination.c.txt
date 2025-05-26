@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTIONS]  
+1. A potential non-linear ranking function for this loop could be based on the invariant that relates the variables: \( x = -(y / 2^k) + 5k + c \), where \( k \) is the number of iterations executed so far and \( c \) is some constant dependent on initial values of \( x, y, \) and \( n \). As \( k \) increases, the impact of the \( -(y / 2^k) \) term grows due to the exponential increase in \( y \), eventually causing \( x \) to break the bounds \( 0 < x < n \), leading to termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st Phase: f(x, y) = x  
+2nd Phase: f(x, y) = n - x
+
+Explanation:  
+In the first phase, the value of `x` starts as positive and decreases until it becomes non-positive or greater than or equal to `n`. The transformation `x = -x + y - 5` will ultimately make `x` non-positive if `y` is sufficiently large. Once `x` becomes non-positive, the loop condition fails and the program terminates. Hence, this program is terminating.
+

@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `i` is never incremented inside the outer loop, which causes the condition `i < 100` to always hold true, resulting in infinite loop execution.
+

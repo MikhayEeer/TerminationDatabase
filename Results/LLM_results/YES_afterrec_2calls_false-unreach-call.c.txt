@@ -1,0 +1,15 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1   
+The program terminates because the recursive calls in `f` and `f2` both decrease the value of `n` by 1 in each call, and the recursion halts when `n` becomes less than 3. Thus, `n-3` serves as a ranking function that decreases with each call. The presence of `ERROR: __VERIFIER_error();` statements after the recursive calls does not affect termination since they are unreachable after the base condition (`n < 3`) is satisfied.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The mutual recursive calls between `f` and `f2` always bypass the base condition when starting from `n = 4`. The decrement pattern allows for continuous recursion without termination as the decrement never reaches `n < 3`, leading to infinite recursion.
+

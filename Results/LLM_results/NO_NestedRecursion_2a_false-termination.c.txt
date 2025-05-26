@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+The program uses a nested recursive function `g(x)`, which is guaranteed to terminate. The function's recursive calls proceed by decreasing `x` towards 0, at which point the base case is reached, ensuring termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+The function `g(int x)` is terminating due to the recursive calls decreasing the value of `x` until it reaches 0. The ranking function here is based on the nested nature of the recursive calls that reduce the argument step by step until a base case is reached:
+- Outer call: Decrease `x` to `x - 1`.
+- Inner call: Reduce the problem recursively with the same decremental logic until reaching the base case (`x == 0`).
+
+The recursion will always eventually hit the base case where `x == 0`, ensuring termination.
+

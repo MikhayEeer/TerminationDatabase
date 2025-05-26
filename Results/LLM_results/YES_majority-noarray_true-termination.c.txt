@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.0 * 1 + 1.0 *  (3 - pc_0)^1 + 1.0 * 1  
+0.0 * 1 + 1.0 *  (3 - pc_1)^1 + 1.0 * 1  
+0.0 * 1 + 1.0 *  (3 - pc_2)^1 + 1.0 * 1  
+
+The program has a structure that loops indefinitely with a condition reliant on the values of `pc_0`, `pc_1`, and `pc_2`. The ranking functions demonstrate that in each of their respective phases, these values eventually drive the program to a termination state when the `getI` function condition leads to `return 0`. Each value `pc_x` decreases or reaches a state causing the program to eventually terminate, along with certain conditions being satisfied within the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1. (I_0 + I_1 + I_2)  
+2. (pc_0 + pc_1 + pc_2)  
+
+The given program is terminating. The termination proof is established using a multi-phase ranking function. The first phase of the ranking function measures the sum of the indices (I_0, I_1, I_2) for the agents. As these values decrease under the constraints and assumptions, the system moves towards termination. The second phase measures the sum of the program counters (pc_0, pc_1, pc_2) for each agent, which also drive the sequence towards a termination state as they reach specific values triggering the end of the loop, which aligns with the provided invariant conditions triggering the return statement.
+

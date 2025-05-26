@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * y^1 + 0.0 * 1  
+1.0 * x^1 + 0.0 * 1
+
+Explanation: The program is guaranteed to terminate because the inner loop decreases the value of both `*x_ref` and `*y_ref` by 1 in each iteration as long as `*y_ref` is greater than 0. Once `*y_ref` reaches 0, the inner loop terminates, and since the condition for the outer loop requires `*x_ref` to be equal to `*y_ref` which is now 0, the outer loop will not continue executing. Therefore, the program is terminating, and the ranking function for the inner loop is `y`, which decreases with every iteration. After exiting the inner loop, if reached, the outer loop would consist of `x`, but since it doesn't re-enter, it simply terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y_ref^1
+0.0 * 1
+

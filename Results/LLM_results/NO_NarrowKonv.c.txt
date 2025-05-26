@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+range - i
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1st level: range - i
+2nd level: range
+
+The program terminates because the value of `range` decreases once `i` reaches `range`, ensuring eventual termination. Specifically, the nested ranking function demonstrates that the program makes progress towards termination by decreasing either `range - i` while `i` iterates towards `range`, or decreasing `range` while resetting `i`.
+

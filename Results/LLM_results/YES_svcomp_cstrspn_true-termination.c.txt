@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+length(s1) - (sc1 - s1)
+
+This program will terminate because the `cstrspn` function iterates through the characters of the first string `s1`. In each iteration of the outer loop, the pointer `sc1` advances through `s1` until it hits a null-terminating character or finds a match within `s2`. The ranking function identified shows that the number of remaining characters in `s1` decreases in each iteration, leading to eventual termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1. The length of `s1` is finite due to null termination; this ensures that the outer loop (for `sc1`) is iterated a finite number of times.
+2. The string `s2` is also null-terminated, so the inner loop (for `s`) has a finite number of iterations each time.
+3. Each iteration either results in returning from the function or incrementing `sc1` until it reaches the end of `s1`.
+

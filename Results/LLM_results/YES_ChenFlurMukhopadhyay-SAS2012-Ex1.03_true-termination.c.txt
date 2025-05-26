@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+The program terminates because the loop only iterates under the condition `x > 1` and it will break if `-2*x != old_x`, which resets x to a value that can only decrease the chance of this condition being met. Even if the loop continues, eventually `x` will be set such that it doesn't satisfy `x > 1`, as the condition cannot hold indefinitely with arbitrary decreases due to `__VERIFIER_nondet_int()`, ensuring the loop terminates. Hence, a simple linear ranking function would be `f(x) = x`, as the value of `x` decreases with each iteration ensuring termination.
+

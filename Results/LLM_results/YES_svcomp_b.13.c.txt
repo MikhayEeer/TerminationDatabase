@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+lexicographic  
+[RANKING FUNCTIONS]  
+1.0 * (x - z)^1  
+1.0 * (y - z)^1  
+
+The program terminates because in each iteration of the loop, either `x` or `y` is decremented, which reduces the respective difference from `z`. The loop will eventually terminate when both `x` and `y` are less than or equal to `z`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x, when x > z
+1.0 * y, when y > z
+
+The program is terminating because in each iteration of the loop, either `x` or `y` decreases by 1, and the loop condition `(x > z) || (y > z)` ensures that both `x` and `y` must eventually become less than or equal to `z`, terminating the loop. A piecewise linear ranking function captures this behavior with x decreasing when x > z, and y decreasing when y > z.
+

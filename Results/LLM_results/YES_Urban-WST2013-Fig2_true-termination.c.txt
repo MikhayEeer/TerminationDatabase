@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+Phase 1:  
+-1 * x1 + 11   
+  
+Phase 2:  
+x2 - 1  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+Phase 1: (11 - x1)  
+Phase 2: (x2 - 1)  
+
+The program terminates because it comprises two nested loops. The outer loop increments `x1` until it surpasses 10, and the inner loop decrements `x2` until it equals 1. The ranking functions reflect the progress towards termination in each phase: "Phase 1: (11 - x1)" decreases with each iteration of the outer loop, and "Phase 2: (x2 - 1)" decreases with each iteration of the inner loop.
+

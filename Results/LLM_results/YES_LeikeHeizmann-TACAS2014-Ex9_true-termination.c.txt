@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+When \( q < p \), the ranking function is \( q^1 \).  
+When \( p < q \), the ranking function is \( p^1 \).  
+
+In the case where \( q = p \), the loop terminates as it hits the `break` statement, so no ranking function is needed for this scenario. The program is proven to terminate using the piecewise ranking functions provided.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1: If \( q < p \), then the ranking function is 1.0 * q^1.  
+2: If \( p < q \), then the ranking function is 1.0 * p^1.
+

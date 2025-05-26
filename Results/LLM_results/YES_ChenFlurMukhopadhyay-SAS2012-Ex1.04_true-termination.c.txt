@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1. When \( x \leq 1 \), the loop does not execute, thus trivially terminating.
+2. When \( x > 1 \) and the condition \( 2*x \leq \text{old\_x} \) holds after updating \( x \), the loop keeps executing only a finite number of times before \( x \) drops below or equal to 1, at which point it terminates.
+
+Explanation: The program can be decomposed into a case analysis. The loop terminates when \( x \leq 1 \), and if \( 2*x > \text{old\_x} \), the loop breaks, leading to termination. In other cases, the property \( 2*x \leq \text{old\_x} \) ensures progress towards termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+f(x) = x  
+
+The program terminates due to the condition in the `while` loop and the `break` condition. The `break` condition ensures the loop exits if `2*x > old_x`, and since `x` is non-deterministically chosen, eventually, this condition will be satisfied. Thus, a linear ranking function f(x) = x, indicating the value of x decreases or the loop terminates directly due to the break.
+

@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The value in `search` function is decreasing as we traverse the list towards a node whose value matches `m`, and since the list is finite with size `n`, the traversal will eventually terminate. Specifically, the ranking function can be defined as the remaining steps to reach the node with value `m`, i.e., the distance in terms of node count from `curr` to that node decreases with each iteration by 1.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: Lexicographic ranking function based on the list traversal distance decreases step by step until reaching the searched value.
+
+Explanation:
+The program initializes a linked list with `n` nodes, each having consecutive values starting from `start`. The `search` function traverses this list starting from the `head` node and terminates once a node with the value `m` is located.
+
+The `while` loop in the `search` function is guaranteed to terminate because:
+1. `m` is an integer within the bounds of the list's values (`start` to `start + n - 1`), ensuring it's reachable from the head.
+2. The traversal moves linearly through the list nodes one by one.
+
+Since the list setup and traversal follow a decreasing metric—moving from node to node along the linked list, where each step advances one step closer to finding `m`, the program is proven to terminate.
+

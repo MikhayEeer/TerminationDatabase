@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  y1^1 + 1.0 * 1
+1.0 *  y2^1 + 1.0 * 1
+
+Explanation: The Euclidean algorithm, which the `gcd` function implements, is well-known to terminate for non-negative integer inputs. The ranking function here is multi-phase, first reducing the larger integer until both integers are equal, at which point the loop terminates. The ranking functions for each phase are the current values of `*y1_ref` and `*y2_ref`, which ultimately reach a point of equality, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+*y1_ref + *y2_ref
+
+This program is terminating as it computes the greatest common divisor (GCD) of two non-negative integers using the well-known Euclidean algorithm. The ranking function here is the sum of the two values referenced by `y1_ref` and `y2_ref`. In each iteration of the loop, either `*y1_ref` or `*y2_ref` is decreased, ensuring that the sum is strictly decreasing until both values are equal, at which point the loop exits. Since the arguments are initially non-negative, the process will always terminate.
+

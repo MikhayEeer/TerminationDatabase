@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `*x_ref > *y_ref` can be indefinitely true if `*x_ref` is set much larger than `*y_ref` and the increment in `*y_ref` always keeps `*x_ref > *y_ref`. Thus, no guarantee of termination.
+

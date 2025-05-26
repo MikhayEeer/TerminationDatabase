@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+In the function `f(int a, int b)`:
+1. 5.0 * 1 + 1.0 * b^1 + 5.0 * 1 (Phase 1: b is decreasing)
+2. 1.0 * 1 + 1.0 * a^1 + 1.0 * 1 (Phase 2: a is increasing, but Phase 1 dominates because b becomes 0 before a can grow indefinitely)
+
+In the function `g(int c, int d)`:
+1. 1.0 * 1 + 1.0 * c^1 + 1.0 * 1 (Phase 1: c is decreasing)
+
+Explanation:
+The program is terminating because the recursive calls in function `f` ensure that the parameter `b` is strictly decreasing and eventually reaches 0, at which point function `f` calls `g` with arguments `(a, 0)`. In function `g`, the parameter `c` is strictly decreasing until it hits 0, and then the function terminates. Therefore, for any non-negative initial values of `a` and `b`, the recursive calls will eventually terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. In the context of function `f`:  
+   - Decreases in `b` ensures termination for calls to `f`.
+
+2. In the context of function `g`:  
+   - Decreases in `c` ensures termination for calls to `g`.
+
+The termination of the program can be established by considering the nested ranking functions separately for the recursive function calls. The argument `b` in function `f` continually decreases per recursive call, and similarly, the argument `c` in function `g` decreases to zero per recursive call. When `b` reaches zero, control moves to function `g` via the base case of `f`, which then terminates when `c` reaches zero. As both processes have well-founded decreases that eventually terminate, the entire program terminates.
+

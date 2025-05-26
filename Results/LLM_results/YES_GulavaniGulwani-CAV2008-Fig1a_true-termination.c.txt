@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + -1.0 * x^1
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+y - x
+
+This ranking function shows that the loop terminates. The value \( y - x \) decreases by 1 with each iteration of the loop, as either \( x \) increases or \( z \) increases, neither of which can increase enough to make \( x = y \). As \( y \) is constant and \( x \) is incremented, when \( x \) becomes equal to \( y \), the loop terminates.
+

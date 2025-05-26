@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  y^1 + 1.0 * z^1
+1.0 * z^1
+
+The program above will terminate. Here's how the ranking functions work:
+
+1. The first ranking function \(1.0 *  y^1 + 1.0 * z^1\) applies when \(*y > *x\). The program decreases the value of either \(*y\) or \(*z\) through the assignments, ensuring that the combined sum will strictly decrease as long as the loop conditions \(*x > 0, *y > 0, *z > 0\) hold.
+
+2. The second ranking function \(1.0 * z^1\) applies to the other case. When \(*z\) is decremented, it ensures a decrease by at least one each loop iteration. If \(*y\) is then smallest, the decrement of \(*z\) alone ensures the loop will eventually terminate, as \(*z\) is eventually reduced to zero, followed by the potential effects of the other variable updates.
+
+In both cases, the loop will continue to terminate because the ranking functions ensure that there's a strictly decreasing limit to all while conditions, confirming termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1st phase: *z decreases from any initial positive value towards zero in each loop iteration.
+2nd phase: (*x, *y, *z) tuple decreases lexicographically when *z becomes non-positive. 
+
+Explanation: In each loop iteration, *z decreases by 1 when *z > 0, eventually causing *z to become non-positive, terminating the first phase. Once *z ≤ 0, the second phase implies that one of *x or *y decreases, while the other remains bounded by the non-positive *z, ultimately leading the termination of the loop condition *x > 0 && *y > 0 && *z > 0.
+

@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+Phase 1 (Outer Loop):  
+- Linear ranking function: x + y
+
+Phase 2 (Inner Loops):  
+- If x > y: linear ranking function: x
+- If y >= x: linear ranking function: y
+
+The key observation is that in the outer loop, either `x` or `y` or both are decremented until at least one of them becomes zero. In any iteration of the outer loop, one of the variables is driven to zero by the inner loop, ensuring termination of the inner loop. This guarantees that the outer loop also terminates, leading to overall termination of the program.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+First Level: 1.0 * (x > 0 && y > 0) + 0.0
+Second Level: 
+  If (x > y): 1.0 * x^1 + 0.0
+  Else: 1.0 * y^1 + 0.0
+
+Explanation:
+The program terminates because in the outer while loop, at least one of `x` or `y` will eventually become zero. For the inner while loops, if `x > y`, `x` decreases strictly until it becomes zero, ensuring that loop terminates. Similarly, if `x <= y`, `y` decreases strictly until it becomes zero, ensuring that loop terminates. Therefore, the combination of the outer loop condition and the nested decisions result in an overall nested ranking function showing the program's termination.
+

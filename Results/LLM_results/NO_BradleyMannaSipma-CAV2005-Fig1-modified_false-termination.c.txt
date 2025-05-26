@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program can be non-terminating when either `y1` or `y2` is initialized to zero. If one of the numbers is zero while the other is positive, the `while` loop might not terminate as the subtraction operations will not change the zero value, causing the condition `y1 != y2` to always be true.
+

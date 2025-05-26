@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length2 - pt)
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+(length2 - pt)  
+
+The program is terminating because the `subseq` function systematically moves the `pt` pointer through the `nondetString2` array. Since the length of `nondetString2` is bounded and the pointer `pt` only progresses forward, the loop in `subseq` will eventually terminate.
+

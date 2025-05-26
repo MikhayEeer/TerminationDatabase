@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+For `x > y`: 1.0 * x + 0.0 * y  
+For `x <= y`: x 
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1  when x > y,   
+1.0 * x^1  when x <= y
+
+The function `test_fun` terminates because in each iteration of the `while` loop, the value of `x` is strictly decreasing by either setting it to `y` when `x > y` (which will lead to the value of `x` decreasing as x gets assigned the value of `y`, which is less than `x`), or by decrementing `x` by 1 when `x <= y`. The piecewise ranking function relies on `x` being decremented in every step of the loop, which guarantees eventual termination once `x` reaches 0.
+

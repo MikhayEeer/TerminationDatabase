@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. n^1 (if n > 0)  
+2. -n^1 (if n < 0)  
+
+The program is terminating because it recursively calls the `addition` function while decreasing the absolute value of `n` until it reaches zero, ensuring that the function will eventually terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n^1 for n > 0
+-m^1 for n < 0
+
+The recursive calls in the `addition` function work towards reducing the absolute value of `n` to zero. As `n` approaches zero, the recursion will terminate because the base case `if (n == 0)` returns a result without further recursion. The nested ranking function ensures that each recursive step makes progress towards termination by decreasing `n` when positive and increasing `n` when negative. Thus, the program terminates.
+

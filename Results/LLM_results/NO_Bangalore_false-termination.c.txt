@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating when `y <= 0` because `x` will never become negative, as `y` being non-positive means `x = x - y` will either increase or keep `x` the same, thus the loop `while (x >= 0)` runs indefinitely.
+

@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: -x + (2N + 1)
+Phase 2: -x + (N + 1)
+
+The program uses a nondeterministic choice to update the variable `x` by either `2*x + y` and incrementing `y`, or simply incrementing `x`. The ranking function is based on the value of `x` relative to `N`. Initially, `x <= N`, and the loop continues while `x <= N`. Depending on the choice:
+
+1. If `x` is updated to `2*x + y`: 
+   - This rapid increase in `x` is such that eventually, given a finite number of iterations and the initial constraint `x + y >= 0`, `x` will exceed `N`.
+   
+2. If `x` is incremented by 1:
+   - `x` incrementally increases and will eventually surpass `N`.
+
+The terminations can be effectively analyzed in two phases where different linear ranking functions are applied until `x > N` is reached.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1st phase: Linear Ranking Function
+-0.5 * x^1 + 0.5 * N^1
+
+The given program terminates because the variable `x` continuously increases with each iteration of the loop. The condition `x <= N` in the loop serves as the boundary, ensuring termination. Specifically, for the first phase, the linear ranking function `-0.5 * x^1 + 0.5 * N^1` decreases with each iteration as `x` increases, eventually surpassing `N` and causing the loop to exit. This proves termination under the assumption that no overflow occurs and values remain within the specified limits.
+

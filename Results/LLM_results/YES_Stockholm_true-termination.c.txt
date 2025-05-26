@@ -1,0 +1,13 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+linear  
+
+[RANKING FUNCTIONS]  
+f(x, a, b) = x  
+
+[EXPLANATION]  
+The program terminates with the linear ranking function f(x, a, b) = x when the loop invariant b >= a holds. Since the change in x during each iteration is x = x + (a - b) - 1, and given the precondition b >= a, it ensures that x decreases with each iteration. Therefore, the loop will eventually terminate when x becomes negative.
+

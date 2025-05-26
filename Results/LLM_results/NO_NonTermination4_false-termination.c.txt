@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The values of `x` and `y` grow exponentially due to the update rules `x = 2*x` and `y = 3*y`. The condition `x >= 0` will always hold true since `x` is non-negative and doubles on each iteration. Thus, the while loop never terminates.
+

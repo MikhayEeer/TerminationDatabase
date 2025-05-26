@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1st level function: (x_ref - z_ref)
+2nd level function: (y_ref - z_ref)
+
+Explanation:
+1. The outer loop is `while ((*x_ref == *y_ref) && (*x_ref > *z_ref))`.
+   Inside this loop, the `x_ref` and `y_ref` variables are equal initially and continue being modified similarly.
+   This condition is evaluated at the start, and once `x_ref` is no longer greater than `z_ref`, the loop will terminate.
+2. The inner loop `while (*y_ref > *z_ref)` executes only as long as `y_ref` is greater than `z_ref`.
+   Inside this loop, both `x_ref` and `y_ref` decrease by 1 in each iteration.
+
+The nested ranking functions demonstrate this loop's termination:
+- The outer loop can be terminated by checking `x_ref - z_ref` decreasing to zero.
+- The inner loop is terminated as `y_ref - z_ref` decreases to zero.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.802 * (x_ref - z_ref)^1 + 0.902 * 0^1 + 0.902 * 1
+0.081 * (y_ref - z_ref)^1 + 0.482 * 1 + 0.482 * 1
+
+Explanation: The program terminates because the first loop ensures `*x_ref == *y_ref` and `*x_ref > *z_ref`. The nested loop decreases both `*x_ref` and `*y_ref` simultaneously due to `*x_ref = *x_ref - 1;` and `*y_ref = *y_ref - 1;` and since both are initially equal and greater than `*z_ref`, the difference between `*x_ref` or `*y_ref` and `*z_ref` decreases, ensuring termination.
+

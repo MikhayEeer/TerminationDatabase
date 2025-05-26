@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: \( n - x \)  
+Phase 2: \(-1\)  
+
+Explanation: 
+
+1. **Phase 1:** The primary ranking function is \( n - x \). Each iteration essentially attempts to increment \( x \) by a more than linear factor (since \( x = 2*x + y \)), which will eventually cause the condition \( x > n \) to break, especially since \( x \) is always updated to be larger each time as long as it remains less than or equal to \( n \).
+
+2. **Phase 2:** This phase deals with situations when the transition condition is already violated, essentially serving as a constant phase, confirming termination once the first phase is complete and not re-enterable.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1. Phase 1:  `x + y`   
+   - The value of `x + y` decreases in each iteration of the loop due to the update `x = 2*x + y`. 
+   
+2. Phase 2:  `n - x`   
+   - This phase triggers the loop termination as the condition `x <= n` will eventually become false when the value of `n - x` is no longer positive.
+
+The given program is multi-phase terminating due to these ranking functions.
+

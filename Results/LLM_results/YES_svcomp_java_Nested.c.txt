@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1 * (12 - j) + 0 * 1 + 0 * 1
+
+[EXPLANATION]
+The loop is controlled by both `i` and `j`. The outer loop (`i`) runs a fixed number of times (10 iterations), and the inner loop (`j`) effectively decreases by 1 in every iteration until it reaches 11. As each iteration of the nested loop decreases the distance of `j` to 12, it ensures that the loop will eventually exit once `j` reaches the stopping criteria of the inner `for` loop. This behavior can be captured by a linear ranking function that models the decrease in `j`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+38 - 3.0 * i^1 - 1.0 * j^1
+

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+Piecewise function based on condition:  
+1. If x <= 1 or x >= 100, the loop does not execute, so the function trivially terminates.  
+2. If 1 < x < 100, x becomes x*x in each iteration. Since x is an integer and x >= 10 results in x*x >= 100 (which exits the loop), the loop will terminate in a finite number of steps.  
+
+Thus, a ranking function is constructed based on the behavior of x such that it exponentially increases and exits the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - x
+

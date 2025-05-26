@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+The program can be proven to terminate due to the following phases and transitions:
+1. The value of `r1` is initialized and incremented every time node1 operates in mode=1, with an upper bound presumably less than the largest value representable by a `char`. This bounds the number of iterations.
+2. The design exhibits a bounded loop structure: although the non-deterministic nature of the initial state variables suggests various execution paths, the primary constraint is the fixed loop iterations count, here explicitly coded as 6 (`while (i2 < 6)`).
+3. Each iteration of the main loop involves checking a limited set of states in `check()` before moving on; thus, there is no possibility of entering an infinite loop observing the bounded nature of the loop's indices and states.
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * 6 - 1.0 * i2^1
+
+The program is terminating as the value of `i2` is incremented in every iteration of the loop and is bounded by 6. The loop runs exactly 6 times and then exits, leading to program termination. The ranking function `6 - i2` demonstrates that in each iteration the value decreases by 1, heading to zero when `i2` reaches 6, thus ensuring termination.
+

@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. if `x > 0 && y > 0`, consider the function `f1(x, y) = x + y`, which decreases in both branches:  
+   - In the first branch, `f1(oldx, oldy)` becomes `oldx - 1 + oldx = 2*oldx - 1`, which is less than `x + y = oldx + oldy` if `oldy > 1`. 
+   - In the second branch, `f1(oldx, oldy)` becomes `oldy - 2 + oldx + 1 = oldy + oldx - 1`, which is less than `x + y` when `oldx + oldy >= 3`.  
+2. As `x` or `y` decreases non-negative monotonically and cannot decrease indefinitely while both remain positive, the function converges to zero, implying termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+If `x > y`, the ranking function is `x`. 
+If `x <= y`, the ranking function is `y`. 
+
+The piecewise ranking function demonstrates that in each iteration within the different cases, the values are decreased consistently leading to eventual termination. Specifically, when `x > y`, the value of `x` is guaranteed to decrease in at least one of the branches, ensuring termination. Similarly, when `x <= y`, the value of `y` decreases.
+

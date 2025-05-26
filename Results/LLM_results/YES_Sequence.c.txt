@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+100 - i (for the first loop)  
+21 - j (for the second loop)  
+
+Each loop independently decreases the distance to its respective termination condition: 'i' iterating towards 100 and 'j' iterating towards 21, demonstrating termination for the entire program.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - i
+21 - j
+
+This program is terminating. Each of the two loops has a linear ranking function: the first loop with ranking function 100 - i, and the second loop with ranking function 21 - j. In both cases, as the loop progresses, the value of the ranking function decreases, eventually leading to loop termination.
+

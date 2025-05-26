@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program is terminating. The main function calls `isOdd(n)` with a non-negative integer `n`. The recursion in `isOdd` and `isEven` each decrease `n` by 1 until it reaches 0 or 1, which are the base cases. Since `n` is non-negative and strictly decreases towards these base cases, the recursion will always terminate. The linear ranking function `n` demonstrates that `n` is decreased with each recursive call until termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. f(n) = n  
+2. f(n) = n - 1   
+
+The program is recursive in nature and terminates as the recursion decreases the value of `n` by 1 in each call, ensuring eventual termination. The base case is reached when `n` is 0 or 1, and both these cases are handled explicitly to stop recursion. Therefore, the main function will terminate as well.
+

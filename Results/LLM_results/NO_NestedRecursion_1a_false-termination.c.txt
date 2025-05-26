@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The mutual recursion between `rec1` and `rec2`, along with the increment operation in `rec2`, creates a scenario where the recursion depth can't be bounded, potentially leading to infinite descent in certain cases, resulting in non-termination. Specifically, `rec2(j)` with positive `j` may keep increasing `j` and making further recursive calls without reaching the base condition.
+

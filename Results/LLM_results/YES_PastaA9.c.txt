@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+z - x
+
+The program is terminating because within the `while` loop, the variable `z` is increased by `y` in each iteration. Since `y > 0`, `z` will eventually become greater than `x`, thus breaking the loop condition `x >= z`. This can be shown formally with the linear ranking function `z - x`, which decreases (actually, becomes more positive) on each iteration of the loop, since `z` increases with each iteration.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop `while (x >= z) { z = z + y; }` will not terminate if `y > 0` and `x < z` is initially false, because `z` keeps increasing by `y` and never decreases, so the condition `x >= z` will always remain true.
+

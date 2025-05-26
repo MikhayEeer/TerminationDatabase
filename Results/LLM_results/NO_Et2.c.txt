@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+b
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variables `a` and `b` can both remain positive or become positive indefinitely due to the influence of the nondeterministic variable `r` which can be assigned such values that prevent `b` from reaching a non-positive state. This can result in an infinite loop where `b` never becomes non-positive to exit the loop, thus the program is non-terminating.
+

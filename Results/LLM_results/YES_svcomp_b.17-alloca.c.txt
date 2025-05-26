@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  y_ref^1  
+1.0 *  x_ref^1
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 1.0 * 1  
+1.0 * y^1 + 1.0 * 1  
+
+This program is terminating. The nested structure of the loops allows for the derivation of a nested ranking function. In the outer loop, the variable `x_ref` decreases with each iteration until it's no longer greater than `z_ref`. Within the inner loop, the variable `y_ref` decreases until it is no longer greater than `z_ref`. Each of these loops reduces its respective variable monotonically, which ensures termination.
+

@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10 - i
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `i < 10` is always true as `i` is not being changed in the loop, resulting in an infinite loop.
+

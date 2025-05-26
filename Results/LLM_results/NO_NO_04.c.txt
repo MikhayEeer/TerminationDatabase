@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * 100 + -1.0 * i^1 + 1.0 * 1
+1.0 * ((i + 2)) + -1.0 * j^1 + 1.0 * 1
+1.0 * (i + j + 3) + 1.0 * 1 + 1.0 * 1
+1.0 * ((i + j + k + 4)) + -1.0 * l^1 + 1.0 * 1
+1.0 * (i + j + k + l + 1000) + 1.0 * 1 + 1.0 * 1
+
+The program terminates because each 'while' loop has a well-defined decreasing counter eventually leading to termination: 
+- The outermost 'while' loop decreases with the increment of `i` towards 100.
+- The nested loops reduce their respective counters (`j < a`, `k >= 0`, `l < b`) based on the values of `i`, `j`, `k`, and `l`. 
+All these results show that these loops will eventually reach their termination conditions.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The innermost loop controlled by variable `m` is infinite. The loop condition `while (m >= 0)` always holds since `m` is decremented by `0`, making no progress towards termination.
+

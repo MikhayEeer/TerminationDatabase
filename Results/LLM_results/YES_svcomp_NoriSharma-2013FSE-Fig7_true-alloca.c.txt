@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.5 * (M - i) + 0.5 * (N - j)
+
+The program is terminating because the increments of `*i` and `*j` within the loop ensure that both increment towards `*M` and `*N` respectively. Each iteration of the loop strictly decreases the sum of the distances to `*M` and `*N`, thus leading to termination.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `(*i < *M || *j < *N)` can always be true if `*M` and `*N` are set to values larger than the initial values of `*i` and `*j`. The program does not ensure that the loop exits, hence it is non-terminating.
+

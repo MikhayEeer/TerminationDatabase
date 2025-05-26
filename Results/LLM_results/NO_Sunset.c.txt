@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+f(i) = i - 10  
+
+The program is terminating because regardless of the initial value of `i`, the value decreases in each loop iteration when `i > 10` and eventually will become less than or equal to 10, causing the loop to terminate. The linear ranking function `f(i) = i - 10` is a measure of progress towards loop termination as it strictly decreases in each iteration of the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1
+

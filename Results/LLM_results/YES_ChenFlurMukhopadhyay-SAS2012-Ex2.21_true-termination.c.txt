@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 * x^2 + 1.5 * y^2 + 3.0 * 1  
+0.5 * y^2 + 1.5 * 1
+
+The program is terminating because the sequence formed by the value of `x` and the alternating flipping and decrementing of `y` ensures that `x` will eventually become non-positive, thus ending the loop. The ranking function decreases with each iteration of the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 *  x^1 + 0.5 * 1  
+
+

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+100000 - v
+
+The program is clearly terminating, as it processes a finite sequence of values (up to 100,000) in a loop that continuously increases the index `v` with each iteration until `v` reaches 100,000, at which point the program terminates. The ranking function `100000 - v` decreases consistently with each iteration of the loop, guaranteeing that the loop will eventually exit.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100000 - v
+
+Explanation: The program contains two nested loops to check for duplicates in the "set" array, which are guaranteed by the logic to be non-existent since 'elem_exists' always returns 0 in the given context, thus implying no real checks are made and no error will occur. The primary focus is the second loop iterating up to 100000 times based on 'v'. Since 'v' monotonically increases up to 100000, a linear ranking function 100000 - v consistently decreases, proving program termination.
+

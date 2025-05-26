@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * a^1  
+Phase 2: 1.0 * b^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  a^1
+
+The program terminates because the value of `a` decreases consistently each time the loop executes, due to the operation `a = a + b` and the transformations on `b`. Specifically, when `b` is non-negative, it becomes negative, ensuring the overall decrease of `a`. When `b` is negative, it flips to a positive, which is effectively mitigated by the overall decrease from the previous state. Consequently, `a` will eventually become negative, terminating the loop. This behavior can be proven using a multi-phase ranking function based solely on `a`.
+

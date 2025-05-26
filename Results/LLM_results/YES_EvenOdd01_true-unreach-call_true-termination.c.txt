@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program makes recursive calls decrements the integer `n` by 1 in each step, reducing its value towards 0. Since `n` is initialized with a non-negative value and strictly decreases with each function call, this guarantees termination. Thus, the ranking function is `n` itself, which is a linear function showcasing strictly decreasing behavior in the recursion.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n for each call of isOdd and isEven functions with n > 0
+
+The program utilizes mutually recursive functions `isOdd` and `isEven` to determine whether a number is odd or even. The termination depends on the recursive call reducing the input `n` by 1 each time (`n - 1`), eventually reaching a base case of `n = 0` or `n = 1`. This ensures that each call reduces the problem size and will terminate given `n >= 0`. Thus, a nested ranking function based on the decreasing variable `n` is used to justify termination.
+

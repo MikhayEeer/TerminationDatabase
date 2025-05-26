@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * i^1
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program does not terminate because if `i` is initialized as 5, the value of `i` will remain 5 in each iteration of the loop, causing an infinite loop.
+

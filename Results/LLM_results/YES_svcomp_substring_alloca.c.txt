@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (length1 - length2)^1
+0.5 * length2^1
+
+The program will terminate because the `substring` function processes each character of the strings `s` and `t`. The first `while` loop iterates through each character of string `s` and its nested `while` loop compares each character of `t` with a corresponding segment of `s`. Since both strings are null-terminated and must have at least one character (due to the input constraints), the process will eventually reach the null character at the end of these strings, causing both loops to terminate. The specified ranking functions capture the decrease in the potential mismatch length between the substring `t` and the segments of `s`, eventually reaching zero.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1. Decrease in \(*ps\) leads towards terminator '\0', which eventually decreases the distance to the end of the string. Hence, the outer while loop progresses towards termination.
+2. In the nested loop with pointers \(ps2\) and \(pt\), once \(pt\) reaches '\0', it indicates a possible substring match leading to termination, or alternatively, it directs \(ps\) one step closer to its terminating condition. 
+
+The combination of string traversal ensuring a progressive move towards null characters and pointer incrementation in both loops ensures termination of the nested loops, proving that the overarching function is terminating.
+

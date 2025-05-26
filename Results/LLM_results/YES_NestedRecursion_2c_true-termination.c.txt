@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+The function `g` with input `x` eventually reaches the base case where `x == 0`, due to the nature of its recursive calls `g(x - 1)` and further nesting in `g(g(x - 1) - 1)`. Here, either in the first or nested call, the value will reduce to zero as `x` is a positive integer initially. 
+By tracking the depth of recursive calls, we observe that it decreases and ultimately stops at the base case `x == 0`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+The recursion depth of function `g(x)` decreases with each call because `x` is decremented each time `g(x - 1)` is called. The function ultimately reaches the base case `g(0)`, where x is 0. Therefore, the nested calls gradually reduce towards this base case, indicating termination.
+

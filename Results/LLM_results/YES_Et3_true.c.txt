@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of 'a' keeps increasing because 'a' is incremented by 'b' in each recursive call; if 'b' is initially positive and large enough, 'a' can indefinitely increase without reaching the termination condition 'a <= 0'.
+

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program's termination can be reasoned as follows: The function `init_list` is called with a parameter `n`, and each recursive call decrements `n` by 1. When `n` reaches 0, the recursion stops and the function returns `NULL`. Therefore, the program terminates because the recursive calls are bounded by `n`, a nondeterministic but finite integer, which serves as a linear ranking function.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n
+
+The program is terminating. The `main` function initializes a linked list with a length determined by `n`, and since `n` must be non-negative for the list to be created, the recursive function `init_list` will eventually terminate when `n` reaches zero. Thus, `n` acts as a ranking function here, showing a strictly decreasing path to reach termination.
+

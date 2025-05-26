@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+(death - life)
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+death - life 
+
+Explanation: In the given program, the loop condition is `life < death`, and within the loop, `death` is assigned the value of `life + 1`, and `life` is assigned the initial value of `death`, which effectively ensures that `death - life` reduces by at least 1 during each iteration of the loop (as long as the loop condition holds). The loop eventually terminates when `life` is no longer less than `death`, making the program terminating.
+

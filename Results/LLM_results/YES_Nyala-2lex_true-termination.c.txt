@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+x
+y
+
+The program is terminating and can be proven by the lexicographic ranking function <x, y>. Here, x is non-negative and decreases, while y decreases until it becomes negative and resets to a nondeterministic value. Once x is negative, the loop will terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+f(x, y) = <x, y>
+
+The program has a lexicographic ranking function where the tuple <x, y> is used. The first component x decreases when y < 0, and the second component y decreases in every iteration of the loop. Since x is non-negative and decreases when necessary, and y decreases until it goes negative, the program is terminating.
+

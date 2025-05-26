@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (x + y)^1 
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (x_ref + y_ref)^1  
+In this program, the sum of `*x_ref` and `*y_ref` is used as a ranking function. Since the value of `*x_ref + *y_ref` decreases in each step of the loop, and the loop condition is `*x_ref + *y_ref > 0`, the ranking function eventually reaches 0 and thus ensures that the program terminates.
+

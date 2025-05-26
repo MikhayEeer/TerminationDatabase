@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 * x^1 + 0.5 * y^1  
+0.5 * y^1 - 0.5 * 1  
+
+This program is terminating and can be proved using a multi-phase ranking function. The ranking function decreases over successive loop iterations due to the expression `y = (-2)*y - 1`, which causes `y` to decrease with large negative steps, ensuring termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st phase:  
+0.5 * y^2 + 0.5 * y + 1 * x 
+
+2nd phase:  
+0.5 * x^1 + 1 * 1
+

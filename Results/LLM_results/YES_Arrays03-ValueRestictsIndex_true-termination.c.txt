@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+Explanation: The loops condition `while(x >= 0)` references the nondeterministic integer `x` and decreases `x` by the non-zero integer `k` (as `a[0] != a[k]` implies `k != 0`) in each iteration. Therefore, `x` is a linear ranking function that will eventually become negative due to continuous decrement by `k`. The terminating condition is that `x < 0`, at which point the loop will terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1
+

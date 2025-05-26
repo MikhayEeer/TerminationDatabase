@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program repeatedly computes the remainder of `x` divided by `y` and assigns it to `y`, with `x` assigned the previous value of `y`. This can create loops where the values keep cycling without reaching a base case, leading to non-termination in some scenarios.
+

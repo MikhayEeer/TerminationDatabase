@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTIONS]  
+The program can be shown to terminate by considering a non-linear ranking function that leverages the exponential growth of `x`. Specifically, a potential function is `f(x, y, z) = z - x`. As the loop iterates, `x` increases significantly (since `x` is updated with `2*x + y`), eventually breaking out of the condition `x <= z`, hence the loop is terminating.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+f(x, y, z) = z - x 
+

@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The function `rec` always returns a positive integer when called with positive `a`, leading to an infinite loop in `main` as `res < 1` never becomes false.
+

@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+da - r  
+
+The program is terminating because the value of `da` consistently decreases with each iteration of the loop either through decrement (`da--`) or through the operation `da = db - 1` which ensures `da` decreases since `db = 2 * r` initially and `da >= r`, the while loop enforces that `da` will eventually become less than `r`, causing termination. The ranking function `da - r` decreases with each iteration until it reaches a value less than zero, at which point the loop terminates.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * da^1 + 0.0 * 1  
+1.0 * db^1 + 0.0 * 1  
+
+The program is terminating. The ranking function is a multi-phase ranking function, with each phase corresponding to either the decrease in `da` or `db` in a specific manner such that they eventually fall below `r`, making the loop terminate.
+

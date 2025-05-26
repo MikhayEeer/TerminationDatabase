@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+b - c
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating because the condition `(b - c >= 1)` combined with the assignment `b = 10` ensures that `c` can always be incremented to meet the condition again after each recursive call. Since `c` is incremented by at least 1 in each iteration with `c = c + 1 + r` and `r` can be any non-negative number, the condition `(b - c >= 1)` will always remain true if initially true. Thus, the recursion can continue indefinitely.
+

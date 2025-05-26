@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The inner loop `while (j > 0)` increments `j` indefinitely once `j` is positive, causing the program to potentially run infinitely for some values of `i`.
+

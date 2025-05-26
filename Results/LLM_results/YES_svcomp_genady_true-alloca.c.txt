@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (i - j)
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (i - j) + 0.0
+
+The ranking function \( i - j \) shows a linear decrease as the loop progresses. Initially, \( i = 10000 \) and \( j = 1 \), so \( i - j = 9999 \). On each loop iteration, \( i \) is decremented by 1 and \( j \) is incremented by 1, effectively reducing \( i - j \) by 2 in every loop iteration. Since both \( i \) and \( j \) are modified in such a way that \( i - j \) is strictly decreasing towards zero, the loop terminates.
+

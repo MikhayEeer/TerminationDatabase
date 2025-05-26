@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (x + y)^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+x + y
+
+The program is terminating because each iteration of the loop reduces the sum of `x` and `y` by at least 1, as long as the sum is greater than 0. This serves as a linear ranking function that strictly decreases in every loop iteration, eventually reaching zero and causing the loop to exit.
+

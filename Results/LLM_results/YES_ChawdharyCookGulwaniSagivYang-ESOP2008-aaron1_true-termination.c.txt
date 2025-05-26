@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can potentially loop indefinitely due to non-deterministic updates of `i` and `j`, where conditions on `an` and `bn` may not necessarily be falsified with each iteration, allowing potentially infinite cycles.
+

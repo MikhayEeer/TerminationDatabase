@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The recursive calls in function `p` can indefinitely swap the arguments without reaching the base case. For example, if all initial values are positive, the function keeps calling itself with positive values by flipping and decrementing them, which can prevent reaching the base case where `m`, `n`, and `r` are all zero or negative.
+

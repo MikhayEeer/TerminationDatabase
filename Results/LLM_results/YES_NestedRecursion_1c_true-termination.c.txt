@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1 for rec1
+1.0 * j^1 for rec2
+
+The recursion in functions `rec1` and `rec2` involve decreasing the arguments `i` and `j`, respectively. The function `rec1` eventually reaches the base case when `i` becomes non-positive, and similarly, `rec2` reaches its base case when `j` becomes non-positive. This guarantees termination, as measured by the ranking functions given for each recursive function, where the argument decreases with each recursive call.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+For `rec1(int i)`:
+1. `i` as it strictly decreases with each recursive call until it reaches 0, which serves as a base case.
+
+For `rec2(int j)`:
+1. `j` as it strictly decreases with each recursive call until it reaches 0, which serves as a base case.
+
+The nested ranking function shows that both `rec1` and `rec2` are terminating due to the well-founded nature of the integer domain and the strictly decreasing arguments in recursive calls. This concludes that `main()` will also terminate as it calls `rec2` with a non-deterministic integer.
+

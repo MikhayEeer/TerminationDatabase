@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1.0 * i^1
+1.0 * j^1
+
+The provided program is terminating, and this can be proven using a lexicographic ranking function. The outer loop, which decrements `i`, guarantees that the first component of the lexicographic tuple will eventually reach zero. Within each iteration of the outer loop, the inner loop decrements `j` from `N` to zero, ensuring the second component decreases and terminates before another iteration of the outer loop begins. Thus, the program always makes progress toward termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * i^1 + 1.0 * 1  
+1.0 * j^1 + 1.0 * 1  
+
+This program is terminating. The outer loop is controlled by the variable `i`, which decreases with every iteration, ensuring termination. For each fixed value of `i`, the inner loop is controlled by the variable `j`, which also decreases with each iteration of the inner loop and resets back to `N` when `i` is decremented. This ensures that for every complete execution of the inner loop, `i` decreases, eventually reaching 0, thus causing the program to terminate. The ranking functions provided show a multi-phase decrease that accounts for the decrease in both `i` and `j`.
+

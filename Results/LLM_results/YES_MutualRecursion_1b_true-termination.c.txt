@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+For function `f`:  
+  - If \(\ x \leq 0 \), then return 0 (base case).  
+  - If \(\ x > 0 \), then the rank decreases as \(g(x) + g(x+1)\) depends on values of \(x-2\) and \(x-3\) which are smaller than \(x\).
+
+For function `g`:  
+  - If \(\ x \leq 0 \), then return 0 (base case).  
+  - If \(\ x > 0 \), then the rank decreases as \(f(x-2) + f(x-3)\) also deals with inputs that are smaller than \(x\).
+  
+The recursive calls in both functions `f` and `g` ensure that the arguments decrease eventually leading to the base case, thereby demonstrating termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+The functions `f` and `g` are mutually recursive, but they ultimately decrease the value of `x` being passed either directly or indirectly through a well-founded ordering:
+1. `f(x)` decreases `x` by eventually calling `g(x - 2)` and `g(x - 3)`.
+2. `g(x)` decreases `x` by eventually calling `f(x - 2)` and `f(x - 3)`.
+
+By this mutual recursion and the decreasing measure on `x`, it is guaranteed to reach cases where `x` is less than or equal to 0, thus terminating. The ranking function is implicitly defined through recursive depth decrease as a piecewise construction by switching between `f` and `g` with guaranteed decreasing arguments leading to base cases.
+

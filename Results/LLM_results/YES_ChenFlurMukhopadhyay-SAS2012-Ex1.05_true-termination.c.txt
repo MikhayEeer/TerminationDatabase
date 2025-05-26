@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+old_x - 2*x
+
+The program is terminating and can be proved by the linear ranking function `old_x - 2*x`. The loop will terminate because `x` is updated to a value such that `2*x <= old_x`, which decreases the ranking function and eventually exits the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1
+
+This program is terminating, as the value of `x` is bounded and decreases unless the loop is exited due to the `break` statement when the condition `2*x > old_x` is met. The linear ranking function `1.0 * x` demonstrates this by providing a measure that is strictly decreasing in each loop iteration where the loop continues.
+

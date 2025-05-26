@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The condition `x > y` in the while loop can be repeatedly satisfied if `x` is greater than the initial value of `y`. As `y` increases in each iteration by adding `x` to it, if the increase is not sufficient to equal or exceed `x`, the loop will continue indefinitely. Thus, the program is non-terminating in certain cases.
+

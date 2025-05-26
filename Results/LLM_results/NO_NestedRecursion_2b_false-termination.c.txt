@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The function `g` performs nested recursive calls that do not have a guaranteed base case, leading to infinite recursion for positive `x`.
+

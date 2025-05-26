@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The length of the input string `s` as a linear ranking function.
+
+Explanation: The function `cstrlen` traverses a null-terminated string from start to end. Each step of the loop reduces the number of remaining characters to check until the termination condition (`*p != '\0'`) is met. This condition ensures that regardless of the starting length, the loop will eventually terminate when it reaches the null terminator. Hence, the program is guaranteed to terminate for any input string.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+number of characters until the null terminator ('\0')  
+
+The program terminates because the function `cstrlen` computes the length of a null-terminated string by iteratively moving the pointer `p` until it reaches the null termination character `\0`. Since the string retrieved from `__VERIFIER_nondet_String` is always null-terminated, `cstrlen` will always terminate after traversing the length of the string.
+

@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The recursive function `A` calls itself with swapped arguments when `a1` is non-zero, creating potential infinite recursion since there is no base case that guarantees termination or reduces the problem size.
+

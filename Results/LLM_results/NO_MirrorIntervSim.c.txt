@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+{\(i \text{ within } [-5, 0) \): \( -i \)}  
+{\(i \text{ within } [0, 30] \): \( i \)}  
+{\(i \text{ within } (30, 35] \): \( i - 30 \)}  
+
+The program is terminating because the value of `i` decreases in a bounded manner within each of the specified intervals, eventually reaching zero, which causes the loop to exit.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. When -5 <= i < 0, the function assigns i = -5, which only happens once and thus doesn't iterate, leading to a termination.  
+2. When 0 <= i <= 30, the ranking function is i, which decreases by 1 in each iteration until i = 0.  
+3. When 30 < i <= 35, the function assigns i = 35, followed by i = i-1 in the next iteration, which reduces i until it reaches 0, ensuring termination.  
+4. When i < -5 or i > 35, the function assigns i = 0, causing immediate termination.  
+

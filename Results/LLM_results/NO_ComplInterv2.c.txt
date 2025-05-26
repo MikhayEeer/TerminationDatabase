@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+if (i > 0) then i  
+if (i < 0) then -i
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For i < 0: -i
+For i > 0: i
+
+The program will terminate because the value of `i` approaches zero in each iteration when within the bounds of -5 and 5. The ranking functions -i and i are strictly decreasing for i < 0 and i > 0 respectively, ensuring termination.
+

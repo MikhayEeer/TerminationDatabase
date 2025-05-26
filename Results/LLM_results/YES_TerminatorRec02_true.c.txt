@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+x^1
+
+The program is terminating because the `fact` function calculates the factorial of a non-negative integer `x`, and each recursive call decreases the value of `x` by 1 until it reaches the base case. The recursion stops when `x <= 1`, ensuring termination. The main function only calls `fact` with a non-negative value of `x`, further guaranteeing that the program will terminate. The ranking function `x^1` describes the decreasing nature of the recursive calls as the input `x` decreases.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x
+
+Explanation: The function `fact` is a recursive implementation of calculating the factorial of a number. It decreases the argument `x` with each recursive call of `fact(x - 1)`, making a base case at `x <= 1`, ensuring that eventually the recursion will stop and return a value. The function is called with the value of `x` from `__VERIFIER_nondet_int()`, but it contains a guard to check if `x` is negative. If `x` is negative, `main` returns without calling `fact`. Therefore, under these conditions, the program terminates. The ranking function is simply `x` as each recursive call reduces `x` by 1 until `x` reaches 1.
+
+Note: The nondeterministic nature here is safely handled by programmatically ensuring `fact` is only called with non-negative `x`.
+

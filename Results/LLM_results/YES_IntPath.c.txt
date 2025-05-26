@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program contains a non-terminating loop `while (x == y) { }` because once inside the loop, the variables `x` and `y` remain unchanged, and the condition `x == y` remains true.
+

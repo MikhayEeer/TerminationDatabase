@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (n - i)^1 + 0.0  
+1.0 * (i + 1 - j)^1 + 0.0  
+
+Explanation:
+
+The program's structure involves a nested loop where the outer loop iterates over the variable `i` from 0 to `n-1`, and the inner loop iterates over `j` with an increment of `k` starting from 0. The termination of the outer loop is handled by a straightforward ranking function `n - i` which decreases by 1 in each iteration of the outer loop. The inner loop termination is guaranteed by `i + 1 - j`, as `j` is incremented by `k` in each iteration until it exceeds `i`. Since `k` is at least 1, `j` will definitely exceed `i`, hence ensuring termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n - 1.0 * i  
+1.0 * i + 1.0 - 1.0 * j
+

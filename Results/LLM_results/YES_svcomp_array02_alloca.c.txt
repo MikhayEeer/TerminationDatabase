@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+For outer loop (over `i`): `N - i`  
+For inner loops (over `a[i]`): Absolute value of `a[i]`  
+
+The program is terminating because the outer loop iterates over the array of size `N` and the inner loops guarantee to make `a[i]` zero in finite steps, thus eventually terminating both inner loops for every element of the array.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: ∑(max(0, -a[i])) for each a[i] < 0  
+Phase 2: ∑(max(0, a[i])) for each a[i] > 0  
+
+The program is terminating because for each `a[i] < 0`, the first while loop systematically increases `a[i]` until it reaches zero, decreasing the number of negative elements (`neg`) in the process. Once all negative elements have been incremented to zero (end of Phase 1), for each `a[i] > 0`, the second while loop decreases `a[i]` until it reaches zero, decreasing the number of positive elements (`pos`) in the process. Thus, all elements converge to zero, leading the loops to eventually terminate.
+

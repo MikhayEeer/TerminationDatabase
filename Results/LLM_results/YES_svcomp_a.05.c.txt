@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+x - y - 1
+
+This ranking function decreases by 1 with each iteration of the loop, ensuring termination when the condition `x >= y + 1` is no longer satisfied.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - y - 1
+
+The program is terminating because, within the loop, the value of `y` is incremented by 1 in each iteration while `x` remains the same. This means that the difference `x - y` is strictly decreasing with each loop iteration. Once `y` becomes equal to or greater than `x`, the loop condition `x >= y + 1` will evaluate to false, causing the loop to terminate. The ranking function `x - y - 1` demonstrates this strictly decreasing nature, proving termination.
+

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * y^1  
+
+Explanation: The loop in the function `test_fun` iterates while the value of `*y_ref` is greater than zero, and with each iteration, `*y_ref` is decremented by 1. This ensures that it will eventually reach zero, making the loop terminate. Thus, a linear ranking function based on `y` is used to prove termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1 * y^1 
+

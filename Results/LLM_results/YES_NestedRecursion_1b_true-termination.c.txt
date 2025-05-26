@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The mutual recursive calls in `rec1` and `rec2`, along with non-deterministic input from `__VERIFIER_nondet_int()`, can result in infinite recursion due to lack of guaranteed decrease in the arguments of the recursive calls.
+

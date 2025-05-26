@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop can oscillate in the range 29 to 30. When `i` is 30, it decreases to 29, and when it is 29, it increases back to 30, causing an infinite cycle without termination.
+

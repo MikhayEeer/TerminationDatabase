@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+If `x_ref` > `y_ref`: 
+  Decrease `x_ref` to `y_ref`. The function proceeds to terminate as `x_ref` eventually becomes `0` or negative.
+
+Else:
+  Primary phase reducing via `x_ref = x_ref - 1`, ensuring `x_ref` decreases until zero is reached.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter into an infinite loop if `y > 0` initially and remains positive, with `x` and `y` such that `x > y` or `x > 0` continually decreasing `x` by one without ever reaching zero.
+

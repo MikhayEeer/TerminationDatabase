@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n - 1.0 * x  
+1.0 * m - 1.0 * x  
+
+Explanation: The program consists of two phases marked by the two `while` loops. In the first loop, the variable `x` is incremented while it is less than `n`, yielding the ranking function `1.0 * n - 1.0 * x`, which decrements at every iteration. Once `x` reaches a value greater than or equal to `n`, the first loop terminates. Similarly, in the second loop, `x` is incremented while it is less than `m`, with the ranking function `1.0 * m - 1.0 * x`, which also decrements in every iteration until `x` ≥ `m`. Eventually, both loops terminate when the respective conditions are no longer satisfied, ensuring program termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+Phase 1: In the first loop where `x < n`, the ranking function can be `n - x`.
+Phase 2: In the second loop where `x < m`, the ranking function can be `m - x`.  
+
+Each phase strictly decreases every iteration in its corresponding loop until `x` reaches `n` in the first loop and `m` in the second loop, making the overall program terminating.
+

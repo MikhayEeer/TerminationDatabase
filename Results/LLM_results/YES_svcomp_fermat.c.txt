@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st phase: c, which decreases until it exceeds MAX  
+2nd phase: b, which resets to 1 when c increases and itself increases until it exceeds MAX  
+3rd phase: a, which resets to 1 when b increases and itself increases until it exceeds MAX  
+
+Explanation: This program will terminate because it iterates over a finite bounded space defined by `1 <= a, b, c <= MAX`. Once `c` exceeds `MAX`, the loop breaks. The nested loops increment in a way that fully explores this bounded space, and thus terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1000000 - c * 1000000 - b * 1000 - a
+

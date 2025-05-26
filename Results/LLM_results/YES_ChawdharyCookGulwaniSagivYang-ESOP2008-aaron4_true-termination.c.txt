@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (tk + 1 - k)^1 + 0.0  
+0.0  
+
+
+
+Explanation:  
+The program will terminate because the value of `k` always decreases in each iteration of the loop according to a condition in the loop guard: `k >= tk + 1`. In addition, the values of `i` and `j` being updated do not affect this condition significantly in a way that could violate the loop's termination. Therefore, a multi-phase ranking function is given based on the decrement of `k`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (i - an) + 1.0 * (j - bn)
+1.0 * (k - tk)
+

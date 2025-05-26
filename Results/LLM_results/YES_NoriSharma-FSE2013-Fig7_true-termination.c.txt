@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(M - i) + (N - j)
+
+The program is terminating because as long as `i < M` or `j < N`, the loop continues to execute, incrementing both `i` and `j` in each iteration. This decreases the values of `(M-i) + (N-j)`, which starts as non-negative and strictly decreases towards zero at each step. The loop exits when both conditions `i < M` and `j < N` are false, which sooner or later will happen since both `i` and `j` are increasing monotonically. The linear ranking function, `(M - i) + (N - j)`, explicitly shows this progress towards termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+(M - i) + (N - j)  
+
+The program is terminating as there is a clear ranking function: \( (M - i) + (N - j) \). This function decreases with each iteration of the loop, given that \( i \) and \( j \) both increase by 1, and eventually the condition \( i < M || j < N \) will be false, causing the loop to terminate.
+

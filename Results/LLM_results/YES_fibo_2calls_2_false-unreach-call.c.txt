@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n 
+
+The program is terminating because the Fibonacci function calculations (`fibo1` and `fibo2`) recursively reduce the value of `n` until they reach a base case (`n < 1` or `n == 1`). Each recursive call decreases `n` by 1 or 2, eventually reaching the terminating condition. The linear ranking function `n` ensures termination since the value of `n` is always decreasing and bounded by its base cases.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0 * 1 + 0.0 * 1
+
+Explanation:
+
+The recursive Fibonacci computation is based on decrementing the input value `n` until hitting base cases (`n < 1` or `n == 1`). Each recursive call decreases the value of `n`, ensuring that eventually, all calls will hit the base cases, causing termination. The multi-phase ranking function handles the multiple recursive calls efficiently.
+

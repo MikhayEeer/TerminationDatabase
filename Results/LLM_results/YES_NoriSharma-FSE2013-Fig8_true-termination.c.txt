@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+-1.0 * y^1 + 0.0 * 1  
+-1.0 * z^1 + 0.0 * 1  
+
+The program terminates because it uses a multi-phase ranking function where the first phase decreases `y` and moves away from the loop condition `x >= y`, eventually causing it to become false. The secondary phase ensures that the loop exits as `z` decreases to 1, preventing `x` from increasing indefinitely when `z` is greater than 1.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * x^1 - 1.0 * y^1  
+Phase 2: 1.0 * z^1
+

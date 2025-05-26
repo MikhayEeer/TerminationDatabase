@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1 * x^1 + 0.5 * 1
+
+This program is terminating as the linear ranking function `-1 * x^1 + 0.5` shows. In the loop `while (*x > 0)`, the value of `*x` strictly decreases by `*d` which is either 0 or 1, meaning the loop will eventually terminate as long as `*x` is initially a positive number and `*d` is not zero. Since `*d` starts at 1 in the main function, and there are various conditions to potentially decrease it, it can never become negative, thus ensuring eventual termination as `*x` decreases in each iteration.
+

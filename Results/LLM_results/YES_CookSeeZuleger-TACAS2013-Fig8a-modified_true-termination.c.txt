@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|x - K|
+
+This program is terminating because in each iteration of the loop, the absolute difference between `x` and `K` (i.e., `|x - K|`) decreases by exactly 1, regardless of whether `x` is greater or less than `K`. Since `|x - K|` is a non-negative integer that strictly decreases in every iteration, it serves as a linear ranking function ensuring termination. Eventually, `x` will become equal to `K`, and the loop will terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+|x - K|  
+
+The program is terminating because, in each iteration of the loop, the absolute difference between `x` and `K` (`|x - K|`) strictly decreases by 1, which means it will eventually reach 0 when `x` equals `K`. This provides a linear ranking function showing the termination of the loop.
+

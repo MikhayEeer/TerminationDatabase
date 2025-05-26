@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x_ref + 1.0 * y_ref  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - y
+
+The program is terminating because the function `quot` has a clear linear ranking function for each iteration of the loop, which is `x - y`. At each iteration, the loop decreases the value of `*x_ref` by `1`, and decreases `*y_ref` by `1` (through `*x_ref = (*x_ref - 1) - (*y_ref - 1);`, which simplifies to `*x_ref = *x_ref - *y_ref`). Since both `*x_ref` and `*y_ref` remain positive while in the loop and are non-increasing, the loop eventually terminates when `*x_ref` becomes non-positive while `*y_ref` is still positive. Hence, there is no possibility of infinite execution, confirming the program's termination.
+

@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop in `do_write_p` and `do_read_c` functions, which are continuously called within `eval` while `exists_runnable_thread` returns true. Furthermore, there is a lack of state updates or conditions in these loops that would eventually cause `exists_runnable_thread` to return false, leading to non-termination.
+

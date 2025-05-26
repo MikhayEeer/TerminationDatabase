@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The condition `x == 2*(*tmp_ref)` in the loop can continuously become true due to calls to `__VERIFIER_nondet_int()`, allowing the loop to execute indefinitely if `x_ref` is initially positive and `x` non-deterministically remains double the value of `tmp_ref` refelected in memory via `*tmp_ref`.
+

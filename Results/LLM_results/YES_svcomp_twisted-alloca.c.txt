@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop with alternating control flow between label L1 and L2 without guaranteed exit conditions. Specifically, the loop at L1 increments `*i` but with the `continue` statement, it may cause indefinite repetition, especially when `*i` becomes even. This keeps leading to a `goto L2`, where `*j` is incremented but is quickly reset to L1 once the condition at L2 fails. Thus, the program can loop infinitely without termination.
+

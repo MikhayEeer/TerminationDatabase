@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 *  x_ref^1 + 1.0 *  y_ref^1  
+
+The program terminates as both `x_ref` and `y_ref` decrease by 1 in each loop iteration when they are greater than zero and become non-positive eventually. The value `x_ref + y_ref` acts as a linear ranking function which decreases in each step, proving termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+lexicographic  
+[RANKING FUNCTIONS]  
+1.0 *  x_ref^1 + 0.0 * 1  
+1.0 *  y_ref^1 + 0.0 * 1  
+
+The program is terminating because the loop iteratively decreases the values of `x_ref` and `y_ref`, both of which are bounded below by 0. In each iteration, either `x_ref` or `y_ref` is decremented by 1 if it is greater than 0, thus ensuring that the loop will eventually terminate. The ranking function is lexicographic with decreasing components for `x_ref` and `y_ref`.
+

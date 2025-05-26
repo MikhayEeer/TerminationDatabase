@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program terminates because the function `cstrncpy` decrements `n` in each iteration of the loop until `n` reaches zero or a null character is found in `s2`. As `n` is initially set to a non-negative integer and is strictly decreased in each iteration, the loop will eventually terminate, making the overall program terminating. The linear ranking function `n` captures this decrease in each loop iteration.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1  
+0.0  
+
+Explanation: 
+
+The function `cstrncpy` uses a loop to copy characters from `s2` to `s1` until either `n` becomes zero or a null character is encountered. The variable `n` decreases linearly with each iteration, serving as a valid linear ranking function that ensures termination because it is bounded below by 0 (it cannot take negative values). Once the loop inside `cstrncpy` exits, the rest of the program completes with no additional loops or recursive calls, confirming the program's termination.
+

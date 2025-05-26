@@ -1,0 +1,6 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `x > y` becomes false only if `y` becomes greater than or equal to `x`. However, inside the loop, `y` is updated as `y = x + y`, which makes `y` larger in every iteration. Since `x` remains constant, if initially `x > 0` and `x > y`, the increment of `y` will never stop, leading to an infinite loop.
+

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: The outer loop decreases with the ranking function f1 = *i_ref  
+Phase 2: The inner loop terminates since it decreases with the ranking function f2 = *i_ref - *j_ref
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+lexicographic  
+[RANKING FUNCTIONS]  
+1. *i_ref^1  
+*j_ref^1  
+

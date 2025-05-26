@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Length of `s1` minus the position of `*sc1` in `s1` 
+Length of `s2` minus the position of `*s` in `s2`
+
+The program terminates because the `cstrcspn` function iterates over the characters of two strings `s1` and `s2`, and returns an integer once a matching character is found or at the end of `s1`. The progress through each string is strictly decrementing as the loops iterate, ensuring termination. The allocation of `nondetString1` and `nondetString2` with a terminating null character guarantees that the loops over the strings will eventually terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: Decrease in pointer difference
+Function: \( f_1(sc1) = \text{length1} - (sc1 - s1) \)
+Phase 2: Inner loop progression when conditions met
+Function: \( f_2(s) = \text{length2} - (s - s2) \)
+
+Explanation:
+1. The outer loop iterates over `sc1`, which starts at `s1` and moves towards the null character, which serves as a natural bound. The difference `sc1 - s1` is bounded by `length1` due to `nondetString1[length1-1] = '\0';`.
+2. The inner loop iterates over `s`, checking each character against `c`. This loop is bounded by `length2` because `nondetString2[length2-1] = '\0';`. 
+3. When a match is found or the inner string (`s2`) is fully traversed without a match, the loop breaks, ensuring progression towards termination.
+

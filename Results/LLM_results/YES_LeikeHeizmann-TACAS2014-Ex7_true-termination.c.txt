@@ -1,0 +1,27 @@
+=== Response 1 ===
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * q + 1.0 * z^1
+1.0 * q
+```
+
+This program is terminating. It has a multi-phase ranking function as detailed in the explanation provided in the comment of the code itself. The two-phase ranking function: 
+
+1. \( f_0(x, y) = 2q + z \)
+2. \( f_1(x, y) = q \)
+
+This function ensures that during each cycle of the loop, the value strictly decreases which implies termination of the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+2.0 * q + 1.0 * z  
+1.0 * q
+

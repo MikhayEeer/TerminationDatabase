@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+1.0 * y^1 + 0.0 * 1
+
+The program is terminating because it has the following properties:
+- In the first phase, whenever `random < 42`, the value of `x` is decreased by 1, and although `y` is assigned a nondeterministic value, `x` is consistently reduced until it is no longer positive.
+- In the second phase, when `random >= 42`, `y` is decreased by 1, moving towards termination.
+
+The combination of both phases ensures that the loop will eventually terminate as both `x` and `y` decrease over time, leading to the condition `x > 0 && y > 0` eventually becoming false. Thus, a multi-phase ranking function is suitable to show termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+0.0 * y^1
+
