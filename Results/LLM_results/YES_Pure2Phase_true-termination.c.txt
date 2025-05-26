@@ -1,20 +1,22 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1st phase: 1.0 * y^1
-2nd phase: 1.0 * z^1
-
-Explanation: The program has a 2-phase termination. In the first phase, as long as `y` is non-negative, the while loop decreases `y` by 1, eventually reaching a negative value. When `y` becomes negative, the program moves to the second phase where it decreases `z` by 1 in each loop iteration. Since `z` is initialized to be non-negative and decreases without being reset to a higher value (which could only happen when `y >= 0`), it will eventually become negative, allowing the loop to terminate. The sequence of events assures termination through these two phases.
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
 1.0 * z^1  
-1.0 * y^1  
+1.0 * y^1 + 1.0  
+
+=== Response 2 ===
+```plaintext
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  z^1 + 5.0 * 1
+1.0 *  y^1 + 5.0 * 1
+```
+
+The program terminates because it uses a multi-phase approach to ensure the variables decrease in ordered phases as the program progresses. The multi-phase ranking is composed of two functions, one for each significant phase, ensuring first `z` decreases and once `y` becomes negative, it switches phase to decrease `y` until it terminates the loop.
 

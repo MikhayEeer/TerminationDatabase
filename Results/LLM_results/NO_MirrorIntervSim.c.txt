@@ -4,11 +4,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-{\(i \text{ within } [-5, 0) \): \( -i \)}  
-{\(i \text{ within } [0, 30] \): \( i \)}  
-{\(i \text{ within } (30, 35] \): \( i - 30 \)}  
-
-The program is terminating because the value of `i` decreases in a bounded manner within each of the specified intervals, eventually reaching zero, which causes the loop to exit.
+- For the case when `-5 <= i && i < 0`: ranking function is `-5 - i`  
+- For the case when `0 <= i <= 35`: ranking function is `i`  
+- For the case when `i > 35`: direct transition to `i = 0` reduces `i` immediately  
 
 === Response 2 ===
 [RESULT]  
@@ -16,8 +14,14 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-1. When -5 <= i < 0, the function assigns i = -5, which only happens once and thus doesn't iterate, leading to a termination.  
-2. When 0 <= i <= 30, the ranking function is i, which decreases by 1 in each iteration until i = 0.  
-3. When 30 < i <= 35, the function assigns i = 35, followed by i = i-1 in the next iteration, which reduces i until it reaches 0, ensuring termination.  
-4. When i < -5 or i > 35, the function assigns i = 0, causing immediate termination.  
+- For the case when `-5 <= i <= 35`: the ranking function is `i`.
+- For the case when `i < -5` or `i > 35`: the ranking function is constant as `0`.  
+
+Explanation:  
+The program has a piecewise structure where:
+
+1. If the value of `i` falls within `-5` and `35`, `i` is decremented, bounded by setting `i` to `-5` at the lower end and to `35` at the upper end, thereby ensuring termination as eventually `i` will reach `0`.
+2. If `i` falls outside the range `-5` to `35`, it is immediately set to `0`, ensuring termination.  
+
+Thus, the program uses a piecewise strategy to systematically reach termination.
 

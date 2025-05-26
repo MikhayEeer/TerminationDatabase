@@ -1,16 +1,17 @@
 === Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `*i < *M || *j < *N` allows the possibility that only one of `*i` or `*j` will increase until it exceeds `*M` or `*N`. If either `*M` or `*N` is sufficiently large (or not properly initialized), the loop may run indefinitely, thus making the program non-terminating.
+
+=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-0.5 * (M - i) + 0.5 * (N - j)
+-1.0 *  i^1 + 1.0 *  M^1 
+-1.0 *  j^1 + 1.0 *  N^1 
 
-The program is terminating because the increments of `*i` and `*j` within the loop ensure that both increment towards `*M` and `*N` respectively. Each iteration of the loop strictly decreases the sum of the distances to `*M` and `*N`, thus leading to termination.
-
-=== Response 2 ===
-[RESULT]
-NONTERM
-[REASON]
-The loop condition `(*i < *M || *j < *N)` can always be true if `*M` and `*N` are set to values larger than the initial values of `*i` and `*j`. The program does not ensure that the loop exits, hence it is non-terminating.
+The program is terminating because as the loop executes, the values of `*i` and `*j` are incremented by 1 in each iteration. Therefore, eventually `*i >= *M` and `*j >= *N`, which will break the loop condition `*i < *M || *j < *N`. The linear combination of these differences forms a ranking function that shows the loop is bounded and will eventually terminate.
 

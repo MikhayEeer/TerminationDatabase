@@ -4,25 +4,28 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-When \( f(x) \) or \( g(x) \) is called with positive \( x \), they make recursive calls with strictly smaller arguments, ultimately reaching arguments less than or equal to zero where they terminate.  
-1. For \( f(x) \): if \( x > 0 \), it calls \( g(x) + g(x+1) \) reducing the problem to smaller arguments.  
-2. For \( g(x) \): if \( x > 0 \), it calls \( f(x-1) + f(x-2) \) further reducing the argument size.
+For function `f(x)`:  
+   Piecewise Ranking Function:  
+   - If `x <= 0`, the function returns 0, treated as a terminal case.  
+   - If `x > 0`, it calls `g(x)` and `g(x + 1)`, where each decrease `x` until reaching terminal cases for `g`.  
 
-The mutually recursive calls ensure that each path in the recursion decreases the problem size, leading to termination when \( x \) reaches 0 or a negative value.
+For function `g(x)`:
+   Piecewise Ranking Function:  
+   - If `x <= 0`, the function returns 0, treated as a terminal case.  
+   - If `x > 0`, it calls `f(x - 1)` and `f(x - 2)`, where each decrease `x` until reaching terminal cases for `f`.  
+
+The mutually recursive decreasing argument `x` in both functions ensures the termination, as each step of recursion effectively reduces the problem size.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-For `f(x)`:
-1. When `x > 0`, ranking function: `x`
-2. When `x <= 0`, ranking function: `0`
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+g:  
+1.0 * x^2 + 1.0 * 1  
+f:  
+1.0 * x^2 + 1.0 * 1  
 
-For `g(x)`:
-1. When `x > 0`, ranking function: `x`
-2. When `x <= 0`, ranking function: `0`
-
-The program involves mutually recursive functions `f` and `g`. Both functions have branch conditions based on `x` and call each other in a manner that decreases `x`. When `x` is non-positive, both functions return immediately. Hence, the initial value of `x` is steadily decreased until it becomes non-positive, ensuring termination. The piecewise ranking function above captures the decrease in `x`.
+Explanation: The mutual recursion between functions `f` and `g` ensures that the value of `x` decreases over each call. In both functions, any non-terminal call reduces the argument by at least 1 in one of the recursive calls due to the operations `g(x - 1)` and `f(x - 2)`. This guarantees that the recursion will eventually terminate when `x` becomes less than or equal to 0. The multi-phase ranking function uses `x^2` to demonstrate this termination behavior as it guarantees the potential function strictly decreases during recursive calls.
 

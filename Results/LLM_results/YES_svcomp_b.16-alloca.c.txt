@@ -1,22 +1,20 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1st Phase: *y_ref > 0, with ranking function y_ref
-2nd Phase: *x_ref > 0, after y_ref reaches 0, with ranking function x_ref
-
-The program terminates as it has two nested loops: the inner loop decreases *y_ref in each iteration until it reaches zero. Once *y_ref becomes zero, the control exits the inner loop, decreases *x_ref and resets *y_ref before the outer loop iterates again. The total number of iterations is finite as both *x_ref and *y_ref are decreased in a well-defined manner, reaching zero eventually, ensuring termination.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+1.0 * y^1  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-Outer loop: \( f_1(x) = x \)
-Inner loop: \( f_2(y) = y \)
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: y^1 (decreases until y reaches 0, bringing us to the condition x>0)  
+Phase 2: x^1 (decreases until x reaches 0, at which point the loop terminates)  
 
-The program is terminating because for the outer loop, the ranking function \( f_1(x) = x \) strictly decreases with each iteration, and the inner loop terminates when \( y \) reaches zero, with the ranking function \( f_2(y) = y \) strictly decreasing in each iteration. The nested structure of the loops ensures that the program concludes execution when both \( x \) and \( y \) are zero.
+The program is terminating as it has an outer loop controlled by `x` which decreases its value until it reaches 0, and an inner loop controlled by `y` which also decreases until 0. The ranking functions provided are in two phases: first the inner loop with respect to `y`, and then the outer loop with respect to `x`.
 

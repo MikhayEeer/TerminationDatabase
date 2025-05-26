@@ -1,6 +1,16 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The loop does not necessarily decrease any variant; if initially \( x > y \) and \( x > z \), then incrementing both \( y \) and \( z \) without changing \( x \) can maintain the condition indefinitely, making the program potentially non-terminating.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - max(y, z)
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-x + max(y, z)
 

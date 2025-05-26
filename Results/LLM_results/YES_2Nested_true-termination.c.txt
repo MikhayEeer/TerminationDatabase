@@ -1,6 +1,20 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The value of `x` keeps increasing for any non-negative `y` until `y` becomes negative, causing the loop to continue indefinitely as `x` never becomes negative.
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+f_0(x, y) = y + 1
+f_1(x, y) = x
+
+The given program is terminating. It can be proven using a nested ranking function where the primary ranking function \( f_0(x, y) = y + 1 \) decreases when \( y \) decreases, and subsequently, the secondary ranking function \( f_1(x, y) = x \) handles the case when \( y \) has reached its lower bound. Therefore, the loop will eventually terminate as \( x \) decreases unconditionally when \( y \leq 0 \).
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+f_0(x, y) = y + 1  
+f_1(x, y) = x  
 

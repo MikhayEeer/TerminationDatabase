@@ -4,13 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * x_ref - 1.0 * y_ref
+x_ref - y_ref
+
+The program is terminating because the loop decrement happens through the condition `*x_ref > *y_ref`, with `*y_ref` being incremented by 1 in each iteration. Eventually, `*y_ref` will become equal to `*x_ref`, causing the loop to terminate. The linear ranking function `x_ref - y_ref` strictly decreases for each iteration and will be zero when the loop terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (x - y) + 0.0 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - y
+
+The program is terminating because in each iteration of the loop, the value of `*y_ref` is incremented, which effectively decreases the difference `*x_ref - *y_ref`. Since `*x_ref` is constant and integers are bounded in real systems, eventually `*y_ref` will reach the value of `*x_ref`, causing the loop to terminate. The difference `x - y` serves as a simple linear ranking function that decreases with each iteration.
 

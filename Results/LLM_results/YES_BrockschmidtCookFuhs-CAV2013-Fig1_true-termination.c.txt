@@ -2,18 +2,18 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * n^1 - 1.0 * i^1  
-1.0 * i^1 + 0.0 * 1 - 1.0 * j^1  
-
-The program consists of a nested loop structure. The outer loop increments `i` until it is no longer less than `n`. Within each iteration of the outer loop, the inner loop increments `j` until it is greater than `i`. The ranking function for the outer loop (`n - i`) shows a decrease towards 0 as `i` increases towards `n`. The inner loop ranking function (`i - j`) decreases as `j` increments beyond `i`. Thus, both loops demonstrate a decrease in these functions within every respective iteration, thereby proving termination.
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-n - i  
+1.0 * (n - i)^1  
+1.0 * (i + 1 - j)^1  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n - i, i - j
+
+This states that the outer loop uses `n - i` and the inner loop uses `i - j` as ranking functions. In each iteration of the outer loop, `i` increases, and in each iteration of the inner loop, `j` increases until it exceeds `i`. As a result, both ranking functions strictly decrease, demonstrating program termination.
 

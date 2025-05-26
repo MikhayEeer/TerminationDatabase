@@ -1,22 +1,20 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1. Phase 1: n (decreases in init_list until 0)  
-2. Phase 2: finite operations during insert until insertion completes  
-
-This program will terminate as the `init_list` function operates in a loop that iterates `n` times, where `n` is a nondeterministic integer, and it decreases to 0. After `init_list`, the `insert` function performs a finite number of operations to place a new element in the appropriate position in an already constructed linked list. Both parts guarantee that the operations will complete and lead to termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program terminates because it only operates over a finite list of elements, which is created with a size determined by the nondeterministic input `n`. Since `n < 1` results in immediate termination, and any `n` that initializes a list has a finite number of elements, once the insertion operation is complete, the program terminates. Therefore, an implicit ranking function is the traversal of the list, which happens in finite time as the list has `n` elements and `n` is finite. The transformations in the list through the functions `init_list` and `insert` are all finite and deterministic, leading to program termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1. Phase 1: Decreasing function on the number of insertions applied to the list, which starts with a bounded size n and can be taken to completion in finite steps. In each call to `insert`, at most one element (`m`) is either prepended or inserted in the list.  
-2. Phase 2: Constant function during initialization of the list (finite loop over integer n which is checked > 0).
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program primarily consists of two parts that involve potential infinite loops: `init_list` and `insert`. The termination of `init_list` is straightforward; it iterates a fixed, non-negative, number of times 'n', thus guaranteeing termination.
 
-The non-deterministic nature of `__VERIFIER_nondet_int()` does not affect the termination property due to bounded loops governed by concrete conditions (e.g., comparison operations and finite iterations). The program structure (loop over n elements and finite list insertions) together dictate the completion of execution in finite steps.
+The termination of `insert` depends on its single while loop, which advances through the linked list until the proper insertion point is found. Since the list is finite (with length initialized by `init_list`), and since each iteration potentially reduces the distance to the tail of the list (advancing to the next node), this loop will also terminate. Therefore, the program is guaranteed to terminate. 
+
+For a linear ranking function, the length of the input list from the initial head node to the insertion point (where `m` should be inserted) acts as a counting measure, which always decreases each time the loop condition is checked until it reaches zero.
 

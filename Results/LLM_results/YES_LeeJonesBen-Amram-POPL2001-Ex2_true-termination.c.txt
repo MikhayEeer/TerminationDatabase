@@ -4,26 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-Phase 1: 1st invocation depth of `f`, decreases with the value of `i`   
-Phase 2: 2nd invocation depth of `f`, decreases with the value of `a` while using `g`  
+Phase 1: i (decreases by 1 in f(i, x) due to the call to g(i-1, x, i))  
+Phase 2: a (remains non-negative and decreases as a approaches 0 in g(a, b, c))  
 
-Explanation: 
-
-The main function invokes `f` with non-negative values of `i` and `x`. 
-1. If `i == 0`, `f` immediately terminates returning `x`. 
-2. If `i > 0`, `f` calls `g(i-1, x, i)`. Then `g` calls `f(a, b + c)`, where `a = i - 1`. Thus, the recursive call `f(a, b + c)` decreases the depth along with the value of `i`.  
-
-The function `g` decreases the recursive depth by calling `f` with `a = i - 1`, and the size of `a` decreases with each recursive call until it reaches 0, where it terminates by returning `x`. 
-
-Given the depth decrease through `i` and `a`, the process will always reach a terminating base case where `i == 0`. Therefore, the overall program is terminating.
+The function `f` calls `g` with the first argument `i-1`, meaning that `i` decreases by 1 in each recursive step until `i` reaches zero. Furthermore, the condition `if (i==0)` acts as a base case, ensuring termination. Additionally, the call to `f(a, b+c)` in `g(a, b, c)` reinforces that the value of `a` is a control parameter eventually reaching zero, ensuring no infinite recursion. Thus, the program terminates.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
-
 [RANKING FUNCTION TYPE]  
 multi-phase  
-
 [RANKING FUNCTIONS]  
-1.0 * i^1
+1.0 * i^1  
+1.0 * a^1  
 

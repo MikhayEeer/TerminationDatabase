@@ -2,5 +2,20 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The loop condition `x >= z` along with the operation `z = z + y` can lead to a situation where `z` never surpasses `x` as `y` can be zero or negative, allowing the loop to run indefinitely when `y <= 0`.
+The innermost while loop may never terminate if the initial condition x >= z holds and y > 0, as z will keep increasing by positive y, and x remaining constant, maintaining the loop condition indefinitely.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+If `y <= 0`: the function terminates immediately as it hits a return statement.
+
+Else:   
+First Phase:  
+Linear ranking function on the while loop condition: `x - z`
+(Ranking function decreases since `z` increases with `y`, making `x - z` eventually negative, breaking the loop.) 
+
+These functions show that the program will not run indefinitely given any initial values for `x`, `y`, and `z`.
 

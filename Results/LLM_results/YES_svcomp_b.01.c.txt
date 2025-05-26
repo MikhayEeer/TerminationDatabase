@@ -4,15 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-x - y
+1.0 * x + 0.0 * y
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-x - y  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - y) + 0.0 * c
 
-The program is terminating because the value of `(x - y)` decreases by 1 in each iteration of the loop and is bounded below by 0, ensuring that the program will eventually exit the loop.
+Explanation: The program has a while loop that executes as long as `x > y`. In each iteration, `x` is decreased by 1, which means that `x - y` will eventually reach zero or a negative value, causing the loop to terminate. Thus, the program is terminating. A linear ranking function can be characterized by `x - y`, which strictly decreases by 1 in each iteration of the loop.
 

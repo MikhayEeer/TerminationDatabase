@@ -1,12 +1,10 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTION]
-i - j
-
-The program is terminating because the value of the expression `i - j` decreases in every iteration of the loop. The value `i` decreases by a non-negative amount (`nondetNat`), and `j` increases by a positive amount (`nondetPos`). Thus, `i - j` continually decreases, and since the loop condition is `i - j >= 1`, this ensures the loop eventually terminates.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (i - j)
 
 === Response 2 ===
 [RESULT]
@@ -14,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * (i - j)
+i - j
 

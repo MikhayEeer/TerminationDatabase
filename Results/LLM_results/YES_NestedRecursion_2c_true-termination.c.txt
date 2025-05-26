@@ -1,17 +1,14 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-The function `g` with input `x` eventually reaches the base case where `x == 0`, due to the nature of its recursive calls `g(x - 1)` and further nesting in `g(g(x - 1) - 1)`. Here, either in the first or nested call, the value will reduce to zero as `x` is a positive integer initially. 
-By tracking the depth of recursive calls, we observe that it decreases and ultimately stops at the base case `x == 0`.
+[RESULT]  
+NONTERM  
+[REASON]  
+The function `g(int x)` contains nested recursive calls that can lead to infinite recursion for certain inputs. Since the function depends on the result of another call to `g`, calculating a direct ranking function is not straightforward. Additionally, no definite base case termination guarantee ensures that the recursion will stop for all non-negative inputs, making the program non-terminating in some scenarios.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-The recursion depth of function `g(x)` decreases with each call because `x` is decremented each time `g(x - 1)` is called. The function ultimately reaches the base case `g(0)`, where x is 0. Therefore, the nested calls gradually reduce towards this base case, indicating termination.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+The program employs a nested recursion in the function `g` which decreases the argument `x` in each recursive call. The recursion unfolds such that the outer call `g(x)` eventually reduces `x` to 0 through multiple recursive layers, each decreasing `x` by 1 until reaching the base case. Hence, the termination can be argued by the eventual reduction of `x` to zero through the nested calls.
 

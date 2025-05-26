@@ -3,8 +3,8 @@
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
-[RANKING FUNCTIONS]
-x - y
+[RANKING FUNCTION]
+1.0 * x - 1.0 * y
 
 === Response 2 ===
 [RESULT]  
@@ -12,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-0.5 * (x - y)^1  
+x - y
 

@@ -2,15 +2,19 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+constant
 [RANKING FUNCTIONS]
-0.0
+f(x) = 0
+
+Explanation: The loop condition is equivalent to `false`, meaning the loop does not execute. Hence, the program terminates immediately, and a constant ranking function `f(x) = 0` confirms termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+f(x) = 0
+
+Explanation: The loop condition `while (0)` is always false, so the loop body will never be executed. The program terminates immediately. The ranking function f(x) = 0 is valid and proves termination in this trivial case.
 

@@ -1,26 +1,17 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (x - z)^1 + 0.0 * 1
-1.0 * (y - z)^1 + 0.0 * 1
-
-Explanation: 
-
-The outer loop `while (x == y && x > z)` continues as long as both x equals y and x is greater than z. Within this loop, there is an inner loop `while (y > z)` that decrements both x and y simultaneously. 
-
-1. For the inner loop, the ranking function is `(y - z)`, which is positive when `y > z` and decreases with every iteration since `y` is decremented. This ensures the inner loop terminates.
-
-2. After exiting the inner loop, `x` will be equal to `z` (because `x` and `y` start equal and are decremented by the same amount), causing the condition `x == y` to not hold when trying to re-enter the outer loop. Thus, the outer loop eventually terminates after the termination of the inner loop.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+lexicographic  
+[RANKING FUNCTIONS]  
+0.5 * (x - z), 0.5 * (y - z)
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-1.0 * (x - z)
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (x - z)^1 + 0.0 * 1  
 
 

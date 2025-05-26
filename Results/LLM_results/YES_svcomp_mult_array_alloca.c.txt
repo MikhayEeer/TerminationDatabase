@@ -1,23 +1,22 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (length^1) + 0.0 * 1
-1.0 * (length*fac^1) + 0.0 * 1
-
-Explanation: 
-
-The program contains two loops. The first loop runs from `i = 0` to `i < length`, and the second loop runs from `j = 0` to `j < length*fac`. Both these loops have fixed bounds defined by non-negative values (`length` and `fac`), which are determined before entering the loops. Therefore, these loops will iterate a fixed, finite number of times, guaranteeing termination.
-
-The ranking functions for the loops are based on the loop counter `i` which decreases in the first loop and `j` which decreases in the second loop, until they reach their bounds (`length` and `length*fac`, respectively). This decreasing ordering shows that the program steps towards termination.
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-length - i  
+1.0 * 1 + 1.0 * (length - i)^1 + 0.0 * 1  
+1.0 * 1 + 1.0 * (length*fac - j)^1 + 0.0 * 1  
+
+Explanation:  
+The program consists of two for-loops. The first loop iterates from 0 to `length-1`, and the second loop iterates from 0 to `length*fac-1`. Both loops have a clear decreasing counter (`length-i` for the first loop, `length*fac-j` for the second loop), which shows that the loops will eventually terminate. These linear functions act as the ranking functions for the respective loops, demonstrating that the overall program will terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+length*fac - j
+
+The program has a for-loop that iterates with `j` as the loop counter from 0 to `length*fac - 1`, which is finitely bounded by the product of `length` and `fac`. Given that both `length` and `fac` are initialized to at least 1, the loop will reach its termination condition (i.e., `j < length*fac` becomes false). The ranking function `length*fac - j` is a linear function of `j` that strictly decreases with every iteration, proving termination.
 

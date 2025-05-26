@@ -1,34 +1,30 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-   
-For the `mult` function:  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+recursive
+[RANKING FUNCTIONS]
+The function `mult(n, m)` is recursively called with the value of 'm' strictly decreasing in each call, which acts as a ranking function. 
+- For `mult(n, m)`, if `m < 0`, it transforms to `mult(n, -m)`. 
+- If `m == 0`, the function returns 0.
+- Otherwise, `mult(n, m - 1)` is called, each time reducing `m` by 1, ensuring that it's moving towards the base case `m == 0`.
 
-- When `m < 0`: Rank remains constant as this branch results in a call with `-m`, reducing the absolute value of `m`.  
-- When `m == 0`: Immediate termination with a result of 0.   
-- Otherwise (`m > 0`): Each recursive call decreases `m` by 1, which guarantees termination. The ranking function can be `m`, which decreases on each recursive call.  
-
-For the `main` function:  
-
-- It only calls `mult` with `m` and `n` both non-negative and allows the computation to continue to result in valid integers or terminate with 0. The analysis of `mult` covers both scenarios.  
-
-Thus, the entire program is terminating.
+Since the recursive calls decrease the value of `m` and eventually reach the base case where `m == 0`, the recursion will terminate. The main function relies on conditions that ensure the computations complete without infinite loops or unhandled recursions.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+multi-phase
 [RANKING FUNCTIONS]
-For the function `mult(int n, int m)`, consider it as a recursive function with the parameters (n, m):
+1.0 * m^1 + 0.0 * 1
+1.0 * n^1 + 0.0 * 1
 
-1. First Phase: when `m < 0`, convert it to its positive counterpart. `mult(n, -m)` is reached, which eventually leads to non-negative m.
-   
-2. Second Phase: which is the main recursive decrement phase of `m`, i.e., `m` becomes 0. Each recursive call decreases `m` by 1 until the base case `m == 0` is met.
+Explanation:
+The program performs multiplication of two integers using a recursive technique that repeatedly adds. The recursion involves decreasing the second argument `m` until it becomes zero, at which point it contributes zero to the sum. We use two phases for the ranking function corresponding to the recursive calls:
+  
+1. The first phase handles negative `m` by negating it, successfully directing towards positive `m`.
+2. The second phase reduces `m` from its current value towards zero.
 
-The nested ranking function:
-- Primary ranking dimension: `m` is strictly decreasing with each call `mult(n, m - 1)`, until it hits base condition `m == 0`.
+Both rankings strictly decrease for each recursive call towards a base case of `m == 0`, implying termination of recursion. The main function handles non-negative integers `m` and `n`, ensuring the recursive process progresses toward this base case. There is no possibility of non-termination under these rules as each call decreases the phase strictly by 1.
 

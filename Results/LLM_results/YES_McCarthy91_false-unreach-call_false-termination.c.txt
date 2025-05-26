@@ -2,21 +2,22 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-Phase 1: 101 - x for x > 100
-Phase 2: Oscillating function call for x <= 100
+x based on its relation to 100:
+- If x > 100, directly returns x - 10, hence terminates.
+- For x <= 100, the function recursively calls itself with increased argument (x+11), which eventually becomes greater than 100, leading to termination.
 
-The program implements the McCarthy 91 function, which terminates for all integer inputs. For `x > 100`, the function behaves like a linear function with a ranking function of `101 - x` that decreases towards termination. For `x <= 100`, the recursive calls eventually lead to inputs greater than 100, at which point the first case takes over. Thus, the program is terminating.
+The `f91` function implements the McCarthy 91 function, which is known to always terminate for integer inputs. The recursion ensures that eventually any input x will either return a value greater than 90 or recurse out because x becomes progressively larger. Thus, the nested ranking function follows from the nature of recursion converging to terminating conditions.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-- If x > 100, the function returns immediately with x - 10, no recursive calls, so it always reaches termination.  
-- If x <= 100, the recursive call structure ensures that each recursive call reduces the argument by a mechanism ensuring it will eventually increase above 100 when invoking f91(x+11), and then immediately lead to termination since x+11 > 100 will eventually hold after a finite number of iterations.  
-
-The McCarthy 91 function is well-defined and designed to terminate for all integer inputs.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. The primary ranking function involves a comparison of `x` against 100 within the `f91` function.
+   If `x > 100`, the function directly returns `x - 10`, terminating the recursion.
+2. The secondary ranking function is involved when `x <= 100`, where `f91` calls itself twice with `x + 11`.
+   Within two nested calls, the value of `x` will reach or exceed 101, ensuring that eventual reductions are made to `x` leading to termination.
 

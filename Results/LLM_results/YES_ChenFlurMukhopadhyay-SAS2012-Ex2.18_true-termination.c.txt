@@ -4,18 +4,21 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
--1.0 * x^1 + 5.0 * 1  
-0.5 * abs(y)^1 + 0.5 * 1 + 0.5 * 1  
-
-Explanation:  
-The program terminates because the value of x decreases in each iteration of the loop as `x = x + y - 5`, especially when y becomes large negative as it doubles its negative magnitude in each iteration with `y = -2*y`. Thus, x will eventually become non-positive, causing the loop condition `(x > 0)` to become false, ensuring the termination of the loop. The multi-phase ranking function captures this behavior by providing a pair of functions: the first function shows that x decreases by at least 5 in each loop iteration, and the second function handles the exponential decrease of y maintaining the termination trace in a broader scope.
+0.2 *  x^1 + 1.0 * 1  
+0.1 *  |y|^1 + 1.0 * 1  
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * 1  
-1.0 * y^2  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Lexicographic(x, y^2)
+
+Explanation:
+The program will terminate as follows:
+1. In the first component of the lexicographic tuple, `x` decreases by at least `(y - 5)`, hence eventually it will become non-positive for any initial values of `x` and `y`.
+2. The second component, `y^2`, will either remain the same or increase since `y` is repeatedly multiplied by `-2`, flipping its sign and expanding its absolute value.
+3. The function `Lexicographic(x, y^2)` demonstrates a nested ranking function because the reduction in `x` contributes to the overall termination, with the change in `y^2` ensuring diverse exploration of values.
+4. Eventually, the loop condition `x > 0` becomes false, causing the program to exit the loop and terminate.
 

@@ -2,5 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The values of `x` and `y` grow exponentially due to the update rules `x = 2*x` and `y = 3*y`. The condition `x >= 0` will always hold true since `x` is non-negative and doubles on each iteration. Thus, the while loop never terminates.
+The variables `x` and `y` grow exponentially, maintaining the condition `x >= 0` forever, causing the loop to run indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The values of `x` and `y` keep doubling and tripling respectively, so `x` never becomes negative, causing the loop to execute indefinitely.
 

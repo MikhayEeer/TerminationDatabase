@@ -4,14 +4,28 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * array_size^1 + 0.0 * 1  
+1.0 * (array_size - i)^1  
+1.0 * (j^1)  
+
+Explanation:  
+
+The program provided is an implementation of insertion sort, which is known to be a terminating algorithm. Initially, the outer loop iterates over the indices of the array from 1 to `array_size-1`. The indexing ensures that the loop progresses through its range, thereby guaranteeing termination of the outer loop. The inner loop, on the other hand, iterates backwards through sorted portions of the array, starting from position `i`, and replaces elements while the array element at position `j-1` is greater than the current `index`. 
+
+To demonstrate termination, consider the multi-phase ranking function:  
+1. The first phase counts down from `array_size - i` to 0, representing the progression of the outer loop.
+2. The second phase uses `j`, which is decreased in each iteration of the inner loop until it reaches 0, ensuring this loop also terminates.
+
+By these two ranking functions combining in a multi-phase manner, the whole program is proven to terminate.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
+multi-phase  
 [RANKING FUNCTIONS]  
-1. Loop on i: array_size - i  
-2. Inner loop on j: j  
+First phase: The outer loop decreases from `array_size - 1` to `0`, therefore:  
+1.0 * (array_size - i)^1  
+
+Second phase: The inner loop (insertion process) guarantees that `j` decreases from `i` down to `0`, conditioned by the correct placement of each element, with each iteration moving one step closer to 0, hence:  
+1.0 * j^1  
 

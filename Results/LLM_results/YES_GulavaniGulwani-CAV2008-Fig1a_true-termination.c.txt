@@ -2,18 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-1.0 * y^1 + -1.0 * x^1
+y - x
 
+This program is terminating because each iteration of the loop either increments `x` or `z`, resulting in `x` getting closer to `y`. As `x` is incremented when `z > x` and `z` is incremented otherwise, this guarantees that `x < y` eventually becomes false, terminating the loop. The difference `y - x` serves as a linear ranking function that strictly decreases with each iteration.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
-[RANKING FUNCTION]
-y - x
-
-This ranking function shows that the loop terminates. The value \( y - x \) decreases by 1 with each iteration of the loop, as either \( x \) increases or \( z \) increases, neither of which can increase enough to make \( x = y \). As \( y \) is constant and \( x \) is incremented, when \( x \) becomes equal to \( y \), the loop terminates.
+[RANKING FUNCTIONS]
+(y - x)
 

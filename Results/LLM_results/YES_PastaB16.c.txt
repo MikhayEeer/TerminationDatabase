@@ -2,21 +2,21 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+lexicographic
 [RANKING FUNCTIONS]
-1.  Ranking function for outer loop (x-loop): x
-2.  Ranking function for inner loop (y-loop): y
+1.0 * x^1 + 0.0 * y^0
+0.0 * x^0 + 1.0 * y^1
 
-Both loops have simple linear ranking functions. The inner loop decreases `y` from an initial positive integer to zero, which ensures termination of the inner loop. After the inner loop terminates, `x` is decremented by 1, which eventually reaches zero, ensuring termination of the outer loop.
+Explanation: The program has a nested loop structure where the outer loop's variable `x` strictly decreases with each iteration, and the inner loop strictly decreases variable `y` until it reaches zero. Once `y` is zero, the outer loop decreases `x`, ensuring `x` and `y` are both decreased in a lexicographic manner which guarantees termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.0 * y^1
-0.0 * x^1 + 1.0 * y^1
+1.0 *  x^1 + 0.0 * 1  (outer loop)
+1.0 *  y^1 + 0.0 * 1  (inner loop) 
 
-This program is terminating and can be proved by the multi-phase ranking function. In the first phase, when `x > 0` and `y > 0`, `y` decreases until `y` reaches 0. In the second phase, `x` decreases until `x` reaches 0. Once both `x` and `y` reach 0, the program terminates.
+The nested loops have separate linear ranking functions for each. The inner loop decreases `y` non-negatively for each iteration, leading to its termination. Once `y` reaches zero, the inner loop exits, allowing `x` to decrement, ultimately leading the outer loop to terminate as `x` also becomes non-positive.
 

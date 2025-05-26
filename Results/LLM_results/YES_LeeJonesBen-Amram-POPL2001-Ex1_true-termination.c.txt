@@ -1,21 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-0.5 * ls^2 + 0.5 * ls^1  
-1 * ls^1 + 0 * 1 
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographic
+multi-phase
 [RANKING FUNCTIONS]
-1. Primary component: ls (decreases) 
-2. Secondary component: a (increases but bounded by ls)
+1.0 * ls^1 + 0.0 * 1
 
-[EXPLANATION]
-The program terminates because the primary parameter `ls` in function `r1` strictly decreases by 1 in each recursive call and it is initially non-negative. Although `a` increases, it's secondary and bounded by `ls`. Once `ls` reaches zero, the recursion stops, ensuring termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested
+[RANKING FUNCTIONS]  
+The main function contains a condition `if (ls >= 0)` which filters for non-negative values of `ls`. When this condition is satisfied, the `rev` function is called, which in turn calls the `r1` function with `ls` and `0`.
+
+The `r1` function decrements the first argument `ls` in the recursive call (`r1(ls-1, ls+1+a)`) until it becomes `0`. Since `ls` is non-negative at the start, it will eventually reach `0`, which leads to a base case that returns a constant value `a`. This ensures that the recursion will terminate.
+
+The ranking function can be described as:
+- Primary: `ls`, decreases with each recursive call by `1` until it hits `0`.
 

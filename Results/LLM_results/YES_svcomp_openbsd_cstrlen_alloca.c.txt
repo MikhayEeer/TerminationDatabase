@@ -1,18 +1,18 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-length1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+(length1 - 1)  
 
-The program is terminating because the loop in `cstrlen` iterates through the characters of a null-terminated string. The allocator ensures at least a one-character null-terminated string by setting `nondetString1[length1-1] = '\0'`. The pointer `s` will always find a null character eventually, causing the loop to terminate. The ranking function `length1` measures the progress of the loop because `s` moves through each character of the string until it reaches the null character. This guarantees termination as the loop makes steady progress towards reaching the null character at the end.
+This indicates that the function `cstrlen` will terminate as it iterates over the characters of the string until it encounters the null terminator '\0'. In this particular code, the input string `nondetString1` is allocated with a size determined by the nondeterministic value `length1`, and its last element is set to '\0'. The loop in `cstrlen` decreases the distance to the end of the string with each iteration, ensuring that it will eventually terminate.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-The `cstrlen` function iterates over the string until it finds the null terminator (`'\0'`). Since `nondetString1[length1-1] = '\0';` ensures that the string is null-terminated, the loop in `cstrlen` will always terminate when it reaches that null character. Thereby, the ranking function is the length of the string, which monotonically decreases with each iteration of the loop, so the function will always terminate.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+cstrlen function iterates over the characters in a string until it encounters a null terminator ('\0'). The string `nondetString1` is guaranteed to have a null terminator because `nondetString1[length1-1] = '\0';` is explicitly assigning one at the end. Therefore, the function will iterate at most `length1` times, which guarantees termination. This can be captured with the ranking function decreasing linearly with the position of the null character, e.g., `length1` iterations.
 

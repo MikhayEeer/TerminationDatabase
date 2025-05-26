@@ -1,22 +1,17 @@
 === Response 1 ===
-```
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-f(x, y) = x - y
-```
-
-The program is terminating. The while loop condition `x > y` ensures that as long as the loop executes, `x` decreases by at least `y` in each iteration. Since `y` is reassigned at every iteration to a non-deterministic value provided by `__VERIFIER_nondet_int()`, the effect of the loop is to drive `x` towards non-positivity (or make it less than `y`), thus ensuring eventual termination of the loop when `x <= y`.
-
-The loop will break if `y < 1` or `y > 2`, effectively acting as an additional termination condition. Note that for each new loop cycle, a fresh `y` is chosen, meaning the loop body may not be executed exhaustively if `y` is chosen such that it doesn't meet the while loop condition or the break condition is satisfied.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1.0 *  x - 1.0 *  y
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+When \( y \geq 1 \) and \( y \leq 2 \):  
+\( x - y \) decreases by at least 1 in each iteration.
 

@@ -2,26 +2,16 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-non-linear
+multi-phase
 [RANKING FUNCTIONS]
-Consider the non-linear expression: T(x, y, z) = x^2 + y^2. 
+1.0 * (x - y)^1 + 1.0 * 1
 
-The initial condition is T(x, y, z) = (x - y)^2.
-
-After each iteration of the loop, x is updated to the value -x + y which produces a decrease in the expression as follows: 
-
-T(-x + y, z, z + 1) = (-x + y)^2 + z^2.
-
-Notice that T(-x + y, z, z + 1) < T(x, y, z) for any change, ensuring that the loop is decreasing.
-
-Thus, the ranking function T(x, y, z) = x^2 + y^2 is a non-linear ranking function proving the termination of the program.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+non-linear  
 [RANKING FUNCTIONS]  
-x - y^1  
-5.0 * z^1 + 1.0 * 1
+x - y
 

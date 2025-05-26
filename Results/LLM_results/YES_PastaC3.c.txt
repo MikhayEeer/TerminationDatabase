@@ -2,17 +2,21 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+nested  
 [RANKING FUNCTIONS]  
-y - x
+1.0 * (y - x)^1  
+1.0 * (z - x)^1  
+
+The program is terminating because the value of (y - x) decreases with every iteration of the loop when `x < z`. Also, the value of (z - x) decreases when `x >= z`. This indicates that each execution path of the loop results in strictly decreasing values of these ranking functions, and hence guarantees termination.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+piecewise  
 [RANKING FUNCTIONS]  
-y - x   
-  
-The program is terminating because in each iteration of the loop, the value of `x` is incremented by 1. This reduces the value of `y - x` by 1, making it an appropriate linear ranking function. Once `x` is no longer less than `y`, the loop terminates.
+1.0 * (y - x) + 0.0 * 1 (when x < z)  
+1.0 * (y - z) + 0.0 * 1 (when x >= z)  
+
+The program is terminating because in each iteration of the loop, either the value of `x` is increased (when `x < z`) or the value of `z` is increased (when `x >= z`). As `x` increases and approaches `y`, the difference `(y - x)` decreases, serving as a ranking function; meanwhile, when `x >= z`, the difference `(y - z)` decreases. These decreases guarantee that the loop will eventually terminate.
 

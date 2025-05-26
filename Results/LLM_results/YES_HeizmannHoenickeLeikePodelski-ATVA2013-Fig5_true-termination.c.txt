@@ -4,15 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-1.0 * x + 1.0
+x^1
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-x + y * (y - 1) / 2
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+f(x, y) = 2 * x + y  
 
-The program is terminating because in each iteration of the loop, the value of `x` decreases and `y` decreases in a way that eventually causes `x < 0` to hold, thus terminating the loop.
+The given program is terminating. The function \( f(x, y) = 2 * x + y \) serves as a linear ranking function, which strictly decreases in each iteration of the loop, as \( x \) decreases by at least 2 and \( y \) is non-negative and also decreases, ensuring that \( f(x, y) \) eventually becomes negative, terminating the loop.
 

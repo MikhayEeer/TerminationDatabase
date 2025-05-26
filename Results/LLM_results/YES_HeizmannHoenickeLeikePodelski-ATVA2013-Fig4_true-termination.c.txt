@@ -4,9 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * x^1 - 1.0 * y^1
-
-This ranking function `1.0 * x - 1.0 * y` proves termination. Initially, `x >= y` holds, and with each iteration of the loop, `x` is decremented by 1. This makes the value of the function decrease, and eventually, `x` will be less than `y`, causing the loop to terminate.
+1.0 * x + 1.0
 
 === Response 2 ===
 [RESULT]  
@@ -14,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + -1.0 * y + 0.0
+1.0 * x - 1.0 * y  
 

@@ -1,18 +1,18 @@
 === Response 1 ===
 [RESULT]  
+NONTERM  
+[REASON]  
+The variable `c` alternates its updates based on the value of `n`. In one condition, `c` is decremented, and in another condition, `c` is incremented. This can cause the `c` variable to never actually reach a value less than or equal to 0 since `n` can lead to an infinite loop of incrementing `c` before it has a chance to terminate.
+
+=== Response 2 ===
+[RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-phase I: 1.0 * c^1  
-phase II: 1.0 * (100 - n)^1  
+Phase 1: c^1  
+Phase 2: 100.0 - 0.1 * n^1
 
-Explanation:  
-The program contains a multi-phase ranking function. Initially, when n > 100, the program decreases n by 10 while reducing c by 1, and when n ≤ 100, the program increases n by 11 while increasing c by 1. This alternating pattern eventually ensures that c decreases from positive integers to zero, terminating the loop. The two-phase ranking function first counts down c and adjusts n, eventually leading to a point where the loop exits when c reaches zero.
-
-=== Response 2 ===
-[RESULT]
-NONTERM
-[REASON]
-The program can enter a non-terminating cycle. If `n` is initially greater than 100, `n` will decrease and `c` will eventually reach 0, causing the loop to terminate. However, if `n` is less than or equal to 100, `n` will keep increasing by 11 without a bound since `c` will increase as well, keeping it positive. Therefore, the loop can go on indefinitely.
+Explanation:
+This program is terminating. The control variable `c` decreases in one scenario and increases in another, but it eventually decreases due to the logic in the `if` statement that reduces `n` until it is not larger than 100. As a result, `c` eventually reaches 0 which leads to the termination of the loop. The provided multi-phase ranking function demonstrates that `c` is consistently decreasing in effective value per phase.
 

@@ -1,18 +1,12 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x
+NONTERM  
+[REASON]  
+The program can be non-terminating if the pointer `x` is initialized to a value greater than 0 and then decremented by `*d` where `*d` is always set to 1. The nondeterministic updates to `*d` can result in an infinite loop as `*d` might always be 1 or 0, especially given the condition of decrementing `*d` at the start, which can create multiple scenarios where `*x` never reaches 0.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
--1 * x^1 + 0.5 * 1
-
-This program is terminating as the linear ranking function `-1 * x^1 + 0.5` shows. In the loop `while (*x > 0)`, the value of `*x` strictly decreases by `*d` which is either 0 or 1, meaning the loop will eventually terminate as long as `*x` is initially a positive number and `*d` is not zero. Since `*d` starts at 1 in the main function, and there are various conditions to potentially decrease it, it can never become negative, thus ensuring eventual termination as `*x` decreases in each iteration.
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter a non-terminating state if both `*d` becomes 0 and `*x` starts as a positive value. In this case, the while loop condition `*x > 0` will always be true but since `*d` is 0, `*x` will never decrease, causing an infinite loop. The initial nondeterministic assignments and decrements to `*d` may result in this scenario.
 

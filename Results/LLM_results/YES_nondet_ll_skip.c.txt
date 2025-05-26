@@ -1,27 +1,17 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-- The outer function involves the total number of nodes `n` in the list, which decreases as we traverse the list.
-- The inner function is the while loop condition `head->value == m` which is bounded by the maximum length of consecutive nodes with the same `m` value. This ensures that each step of the loop moves to the next node or exits if a node has a different value or no more nodes exist. 
-
-Explanation:  
-- The program starts by initializing a linked list with `n` nodes in the `init_list` function.
-- The `skip` function iterates through the list to skip over nodes with a specific value `m`.
-- The while loop in `skip` continues as long as the current node's value equals `m`. As we move from one node to the next, the list pointer `head` advances, ensuring progress with each iteration.
-- The structure of the while loop guarantees termination because either a node with a different value will eventually be encountered, leading to loop exit, or the end of the list will be reached (`head->next` becomes `NULL`).
-- Therefore, the `main` function will terminate for any integer inputs `n` and `m`.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+Length of list decreases after each iteration or the head is set to NULL.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-- If `head` value is not `m`: Constant ranking (0).
-- If `head` value is `m` and list is not empty: Length of the list (decreases with each step). 
-
-The program's `skip` function can be shown to terminate as it iterates over the list nodes. When a node's value is not `m`, it breaks out of the loop immediately. Otherwise, it skips the nodes with matching `m` values until the list is either emptied or a node with a different value is found, thereby terminating.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. At entry of `skip`: use the number of elements in the list `head` as a ranking function.  
+2. During `skip` execution: if `head->value == m`, the function processes the next node or exits. The number of nodes with `value == m` decrements on each iteration, ensuring termination.
 

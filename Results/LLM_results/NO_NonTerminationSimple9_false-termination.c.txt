@@ -2,5 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The value of `x` can increase indefinitely due to the non-deterministic addition, which allows the loop condition `x >= 0` to remain true indefinitely.
+Possible increments to `x` can keep it non-negative indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating because it's possible for the value of `x` to never become negative. The `__VERIFIER_nondet_int()` can return non-positive values, which would prevent the condition `x >= 0` from ever failing.
 

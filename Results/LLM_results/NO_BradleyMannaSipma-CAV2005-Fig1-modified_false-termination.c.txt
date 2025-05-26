@@ -1,6 +1,17 @@
 === Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+First Level: (y1 + y2)  
+Second Level (in gcd function loop): (max(y1, y2) - min(y1, y2))  
+
+The program is terminating. The main function initializes `y1` and `y2` with non-negative integers, calls the gcd function, and the loop inside the gcd function will always reduce the larger of `y1` or `y2` by the smaller, which is guaranteed to terminate as it essentially implements the Euclidean algorithm for computing the greatest common divisor.
+
+=== Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program can be non-terminating when either `y1` or `y2` is initialized to zero. If one of the numbers is zero while the other is positive, the `while` loop might not terminate as the subtraction operations will not change the zero value, causing the condition `y1 != y2` to always be true.
+The program is non-terminating when `y1` and `y2` are both zero. The condition `while (y1 != y2)` will be false if both are zero, making the function enter an infinite loop where `y1` and `y2` remain unchanged.
 

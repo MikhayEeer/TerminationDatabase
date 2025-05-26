@@ -2,11 +2,13 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-n
+1.0 * n^1 if n > 0, 
+0 otherwise
 
-The program contains a loop in the `cstpncpy` function, where the loop condition is `while (--n != 0)`. Each iteration of the loop decreases the value of `n` by 1. Since `n` is initialized to a positive integer and only decreases with each loop iteration, the value of `n` will eventually reach zero, terminating the loop. Therefore, the program is terminating. The ranking function `n` is a linear function that proves termination, as it strictly decreases with every loop iteration, and the loop condition depends on `n`.
+Explanation:  
+The program will terminate as long as `n` is positive because the function `cstpncpy` will decrement `n` with each iteration of the loops, eventually reaching zero and exiting. The function `cstpncpy` performs two main loops: the first loop copies characters from `src` to `dst` up to `n` characters or until a null terminator is encountered, and the second loop pads with zeros if the null terminator was reached before `n` characters were copied. Since `n` is decremented in each loop, the function must terminate when `n` becomes zero. The piecewise nature of the ranking function accounts for terminal conditions: one ranking function ensures termination for positive initial `n`, while if `n` is initially zero or negative, the function avoids entry or immediate termination, respectively.
 
 === Response 2 ===
 [RESULT]
@@ -14,7 +16,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-The ranking function for the loop in the `cstpncpy` function is the value of `n`.
-
-Explanation: The loop in the `cstpncpy` function terminates because the variable `n` is decremented in every iteration of the loop (`while (--n != 0)`) and is not incremented anywhere inside the loop. This guarantees that `n` will eventually reach zero, and the loop will exit. Thus, a linear ranking function based on `n` can be used to prove termination: `n` starts at its initial positive value and decreases by 1 on each iteration until it becomes zero, at which point the loop terminates.
+The function `cstpncpy` contains loops, and its termination is based on the decrementation of the variable `n`. Since `n` is decremented in each iteration and there is a conditional check for `n != 0`, the loop will terminate when `n` reaches zero. Thus, a simple linear ranking function based on `n` can be used to show that the loops inside `cstpncpy` terminate. As `n` starts from a positive integer and decreases by 1 in each loop iteration, the linear function `f(n) = n`, checking `n > 0`, suffices. When `n` is zero, the loops exit, which guarantees termination.
 

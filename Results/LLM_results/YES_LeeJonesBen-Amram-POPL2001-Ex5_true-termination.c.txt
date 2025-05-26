@@ -1,22 +1,17 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-The nested ranking function can be derived from the recursive function calls. For the function `f(x, y)`, we can use the lexicographical order of the tuple `(x + y, y)`:
-
-1. The first component `x + y` decreases in the recursive call `f(y, x-1)`, as either `x` or `y` becomes zero and the call `f(y, y-1)` or `f(y, x-1)` is reached, where the sum `x + y` becomes strictly smaller than in the previous step.
-2. The second component `y` strictly decreases if the call is `f(y, y-1)`, and eventually reaches zero due to the structure of the function.
-
-Overall, this ensures termination because there is a strict decrease in a well-founded order of tuples.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  x^1 + 1.0 *  y^1
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
+multi-phase  
 [RANKING FUNCTIONS]  
-x + 1,   
-y
+1.0 * x + 1.0 * y  
+ 
 

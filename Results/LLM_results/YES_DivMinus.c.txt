@@ -1,19 +1,18 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-x - y
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-f(x, y) = x - y 
+x - y
 
-Explanation:  
-In each iteration of the loop, the value of `x` is decreased by `y`, and since `y` is positive, `x - y` strictly decreases in each iteration. The loop condition also requires that `x >= y`, ensuring that `x` will eventually become less than `y`, at which point the loop will terminate. Therefore, the program is terminating with a linear ranking function based on `x - y`.
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - y)^1 + 0.0 * 1
+
+This linear ranking function shows that the program is terminating as the value \( x - y \) decreases by \( y \) in each iteration of the loop, and since \( y \) is positive, the loop must eventually terminate.
 

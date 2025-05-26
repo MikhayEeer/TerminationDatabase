@@ -1,6 +1,18 @@
 === Response 1 ===
 [RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+5.0 * 1 + 1.0 *  x^1 + 5.0 * 1  
+0.0796 *  x^1 + 0.482 * 1 + 0.482 * 1  
+
+Explanation:  
+The functions `rec1` and `rec2` involve recursive calls where the argument is decremented. In `rec1`, the argument `i` is decreased by 2, and in `rec2`, it is rearranged with decrements inside `rec1`. Both functions eventually reach a base case when the argument becomes non-positive, triggering termination. The recursive expressions ensure progress towards these base cases, guaranteeing termination for any finite integer input `x`.
+
+=== Response 2 ===
+[RESULT]  
 NONTERM  
 [REASON]  
-The mutual recursive calls in `rec1` and `rec2`, along with non-deterministic input from `__VERIFIER_nondet_int()`, can result in infinite recursion due to lack of guaranteed decrease in the arguments of the recursive calls.
+The mutual recursion between `rec1` and `rec2` does not guarantee a decrease in the argument values; hence, it can lead to infinite recursion for certain initial values, making the program non-terminating.
 

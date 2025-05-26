@@ -1,18 +1,16 @@
 === Response 1 ===
-The program presented seems to implement a multi-process system where various tasks execute within consecutive function calls representing periodic task execution. 
-
-The critical observation here is the use of a bounded loop (`while (i2 < 10)`) in the `main()` function, which explicitly limits the number of iterations to 10. Once the loop has completed its 10 iterations, the program exits. This bounded nature directly indicates that the loop will terminate after a specific number of iterations. Each loop iteration invokes tasks and updates state variables.
-
-For such a program, we can employ a ranking function that maps onto the explicitly bounded counter `i2`. The ranking function simply tracks and reduces the counter to confirm termination.
-
 [RESULT]
 TERMINATE
-
 [RANKING FUNCTION TYPE]
-linear
-
+multi-phase
 [RANKING FUNCTIONS]
-R(i2) = 10 - i2
+1.0 * (10 - i2)
 
-This linear ranking function `R(i2) = 10 - i2` starts at 10 and decreases with every loop iteration, eventually reaching zero when the loop condition `i2 < 10` fails, ensuring termination.
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (10 - i2) ^ 1 
 

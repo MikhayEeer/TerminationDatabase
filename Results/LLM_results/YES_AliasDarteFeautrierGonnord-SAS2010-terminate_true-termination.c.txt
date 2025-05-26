@@ -1,19 +1,22 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (100 - i) + 1.0 * 1
-1.0 * (j - k) + 1.0 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  (101 -  i)^1  
+1.0 *  (k -  j)^1  
 
-The program terminates because the value of `i` continuously increases toward 100, and the value of `k` decreases toward `j`. The loop condition (`i <= 100 && j <= k`) will eventually be false, leading to termination. The first phase ensures `i` approaches 100, and the second phase maintains `j <= k` where `k` decreases in each iteration until termination.
+The program terminates as it first uses the ranking function \(101 - i\) which decreases on each iteration until \(i > 100\), and then uses \(k - j\) which decreases on each iteration until \(j > k\). Thus, the two-phase (multi-phase) ranking function ensures termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (k - j)^1 + 1.0 * 1 + 1.0 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (100 - i)^1 + 0.0 * 1  
+1.0 * (k - j)^1 + 0.0 * 1  
+
+The program terminates because it has a multi-phase ranking function. The first phase decreases based on `(100 - i)` due to the condition `i <= 100`, and the second phase is based on `(k - j)` due to the condition `j <= k`, ensuring termination.
 

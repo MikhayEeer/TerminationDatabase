@@ -3,8 +3,8 @@
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
-[RANKING FUNCTIONS]  
-The ranking function can be considered as the decreasing value of `maxlen` in the function `cstrnlen`. Every iteration of the loop decreases the value of `maxlen` by 1, until `maxlen` reaches 0. This guarantees termination as long as `cp` is not the end of the string (`\0`). The loop iterates at most `min(length1, n)` times and terminates thereafter.
+[RANKING FUNCTIONS]
+maxlen
 
 === Response 2 ===
 [RESULT]  
@@ -12,7 +12,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-n  
+n - 1
 
-This program will terminate because the `cstrnlen` function iteratively decreases the value of `maxlen` (passed as `n` in `main`) by 1 in every iteration of the loop (`cp++, maxlen--`). Since the value of `n` is enforced to be at least 1, the loop will eventually terminate when `maxlen` reaches 0 or when a null character is encountered in the string `nondetString1`. Thus, it can be shown that the ranking function `n` (as a measure of progress) eventually reaches zero, guaranteeing termination.
+The program is terminating, as the function `cstrnlen` loops through a string with a decrementing counter `maxlen`. Since `n` is ensured to be at least 1, `maxlen` will eventually reach 0, causing the loop to terminate. The linear ranking function `n - 1` proves termination by showing that `maxlen` consistently decreases with each loop iteration.
 

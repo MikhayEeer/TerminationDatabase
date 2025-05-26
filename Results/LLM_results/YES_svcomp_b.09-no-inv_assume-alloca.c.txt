@@ -2,22 +2,18 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+linear  
 [RANKING FUNCTIONS]  
-1st phase:  
-0.0 * x^1 + 1.0 * y^1  
-2nd phase:  
-1.0 * x^1
+x_ref^1  
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-1.0 * x_ref^1 + 1.0 * y_ref^1
+1.0 * x_ref^1 when x_ref > y_ref
+1.0 * x_ref^1 when x_ref <= y_ref
 
-Explanation: 
-
-This program will terminate as the value of `x_ref` steadily decreases through the loop; either it is set to `y_ref`, which is smaller (because the branch is taken only when `x_ref > y_ref`), or it is decremented by 1. Each iteration makes the approach to zero inevitable, making the loop terminate. The ranking function `1.0 * x_ref^1 + 1.0 * y_ref^1` decreases at every loop iteration, demonstrating termination of the program.
+The program is terminating. For `x_ref > y_ref`, the ranking function `1.0 * x_ref^1` demonstrates a strictly decreasing sequence, moving towards zero with each iteration. Similarly, for `x_ref <= y_ref`, a similar ranking function `1.0 * x_ref^1` continues to decrease, leading the loop to eventually terminate when `x_ref` reaches zero.
 

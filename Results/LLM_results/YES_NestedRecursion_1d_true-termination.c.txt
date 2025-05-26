@@ -1,26 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1. For `rec1(i)` function: 
-   - Ranking function is \( i \) which decreases by at least 2 after each recursive call until it is non-positive.
-  
-2. For `rec2(j)` function: 
-   - Ranking function is \( j \) which decreases by at least 1 with each recursive call, reducing it to eventually reach non-positive values. 
-   
-These ranking functions demonstrate the decrease in argument values for both recursive function calls, ensuring termination.
+[RESULT]
+NONTERM
+[REASON]
+The mutual recursion between functions `rec1` and `rec2` can lead to non-termination. Specifically, `rec2` can call `rec1` repeatedly without decreasing calls due to the nested nature of the recursive calls combined with potential non-decreasing behavior in the transformation of values.
 
 === Response 2 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-For `rec1(int i)`:   
-The ranking function is i, as each recursive call to `rec1` ultimately decreases the argument i by at least 1 before reaching a base case.  
-
-For `rec2(int j)`:  
-The ranking function is j, as after invoking `rec1`, which is terminating, the function `rec2` further decrements the argument j by 1 until reaching a base case.
+NONTERM  
+[REASON]  
+The mutually recursive calls between `rec1` and `rec2` can create an infinite descent without reaching the base case, as they can repeatedly decrease their arguments in a manner that does not guarantee reaching zero.
 

@@ -1,14 +1,12 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
--x  
+NONTERM  
+[REASON]  
+The variables `x`, `y`, and `z` increase in a way that can lead to `x` never reaching a non-positive value, creating the possibility of an infinite loop.
 
 === Response 2 ===
 [RESULT]  
 NONTERM  
 [REASON]  
-The values of `y` and `z` can grow in such a way that `x` never becomes non-positive, leading to infinite growth and no termination.
+The values of `x`, `y`, and `z` can increase indefinitely inside the loop, causing `x` to remain greater than zero and the loop to never terminate.
 

@@ -1,12 +1,10 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-x - (y * (y - 1)) / 2
-
-The program is terminating since the value of the expression `x - (y * (y - 1)) / 2` decreases with each iteration of the loop and is bounded from below. Initially, `y` is 1 and increases with each iteration, and `x` is decreased by `y`. The expression `x - (y * (y - 1)) / 2` reflects a linear combination of changes in `x` and `y`, showing that there is a linear decrease in the value until `x` becomes non-positive, at which point the loop terminates.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x
 
 === Response 2 ===
 [RESULT]  
@@ -14,5 +12,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-x + (y - 1)
+0.5 * x - 0.5 * y - 0.25
+
+Explanation:
+The linear ranking function 0.5 * x - 0.5 * y - 0.25 shows that in each iteration of the loop, the value of the function decreases. The variable x is decremented by y, and y is incremented by 1 in each iteration, causing the expression to continually decrease until the loop exits. This guarantees termination of the program.
 

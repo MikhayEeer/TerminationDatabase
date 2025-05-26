@@ -2,26 +2,19 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
+lexicographic  
 [RANKING FUNCTIONS]  
-1. Outer Loop: *n - *i  
-2. Inner Loop: *i - *j + 1  
-
-Explanation:  
-The given program consists of two nested loops. The outer loop runs while *i is less than *n, and during each iteration, *i is incremented by 1, leading the outer loop to eventually terminate when *i becomes equal to or greater than *n. The ranking function for the outer loop is *n - *i, which strictly decreases as *i is incremented without changing *n.
-
-The inner loop initializes *j to 0 and increments it until *j is greater than *i. The ranking function for the inner loop is *i - *j + 1, which decreases each time *j is incremented, leading to the termination of the inner loop when *j becomes greater than *i.
-
-Therefore, both loops decrease their respective ranking functions, proving that the program is terminating.
+1.0 * (*n - *i) + 0.0 * (*j)  
+1.0 * (*i - *j)
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographic
+nested
 [RANKING FUNCTIONS]
-1.0 * (*n - *i)^1
-0.0 * 1 + 1.0 * (*i - *j)^1
+Outer loop: *n - *i
+Inner loop: *i + 1 - *j
 
-This indicates that the program is terminating. The ranking functions decrease with each iteration: the outer loop's ranking function ensures the progress towards termination by decreasing (*n - *i) towards zero, and the inner loop's ranking function by decreasing (*i - *j) towards zero once `*i` is fixed during inner iterations.
+Explanation: The outer loop (`while (*i < *n)`) has a ranking function of *n - *i which decreases as *i increments toward *n. The inner loop (`while (*j <= *i)`) will terminate as *j increments until it exceeds *i. Thus, both loops will eventually terminate, proving the overall termination of the program.
 

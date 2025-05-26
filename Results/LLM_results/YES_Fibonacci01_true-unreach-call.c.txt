@@ -1,27 +1,21 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-For the `fibonacci` function: 
-- The recursion unfolds in a binary tree-like manner where every invocation of `fibonacci(n)` results in further invocations of `fibonacci(n-1)` and `fibonacci(n-2)`. 
-- The termination condition is reached when `n < 1`, so as `n` decreases with each recursive call, the function will eventually terminate.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+  
+1. Decrement of `n` in `fibonacci(n-1)` and `fibonacci(n-2)` calls.  
 
-For the `main` function: 
-- The randomness in `x` is bounded by checks and only allows the function to proceed for valid Fibonacci inputs (i.e. `x <= 46 && x != -2147483648`), ensuring that the program does not get stuck in an infinite loop.
-- The function `__VERIFIER_error()` is only called if a contradiction to established mathematical properties is found, which the constraints prevent under normal execution.
-
-Overall, the termination is evident as the function calls reduce the parameter to reach a base case and the non-normative cases exit the program gracefully.
+The `fibonacci` function is a classic example of recursion where each call results in a strictly smaller parameter value (`n-1` or `n-2`). The process continues until the base case is reached (`n < 1`). Each recursive call strictly reduces the size of `n`, leading towards termination. In the `main` function, the calls to `fibonacci` use a non-deterministic integer, which is bounded within a certain range, ensuring that the program will eventually terminate or reach an existing base case.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+piecewise  
 [RANKING FUNCTIONS]  
-Phase 1: 1.0 * (max(0, x - 2))^1  
-Phase 2: 0.5 * (max(0, n - 1))^1  
+3.0 * 1 + 4.0 * n^1 - 1.0 * 1   
 
-The program terminates because it contains a bounded loop (fibonacci function) that reduces the parameter `n` in each recursive call, eventually reaching the base case. The outer portion of the program has an integer `x` checked against bounds and then calls `fibonacci(x)`, which is managed within limits by the initial `if` condition, ensuring termination. The ranking function involves two phases - first involving `x` in main and second with `n` in `fibonacci`.
+The program is terminating because the recursive function `fibonacci(int n)` uses a decreasing sequence represented by the argument `n` in the recursive calls, such that each call reduces `n` by at least 1, until it reaches a base case where the recursion stops. The main program bounds `x` to reasonable values, ensuring termination in practice. The piecewise function derives from the fact that there are base cases for which the function ends, and outside of these cases, each recursive step brings `n` closer to a base condition.
 

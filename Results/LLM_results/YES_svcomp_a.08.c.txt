@@ -1,6 +1,16 @@
 === Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - y
+
+=== Response 2 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `x > y` may continue to hold indefinitely if `x` is initialized to a value much greater than `y`, given the increments `x = x + 1` and `y = y + 2` do not guarantee termination for all initial values of `x` and `y`.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+x - y
 

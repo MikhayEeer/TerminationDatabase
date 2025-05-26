@@ -4,15 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * i^1  
-1.0 * (i^1 - j^1)  
+1.0 * i^1 + 0.0 * 1  
+1.0 * (i - j)^1 + 0.0 * 1  
+
+The program terminates because `i` is decreasing and bounded below by 0, while `j` resets to 0 at the start of the inner loop and increments up to `i-1`, making the inner loop terminate as well. Together, these conditions ensure that the outer loop also terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-i^1  
-(i - j)^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * 1
+
 

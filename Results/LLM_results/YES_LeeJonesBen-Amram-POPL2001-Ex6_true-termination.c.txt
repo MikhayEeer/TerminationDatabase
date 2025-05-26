@@ -1,30 +1,27 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-In the function `f(int a, int b)`:
-1. 5.0 * 1 + 1.0 * b^1 + 5.0 * 1 (Phase 1: b is decreasing)
-2. 1.0 * 1 + 1.0 * a^1 + 1.0 * 1 (Phase 2: a is increasing, but Phase 1 dominates because b becomes 0 before a can grow indefinitely)
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * b^1 + 1.0 * 1
+0.5 * c^1 + 0.5 * 1
 
-In the function `g(int c, int d)`:
-1. 1.0 * 1 + 1.0 * c^1 + 1.0 * 1 (Phase 1: c is decreasing)
-
-Explanation:
-The program is terminating because the recursive calls in function `f` ensure that the parameter `b` is strictly decreasing and eventually reaches 0, at which point function `f` calls `g` with arguments `(a, 0)`. In function `g`, the parameter `c` is strictly decreasing until it hits 0, and then the function terminates. Therefore, for any non-negative initial values of `a` and `b`, the recursive calls will eventually terminate.
+This program is terminating with a multi-phase ranking function. In the `f` function, the value of `b` determines the termination of the first phase as it's decremented each recursive call until it reaches zero. In the `g` function, the value of `c` determines the termination of the second phase as it's decremented each recursive call until it reaches zero.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1. In the context of function `f`:  
-   - Decreases in `b` ensures termination for calls to `f`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: \( b \) (in function \( f \))
+Phase 2: \( c \) (in function \( g \))
 
-2. In the context of function `g`:  
-   - Decreases in `c` ensures termination for calls to `g`.
+[EXPLANATION]
+The function `f(a, b)` decreases the argument `b` in every recursive call until `b` reaches 0, at which point the control transfers to `g(a, 0)`. 
 
-The termination of the program can be established by considering the nested ranking functions separately for the recursive function calls. The argument `b` in function `f` continually decreases per recursive call, and similarly, the argument `c` in function `g` decreases to zero per recursive call. When `b` reaches zero, control moves to function `g` via the base case of `f`, which then terminates when `c` reaches zero. As both processes have well-founded decreases that eventually terminate, the entire program terminates.
+In the function `g(c, d)`, the argument `c` decreases by 1 in each call until it reaches 0. The value of `d` is non-decreasing, but it does not affect the termination as the primary guide to termination is the decrease of `c`.
+
+Each phase has a strictly decreasing parameter (`b` in `f` and `c` in `g`) bounded by the initial values from the main function. Since both functions have finite recursion steps, the overall program terminates.
 

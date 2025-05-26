@@ -3,17 +3,12 @@
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
-[RANKING FUNCTION]  
-1.0 * x^1 + 0.0 * 1  
-
-Explanation: 
-In the given program, the loop `while (x >= 0) { x = x - y; }` decreases the value of `x` by `y` in each iteration. The condition for the while loop `x >= 0` ensures that the loop will continue as long as `x` is non-negative. Since `y` is non-negative and `y <= x` holds initially, in each iteration, `x` is decreased by a positive amount, leading to a strictly decreasing sequence of values for `x`. Eventually, `x` will become negative, causing the loop to terminate. Hence, by selecting `x` as a linear ranking function, we demonstrate that the program is terminating.
+[RANKING FUNCTIONS]  
+x^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x^1 
+[RESULT]
+NONTERM
+[REASON]
+If \(y \leq x\) and \(y = 0\), then \(x\) will never decrease and the loop will run indefinitely.
 

@@ -1,6 +1,36 @@
 === Response 1 ===
+To determine whether the given C program terminates, we need to thoroughly analyze its flow and state transitions within the `ssl3_accept` function. By inspecting the provided code, we can observe that it applies state-driven logic: a switch-case-like flow extensively managed by `goto` labels, combined with conditions based on return values from non-deterministic functions.
+
+Here's a breakdown of the termination analysis:
+
+1. **State Transitions and Non-Determinism**:
+   - The primary construct that governs the flow is a while loop (`while (1)`) within which several goto labels drive the state transitions.
+   - The function utilizes several non-deterministic external functions like `__VERIFIER_nondet_int()`, which introduce uncertainty in state transitions especially since many transitions are contingent on the results of such calls (`if (ret <= 0) goto end;`).
+
+2. **Conditions to Exit the Loop**:
+   - Within the loop, termination from the `switch_1_case` states heavily relies on the variable `ret`, determined by non-deterministic calls. When `ret` is less than or equal to zero, the program jumps to `end`, which manages some cleanup and returns.
+   - The `state` variable critical for driving the logical flow has varied assignments throughout, directed by intricate checks and manipulations involving multiple variables. 
+
+3. **Error State**:
+   - There is a specific error-recovery flow (`goto ERROR`) which calls an error function `__VERIFIER_error()`. However, this is dependent on very particular conditions related to the "blastFlag", which are unlikely to be met given the non-deterministic nature unless specifically contrived.
+
+4. **Overall Termination Condition**:
+   - As the program relies on non-deterministic inputs for setting the variable `ret` and non-deterministically controlled state transitions, the program infinitely loops under certain conditions (for example, if `ret` remains positive due to input from `__VERIFIER_nondet_int()`), and will not converge to the sentinel state `3` or be forced entirely through the error path.
+
+Given this analysis, the program has the potential to infinitely loop depending on the non-deterministic inputs, which is indicative of non-termination.
+
+**Output:**
+
+```plaintext
+[RESULT]
+NONTERM
+[REASON]
+The program relies on non-deterministic external inputs for state transitions, which can result in non-termination.
+```
+
+=== Response 2 ===
 [RESULT]  
 NONTERM  
 [REASON]  
-The program contains a repeating loop with state transitions that can remain forever in a cycle or particular state without meeting a condition that ensures termination. Additionally, the function `ssl3_accept` includes nondeterministic transitions (using `__VERIFIER_nondet_int`) which do not guarantee that a state leading to termination will always be reached.
+Presence of nondeterministic inputs without a deterministic constraint can lead to unbounded behavior or infinite loops in the control flow, particularly in selections and while loops.
 

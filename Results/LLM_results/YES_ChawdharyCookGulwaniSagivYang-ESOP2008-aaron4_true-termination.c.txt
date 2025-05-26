@@ -1,23 +1,17 @@
 === Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The conditions involving nondeterministic integers and updates, especially with variables `i`, `j`, and `k`, combined with the nondeterministic behavior of `k` and `tk`, allow for infinite alternations that prevent the loop from always making progress. The complexity and variability from multiple conditions and nondeterministic assignments make it possible for infinite execution paths.
+
+=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * (tk + 1 - k)^1 + 0.0  
-0.0  
+1.0 * (tk - k) + 0.0 * i + 0.0 * j + 0.0 * 1  
+0.0 * i + 0.0 * j + 1.0 * (an - i) + 1.0 * (bn - j) + 0.0 * 1  
 
-
-
-Explanation:  
-The program will terminate because the value of `k` always decreases in each iteration of the loop according to a condition in the loop guard: `k >= tk + 1`. In addition, the values of `i` and `j` being updated do not affect this condition significantly in a way that could violate the loop's termination. Therefore, a multi-phase ranking function is given based on the decrement of `k`.
-
-=== Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (i - an) + 1.0 * (j - bn)
-1.0 * (k - tk)
+The ranking functions are based on the condition that the term `k` is decreasing with each iteration when `k >= tk + 1` holds. Additionally, the loop will eventually break due to the conditions involving `an`, `bn`, `i`, `j`. The multi-phase ranking function captures the fact that the program's progression can be broken into distinct phases where different variables decrease.
 

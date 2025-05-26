@@ -1,27 +1,23 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-Length of `s1` minus the position of `*sc1` in `s1` 
-Length of `s2` minus the position of `*s` in `s2`
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (length1)^1  
+1.0 * (length2)^1  
 
-The program terminates because the `cstrcspn` function iterates over the characters of two strings `s1` and `s2`, and returns an integer once a matching character is found or at the end of `s1`. The progress through each string is strictly decrementing as the loops iterate, ensuring termination. The allocation of `nondetString1` and `nondetString2` with a terminating null character guarantees that the loops over the strings will eventually terminate.
+The `cstrcspn` function processes the input strings character by character, moving forward, and the loops are controlled by the terminating null characters of the strings. This ensures that the iteration count is finite since both strings eventually reach their null terminators, making the program terminating. The multi-phase ranking function is defined by the lengths of both input strings that decrease as the iteration progresses.
 
 === Response 2 ===
-[RESULT]
+[RESULT]  
 TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-Phase 1: Decrease in pointer difference
-Function: \( f_1(sc1) = \text{length1} - (sc1 - s1) \)
-Phase 2: Inner loop progression when conditions met
-Function: \( f_2(s) = \text{length2} - (s - s2) \)
 
-Explanation:
-1. The outer loop iterates over `sc1`, which starts at `s1` and moves towards the null character, which serves as a natural bound. The difference `sc1 - s1` is bounded by `length1` due to `nondetString1[length1-1] = '\0';`.
-2. The inner loop iterates over `s`, checking each character against `c`. This loop is bounded by `length2` because `nondetString2[length2-1] = '\0';`. 
-3. When a match is found or the inner string (`s2`) is fully traversed without a match, the loop breaks, ensuring progression towards termination.
+[RANKING FUNCTION TYPE]  
+linear
+
+[RANKING FUNCTIONS]  
+Lexicographic ordering on `(length1 - (sc1 - s1))` and `(length2 - (s - s2))`
+
+Explanation: The function `cstrcspn` iterates over strings `s1` and `s2` using pointers `sc1` and `s`. The outer loop decreases the value of `(length1 - (sc1 - s1))` as it progresses, and the inner loop decreases the value of `(length2 - (s - s2))`. Both loops will eventually terminate once they reach their string length constraints. The strings are allocated with null terminators, ensuring the designated loop conditions will eventually be false. Thus, the program terminates.
 

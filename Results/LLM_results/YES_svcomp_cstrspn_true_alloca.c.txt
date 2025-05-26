@@ -1,13 +1,14 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (length1 - (sc1 - s1))^1 + 0.0 * 1  
-1.0 * (length2 - (s - s2))^1 + 0.0 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1st Phase: Lexicographic ordering of loop iterations, ensuring eventual decrease.
+- Function 1: *(length1 - (sc1 - s1)) to ensure monotonic decrease as `sc1` progresses through `s1`.
+- Function 2: Constant value for inner loop tracking progression over `s2` as it always terminates when the condition `*s != '\0' && *s != (char)c` is violated within the constraints of the loop. 
 
-The program terminates because the outer loop iterates over each character in `s1`, and the inner loop searches through `s2` for the current character from `s1`. Both loops traverse finite strings (terminated by the null character), which guarantees termination. Each phase decreases the distance towards the end of the string, ensuring progress towards termination.
+The program is terminating because the outer loop iterates over the string `s1`, decrementing the distance to the end, and the inner loop, scanning `s2`, terminates once it finds a character match or reaches the end of `s2`. The nested loops inside always decrease and seek an endpoint logically within the bounds of given strings.
 
 === Response 2 ===
 [RESULT]  
@@ -15,7 +16,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-(length1 - index(sc1))^1
+1.0 * (length1 - sc1)  
+2.0 * (length2 - s)  
 
-The function `cstrspn` iterates over the first string `s1` (represented by `sc1`) and for each character of `s1`, traverses `s2` to search for a match. When a non-matching character is found, the function returns the position where the mismatch occurs. If the string ends, it simply returns the length covered. The loop progress is ranked by the difference between `length1` and the current position of `sc1`, which decreases with each iteration, ensuring termination.
+Explanation:  
+The program involves iterating over the characters of two strings. The outer loop (for loop) iterates over `s1` (up to length1), and the inner loop (while loop) iterates over `s2` (up to length2). Each of these loops decreases the difference from the end of the string (null terminator), ensuring that progress is made towards termination. Hence, the program is terminating with a multi-phase ranking function.
 

@@ -4,16 +4,16 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
--1 * (12 - j) + 0 * 1 + 0 * 1
+10 - i, 12 - j
 
-[EXPLANATION]
-The loop is controlled by both `i` and `j`. The outer loop (`i`) runs a fixed number of times (10 iterations), and the inner loop (`j`) effectively decreases by 1 in every iteration until it reaches 11. As each iteration of the nested loop decreases the distance of `j` to 12, it ensures that the loop will eventually exit once `j` reaches the stopping criteria of the inner `for` loop. This behavior can be captured by a linear ranking function that models the decrease in `j`.
+Explanation: The outer loop runs for a finite number of iterations from 0 to 9, so there are at most 10 iterations. The inner loop variable `j` starts at 3, and within each iteration, it increases by 1 (since `j += 2` followed by `j -= 1` results in `j += 1`). Thus, the inner loop will terminate when `j` reaches 12, which is also a finite number of steps. Thus, the program terminates due to the linear nature of these loops.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-38 - 3.0 * i^1 - 1.0 * j^1
+10 - i
+
 

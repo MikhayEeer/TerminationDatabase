@@ -4,18 +4,14 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * min(x, y)^1  
+min(x, y)  
 
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-
-[RANKING FUNCTION TYPE]  
-piecewise  
-
-[RANKING FUNCTIONS]  
-min(x, y)  
-
-This program is terminating. The ranking function is based on the minimum of the variables `x` and `y`, which decreases in each iteration of the loop, thereby guaranteeing termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+min(x, y)
 

@@ -4,15 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-abs(x - y)
-
-The program terminates because the difference between `x` and `y` is strictly decreasing in every iteration of the loop, as `x` and `y` converge towards each other. The difference `abs(x - y)` will eventually reach zero, terminating the loop.
+(abs(x - y))^1
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-|x - y|
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+|x - y|  
+
+The program is terminating because the distance |x - y| between x and y decreases by 1 in each iteration of the loop, eventually reaching 0, which causes the loop to terminate.
 

@@ -2,21 +2,22 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+multi-phase
 [RANKING FUNCTIONS]
-1st level: i (where i goes from (array_size - 1) to 0 decreasing)
-2nd level: j (where j goes from 1 to i increasing) 
+1.0 * array_size^2 + 0.0 * 1
+0.5 * i^2 + 0.0 * 1
+0.5 * j^2 + 0.0 * 1
 
-The function nested ranking here is used to prove termination: with `i` gradually decreasing from `array_size - 1` to 0 and inner loop variable `j` goes from 1 to `i`, ensuring that all iterations of the inner loop complete before `i` decreases further, leading to program termination.
+This program is terminating. The outer loop iterates `i` from `array_size - 1` down to `0`, and the inner loop iterates `j` from `1` up to `i`. The ranking functions are based on the sizes of these loops, showing a decrease towards termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1. Phase: (i+1) over the outer loop  
-2. Phase: (i-j+1) over the inner loop  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * array_size^2 + 0.0 * 1
+0.5 * i^2 + 0.0 * j^2 + 0.0 * 1
 
-The program will always terminate because the `bubbleSort` function consists of a nested loop. The outer loop iterates from `array_size - 1` down to 0, and the inner loop iterates from 1 to `i`. Both loops have bounds that decrease with each iteration, ensuring that the loops will eventually terminate. The use of a nondeterministically chosen `array_size` is managed by a check ensuring that it is at least 1, which is sufficient to guarantee well-defined behavior.
+The program is a typical implementation of the bubble sort algorithm. Bubble sort sorts an array by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. The number of iterations in the worst-case scenario is determined by the size of the array, and the program is terminating because the loops have boundaries determined by `array_size`. The multi-phase ranking functions provided demonstrate that, as `i` and `j` progress through their loops, the progress towards completion is made. Thus, the loops will eventually terminate.
 

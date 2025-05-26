@@ -1,10 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * q
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+q^1
+
+The program will terminate because the value of `q` is strictly decreasing in each iteration of the loop when `q > 0`. The condition `q > 0` is the loop guard, and once `q` becomes zero or negative, the loop exits. The linear ranking function `q` shows that there is a consistent decrease with each iteration.
 
 === Response 2 ===
 [RESULT]
@@ -12,7 +14,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-q
-
-Explanation: The variable `q` strictly decreases by at least 1 in each iteration of the loop as long as `q > 0`. When `y > 0`, `q` decreases by `y + 1`, and when `y <= 0`, `q` decreases by 1. This ensures that `q` will eventually reach 0 or a negative value, causing the loop to terminate. The ranking function is simply `q`, showing that it strictly decreases and is bounded below by 0.
+1.0 * q^1
 

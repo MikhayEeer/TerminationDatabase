@@ -4,17 +4,18 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-max{1.0 * x^1, 0} + max{1.0 * y^1, 0}  
+max{x, 0} + max{y, 0}  
 
-The program terminates because the combined size of x and y (considering non-negative values) decreases at every step: if x is non-negative, it decreases; if x is negative and y is non-negative, y decreases. When both are negative, the loop terminates.
+Explanation:  
+The program is terminating, as it continuously decreases the values of `x` and `y` based on their initial conditions. The ranking function `max{x, 0} + max{y, 0}` shows that the sum of the non-negative parts of `x` and `y` strictly decreases with each iteration of the loop, ensuring termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. max{x, 0} + max{y, 0}  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+parallel
+[RANKING FUNCTIONS]
+max{x, 0} + max{y, 0}
 
-The program is terminating. This can be proven by using a piecewise ranking function which is a combination of linear max functions. The function \( f(x, y) = \max\{x, 0\} + \max\{y, 0\} \) decreases with every iteration of the loop until it reaches zero, thus ensuring termination.
+The program will terminate because, in every iteration of the loop, either `x` is nonnegative and is decremented by 1, or if `x` is negative, `y` is decremented by 1 if `y` is nonnegative. Hence, the value of the ranking function `max{x, 0} + max{y, 0}` decreases with every iteration, which proves termination using a parallel ranking function.
 

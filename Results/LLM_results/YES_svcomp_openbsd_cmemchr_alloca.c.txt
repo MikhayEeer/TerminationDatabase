@@ -6,22 +6,15 @@ linear
 [RANKING FUNCTIONS]
 n
 
-The program is terminating because the `cmemchr` function contains a loop with a condition that decrements `n` each iteration. Since `n` is initialized as a positive integer by ensuring it is at least 1 before the function call, it will eventually reach 0, causing the loop to exit and the function to return. Hence, the function will terminate, and the linear ranking function `n` suffices to prove this since it strictly decreases with each iteration.
+The program is terminating. The function `cmemchr` takes a pointer and iterates over up to `n` characters looking for a match. The loop decrements `n` each time until `n` is zero. By ensuring that `n` is at least 1, it will always terminate after exhausting all `n` characters or finding a match, and cannot run indefinitely. This is proven by the linear ranking function `n`, which strictly decreases with each iteration and assures termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * n^1 + 1.0 * 1
-0.5 * length^0 + 0.5 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1  
 
-Explanation:
-
-1. The function `cmemchr` iterates over the array pointed to by `s`, which has size `n`. In each iteration of the loop, the counter `n` is decremented.
-2. The loop condition `while (--n != 0)` ensures that the loop will eventually terminate as long as `n` is positive, which it is given the initialization `if (n < 1) { n = 1; }`.
-3. Since the loop will decrement a finite positive integer down to zero, it is guaranteed to terminate.
-4. The main function calls `cmemchr`, but does not contain any other loops, ensuring that it is also terminating. 
-5. Therefore, the ranking function for the loop is `1.0 * n^1 + 1.0 * 1`, indicating it decreases with each iteration, proving termination of the loop.
+Explanation: The main loop within the `cmemchr` function iterates with the condition `n != 0` and decrements `n` in each iteration with the statement `--n`. This ensures that the number of iterations is limited by the initial value of `n` which is constrained to be at least 1. Therefore, the function terminates as it will eventually reach a state where `n` is 0, exiting the loop. The program is thus proved to be terminating using the ranking function `1.0 * n^1`.
 

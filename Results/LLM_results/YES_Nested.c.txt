@@ -2,20 +2,18 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-10 - i
-
-The outer loop will terminate because `i` increases by 1 in each iteration and starts from 0 until it reaches 10. The inner loop has no effect on the termination of the outer loop because `j` will stay greater than or equal to 12, effectively making the inner loop execute almost instantly. The linear ranking function `10 - i` decreases at each step of the outer loop, proving termination.
+9 - i
+12 - j
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+linear
 [RANKING FUNCTIONS]
-1.0 * (10 - i)^1 + 1.0 * 1
-1.0 * (12 - j)^1 + 1.0 * 1
+10 - i
 
-Explanation: The outer loop decreases the value of `10 - i` with each iteration since `i` is incremented by 1 from 0 up to a maximum of 9. The inner loop decreases the value of `12 - j` as `j` is adjusted within the constraints of its loop, always increasing `j` so it terminates quickly reaching the condition for the next increment of `i`. Both loops contribute to the decrease in a well-founded manner. Hence, the program is terminating.
+The program is terminating. The outer loop has a linear bound on the variable `i`, which increases by 1 in each iteration until it reaches 10. The inner loop always increments `j` by 1 in each iteration, but quickly reaches a stable state as `j` becomes 12 or higher, causing the inner loop to exit immediately in future execution cycles. The ranking function for the outer loop using `i` is sufficient to prove termination: `10 - i`. This function decreases with every iteration of the outer loop until it reaches zero, at which point the loop stops.
 

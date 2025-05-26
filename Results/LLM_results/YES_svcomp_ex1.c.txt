@@ -1,16 +1,18 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1 * y^1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+\( y \)
+
+The given program is terminating because, in the `test_fun` function, the loop condition is `y > 0`, and during each iteration of the loop, `y` is decremented by 1 with the operation `y = y - 1;`. This means the value of `y` will eventually reach 0 or become negative, causing the loop to terminate. The ranking function is simply `y`, as its initial value is a non-negative integer and decreases with each iteration until it becomes zero, thus ensuring termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1 * y^1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * y^1 + 0.0
 

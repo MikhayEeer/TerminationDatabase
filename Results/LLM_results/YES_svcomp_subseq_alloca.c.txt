@@ -1,18 +1,22 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-(length2 - pt)
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-(length2 - pt)  
+1.0 * (length2 - pt)  
 
-The program is terminating because the `subseq` function systematically moves the `pt` pointer through the `nondetString2` array. Since the length of `nondetString2` is bounded and the pointer `pt` only progresses forward, the loop in `subseq` will eventually terminate.
+Explanation:  
+The program is terminating because in the while loop within the `subseq` function, the pointer `pt` is incremented in every iteration. Since the string `nondetString2` is guaranteed to terminate with a `'\0'`, `pt` will eventually reach the end of the string, causing the loop to terminate. The distance from `pt` to the end of `nondetString2` is a linear ranking function, ensuring the loop eventually ends.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. Length of the string `t` (`pt` dereferenced) decreases upon progression of `pt` in the outer loop  
+2. Length of the substring of `s` (`ps` dereferenced) does not decrease without `pt` progressing, due to conditional increment of `ps`.  
+
+Explanation: The function `subseq` processes two strings `s` and `t` by iterating over `t` and potentially incrementing `ps` when characters in both `s` and `t` match. The loop terminates when either string `t` is exhausted or all characters in `s` have been matched in sequence with characters from `t`. Furthermore, `pt` always progresses leading to eventual termination, ensuring `t` is completely processed.
 

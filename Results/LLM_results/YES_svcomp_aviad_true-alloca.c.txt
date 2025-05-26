@@ -1,12 +1,10 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1 * a_ref
-
-The program is terminating as the ranking function `a_ref` decreases by at least 1 in each iteration of the loop until it reaches 1, whereupon the loop terminates. The variable `a_ref` starts from `a` and is decreased either by dividing by 2 (when even) or decrementing by 1 (when odd). Since this process is guaranteed to eventually reach 1 for any positive initial integer `a`, the function `f` terminates.
+[RESULT] 
+TERMINATE 
+[RANKING FUNCTION TYPE] 
+linear 
+[RANKING FUNCTIONS] 
+x
 
 === Response 2 ===
 [RESULT]  
@@ -14,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-x
+1.0 * a_ref^1
 

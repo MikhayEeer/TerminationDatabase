@@ -1,23 +1,18 @@
 === Response 1 ===
-```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program terminates because it is evident that the loop within the `cstrncmp` function has a bound determined by the parameter `n`. The `while` loop decrements `n` and eventually `n` will reach zero, at which point the loop terminates. This argument is independent of the contents of the strings `s1` and `s2`. Hence, the linear ranking function is based on the value of `n` decrementing towards zero.
+
+=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
 n
-```
 
-The function `cstrncmp` in the provided program will terminate because the loop inside `cstrncmp` decrements `n` with each iteration, and the loop terminates when `n` reaches zero. Thus, the value of `n` serves as a linear ranking function that demonstrates termination. The process will stop once `n` is no longer greater than zero, indicating the program will eventually reach termination.
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-n  
-
-Explanation:  
-The function `cstrncmp` essentially compares two strings for up to `n` characters or until a null character is detected. The loop iterates `n` times or until a null terminator is detected in either string. Each iteration of the loop strictly reduces the value of `n` by 1, unless a return condition is met earlier if a null character is encountered or a differing character is found. This provides a straightforward linear ranking function based on the parameter `n`. Assuming `n` is initialized to a finite non-negative integer, the loop will terminate. Hence, the program is terminating.
+This program will terminate because the loop in the `cstrncmp` function only iterates a maximum of `n` times, where `n` is a non-negative integer provided by the function's argument. Each iteration either decreases `n` or causes the loop to terminate due to the `if (n == 0 || *s1 == '\0') return 0;` condition, ensuring that the loop cannot enter an infinite iteration cycle.
 

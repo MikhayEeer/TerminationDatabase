@@ -1,23 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * 1 - 1.0 * (*x3)^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (4 - 4 * *x0 - 2 * *x1 - 1 * *x2)^1 + 0.0 * 1
 
-The program is terminating as the loop condition `*x3 == 0` eventually becomes false after finite iterations. The program flips the bits of `*x0`, `*x1`, `*x2`, and eventually sets `*x3` to 1, causing the loop to terminate. A linear ranking function decreases in each iteration, which shows that the program must terminate.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x3^1 + 0.0 * 1  
-3.0 * x2^1 + 0.0 * 1  
-3.0 * x1^1 + 0.0 * 1  
-3.0 * x0^1 + 0.0 * 1  
-
-The program is essentially implementing a four-bit binary counter using pointers `x0`, `x1`, `x2`, and `x3`, starting from all bits being 0 and incrementing until `x3` becomes 1. Once `x3` becomes 1, the condition of the while loop (`*x3 == 0`) is false, and the program will terminate. Thus, the program is terminating, and the termination can be demonstrated with a multi-phase ranking function corresponding to each bit change in the counter.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (8 - (2 * x0 + 4 * x1 + 8 * x2)) 
+0.5 * x3^1
 

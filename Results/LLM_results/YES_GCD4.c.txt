@@ -2,14 +2,17 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
+multi-phase  
 [RANKING FUNCTIONS]  
-1st loop: 1.0 *  y^1  
-2nd loop: 1.0 *  xtmp^1
+1.0 * y^1 + 0 * x^1 + 0 * 1  
+1.0 * x^1 + 0 * 1  
 
 === Response 2 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The program contains an inner loop where `xtmp` is repeatedly set to `xtmp - y` as long as `xtmp >= y && y > 0`. There exists cases where `y` and `xtmp` never reach zero, such as when both start with the same positive value, leading to a scenario where the outer loop condition `y > 0 && x > 0` remains true indefinitely.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.7071 * x^1 + 0.7071 * y^1  
+1.0 * y^1  
 

@@ -2,5 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-Infinite loop with constant assignment to `x`, no condition for loop exit.
+The while loop condition is always true, creating an infinite loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+Infinite loop due to the `while (1)` condition, which always evaluates to true.
 

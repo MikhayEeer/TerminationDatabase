@@ -4,18 +4,22 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 *  x^1  
+1.0 * x^1 + 0 * y^1 + 0  
+1.0 * x^1 + 0 * y^1 + 0  
 
-The program is terminating, and the termination can be demonstrated using a multi-phase ranking function. The variable `x` is non-negative initially and is decremented by 1 in each iteration of the outer loop. This guarantees that `x` will eventually become negative, causing the loop to terminate. The ranking function `1.0 * x^1` decreases with each iteration of the loop, providing evidence of termination.
+The program is terminating. It can be proved by the multi-phase ranking function on the variable `x`. The main loop decreases `x` by 1 in each iteration, and once `x` becomes negative, the loop terminates. The inner loop with `y` does not affect termination since it resets `y` to 1 and increases `y` until it is no longer less than `x`, which effectively causes it to terminate independently once `x` changes.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 1.0 * (x + 1)  
-Phase 2: 1.0 * (x - y + 1)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+1.0 * (x - y)^1 + 0.0 * 1
 
-The program is terminating because it has two phases where each phase has a separate ranking function that demonstrates a decrease. The first ranking function 1.0 * (x + 1) decreases as `x` decreases in the outer loop. The second ranking function 1.0 * (x - y + 1) decreases as `y` doubles and becomes greater than or equal to `x`, terminating the inner loop. This multi-phase ranking function ensures eventual termination of both loops.
+Explanation: 
+The program will terminate as there exists a multi-phase ranking function that eventually decreases and leads to program termination.
+- The first phase decreases the value of `x` with each iteration of the outer loop `while (x >= 0)`.
+- The second phase, inside the inner loop `while (y < x)`, involves `y` increasing until it is no longer less than `x`. When the inner loop exits, the outer loop decrements `x`, ensuring eventual termination.
 

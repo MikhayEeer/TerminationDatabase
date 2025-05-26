@@ -1,12 +1,11 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-1.0 * x^1 when y < 0, otherwise undefined
-
-Explanation: The program terminates based on the structure of the loop and the effect of the assignments within it. When `x > 0`, the loop enters, and `x` is assigned the value of `y`, and then `y` is decremented. If `y` is initially negative, `x` will be set to a non-positive value, exiting the loop immediately. Thus, the loop can only continue running if `y` is non-negative before the assignment, but `y` decreases with each iteration, eventually becoming negative and causing the loop to exit. This ensures termination in all cases.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x + 0.0 * y  
+0.0 * x + 1.0 * y
 
 === Response 2 ===
 [RESULT]  
@@ -14,9 +13,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * 1  
-1.0 * y^1 + 0.0 * 1  
+1.0 * x^1  
+y^1 + 0.5 * y^0  
 
-Explanation:  
-The program is terminating, and this can be illustrated with a multi-phase ranking function. Initially, `x` is assigned a value greater than 0. During each iteration of the loop, `x` is set to the current value of `y`, and `y` is decremented by 1. The ranking functions show that in each phase of execution, either `x` or `y` eventually decreases and will reach a point where the loop condition `x > 0` is no longer satisfied, thus proving termination.
+Explanation:
+The given program will terminate because the value of `x` is updated from `x` to `y` in each iteration, and `y` is decremented by 1 in each iteration. This causes `x` to eventually become non-positive, fulfilling the termination condition of the loop `x > 0`. With each loop iteration, `y` reduces, leading both variables toward the loop's exit condition. The ranking function for this non-linear pattern employs a multi-phase method, first decreasing `x` towards zero and then reducing `y`.
 

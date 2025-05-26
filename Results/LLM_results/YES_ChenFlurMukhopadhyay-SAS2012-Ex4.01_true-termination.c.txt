@@ -4,26 +4,18 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-Phase 1: \( n - x \)  
-Phase 2: \(-1\)  
+First phase:  
+0.5 * (n - x)^1  
+Second phase:  
+-decreasing ranks due to non-linear transformations as combined increases in `x` and `y` given constraints will eventually violate `x + y >= 0` as `z` ensures increases. 
 
-Explanation: 
-
-1. **Phase 1:** The primary ranking function is \( n - x \). Each iteration essentially attempts to increment \( x \) by a more than linear factor (since \( x = 2*x + y \)), which will eventually cause the condition \( x > n \) to break, especially since \( x \) is always updated to be larger each time as long as it remains less than or equal to \( n \).
-
-2. **Phase 2:** This phase deals with situations when the transition condition is already violated, essentially serving as a constant phase, confirming termination once the first phase is complete and not re-enterable.
+This demonstrates that although the relation is non-linear, the program will eventually terminate due to constraints breaking.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+non-linear  
 [RANKING FUNCTIONS]  
-1. Phase 1:  `x + y`   
-   - The value of `x + y` decreases in each iteration of the loop due to the update `x = 2*x + y`. 
-   
-2. Phase 2:  `n - x`   
-   - This phase triggers the loop termination as the condition `x <= n` will eventually become false when the value of `n - x` is no longer positive.
-
-The given program is multi-phase terminating due to these ranking functions.
+The non-linear nature and structure of the loop imply a decrease in the composite expression `x - n/2` on each iteration, which ensures termination as `x` becomes larger than `n`. As `x` increases exponentially based on the operation `x = 2*x + y`, while `x <= n` initially, eventually `x` surpasses `n`, causing the loop condition `x <= n` to fail, thus terminating the loop. This non-linearly structured ranking function effectively demonstrates the termination of the program.
 

@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * i^1 + 1.0 * 1  
-0.1 * j^1 + 1.0 * 1  
-
-The program is terminating since it uses a nested ranking function. The outer ranking function is a linear function of `i` that decreases every time `j` reaches zero and resets to `N`, while `i` is decremented. The inner ranking function decreases with `j` decrementing until it reaches zero. This ensures that every path through the loop results in progress towards termination.
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * i^1 + 0.0 * 1
-0.0 * j^1 + 1.0 * 1
+1.0 *  i^1 + 1.0 * 1 + 0.0 * j^1
+
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.1 *  i^1 + 0.9 * 1  
+0.1 *  j^1 + 1.0 * 1
 

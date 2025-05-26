@@ -1,17 +1,24 @@
 === Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+if (up == 1) then (10 - i)  
+if (up == 0) then (i)  
+
+The program alternates between increasing and decreasing `i`, ensuring the while loop condition `0 <= i && i <= 10` will eventually be violated as `i` moves towards exit bounds. The ranking function is piecewise, depending on whether `up` is set to 1 or 0.
+
+=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-10.0 * 1 + 1.0 *  (10 - i)^1
-5.0 *  i^1 + 5.0 * 1
+First Phase:
+- Function: 11 - i for i >= 0 and i <= 10 and up = 1 (Strictly Decreases)
+Second Phase:
+- Function: i for i >= 0 and i <= 10 and up = 0 (Strictly Decreases)
 
-The program terminates because the value of `i` will oscillate between the bounds (0 and 10) moving towards an exit condition where `i` will eventually be less than 0 or greater than 10. The first ranking function tracks increasing `i` values when `up` is 1, with a maximum value of 10 at which point `up` will be set to 0. The second ranking function tracks the decreasing `i` values when `up` is 0. These two phases combined ensure that the loop will eventually terminate as `i` exits the interval [0,10].
-
-=== Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program can enter an infinite loop between `i == 10` and `i == 0`, toggling the direction of `i`'s incrementation indefinitely.
+The program transitions between increasing and decreasing the value of `i` within the bounds of 0 and 10. When `i` reaches the boundary (either 0 or 10), the direction of change reverses. The mechanism guarantees that the loop will eventually exit once `i` moves beyond these boundaries, ensuring termination.
 

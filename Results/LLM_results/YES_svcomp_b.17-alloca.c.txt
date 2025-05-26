@@ -4,17 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 *  y_ref^1  
-1.0 *  x_ref^1
+1.0 * y_ref^1  
+1.0 * x_ref^1  
+
+The program terminates because the inner loop decreases the value of `y_ref` through `*y_ref = *y_ref - 1` until `*y_ref <= *z_ref`, ensuring that it will eventually exit. The outer loop likewise decreases `x_ref` through `*x_ref = *x_ref - 1` independently of the inner loop. Since both `x_ref` and `y_ref` are bounded below by `z_ref`, and both are strictly decreasing during their respective loops, the process will terminate. The ranking function is multi-phase because it follows two phases of reduction: first `y_ref` and then `x_ref`.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
+multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + 1.0 * 1  
-1.0 * y^1 + 1.0 * 1  
-
-This program is terminating. The nested structure of the loops allows for the derivation of a nested ranking function. In the outer loop, the variable `x_ref` decreases with each iteration until it's no longer greater than `z_ref`. Within the inner loop, the variable `y_ref` decreases until it is no longer greater than `z_ref`. Each of these loops reduces its respective variable monotonically, which ensures termination.
+Phase 1: 1.0 * y^1  
+Phase 2: 1.0 * x^1  
 

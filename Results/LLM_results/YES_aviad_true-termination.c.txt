@@ -4,16 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-x, if `x % 2 == 0`
-x - 1, if `x % 2 != 0`
+1.0 * 1 + 1.0 *  a^1
 
-The program is terminating because the function `f(a)` decreases the value of `a` in each iteration of the loop. The value of `a` either becomes `a / 2` if `a` is even, or `a - 1` if `a` is odd, both of which eventually lead to `a` becoming less than or equal to 1, causing the loop to terminate.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-x
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 * x^1  
+5.0 * 1  
 

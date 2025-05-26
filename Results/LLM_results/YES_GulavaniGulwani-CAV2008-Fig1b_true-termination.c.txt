@@ -4,19 +4,22 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * n - 1.0 * x  
-1.0 * m - 1.0 * x  
+1.0 * n - 1.0 * x^1  
+1.0 * m - 1.0 * x^1  
 
-Explanation: The program consists of two phases marked by the two `while` loops. In the first loop, the variable `x` is incremented while it is less than `n`, yielding the ranking function `1.0 * n - 1.0 * x`, which decrements at every iteration. Once `x` reaches a value greater than or equal to `n`, the first loop terminates. Similarly, in the second loop, `x` is incremented while it is less than `m`, with the ranking function `1.0 * m - 1.0 * x`, which also decrements in every iteration until `x` ≥ `m`. Eventually, both loops terminate when the respective conditions are no longer satisfied, ensuring program termination.
+Explanation:  
+The program consists of two separate `while` loops. The first loop runs while `x < n` and increments `x` by 1 in each iteration. Thus, the difference `n - x` serves as a valid ranking function for this loop, because it is strictly decreasing with each iteration and must eventually reach zero or fewer, terminating the loop.  
+
+Similarly, the second loop runs while `x < m` and also increments `x` by 1, so `m - x` is a valid ranking function for this loop. Both loops have linear ranking functions, and the loops are executed sequentially, making the entire program terminating.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-Phase 1: In the first loop where `x < n`, the ranking function can be `n - x`.
-Phase 2: In the second loop where `x < m`, the ranking function can be `m - x`.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n + 0.0 *  m^0 + 0.0 * 1
+1.0 * m + 0.0 * 1 + 0.0 * 1
 
-Each phase strictly decreases every iteration in its corresponding loop until `x` reaches `n` in the first loop and `m` in the second loop, making the overall program terminating.
+Explanation: The program consists of two while loops. In the first loop, `x` is incremented until it reaches `n`, and in the second loop, `x` is incremented until it reaches `m`. Since both `n` and `m` are constants, the progress of `x` ensures both loops will eventually terminate. Thus, the program is terminating.
 

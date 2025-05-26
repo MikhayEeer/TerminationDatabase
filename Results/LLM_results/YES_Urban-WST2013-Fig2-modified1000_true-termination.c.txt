@@ -1,14 +1,17 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
 piecewise
-[RANKING FUNCTIONS]
-(x1 <= 10) -> 11 - x1
-(x1 > 10) -> 0
 
-Explanation:
-This program consists of a nested loop structure. The outer loop runs while `x1 <= 10`, and within it, there is an inner loop that runs while `x2 > 1`. The inner loop decrements `x2` by 1 in each iteration, making sure it reaches 1 eventually, always terminating the inner loop. Each time after the inner loop finishes, `x1` is incremented by 1. Thus, the outer loop will make `x1` exceed 10 eventually, terminating the entire loop structure. The ranking function reflects that for `x1 <= 10`, the remaining steps to continue the loop structure are `11 - x1`. Once `x1 > 10`, the program terminates immediately.
+[RANKING FUNCTIONS]  
+For outer loop:
+10 - x1
+
+For inner loop:
+x2 - 1
+
+The program is designed with nested loops: the outer loop runs while `x1 <= 10`, incrementing `x1` by 1 in each iteration, and the inner loop, which resets `x2` to 1000, decrements `x2` until it is less than or equal to 1. The outer loop terminates when `x1` exceeds 10, and the inner loop decreases `x2` until it reaches 1, so both loops are ensured to terminate via their respective ranking functions. The use of piecewise ranking functions here captures this nested loop structure.
 
 === Response 2 ===
 [RESULT]  
@@ -16,6 +19,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-First phase: 1000 - x2  
-Second phase: 11 - x1  
+1. A linear ranking function for the inner loop: \( f_1(x2) = x2 \)  
+2. A linear ranking function for the outer loop: \( f_2(x1) = 10 - x1 \)  
+
+The program is terminating because the outer loop increases `x1` in each iteration and stops when `x1` surpasses 10. For each iteration of the outer loop, the inner loop decreases `x2` from 1000 to 1, ensuring it terminates. The termination of both loops can be proven using the given piecewise linear ranking functions.
 

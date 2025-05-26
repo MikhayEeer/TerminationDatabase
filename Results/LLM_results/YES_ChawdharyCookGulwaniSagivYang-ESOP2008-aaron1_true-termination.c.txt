@@ -1,6 +1,26 @@
 === Response 1 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The program can potentially loop indefinitely due to non-deterministic updates of `i` and `j`, where conditions on `an` and `bn` may not necessarily be falsified with each iteration, allowing potentially infinite cycles.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st phase: (an - i)   
+2nd phase: (bn - j)   
+
+The program is terminating. The loop will continue until both `i` exceeds `an` and `j` exceeds `bn`. There are two phases here:  
+1. The first phase focuses on `i` incrementing to surpass `an`.  
+2. The second phase focuses on `j` incrementing to surpass `bn`.
+
+As the loop progresses, one of these ranking functions decreases with each iteration until the loop condition is no longer met. Hence, the program will eventually terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1st Phase:  
+f(i, j) = an - i + bn - j  
+2nd Phase:  
+f(i, j) = an - i  
 

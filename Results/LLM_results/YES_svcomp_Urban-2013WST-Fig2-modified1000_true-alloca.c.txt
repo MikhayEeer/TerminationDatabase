@@ -4,15 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 nested  
 [RANKING FUNCTIONS]  
-5.0 * 1 + 1.0 * (10 - *x1)^1 + 5.0 * 1  
-0.02 * 1 * (*x2 - 1)^1 + 1.0 * 1 * 1
+1. *x2  
+10. - *x1  
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-999.0 * 1 + 1.0 *  x2^1
-1.0 * (10 - x1)^1 + 0.0 * 1
+Outer loop: 10 - *x1
+Inner loop: *x2 - 1
+
+The outer loop decreases *x1 from an initial value less than or equal to 10 to a value greater than 10, ensuring its execution is finite. The inner loop decrements *x2 from 1000 to 1, which is finite as well. Together, these nested loops ensure the program terminates.
 

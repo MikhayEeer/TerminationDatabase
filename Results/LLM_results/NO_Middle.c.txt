@@ -4,15 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-0.5 * (i - j)^1 + 0.5 * 1  
+1 * (i - j) 
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
-[RANKING FUNCTION]
-f(i, j) = i - j
-
-This linear ranking function shows that with each iteration of the loop, the value of `i - j` is decreased. Since any integer sequence that strictly decreases and is bounded below must eventually terminate, we can conclude that the program terminates.
+[RANKING FUNCTIONS]
+0.5 * (i - j)^1
 

@@ -4,13 +4,11 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-*x_ref - y_ref
+*x_ref - *y_ref
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-*x_ref - *y_ref
+[RESULT]
+NONTERM
+[REASON]
+The loop in the `test_fun` function continues indefinitely if the initial value of `x` is strictly greater than `y` and `y` is non-negative, because `*x_ref` does not change within the loop, allowing `*y_ref` to increase towards but never reach `*x_ref`.
 

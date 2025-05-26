@@ -4,10 +4,19 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-1.0 * (|i| - |w|) if |i| > |w|  
-0 otherwise  
+1. If i < -w: -i^2  
+2. If -w <= i <= w: constant function (0)  
+3. If i > w: -i^2
 
-The program terminates as every iteration of the loop reduces the absolute value of `i` when `|i| > w`, until `|i|` is not greater than `w` anymore, at which point `i` is set to 0, causing the loop to terminate. This is effectively captured by the piecewise ranking function above.
+Explanation: In the given program, the main while loop continues until `i` is not equal to zero. Within the loop, there are three conditions:
+
+1. If `i` is less than `-w`, `i` is decreased by 1 and then its sign is changed, effectively increasing `i` towards zero in absolute value, thus helping in reducing the distance to the termination condition (`i != 0`).
+
+2. If `i` is within the range `[-w, w]`, `i` is set to zero, causing the termination of the loop.
+
+3. If `i` is greater than `w`, `i` is increased by 1 and then its sign is changed, effectively decreasing `i` towards zero in absolute value, thus aiding in reaching the termination condition.
+
+Thus, each transition in these conditions results in reaching the termination condition, and the given piecewise ranking function demonstrates the termination.
 
 === Response 2 ===
 [RESULT]
@@ -15,9 +24,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-(i < -5): -i^1 -1
-(i > 5): i^1 +1
-Otherwise: 0
+- For `i < -w`: the ranking function is `-i`, which is strictly decreasing because each iteration decreases `i` by 1 and then flips its sign.
+- For `i > w`: the ranking function is `i`, which is strictly decreasing because each iteration increases `i` by 1 and then flips its sign.
+- For `-w ≤ i ≤ w`: the program sets `i` to 0 and exits the loop, ensuring termination. 
 
-This program is terminating because the value of `i` is continually adjusted to move towards zero, finally reaching zero and exiting the while loop. The ranking function is defined piecewise, depending on the range in which `i` falls.
+This demonstrates termination because, in every case, the value of `i` is moved closer to 0, effectively exiting the loop.
 

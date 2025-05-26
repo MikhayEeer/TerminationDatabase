@@ -1,25 +1,19 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * i^1 for rec1
-1.0 * j^1 for rec2
-
-The recursion in functions `rec1` and `rec2` involve decreasing the arguments `i` and `j`, respectively. The function `rec1` eventually reaches the base case when `i` becomes non-positive, and similarly, `rec2` reaches its base case when `j` becomes non-positive. This guarantees termination, as measured by the ranking functions given for each recursive function, where the argument decreases with each recursive call.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+The program involves two mutually recursive functions `rec1` and `rec2`. The termination can be shown by examining the nested structure of recursive calls, as each call for `rec1` or `rec2` reduces the argument in a manner leading to the base case: `i <= 0` or `j <= 0`.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-For `rec1(int i)`:
-1. `i` as it strictly decreases with each recursive call until it reaches 0, which serves as a base case.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: \(-1\) * \(i^1\)   
+Phase 2: \(-1\) * \(j^1\)  
 
-For `rec2(int j)`:
-1. `j` as it strictly decreases with each recursive call until it reaches 0, which serves as a base case.
-
-The nested ranking function shows that both `rec1` and `rec2` are terminating due to the well-founded nature of the integer domain and the strictly decreasing arguments in recursive calls. This concludes that `main()` will also terminate as it calls `rec2` with a non-deterministic integer.
+The program's termination can be demonstrated using a multi-phase ranking function. In function `rec1`, the value of \(i\) decreases by at least 2 for each recursive call, which ensures termination. In function `rec2`, the value of \(j\) decreases by 1 for each call, ensuring termination as well. Thus, both recursive calls will eventually reach the base case and terminate.
 

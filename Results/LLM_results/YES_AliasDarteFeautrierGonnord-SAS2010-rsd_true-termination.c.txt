@@ -2,11 +2,10 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+multi-phase  
 [RANKING FUNCTIONS]  
-da - r  
-
-The program is terminating because the value of `da` consistently decreases with each iteration of the loop either through decrement (`da--`) or through the operation `da = db - 1` which ensures `da` decreases since `db = 2 * r` initially and `da >= r`, the while loop enforces that `da` will eventually become less than `r`, causing termination. The ranking function `da - r` decreases with each iteration until it reaches a value less than zero, at which point the loop terminates.
+Phase 1: 1.0 * da  
+Phase 2: 2.0 * da + 0.0 * db + -2.0
 
 === Response 2 ===
 [RESULT]  
@@ -14,8 +13,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * da^1 + 0.0 * 1  
-1.0 * db^1 + 0.0 * 1  
+Phase 1: 1.0 * da^1 + 1.0  
+Phase 2: 1.0 * db^1 + 1.0  
 
-The program is terminating. The ranking function is a multi-phase ranking function, with each phase corresponding to either the decrease in `da` or `db` in a specific manner such that they eventually fall below `r`, making the loop terminate.
+Explanation:  
+The program uses a non-deterministic choice to decrease `da` and update `db` to eventually terminate the while loop when `da < r`. The multi-phase ranking function demonstrates decreased values in `da` and `db` in each phase of the loop, ensuring termination.
 

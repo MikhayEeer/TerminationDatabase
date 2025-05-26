@@ -4,7 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-0.5 *  x^1 - 0.5 *  y^1
+x - y
 
 === Response 2 ===
 [RESULT]
@@ -13,6 +13,4 @@ TERMINATE
 linear
 [RANKING FUNCTIONS]
 x - y
-
-Explanation: The program will terminate because the condition `x > y` ensures that in each iteration of the while loop, the value of `x` is decreased by 1 and `y` is increased by 1. This decreases the value of `x - y` by 2 in each iteration. Eventually, `x` will become equal to or less than `y`, ending the loop. Hence, the program is terminating, and the ranking function `x - y` is a linear ranking function proving this fact.
 

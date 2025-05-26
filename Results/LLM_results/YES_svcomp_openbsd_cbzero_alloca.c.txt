@@ -1,12 +1,13 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1.0 * n^1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n^1
 
-The program is terminating. The `cbzero` function contains a loop that iterates from `n` down to `0`, decrementing `length` each iteration until it reaches `0`. The variable `n` is initialized to a non-negative value prior to the loop, and it is bounded such that `0 <= n <= length`. Hence, the loop is guaranteed to terminate as `length--` eventually becomes `0`. The ranking function `1.0 * n^1` demonstrates that the value of `n` is monotonically decreasing with each loop iteration, ensuring termination.
+Explanation:  
+In the given `cbzero` function, the loop iterates `length` times (in this context, `length` is represented by `n` in the function call `cbzero(nondetArea, n);`). The function `cbzero` assigns `'\0'` to each character in the memory area, decrementing `length` each time, and continues until `length` becomes zero. This loop will always terminate given that `n` is initialized to be at least 1 and non-increasing. Hence, we can use `n` as a linear ranking function to demonstrate that the loop terminates, and consequently, the program terminates.
 
 === Response 2 ===
 [RESULT]
@@ -14,7 +15,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * n
+length - n
 
-The program is terminating. The `cbzero` function decrements the `length` with each iteration of the loop, starting from `n`. Once `length` becomes zero, the loop terminates. Since `n` is initialized to be at least 1, the loop will always reach termination. Thus, the ranking function `n` decreases with each iteration, demonstrating termination.
+The program will always terminate as the `cbzero` function decrements the `length` variable until it reaches zero, thus ensuring termination. Furthermore, the main function is conditioned such that `length` and `n` have valid values, ensuring that the loop in `cbzero` iterates a finite number of times. The ranking function `length - n` decreases during each iteration, ensuring progress towards termination.
 

@@ -1,20 +1,17 @@
 === Response 1 ===
 [RESULT]
+NONTERM
+[REASON]
+The variable `i` oscillates between 49 and 50 and never reaches 100.
+
+=== Response 2 ===
+[RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-For i < 50: 100 - i
-For i >= 50: i - 50
+(100 - i) when i < 50
+(i - 50) when i >= 50
 
-This program is terminating. The value of `i` first increases from 0 to 50 in the loop, and once `i` reaches 50, it decreases until reaching 100 where the loop exits. The ranking functions `100 - i` and `i - 50` both respectively decrease in well-founded manner as the state progresses through each phase.
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-When i < 50: 100 - i  
-When i >= 50: i - 100
+The program is terminating because the value of `i` initially increases until it reaches 50, and then decreases until it exits the loop at 100. The piecewise ranking function demonstrates this behavior.
 

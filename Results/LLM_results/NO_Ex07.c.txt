@@ -1,6 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains an infinite loop `while (true)` that will continue executing indefinitely, as the statements inside the loop ensure control is never released unless an external intervention occurs.
+[RESULT]
+NONTERM
+[REASON]
+The loop condition is always true, leading to infinite execution without an exit condition.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition is always true and the updates to variable `i` maintain a state where the loop can continue indefinitely.
 

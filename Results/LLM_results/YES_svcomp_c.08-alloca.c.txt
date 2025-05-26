@@ -2,17 +2,19 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+nested  
 [RANKING FUNCTIONS]  
-Phase 1: The outer loop decreases with the ranking function f1 = *i_ref  
-Phase 2: The inner loop terminates since it decreases with the ranking function f2 = *i_ref - *j_ref
+Primary loop: 1.0 * i_ref^1  
+Secondary loop: 1.0 * (i_ref - j_ref)^1  
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-lexicographic  
+nested  
 [RANKING FUNCTIONS]  
-1. *i_ref^1  
-*j_ref^1  
+1.0 * i_ref^1  
+1.0 * (i_ref - j_ref)^1  
+
+The program is terminating as shown by the nested ranking functions. The outer loop reduces the variable `i_ref`, which guarantees that it eventually terminates, and within each iteration of the outer loop, the inner loop reduces the variable `(i_ref - j_ref)`, ensuring it also terminates.
 

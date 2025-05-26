@@ -1,20 +1,20 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-(n - index of the nth character copied) followed by (length - index of the length-th character accessed in the source) 
-
-The program terminates because the nested loops within the `cstrlcpy` function each have a clear decreasing measure that is bounded. The loop copying source characters will definitely terminate because it iterates at most `n-1` times, and in each iteration, it either finds a `'\0'` or decrements `n`. Similarly, if the destination buffer isn't big enough, any remaining characters in the source are traversed only until the end of the string is reached (denoted by `'\0'`). Hence, both loops have a defined termination point.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+Size of the source string (`length`) continuously reduces or remains non-increasing as it is copied character by character to the destination string (`nondetString1`). This guarantees termination because the source string will eventually be exhausted, given that both `n` and `length` are initially set to positive values and decremented or stopped when they reach 0.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-s - src - 1
+[RESULT]  
+TERMINATE  
 
-The program is terminating because the `cstrlcpy` function has a decreasing linear loop constraint in the `while (--n != 0)` loop, which reduces `n` until it reaches 0 or until a null terminator is copied, ensuring the loop will exit. Additionally, the code outside the loop does not produce any infinite loops, leading to an overall finite execution.
+[RANKING FUNCTION TYPE]  
+linear
+
+[RANKING FUNCTIONS]  
+1.0 * n + 0.0  
+
+The program will terminate for all inputs as the function `cstrlcpy` is bounded by `n`, which decreases linearly as the characters are copied, and additional constraints ensure `n` is a positive integer, thus making the loop finish after at most `n` iterations.
 

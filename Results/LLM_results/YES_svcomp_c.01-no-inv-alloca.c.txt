@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-lexicographic
-[RANKING FUNCTIONS]
-1.0 *  x_ref + 0.0 *  y_ref^1 
-1.0 *  (-1 * y_ref) + 0.0 *  y_ref^0 
-
-Explanation: The program terminates because for each iteration of the outer loop, the value of `x_ref` is decreased by 1, creating a finite descending sequence. The inner loop terminates because `y_ref` is exponentially increased until it surpasses `x_ref`, at which point the inner loop exits, allowing the outer loop to continue its finite descent. The lexicographic ranking function demonstrates the descent in both loops.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x_ref^1  
+0.5 * x_ref^1 + y_ref  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-1.0 * x^1
-0.5 * x^0 - 1.0 * y^1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+3.0 * x^1 + 2.0 * 1  
+1.0 * x^1 + 1.0 * y^1  
 

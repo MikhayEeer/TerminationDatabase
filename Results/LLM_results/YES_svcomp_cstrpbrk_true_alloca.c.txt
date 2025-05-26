@@ -1,11 +1,13 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (length1 - 1) + 1.0 * 1  
-1.0 * 0
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * |s1|^1
+1.0 * |s2|^1
+
+This program terminates because the loops involved decrement through the strings towards their null terminators without repeating indefinitely. Each iteration of the outer loop examines one character of `s1`, ensuring linear progress towards the string's end, making the ranking functions defined over the lengths of the strings involved.
 
 === Response 2 ===
 [RESULT]  
@@ -13,8 +15,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * length1^1  
-1.0 * length2^1  
-
-The program's termination can be proved using a multi-phase ranking function. The outer loop over `sc1` in `cstrpbrk` decrements a bound given by `length1`. The inner while loop iterates over `s2`, bounded by `length2`. Both phases are strictly decreasing and thus ensure that the function terminates.
+1.0 * length1 + 0.0 * length2  
+1.0 * length2  
 

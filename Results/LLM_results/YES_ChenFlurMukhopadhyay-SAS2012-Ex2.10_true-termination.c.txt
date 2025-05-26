@@ -1,25 +1,16 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-f(x, y) = x - y
-
-Explanation:
-In the given program, the loop continues while `x > 0` and `y < 0`. During each iteration of the loop, `x` is updated as `x = x + y`, and `y` is decremented by 1 (`y--`). 
-
-The linear ranking function `f(x, y) = x - y` decreases in each iteration because:
-- Given that `x > 0` and `y < 0`, the value of `x + y` will be less than `x` (since `y` is negative).
-- `y` decreases, making it more negative, which further decreases `f(x, y)` in iterations.
-   
-Therefore, `f(x, y)` will eventually reach a point where one or both of the loop conditions `x > 0 && y < 0` no longer hold, thus exiting the loop and proving termination.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x - y  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
 x - y
 

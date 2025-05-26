@@ -4,8 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * y^1 + 0.0 * x^1  
-0.0 * x^1
+1.0 * y^1  
+0.0 * x^1 + 1.0 * y^1
 
 === Response 2 ===
 [RESULT]  
@@ -13,6 +13,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * y^1  
-1.0 * x^1
+The first phase ranking function is:  
+2.0 * y^1 + 1.0
+
+The second phase ranking function is:  
+1.0 * x^1 + 1.0
+
+In this program, the outer loop `while((y != 0 && x >= 0) && y >= 0)` will terminate because the variable `y` is either set to 0 or reduced by the inner loop `while(xtmp > y)`. The outer loop depends on the value of `y`, and once `y` becomes zero, the condition for the outer loop becomes false. 
+
+Thus, the ranking function for the outer loop is dependent on `y`, which is decreasing with each iteration of the inner loop. Once `y` reaches 0, the loop terminates as the condition fails. This can be modeled by a simple multi-phase ranking function focusing on the behavior of `y` and `x`.
 

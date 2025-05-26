@@ -2,11 +2,12 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-255 - x
-
-The program will eventually reach a condition where `*x` becomes greater than or equal to 255, at which point it exits the loop. The ranking function is linear, as shown above, and it establishes termination by progressively moving towards zero as the loop executes, given the constraints and operations inside the loop.
+Branch 1 (when `*x % 2 != 0` or `*debug != 0`): 
+  255 - *x 
+Branch 2 (when `*x % 2 == 0` and `*debug == 0`): 
+  255 - *x
 
 === Response 2 ===
 [RESULT]  
@@ -14,8 +15,11 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-When *debug == 0:  
-127.5 - 0.5 *  (*x)  
-When *debug != 0:  
-1
+1. When \(*x \% 2 \neq 0\) (odd case), ranking function: \(-x\)  
+2. When \(*x \% 2 = 0\) (even case),  ranking function: \(255 - x\)  
+
+Explanation:  
+1. If \(*x\) is odd, \(*x\) decreases by 1 in each iteration. This will eventually make it non-negative in the odd state, aiding termination.
+2. If \(*x\) is even, \(*x\) increases by 2. Since the while loop continues only when \(*x < 255\), this increment will quickly reach 255, terminating the loop.   
+3. The piecewise nature of these calculations ensures all paths lead to termination.
 

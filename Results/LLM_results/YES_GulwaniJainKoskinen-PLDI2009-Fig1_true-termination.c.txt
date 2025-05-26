@@ -1,16 +1,10 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. When `tmp <= maxId`:  
-   - Ranking Function: `maxId - tmp`  
-   - This value decreases with each iteration, as `tmp` increases by 1, moving towards `maxId`.  
-2. When `tmp > maxId`:  
-   - The loop condition resets `tmp` to `0`, which makes `tmp != id` eventually false once the conditions are no longer met.
-
-This piecewise function shows that under the given conditions, the loop eventually terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (maxId - tmp + 1)
 
 === Response 2 ===
 [RESULT]
@@ -18,5 +12,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * (maxId - tmp)^1
+1.0 * (maxId - tmp)^1 + 1.0 * 1
+
 

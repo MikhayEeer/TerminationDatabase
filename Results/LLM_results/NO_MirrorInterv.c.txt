@@ -4,20 +4,14 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * (range - |i|)  
+1.0 * range^1 + 1.0 * i^1 + 20.0 * 1  
+0.5 * range^1 + i + 0.5 * 1  
 
-The program is terminating because the quantity \(range - |i|\) strictly decreases. The `range` variable initially starts at 20 and increases or remains constant, but can only increase by at most 1 in each loop iteration. However, the absolute value of `i` is decremented by 1 when `range-i >= 5` and `range+i >= 5`. When `i` meets any condition to change `i *= -1`, it implies an indirect termination force as it helps to balance termination constraints. The key factor is when `i == 0`, we set `range = -1`, which immediately leads to a false condition for the loop (-range > i), thus guaranteeing eventual termination.
+The program is terminating as the range and i collectively ensure that the loop eventually exits. The ranking function first decreases lexicographically and then ensures termination as either range or i reaches a constraint that exits the loop.
 
 === Response 2 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-First Phase:  
-1.0 * (range - i) + 1.0 * 1  
-Second Phase:  
-1.0 * range + 1.0 * 1  
-
-The program terminates because the control variable `range` strictly increases when `i` is non-zero, bringing it eventually out of the loop conditional. When `i` becomes zero, `range` is set to a negative value, causing an exit from the loop. The multi-phase ranking function allows us to demonstrate that the first sub-phase measures the progress of the loop counter `i`, and the second sub-phase shows the intervention of `range` being eventually assigned a negative value, leading to termination.
+NONTERM  
+[REASON] 
+The variable `range` can increase indefinitely in the else block causing the loop to not necessarily terminate, especially since `range` reaching -1 prevents immediate termination due to the condition in the while loop, potentially allowing `i` to oscillate within the bounds without endpoint constraints.
 

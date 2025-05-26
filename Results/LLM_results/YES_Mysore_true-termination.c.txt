@@ -1,19 +1,14 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x, c) = x + c  
-
-Explanation:  
-The program is guaranteed to terminate because the linear ranking function \( f(x, c) = x + c \) strictly decreases on each iteration of the loop since \( x \) is decreased by \( c \) while \( c \) keeps increasing. Given the loop condition \( x + c \geq 0 \), \( f(x, c) \) will eventually become negative, causing the loop to exit.
+NONTERM  
+[REASON]  
+The variable `c` increases in each iteration, keeping `x + c` non-negative, preventing termination.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+linear  
 [RANKING FUNCTIONS]  
-1.0 * (x + c)^1
+f(x, c) = x + c  
 

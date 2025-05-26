@@ -1,20 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
--1.0 *  (*x_ref)^1 + 1.0 *  (*z_ref)^1
-
-Explanation: The program iterates within the while loop only while `*x_ref >= *z_ref`. In each iteration, `*z_ref` is increased by `*y_ref` (which is assumed positive due to the condition `*y_ref > 0` before entering the while loop). Therefore, `*z_ref` strictly increases while `*x_ref` remains constant, making `*x_ref - *z_ref` decrease in each iteration, ensuring termination of the loop when `*z_ref` becomes greater than `*x_ref`.
+NONTERM
+[REASON]
+The loop condition `*x_ref >= *z_ref` may always be true if `*z_ref` is constantly incremented by `*y_ref` which remains positive, leading to non-termination as long as `*x_ref` is greater than `*z_ref` initially. If `*y_ref` is positive, then `*z_ref` will keep increasing, and if `*x_ref` is greater than or equal to `*z_ref`, the condition remains true, preventing termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-y - (z - x)
-
-The program is terminating as the value `y - (z - x)` decreases with each iteration of the loop, thus ensuring the termination of the loop. Here, `y` is initially checked if it is less than or equal to zero, and if so, the execution path bypasses the loop. If the loop executes, the increment of `z` by `y` eventually makes `x` no longer greater than or equal to `z`, terminating the loop.
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `*x_ref >= *z_ref` is not guaranteed to become false, since `*z_ref` can increase without bounds if `*y_ref` is positive, potentially keeping the condition always true. The lack of change to `*x_ref` suggests no progress towards termination is made.
 

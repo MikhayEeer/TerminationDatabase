@@ -4,14 +4,21 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-100 - i  
-21 - j
+The two loops are independent and have constant bounds, therefore both are trivially terminating. 
+
+Ranking function for the first loop:  
+100 - i (decreases from 100 to 0)
+
+Ranking function for the second loop:  
+(21 - j) / 3 (decreases from 5 steps 5 to 0)
+
+Overall the program is terminating as both loops terminate.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+linear  
 [RANKING FUNCTIONS]  
 100 - i  
 21 - j  

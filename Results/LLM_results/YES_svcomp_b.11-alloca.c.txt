@@ -1,17 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (x + y)^1 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x_ref + y_ref
+
+The program is terminating because in each iteration of the loop, either *x_ref or *y_ref is decremented by 1 based on the comparison between *x_ref and *y_ref. Thus, the sum *x_ref + *y_ref is strictly decreased in each iteration, serving as a linear ranking function that eventually reaches zero or a negative value, causing the loop to terminate.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (x_ref + y_ref)^1  
-In this program, the sum of `*x_ref` and `*y_ref` is used as a ranking function. Since the value of `*x_ref + *y_ref` decreases in each step of the loop, and the loop condition is `*x_ref + *y_ref > 0`, the ranking function eventually reaches 0 and thus ensures that the program terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 1.0 *  y^1
 

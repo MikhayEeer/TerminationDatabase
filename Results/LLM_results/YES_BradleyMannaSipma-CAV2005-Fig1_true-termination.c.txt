@@ -1,19 +1,17 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-1.0 * y1 + 1.0 * y2 if y1 > y2
-1.0 * y2 + 1.0 * y1 if y2 >= y1
-
-The program is guaranteed to terminate for all positive integer inputs to `gcd`. The `gcd` function consistently reduces the values of `y1` and `y2` by subtracting the smaller from the larger until they are equal. This ensures that each iteration decreases the combined value of `y1 + y2`.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+- If \( y1 > y2 \): ranking function is \( y1 - y2 \)  
+- If \( y2 > y1 \): ranking function is \( y2 - y1 \)  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * y1^1 + 1.0 * y2^1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * y1^1 + 1.0 * y2^1   
 

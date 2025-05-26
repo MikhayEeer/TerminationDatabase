@@ -2,5 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program contains an infinite loop in `do_write_p` and `do_read_c` functions, which are continuously called within `eval` while `exists_runnable_thread` returns true. Furthermore, there is a lack of state updates or conditions in these loops that would eventually cause `exists_runnable_thread` to return false, leading to non-termination.
+The program contains an infinite loop in the `do_write_p` and `do_read_c` functions due to the looping constructs `while (1)` with a lack of a proper termination condition and the absence of any exit conditions from the loops in some execution paths. As long as the conditions pegged on `q_free` allow it, the loops can continue indefinitely. This results in non-termination if these loops get activated without proper conditions to break out of them.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The nondeterministic choices made by `__VERIFIER_nondet_int()` within the `do_write_p` and `do_read_c` functions, combined with the possibility of repeatedly causing mismatches between `p_last_write` and `c_last_read` or `p_num_write` and `c_num_read`, can trigger the error repeatedly, leading to a potential infinite loop where the error state is repeatedly entered without a guaranteed exit condition.
 

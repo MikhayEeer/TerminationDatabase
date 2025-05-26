@@ -2,18 +2,18 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-x
-
-The program is terminating because the outer loop decreases `x` by 1 in each iteration, which is a positive integer. The inner loop increments `y` until it is equal to `x`, but since `x` is eventually decremented to zero, it guarantees termination. The linear ranking function `x` shows that with each iteration of the outer loop, the value of `x` decreases, ensuring the program's termination.
+1.0 *  x^1 + 0.0 * 1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * x^1  
-1.0 * -y^1 + 1.0 * x^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Primary: f(x) = x
+Secondary: g(y) = x - y
+
+Explanation: The outer loop decreases `x` from its initial value, down to 0. The inner loop increments `y` from 0 to `x`, ensuring it always terminates for each iteration of the outer loop. The nested ranking functions provide a clear measure that decreases overall as the loops execute, proving termination.
 

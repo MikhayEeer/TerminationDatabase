@@ -1,17 +1,20 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (y_ref - x_ref)^1 + 0.0 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. If \( x < z \): Ranking function is \( y - x \)  
+2. Else: Ranking function is \( y - z \)  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (y_ref - x_ref) + 0.5 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (y - x)^1 + 1.0 * 1  
+0.5 * (z - x)^1 + 0.5 * 1  
 
+The program is terminating as the main function calls `test_fun` with nondeterministic values. The program features a loop that continues while `x_ref < y_ref`. During each iteration of the loop, either `x_ref` is incremented, if it is less than `z_ref`, or `z_ref` is incremented, ensuring that either the difference `y - x` is nonnegative and strictly decreases, or the difference `z - x` remains nonnegative and strictly decreases. The ranking functions indicate a decrease in values ensuring termination.
 

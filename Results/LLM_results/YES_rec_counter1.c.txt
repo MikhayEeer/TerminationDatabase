@@ -3,25 +3,20 @@
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
-[RANKING FUNCTION]  
-a  
-
-The function `rec(int a)` is recursive and decreases the value of `a` by 1 for each recursive call until it reaches 0, at which point it terminates. The ranking function `a` is linear in nature and decreases with every recursive call, ensuring termination of the program.
+[RANKING FUNCTIONS]  
+a^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-Main Function Call:  
-1.0 * i^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+For the outer recursive function `rec(a)`, a linear ranking function is sufficient:
+a (the depth of recursion function call decreases as the recursion goes deeper) 
 
-Recursive Function Call `rec(a)`:  
-1.0 * a^1  
+For the inner `while` loop within the `rec` function which operates on `rescopy`:
+rescopy (the value decreases until it reaches zero)  
 
-Inner While Loop within `rec(a)`:  
-1.0 * rescopy^1  
-
-The program is terminating since each call to `rec(a)` reduces `a` by 1, and the inner loop reduces `rescopy` to 0, providing a clear termination argument through nested ranking functions.
+The combination of the recursion decreasing and the termination of the `while` loop within each recursion proves that the program is terminating.
 

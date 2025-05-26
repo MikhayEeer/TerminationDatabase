@@ -2,15 +2,17 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+linear   
 [RANKING FUNCTIONS]  
-i - 5  
-
-The program is terminating because, within the while loop, the variable `i` is decremented by 1 in every iteration when `i != 10`. Since `i` starts as a nondeterministic integer greater than 5 and cannot increase within the loop, it will eventually become 6, 7, 8, or 9, which will lead it to eventually reach 5 or less, causing the loop to end. The linear ranking function `i - 5` decreases with each iteration of the loop ensuring termination.
+1.0 * i
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `i > 5` allows `i` to remain greater than 5 indefinitely since the statement `i = i-1` is bypassed when `i == 10`, causing the program to halt progression, and thus potentially not terminating.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+i - 5
+
+This ranking function decreases by 1 in each iteration of the loop when `i > 5` and `i != 10`, which guarantees that the loop will eventually terminate when `i` reaches 5.
 

@@ -6,7 +6,7 @@ from datetime import datetime
 
 from openai import OpenAI
 
-secrete = ""
+secrete = "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"
 chatgpt_model = "openai/gpt-4o"
 
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
@@ -123,7 +123,6 @@ def parse_llm_result(result_str):
             is_collecting_result = True
             continue
         elif "[RANKING FUNCTION TYPE]" in line:
-            is_collecting_result = False
             if is_terminating:
                 is_collecting_RF_Type = True
             else:
@@ -137,11 +136,14 @@ def parse_llm_result(result_str):
         if is_collecting_result:
             if "TERMINATE" in line:
                 is_terminating = True
+                is_collecting_result = False
             elif "NONTERM" in line:
                 is_terminating = False
+                is_collecting_result = False
             elif "UNKNOWN" in line:
                 is_terminating = False
                 is_unknown = True
+                is_collecting_result = False
             else:
                 print("[Error] : llm result parsing error")
                 parse_failed = True

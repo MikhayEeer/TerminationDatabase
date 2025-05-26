@@ -1,21 +1,21 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (strlen(s1) - (sc1 - s1))^1 + 0.0 * 1  
-0.0 * 1  
-
-Explanation:  
-The function `cstrcspn` processes a string `s1` and searches for any character in string `s2`. It has an outer loop which iterates through each character in `s1` until it finds a match with a character in `s2` or it reaches the null terminator. The termination is guaranteed because `sc1` proceeds through `s1` from start to end, and thus this loop iterates a finite number of times (at most the length of `s1`). This multi-phase ranking function shows that the loop in `cstrcspn` strictly decreases based on the remaining length of `s1` to be checked (`strlen(s1) - (sc1 - s1)`). The second phase is a constant function indicating termination happens after completion of the loop.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The function iterates over the length of the first input string `s1`, decrementing a simple counter until it reaches the null terminator `'\0'`, which ensures termination. Since each iteration consistently progresses towards the end of the string, the program can be proven terminating by counting down the number of remaining characters to process in `s1`.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * 1 + 1.0 * (length of s1)^1  
-0.5 * (steps while iterating through s2)^1 + 0.5 * 1  
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. Outer loop: The length of string `s1`, since each iteration moves `sc1` one step closer to the null-terminator of `s1`.
+2. Inner loop: The number of characters in `s2` to its null-terminator or the position of character `c` in `s2`. Since in each iteration of the inner loop, `s` moves one character closer to the null-terminator or to the character matching `c`.
+```
+
+The program is terminating because the outer loop progresses over each character of `s1` and the inner loop over each character of `s2`, and both loops eventually reach a stopping condition when they encounter null-terminators or a match.
 

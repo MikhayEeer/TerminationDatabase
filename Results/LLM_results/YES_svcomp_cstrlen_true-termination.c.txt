@@ -1,12 +1,13 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-The length of the input string `s` as a linear ranking function.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The length of the string `s` that `cstrlen` is processing.  
 
-Explanation: The function `cstrlen` traverses a null-terminated string from start to end. Each step of the loop reduces the number of remaining characters to check until the termination condition (`*p != '\0'`) is met. This condition ensures that regardless of the starting length, the loop will eventually terminate when it reaches the null terminator. Hence, the program is guaranteed to terminate for any input string.
+Explanation:  
+The loop within `cstrlen` iterates over the characters in the null-terminated string `s` until it reaches the null character. Since the string is null-terminated, there is a guaranteed upper bound on the number of iterations equal to the length of the string `s`. Therefore, this function terminates as long as the input string is properly null-terminated, which is ensured by the `__VERIFIER_nondet_String` function.
 
 === Response 2 ===
 [RESULT]  
@@ -14,7 +15,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-number of characters until the null terminator ('\0')  
+The loop in the `cstrlen` function iterates through each character of the string until it reaches the null-terminator, increasing the pointer `p`.  
+The ranking function is naturally given by the function `cstrlen` as it counts down the number of characters left until the null-terminator is found.  
 
-The program terminates because the function `cstrlen` computes the length of a null-terminated string by iteratively moving the pointer `p` until it reaches the null termination character `\0`. Since the string retrieved from `__VERIFIER_nondet_String` is always null-terminated, `cstrlen` will always terminate after traversing the length of the string.
+A simple ranking function is:  
+`(int)(p - s)`, where `p` is the current position in the string and `s` is the start. This function decreases by 1 with each iteration of the loop and reaches zero when the null-terminator is encountered, demonstrating that the loop terminates for any null-terminated string input.
 

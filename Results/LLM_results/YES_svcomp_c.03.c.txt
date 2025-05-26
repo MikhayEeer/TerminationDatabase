@@ -1,22 +1,17 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. x - y (if x < z)
-2. z - y (if x >= z)
-
-The program is terminating and can be proved by the piecewise ranking function defined by different cases within the while loop. In the first case, when `x < z`, the value `x - y` decreases in each iteration. In the second case, when `x >= z`, the value `z - y` decreases in each iteration. Each of these functions demonstrates a decrease ensuring termination.
+[RESULT]
+NONTERM
+[REASON]
+The condition `x < y` can remain true indefinitely if `x` is constantly increased at a slower rate than `y` is increased, which can happen if the `else` branch (`z = z + 1;`) is executed repeatedly, potentially keeping the loop condition true.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * y^1 - 1.0 * x^1
-1.0 * z^1 - 1.0 * x^1
+1.0 *  (y - x)^1 + 1.0 * 1
+1.0 *  (z - x)^1 + 1.0 * 1
 
-The program terminates as the value of `y - x` decreases when `x` is increased in the first condition, and `z - x` decreases when `z` is increased in the second condition. This ensures that eventually, `x` will reach or exceed `y`, leading to termination of the while loop.
+This program is terminating because within the while loop, either `x` is incremented or `z` is incremented, which results in `x` eventually reaching or exceeding `y`, causing the loop to exit.
 

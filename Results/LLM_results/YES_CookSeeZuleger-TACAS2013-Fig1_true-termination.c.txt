@@ -4,8 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1  
 1.0 * y^1  
+1.0 * x^1  
 
 === Response 2 ===
 [RESULT]  
@@ -13,6 +13,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-If branch: 1.0 * x^1 + 1.0 * y^1  
-Else branch: 1.0 * y^1  
+1.0 * x^1 + 0.0 * y^1  (when the first branch is taken where x = x - 1)  
+1.0 * y^1 + 0.0 * x^1  (when the second branch is taken where y = y - 1)  
+
+This program is terminating because, in each iteration of the loop, either `x` or `y` is decreased. If `x` is decreased, eventually it will reach zero, breaking the condition `x > 0`. If `y` is decreased, eventually it will reach zero, breaking the condition `y > 0`. Although the value of `x` may be reset to any non-deterministic value, the decrement of either `x` or `y` ensures progress towards termination.
 

@@ -1,34 +1,19 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (n - i)^1
-1.0 * (m - j)^1
-
-Explanation: 
-
-The program contains a while-loop with a nested if-else structure that updates variables `i` and `j`. The loop runs while `i < n`, and during each iteration of the loop:
-
-1. If `j < m`, `j` is incremented by 1.
-2. If `j >= m`, `j` is reset to 0 and `i` is incremented by 1.
-
-The ranking function can be understood as follows:
-
-- The first phase ranking function `1.0 * (n - i)^1` shows that `i` is strictly increasing until it reaches `n`. This part of the ranking function guarantees progress towards termination.
-- The second phase `1.0 * (m - j)^1` works while incrementing `j` up to `m` and then reset it to zero upon reaching `m`, allowing `i` to increase.
-
-Both functions decrease with every iteration of their respective phases, ultimately making the loop terminate when `i` reaches `n` by incrementing `i` after `j` reaches `m`. Thus, the program is terminating.
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * (n - i - 1)^1 + 1.0 * 1  
-1.0 * (m - j - 1)^1 + 1.0 * 1  
+(m - j) + (n - i) * m  
+0 
 
-The program is terminating, and it can be proved by the multi-phase ranking function where the first phase decreases the value of \( (n - i) \) when j reaches m resulting in i being incremented, and the second phase decreases the value of \( (m - j) \) when j is incremented in each iteration of the inner loop.
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-dimensional
+[RANKING FUNCTIONS]
+(n - i, m - j)
+
+This program is terminating and can be proved by a multi-dimensional ranking function. The ranking functions used are (n - i) and (m - j). Each iteration of the outer loop decreases the first component (n - i) when j reaches m and resets j to 0, while each full cycle through the inner loop (i.e., when j counts up from 0 to m) decreases it. The second component (m - j) decreases with each increment of j and resets upon i incrementation. This process ensures progress towards termination, since i eventually reaches n, at which point the loop condition i < n fails.
 

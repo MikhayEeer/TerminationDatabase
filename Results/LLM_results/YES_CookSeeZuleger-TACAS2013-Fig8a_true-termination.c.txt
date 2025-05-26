@@ -4,7 +4,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-x^1  
+|x| (absolute value of x)  
+
+The program is terminating because the value of `x` is strictly decreasing towards zero, no matter whether it is initially positive or negative. In each iteration of the loop, the magnitude of `x` gets reduced by 1, which ensures termination.
 
 === Response 2 ===
 [RESULT]  
@@ -12,7 +14,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-|x|  
+abs(x)  
 
-The program is terminating. The absolute value of x decreases in every iteration of the loop, serving as a linear ranking function, which eventually leads the loop to terminate when x reaches zero.
+The program is terminating because the absolute value of `x` serves as a linear ranking function that decreases by 1 in each iteration of the loop, eventually reaching 0, at which point the loop terminates.
 

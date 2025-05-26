@@ -2,5 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The recursive function `A` calls itself with swapped arguments when `a1` is non-zero, creating potential infinite recursion since there is no base case that guarantees termination or reduces the problem size.
+The program uses recursive calls in function `A` with the same parameters, leading to potential infinite recursion without a base case that guarantees termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The function `A` calls itself recursively with swapped parameters, potentially leading to infinite recursion if `a1` remains non-zero. Additionally, the assignment in `main()` ensures `g` can be non-zero after function `A` is called, leading to a potential infinite loop in the system's state.
 

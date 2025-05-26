@@ -1,22 +1,25 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-1.0 * n when n > 0
--1.0 * n when n < 0
-
-Explanation: The program consists of a main function and a recursive function `addition`. The recursion occurs in the `addition` function where it modifies the parameters `m` and `n`. The program will reach the base case and terminate because each recursive call decreases the absolute value of `n` by 1 due to either `n-1` or `n+1`, eventually turning `n` to 0, at which point the function returns `m`. This guarantees termination for each call, and hence for the entire program as both `m` and `n` are initialized within finite bounds in `main`.
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-1. Phase 1: For `n > 0`, use `n` as the ranking function. Each recursive call decreases `n` by 1.  
-2. Phase 2: For `n < 0`, use `-n` as the ranking function. Each recursive call increases `n` by 1.  
+Phase 1: If `n > 0`, use the function `f(m, n) = n`.  
+Phase 2: If `n < 0`, use the function `f(m, n) = -n`.  
 
-The program terminates as each recursive call decreases `|n|` by 1 in absolute terms, bringing it toward 0 which is the base case.
+Explanation:  
+The recursive function `addition(int m, int n)` modifies the second parameter `n` either by subtracting 1 (if `n > 0`) or adding 1 (if `n < 0`) in each recursive call, bringing `n` closer to zero. For positive `n`, the ranking function `f(m, n) = n` decreases with each recursive call until it reaches 0, at which point the recursion terminates. Similarly, for negative `n`, the ranking function `f(m, n) = -n` decreases towards zero. The piecewise nature of the ranking function addresses both positive and negative values of `n`, assuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For the function `addition`:
+- When `n > 0`: the ranking function is `n`.
+- When `n < 0`: the ranking function is `-n`. 
+
+For the `main` function:
+- Since the function `addition` terminates, and the main function only deals with non-negative values for `m` and `n`, it terminates as well.
 

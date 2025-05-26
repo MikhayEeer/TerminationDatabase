@@ -1,6 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters an infinite loop if starting with x > y and maintains x > y due to swapping.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * (x - y)^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+*x_ref - *y_ref
+
+This program eventually terminates because the difference (*x_ref - *y_ref) decreases in every iteration of the loop, making it a linear ranking function and ensuring that the loop cannot execute indefinitely. The loop exits when *x_ref is no longer greater than *y_ref.
 

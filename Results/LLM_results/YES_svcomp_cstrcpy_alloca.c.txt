@@ -4,9 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-length2 - 1  
-
-The function `cstrcpy` in the given program will terminate as the loop iterates over the second string `s2` (or `src`), which is `nondetString` in `main`, until it encounters the null character `'\0'`. The string `nondetString` is guaranteed to have a null terminator at `length2-1`, and hence the loop will terminate after copying this null character.
+The function `cstrcpy()` has a linear ranking function based on the length of `src`. Each iteration of the loop copies one character until a null-terminator (`'\0'`) is encountered, reducing the remaining length of `src` to be copied by one in each iteration. This guarantees termination when a valid null-terminated string is present in `src`.
 
 === Response 2 ===
 [RESULT]  
@@ -14,7 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-length2^1  
-
-Explanation: This program terminates because the `while` loop within the `cstrcpy` function uses a ranking function that decrements the null-terminating character in the source string `nondetString` until it reaches `null` (represented by `'\0'`). Since `nondetString` always has a null-terminating character, the loop will decrement to zero, ensuring termination.
+length2
 

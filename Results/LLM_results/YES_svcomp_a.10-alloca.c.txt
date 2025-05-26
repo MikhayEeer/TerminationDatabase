@@ -4,18 +4,16 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-0.5 * (|x - y|)  
+|x_ref - y_ref|  
 
 Explanation:  
-The program terminates because the difference between `x_ref` and `y_ref` decreases by 1 in every iteration of the loop. If `x_ref` is greater than `y_ref`, `y_ref` is incremented. If `x_ref` is less than or equal to `y_ref`, `x_ref` is incremented. In either case, the distance `|x_ref - y_ref|` decreases, acting as a strictly decreasing ranking function which eventually reaches zero, causing the loop to terminate.
+The program terminates because in each iteration of the loop within `test_fun`, either `*x_ref` or `*y_ref` is incremented, thus decreasing the absolute difference between `*x_ref` and `*y_ref` by exactly 1 until they are equal. Once `*x_ref` equals `*y_ref`, the loop condition `!(*x_ref == *y_ref)` becomes false, causing the loop to terminate. Therefore, `|x_ref - y_ref|` serves as a linear ranking function demonstrating termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-|x - y|
-
-Explanation: The given program's while loop will terminate because the difference between `x_ref` and `y_ref` decreases by 1 on each iteration. When either `*x_ref` is incremented or `*y_ref` is incremented, the values move closer together until they are equal, thus causing the termination of the loop. This can be seen as a linear ranking function based on the absolute difference `|x - y|`, which strictly decreases in every iteration and ensures termination when the difference becomes zero.
+[RESULT] 
+TERMINATE 
+[RANKING FUNCTION TYPE] 
+multi-phase 
+[RANKING FUNCTIONS] 
+1.0 * (abs(x-y))^1 + 0.0 * 1
 

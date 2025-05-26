@@ -4,15 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * (i - j)
+1.0 * i^1 + -1.0 * j^1 + 1.0 * 1
+
+This ranking function shows that the expression \( *i - *j \) decreases with each iteration of the loop and will eventually reach a point where the loop condition `*i - *j >= 1` fails, thus proving the program terminates.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1.0 * (i - j) + 0.0
-
-The ranking function \( i - j \) shows a linear decrease as the loop progresses. Initially, \( i = 10000 \) and \( j = 1 \), so \( i - j = 9999 \). On each loop iteration, \( i \) is decremented by 1 and \( j \) is incremented by 1, effectively reducing \( i - j \) by 2 in every loop iteration. Since both \( i \) and \( j \) are modified in such a way that \( i - j \) is strictly decreasing towards zero, the loop terminates.
+NONTERM
+[REASON]
+The loop condition `*i - *j >= 1` will always be true because *j is incremented at the same rate as *i is decremented, resulting in a constant difference.
 

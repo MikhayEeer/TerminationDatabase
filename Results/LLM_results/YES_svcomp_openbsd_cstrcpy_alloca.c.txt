@@ -1,20 +1,24 @@
 === Response 1 ===
+```
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-length2 - 1
+length2
+```
 
-The program consists of a function `cstrcpy` that copies a string from `from` to `to`, terminating when a null character is encountered. The main function handles some setup and conditions and then calls `cstrcpy`. The loop in `cstrcpy` will iterate at most `length2 - 1` times due to the condition `if (length1 < length2) return 0;`, ensuring that there is enough space for the copy operation, including the null terminator. Since the loop condition involves decrementing `length2` towards a base case (null character), it constitutes a linear ranking function that shows the process will terminate.
+This program is terminating because the `cstrcpy` function, which contains the only loop, is a bounded loop that processes each character of the string `nondetString` length (`length2`), including the terminating null character `'\0'`. The linear ranking function `length2` indicates that the loop will terminate after copying `length2` characters, as it decrements the number of characters left to copy with each iteration until it hits the terminating null character.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+piecewise  
 [RANKING FUNCTIONS]  
-length2 - 1  
+1 if length1 < length2  
+0 if length1 >= length2  
 
-The program is terminating because the loop in the `cstrcpy` function iterates over the characters in `from` (which is `nondetString`) until it hits the null terminator `\0`, which is guaranteed to occur before or at the last character of `nondetString`. The ranking function `length2 - 1` decreases with each step of the loop and reaches zero when the loop terminates.
+Explanation: 
+The program will consistently terminate based on the conditions provided in the `main` function. Specifically, if `length1 < length2`, the program immediately returns 0. Even if this condition is not met, the use of the `cstrcpy` function, which relies on null-terminated strings, will eventually terminate as long as 'nondetString' has a null character in it. Therefore, the program terminates.
 

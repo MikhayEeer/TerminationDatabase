@@ -4,19 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-- If \(i > 5\), use: -\(i\)  
-- If \(i < -5\), use: \(i\)  
-- If \(-5 \leq i \leq 5\), use: a constant value as the loop terminates immediately.  
-
-The loop terminates because `i` eventually reaches 0 when it falls within the range from -5 to 5. Prior to that, for `i > 5`, the value of `i` will keep increasing, and for `i < -5`, `i` will decrease, both of which bring `i` closer to the -5 to 5 range where the loop exits.
+1.0 * -(i - 6)^1 for i > 5  
+1.0 * (i + 6)^1 for i < -5  
+linear constant for -5 ≤ i ≤ 5  
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-For i > 5: -i
-For i < -5: i
-For -5 ≤ i ≤ 5: i, stops immediately to 0 when i is within this range
+NONTERM
+[REASON]
+The program does not terminate because when `i > 5`, the value of `i` is incremented by 1, causing it to loop indefinitely since it will always remain greater than 5.
 

@@ -4,18 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 non-linear  
 [RANKING FUNCTIONS]  
-\( f(x, y) = y - x \)  
-
-Explanation:  
-The program is terminating because, during each iteration of the loop, the variable \( x \) is doubled while \( y \) is incremented by 1. Since \( x \) starts less than \( y \) and is doubled each iteration while \( y \) goes up by only 1, eventually \( x \) will be greater than or equal to \( y \). At that point, the loop condition will no longer hold true, leading to the termination of the loop. The non-linear ranking function \( f(x, y) = y - x \) is strictly decreasing as the loop progresses.
+As `(x > 0 && x < y)`, the difference `y - x` serves as a non-linear ranking function. As the loop progresses, `x` doubles and `y` increments. Hence, the value `y - x` decreases in each iteration, ensuring that the loop eventually terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-non-linear  
-[RANKING FUNCTIONS]  
-\( R(x, y) = y - \log_2(x) \)
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (y - x)
 
-Explanation: The loop condition is \(x > 0\) and \(x < y\). Inside the loop, \(x\) is doubled (i.e., \(x = 2 \times x\)), and \(y\) is incremented by 1. This is better understood by considering the log scale for \(x\). The ranking function is \(y - \log_2(x)\) which decreases at each step of the loop: \(y\) increases linearly, while \(\log_2(x)\) increases logarithmically, making the difference decrease and eventually terminate.
+The program is terminating as the value \( y - x \) strictly decreases in each iteration of the loop and is bounded below, thus proving termination through the multi-phase ranking function. Initially, \( x > 0 \) and \( x < y \), and after each loop iteration, \( x \) is doubled while \( y \) increases by 1, meaning the gap \( y - x \) narrows as the loop executes. Eventually, \( x \) becomes greater than or equal to \( y \), satisfying the loop termination condition.
 

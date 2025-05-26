@@ -1,14 +1,16 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-i - j
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (i - j)
 
 === Response 2 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-If `i` is initially greater than `j` and the nondeterministic values always subtract a small amount from `i` and add a larger one to `j`, the condition `i - j >= 1` may remain true indefinitely, thus causing non-termination.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (i - j)
 

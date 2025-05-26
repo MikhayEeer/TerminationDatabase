@@ -2,28 +2,26 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-Phase 1 (Outer Loop):  
-- Linear ranking function: x + y
-
-Phase 2 (Inner Loops):  
-- If x > y: linear ranking function: x
-- If y >= x: linear ranking function: y
-
-The key observation is that in the outer loop, either `x` or `y` or both are decremented until at least one of them becomes zero. In any iteration of the outer loop, one of the variables is driven to zero by the inner loop, ensuring termination of the inner loop. This guarantees that the outer loop also terminates, leading to overall termination of the program.
-
-=== Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-First Level: 1.0 * (x > 0 && y > 0) + 0.0
-Second Level: 
-  If (x > y): 1.0 * x^1 + 0.0
-  Else: 1.0 * y^1 + 0.0
+For the outer loop:
+1.0 * x + 1.0 * y
 
-Explanation:
-The program terminates because in the outer while loop, at least one of `x` or `y` will eventually become zero. For the inner while loops, if `x > y`, `x` decreases strictly until it becomes zero, ensuring that loop terminates. Similarly, if `x <= y`, `y` decreases strictly until it becomes zero, ensuring that loop terminates. Therefore, the combination of the outer loop condition and the nested decisions result in an overall nested ranking function showing the program's termination.
+For the inner loops:
+1.0 * x (when x > y)
+1.0 * y (when y >= x)
+
+The program will definitely terminate because each loop strictly reduces the value of x or y, eventually leading the loop conditions to become false.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.  x^1 for the outer loop  
+2.  x^1 for the inner loop if x > y  
+3.  y^1 for the inner loop if x <= y  
+
+The outer loop decreases because either `x` or `y` will eventually reach zero, at which point the outer loop condition `(x > 0) && (y > 0)` will fail. For the inner loops, `x` and `y` are strictly decreased in every iteration until they reach zero. Thus, the program will terminate.
 

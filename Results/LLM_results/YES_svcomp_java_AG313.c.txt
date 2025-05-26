@@ -4,7 +4,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x + y
+x + y - 1
+
+The function `quot` will terminate as long as both `x` and `y` are positive integers and `x` is not initially zero (as it returns immediately in that case). The loop decreases `x` and `y` in each iteration, and the linear ranking function `x + y - 1` decreases by 1 each time, ensuring termination when it becomes non-positive.
 
 === Response 2 ===
 [RESULT]  
@@ -12,5 +14,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-0.5 * x^1 + 0.5 * y^1  
+1.0 * x + 1.0 * y  
 

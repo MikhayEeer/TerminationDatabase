@@ -1,9 +1,9 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
 1.0 * i^1
 
 === Response 2 ===
@@ -11,8 +11,6 @@ linear
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
-[RANKING FUNCTIONS]  
-1.0 * i^1 + 0.0  
-
-The program is terminating because the value of `i` is strictly decreasing by 1 in every iteration of the loop, starting from `n - 1` and going down to 1. This linear ranking function demonstrates a well-founded order towards termination.
+[RANKING FUNCTION]  
+1.0 * i^1
 

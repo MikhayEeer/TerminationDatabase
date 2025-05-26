@@ -6,6 +6,8 @@ linear
 [RANKING FUNCTIONS]
 bound - i
 
+The program is terminating because the loop in the function `iterate` iterates with the loop variable `i` from `0` to `bound - 1`. The ranking function `bound - i` indicates that the value strictly decreases with each iteration, ultimately reaching zero, at which point the loop terminates. Since this holds for any input value for `bound`, the function and thus the main program are terminating.
+
 === Response 2 ===
 [RESULT]
 TERMINATE

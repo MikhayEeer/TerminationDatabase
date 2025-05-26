@@ -1,17 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-The function `rec1` has a nested ranking function based on the decreasing of its argument `i` in each recursive call. Specifically, the argument decreases in the following way: `i -> i-2 -> i-3 -> i-4 ...` until `i <= 0`, which indicates termination of the recursion.  
-The function `rec2` consists of a call to `rec1`, and because `rec1` is terminating for non-negative `j`, `rec2` will terminate whenever its argument eventually leads to a non-negative value passed to `rec1`. Therefore, `x` in `main()` ensures the termination of `rec1`, and consequently, the termination behavior of the program is determined and terminating.
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-The recursive function `rec1` is terminating because it continually reduces the value `i` with each recursive call until `i` is non-positive, at which point the recursion ends. The `rec1` function has a nested invariant that decreases the value of `i` through a triple recursive call, ensuring termination. The same reasoning applies to `rec2`, although it is not invoked in `main`. As `main` invokes only `rec1`, the overall program is terminating.
+The functions `rec1` and `rec2` have separate ranking functions based on recursive depth reduction.
+
+For `rec1`, the ranking function is based on the decreasing depth of recursion on `i`:
+- Ranking function for `rec1`: The parameter `i` strictly decreases with each recursive call until it reaches `0` or less, at which point the recursion terminates.
+
+For `rec2`, the ranking function is based on the transformation through calls to `rec1`:
+- Ranking function for `rec2`: The combination of `rec2` and `rec1` ensure that every recursive call chain makes progress towards termination by reducing the input in a structured manner.
+
+Hence both functions will eventually reach their base cases and terminate.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The function `rec2` calls `rec1` with an argument `j+1`, causing `rec2` to repeatedly call itself with a non-terminating recursive pattern when `j` is positive.
 

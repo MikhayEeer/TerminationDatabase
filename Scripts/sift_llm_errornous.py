@@ -2,8 +2,13 @@ import os
 import sys
 
 LLM_csv_result_file = os.path.join(os.getcwd(), "LLM_Results", "llm_results_Certain.csv")
+LLM_Naive_unsolve_unstable_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "Unstable")
+LLM_Naive_unsolve_YES_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "YES")
+LLM_Naive_unsolve_NO_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "NO")
+
 if __name__ == "__main__":
-    diff_file_names = []
+    diff_YES_file_names = []
+    diff_NO_file_names = []
     unstable_file_names = []
     diff_no_num = 0
     diff_yes_num = 0
@@ -24,19 +29,23 @@ if __name__ == "__main__":
         ref_is_terminating = line_infos[5]
         ref_is_unknown = line_infos[6]
         if llm_is_unknown != ref_is_unknown or llm_is_terminating != ref_is_terminating:
-            diff_file_names.append(os.path.join(os.getcwd(), "TPDB_" + base_result, file_name))
+            diff_file_name = os.path.join(os.getcwd(), "TPDB_" + base_result, file_name)
             if base_result == "YES":
+                diff_YES_file_names.append(diff_file_name)
                 diff_yes_num += 1
             elif base_result == "NO":
+                diff_NO_file_names.append(diff_file_name)
                 diff_no_num += 1
             else:
                 diff_unknown_num += 1
     print("------- UNSTABLE FILE -------")
     for f in unstable_file_names:
-        print(f)
+        os.system("cp " + f + " " + LLM_Naive_unsolve_unstable_folder)
     print("------- DIFF FILES -------")
-    for f in diff_file_names:
-        print(f)
+    for f in diff_YES_file_names:
+        os.system("cp " + f + " " + LLM_Naive_unsolve_YES_folder)
+    for f in diff_NO_file_names:
+        os.system("cp " + f + " " + LLM_Naive_unsolve_NO_folder)
     
     print("Summary: unstable num: " + str(unstable_num))
     print("Summary: diff yes num: " + str(diff_yes_num) + " diff no num: " + str(diff_no_num) + " diff unknown num: " + str(diff_unknown_num))

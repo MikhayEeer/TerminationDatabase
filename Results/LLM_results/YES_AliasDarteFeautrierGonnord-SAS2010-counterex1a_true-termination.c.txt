@@ -4,19 +4,21 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * 1  
-1.0 * (n - y)^1 + 0.0 * 1  
+1.0 * -1 * x^1 + 0.0 * 1 + 0.0 * 1  
+1.0 * n^1 + 1.0 * 1 + 1.0 * 1  
 
-The program is terminating and can be proved by a multi-phase ranking function. The first phase decreases `x` and the second phase decreases `(n - y)`.
+This program terminates. The key points include:
+- In the first phase (outer loop), the ranking function `1.0 * -1 * x^1` ensures that `x` is non-negative initially and decreases whenever `b != 0`, which contributes to the eventual fulfilment of the loop exit condition.
+- The second phase is trivially true since y will eventually go out of the bounds defined by `y >= 0 && 0 <= y && y <= n`, hence terminating the loop. 
+
+The combination of conditions in the loop and the ranking functions lead to an eventual termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * n - 1.0 * y^1
-1.0 * x + 1.0 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 1.0 * y^1  
 
-The program terminates as it uses a multi-phase ranking function that decreases deterministically across phases: the first ranking function `1.0 * n - 1.0 * y` ensures that `y` gradually approaches `n` bounding the loop to finite iterations, and the second ranking function `1.0 * x + 1.0` guarantees that `x` decreases to end the loop condition.
 

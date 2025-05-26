@@ -1,6 +1,28 @@
 === Response 1 ===
-[RESULT]
-NONTERM
-[REASON]
-The variable `c` can fluctuate infinitely due to alternating behavior of the `if` condition, causing the loop to potentially run indefinitely without reaching a terminating condition.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+x - 110  
+-(c + x)  
+
+Explanation:
+
+The loop can be divided into two phases depending on the value of `x`:
+1. When `x > 100`, `x` decreases by 10 and `c` decreases by 1. This phase will bring `x` quickly down to 100 or below.
+2. When `x <= 100`, `x` increases by 11 and `c` increases by 1. In this phase, `x` will eventually increase to a point where it can hit or exceed 100 again.
+
+The first ranking function `x - 110` captures the first phase where the goal is to reduce `x` to a value near 100, with the ranking function eventually reaching a non-positive value. The second ranking function `-(c + x)` captures the multi-phase nature, showing that as `c` decreases, it ensures termination since `c` effectively limits the number of steps by decreasing in the first phase where `x > 100`, hence ensuring termination of the overall loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+Lexicographic([c, -x])  
+
+Explanation:  
+The program uses a lexicographic ranking function consisting of the tuple [c, -x]. The value of 'c' decreases in the first branch (where x > 100), ensuring progress towards termination, and 'x' eventually becomes greater than 100 in the second branch (where x <= 100), which will cause 'c' to decrease eventually due to the positive increment of 'x'. This guarantees progress towards program termination.
 

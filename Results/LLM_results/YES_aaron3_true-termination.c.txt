@@ -1,6 +1,18 @@
 === Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  z^1  
+0.0796 *  x^1 + 0.482 * 1
+
+=== Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The values of `x`, `y`, and `z` can be chosen such that the loop guard `x >= y && x <= tx + z` remains true indefinitely. Specifically, `x` can continuously be reset to values between `y` and `tx + z`, and `z` continuously decremented, without ever meeting a termination condition. The implementation of `x = __VERIFIER_nondet_int()` creates a non-deterministic loop without a guaranteed decrement of a well-founded metric, leading to potential non-termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z^1 + 1.0 * 1
+
 

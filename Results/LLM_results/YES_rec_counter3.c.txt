@@ -2,5 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The function `rec` always returns a positive integer when called with positive `a`, leading to an infinite loop in `main` as `res < 1` never becomes false.
+The loop `while(res < 1)` at the end of `main` will not terminate if `res` is less than 1, which can happen if `i` is a positive integer. This results in a non-terminating program since there is no mechanism to increase `res` or break out of the loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The function `rec` always returns a positive number when `i` is positive, making the condition `while(res < 1)` in `main` false but followed by an infinite loop, hence non-terminating.
 

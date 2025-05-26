@@ -1,21 +1,21 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 *  y1^1 + 1.0 * 1
-1.0 *  y2^1 + 1.0 * 1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+phase 1: 1.0 * (y1_ref + y2_ref)  
+phase 2: 1.0 * (y1_ref) + 1.0 * (y2_ref)  
 
-Explanation: The Euclidean algorithm, which the `gcd` function implements, is well-known to terminate for non-negative integer inputs. The ranking function here is multi-phase, first reducing the larger integer until both integers are equal, at which point the loop terminates. The ranking functions for each phase are the current values of `*y1_ref` and `*y2_ref`, which ultimately reach a point of equality, ensuring termination.
+The program is guaranteed to terminate because the `gcd` function implements the Euclidean algorithm, which always terminates for non-negative integers. In the first phase, the sum \(y1\_ref + y2\_ref\) is strictly decreasing as long as \(y1\_ref \neq y2\_ref\). The second phase ensures one of the variables approaches zero when they are not equal, making it a well-founded criteria for termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-*y1_ref + *y2_ref
+1.0 * (max(y1, y2))^1 + 0.0 
 
-This program is terminating as it computes the greatest common divisor (GCD) of two non-negative integers using the well-known Euclidean algorithm. The ranking function here is the sum of the two values referenced by `y1_ref` and `y2_ref`. In each iteration of the loop, either `*y1_ref` or `*y2_ref` is decreased, ensuring that the sum is strictly decreasing until both values are equal, at which point the loop exits. Since the arguments are initially non-negative, the process will always terminate.
+The program is terminating because the function `gcd(y1, y2)` implements the Euclidean algorithm for computing the greatest common divisor of two non-negative integers, which always terminates. The ranking function is the maximum of `y1` and `y2`. We observe that, during each iteration of the loop in `gcd`, the maximum of the two numbers strictly decreases, due to either subtraction operation, ultimately leading to the termination of the loop.
 

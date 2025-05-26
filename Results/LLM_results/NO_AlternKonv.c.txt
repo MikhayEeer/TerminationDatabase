@@ -2,17 +2,20 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-abs(i) 
+For i < 0: -i
+For i > 0: i
 
-Explanation: The program will always make `i` move towards 0 due to the conditional operations inside the loop. If `i` is negative, the operations will increase its absolute value by 2 at most once and then toggle it to a non-negative value that will keep decreasing towards zero. If `i` is positive, it will decrease and eventually toggle to a non-positive value. Each operation in the loop ensures that the absolute value of `i` decreases, leading to termination.
+The program is terminating as the value of `i` is monotonically decreasing in each piecewise analyzed section, and it eventually reaches `0`, at which point the loop terminates. The program has a piecewise ranking function due to the different transformations applied to `i` based on whether it is positive or negative. For negative `i`, `-i` is decreasing, and for positive `i`, `i` is decreasing.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-piecewise  
+multi-phase  
 [RANKING FUNCTIONS]  
-|i|  
+ABS(2.0 * (i^1))  
+
+Explanation: The given program will terminate because the absolute value of the integer `i` will decrease steadily to zero, either by incrementing it with 2 when it is negative or decrementing by 2 when it is positive. The multi-phase ranking function ABS(2.0 * (i^1)) decreases in each iteration of the loop until `i` reaches zero, causing the loop to terminate.
 

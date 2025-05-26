@@ -1,6 +1,18 @@
 === Response 1 ===
+```plaintext
 [RESULT]
 NONTERM
 [REASON]
-The main function contains an infinite loop due to lack of a viable exit condition from the switch-case logic, leading to nontermination under certain input conditions. Additionally, various non-deterministic functions could preserve the program state indefinitely, maintaining conditions for repeated executions without a halt.
+The program has a cyclic execution path with no termination condition.
+```
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. The while loop at line 159 has an exit upon status not being negative, effectively bounded by a variable range. 
+2. The state transitions within various dispatch functions ultimately lead to terminal return values or loop exits.  
+3. Various conditional checks lead to halting without unbounded recursion or iteration due to state and error handling.
 

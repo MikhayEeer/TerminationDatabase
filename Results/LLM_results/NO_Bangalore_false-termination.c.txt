@@ -2,5 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program is non-terminating when `y <= 0` because `x` will never become negative, as `y` being non-positive means `x = x - y` will either increase or keep `x` the same, thus the loop `while (x >= 0)` runs indefinitely.
+The program may not terminate because if `y` is non-positive and `x` is initially non-negative, then `x` will never decrease to below zero in the loop `while (x >= 0) { x = x - y; }`. Instead, `x` will either stay the same or increase, causing the loop to execute indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop `while (x >= 0)` can execute indefinitely if `y` is non-positive (e.g., `y <= 0`), because `x` will not decrease when subtracting a non-positive `y`. This causes the condition `x >= 0` to always hold true if `x` starts as non-negative, leading to non-termination.
 

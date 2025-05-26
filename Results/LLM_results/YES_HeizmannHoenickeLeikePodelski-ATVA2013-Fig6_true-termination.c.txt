@@ -2,10 +2,10 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-piecewise  
+multi-phase  
 [RANKING FUNCTIONS]  
-Initial: 1.0 * x^1   
-Decrement in loop: 1.0 * x^1 - y^1  
+1.0 * x^1  
+1.0 * y^1
 
 === Response 2 ===
 [RESULT]  
@@ -13,6 +13,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + 1.0 * 1  
-0.0  
+phase 1: 1.0 * x^1   
+phase 2: Corresponds to the while loop exit condition `y < 1` which ensures termination.  
+
+The program terminates because once `y` becomes less than 1, the loop will terminate as either the break condition is satisfied or the guard `x >= 0` becomes false. The ranking function for `x` provides a strictly decreasing value across iterations (phase 1), and the condition `y < 1` guarantees loop termination (phase 2).
 

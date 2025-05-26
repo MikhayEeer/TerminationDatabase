@@ -2,5 +2,15 @@
 [RESULT]
 NONTERM
 [REASON]
-The program can enter an infinite loop where `i` alternates between 1 and -1, preventing it from reaching 0.
+The value of i oscillates between positive and negative values without ever reaching zero, causing the loop to run indefinitely.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+|i|  
+
+This program terminates. The absolute value of `i`, denoted |i|, strictly decreases in every iteration of the loop. If i is negative, it becomes positive and larger in magnitude; if i is positive, it becomes negative and larger in magnitude (one step away from zero). Eventually, |i| decrements to zero, at which point the loop exits, guaranteeing termination.
 

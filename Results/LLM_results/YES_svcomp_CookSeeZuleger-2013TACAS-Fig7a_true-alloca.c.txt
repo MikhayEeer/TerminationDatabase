@@ -5,17 +5,11 @@ TERMINATE
 multi-phase  
 [RANKING FUNCTIONS]  
 1.0 * x^1 + 1.0 * y^1 + 1.0 * d^1  
-1.0 * y^1 + 1.0 * d^1  
+0.0 * 1
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-1. Lexicographic(2)
-   a. 1st component: *x
-   b. 2nd component: (*y, *d)
-
-The program is terminating due to the nested ranking function that decreases lexicographically. The first component *x decreases when *x > 0. The second component, (*y, *d), will strictly decrease when *x is non-positive, ensuring eventual termination as *y and *d become non-positive.
+NONTERM
+[REASON]
+The program can potentially enter a non-terminating loop due to the use of non-deterministic values from `__VERIFIER_nondet_int()`, which can reset or increase the values of *x, *y, and *d during the execution. This makes it possible for the loop conditions to be satisfied indefinitely.
 

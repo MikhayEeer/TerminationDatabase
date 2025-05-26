@@ -2,12 +2,12 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * x_ref^1 + 5.0 * 1
-0.5 * (x_ref - y_ref) + 3.0 * 1
+1.0 * x_ref^1
+0.5 * x_ref^1 - 1.0 * y_ref^1
 
-The program's termination can be demonstrated through a multi-phase ranking function. The outer loop, driven by the condition `*x_ref >= 0`, is decrementing `*x_ref` by 1 in each iteration, ensuring progress towards termination. Within the inner loop controlled by `*x_ref > *y_ref`, `*y_ref` is being doubled until the condition is no longer satisfied. Therefore, both the inner and outer loops are guaranteed to eventually terminate.
+This means the outer loop decreases `x_ref` linearly until it is non-positive, while the inner loop, which doubles `y_ref` until it surpasses `x_ref`, helps ensure termination by decreasing the distance between `x_ref` and `y_ref`. The nested ranking functions cater to both loops' progress.
 
 === Response 2 ===
 [RESULT]
@@ -15,14 +15,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-Outer loop: *x_ref
-Inner loop: *x_ref - *y_ref
+1.0 *  x_ref^1
+0.5 *  x_ref^1 - 1.0 *  y_ref^1 + 1.0 * 1
 
-Explanation: 
-
-1. **Outer Loop**: The outer loop executes while `*x_ref >= 0`. Inside the loop, `*x_ref` decreases by 1 in each iteration with the statement `*x_ref = *x_ref - 1;`. This change makes the outer loop terminate because `*x_ref` eventually drops below 0, giving a clear integer linear descent towards termination.
-
-2. **Inner Loop**: The inner loop executes while `*x_ref > *y_ref`. It doubles the value of `*y_ref` with each iteration: `*y_ref = 2*(*y_ref);`. Since `*y_ref` starts at 1 and doubles, it will eventually exceed `*x_ref`, at which point the inner loop will stop. The inner loop ranking function is `*x_ref - *y_ref`, which strictly decreases since `*y_ref` increases significantly faster than `*x_ref` decreases.
-
-The combination of these two ranking functions ensures that the program is terminating.
+Here, the nested structure of the loops allows us to construct a ranking function that ensures eventual termination. The outer loop decreases the value of `x_ref`, and the inner loop has a pseudo 2-exponential decrement pattern in terms of `y_ref`, bounded by `x_ref`, ensuring that both loops eventually terminate.
 

@@ -4,15 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-Integer value `n` which is non-negative
+n
 
-The function `init_list` is called with an integer `n` which is non-deterministically determined and the loop inside `init_list` runs for `n` iterations, since `j` increments sequentially until it equals `n`. The ranking function shows decreasing progress on each iteration step towards termination. Therefore, since all list construction operations terminate after `n` iterations, the program is terminating.
+The program is terminating because the loop inside `init_list` function iterates a fixed number of times, specifically `n` times. The ranking function in this case is simply `n` which decreases with each iteration and ensures termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-trivial
+linear
 [RANKING FUNCTIONS]
-The program's control flow will always terminate because the `init_list` function will execute a finite number of iterations based on the integer `n`. Each iteration creates a new node in the list with `malloc`, links it through the `next` pointer, and assigns it as the `tail`. Since `j` goes from 0 to `n-1`, there is no infinite loop, and the function will terminate after `n` iterations. Hence, the program as a whole will terminate.
+Based on the argument `n`, the loop in `init_list` iterates `n` times, reducing by 1 each iteration until it reaches 0, at which point the loop terminates. Thus, a simple linear ranking function can be `n` itself, because it decreases strictly by 1 in each iteration of the loop.
 

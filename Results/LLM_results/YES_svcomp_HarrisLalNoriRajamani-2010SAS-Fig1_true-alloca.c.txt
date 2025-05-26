@@ -1,6 +1,29 @@
 === Response 1 ===
-[RESULT]
-NONTERM
-[REASON]
-The second loop (L2) may continue indefinitely. Specifically, if `*d_ref` is chosen as 2 and `*x > 0 && *y > 0`, and if the nondeterministic choices always cause `*y` to reset to a positive value or keep `*x` positive, the loop does not guarantee termination, as it can continuously enter P1, resetting `*y` and only partially affecting `*x`. The conditions for decrementing *x and *y may not consistently lead to termination in all nondeterministic cases.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1073741823 - z  
+Phase 2: x + y
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: Multi-phase loop (L1)   
+1.0 * (*k - *z)^1 already bounded by the condition *z >= *k
+
+Phase 2: Multi-phase loop (L2)  
+1.0 * *z^1
+
+Explanation:  
+The program terminates because the loops have certain conditions that are met after a finite number of iterations. 
+
+- In L1, the loop `while (*z < *k)` will eventually terminate since *z is being doubled and will surpass or become equal to *k.  
+- In phase 2 (loop L2), variable *z decreases consistently every time `P1` block is executed, providing a sub-ranking function that will terminate the loop when *z becomes non-positive.  
+
+With these observations, the program can be shown to be terminating with the multi-phase ranking functions provided.
 

@@ -4,9 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTION]  
-Lexicographic order of characters in the strings
-
-The function `cstrcmp` and `main` will always terminate because `cstrcmp` iterates through the characters of both input strings until it finds a differing character or reaches the null terminator (`'\0'`). Since `main` initializes the last character of both strings to `'\0'`, there will always be a stopping condition for the while loop inside `cstrcmp`. Thus, the process will terminate after traversing through the strings at most up to their null terminators.
+The function `cstrcmp` iterates over the characters in the strings `s1` and `s2` until the end of either string or until a differing character is found. The loop condition is based on the contents of the strings, which are guaranteed to terminate when a null character is encountered, as null terminators are explicitly set. This provides a linear progression towards reduction that guarantees termination. Hence, considering `n` as the minimum length between the two strings, the ranking function is:  
+`n - number of iterations`
 
 === Response 2 ===
 [RESULT]  
@@ -14,13 +13,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-Decrease in the length of the strings compared by `cstrcmp`.  
+length1 + length2  
 
-Explanation:
-
-The function `cstrcmp` compares two strings character by character and stops when it finds a difference or encounters the null terminator ('\0') of either string. In the main function, two strings `nondetString1` and `nondetString2` of non-deterministically chosen lengths (minimally 1 due to the check) are passed to `cstrcmp`. The strings have a null terminator set at their last position.
-
-The loop within `cstrcmp` will iterate as long as the current characters from both strings being compared are equal and not the null terminator. This will either reach a differing character, leading to a return based on the difference, or it will reach the end of one or both strings due to the null terminator.
-
-The loop decreases as it scans characters, effectively moving toward the null terminator, thus ensuring it will eventually terminate. Therefore, this loop in `cstrcmp` will always terminate due to the linear decrease in the remaining length of the strings.
+Explanation:  
+The main function allocates two non-deterministic strings of lengths `length1` and `length2`, each with a null terminator at the end. The function `cstrcmp` then compares these two strings character by character until it encounters a difference or reaches the end of either string (indicated by the null terminator `\0`). The loop within `cstrcmp` iterates at most `length1 - 1` or `length2 - 1` times, whichever is smaller. Thus, the execution of this program is bounded and terminates after a finite number of steps.
 

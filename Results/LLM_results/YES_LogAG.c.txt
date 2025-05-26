@@ -1,13 +1,11 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * x^1
-0.5 * xtmp^1
-
-The program is terminating and can be proved by the multi-phase ranking function. The outer loop decreases `x` by a constant factor in each iteration, while the inner loop decreases `xtmp` until it is no longer greater than 1, eventually terminating as well. Both loops make progress towards terminating conditions, with the nested structure being captured by the multi-phase ranking functions for `x` and `xtmp`.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+1.0 * xtmp^1  
 
 === Response 2 ===
 [RESULT]
@@ -15,8 +13,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1st loop: x
-2nd loop: xtmp
+Main loop: 1.0 * x^1
+Inner loop: 1.0 * xtmp^1
 
-Explanation: The outer loop decreases the value of `x` every time it executes by reducing it by 2 and then incrementing `xtmp` by 1. The inner loop decreases `xtmp` by 2 on each iteration. Both `x` and `xtmp`, which are decremented, eventually fall below their respective loop continuation conditions (`x > 1` and `xtmp > 1`), ensuring termination.
+Explanation: The program is nested with two loops, an outer and an inner loop. The outer loop decreases the variable x until it is no longer greater than 1, and the inner loop decreases xtmp until it is no longer greater than 1. Both x and xtmp are guaranteed to eventually decrease to values that will terminate their respective loops, demonstrating the program's overall termination.
 

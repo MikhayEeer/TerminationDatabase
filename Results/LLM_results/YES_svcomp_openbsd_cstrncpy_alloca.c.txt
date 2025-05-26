@@ -1,20 +1,25 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTION]
-n
-
-The termination of the program can be proven by observing that in the function `cstrncpy`, the do-while loop iterates at most `n` times, decrementing `n` each time. As `n` is positive at the start (ensured by the check `if (n != 0)`), it inevitably reaches 0, at which point the loop stops. This ensures the program terminates.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1  
 
 === Response 2 ===
+```
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-0.0 * 1 + 1.0 * n
+n
+```
 
-The program will terminate because the main function calls `cstrncpy` with a specific length `n`, and the operations within `cstrncpy` ensure that the loop in it will execute at most `n` times before completing. The checks and operations within the loop serve to either decrement `n` or fill up the destination string (`nondetArea`) with null (`'\0'`) characters, which will always lead to loop termination for any initial positive `n`. Thus, the ranking function `n` is linear with respect to the loop, making the execution of this program finite.
+Explanation:
+The program uses the function `cstrncpy`, which copies up to `n` bytes from a source string to a destination string. In the main function, the values for `length` and `n` are non-deterministically chosen. Both `length` and `n` are adjusted to be at least 1. 
+
+The `cstrncpy` function contains a loop that iterates up to `n` times, decrementing `n` in each iteration. Regardless of the content of `src`, the loop within `cstrncpy` is limited by the parameter `n`, which means the loop can execute at most `n` iterations.
+
+Thus, the total number of operations is bounded based on the value of `n`, which implies that the program will terminate. The ranking function `n` decreases by one with each iteration of the do-while loop in `cstrncpy`, showing progress towards termination.
 

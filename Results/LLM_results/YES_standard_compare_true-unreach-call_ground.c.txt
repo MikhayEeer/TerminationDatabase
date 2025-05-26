@@ -4,17 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-100000 - i
+100000 - i  
 
-The while loop decreases the difference between 100000 and i, hence it acts as a termination argument. The loop terminates when `i` reaches 100000.
+The program terminates as the `while` loop has a linear ranking function `100000 - i` which decreases with each iteration by 1, eventually reaching 0, at which point the loop exits. The subsequent `for` loop is bounded and thus also terminates.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
 100000 - i
-
-The program terminates because the loop has a clear linear ranking function `100000 - i` that decreases with each iteration, ensuring that `i` will eventually reach 100000, causing the loop to terminate. The subsequent for loop is bounded and known to iterate a finite number of times, leading to termination of the entire program.
 

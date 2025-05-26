@@ -2,5 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The loop can be non-terminating for initial values such as x = 1 and y = 0. Here, x remains 1 and does not decrease, and thus the condition `x > 0` always holds, leading to an infinite loop.
+The program is non-terminating for initial values such as `x=1` and `y=0`, as `x > 0` remains true indefinitely with the updates `x = x + y` (where `x` stays at 1) and `y = -2*y` which keeps `y` as 0.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating for the initial values of x=1 and y=0. The loop condition `x > 0` remains true, and the loop updates `x` to `x + y = 1 + 0 = 1` and `y` to `-2 * y = -2 * 0 = 0`, resulting in no change. This cycle continues indefinitely, thus making the program non-terminating.
 

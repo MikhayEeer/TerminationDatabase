@@ -1,6 +1,12 @@
 === Response 1 ===
-[RESULT]
-NONTERM
-[REASON]
-The loop can oscillate in the range 29 to 30. When `i` is 30, it decreases to 29, and when it is 29, it increases back to 30, causing an infinite cycle without termination.
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop is non-terminating because for any initial value of `i` between 30 and 40, `i` oscillates downwards, resulting in a repeated cycling within the same range without leaving the range 30 to 40. Thus, the loop continues indefinitely for these values.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop contains contradictory conditional updates and overlapping ranges, which may cause the variable `i` to oscillate without reaching zero or exceeding 50, potentially resulting in an infinite loop.
 

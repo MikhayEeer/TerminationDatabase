@@ -4,17 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x
-
-The program terminates because it calculates the Fibonacci number recursively, and with each recursive call in `fibo`, the argument `n` is decreased by 1 or 2 until it reaches the base cases (`n < 1` or `n == 1`). The recursion depth is bounded by `n` (which is initially 5 in `main`), and therefore the function `fibo` will eventually terminate when `n` reaches a value that satisfies the base cases. The program's main function then runs to completion after calling `fibo` with this bounded input.
+n
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-First, for the recursive function `fibo`, the ranking function relates to the argument `n`. For each call of `fibo` with `n`, it recurses into `fibo(n-1)` and `fibo(n-2)`, decreasing `n` by at least 1, implying that `fibo` is terminating based on a decrease of `n` over successive calls.
-
-Second, for the main function, since there are no loops - just a sequential call to `fibo` and an immediate check, it terminates naturally after the function call and final conditional check.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program is a straightforward computation of the Fibonacci number for a fixed input value `x = 5`, followed by a conditional error check based on the result. The function `fibo` is recursive, but each call stack decreases the parameter `n`, which guarantees termination. The `main` function itself doesn't contain any loops or recursive calls that could cause non-termination. Therefore, the entire program is terminating.
 

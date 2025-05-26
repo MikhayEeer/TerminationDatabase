@@ -2,12 +2,9 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-1. If `m % n` is in the list, the program terminates because the loop in `search` traverses the list linearly and finds the match.
-2. If `m % n` is not in the list, the function `search` will cause the loop to eventually reach a `NULL` pointer as the input condition `curr->value != m%n` will never be false, resulting in termination of the loop due to the structure of the list and the modulus operation ensuring bounds.
-
-Thus, because the loop will always reach a terminating condition irrespective of the input values, the program is terminating.
+The value of `curr->value` in the `search` function decreases by 1 in each iteration of the while loop. Since the search is conducted for `m % n`, `curr->value` will eventually match `m % n` or the program will exit if `n < 1` or `m < 0`, ensuring termination.
 
 === Response 2 ===
 [RESULT]  
@@ -15,9 +12,14 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-(n + 1) - (length of list from `head` to `curr` in `search`)  
-0  
+Phase 1: 1.0 * n  
 
-Explanation:  
-The program consists of two main parts. The `init_list` function creates a linked list of length `n` initialized with values from `0` to `n-1`. The `search` function then searches for a node within this list that matches the value `m % n`. The search loop will terminate when it finds the corresponding value, since the list is created with values from `0` to `n-1`, ensuring that `m % n` is a valid value, thus guaranteeing the loop in `search` function will terminate. Additionally, the program guards against undefined behavior by returning when negative or zero values that lead to problematic situations are provided by the verifier.
+Explanation:
+1. In the initialization phase (`init_list` function), a linked list of length `n` is created, where `n` is non-deterministically chosen but always greater than 0. This operation constructs the list in a linear manner.
+
+2. In the `search` function, the while-loop is iterated a number of times corresponding to the distance from the head to the node with `value == m % n`. The maximum number of iterations in this phase is bounded by `n`, as `m % n` ensures `m` is always within the range of values in the list.
+
+3. Thus, the outer control flow of `main` and `search` is terminating due to the bounded nature of the list's length `n`, and each step strictly decreases n.
+
+Although there is a loop in `search`, it is bounded by the structure and length of the list, implying the program is guaranteed to terminate.
 

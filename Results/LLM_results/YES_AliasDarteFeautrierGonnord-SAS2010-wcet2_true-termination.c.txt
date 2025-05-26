@@ -8,14 +8,11 @@ multi-phase
 10 - j  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-5.0 - 1.0 *  i^1
-10.0 - 1.0 *  j^1
-
-Explanation:
-This program contains a nested loop structure. The outer loop (`while (i < 5)`) ensures that the variable `i` is incremented in every iteration until it reaches 5, hence there are a finite number of iterations (up to `i=5`). In each iteration of the outer loop, `j` is reset to 0 and the inner loop (`while (i > 2 && j <= 9)`) increments `j` up to a maximum of 10 times, but also doesn't affect the continuation condition for `i`. The decrement in the ranking function for `i` and the limited increment for `j` adequately describe the finite and ordered sequence of program states leading to termination.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+5.0 - 1.0 * i^1  
+9.0 + 1.0 - 1.0 * j^1
 

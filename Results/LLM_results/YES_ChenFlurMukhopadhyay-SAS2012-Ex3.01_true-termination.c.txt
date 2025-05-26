@@ -1,24 +1,12 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-If `z <= y`, then `f(x, y, z) = y - x`.  
-If `z > y`, then `f(x, y, z) = -1` (program terminates immediately after the first iteration).
-
-Explanation:  
-The program contains a loop where the condition `x < y` is checked. In each iteration, `x` is incremented by 1, and `y` is assigned the value `z`. Since `z` is nondeterministically chosen, we consider two cases for the piecewise ranking function:
-
-1. **Case 1 (`z <= y`)**: The ranking function `f(x, y, z) = y - x` is strictly decreasing in each iteration because `x` increments by 1 while `y` is reset to `z` which is not greater than its previous value `y`. Given `z <= y`, `y` cannot increase to make the loop condition `x < y` valid indefinitely, ensuring termination.
-
-2. **Case 2 (`z > y`)**: The loop terminates immediately after the first iteration setting `y = z`, as `x` is incremented and the loop condition is not satisfied anymore. Here, a fixed ranking value like `-1` signifies termination. 
-
-Therefore, the program is terminating.
-
-=== Response 2 ===
-[RESULT]  
 NONTERM  
 [REASON]  
-The loop can continue indefinitely if x < y and x increments but y is reset to a constant value (z) in each iteration, preventing x from ever reaching or surpassing y.
+If `z` is assigned a value larger than `y`, the condition `x < y` can remain true indefinitely, causing the loop to run eternally without reaching termination.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains a loop where `x` is incremented but `y` is reset to the value of `z` in each iteration. Depending on the initial values, `x` may never reach or exceed `y`, leading to a potential infinite loop if `z` is set in such a way that the condition `x < y` always holds.
 

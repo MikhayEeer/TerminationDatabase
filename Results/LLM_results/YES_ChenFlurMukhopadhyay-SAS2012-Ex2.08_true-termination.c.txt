@@ -1,20 +1,21 @@
 === Response 1 ===
+```
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-non-linear
+multi-phase
 [RANKING FUNCTIONS]
-The non-linear ranking function is \( f(x, y) = x + y^2 \).
-
-The program terminates because, in each iteration of the loop, the decrease in \( x \) is related to the quadratic increase in \( y \). Specifically, since \( x \) decreases by \( 2y \) and \( y \) increases, the value \( x + y^2 \) strictly decreases, and this function is bounded from below, ensuring that the loop cannot execute indefinitely.
+1.0 * (x + y^2)
+```
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-non-linear
-[RANKING FUNCTIONS]
-x + y^2
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTIONS]  
+The program has a non-linear ranking function derived from the expression:  
+0.5 * x^2 + y * x  
 
-The program is terminating, and a non-linear ranking function `x + y^2` can be used to prove its termination. As `x` decreases by `2*y` each iteration and `y` increases, `x + y^2` will eventually reach a non-positive value, causing the loop to terminate.
+This is a non-linear expression that strictly decreases in every loop iteration. Since `x` is decreasing by `2*y` and `y` is incremented in each iteration, the value 0.5 * x^2 + y * x strictly decreases until the loop condition `x > 0` is not satisfied, hence proving termination.
 

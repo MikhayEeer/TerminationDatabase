@@ -1,11 +1,13 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-n - m
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1 (Function `is_prime_`):  
+`m` (since `m` is decremented in each recursive call)
 
+Explanation: The program performs primality testing using recursive functions. The key function is `is_prime_`, where `m` is decremented in each recursive call until it reaches 1 or a divisor is found, ensuring termination. Additionally, the program guards against invalid input ranges with checks in `main`, which also ensures that no endless loop or recursion occurs beyond valid bounds. Thus, the program is guaranteed to terminate.
 
 === Response 2 ===
 [RESULT]
@@ -13,8 +15,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-23.0 * 1 + 9.0 *  n^1 + 15.0 *  m^1
-5.0 * 1 + 0.5 *  n^1 + 0.5 *  m^1
+1.0 * n^1 + 0.0 * 1
+0.5 * m^1 + 0.5 * n^1
 
-The recursive nature of the `is_prime_` function and the decrementing of the variable `m` guarantee termination because the parameter `m` decreases in each recursive call until the base case is reached. Additionally, `multiple_of` does not introduce any infinite loops since `n` decreases with each call. So, the combination of both functions ensures the main program terminates. The indirect verification through the ranking functions also confirms this termination.
+The program terminates due to the recursive nature of the `is_prime_` function and the constraints applied in the `main` function. The recursive function `is_prime_` reduces the value of `m` until it reaches a base case, ensuring termination. Furthermore, the values of `n`, `f1`, and `f2` in the `main` function are restricted by conditions, preventing any infinite loops. Overall, these conditions guarantee that the execution will reach a conclusion.
 

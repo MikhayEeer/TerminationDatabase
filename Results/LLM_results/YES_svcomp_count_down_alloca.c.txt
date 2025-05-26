@@ -2,32 +2,25 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * (i - length)^1 + 1.0 * 1
-1.0 * (j - length)^1 + 1.0 * 1
-1.0 * arr[j]^1 + 1.0 * 1
+1st phase: j from length-1 to 0
+2nd phase: arr[j] from positive to 0
 
-Explanation:
-1. The first phase of the ranking function is for the loop controlling `i`, which iterates from `0` to `length - 1`. The ranking function decreases as `i` increases towards `length`, ensuring that the outer loop terminates.
-
-2. The second phase of the ranking function is for the loop controlling `j`, which similarly iterates from `0` to `length - 1`. The ranking function decreases as `j` increases towards `length`, ensuring that this loop terminates too.
-
-3. The third phase is for the nested loop `while (arr[j] > 0)`, which decrements `arr[j]` in each iteration. This function decreases as `arr[j]` goes to zero in each position `j`, ensuring that the inner loop terminates.
-
-Hence, the entire program is proven to be terminating.
+The program is terminating. In the first phase, the outer loop variable `j` iterates from `0` to `length-1`, ensuring that each element in the array `arr` is processed. In the second phase, the inner loop decrements the value of `arr[j]` from a positive value to `0`, which guarantees termination for each element at index `j`. The nested ranking function composed of these decreasing measures proves termination.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-lexicographical
-[RANKING FUNCTIONS]
-(length - j, arr[j])
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * length^1 + 0.0 * 1  
+1.0 * sum(arr[j]) + 0.0 * 1
 
-The program will terminate because:
-1. The outer loop iterates over `j` from `0` to `length-1`, which terminates after `length` iterations.
-2. The inner loop decreases `arr[j]` to `0` and terminates because for any `arr[j] > 0`, the loop makes `arr[j]` strictly smaller, and it's bounded below by `0`.
+Explanation:  
+The program consists of two main loops. The first loop initializes an array of a certain length with non-negative integers. The second loop iterates through the array and decrements each non-zero element to zero. The process is guaranteed to terminate as each element of the array is decreased to zero, and the number of elements is finite (given by `length`). Therefore, the ranking function can be expressed in two phases: 
 
-The lexicographical ranking function first ensures the outer loop decreases, thereby making progress towards termination, while the inner counter offers the secondary guarantee that any `arr[j]` value will eventually decrease to zero for each fixed `j`.
+- The first phase represents the iteration over the `length` of the array.
+- The second phase represents the sum of elements in the array, which decreases over time until all elements are zero.
 

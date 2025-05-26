@@ -2,5 +2,15 @@
 [RESULT]
 NONTERM
 [REASON]
-The program can enter an infinite loop if `i` is initialized as any negative value except -5. For such values, the condition `i < 0` will always be true, and `i` will increment by 1 eventually reaching -5, where it remains stuck because the if-condition `i != -5` becomes false, preventing further increments. Thus, the program does not terminate.
+The loop is non-terminating because when `i` is initialized to `-5`, the condition `i != -5` will be false, thus the increment `i = i+1` is not executed, and `i` remains `-5` indefinitely, causing the `while` loop condition `i < 0` to be satisfied persistently.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+i + 6
+
+Explanation: The loop condition is `i < 0` and the operation inside the loop is `i = i + 1` when `i != -5`. This means that for any `i < -5`, `i` will eventually reach a value of -5 and continue incrementing until it becomes non-negative. The ranking function `i + 6` is always non-negative and strictly decreases as `i` increments toward zero. Thus, the program is terminating.
 

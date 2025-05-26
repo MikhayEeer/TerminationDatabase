@@ -2,5 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-Infinite loop without exit condition.
+The program contains an infinite loop with the condition `while (true)`, which never breaks or exits, resulting in non-termination.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+Infinite loop: The while loop has the condition 'true', resulting in an infinite loop without any exits.
 

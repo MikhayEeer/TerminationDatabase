@@ -4,17 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-Outer loop: x
-Inner loop: x - y
-
-The outer loop condition `x >= 0` ensures that upon each execution, the variable `x` is decremented, making progress towards termination. The inner loop condition `x > y` doubles `y` and will always terminate once `y` becomes greater than or equal to `x`. Therefore, the combination of these nested loops forms a ranking function that guarantees the program is terminating.
+For the outer loop: 
+x (decreases by 1 in every iteration of the outer loop)
+For the inner loop:
+x - y (increases since x remains constant during one execution of the inner loop and y doubles, thus breaking the loop)
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1st level: 5.0 * 1 + 1.0 * (-x)^1  
-2nd level: 1.0 * x + 1.0 * (x-y)
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0
+
 

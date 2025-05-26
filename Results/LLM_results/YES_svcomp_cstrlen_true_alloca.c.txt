@@ -1,20 +1,20 @@
 === Response 1 ===
+[RESULT]  
+TERMINATE
+
+[RANKING FUNCTION TYPE]  
+linear
+
+[RANKING FUNCTIONS]  
+1.0 * (length1 - (p - s))^1
+
+=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-(length1 - 1) - (p - s)
+(length1 - (p - s))
 
-The function `cstrlen` iterates over the characters in the string until the null terminator `'\0'` is reached. Since `nondetString1[length1-1] = '\0';` ensures that the string will always have a null terminator, the loop will always terminate, making the program terminate. The ranking function decreases as `p` moves towards the null terminator in the string `s`.
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-length1 - (p - s)  
-
-The program will terminate as the function `(cstrlen)` walks through the string from the beginning, incrementing the pointer `p` and stops when it encounters a null character `\0`. The allocation ensures that there is always a null character in the string. The ranking function `length1 - (p - s)` decreases with each step and guarantees termination as `p` traverses from `s` to the null character.
+The program's function `cstrlen` iteratively advances the pointer `p` through the string `s` until it encounters the null character `\0`. The main function ensures `length1` is at least 1, and sets the last character of `nondetString1` to `\0`. Since `nondetString1` has a guaranteed null terminator and the loop advances `p` until it reaches this null terminator, the loop will terminate. The ranking function `(length1 - (p - s))` decreases with each step of the loop as `p` moves towards the null terminator, proving that the loop terminates.
 

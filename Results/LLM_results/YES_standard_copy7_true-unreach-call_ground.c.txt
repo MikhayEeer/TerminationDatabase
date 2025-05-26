@@ -1,22 +1,21 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-100000 - i  
-100000 - x  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1 * i + 100000 for each loop that iterates over `i`
+-1 * x + 100000 for the loop that iterates over `x`
 
-The program consists of a series of for-loops that iterate a fixed number of times, specifically 100000 in each loop. Thus, the termination is mainly dependent on the value of `i` and `x` starting from 0 and incrementing by 1 up to 99999. This can be shown to terminate by a simple linear ranking function of `100000 - i` for the `i` loops and `100000 - x` for the `x` loop. Each decreases in each step, thus leading to termination.
+Explanation: Each loop in the program iterates 100,000 times, decrementing the termination distance with each iteration. The loops process sequentially without any dependencies or modifications outside their counters. Therefore, they will all complete in a finite number of steps, ensuring termination of the program.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
-[RANKING FUNCTIONS]  
+[RANKING FUNCTION]  
 100000 - i  
-100000 - x  
 
-The program loops each have a defined number of iterations, i.e., 100000. The decrements in the ranking functions indicate progress toward termination as i and x increase from 0 to 99999, ensuring the termination of each loop. Thus, the program is terminating.
+The program contains several loops that iterate a fixed number of times, specifically 100,000 times. Therefore, the program is guaranteed to terminate after iterating through these predetermined loops. The ranking function `100000 - i` confirms that the counter `i` decreases with each iteration, leading to program termination after all iterations are completed.
 

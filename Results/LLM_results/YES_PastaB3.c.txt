@@ -1,6 +1,12 @@
 === Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The inner loop `while (x > y)` is non-terminating as `y = x + y` will always increase `y` when `x > y`, and thus the condition `x > y` will remain true if initially `x > y`.
+
+=== Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The loop condition `x > y` becomes false only if `y` becomes greater than or equal to `x`. However, inside the loop, `y` is updated as `y = x + y`, which makes `y` larger in every iteration. Since `x` remains constant, if initially `x > 0` and `x > y`, the increment of `y` will never stop, leading to an infinite loop.
+The program can enter an infinite loop if `x` is greater than `y` initially. In this case, `y` gets updated by adding `x` and `y` in each iteration, which will always satisfy the loop condition `x > y`, thereby leading to non-termination.
 

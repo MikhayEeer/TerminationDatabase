@@ -2,22 +2,19 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
+single-phase  
 [RANKING FUNCTIONS]  
-1. Phase 1: The outer loop of the `do-while` loop in `cstrncmp` depends on the value of `n`. It decreases with each iteration, and the loop terminates when `n` reaches 0. The ranking function for this phase is: `n` (linearly decreases to zero).  
-2. Phase 2: Within the `do-while` loop:  
-   - The return statements in the loop terminate it immediately when conditions are met (`*s1 != *s2++` or `*s1++ == 0`).  
-   - No infinite cycles occur due to preconditions and the structure of the function, ensuring the loop body is eventually exited.  
+Length of the input strings `n`.  
 
-Overall, the program terminates as the nested loops conclude within finite time limits dictated by the initial parameters and exit conditions.
+[EXPLANATION]  
+The `cstrncmp` function processes each character in the input strings `s1` and `s2` up to `n` times. In each iteration of the loop, either `n` is decremented, or the loop exits early if characters differ or a null character is encountered. Therefore, the program eventually terminates because the loop iterates a finite number of times, bounded by `n`.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
 n
 
-The program calls the `cstrncmp` function with two strings `s1`, `s2`, and a nondeterministic integer `n`. The `cstrncmp` function compares the strings for a maximum of `n` characters. The loop in `cstrncmp` decrements `n` with each iteration. Since `n` is a nondeterministic integer, it will eventually reach zero or a character mismatch will occur, causing the loop to exit. Therefore, the program is terminating with a ranking function based on `n`.
 

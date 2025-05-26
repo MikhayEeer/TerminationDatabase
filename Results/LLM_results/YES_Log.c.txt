@@ -1,28 +1,19 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-1.0 * x^1 + 0.0 (for the outer loop)
-1.0 * xtmp^1 + 0.0 (for the inner loop) 
-
-The outer loop decreases `x` by at least 1 in each iteration by setting `x = xtmp` where `xtmp` is decremented by 2 in the inner loop. This shows that both `x` in the outer loop and `xtmp` in the inner loop are bounded and strictly decreasing, ensuring termination.
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-Phase 1: 0.5 * x^1  
-Phase 2: 1 * xtmp^1  
+1.0 * x^1 + 0.0  
+1.0 * xtmp^1 + 0.0  
 
-Explanation:  
-The program has a main loop that continues while `x > 1`, and within this loop, there's an inner loop that reduces `xtmp` by 2 at each iteration while `xtmp > 1`.  
-The outer loop (`while (x > 1)`) can be shown to terminate by considering the value of `x`. In every iteration of the outer loop, `x` is decreased by at least 2. This is captured by the phase 1 ranking function `0.5 * x`, which strictly decreases as the loop progresses, ensuring termination of the outer loop.  
+This program is terminating. The outer while loop decreases the value of `x` by at least 1 each iteration whenever `x > 1`. The inner loop reduces `xtmp` by 2 each time, making `xtmp <= 1` after a finite number of iterations. Therefore, the outer loop eventually terminates when `x` becomes 1 or less. This can be shown by the multi-phase ranking functions provided above.
 
-The inner loop (`while (xtmp > 1)`) also terminates since `xtmp` is decreased by 2 in each iteration. This is captured by phase 2 with the ranking function `xtmp`, indicating it will also terminate.  
-
-Thus, this multi-phase ranking function demonstrates that the entire program will eventually terminate.
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.25 * x^2 + 1.0 * 1
 

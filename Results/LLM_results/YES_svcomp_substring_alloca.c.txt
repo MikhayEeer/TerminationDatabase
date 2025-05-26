@@ -4,19 +4,32 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * (length1 - length2)^1
-0.5 * length2^1
+- The outer while loop at `char *ps = s; while (*ps != '\0')` 
+  - Ranking function: `|nondetString1 - ps|`
+  - The ranking function decreases by 1 for each iteration, and it terminates when `ps` reaches the end of `nondetString1` as the null character `'\0'` is found.
 
-The program will terminate because the `substring` function processes each character of the strings `s` and `t`. The first `while` loop iterates through each character of string `s` and its nested `while` loop compares each character of `t` with a corresponding segment of `s`. Since both strings are null-terminated and must have at least one character (due to the input constraints), the process will eventually reach the null character at the end of these strings, causing both loops to terminate. The specified ranking functions capture the decrease in the potential mismatch length between the substring `t` and the segments of `s`, eventually reaching zero.
+- The inner while loop at `char *pt = t; while (*pt != '\0' && *pt == *ps2)`
+  - Occurs at most `|nondetString2|` times, as `pt` moves forward through `nondetString2`.
+  - The ranking function: `|nondetString2 - pt|`
+  - This loop terminates when a mismatch occurs or the end of `nondetString2` is reached, as indicated by `pt` reaching `'\0'`.
+
+These ranking functions demonstrate termination for both nested loops under the condition that both strings end with a null character, which adheres to the C string convention and is explicitly ensured in the program.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographic
+multi-phase
 [RANKING FUNCTIONS]
-1. Decrease in \(*ps\) leads towards terminator '\0', which eventually decreases the distance to the end of the string. Hence, the outer while loop progresses towards termination.
-2. In the nested loop with pointers \(ps2\) and \(pt\), once \(pt\) reaches '\0', it indicates a possible substring match leading to termination, or alternatively, it directs \(ps\) one step closer to its terminating condition. 
+The function `substring` involves two nested loops. Each time the outer loop progresses (`ps` increments), the inner loop is expected to finish if `*pt` reaches the end (`'\0'`). The inner loop only advances when characters match, and it guarantees to exit once `*pt != '\0'` is false. Since each loop condition involves finite traversal through null-terminated strings and the pointers `ps` and `ps2` advance towards `'\0'`, the function will terminate after a finite number of steps given valid input strings (`nondetString1` and `nondetString2` being properly null-terminated).
 
-The combination of string traversal ensuring a progressive move towards null characters and pointer incrementation in both loops ensures termination of the nested loops, proving that the overarching function is terminating.
+The termination can be argued by considering:
+1. The length of the outer loop controlled by `ps`, which is bound by the length of `nondetString1` (say `n1`).
+2. The length of the inner loop controlled by `pt`, which is bound by the length of `nondetString2` (say `n2`).
+
+Multi-phase ranking function:
+- Phase 1: The number of positions `ps` needs to increment before the outer loop stops: `n1`.
+- Phase 2: For each step in Phase 1, how `pt` (and `ps2` which shadows `ps`) increments until null termination in the inner loop for each prefix from `ps`: At most `n2` steps.
+
+Each phase guarantees decrement in available steps leading towards null-terminated string positions ensuring loop progress, hence confirming termination.
 

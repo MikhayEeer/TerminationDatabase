@@ -4,25 +4,22 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-1.0 * (x + 5)^1 for -5 <= x < 0  
-1.0 * x^1 for 0 <= x <= 30  
-1.0 * (x - 35)^1 for 30 < x <= 35  
+if (-5 <= x && x <= 0) then f(x) = -5 - x  
+if (0 < x <= 30) then f(x) = x  
+if (30 < x <= 35) then f(x) = 35 - x  
+if (x < -5 OR x > 35) then f(x) = |x|  
+
+Explanation:  
+The program is structured such that when `x` is within the range of -5 to 35, the program sets `x` to 0 eventually, which results in the termination of the while loop. Each branch in the program systematically reduces the distance of `x` from reaching zero based on its initial value. Outside these bounds (`x < -5 OR x > 35`), the program sets `x` to 0 immediately. This ensures termination from any starting value of `x.`
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-For branch (x < 0): 0 * x^1 + c (where c is a constant)
-For branch (0 <= x <= 30): x (linear function decreasing in steps of 1)
-For branch (x > 30): 35 - x (linear function decreasing in steps of 5 when entering region)
-For else branch: c (where c is a constant, leads directly to termination) 
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. If \(-5 \leq x \leq 35\) and \(x \neq 0\): \(-x + c\), where \(c\) is a constant large enough to cover the initial range.  
+2. If \(x < -5\) or \(x > 35\), \(x\) is set to 0, and thus terminates immediately.  
 
-Explanation:
-- The program eventually sets `x` to 0 in all cases, which breaks the loop.
-- For the range `0 <= x <= 30`, `x` is decreased by 1 in each iteration until it becomes 0.
-- For `x < 0`, it is set to -5, leading to `x = 0` in the next loop.
-- For `x > 30`, `x` is set to 35 and then transitions to `x = 0`.
-- When `x` is not in these ranges, it is directly set to 0, ensuring termination.
+This piecewise ranking function demonstrates that the program will eventually reach a state where the loop condition \(x \neq 0\) is false, hence proving termination.
 

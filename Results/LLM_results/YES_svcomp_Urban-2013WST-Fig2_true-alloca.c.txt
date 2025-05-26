@@ -2,20 +2,19 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-lexicographic  
+nested  
 [RANKING FUNCTIONS]  
-(x1, x2) with decreasing ranking in lexicographic order:  
-- First ranking function: 0.0 * 1 + 1.0 * (10 - x1)^1  
-- Second ranking function: 0.0 * 1 + 1.0 * (*x2 - 1)^1  
-
-Explanation: In the nested loops, the inner loop decreases the value of *x2 until it reaches 1, while the outer loop increases *x1 until it exceeds 10. The lexicographic ranking function demonstrates that the program terminates because each iteration of the outer loop makes progress toward termination by decreasing the first component of the lexicographic tuple, and within the inner loop, the second component decreases until the loop exits.
+1.0 * (10 - *x1)^1 + 1.0 * 1  
+1.0 * (*x2 - 1)^1 + 1.0 * 1  
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+lexicographic
 [RANKING FUNCTIONS]
-0.1 * (11 - *x1)^1
-1.0 * (*x2 - 1)^1
+1st component: 11 - *x1
+2nd component: *x2 - 1
+
+The program has a lexicographic ranking function. The first component (11 - *x1) decreases in every outer loop iteration and stays non-negative until the loop terminates. The second component (*x2 - 1) decreases and remains non-negative for each iteration of the inner loop until it terminates, ensuring progress towards the exit condition of the outer loop.
 

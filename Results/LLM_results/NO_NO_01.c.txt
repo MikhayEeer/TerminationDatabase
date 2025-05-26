@@ -1,6 +1,12 @@
 === Response 1 ===
-[RESULT]
-NONTERM
-[REASON]
-There is a loop with the condition `while (i < 103)` where the loop body does not affect the value of `i`, causing it to run indefinitely and making the program non-terminating.
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop `while (i < 103) { i = i+0; }` will never terminate because the condition `i < 103` is always true and `i` is never incremented inside the loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The while loop `while (i < 103)` contains the statement `i = i+0;`, which does not change the value of `i`. As a result, if the loop is entered, it runs indefinitely, resulting in non-termination.
 

@@ -1,23 +1,16 @@
 === Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x_ref^1 - 1.0 * y_ref^1 - 1.0 * z_ref^1  
+
+=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
 x_ref - max(y_ref, z_ref)
-
-Explanation:
-
-The program iterates with the condition `(*x_ref > *y_ref) && (*x_ref > *z_ref)`. During each iteration of the loop, both `*y_ref` and `*z_ref` are incremented by 1, while `*x_ref` remains unchanged. Therefore, the difference `*x_ref - max(*y_ref, *z_ref)` decreases by at least 1 in each step. This means that the value of `*x_ref` compared to the maximum of `*y_ref` and `*z_ref` guarantees a progress towards reaching the condition's boundary, i.e., at some point it will not satisfy `(*x_ref > *y_ref) && (*x_ref > *z_ref)`. Hence, the loop will terminate, and the program as a whole is terminating.
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x_ref^1 - 1.0 * y_ref^1  
-1.0 * x_ref^1 - 1.0 * z_ref^1  
-
-The program is terminating. Each iteration of the loop decreases the difference between `x_ref` and both `y_ref` and `z_ref` by 1, eventually causing the loop condition to become false. This can be supported by two linear ranking functions: one for the difference between `x_ref` and `y_ref`, and another for the difference between `x_ref` and `z_ref`.
 

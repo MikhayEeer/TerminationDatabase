@@ -2,18 +2,18 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+nested  
 [RANKING FUNCTIONS]  
-1.0 * (31 - n)^1  
-This program is terminating because the main function calls the `hanoi` function recursively, decreasing the argument `n` by 1 in each recursive call. The recursion stops when `n` equals 1. The constraint `if (n < 1 || n > 31)` ensures that `n` is always between 1 and 31, providing an upper bound to the recursion depth. The ranking function is `31 - n`, which decreases with each recursive call until termination.
+1. Decreasing on `n` when calling `hanoi(n-1)`  
+2. Base case determined by `if (n == 1)` in `hanoi` function  
+
+Explanation: The program terminates due to the recursive function `hanoi` having a base case when `n == 1`, which returns 1. Each recursive call reduces the value of `n` by 1, ensuring that eventually the base case is reached. The input `n` is bounded between 1 and 31, guaranteeing termination. The check `if (result >= 0)` in `main` ensures that an error is never triggered as the function `hanoi` will always return a positive integer when `n` is within valid bounds.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-1.0 * -1 + 1.0 *  n^1 + 0.0 * 1 
-
-The program terminates because it contains a function, `hanoi`, which recursively computes a value based on the input `n`. The recursion depth decreases with each call (`n-1`), ensuring termination when `n` reaches 1, the base case. The main function checks if `n` is within a valid range [1, 31] before calling `hanoi`. This ensures that the recursion depth will always reach the base case, leading to termination. The condition checking `result >= 0` after the recursive call is always true as the `hanoi` function returns a non-negative number for valid `n`, ensuring the program does not reach the `__VERIFIER_error()` point.
+The function `hanoi` is a recursive function that strictly decreases its argument by 1 in each recursive call until it reaches the base case of `n == 1`. Since the argument `n` is an integer that gets strictly smaller upon each recursive call and hits the base case when `n == 1`, the recursion is guaranteed to terminate. The `main` function calls `hanoi` only if `n` is within the valid range, ensuring `hanoi` is only called with valid input. Therefore, the whole program is terminating due to the finite range of valid input and the strictly decreasing nature of `hanoi`'s recursive calls.
 

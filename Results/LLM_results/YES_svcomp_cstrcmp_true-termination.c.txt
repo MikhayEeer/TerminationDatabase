@@ -1,22 +1,20 @@
 === Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The `cstrcmp` function iterates through the two input strings `s1` and `s2` simultaneously, character by character, until either of them reaches the null terminator (`'\0'`). Since both strings are null-terminated, the function is guaranteed to exit the loop once it reaches a null character in either string, no matter how long they are. Therefore, the function always terminates. The ranking function can be considered as decrementing the length of the remaining unmatched portion of the strings in each loop iteration, moving towards reaching `'\0'`.
+
+=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-The function `cstrcmp` operates in a single while loop which processes each character of the input strings exactly once. The loop terminates when it finds a differing character or reaches the end of either string. Therefore, a suitable linear ranking function can be constructed based on the position of the pointers `s1` and `s2` in the strings. As each loop iteration strictly moves one step forward in aligning them, the loop progresses towards termination in linear time relative to the minimum of the lengths of the two strings involved.
+1.0 * (strlen(s1) - number of matched characters before a differing one) + 0.0  
+1.0 * (strlen(s2) - number of matched characters before a differing one) + 0.0
 
-=== Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-None required
-[RANKING FUNCTIONS]
-The program will terminate as it compares two null-terminated strings using the `cstrcmp` function. 
-
-The `cstrcmp` function operates in the following manner:
-1. It iterates over both strings, character by character, until it finds characters that differ or it reaches the end of one of the strings.
-2. Since the strings are guaranteed to be null-terminated by the `__VERIFIER_nondet_String` function, the loop will end once a null character (`'\0'`) is encountered in either string.
-
-This implies that no infinite looping can occur as the loop condition (`*s1 != '\0' && *s1 == *s2`) will eventually become false when at least one of the strings ends, ensuring that the program terminates.
+Explanation:  
+The `cstrcmp` function compares two strings character by character. It terminates as it either reaches the end of one of the strings or finds differing characters, as indicated by the loop condition `*s1 != '\0' && *s1 == *s2`, which reduces the length of remaining substrings to compare at each iteration. Thus, the maximum length of strings s1 and s2 can be seen as a linear ranking function that decreases with each matched character until a mismatch or null terminating character is encountered, ensuring termination.
 

@@ -1,22 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-n  
-
-The function `cstrncmp` compares two strings up to `n` characters or until a null character is encountered. The loop iterates while `n > 0` and the characters pointed to by `s1` and `s2` are equal. The condition `n-- > 0` ensures that each iteration decreases `n`, eventually causing the loop to terminate when `n` reaches zero. Therefore, the function is terminating. The ranking function is linear in terms of `n`, which decreases with each iteration until termination.
-
-=== Response 2 ===
-```plaintext
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-n
-```
+n - (number of matched characters between s1 and s2 until null terminator)
 
-The function `cstrncmp` will terminate because it iterates over the characters of the input strings `s1` and `s2`. It stops iterating either when the counted length `n` reaches zero or a null character is encountered in either of the strings, ensuring that there is no infinite loop. The ranking function in this case is the value of `n`, which decreases with each iteration of the while loop until the loop terminates.
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The ranking function for this program depends on the input `n` and reduces the value of `n` by 1 in each iteration of the loop within the `cstrncmp` function. Therefore, a potential ranking function is as follows:  
+1. `n`  
+
+Explanation:  
+- The function `cstrncmp` compares the strings `s1` and `s2` up to `n` characters.  
+- On each iteration, `n` is decremented by 1 until it reaches 0 or a difference between the characters is found.  
+- This results in a strictly decreasing value for `n`, ensuring that the program will eventually terminate.
 

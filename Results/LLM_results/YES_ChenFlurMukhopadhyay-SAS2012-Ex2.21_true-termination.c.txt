@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-0.5 * x^2 + 1.5 * y^2 + 3.0 * 1  
-0.5 * y^2 + 1.5 * 1
-
-The program is terminating because the sequence formed by the value of `x` and the alternating flipping and decrementing of `y` ensures that `x` will eventually become non-positive, thus ending the loop. The ranking function decreases with each iteration of the loop.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.5 * x^2 + 1.5 * x * y + 0.5 * y^2
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-0.5 *  x^1 + 0.5 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non-linear
+[RANKING FUNCTIONS]
+1/2 * x^2 + 1/2 * y^2
 
+Explanation: The program's loop terminates due to the non-linear nature of the updates to `x` and `y`. The quadratic expression `1/2 * x^2 + 1/2 * y^2` functions as a ranking function that decreases at each loop iteration because `x` eventually becomes non-positive, leading to the termination of the loop.
 

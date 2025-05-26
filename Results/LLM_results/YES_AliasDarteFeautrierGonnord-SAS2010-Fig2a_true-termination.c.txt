@@ -4,22 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.0 * y^1
-1.0 * y^1 + 0.0 * x^1 
-
-Explanation:
-- The outer loop decreases `x` by 2 each iteration, ensuring `x` eventually becomes less than 2, thus terminating the loop.
-- The inner loop with conditions `y >= x` iteratively decreases `y`, ensuring termination of that loop independently. 
-- Multi-phase ranking covers both phases: `x` reduction in the outer loop and `y` reduction when `x` has lowered enough to terminate both loops.
+1.0 * x^1 
+5.0 * y^1 + 1.0 * x^1 
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 *  x^1 + 0.0 *  y^1
-1.0 *  y^1 + 0.0 *  x^1
-
-The program is terminating. The while loop decreases `x` by at least 1 in every iteration of the outer loop, and the inner loop ensures `y` reduces or does not grow indefinitely, contributing to the conditions for termination. The multi-phase ranking function uses the value of `x` for outer termination and `y` for the inner termination.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+x  
+y   
+  
+Explanation: The program terminates as each iteration of the outer `while` loop decreases `x` by 2. In the inner loop, `y` is decremented until it is less than `x`. Thus, the variables `x` and `y` are both bounded and decrease over time, indicating that this program concludes. The phases can be observed with `x` decreasing to terminate the outer loop and `y` within the inner loop.
 

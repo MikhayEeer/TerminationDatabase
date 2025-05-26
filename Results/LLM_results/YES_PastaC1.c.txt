@@ -2,9 +2,10 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * 1  
+1.0 *  x^1 + 1.0 * 1  
+1.0 *  (x - y)^1 + 1.0 * 1  
 
 === Response 2 ===
 [RESULT]
@@ -12,8 +13,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.0 * 1
-1.0 * (x - y)^1 + 0.0 * 1
+1.0 *  x^1 + 0.0 * 1
 
-The program terminates because there is a two-phase ranking function. In the outer loop, the value of `x` is non-negative and decreases by 1 in each iteration, eventually reaching a value less than zero, which causes termination. In the inner loop, for each fixed `x`, the value of `y` doubles until it is no longer less than `x`, at which point the loop terminates.
 

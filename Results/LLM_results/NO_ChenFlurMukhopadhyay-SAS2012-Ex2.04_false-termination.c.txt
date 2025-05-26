@@ -2,5 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The program is non-terminating for input values where x = -1 and y = 0. In this case, the condition x < y is never satisfied, causing the loop to not execute and the program to terminate successfully regardless of it being considered non-terminating based on the input condition.
+The program is non-terminating for the initial values x = -1 and y = 0. For these values, the guard of the loop (x < y) is false due to -1 being less than 0, thus the loop never executes and the program will not terminate.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating for the values x = -1 and y = 0, as it leads to a loop where x remains constant and y stays at 0, causing the condition (x < y) to be false and the loop to iterate indefinitely.
 

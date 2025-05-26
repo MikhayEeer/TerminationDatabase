@@ -2,10 +2,10 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+piecewise  
 [RANKING FUNCTIONS]  
--M^1  
-(x - M)^1 + M  
+1. (for x > M): 0  
+2. (for x <= M): M - x  
 
 === Response 2 ===
 [RESULT]  
@@ -13,5 +13,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-1.0 * |x - M|^1
+1. x - M if x > M  
+2. M - x if x < M  
+
+The program is terminating. The piecewise ranking functions show decrease towards zero, leading to the loop's termination as x approaches M.
 

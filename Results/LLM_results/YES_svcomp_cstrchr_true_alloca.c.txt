@@ -4,9 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-0.5 * 1  +  1.0 * |s|  
-
-This program is terminating. The loop in the `cstrchr` function iterates over the string `s` until it either finds the character `c` or reaches the end of the string. The character pointer `s` moves forward by one position with each iteration, which guarantees that the loop will eventually terminate when `s` reaches the null-terminating character at the end of the string (denoted by `'\0'`).
+The ranking function for the loop in the function `cstrchr` is derived from the monotonically decreasing integer variable `length - (s - nondetString)` (where `s` starts from `nondetString` and is incremented until it reaches `nondetString + length - 1`). As each character in `nondetString` will eventually be `\0` or match the character `c`, the loop will terminate after at most `length` iterations. Therefore, the loop will always terminate.
 
 === Response 2 ===
 [RESULT]  
@@ -14,5 +12,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-The length of the string `s` in `cstrchr` decreases with each iteration of the loop via `s++`, eventually reaching the null terminator `\0`, thus ensuring termination.
+Length of string 's' decreases per iteration.  
+
+The program is guaranteed to terminate because the given function `cstrchr` scans through the string `s` until it either finds the character `c` or reaches the end of the string (null character `\0`). The pointer `s` advances one character at a time in each loop iteration, ensuring that the loop will eventually terminate when it either finds the character `c` or reaches the null terminator of the string. The string length is finite, as it is determined by the `length` variable which adjusts to 1 at minimum, ensuring there is always a null terminator. Hence, the loop will definitely reach the string end, guaranteeing termination.
 

@@ -1,20 +1,16 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-none
-[REASON]
-The program terminates because:
-1. The 'array_size' is ensured to be at least 1, hence the 'alloca' calls for 'best' and 'prev' are valid.
-2. The nested loops (the 'lis' function) have a fixed upper bound determined by 'N', which is a positive integer.
-3. There are no unbounded or infinite loops present.
-Therefore, no ranking function is necessary.
-
-=== Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+multi-phase  
 [RANKING FUNCTIONS]  
-2 * N - i  
+1.0 * (N^2 - N)
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The function can be shown to terminate because the loops within the `lis` function have definite bounds. The outer loops iterate from 0 to N, where N is the size of the input array. Since N is determined by the `array_size`, which is positive, the loops have a finite number of iterations. Therefore, the function terminates, as each loop has a clear termination condition defined by the range of indices it iterates over.
 

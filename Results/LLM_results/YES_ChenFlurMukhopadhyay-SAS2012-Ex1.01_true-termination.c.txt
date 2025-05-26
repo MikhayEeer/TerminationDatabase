@@ -3,14 +3,14 @@
 TERMINATE  
 [RANKING FUNCTION TYPE]  
 linear  
-[RANKING FUNCTIONS]  
-f(x) = x
+[RANKING FUNCTION]  
+2.0 * x + 10.0  
 
 === Response 2 ===
 [RESULT]  
-TERMINATE   
+TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+nested  
 [RANKING FUNCTIONS]  
-f(x) = x
+0.1 * x(x + 5)^1 + 1.0
 

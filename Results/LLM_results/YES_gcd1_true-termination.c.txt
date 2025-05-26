@@ -1,17 +1,16 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * y^1
-0.5 * r^1
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1:  
+1.0 * y^1 + 0.0  
 
-The provided C program implements the Euclidean algorithm to compute the greatest common divisor (GCD) of two integers, x and y. The termination of this program can be demonstrated using a multi-phase ranking function.
+Phase 2:  
+1.0 * r^1 + 0.0  
 
-In the first phase, the outer while loop's progress is proven by the ranking function 1.0 * y^1, indicating that the value of y decreases with every iteration of the outer loop until it reaches zero.
-
-In the second phase, the inner while loop's progress is shown by the ranking function 0.5 * r^1, which decreases with each iteration and terminates when r becomes less than y. Thus, the nested loops collectively ensure termination of the program.
+Explanation: The program computes the greatest common divisor (GCD) of two integers using the Euclidean algorithm. The first phase decreases the absolute value of `y` with each iteration of the outer while loop until it reaches zero. The second phase involves the inner while loop, which decreases `r` until it becomes less than `y`, effectively bringing us to the end of the iteration of the outer loop. Each phase guarantees a decrease in non-negative integer values, proving termination.
 
 === Response 2 ===
 [RESULT]
@@ -19,8 +18,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-first phase: 1.0 * y^1
-second phase: 1.0 * r^1
+Phase 1: \( 1.0 * y^1 \)
+Phase 2: \( 1.0 * (x \mod y)^1 \)
 
-The gcd function calculates the greatest common divisor using a series of subtractions. It terminates because the value of `y` in the outer loop decreases in each iteration until it becomes zero, and the inner loop reduces `r` until it is less than `y`. Each phase has a natural number ranking function showing monotonic descent, demonstrating termination.
+Explanation: The program effectively computes the greatest common divisor (GCD) using the Euclidean algorithm. The outer loop decreases the positive integer \( y \), which ensures termination. Within the loop, the reduction of \( x \mod y \) to a value less than \( y \) determines the next phase, ensuring termination at each step. The multi-phase ranking function formalizes this decrease, indicating that the process will eventually reach 0, at which point the loops will terminate.
 

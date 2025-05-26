@@ -1,10 +1,10 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x^1 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * y
 
 === Response 2 ===
 [RESULT]
@@ -12,5 +12,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * x^1
+1.0 *  x^1 + 0.0 *  y^1
+
+Explanation: The program will terminate because the value of `x` is strictly decreasing in each iteration of the loop and will eventually become less than or equal to `y`. The linear ranking function `x` decreases by 1 in each iteration, and since it starts with a value greater than `y`, it will eventually reach `y`.
 

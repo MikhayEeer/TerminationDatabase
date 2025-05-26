@@ -1,14 +1,12 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * i^1
+NONTERM  
+[REASON]  
+The program contains a non-terminating loop when `i` is initially set to 5, as the condition `i != 5` prevents the loop variable `i` from decreasing, causing an infinite loop.
 
 === Response 2 ===
 [RESULT]  
 NONTERM  
 [REASON]  
-The program does not terminate because if `i` is initialized as 5, the value of `i` will remain 5 in each iteration of the loop, causing an infinite loop.
+The program is non-terminating when `i` is initialized to 5 because the condition in the while loop does not cause `i` to change and the loop continues indefinitely.
 

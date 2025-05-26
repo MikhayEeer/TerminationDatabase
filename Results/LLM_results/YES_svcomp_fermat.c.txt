@@ -1,20 +1,29 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1st phase: c, which decreases until it exceeds MAX  
-2nd phase: b, which resets to 1 when c increases and itself increases until it exceeds MAX  
-3rd phase: a, which resets to 1 when b increases and itself increases until it exceeds MAX  
-
-Explanation: This program will terminate because it iterates over a finite bounded space defined by `1 <= a, b, c <= MAX`. Once `c` exceeds `MAX`, the loop breaks. The nested loops increment in a way that fully explores this bounded space, and thus terminates.
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1000000 - c * 1000000 - b * 1000 - a
+1.0 * 1 - 1.0 * c^1 + 1.0 * 1
+0.0 * 1 - 1.0 * b^1 + 0.0 * 1
+0.0 * 1 - 1.0 * a^1 + 0.0 * 1
+
+Explanation: 
+
+The given program iterates over triplets (a, b, c) to check if a^3 = b^3 + c^3. During each iteration, it increases `a`, and if `a` exceeds `MAX`, it resets `a` to 1 and increases `b`. Similarly, if `b` exceeds `MAX`, it resets `b` to 1 and increases `c`. When `c` exceeds `MAX`, the loop breaks, ensuring the program terminates.
+
+The ranking function is multi-phase, representing the decrement count of `c`, then `b`, and finally `a`, in successive phases, within their respective bounds.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1000.0 - 1.0 * c^1 + 0.0 * 1  
+999.0 - 1.0 * b^1 + 0.0 * 1  
+999.0 - 1.0 * a^1 + 0.0 * 1  
+
+Explanation:  
+The loop iteratively increments `a`, `b`, and `c` in a systematic manner, each within their respective bounds. When `a` exceeds `MAX`, it resets to 1 and increments `b`. Similarly, when `b` exceeds `MAX`, it resets to 1 and increments `c`. When `c` exceeds `MAX`, the loop exits. Thus, given that `a`, `b`, and `c` are constrained by finite bounds, the loop is guaranteed to terminate. The ranking functions indicate reduction in integers `c`, `b`, and `a` relative to their maximum limits.
 

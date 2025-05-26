@@ -1,13 +1,17 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-(1) if i > 0, then use the ranking function f(i) = i
-(2) if i < 0, then use the ranking function f(i) = -i
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+ranking function: |i|, which decreases by 1 in each iteration of the loop.  
 
-The program is terminating because for each case (i > 0 and i < 0), the absolute value of i decreases monotonically towards zero, leading to eventual exit from the loop. When i reaches zero, it stays zero because neither condition (i > 0 nor i < 0) is satisfied, resulting in loop termination.
+Explanation:  
+The absolute value of `i` decreases by 1 in each iteration because:  
+- If `i > 0`, then `i = i - 1` decreases `i` by 1.  
+- If `i < 0`, then `i = i + 1` increases `i` by 1, which decreases the absolute value of `i` by 1.
+
+When `i = 0`, the loop terminates. Since `i` starts between `-5` and `5` and the absolute value of `i` decreases in every step, the program will eventually reach `i = 0`, thus ending the loop.
 
 === Response 2 ===
 [RESULT]
@@ -17,5 +21,5 @@ linear
 [RANKING FUNCTIONS]
 |i| 
 
-Explanation: The program is terminating because the value of `i` incrementally approaches 0 from any initial value between -5 and 5 through the operations `i = i - 1` and `i = i + 1`. This can be observed as a linear descending ranking function where |i| (the absolute value of i) decreases with each iteration of the loop, eventually leading the loop condition to fail.
+This linear ranking function |i| decreases with each iteration of the loop, ensuring termination. Initially, \( i \) is bounded between -5 and 5. The loop adjusts \( i \) by decrementing it when it is positive and incrementing it when it is negative, rapidly driving \( i \) to zero and causing termination of the loop once \( i \) moves out of the range between -5 and 5.
 

@@ -4,19 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-100 - i (for the first loop)  
-21 - j (for the second loop)  
-
-Each loop independently decreases the distance to its respective termination condition: 'i' iterating towards 100 and 'j' iterating towards 21, demonstrating termination for the entire program.
+100 - i  
+21 - j  
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-100 - i
-21 - j
+100.0 - 1.0 * i^1
+21.0 - 1.0 * j^1
 
-This program is terminating. Each of the two loops has a linear ranking function: the first loop with ranking function 100 - i, and the second loop with ranking function 21 - j. In both cases, as the loop progresses, the value of the ranking function decreases, eventually leading to loop termination.
+These incrementing loops have clear bounds that are ultimately reached, ensuring termination. The first loop increases `i` until 100 is reached, and the second loop increases `j` until 21 is reached. Both loops have linear ranking functions demonstrating monotonic decrease until their termination conditions are met.
 

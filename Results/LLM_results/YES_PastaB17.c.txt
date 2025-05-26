@@ -1,19 +1,18 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-lexicographic
-[RANKING FUNCTIONS]
-x - z, y - z 
-
-The inner loop decreases `y` with each iteration and will eventually terminate since `y` decreases and there is no assignment to increase it, thus making `y > z` false. After the inner loop completes, `x` is decreased. The outer loop condition `x > z` ensures the outer loop will also terminate eventually as `x` is decreased and `x > z` will become false. The lexicographic ranking function (x - z, y - z) shows both x and y are strictly decreasing towards z, leading to termination.
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * (x - z)^1  
+1.0 * (y - z)^1  
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-lexicographic
-[RANKING FUNCTIONS]
-1st Component: x - z (should decrease when inner loop completes)
-2nd Component: y - z (decreases to allow the 1st component to decrease)
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 1.0 * 1  
+1.0 * y^1 + 1.0 * 1  
 

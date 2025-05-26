@@ -4,11 +4,10 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 piecewise  
 [RANKING FUNCTIONS]  
-For the `fibonacci(int n)` function:  
-The ranking function is the decreasing order of `n` in each recursive call, i.e., `n` decreases in the form:  
-`if (n < 1)` returns, terminating that function call,  
-and for `n >= 1`, each recursive step decreases `n` by either 1 or 2. Since `n` is a positive integer input, this will eventually reach a base case, terminating the recursion.  
-The main function does not have any loops or further recursive calls once `fibonacci` returns, thus it is also terminating.
+1. \( \text{if } x < 1 \)  
+2. \( x^1 \text{ if } x \geq 1 \)  
+
+The program is terminating as the function `fibonacci` will always reach a base case for any non-negative integer `x`.
 
 === Response 2 ===
 [RESULT]
@@ -16,15 +15,10 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-For `fibonacci(n)`:
-- If `n < 1`: The function returns immediately, hence terminates.
-- If `n == 1`: The function returns immediately, hence terminates.
-- If `n > 1`: The function makes bounded recursive calls with decreasing values n-1 and n-2. This is guaranteed to terminate as `n` approaches the base cases.
+1.0 * x for main function
+n for fibonacci function with n>=0
 
-For `main`:
-- The function calls `fibonacci(x)` where `x` is a non-negative integer determined at runtime by `__VERIFIER_nondet_int()`.
-- If `x < 1`, it returns immediately, so it terminates.
-- The non-deterministic value `x` determines the number of iterations essentially made by recursive calls in `fibonacci(x)`, leading to termination as all recursive calls eventually reduce to base cases.
-
-The overall program exhibits piece-wise termination based on each part's conditions, where main completes without infinite computation.
+This program is terminating. The termination can be shown using a piecewise ranking function. 
+- For the `main()` function, the value of `x` decreases towards a base condition (`x < 1`) which exits the function.
+- For the `fibonacci()` function, it gives a strictly decreasing multi-phase interpretation: `n` first, which eventually hits a base condition because the function is defined in terms of itself with decreasing values (`n-1`, `n-2`), leading to termination when `n < 1`.
 

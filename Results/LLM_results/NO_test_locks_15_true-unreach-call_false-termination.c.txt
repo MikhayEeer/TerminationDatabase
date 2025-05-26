@@ -1,7 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop runs indefinitely unless `cond == 0`, and `cond` can be any integer value due to its nondeterministic nature. Since there's no guarantee that `cond` will become 0 (as it is nondeterministic and could be set to a non-zero value indefinitely), the loop may never exit, leading to potential non-termination.
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop with a condition based on a nondeterministic integer `cond` that, if always non-zero, makes the loop never break out. Hence, the program may execute indefinitely depending on the values returned by `__VERIFIER_nondet_int()` for `cond`.
 
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop with an unconstrained nondeterministic condition `cond` that either ends the loop or continues indefinitely. If `cond` never reaches 0, the loop can run indefinitely, leading to non-termination.
 

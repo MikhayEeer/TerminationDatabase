@@ -2,21 +2,17 @@
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-2.0 * 1 + 1.0 * x^1  
-1.0 * m^1 - 1.0 * y^1 + 1.0
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-Phase 1:  
-2.0 * x^1 + 1  
-Phase 2:  
-1.0 * y^1 + 1.0 * m + 1   
+3.0 * 1 + 1.0 *  x^1 + 1.0 *  y^1  
+2.0 *  x^1 + 3.0 * 1  
 
-This program is terminating. The outer loop consists of two phases: decreasing `x` (which eventually becomes negative) and decreasing `y` while no new value is assigned to it. The inner loop increments `y` but always ends when `y` surpasses `m`, and eventually, `x` decreases. After repeatedly executing both loops in sequence, either `x` or `y` will make the loop condition `x >= 0 && y >= 0` false, thus terminating the program.
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * 1
+
 

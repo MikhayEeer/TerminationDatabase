@@ -1,6 +1,16 @@
 === Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+50 - i + j
+
+=== Response 2 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The values of `i` and `j` oscillate without reaching a condition to exit the loop. When `j > 51`, `i` increments and `j` decrements, causing `i` to steadily approach `j`. However, when `j <= 51`, `i` decrements and `j` increments, effectively reversing the progress and ensuring that the loop condition `i < j` can be maintained indefinitely.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+j - i  
 
