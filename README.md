@@ -30,3 +30,15 @@ some opt/../config:
         递归函数终止性分析
     terminationToSafety.properties
     violation-witness-validation-termination.properties
+
+
+
+## TODOs: 整理LLM Naive Unsolve中的例子
+
+参考LLM_Naive_Unsolved/YES/下的四个文件夹
+- easy 表示人很快就能看出终止（1min以内）的例子
+- func_call 表示终止性和函数调用有关，比如函数的嵌套调用
+- hard表示存在复杂的算术运算或者代码长度很长
+- memory表示存在内存相关的语句和操作如alloc, malloc, 解引用等
+
+请帮忙整理LLM_Naive_Unsolved/Unstable中的标签为YES的例子以及所有测试用例中标签为YES的例子
