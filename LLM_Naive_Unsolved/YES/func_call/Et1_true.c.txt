@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The function `loop(int a, int b)` will recurse indefinitely if initialized with values where `a > b`. In each recursive call, `a` is incremented and `b` is increased by `a`, which can maintain or even widen the gap where `a > b`, causing the recursion to continue without a base case to stop the process.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+There is no guaranteed decrease in the recursive call of `loop(a, b)`. If `a` starts as a positive value and `b` starts as a negative value, `a` will increase and `b` will increase as well, potentially creating an infinite loop where `a` is always greater than `b` and the condition `a > b` is always satisfied.
+

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of *x can increase indefinitely due to the addition of *y, which can be assigned any value by the nondeterministic function, preventing the condition *x > 0 from necessarily becoming false. Moreover, *z alternates signs with potentially increasing absolute value, making the system unpredictable regarding termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The values of x, y, and z can change in such a way that *x increases indefinitely and thus the loop condition *x > 0 may never be violated, causing the loop to potentially run forever.
+

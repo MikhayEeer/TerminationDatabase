@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `*x_ref >= *z_ref` may always be true if `*z_ref` is constantly incremented by `*y_ref` which remains positive, leading to non-termination as long as `*x_ref` is greater than `*z_ref` initially. If `*y_ref` is positive, then `*z_ref` will keep increasing, and if `*x_ref` is greater than or equal to `*z_ref`, the condition remains true, preventing termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `*x_ref >= *z_ref` is not guaranteed to become false, since `*z_ref` can increase without bounds if `*y_ref` is positive, potentially keeping the condition always true. The lack of change to `*x_ref` suggests no progress towards termination is made.
+
