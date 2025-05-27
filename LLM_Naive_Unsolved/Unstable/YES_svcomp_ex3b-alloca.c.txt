@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+- ((y - x) * (x - 1) > 0)  
+- 0.0 * y^1 + 0.0 * x^1 + 1.0 * c^1 + 0.0 * 1  
+
+Explanation:  
+
+The program initializes two integer variables `x_ref` and `y_ref` with the values of `x` and `y` respectively, using `alloca` to allocate space for them in the stack frame of `test_fun`. It also initializes a counter `c` to keep track of iterations.
+
+The `while` loop runs as long as `*x_ref` is greater than 1 and less than `*y_ref`. Inside the loop, `*x_ref` is squared and `*c` is incremented by 1. This loop ensures that `*x_ref` grows rapidly, causing it to eventually exceed `*y_ref`, which terminates the loop after a finite number of iterations, unless `*x_ref` is initially 1 or more than or equal to `*y_ref`.
+
+Thus, by observing the changes in the loop, we can conclude that the program will eventually terminate given a valid initial input for which `x > 1` and `x < y`. Even though the exact ranking function of this loop may seem complex, the multi-phase structure can be used here to reason about termination in a finite number of steps owing to exponential growth of `*x_ref`.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `(*x_ref > 1) && (*x_ref < *y_ref)` can lead to non-termination if `*x_ref` becomes 2 and `*y_ref` is very large (e.g., `*x_ref = 2` and `*y_ref = 4`), because squaring `*x_ref` will yield `4`, which continues to satisfy the loop condition without decreasing `*x_ref` further.
+

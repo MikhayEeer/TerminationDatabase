@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `i < a_length` can be repeatedly satisfied with appropriate values of `a[i]`, `a_length`, and `offset` without necessarily reaching the `break` condition, leading to potential non-termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+0.5 * a_length^1 - 0.5 * i^1
+

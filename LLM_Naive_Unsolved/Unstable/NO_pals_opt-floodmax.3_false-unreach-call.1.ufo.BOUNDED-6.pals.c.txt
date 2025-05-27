@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i2^1 + 0.0
+-1.0 * r1^1 + 2.0
+-1.0 * r2^1 + 2.0
+-1.0 * r3^1 + 2.0
+
+The program is terminating as it iterates a fixed number of times (6 times in this case) as controlled by the loop variable `i2`. The ranking functions are based on the fixed iteration count for `i2` and the reachability of certain states determined by `r1`, `r2`, and `r3` with the mode changes in the nodes. This fits a multi-phase ranking scheme, as the system ensures that the relevant conditions have to eventually halt.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop in the main function runs indefinitely due to the nature of control nodes and message passing, over which the termination cannot be guaranteed based on the current state and input nondeterminism. There is no clear decreasing measure or ranking function to ensure termination under all conditions.
+

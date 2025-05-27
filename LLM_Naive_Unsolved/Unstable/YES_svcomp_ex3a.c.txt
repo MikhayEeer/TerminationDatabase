@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `x` might oscillate between certain values without reaching a state where the loop condition `(x > 1) && (x < 100)` becomes false, leading to potential non-termination. Specifically, if `x` starts as a small positive integer greater than 1, squaring `x` will quickly result in a value greater than 100, causing non-termination if the value oscillates between two ranges that do not exit the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (x > 1) and (x < 100): 98 - x
+if (x <= 1) or (x >= 100): 0
+
+The program is terminating because when the variable `x` is within the range (1, 100), it will eventually exceed this range due to the squaring operation (`x = x*x`) which increases `x` rapidly. Once `x` is no longer within the range, the loop terminates. The piecewise ranking function effectively captures this behavior by showing a decrease in the appropriate domain.
+

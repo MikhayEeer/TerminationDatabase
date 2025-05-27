@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The condition \(x == 2 \times \text{tmp}\) can hold indefinitely due to the nondeterministic assignment of \(\text{tmp}\), allowing the loop to potentially never exit.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x 
+

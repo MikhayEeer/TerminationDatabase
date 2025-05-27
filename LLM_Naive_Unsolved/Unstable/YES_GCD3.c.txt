@@ -1,0 +1,15 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 * y ^ 2 + 0.5 * x ^ 2   
+x + y
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop manipulates the values of `x` and `y` in such a way that, for certain initial values, the condition `y > 0 && x > 0` can be preserved indefinitely. For example, if initially `x = y` and `y > 0`, each iteration of the outer loop will set `x` to the previous value of `y` and `y` to 0, causing the loop to continue indefinitely. Thus, the program does not guarantee termination for all input values.
+

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `c` alternates its updates based on the value of `n`. In one condition, `c` is decremented, and in another condition, `c` is incremented. This can cause the `c` variable to never actually reach a value less than or equal to 0 since `n` can lead to an infinite loop of incrementing `c` before it has a chance to terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: c^1  
+Phase 2: 100.0 - 0.1 * n^1
+
+Explanation:
+This program is terminating. The control variable `c` decreases in one scenario and increases in another, but it eventually decreases due to the logic in the `if` statement that reduces `n` until it is not larger than 100. As a result, `c` eventually reaches 0 which leads to the termination of the loop. The provided multi-phase ranking function demonstrates that `c` is consistently decreasing in effective value per phase.
+

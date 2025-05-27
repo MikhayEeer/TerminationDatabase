@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program can enter a loop where the state oscillates indefinitely, such as transitioning between the states (x = 1, y = 2) and (x = 2, y = 1).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+x + y
+x - 1
+
+The program is terminating. The multi-phase ranking function explains that in each phase of the loop execution, the sum of `x` and `y` decreases in a well-founded manner, as well as `x` itself decreases independently after the first phase, ensuring termination.
+

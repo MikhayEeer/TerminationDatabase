@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y - x
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating for inputs where `x > 1` and `x < y`, because `x = x*x` leads to exponential growth in `x`, but since the condition only checks if `x < y`, `x` can continue to increase without bound, never satisfying the condition `x >= y` to exit the loop.
+

@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (-a)^1
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `a` increases its value in each iteration of the loop, while `b` increases by a greater amount (`b = b + a`), potentially keeping `a > b` true indefinitely depending on the initial values. This allows the loop to execute infinitely under certain conditions.
+

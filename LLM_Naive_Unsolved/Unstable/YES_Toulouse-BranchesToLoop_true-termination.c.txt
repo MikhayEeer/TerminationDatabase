@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - y - z
+
+The program terminates because, in each iteration of the loop, either `y` is incremented and `z` is decremented, or `y` is decremented and `z` is incremented. The sum `y + z` remains constant while the difference `100 - y - z` is a linear ranking function that strictly decreases as `y` and `z` both approach 100, causing the loop condition `(y<100 && z<100)` to eventually become false. Thus, the program will terminate.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The values of `y` and `z` can oscillate indefinitely because `x` can be either 1 or -1, leading to no net change that drives the loop condition `y < 100 && z < 100` to false, causing non-termination.
+

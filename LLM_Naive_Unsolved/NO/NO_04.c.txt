@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (100 - i)^1  
+1.0 * (i + 2 - j)^1  
+1.0 * k^1  
+1.0 * (i + j + k + 4 - l)^1  
+
+Explanation:  
+The program contains several nested loops. Each loop has a clear decrementing or incrementing condition that leads to termination:
+
+1. The outermost while loop `while (i < 100)` is controlled by the variable `i`. As `i` is incremented in each iteration, this loop will terminate when `i` reaches 100, which can be ranked by `100 - i`.
+
+2. The second loop `while (j < a)` depends on the variable `j`, which is incremented until it reaches `a == i + 2`. Thus, we use the ranking function `(i + 2) - j`.
+
+3. The third loop `while (k >= 0)` depends on the variable `k`, which starts from `i + j + 3` and is decremented until it is less than 0, making `k` the ranking function.
+
+4. The innermost loops might seem as non-terminating due to the line `m = m - 0;`, but since these loops are nested inside a terminating affine condition on `l` based on `b == i + j + k + 4`, they effectively terminate because `l < b` is always bounded, hence `(i + j + k + 4) - l` ensures the loop will stop when `l` reaches `b`. 
+
+The composition of these functions ensures that all loops have a decreasing relation towards termination, consequently proving the program's termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (100 - i)^1  
+1.0 * (a - j)^1  
+1.0 * (b - l)^1  
+1.0 * (k + 1)^1  
+

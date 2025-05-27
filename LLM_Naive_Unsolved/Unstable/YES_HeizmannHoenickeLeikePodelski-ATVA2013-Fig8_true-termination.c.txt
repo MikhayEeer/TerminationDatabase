@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program contains a loop that decreases `x` by `2*y - 1` in each iteration while `x` is non-negative. However, there is no guarantee that `x` will ever become negative as `y` can be any integer, including negative or zero, causing no progress towards termination. Therefore, the loop can potentially run indefinitely.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x + 2.0 * y  
+

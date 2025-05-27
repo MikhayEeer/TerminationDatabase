@@ -1,0 +1,15 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * -i^1 + 10.0 if i <= 0 (increases i)
+1.0 * i^1 if i >= 10 (decreases i)
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `i` can oscillate indefinitely between 0 and 10 due to the conditions within the loop, causing the loop to potentially never terminate.
+

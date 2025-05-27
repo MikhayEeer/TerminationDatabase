@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `x` can keep increasing indefinitely if `y` starts as a non-negative number and is initially large enough. When `y` is decrementing but `x` is incremented by `y`, `x` can be updated to a higher non-negative value that sustains the loop's condition indefinitely. Hence, there are scenarios where the loop will not terminate.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating because if `y` is non-negative, `x` can continuously increase in the loop as `x` is updated by `x = x + y`. Since `x` can increase indefinitely while `y` decreases but remains non-negative, the loop condition `x >= 0` can always remain true, thus allowing the loop to run indefinitely.
+

@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating because there is a path in which the variable `y` can be reset to a positive value from an arbitrary source (`__VERIFIER_nondet_int()`) while `x` is positive, leading to potential infinite execution as the loop condition (`x > 0 && y > 0`) can continuously be satisfied.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1 + 0.0 * 1
+

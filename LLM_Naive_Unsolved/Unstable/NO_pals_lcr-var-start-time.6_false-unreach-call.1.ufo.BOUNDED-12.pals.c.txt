@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+bounded iterations
+[RANKING FUNCTIONS]
+The main loop iterates at most 12 times, thus it is trivially terminating.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The termination condition of the `while` loop in `main` is purely based on a fixed iteration count (`i2 < 12`), and nothing inside the loop ensures termination beyond this fixed count. Additionally, complex state conditions could, in practice, cause the loop to iterate indefinitely if not for the fixed count.
+
