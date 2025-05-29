@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The outer loop condition `(x == y) && (x > z)` and the inner loop condition `(y > z)` can result in an infinite loop if initially `x == y` and `x` is greater than `z`. During the inner loop iterations, `x` and `y` decrease simultaneously, keeping `x == y` true, while `x` and `y` might still be greater than `z`, leading potentially to non-termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1st function: f(x, y, z) = x - z
+2nd function: f'(y, z) = y - z
+
+The program terminates because the outer loop requires the condition \(x = y\) and \(x > z\) to hold. The inner loop decreases both \(x\) and \(y\) by 1 in each iteration, while \(z\) remains constant. Hence, the difference \(x - z\) and \(y - z\) strictly decreases, and since both x and y are bounded by z, the loops will eventually terminate, ensuring the program ends.
+

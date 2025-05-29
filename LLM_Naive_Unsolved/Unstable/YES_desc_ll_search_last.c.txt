@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The search function contains a loop that continues until it finds a node with a value equal to `m`, but if such a node doesn't exist (e.g., when `m = 0` and `n > 1`, resulting in all list values being positive), the loop can enter an infinite loop, causing non-termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - j
+
+The given program always terminates because in the `search` function, the loop iterates through the linked list created by `init_list`. The list is initialized with distinct sequential values from `0` to `n-1`. The search function aims to find the node with value `0`. When `n` is at least `1`, the node with value `0` is always present as the head of the list, so the loop in the `search` function terminates after examining the first node. The ranking function is linear, decreasing with the position in the list from `n` to `0`.
+

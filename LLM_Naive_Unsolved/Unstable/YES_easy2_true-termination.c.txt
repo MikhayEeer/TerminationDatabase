@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+z^1
+
+The program is terminating because, within the loop, the variable `z` decreases by 1 in each iteration. Given that `z` is initially positive and decreases monotonically, eventually, it will reach zero, causing the loop to terminate. The linear ranking function `z^1` is sufficient to prove the program's termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program has a loop that will not terminate for certain inputs. The variable `z` is non-deterministically initialized and decremented in each iteration of the loop. If `z` is initially set to a sufficiently large positive value, each loop iteration decreases `z` by 1, but there is no termination condition that guarantees `z` will become non-positive. Hence, the loop can potentially run indefinitely if `z` is initially larger than the decrement caused by the loop, making the program non-terminating for such cases.
+

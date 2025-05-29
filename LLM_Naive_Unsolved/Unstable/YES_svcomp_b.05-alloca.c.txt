@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x_ref
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `(*x_ref > 0) && (x == 2*(*tmp_ref))` can be true for an indefinite number of iterations depending on the nondeterministic value of `*tmp_ref` provided by `__VERIFIER_nondet_int()`, which can repeatedly satisfy `x == 2*(*tmp_ref)` as `*x_ref` decrements.
+

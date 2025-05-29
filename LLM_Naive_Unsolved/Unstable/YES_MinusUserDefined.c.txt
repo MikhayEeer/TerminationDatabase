@@ -1,0 +1,15 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+In the outer loop, if `x` starts off as positive and `y` is negative or zero, `x` will remain positive and `y` will increase indefinitely as `x` never decreases. The program will continue looping indefinitely on the outer loop without ever terminating.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * x^1 + 1.0 * y^1  
+Phase 2: 1.0 * x^1
+
