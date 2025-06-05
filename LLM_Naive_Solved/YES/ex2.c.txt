@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+Mutual recursion between `rec1` and `rec2` can lead to non-termination as `rec1` may call itself with increasing values of `i`.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The mutual recursion between `rec1` and `rec2` leads to infinite recursion for certain inputs. Specifically, `rec1` calls itself with an incremented value in its recursion through `rec2`, causing non-termination when started with positive values.
+

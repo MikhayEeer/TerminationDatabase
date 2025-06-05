@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program contains an infinite loop due to the cyclic control flow between the labels L1 and L2. The conditions based on the increments of *i and *j, along with the use of the % operator and conditional `goto` statements, allow for infinite oscillation between the two loops without any guaranteed progression towards termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program contains an infinite loop structure formed by the labeled goto statements between loops L1 and L2. The execution may toggle indefinitely between L1 and L2.{*i}%2==0 leads directly back to L1 without ensuring progress based on input values.
+

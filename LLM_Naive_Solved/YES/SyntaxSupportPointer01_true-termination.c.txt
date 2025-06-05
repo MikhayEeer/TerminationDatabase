@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The while loop continues indefinitely as *p starts from a non-negative value and decrements indefinitely, leading to potential unpredictable behavior due to the way malloc and pointers are used.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `(*p) >= 0` with operation `(*p)--;` can cause `*p` to decrease indefinitely without ever becoming negative, since the dereferenced pointer `*p` is not reset or modified to a negative integer in a controlled manner, leading to a possible infinite loop.
+

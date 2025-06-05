@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The outer loop with condition `x >= 0` is incrementing `x` in its body (`x = x + 1`), which means if initially `x` is non-negative, `x` will keep increasing (and remain non-negative), thus the condition always holds, leading to non-termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The outer loop increases `x` by 1 then decreases it by 2, causing `x` to increase indefinitely, resulting in infinite execution.
+

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The `while` loop condition `x > y` can be true indefinitely because `y` can increase indefinitely through `y = y + x`, without any mechanism to decrease `x`.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop `while (x > y) { y = y + x; }` has the potential to run indefinitely if `x > 0` and `y < x`. As `y` is incremented by `x` each iteration and `x` remains constant, the condition `x > y` may never be false, leading to non-termination.
+

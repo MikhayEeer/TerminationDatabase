@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+ranking function: |i|, which decreases by 1 in each iteration of the loop.  
+
+Explanation:  
+The absolute value of `i` decreases by 1 in each iteration because:  
+- If `i > 0`, then `i = i - 1` decreases `i` by 1.  
+- If `i < 0`, then `i = i + 1` increases `i` by 1, which decreases the absolute value of `i` by 1.
+
+When `i = 0`, the loop terminates. Since `i` starts between `-5` and `5` and the absolute value of `i` decreases in every step, the program will eventually reach `i = 0`, thus ending the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|i| 
+
+This linear ranking function |i| decreases with each iteration of the loop, ensuring termination. Initially, \( i \) is bounded between -5 and 5. The loop adjusts \( i \) by decrementing it when it is positive and incrementing it when it is negative, rapidly driving \( i \) to zero and causing termination of the loop once \( i \) moves out of the range between -5 and 5.
+

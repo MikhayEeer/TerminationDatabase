@@ -6,6 +6,9 @@ LLM_Naive_unsolve_unstable_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolve
 LLM_Naive_unsolve_YES_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "YES")
 LLM_Naive_unsolve_NO_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "NO")
 
+LLM_Naive_solve_YES_folder = os.path.join(os.getcwd(), "LLM_Naive_Solved", "YES")
+LLM_Naive_solve_NO_folder = os.path.join(os.getcwd(), "LLM_Naive_Solved", "NO")
+
 LLM_Results_Raw_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 filename2resultname = dict()
 unstable_bases = dict()
@@ -13,10 +16,14 @@ unstable_bases = dict()
 if __name__ == "__main__":
     diff_YES_file_names = []
     diff_NO_file_names = []
+    solved_YES_file_names = []
+    solved_NO_file_names = []
     unstable_file_names = []
     diff_no_num = 0
     diff_yes_num = 0
     diff_unknown_num = 0
+    solved_no_num = 0
+    solved_yes_num = 0
     unstable_num = 0
     file = open(LLM_csv_result_file)
     for line in file:
@@ -44,6 +51,17 @@ if __name__ == "__main__":
                 diff_no_num += 1
             else:
                 diff_unknown_num += 1
+        else: 
+            solved_file_name = os.path.join(os.getcwd(), "TPDB_" + base_result, file_name)
+            if base_result == "YES":
+                solved_YES_file_names.append(solved_file_name)
+                solved_yes_num += 1
+            elif base_result == "NO":
+                solved_NO_file_names.append(solved_file_name)
+                solved_no_num += 1
+            else:
+                print("ERROR: should not be here")
+                
     print("------- UNSTABLE FILE -------")
     for f in unstable_file_names:
         os.system("cp " + f + " " + LLM_Naive_unsolve_unstable_folder + "/" + unstable_bases[f] + "_" + os.path.basename(f))
@@ -60,10 +78,19 @@ if __name__ == "__main__":
         result_file = filename2resultname[os.path.basename(f)]
         new_name = result_file.split("_", maxsplit=1)[1]
         os.system("cp " + os.path.join(LLM_Results_Raw_folder, result_file) + " " + os.path.join(LLM_Naive_unsolve_NO_folder, new_name))
-
-    
+    print("------- SOLVED FILES -------")
+    for f in diff_YES_file_names:
+        os.system("cp " + f + " " + LLM_Naive_solve_YES_folder)
+        result_file = filename2resultname[os.path.basename(f)]
+        new_name = result_file.split("_", maxsplit=1)[1]
+        os.system("cp " + os.path.join(LLM_Results_Raw_folder, result_file) + " " + os.path.join(LLM_Naive_solve_YES_folder, new_name))
+    for f in diff_NO_file_names:
+        os.system("cp " + f + " " + LLM_Naive_solve_NO_folder)
+        result_file = filename2resultname[os.path.basename(f)]
+        new_name = result_file.split("_", maxsplit=1)[1]
+        os.system("cp " + os.path.join(LLM_Results_Raw_folder, result_file) + " " + os.path.join(LLM_Naive_solve_NO_folder, new_name))
     print("Summary: unstable num: " + str(unstable_num))
     print("Summary: diff yes num: " + str(diff_yes_num) + " diff no num: " + str(diff_no_num) + " diff unknown num: " + str(diff_unknown_num))
-
+    print("Summary: solved yes num: " + str(solved_yes_num) + " solved no num: " + str(solved_no_num))
 
     
