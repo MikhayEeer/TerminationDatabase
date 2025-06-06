@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program does not always terminate because, when x is initially positive and y is large enough negative, the value of x may increase indefinitely instead of decreasing towards termination, resulting in an infinite loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program enters an infinite loop if x is initially positive and y is non-positive and odd. In such cases, x increases exponentially while y decreases linearly, preventing the loop condition from becoming false.
+

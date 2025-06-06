@@ -1,17 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+Explanation: At each loop‐head we have x>y so f(x,y)=x−y≥1, and after one iteration
+  x′=x−y, y′∈{1,2},
+so 
+  f(x′,y′)=(x−y)−y′=f(x,y)−y′≤f(x,y)−1,
+hence f strictly decreases and is bounded below by 0.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-When \( y \geq 1 \) and \( y \leq 2 \):  
-\( x - y \) decreases by at least 1 in each iteration.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
 

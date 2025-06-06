@@ -1,14 +1,19 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The condition \(x == 2 \times \text{tmp}\) can hold indefinitely due to the nondeterministic assignment of \(\text{tmp}\), allowing the loop to potentially never exit.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * tmp + 0.0
+
+Explanation:
+When the loop guard (x>0 && x==2*tmp) holds, x is decremented by 1 each iteration, so the function f(x,tmp)=x strictly decreases and is bounded below by 0. Hence the loop (and program) terminates.
 

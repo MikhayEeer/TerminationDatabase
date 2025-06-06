@@ -1,25 +1,17 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1:  
-1.0 * y^1 + 0.0  
-
-Phase 2:  
-1.0 * r^1 + 0.0  
-
-Explanation: The program computes the greatest common divisor (GCD) of two integers using the Euclidean algorithm. The first phase decreases the absolute value of `y` with each iteration of the outer while loop until it reaches zero. The second phase involves the inner while loop, which decreases `r` until it becomes less than `y`, effectively bringing us to the end of the iteration of the outer loop. Each phase guarantees a decrease in non-negative integer values, proving termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * r^1
+1.0 * y^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-Phase 1: \( 1.0 * y^1 \)
-Phase 2: \( 1.0 * (x \mod y)^1 \)
-
-Explanation: The program effectively computes the greatest common divisor (GCD) using the Euclidean algorithm. The outer loop decreases the positive integer \( y \), which ensures termination. Within the loop, the reduction of \( x \mod y \) to a value less than \( y \) determines the next phase, ensuring termination at each step. The multi-phase ranking function formalizes this decrease, indicating that the process will eventually reach 0, at which point the loops will terminate.
+1.0 * y^1 + 0.0
 

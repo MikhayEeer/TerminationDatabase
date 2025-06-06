@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+x^1
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+nested  
+
+[RANKING FUNCTIONS]  
+For `fact(int x)` function:
+- Ranking function: \( f(x) = x \)
+  
+Explanation:  
+The function `fact(x)` is recursively calling itself with a strictly decreasing argument. Each recursive call reduces the value of `x` by 1, and the recursion stops when `x <= 1`. Therefore, the recursion is bounded by the value `1`, ensuring that it terminates.
+
+In the `main` function, the checks to return early if `x` or `y` are negative prevent non-termination due to undefined behavior in the recursion. The `fact` function will always be called with a non-negative value due to those checks, ensuring termination. The value `z` does not affect termination because it is not used in the recursion or any loops.
+

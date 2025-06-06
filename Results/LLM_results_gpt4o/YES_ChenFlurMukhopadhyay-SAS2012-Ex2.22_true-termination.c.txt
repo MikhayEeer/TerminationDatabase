@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+1.0 * x + 0.0 * y
+
+The program is terminating. When inside the loop, the variable `x` is assigned the value of `y`. Given the condition `if (y > -old_y)` results in a break from the loop, we must consider cases where it is bypassed. With each iteration, the nondeterministic value of `y` is such that `x` will eventually become non-positive, ensuring termination since the condition `x > 0` will become false. The linear ranking function `f(x, y) = x` decreases over iterations, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+

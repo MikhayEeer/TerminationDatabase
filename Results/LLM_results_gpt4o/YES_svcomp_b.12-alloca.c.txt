@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  x_ref^1 + 1.0 *  y_ref^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+x_ref, y_ref
+
+The program is terminating because the values of `*x_ref` and `*y_ref` are both being decremented in every iteration of the loop, and since they start as non-negative integers, they will eventually both reach zero, at which point the loop terminates. The lexicographic ranking function `x_ref, y_ref` implies that the primary measure (`*x_ref`) decreases until it hits zero, and whenever it's zero, the secondary measure (`*y_ref`) decreases until it also hits zero. This shows the loop terminates.
+

@@ -1,16 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * x + 0.5 * y 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+x + y
+max(x, y) + 1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-x + y
+1.0 * x + 0.0 * y + 0.0
+0.0 * x + 1.0 * y + 0.0
 

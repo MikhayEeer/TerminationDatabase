@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|x - y|
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+|x - y| 
+
+The program terminates because the absolute difference between `x` and `y` decreases by 1 in every iteration of the loop, eventually reaching zero, at which point the loop exits.
+

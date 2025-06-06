@@ -1,24 +1,12 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-if (up == 1) then (10 - i)  
-if (up == 0) then (i)  
-
-The program alternates between increasing and decreasing `i`, ensuring the while loop condition `0 <= i && i <= 10` will eventually be violated as `i` moves towards exit bounds. The ranking function is piecewise, depending on whether `up` is set to 1 or 0.
+NONTERM  
+[REASON]  
+For any initial i in [0…10], the variable i bounces between 0 and 10 (up flips at the endpoints) and never leaves the loop’s 0≤i≤10 condition, yielding an infinite “ping-pong” cycle.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-First Phase:
-- Function: 11 - i for i >= 0 and i <= 10 and up = 1 (Strictly Decreases)
-Second Phase:
-- Function: i for i >= 0 and i <= 10 and up = 0 (Strictly Decreases)
-
-The program transitions between increasing and decreasing the value of `i` within the bounds of 0 and 10. When `i` reaches the boundary (either 0 or 10), the direction of change reverses. The mechanism guarantees that the loop will eventually exit once `i` moves beyond these boundaries, ensuring termination.
+NONTERM
+[REASON]
+For any initial 0≤i≤10 the variable i bounces between 0 and 10 forever (up toggles only at the boundaries), so the loop never exits.
 

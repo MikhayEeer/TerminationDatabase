@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (4 - 4 * *x0 - 2 * *x1 - 1 * *x2)^1 + 0.0 * 1
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (8 - (2 * x0 + 4 * x1 + 8 * x2)) 
+0.5 * x3^1
+

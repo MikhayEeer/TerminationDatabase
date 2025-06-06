@@ -2,12 +2,10 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographic
+multi-phase
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.0 * y^0
-0.0 * x^0 + 1.0 * y^1
-
-Explanation: The program has a nested loop structure where the outer loop's variable `x` strictly decreases with each iteration, and the inner loop strictly decreases variable `y` until it reaches zero. Once `y` is zero, the outer loop decreases `x`, ensuring `x` and `y` are both decreased in a lexicographic manner which guarantees termination.
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
+0.0 * x^1 + 1.0 * y^1 + 0.0 * 1
 
 === Response 2 ===
 [RESULT]
@@ -15,8 +13,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1.0 *  x^1 + 0.0 * 1  (outer loop)
-1.0 *  y^1 + 0.0 * 1  (inner loop) 
-
-The nested loops have separate linear ranking functions for each. The inner loop decreases `y` non-negatively for each iteration, leading to its termination. Once `y` reaches zero, the inner loop exits, allowing `x` to decrement, ultimately leading the outer loop to terminate as `x` also becomes non-positive.
+1.0 * y + 1.0
+1.0 * x + 1.0
 

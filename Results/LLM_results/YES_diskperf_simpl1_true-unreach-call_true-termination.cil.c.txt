@@ -1,14 +1,31 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-Using the state transitions and assertions, the program decreases abstract states and satisfies the termination criteria due to the enforced conditions and states s, pended, UNLOADED, NP, DC, SKIP1, and the non-deterministic choices limiting the infinite loops.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * deviceExtension__Processors + -1.0 * i
+
+Explanation:
+The only unbounded loop in the program is in DiskPerfDeviceControl:
+  while (i < deviceExtension__Processors) { i++; }
+A valid linear ranking function for this loop is f(i,deviceExtension__Processors) = deviceExtension__Processors − i, which is non‐negative when the loop guard holds and strictly decreases by 1 on each iteration, ensuring termination.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The function `main` relies heavily on the outcome of the non-deterministic inputs, especially `status`, `irp_choice`, and others, but there are multiple branches and conditions where the function can continuously invoke procedures like `IofCallDriver`, `KeWaitForSingleObject`, etc., which can lead to an indefinite loop or recursive-like behavior based on driver behavior settings and control flow within its many breakpoints and error handling stubs. Moreover, built-in auxiliary functions with non-deterministic returns could manifest as ever-changing states that may prevent termination under given conditions.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+f₁ = deviceExtension__Processors - i
+
+Explanation:  
+The only loop in the program is in DiskPerfDeviceControl:
+
+    i = 0;
+    while (i < deviceExtension__Processors) {
+      i++;
+    }
+
+A valid linear ranking function for that loop is f₁ = deviceExtension__Processors − i, which is non‐negative on entry and strictly decreases by 1 on each iteration, thus proving termination. All other control flows contain no unbounded loops or recursion.
 

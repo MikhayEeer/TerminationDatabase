@@ -2,18 +2,20 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-1.0 *  length1^1 + 0.0 * 1
-0.0 * 1 + 0.0 * 1
+R(p) = length1 − (p − nondetString1)
 
-The program is terminating. The termination of the recursive function `strlen_rec` is guaranteed by the fact that it processes a string that ends with a null character ('\0'). The decrease in the length of the input string (`p` pointer) during each recursive call ensures that the recursion progresses towards the base case, terminating when the null character is encountered.
+Explanation: On each recursive call we pass p+1, so R(p+1)=R(p)−1, and when *p=='\0' we have R(p)=0 and no further calls. Thus R is a non-negative integer that strictly decreases to 0.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+linear
 [RANKING FUNCTIONS]
-The recursion within `strlen_rec` is based on the length of a string that ends with a null character '\0'. Each recursive call moves closer to the base case, decreasing the remaining length of the string. The function halts when the null terminator is encountered, thus causing a finite number of recursive calls. This can be interpreted as a nested ranking function with a decreasing measure of the length of the string.
+1.0 * length1^1 + -1.0 * (p - nondetString1)^1
+
+Explanation:
+We view each recursive call of strlen_rec(p) as decreasing the quantity f(p) = length1 – (p – nondetString1) by exactly 1. Initially p = nondetString1 so f = length1 ≥ 1, and when p reaches the terminator at index length1–1 we have f = 1 and the next call returns without further recursion. Thus f is a linear ranking function proving termination.
 

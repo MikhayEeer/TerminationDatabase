@@ -1,18 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 *  z^1  
-0.0796 *  x^1 + 0.482 * 1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1) f₁(x,y,z,tx) = max(z,0) + 1  
+   – This is always ≥1 and in every “then”‐branch z decreases by 1 (so f₁ strictly decreases while z>0), and in every “else”‐branch z stays the same.  
+2) f₂(x,y,z,tx) = tx + z – y + 1  
+   – This is always ≥1 (since x≥y in the loop) and whenever z≤0 (so f₁ has bottomed out at 1) every update (both “then” and “else”) makes tx+z–y decrease by at least 1, hence f₂ strictly decreases.  
+
+The lexicographic pair (f₁,f₂) over ℕ² is thus a valid nested ranking function proving termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * z^1 + 1.0 * 1
-
+1.0 * z + 0.0 * x + 0.0 * y + 0.0 * tx + 1.0
+0.0 * z + 1.0 * x + -1.0 * y + 0.0 * tx + 1.0
 

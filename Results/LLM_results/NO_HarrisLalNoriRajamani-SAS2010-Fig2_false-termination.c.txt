@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-If `d` is set to 0 through both initial decrements, the loop `while (x > 0)` becomes non-terminating when it starts with a positive `x`, because `x` would never decrease.
+[RESULT]
+NONTERM
+[REASON]
+The loop decrements x by d, but d is set nondeterministically to 1, 0, or −1. If x>0 and d≤0 then x does not decrease (or even increases), so the while(x>0) loop can run forever.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-If `d` becomes 0 due to the nondeterministic decrements before entering the `while` loop, `x` will never decrease, causing non-termination if `x > 0`.
+[RESULT]
+NONTERM
+[REASON]
+The loop decrement d can be 0 or negative (via the two nondet branches), so x does not strictly decrease and can remain >0 indefinitely, yielding a non-terminating run.
 

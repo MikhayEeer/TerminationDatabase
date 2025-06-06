@@ -2,17 +2,41 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * -x + 1.0 *  z
+f₁(x,y,z) = -2·x + -1·y
+f₂(x,y,z) = -1·x + 1·z
 
+Explanation of the nested lexicographic decrease:
+
+1) Phase 1 uses f₁ = −2x − y.  On any transition with y ≤ −2x (so f₁ ≥ 0) we have
+   x′ = 2x + y, y′ = y + 1, so
+     f₁′ = −2·x′ − y′ = −2(2x+y) − (y+1) = (−4x −3y −1)
+   and hence
+     f₁′ − f₁ = (−4x −3y −1) − (−2x − y) = −2x −2y −1 ≤ −1
+   because y ≤ −2x.  Thus f₁ strictly decreases whenever f₁ ≥ 0, and no earlier component exists.
+
+2) Once y > −2x (so f₁ < 0), we move to Phase 2 with f₂ = z − x (which is ≥ 0 under the loop guard x ≤ z).  On any transition
+   x′ = 2x + y, so
+     f₂′ = z − x′ = z − (2x+y) 
+   and hence
+     f₂′ − f₂ = −x − y < 0
+   because y > −2x and x ≥ 0.  Therefore f₂ strictly decreases, and f₁ does not increase.
+
+Since (f₁,f₂) is a lexicographically decreasing pair of nonnegative linear functions, the loop must terminate.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: -x + z (decreases in each iteration as x grows exponentially beyond the bounds of z)  
-Phase 2: x (eventually ensures termination as it moves away from non-negative bounds)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non-linear
+[RANKING FUNCTIONS]
+f(x,y,z) = (z − x + 1) / 2^y
+
+Explanation of decrease:
+  On each iteration x′=2x+y, y′=y+1, so
+    f′ = (z − (2x+y) + 1) / 2^{y+1}
+       = [(z − x + 1) − (x+y)] / (2·2^y)
+       = f/2 − (x+y)/(2·2^y)
+  Since in the loop x≥0 and x≤z imply z−x+1>0, and x+y≥0 as soon as y≥−x (which holds after finitely many steps when y increases), f is always positive while in the loop and strictly decreases each iteration. Hence the loop must terminate.
 

@@ -2,17 +2,26 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-1.0 *  y^1 + 5.0 * 1
-0.5 *  x^1 + 0.5 *  y^1 + 3.0 * 1
+– In the region y ≥ 0: f₁(x,y) = y + 1  
+– In the region y < 0: f₂(x,y) = x  
+
+Explanation of correctness:
+  1. Whenever y ≥ 0 (so f₁ applies), each loop step does y′=y−1, hence  
+       f₁′ = (y−1)+1 = y < y+1 = f₁,  
+     and f₁≥1 throughout the loop.
+  2. Whenever y < 0 (so f₂ applies), each step does x′=x+y < x, so  
+       f₂′ < f₂,  
+     and f₂≥1 because the loop guard x>0 holds.  
+Thus on every transition one of the piecewise linear measures strictly decreases in a well‐founded domain, proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1  
-0.5 * y^1 + 0.5 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0 * 1
+1.0 * x^1
 

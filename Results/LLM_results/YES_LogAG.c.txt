@@ -1,20 +1,17 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * x^1  
-1.0 * xtmp^1  
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-Main loop: 1.0 * x^1
-Inner loop: 1.0 * xtmp^1
+1.0 * xtmp^1 + -1.0 * 1
+1.0 * x^1 + -1.0 * 1
 
-Explanation: The program is nested with two loops, an outer and an inner loop. The outer loop decreases the variable x until it is no longer greater than 1, and the inner loop decreases xtmp until it is no longer greater than 1. Both x and xtmp are guaranteed to eventually decrease to values that will terminate their respective loops, demonstrating the program's overall termination.
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 0.0
 

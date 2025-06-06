@@ -4,15 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-10 - i 
-
-The program is guaranteed to terminate as the `while` loop iterates a fixed number of times, specifically `N` times where `N` is initialized to 10. The loop variable `i` increments by 1 in each iteration and when `i` equals `N`, the loop terminates. Hence, a linear ranking function based on `i` is sufficient to prove termination.
+(-1.0) * i + 10.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-10 - i 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10.0 + -1.0 * i
 

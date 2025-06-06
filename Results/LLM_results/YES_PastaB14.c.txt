@@ -1,22 +1,21 @@
 === Response 1 ===
-[RESULT]  
+[RESULT]
 TERMINATE
-
-[RANKING FUNCTION TYPE]  
+[RANKING FUNCTION TYPE]
 nested
-
-[RANKING FUNCTIONS]  
-Primary function: x^1 when x == y  
-Secondary function: y^1 within the inner loop while y > 0  
-
-This program terminates because, when `x` and `y` are equal and greater than zero, the inner loop reduces both `x` and `y` until `y` becomes zero, decrementing both variables in lock-step. After it exits the inner loop, `x` is equal to `y` and both are zero, at which point the outer loop condition `x == y && x > 0` is false, and the program terminates.
+[RANKING FUNCTIONS]
+1.0 * y  
+1.0 * x  
+[EXPLANATION]
+– Inner loop “while (y>0)” is ranked by f₁(x,y)=y, which is non‐negative and decreases by 1 each iteration.  
+– Outer loop “while (x==y && x>0)” is ranked by f₂(x,y)=x. At the start of the outer iteration x>0, and after the inner loop x=y=0 so f₂ strictly decreases to 0, causing the outer guard to fail.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * y^1
-0.5 * x^1
+1.0 * y
+1.0 * x
 

@@ -1,12 +1,16 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The program is non-terminating because in each iteration of the loop, both x and y are increased, preserving the invariant x > y. As x increases by 1 and y by 2 in every step, the condition x > y remains true indefinitely, preventing the loop from terminating.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + 0.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `x` increases by 1 and `y` increases by 2 on each iteration, keeping `x > y` true indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y
 

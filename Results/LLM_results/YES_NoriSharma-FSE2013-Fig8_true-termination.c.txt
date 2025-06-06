@@ -1,25 +1,18 @@
 === Response 1 ===
-```plaintext
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * (x - y)^1 + 0.0 * 1
-1.0 * z^1 + 0.0 * 1
-```
-
-The program terminates as it has a ranking function which reduces over the course of its execution. The ranking function for the first phase decreases based on the expression `(x - y)`, indicating that `x` and `y` are being altered in such a way that eventually `x` will be less than `y`, leading to the termination of the loop. The second ranking function utilizes `z`, showing that `z` decreases when it is greater than `1`, helping to ensure progress towards loop termination.
+1.0 * z + -1.0 * 1
+1.0 * x + -1.0 * y + 1.0 * 1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+multi-phase
 [RANKING FUNCTIONS]
-1st piece: if z > 1, ranking function is -c
-2nd piece: if z ≤ 1, ranking function is y - x
-
-Explanation: 
-The program uses a piecewise linear ranking function. In the first piece where `z > 1`, the variable `c` increases in each loop iteration, thus `-c` acts as a ranking function showing decreasing behavior. In the second piece where `z <= 1`, `y` eventually becomes greater than `x`, causing `y - x` to decrease and ultimately exit the loop. This combination shows the program's termination.
+1.0 * z^1 + -1.0 * 1
+1.0 * x^1 + -1.0 * y^1 + 1.0 * 1
 

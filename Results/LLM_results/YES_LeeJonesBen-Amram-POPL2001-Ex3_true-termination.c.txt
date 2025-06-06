@@ -2,28 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1st phase: 2 * m + n
-2nd phase: n
-
-The given program is an implementation of the Ackermann function, which is known for its termination properties when both \( m \) and \( n \) are non-negative integers. The recursive function \( a(m, n) \) decreases the value of \( m \) until it reaches 0, at which point the recursion unwinds. During the execution, the first phase ranking function \( 2 * m + n \) captures the decreasing behavior as \( m \) decreases, and the second phase ranking function \( n \) captures the behavior when \( m = 0 \). These phases ensure that each recursive call proceeds toward termination.
+1.0 * m + 0.0 * n + 0.0
+0.0 * m + 1.0 * n + 0.0
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-The program uses the Ackermann function, a(m, n), which is known to be recursive and well-founded when both m and n are non-negative integers. In this case, the values of m and n serve as a ranking function, showing that the function calls strictly decrease in at least one of the arguments with each recursive step.
-
-1st phase: 
-Ranking function based on `m`:
-- When n > 0, `a(m, n)` calls `a(m - 1, a(m, n - 1))`, decreasing `m`.
-- When n <= 0, `a(m, 1)` is called as `a(m - 1, 1)`, also decreasing `m`.
-
-2nd phase (when m = 0):
-Finally, when m = 0, the recursion resolves immediately to `n + 1`, a terminating base case.
-
-This well-founded multi-phase ranking function confirms that the recursion terminates.
+1.0 * m^1 + 0.0 * n^1
+0.0 * m^1 + 1.0 * n^1
 

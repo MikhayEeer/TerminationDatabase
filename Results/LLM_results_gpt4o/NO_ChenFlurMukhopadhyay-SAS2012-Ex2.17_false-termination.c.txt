@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating for the initial condition where \( x = 0 \) and \( y = 11 \). In this case, the assignment `x = -y` results in `x` becoming negative and thus remains less than 10, while `y` increments indefinitely, keeping `x` in a loop continuously.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program does not terminate for certain initial values, specifically when `x = 0` and `y = 11`. In this case, `x` is continuously set to `-y`, and `y` increments, causing `x` to remain less than 10 indefinitely, thereby creating an infinite loop.
+

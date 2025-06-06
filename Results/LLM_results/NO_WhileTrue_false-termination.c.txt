@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-Infinite loop with no exit condition.
+[RESULT]
+NONTERM
+[REASON]
+Infinite loop with a constant true condition and no exiting transition.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-Infinite loop without exit condition.
+[RESULT]
+NONTERM
+[REASON]
+The loop condition is the constant 1 and there are no statements to break or modify it, so the loop never exits.
 

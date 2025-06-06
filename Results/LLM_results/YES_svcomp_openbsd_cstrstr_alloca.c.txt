@@ -2,26 +2,33 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-len(find) + (distance from current position s in str until null character)
-len(find)
-  
-Explanation:
-The `cstrstr` function attempts to find the first occurrence of the substring `find` within the string `s`. If the `find` substring is empty, it immediately terminates. If it is not, it first calculates the length of `find` and then looks for the first character of `find` in `s`. It will continue searching until either it finds this character followed by `find` itself, or it reaches the end of the string `s`. The ranking function can be understood as two-phase: first counting down the distance in `s` until a potential first occurrence of `find` starts, and the second phase is a comparison between the initial segments of `s` and `find`. Once the main string `s` reaches its end, or the correct substring is found, the function terminates, ensuring termination of the whole program.
+1.0 * n  
+1.0 * (length1 − (s − base1))
+
+Explanation of the two components (lexicographic order):
+• Inner‐loop rank n is the remaining bound in cstrncmp and strictly decreases each character comparison.  
+• Outer‐loop rank length1−(s−base1) is the number of characters left to scan in the haystack (nondetString1); each time the inner loop finishes without a match, s has advanced at least one position, so this second component strictly decreases.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-First Phase: Decrease in the length of `s` until the first character of `find` is found
-Ranking Function: cstrlen(s) - index of the first occurrence of `c` in `s`
+[RESULT]  
+TERMINATE  
 
-Second Phase: Ensures that the remaining part of `find` matches in `s`.
-Ranking Function: cstrlen(find) - index for matching remaining `find` characters in `s`
+[RANKING FUNCTION TYPE]  
+multi‐phase  
 
-Explanation:
-The program can be divided into two phases for termination analysis. The first phase decreases the length of `s` as `s` advances to the first occurrence of the initial character of `find`. Once the character is found or `*s == 0`, it enters the second phase where it checks whether the remaining characters of `find` match with `s`. Since the `find` string is always terminating with `\0`, this ensures that each phase has conditions that strictly decrease the ranking functions and eventually lead to program termination.
+[RANKING FUNCTIONS]  
+1) f₁ = length2 − i₁  
+ – phase: cstrlen  
+ – i₁ = current index into the “find” string (0 ≤ i₁ ≤ length2−1)  
+ → each loop iteration in cstrlen increments i₁ by 1, so f₁ decreases by 1 and bottoms out at 0.  
+
+2) f₂ = (length1 − i₂)·length2 + (length2−1 − i₃)  
+ – phase: cstrstr / cstrncmp  
+ – i₂ = current index in s (0 ≤ i₂ ≤ length1−1)  
+ – i₃ = current index in the character‐by‐character compare (0 ≤ i₃ ≤ length2−1)  
+ → each step of either the scan loop (advancing i₂) or the compare loop (advancing i₃) decreases f₂ by at least 1; when a compare fails you reset i₃ and advance i₂, still decreasing f₂ lexicographically, and when i₂ or i₃ reach their bounds you exit.  
+
+Both f₁ and f₂ are natural‐valued and strictly decrease on each loop iteration, proving that all loops terminate.
 

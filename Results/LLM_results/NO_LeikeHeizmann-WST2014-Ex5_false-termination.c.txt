@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters a state where variables `a` and `b` swap values and increment indefinitely while maintaining the condition `a >= 7`, thus forming an infinite loop.
+[RESULT]
+NONTERM
+[REASON]
+If a≥7 and b≥7 initially, then after each iteration both a and b grow (a and b increase by 1 every two steps) and a remains ≥7 forever, so the loop never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program has a cycle where `a` becomes `b`, and `b` becomes `a + 1`. If `a` starts at a value of 7 or more, the values of `a` and `b` will keep swapping and incrementing, creating an infinite loop with no termination condition.
+The loop induces the recurrence a_{n+2}=a_n+1, so once a≥7 the sequence grows without bound (up to a small even/odd oscillation) and never falls below 7, yielding an infinite loop.
 

@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1 * y_ref  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y + 0.0
 
-Explanation: The loop in the `test_fun` function will terminate because the variable `*y_ref` is decremented by 1 each time through the loop. Since `*y_ref` is positive at the start of the loop, it will eventually reach 0, causing the loop to exit. The ranking function, in this case, is linear and depends on the value of `*y_ref`.
+Explanation: The loop guard is y>0 and each iteration does y=y−1, so the linear function f(y)=y strictly decreases by 1 and is bounded below by 0.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * y_ref^1  
-
-The program terminates because the while loop decreases the value of `*y_ref` by 1 in each iteration. Since `*y_ref` is initialized with a non-negative integer value, the function definitely reaches zero eventually, causing the loop to exit. Thus, the program will terminate for all possible inputs.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y_ref + 0.0
 

@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The length of the string `s` that `cstrlen` is processing.  
+
+Explanation:  
+The loop within `cstrlen` iterates over the characters in the null-terminated string `s` until it reaches the null character. Since the string is null-terminated, there is a guaranteed upper bound on the number of iterations equal to the length of the string `s`. Therefore, this function terminates as long as the input string is properly null-terminated, which is ensured by the `__VERIFIER_nondet_String` function.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The loop in the `cstrlen` function iterates through each character of the string until it reaches the null-terminator, increasing the pointer `p`.  
+The ranking function is naturally given by the function `cstrlen` as it counts down the number of characters left until the null-terminator is found.  
+
+A simple ranking function is:  
+`(int)(p - s)`, where `p` is the current position in the string and `s` is the start. This function decreases by 1 with each iteration of the loop and reaches zero when the null-terminator is encountered, demonstrating that the loop terminates for any null-terminated string input.
+

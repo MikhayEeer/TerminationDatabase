@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition is always true, and the variable `i` decrements indefinitely without any termination condition, leading to an infinite loop.
+[RESULT]
+NONTERM
+[REASON]
+Infinite loop with condition always true and no exit.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters an infinite loop where the variable `i` decreases indefinitely without any exit condition to terminate the loop.
+[RESULT]
+NONTERM
+[REASON]
+The loop condition is an unconditional `while(true)` with no exit or break, so it runs infinitely.
 

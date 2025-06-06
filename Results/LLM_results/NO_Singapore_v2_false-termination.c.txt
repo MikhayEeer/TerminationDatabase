@@ -1,14 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
--1 * y^1
+[RESULT]
+NONTERM
+[REASON]
+When x+y>1 the loop update yields xₙ = 2ⁿ·(x₀+y₀−1)+(n+1−y₀) which stays >0 for all n, so the while(x>0) never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The loop can execute indefinitely if `x` is positive and large, and `y` is zero or negative from the start. As `x` can increase rapidly without bounds, there are cases where the loop condition `x > 0` is always satisfied.
+If x>0 and x+y>1 then each iteration x′=2x+y>x, so x stays positive forever and the while‐loop never exits.
 

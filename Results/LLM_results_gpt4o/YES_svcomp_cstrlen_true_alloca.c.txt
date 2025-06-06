@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE
+
+[RANKING FUNCTION TYPE]  
+linear
+
+[RANKING FUNCTIONS]  
+1.0 * (length1 - (p - s))^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length1 - (p - s))
+
+The program's function `cstrlen` iteratively advances the pointer `p` through the string `s` until it encounters the null character `\0`. The main function ensures `length1` is at least 1, and sets the last character of `nondetString1` to `\0`. Since `nondetString1` has a guaranteed null terminator and the loop advances `p` until it reaches this null terminator, the loop will terminate. The ranking function `(length1 - (p - s))` decreases with each step of the loop as `p` moves towards the null terminator, proving that the loop terminates.
+

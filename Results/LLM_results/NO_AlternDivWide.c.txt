@@ -1,32 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. If i < -w: -i^2  
-2. If -w <= i <= w: constant function (0)  
-3. If i > w: -i^2
-
-Explanation: In the given program, the main while loop continues until `i` is not equal to zero. Within the loop, there are three conditions:
-
-1. If `i` is less than `-w`, `i` is decreased by 1 and then its sign is changed, effectively increasing `i` towards zero in absolute value, thus helping in reducing the distance to the termination condition (`i != 0`).
-
-2. If `i` is within the range `[-w, w]`, `i` is set to zero, causing the termination of the loop.
-
-3. If `i` is greater than `w`, `i` is increased by 1 and then its sign is changed, effectively decreasing `i` towards zero in absolute value, thus aiding in reaching the termination condition.
-
-Thus, each transition in these conditions results in reaching the termination condition, and the given piecewise ranking function demonstrates the termination.
+[RESULT]
+NONTERM
+[REASON]
+If |i|>5 then each iteration flips the sign and increments |i| by 1, so |i| grows beyond 5 and never enters the [-5,5] range to reach 0.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-piecewise
-[RANKING FUNCTIONS]
-- For `i < -w`: the ranking function is `-i`, which is strictly decreasing because each iteration decreases `i` by 1 and then flips its sign.
-- For `i > w`: the ranking function is `i`, which is strictly decreasing because each iteration increases `i` by 1 and then flips its sign.
-- For `-w ≤ i ≤ w`: the program sets `i` to 0 and exits the loop, ensuring termination. 
-
-This demonstrates termination because, in every case, the value of `i` is moved closer to 0, effectively exiting the loop.
+NONTERM
+[REASON]
+For any initial |i|>5, each loop iteration flips the sign and increments |i|, so i never reaches 0.
 

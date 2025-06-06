@@ -1,12 +1,16 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-In the `twoWay` function, the value of `n` can be modified either by incrementing or decrementing depending on the `terminate` flag. If `terminate` is `false`, `m` increments leading to potential unbounded growth, thus causing infinite recursion if starting from a non-negative `n`. The growth or reduction determined by the parameters can result in non-termination, especially due to the recursive call `twoWay(terminate, m)` without a guaranteed base case leading to termination in all scenarios.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * terminate + 1.0 * n + 1.0
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The function `twoWay` can be recursively invoked with arguments that do not guarantee termination. Specifically, when the function is called with `terminate` set to `false`, the local variable `m` is incremented, potentially leading to an infinite recursion if the base case `n < 0` is never reached. This introduces an unbounded increase, preventing the termination guarantee.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + 1.0 * 1
 

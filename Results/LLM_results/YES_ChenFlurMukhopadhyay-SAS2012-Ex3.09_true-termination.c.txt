@@ -1,19 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-Phase 1: Termination due to loop break condition.  
-
-Explanation: The program is terminating because there exists a break condition inside the loop: `if (x <= 2*old_x) { break; }`. This condition ensures that for any `x` not satisfying `x > 2*old_x`, the loop will exit. Thus, the loop does not run indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non‐linear
+[RANKING FUNCTIONS]
+f(x,z) = ⎣z / x⎦  
+Explanation: In any non‐breaking iteration we have x′>2·x and x′<z, so ⎣z/x′⎦<⎣(z/x)/2⎦≤⎣z/x⎦−1, and f remains a non‐negative integer, hence strictly decreases until the loop exits.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
 [RANKING FUNCTIONS]
-1. (x > 0 and x < y and x > 2 * old_x): -2 * old_x (decreases linearly)
-2. (x > 0 and x < y and x <= 2 * old_x): Constant termination due to break statement
+– if y ≠ z: f₁(x,y,z) = 1  
+– if y = z: f₂(x,y,z) = z / x
+
+Explanation of decrease on the loop body (only for illustration, not part of the required output):
+
+1. When y ≠ z, any non‐break iteration executes “y = z”, so f₁ goes from 1 to 0 and the loop either exits immediately or moves to the y = z case.  
+2. Once y = z, each non‐break iteration satisfies x′ > 2·x, so  
+   f₂′ = z / x′ < z / (2·x) = ½·(z / x) = ½·f₂,  
+   a strict decrease in a well‐founded order on positive rationals. A break or x′ ≥ z then exits the loop.
 

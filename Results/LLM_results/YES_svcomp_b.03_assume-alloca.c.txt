@@ -1,12 +1,16 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `*x_ref > *y_ref` may always hold as `*y_ref` is incremented by `*x_ref`, potentially never allowing `*x_ref > *y_ref` to become false. If `*x_ref` starts positive and `*y_ref` starts negative with `|y_ref| < x_ref`, the loop continues indefinitely, causing non-termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program contains a path where the value of `x_ref` remains unchanged and `y_ref` continuously increases, allowing the loop condition `*x_ref > *y_ref` to remain true indefinitely.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
 

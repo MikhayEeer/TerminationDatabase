@@ -4,17 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-n
-
-The program is terminating. The function `cmemchr` takes a pointer and iterates over up to `n` characters looking for a match. The loop decrements `n` each time until `n` is zero. By ensuring that `n` is at least 1, it will always terminate after exhausting all `n` characters or finding a match, and cannot run indefinitely. This is proven by the linear ranking function `n`, which strictly decreases with each iteration and assures termination.
+1.0 * n^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * n^1  
-
-Explanation: The main loop within the `cmemchr` function iterates with the condition `n != 0` and decrements `n` in each iteration with the statement `--n`. This ensures that the number of iterations is limited by the initial value of `n` which is constrained to be at least 1. Therefore, the function terminates as it will eventually reach a state where `n` is 0, exiting the loop. The program is thus proved to be terminating using the ranking function `1.0 * n^1`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
 

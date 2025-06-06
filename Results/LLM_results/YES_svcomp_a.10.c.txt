@@ -2,17 +2,19 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-(abs(x - y))^1
+cond: x > y  
+f₁ = 1.0 * x^1 + -1.0 * y^1  
+cond: x < y  
+f₂ = 1.0 * y^1 + -1.0 * x^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-|x - y|  
-
-The program is terminating because the distance |x - y| between x and y decreases by 1 in each iteration of the loop, eventually reaching 0, which causes the loop to terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+( x > y ) :  1.0 * x + -1.0 * y + 0.0  
+( x < y ) : -1.0 * x +  1.0 * y + 0.0
 

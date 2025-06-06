@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1st function: |n|  
+2nd function: constant  
+
+The program is terminating as the recursive function `addition` decreases the absolute value of `n` by 1 on each recursive call until it reaches 0. When `n` becomes 0, the function returns, ensuring termination. The ranking function is a two-phase nested ranking: the first phase decreases using the absolute value of `n`, and when `n` is zero, the process terminates with a constant value.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1.0 * |n|^1
+This program is terminating because each recursive call to the `addition` function reduces the absolute value of `n` by 1, eventually reaching a base case (when `n` is zero). The termination is guaranteed by the lexicographic ranking function which measures the progress of recursive calls in reducing the magnitude of `n`.
+

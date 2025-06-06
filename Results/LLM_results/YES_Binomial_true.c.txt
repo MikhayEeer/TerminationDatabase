@@ -1,22 +1,21 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-x - n,  
-x - k  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x - n
+x - k
 
-The program will terminate because the outer loop iterates with `n` from 0 to `x`, and the inner loop iterates with `k` from 0 to `x`. Therefore, both loops have clear decreasing bounds with respect to `n` and `k`, meaning they will eventually reach the terminating condition. Since both `x` and `y` are non-negative due to checks, the calls to `binomialCoefficient` will perform valid operations and eventually terminate as well.
+Explanation:  
+The double loop over n=0…x and k=0…x admits the lexicographic ranking ⟨x–n, x–k⟩, which strictly decreases on every inner‐ or outer‐loop step.  The recursive calls in fact(n) also terminate since the argument n decreases by 1 at each call down to 0.
 
 === Response 2 ===
-[RESULT]  
+[RESULT]
 TERMINATE
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1st phase: (x - n), for first loop, decreases from x to 0  
-2nd phase: (x - k), for second loop, decreases from x to 0  
-
-The main function initializes two non-deterministic integers `x` and `y`, checking for their non-negativity, and then uses a doubly nested loop to iterate. The outer loop decrements `n` from `x` to `0`, and for each iteration of `n`, the inner loop decrements `k` from `x` to `0`. This nested loop ensures decrements toward zero, thus proving termination using a multi-phase ranking function.
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * n^1
+1.0 * x^1 + -1.0 * k^1
 

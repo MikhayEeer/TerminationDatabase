@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop is infinite due to its `while (true)` structure and there are no conditions or breaks that would make the loop terminate. The update of `i` does not change this behavior.
+[RESULT]
+NONTERM
+[REASON]
+Infinite while(true) loop with no exit or break, so it never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The loop is infinite since it executes indefinitely without any condition modifying the value of `i` in such a way that could exit the loop. The variable `i` is either decremented or incremented in each iteration with no termination condition breaking the loop.
+Infinite loop with no exit: i is always decremented when ≤0 and incremented when >0, so it diverges away from any exit condition.
 

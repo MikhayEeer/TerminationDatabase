@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The value of `curr->value` in the `search` function decreases by 1 in each iteration of the while loop. Since the search is conducted for `m % n`, `curr->value` will eventually match `m % n` or the program will exit if `n < 1` or `m < 0`, ensuring termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * n  
+
+Explanation:
+1. In the initialization phase (`init_list` function), a linked list of length `n` is created, where `n` is non-deterministically chosen but always greater than 0. This operation constructs the list in a linear manner.
+
+2. In the `search` function, the while-loop is iterated a number of times corresponding to the distance from the head to the node with `value == m % n`. The maximum number of iterations in this phase is bounded by `n`, as `m % n` ensures `m` is always within the range of values in the list.
+
+3. Thus, the outer control flow of `main` and `search` is terminating due to the bounded nature of the list's length `n`, and each step strictly decreases n.
+
+Although there is a loop in `search`, it is bounded by the structure and length of the list, implying the program is guaranteed to terminate.
+

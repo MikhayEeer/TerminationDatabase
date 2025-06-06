@@ -1,15 +1,17 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * y^1  
-1.0 * x^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * y + 0.0
+1.0 * x + 0.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program can enter an infinite loop if initially x equals y and both are positive, because the outer while loop condition (x == y) && (x > 0) will still be true after the inner loop completes since both x and y are decremented at the same rate, thereby maintaining x == y.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 1.0 * y + 0.0 * 1
 

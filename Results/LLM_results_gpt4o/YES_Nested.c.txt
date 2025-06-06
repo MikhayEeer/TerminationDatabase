@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+9 - i
+12 - j
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10 - i
+
+The program is terminating. The outer loop has a linear bound on the variable `i`, which increases by 1 in each iteration until it reaches 10. The inner loop always increments `j` by 1 in each iteration, but quickly reaches a stable state as `j` becomes 12 or higher, causing the inner loop to exit immediately in future execution cycles. The ranking function for the outer loop using `i` is sufficient to prove termination: `10 - i`. This function decreases with every iteration of the outer loop until it reaches zero, at which point the loop stops.
+

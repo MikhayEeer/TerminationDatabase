@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear   
+[RANKING FUNCTIONS]  
+1.0 * i
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+i - 5
+
+This ranking function decreases by 1 in each iteration of the loop when `i > 5` and `i != 10`, which guarantees that the loop will eventually terminate when `i` reaches 5.
+

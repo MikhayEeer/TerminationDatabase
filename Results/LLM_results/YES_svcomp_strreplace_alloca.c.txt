@@ -4,16 +4,20 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-The while loop in the `cstrreplace` function decreases the distance to  the null-terminating character of the string `s` in each iteration by advancing the pointer `p`. Since `s` is guaranteed to be null-terminated (the null character is placed at the end of the string in `main`), the pointer `p` will eventually reach this null character, causing the loop to terminate. The loop is bounded by the length of the string `s`, which is finite and determined by `length1`, which is always at least 1.
+1.0*length1 + 1.0*s + -1.0*p
+
+Explanation:
+In function cstrreplace, let s be the initial pointer value and p the loop pointer. Define 
+  f(p, length1) = length1 + s – p. 
+Since p starts at s, f = length1 ≥ 0, and each iteration p++ makes f decrease by exactly 1, with f reaching 0 when p = s + length1. Thus f is a valid linear ranking function proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-strlen(p)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length1 + -1.0 * (p - s)
 
-Explanation:  
-The program will terminate because the `cstrreplace` function iterates over a null-terminated string until it reaches the end (i.e., character '\0'). The linear ranking function is the length of the remaining part of the string from the current pointer `p`, which decreases by one with every iteration of the `while` loop until it reaches zero. Hence the program terminates.
+Explanation: we use the pointer difference d = (p – s), initially 0 and incremented by 1 each loop, so R = length1 – d is a linear ranking function that decreases by 1 each iteration and remains non‐negative until termination.
 

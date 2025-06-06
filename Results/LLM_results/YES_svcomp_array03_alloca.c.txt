@@ -1,25 +1,20 @@
 === Response 1 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-array_size - i
-a[i]
+[RESULT]  
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+nested  
+
+[RANKING FUNCTIONS]  
+1.0 * N + -1.0 * i  
+1.0 * a[i]
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+nested
 [RANKING FUNCTIONS]
-N - i
-
-Explanation:
-The given program is terminating because of the following reason: 
-The outer loop iterates with the control variable 'i' from 0 to N-1, which guarantees termination after at most N iterations (where N is the variable 'array_size' passed to `test_fun()`).
-
-The inner while-loop `while (a[i] > 0)` decreases `a[i]` in every iteration because of `a[i]--`, ensuring that `a[i]` will eventually become non-positive. Therefore, each invocation of the while-loop will terminate.
-
-The ranking function `N - i` demonstrates that the value decreases monotonically and will reach 0, ensuring termination of the program.
+1.0 * N + -1.0 * i
+1.0 * a[i]
 

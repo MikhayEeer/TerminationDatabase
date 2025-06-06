@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop does not change the value of `i` effectively, as `i` is incremented by 1 and then immediately decremented by 1 in each iteration, leading to an infinite loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `i < 100` is always true due to the operations `i = i+1; i = i-1;` inside the loop which reset `i` back to its original value. Hence, the loop will never terminate.
+

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. Outer Loop: x
+2. Inner Loop: x - y
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+x (Phase 1)  
+x - y (Phase 2)  
+
+The program terminates as the outer loop decrements `x` until it becomes negative, and the inner loop resets `y` to 1 and increments it until it reaches `x`. This combination of decreasing `x` and controlling `y` ensures termination.
+

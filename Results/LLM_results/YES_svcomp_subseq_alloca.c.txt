@@ -1,22 +1,23 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (length2 - pt)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length2^1 + 1.0 * t^1 + -1.0 * pt^1
 
-Explanation:  
-The program is terminating because in the while loop within the `subseq` function, the pointer `pt` is incremented in every iteration. Since the string `nondetString2` is guaranteed to terminate with a `'\0'`, `pt` will eventually reach the end of the string, causing the loop to terminate. The distance from `pt` to the end of `nondetString2` is a linear ranking function, ensuring the loop eventually ends.
+Explanation: Let t be the initial value of the pointer pt and length2 the (constant) length of string t. The function f(pt) = length2 + t – pt is a non‐negative integer that strictly decreases by 1 on each loop iteration (since pt is incremented exactly once per iteration) and reaches zero when pt points to the '\0' terminator, thus proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1. Length of the string `t` (`pt` dereferenced) decreases upon progression of `pt` in the outer loop  
-2. Length of the substring of `s` (`ps` dereferenced) does not decrease without `pt` progressing, due to conditional increment of `ps`.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (length2 − (pt − t))
 
-Explanation: The function `subseq` processes two strings `s` and `t` by iterating over `t` and potentially incrementing `ps` when characters in both `s` and `t` match. The loop terminates when either string `t` is exhausted or all characters in `s` have been matched in sequence with characters from `t`. Furthermore, `pt` always progresses leading to eventual termination, ensuring `t` is completely processed.
+Explanation:
+Inside subseq, pt is incremented exactly once per loop‐iteration and t + length2 is the position of the terminator. The function  
+    f(pt) = length2 – (pt – t)  
+strictly decreases by 1 each iteration and is bounded below by 0, hence the loop—and thus the whole program—terminates.
 

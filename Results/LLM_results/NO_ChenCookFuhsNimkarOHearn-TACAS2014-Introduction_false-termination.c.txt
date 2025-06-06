@@ -2,11 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The loop `while (i >= 0)` allows for non-deterministic choices for `i`. Even if `i` becomes negative, a later iteration might set `i` to a non-negative value again, potentially causing the loop to iterate indefinitely. Thus, there is no guarantee that the loop will terminate.
+If k≥0 and every __VERIFIER_nondet_int() returns a non‐negative value, the while(i≥0) loop never exits, yielding an infinite execution.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The value of `i` can remain non-negative indefinitely as it is assigned a nondeterministic value within the loop, making the loop potentially infinite.
+The loop “while (i >= 0) i = __VERIFIER_nondet_int();” can run forever by always choosing i >= 0.
 

@@ -1,14 +1,47 @@
 === Response 1 ===
-The program provided is non-terminating. It enters an infinite loop during execution due to complex and tangled logic which continually cycles through various states without a clear termination condition. Given the state transitions and nondeterministic values, it does not naturally progress to any endpoint where it can terminate. 
-
 [RESULT]
-NONTERM
-[REASON]
-The program contains complex state transitions with nondeterministic values that can keep cycling indefinitely without reaching a conclusive exit condition, leading to infinite execution.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+– If s__state == 12292 then f(s__state) = 14  
+– Else if s__state == 4096  then f(s__state) = 13  
+– Else if s__state == 4368  then f(s__state) = 12  
+– Else if s__state == 4384  then f(s__state) = 11  
+– Else if s__state == 4400 or 4401 or 4560 then f(s__state) = 10  
+– Else if s__state == 4416 or 4417       then f(s__state) = 9  
+– Else if s__state == 4432 or 4433       then f(s__state) = 8  
+– Else if s__state == 4448 or 4449       then f(s__state) = 7  
+– Else if s__state ∈ {4464, 4465, 4466, 4467} then f(s__state) = 6  
+– Else if s__state == 4480 or 4481       then f(s__state) = 5  
+– Else if s__state == 4496 or 4497       then f(s__state) = 4  
+– Else if s__state == 4512 or 4513       then f(s__state) = 3  
+– Else if s__state == 4528 or 4529       then f(s__state) = 2  
+– Else if s__state == 4352               then f(s__state) = 1  
+– Else /* s__state == 3 or any other exit case */ then f(s__state) = 0  
+
+This piecewise function strictly decreases on every loop iteration along the unique path of state‐transitions and reaches 0 exactly when s__state == 3, at which point the function exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters a loop in the `while (1)` block where the state is constantly being checked and modified without a guaranteed halting condition. Given the specific set of states and the non-deterministic behavior from functions like `__VERIFIER_nondet_int()`, there exists a possibility where the program may continue to loop indefinitely without reaching a terminating condition, especially since there are numerous transitions based on non-deterministic values and conditions that may keep the loop active. Hence, the program is non-terminating.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+s__state == 12292 : 15.0  
+s__state == 4096  : 14.0  
+s__state == 4368  : 13.0  
+s__state == 4384  : 12.0  
+s__state == 4400  : 11.0  
+s__state == 4416  : 10.0  
+s__state == 4432  : 9.0   
+s__state == 4448  : 8.0   
+(s__state == 4464 || s__state == 4465 || s__state == 4466 || s__state == 4467) : 7.0  
+s__state == 4480  : 6.0   
+s__state == 4496  : 5.0   
+s__state == 4512  : 4.0   
+s__state == 4528  : 3.0   
+s__state == 4352  : 2.0   
+s__state == 4560  : 1.0   
+s__state == 3     : 0.0
 

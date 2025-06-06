@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program does not terminate for `y >= 5` because the loop `while (x >= 0)` continues indefinitely since `x` remains non-negative and `y` decreases continuously without any condition altering `x` or allowing the loop to terminate.
+[RESULT]
+NONTERM
+[REASON]
+For any input with y ≥ 5 and x ≥ 0, the loop `while(x>=0)` never updates x, so it runs forever.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program does not terminate for y >= 5, as the while loop condition `x >= 0` is not affected by any change in the loop, making no progress towards termination. The value of `y` decreases but it does not influence the termination of the loop.
+In the loop `while (x >= 0) y--;`, x is never modified. Thus for any initial state with y ≥ 5 (so the `if` is bypassed) and x ≥ 0, the condition `x >= 0` remains true forever, yielding a non-terminating execution.
 

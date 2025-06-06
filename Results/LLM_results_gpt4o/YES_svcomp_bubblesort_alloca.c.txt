@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * array_size^2 + 0.0 * 1
+0.5 * i^2 + 0.0 * 1
+0.5 * j^2 + 0.0 * 1
+
+This program is terminating. The outer loop iterates `i` from `array_size - 1` down to `0`, and the inner loop iterates `j` from `1` up to `i`. The ranking functions are based on the sizes of these loops, showing a decrease towards termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * array_size^2 + 0.0 * 1
+0.5 * i^2 + 0.0 * j^2 + 0.0 * 1
+
+The program is a typical implementation of the bubble sort algorithm. Bubble sort sorts an array by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. The number of iterations in the worst-case scenario is determined by the size of the array, and the program is terminating because the loops have boundaries determined by `array_size`. The multi-phase ranking functions provided demonstrate that, as `i` and `j` progress through their loops, the progress towards completion is made. Thus, the loops will eventually terminate.
+

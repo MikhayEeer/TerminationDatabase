@@ -1,14 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `i` increases indefinitely in some branches (e.g., `i = i+1` when `i >= j`), creating a scenario where the loop condition `i > 0` is never invalidated, leading to potential non-termination. Additionally, the adjustements of `j` are insufficient to guarantee termination as they counterbalance or increment/decrement without converging.
-
-=== Response 2 ===
-```c
 [RESULT]
 NONTERM
 [REASON]
-The value of `i` can keep increasing without bound in certain paths, specifically when the condition `i >= j` is true. If `i` starts positive and `j` is initially equal to `i`, the conditions allow `i` to be incremented continuously, leading to non-termination.
-```
+For any initial i>0 the loop reaches a region (e.g. j∈{4,5}, i≥j) where each iteration increases i (by 1 or 2) and makes j oscillate between 4 and 5, so i never drops to ≤0 and the loop never terminates.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+For any initial i≥1 the loop eventually reaches j=5, i>j, and then alternates between the “j≥5” and “j<5” cases: on “j≥5” it does i→i+1, j→j−1 (5→4), and on “j<5” it does i→i+2, j→j+1 (4→5).  This 2-step cycle keeps i>0 forever, so the loop never terminates.
 

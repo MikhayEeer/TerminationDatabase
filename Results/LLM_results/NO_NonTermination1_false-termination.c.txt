@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `x > 1` may never become false due to the operation `x = 2*x`, which doubles the value of `x` if `x` is positive. When `x` is an initial positive integer greater than 1, `x` will grow indefinitely without reaching the terminating condition.
+[RESULT]
+NONTERM
+[REASON]
+If x>1 initially, each iteration doubles x, so x remains >1 forever and the loop never exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `x` is doubling in each iteration when `x > 1`. If `x` starts off as a positive number greater than 1, it will keep increasing and never reach a value less than or equal to 1, hence the loop does not terminate.
+[RESULT]
+NONTERM
+[REASON]
+If x > 1 initially, each iteration x becomes 2·x > 1, so the loop guard remains true forever and the program never terminates.
 

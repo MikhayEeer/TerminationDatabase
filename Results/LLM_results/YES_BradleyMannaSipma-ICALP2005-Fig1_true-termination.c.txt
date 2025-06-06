@@ -2,24 +2,23 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-1.0 * N - 1.0 * x + 0.0 * y^(1) when x + y >= 0 and x <= N
-0.0 * 1 when x > N
-
-The program is terminating because there is a piecewise ranking function. The ranking function decreases when \( x <= N \) and once \( x > N \), the loop exits. This ensures that the progress toward termination is well-defined and finite.
+1.0 * N + -1.0 * x + 1.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1st Phase:  
-\( N - x \)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * N^1 + -1.0 * x^1
+-1.0 * y^1
 
-2nd Phase:  
-\( x^2 + x \)  
+Explanation of the ranking function:
 
-The program will terminate. Initially, the variable \(x\) is bounded above by \(N\) in the while loop, and each iteration either increments \(x\) or increases it at a faster rate by \(2x+y\), implying a linear decrease phase until \(x > N\). When \(x\) exceeds \(N\), the state and potential transitions ensure eventual cessation as \(x\) grows quadratically in the second phase, covering all possible cases to conclude termination.
+• Let f₁(x,y) = N − x.  In each iteration, either the “else” branch executes and x increases by 1 (so f₁ decreases by 1), or the “if” branch executes and x increases by at least 0 (so f₁ does not increase).  
+• If f₁ ever fails to decrease in an “if” step, that can only happen when x+y=0 (so y=−x), in which case y is incremented and hence f₂(x,y)=−y decreases by 1.  
+• Once f₁ reaches 0, x>N and the loop exits.  
+Thus (f₁,f₂) is a valid nested (lexicographic) ranking function proving termination.
 

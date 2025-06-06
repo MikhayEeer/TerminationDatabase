@@ -2,13 +2,12 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-- 5.0 * length1^1 + 1.0 * 1
-- 5.0 * length2^1 + 1.0 * 1
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
+0.0 * x^1 + 1.0 * y^1 + 0.0 * 1
 
-Explanation:
-The `cstrpbrk` function iterates through `s1` until it encounters the null character `\0`, which signifies the end of the string. Each outer loop iteration examines a character from `s1`, then iterates through `s2` looking for a match. Once it traverses the entirety of `s1`, or finds a match, the function returns. This bounded behavior ensures termination. The provided lengths `length1` and `length2` are finite and positive due to their initialization and checks, which further assures the finite iteration of loops. The multi-phase ranking functions are based on reducing the remaining length of strings `s1` and `s2` upon each iteration.
+where x is the number of characters remaining in s1 before the NUL (i.e. the distance from the current s1‐pointer to its terminator) and y is the number of characters remaining in s2 before its NUL. The lexicographic pair (x,y) strictly decreases: in the inner loop y decreases to 0, and whenever y is reset, x decreases by one.
 
 === Response 2 ===
 [RESULT]
@@ -16,11 +15,11 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1. Lexicographic ranking function based on the position of the pointer `s1` within the string `nondetString1`.
-2. Inner loop terminates based on the pointer `scanp` moving through the string `nondetString2`.
+f₁ = length1 – (s1 – s1₀)  // measures remaining characters in s1  
+f₂ = length2 – (scanp – s2₀) // measures remaining characters in s2  
 
-Explanation:
-- The outer `while` loop iterates through the string `nondetString1` using the pointer `s1`. The loop condition (`(c = *s1++) != 0`) ensures that the loop will terminate when `s1` reaches the null character `'\0'`, which is deliberately placed at the end of the string.
-- The inner `for` loop iterates through the string `nondetString2` with the pointer `scanp`. This loop also terminates because `scanp` reaches the null character placed at the end of `nondetString2`.
-- Both `s1` and `scanp` have finite lengths, as ensured by their respective null character placements, so pointer increment operations guarantee progress toward termination.
+Explanation of the nesting:
+- In the inner loop (“for (scanp=…; (sc=…)!=0;)”), f₁ is invariant and f₂ strictly decreases on each iteration (since scanp advances until it hits the terminating NUL after at most length2 steps).  
+- When the inner loop exits, scanp has reached the end of s2 and f₂ has reached 0; at that point the outer loop iteration either returns (if a match was found) or advances s1 by one (decreasing f₁ by 1) and resets scanp to s2₀ for the next inner‐loop phase.  
+- f₁ strictly decreases on each full inner loop and remains nonnegative, so the outer loop also terminates after at most length1 iterations. Together this nested lexicographic pair (f₁, f₂) proves termination.
 

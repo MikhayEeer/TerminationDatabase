@@ -1,17 +1,24 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1st Level:  
-0.5 * x^1 + 0.5 * |z|
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+z ≥ 0 : 1.0 * x + 1.0 * y + 1.0 * z + 1000.0  
+z <  0 : 1.0 * x + 1.0 * y – 1.0 * z + 999.0
 
-2nd Level:  
-|y + z^1|  
-   
-Explanation:  
-The ranking function is nested with two levels. On the 1st level, the ranking function `0.5 * x + 0.5 * |z|` shows the primary decreasing measure. As long as `x` is positive, the loop's control variable `x` eventually decreases, moving towards termination. At the 2nd level, changes in `y` and `z` are captured by `|y + z|`, controlling secondary behaviors. The program ensures that for each execution of the loop, the principal decreasing measure and secondary conditions eventually lead the variables towards program termination.
+Explanation of decrease:
+– If z ≥ 0 then z′ = –z –1 < 0, and  
+ f₁′ = x′ + y′ + z′ + 1000  
+  = (x+y) + z + (–z –1) + 1000  
+  = (x + y + z + 1000) – 1  
+ = f₁ – 1.  
+– If z < 0 then z′ = –z –1 ≥ 0, and  
+ f₂′ = x′ + y′ – z′ + 999  
+  = (x+y) + z – (–z –1) + 999  
+  = (x + y – z + 999) + (3z + 1)  
+ Since z ≤ –1, 3z + 1 ≤ –2, so f₂′ ≤ f₂ – 2.  
+In both cases the chosen piecewise function is bounded below (by ≥0 on all states satisfying x>0) and decreases by at least 1 on each iteration, hence the loop terminates.
 
 === Response 2 ===
 [RESULT]
@@ -19,6 +26,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * x^1 + 1.0 * y^1 + 1.0
-1.0 * z^2 + 2.0 * z + 1.0
+0.0 * x^1 + 1.0 * y^1 + 1.0 * z^1 + 0.0 * 1
+1.0 * x^1 + 0.0 * y^1 + 0.0 * z^1 + 0.0 * 1
 

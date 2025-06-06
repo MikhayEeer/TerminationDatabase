@@ -1,11 +1,11 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-lexicographic  
-[RANKING FUNCTIONS]  
-1.0 * (*n - *i) + 0.0 * (*j)  
-1.0 * (*i - *j)
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * n^1 + -1.0 * i^1
+1.0 * i^1 + -1.0 * j^1 + 1.0
 
 === Response 2 ===
 [RESULT]
@@ -13,8 +13,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-Outer loop: *n - *i
-Inner loop: *i + 1 - *j
-
-Explanation: The outer loop (`while (*i < *n)`) has a ranking function of *n - *i which decreases as *i increments toward *n. The inner loop (`while (*j <= *i)`) will terminate as *j increments until it exceeds *i. Thus, both loops will eventually terminate, proving the overall termination of the program.
+1.0 * n^1 + -1.0 * i^1
+1.0 * i^1 + -1.0 * j^1
 

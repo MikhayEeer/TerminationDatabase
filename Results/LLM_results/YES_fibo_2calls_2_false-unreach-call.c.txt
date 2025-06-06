@@ -2,19 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-For `fibo1(int n)` and `fibo2(int n)`, use: 
-n,  if n ≥ 0
+1.0 * n
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-n  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
 
-Explanation:  
-The main function calls `fibo1(x)` with a fixed value of `x = 2`. The computation for `fibo1(2)` entails calculating `fibo2(1) + fibo2(0)`. Since `fibo2(1)` and `fibo2(0)` are base cases, they return 1 and 0, respectively. Thus, `fibo1(2)` returns 1. This program terminates after a finite number of recursive calls due to the decreasing argument `n` in recursive calls until reaching the base case, and there are no infinite loops or uncontrolled recursion.
+Explanation: In every recursive call to either fibo1 or fibo2 the argument `n` strictly decreases (from n to n–1 or n–2), so the linear function f(n)=n is a global ranking function proving termination.
 

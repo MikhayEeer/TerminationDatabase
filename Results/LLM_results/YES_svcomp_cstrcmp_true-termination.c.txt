@@ -4,17 +4,30 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-The `cstrcmp` function iterates through the two input strings `s1` and `s2` simultaneously, character by character, until either of them reaches the null terminator (`'\0'`). Since both strings are null-terminated, the function is guaranteed to exit the loop once it reaches a null character in either string, no matter how long they are. Therefore, the function always terminates. The ranking function can be considered as decrementing the length of the remaining unmatched portion of the strings in each loop iteration, moving towards reaching `'\0'`.
+1.0 * len₁ + -1.0 * (p₁ – p₁₀)
+
+Explanation:
+• We model in cstrcmp a single loop over s1 (and s2) advancing from an initial pointer p₁₀ up to the terminating '\0' located at p₁₀ + len₁ – 1.  
+• Let p₁ be the current pointer into s1 and len₁ the (constant) allocated length of that string.  
+• Define the ranking function R = len₁ – (p₁ – p₁₀).  
+  – Initially p₁ = p₁₀, so R = len₁ > 0.  
+  – Each loop iteration increments p₁ by 1, so R decreases by exactly 1.  
+  – When p₁ reaches p₁₀ + (len₁ – 1), *(p₁) == '\0' and the loop exits.  
+Thus R is a linear function over the program variables that is always non‐negative and strictly decreases on each iteration, proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (strlen(s1) - number of matched characters before a differing one) + 0.0  
-1.0 * (strlen(s2) - number of matched characters before a differing one) + 0.0
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * len1 + 1.0 * len2 + (-1.0) * off1 + (-1.0) * off2
 
-Explanation:  
-The `cstrcmp` function compares two strings character by character. It terminates as it either reaches the end of one of the strings or finds differing characters, as indicated by the loop condition `*s1 != '\0' && *s1 == *s2`, which reduces the length of remaining substrings to compare at each iteration. Thus, the maximum length of strings s1 and s2 can be seen as a linear ranking function that decreases with each matched character until a mismatch or null terminating character is encountered, ensuring termination.
+Where  
+• len1 is the length of the first string (a constant ≥1),  
+• len2 is the length of the second string (a constant ≥1),  
+• off1 is the current index into the first string (initially 0, incremented by 1 each loop),  
+• off2 is the current index into the second string (initially 0, incremented by 1 each loop).  
+
+This ranking function starts at R = len1 + len2 and decreases by 2 on every iteration of the strcmp loop, and the loop exits when either off1 = len1 or off2 = len2 (i.e. when R ≤ 0).
 

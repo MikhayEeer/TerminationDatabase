@@ -1,16 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1.0 * a[2]^1
+NONTERM
+[REASON]
+The loop counter a[2] is overwritten with an arbitrary nondeterministic value each iteration, so it can stay ≥0 indefinitely, yielding a possible infinite loop.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1 * a[2]
+NONTERM
+[REASON]
+The loop counter a[2] is overwritten by a nondeterministic value each iteration, so it may remain ≥0 forever and never exit the loop.
 

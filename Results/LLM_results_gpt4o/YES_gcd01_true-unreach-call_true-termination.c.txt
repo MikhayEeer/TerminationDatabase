@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+
+[RANKING FUNCTIONS]  
+1.0 *  y1^1 + 1.0 *  y2^1 + 0.0 * 1  
+
+Explanation: The Euclidean algorithm for computing the greatest common divisor is known to terminate. Here, the ranking function is a linear combination of the two arguments `y1` and `y2` of the `gcd` function. In each recursive call, at least one of `y1` or `y2` is reduced, preserving the invariant that both arguments are non-negative, and thus ensuring eventual termination when one reaches zero.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+Piecewise-defined ranking function for the recursive calls in the `gcd` function:
+- If `y1 > y2`, then the ranking function is `y1`, which decreases because `y1` changes to `y1 - y2`.
+- If `y1 <= y2`, then the ranking function is `y2`, which decreases because `y2` changes to `y2 - y1`.
+
+Explanation: In each recursive call, the algorithm chooses to reduce the larger number by the smaller one until a base case is hit (either `y1 <= 0 || y2 <= 0` or `y1 == y2`). This guarantees termination since the input values `y1` and `y2` are natural numbers that decrease toward zero in each recursive step.
+

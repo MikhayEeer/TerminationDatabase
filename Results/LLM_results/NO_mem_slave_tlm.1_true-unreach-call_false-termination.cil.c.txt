@@ -1,12 +1,14 @@
 === Response 1 ===
-[RESULT]
-NONTERM
-[REASON]
-The loops in `m_run` and `s_run` functions depend on the state of various request and response flags (e.g., `c_write_req_ev`, `c_empty_rsp`) which don't have a guarantee of transition to a state that would cause termination. Additionally, the `eval` function repeatedly calls `m_run` and `s_run` functions in a loop without changing the conditions required for these functions to terminate, leading to potential infinite execution.
+[RESULT]  
+NONTERM  
+[REASON]  
+The main scheduler loop (`while (m_run_st==0 || s_run_st==0)`) only makes progress when the nondeterministic calls `__VERIFIER_nondet_int()` return nonzero. Since those calls may always return zero, the loop can spin forever without advancing `m_run_st` or `s_run_st`.
 
 === Response 2 ===
-[RESULT]
-NONTERM
-[REASON]
-The `while` loops in `m_run` and `s_run` functions depend on concurrency-driven events that can indefinitely delay the loops' exit conditions. The nondeterministic nature of the events (`c_m_lock`, `c_empty_req`, `c_empty_rsp`) means that the loops can potentially run infinitely without necessarily reaching a termination state.
+[RESULT]  
+NONTERM  
+[REASON]  
+The `eval` function contains a loop  
+  while (m_run_st==0 || s_run_st==0)  
+that only advances when a nondeterministic choice (`__VERIFIER_nondet_int()`) returns true. If both calls return false indefinitely, that loop never exits, so the program can spin forever.
 

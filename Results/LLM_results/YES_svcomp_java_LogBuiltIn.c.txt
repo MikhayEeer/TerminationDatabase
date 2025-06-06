@@ -4,9 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x
-
-Explanation: The program contains a function `mlog` which repeatedly divides the input `x` by 2 until `x` is less than or equal to 1. Each division step reduces `x`, and thus the number of executions of the loop is limited by the initial value of `x`. Since the loop continuously decreases the value of `x`, the program will eventually terminate for any starting positive integer value of `x`.
+1.0 * x
 
 === Response 2 ===
 [RESULT]
@@ -14,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * floor(log2(x))^(1) + 0.0
+1.0 * x^1 + -1.0 * 1
 

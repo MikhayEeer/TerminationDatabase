@@ -1,19 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-The program involves two mutually recursive functions `rec1` and `rec2`. The termination can be shown by examining the nested structure of recursive calls, as each call for `rec1` or `rec2` reduces the argument in a manner leading to the base case: `i <= 0` or `j <= 0`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * j^1
+1.0 * i^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: \(-1\) * \(i^1\)   
-Phase 2: \(-1\) * \(j^1\)  
-
-The program's termination can be demonstrated using a multi-phase ranking function. In function `rec1`, the value of \(i\) decreases by at least 2 for each recursive call, which ensures termination. In function `rec2`, the value of \(j\) decreases by 1 for each call, ensuring termination as well. Thus, both recursive calls will eventually reach the base case and terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * j^1
+1.0 * i^1
 

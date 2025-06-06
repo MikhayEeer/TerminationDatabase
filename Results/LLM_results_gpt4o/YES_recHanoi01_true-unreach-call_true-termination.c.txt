@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * n^1 + 1.0 * 1
+
+The program is terminating. The termination is ensured because for each recursive call in `applyHanoi`, the number of disks `n` decreases, eventually reaching the base case `n == 0`, at which point the function returns immediately. The global variable `counter` is incremented for each move, but does not affect termination. The function `hanoi` also terminates as it performs calculations based on `n` without modifying it or causing infinite recursion. The linear ranking function confirms that the recursion decreases the problem size systematically leading to termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * 1 + 0.0 *  n^1
+0.5 * 2^n + 0.5 * 1
+

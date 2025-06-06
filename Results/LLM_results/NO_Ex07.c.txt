@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The loop condition is always true, leading to infinite execution without an exit condition.
+The loop is while(true) with no break; once i reaches 0 neither branch changes it, so execution loops infinitely.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The loop condition is always true and the updates to variable `i` maintain a state where the loop can continue indefinitely.
+The loop is `while(true)` with no exit; once `i` reaches 0 both branches skip and control stays in the infinite loop forever.
 

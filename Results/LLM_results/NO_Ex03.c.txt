@@ -1,16 +1,12 @@
 === Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+When i == –5 the loop guard (i<0) holds but i is not updated, so execution gets stuck in an infinite loop (and any i<–5 is incremented to –5 and then loops forever).
+
+=== Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The loop is non-terminating because when `i` is initialized to `-5`, the condition `i != -5` will be false, thus the increment `i = i+1` is not executed, and `i` remains `-5` indefinitely, causing the `while` loop condition `i < 0` to be satisfied persistently.
-
-=== Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-i + 6
-
-Explanation: The loop condition is `i < 0` and the operation inside the loop is `i = i + 1` when `i != -5`. This means that for any `i < -5`, `i` will eventually reach a value of -5 and continue incrementing until it becomes non-negative. The ranking function `i + 6` is always non-negative and strictly decreases as `i` increments toward zero. Thus, the program is terminating.
+When i reaches –5 the loop guard (i<0) remains true but i is not updated, so an infinite loop (fixed point at i = –5) is possible.
 

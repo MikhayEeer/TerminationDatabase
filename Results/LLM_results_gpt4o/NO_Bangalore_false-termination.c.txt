@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program may not terminate because if `y` is non-positive and `x` is initially non-negative, then `x` will never decrease to below zero in the loop `while (x >= 0) { x = x - y; }`. Instead, `x` will either stay the same or increase, causing the loop to execute indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop `while (x >= 0)` can execute indefinitely if `y` is non-positive (e.g., `y <= 0`), because `x` will not decrease when subtracting a non-positive `y`. This causes the condition `x >= 0` to always hold true if `x` starts as non-negative, leading to non-termination.
+

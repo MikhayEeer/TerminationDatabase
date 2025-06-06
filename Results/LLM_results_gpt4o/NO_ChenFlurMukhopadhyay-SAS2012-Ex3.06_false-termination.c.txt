@@ -1,0 +1,14 @@
+=== Response 1 ===
+```
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating for the initial values x = -1, y = 1, z = -1 because the value of x will remain -1 in every iteration, resulting in an infinite loop.
+```
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating for initial values x = -1, y = 1, z = -1. In each loop iteration, x remains negative because z = -2*y is assigned which makes z negative or zero depending on y. Thus, x keeps decreasing or stays constant, never reaching a positive value, leading to an infinite loop.
+

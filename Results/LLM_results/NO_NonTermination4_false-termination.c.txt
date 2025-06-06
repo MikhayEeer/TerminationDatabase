@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variables `x` and `y` grow exponentially, maintaining the condition `x >= 0` forever, causing the loop to run indefinitely.
+[RESULT]
+NONTERM
+[REASON]
+x doubles each iteration (x=2ⁿ>0) so x>=0 always holds and the loop never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The values of `x` and `y` keep doubling and tripling respectively, so `x` never becomes negative, causing the loop to execute indefinitely.
+x doubles each iteration, stays ≥0 forever so the loop never exits.
 

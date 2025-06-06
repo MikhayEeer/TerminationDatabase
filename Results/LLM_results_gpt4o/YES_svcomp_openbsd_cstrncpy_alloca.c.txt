@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n^1  
+
+=== Response 2 ===
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+```
+
+Explanation:
+The program uses the function `cstrncpy`, which copies up to `n` bytes from a source string to a destination string. In the main function, the values for `length` and `n` are non-deterministically chosen. Both `length` and `n` are adjusted to be at least 1. 
+
+The `cstrncpy` function contains a loop that iterates up to `n` times, decrementing `n` in each iteration. Regardless of the content of `src`, the loop within `cstrncpy` is limited by the parameter `n`, which means the loop can execute at most `n` iterations.
+
+Thus, the total number of operations is bounded based on the value of `n`, which implies that the program will terminate. The ranking function `n` decreases by one with each iteration of the do-while loop in `cstrncpy`, showing progress towards termination.
+

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `i` can only increase in the loop, as there are no conditions that decrease the value effectively for non-terminating cases. Initially, `i` starts at 3, and any increment or modification inside the loop never makes `i` less than 3. Hence, the loop condition `i >= 3` always holds true, leading to non-termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `i` is only modified to be greater than or equal to 3 in the loop, and the loop condition `i >= 3` will always be true, leading to a non-terminating loop.
+

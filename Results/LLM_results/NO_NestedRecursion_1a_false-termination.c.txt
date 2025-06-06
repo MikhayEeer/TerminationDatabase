@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The mutual recursion between `rec1` and `rec2` does not guarantee termination. The deeply nested calls and the combination of decrement and increment operations may result in infinite recursion depending on the value of `x`.
+[RESULT]
+NONTERM
+[REASON]
+rec1(n>0) always returns 1, so for j=1 rec2(1) calls rec2(rec1(2))−1 = rec2(1)−1 with no change in argument, causing infinite recursion.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The recursion in the functions `rec1` and `rec2` can repeatedly invoke each other in a manner that leads to infinite recursion without reaching a base condition. Specifically, `rec2` calls `rec1` with `j+1`, and `rec1` may call `rec1` again with an argument larger than its base case allows to terminate, creating a non-terminating cycle.
+For any j>0, rec1(j+1)=1, so rec2(j) calls rec2(1). But rec2(1)=rec2(1)−1, leading to an infinite self‐call with argument 1 and no decrease.
 

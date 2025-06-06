@@ -1,15 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The recursive function `rec` can oscillate indefinitely because it keeps calling itself with values that can remain within the range criteria, creating infinite recursion. Specifically, the transformations (2*y-2, x+1) can result in oscillations without progressing towards termination.
+[RESULT]
+NONTERM
+[REASON]
+For n=0, rec(0,1) calls rec(0,1) again (since 0≤23), yielding infinite recursion.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 42.0 - x 
-Phase 2: 23 - x 
+[RESULT]
+NONTERM
+[REASON]
+There is a fixed‐point at (x,y)=(0,1): rec(0,1) ⇒ rec(2·1−2,0+1) = rec(0,1), hence infinite recursion.
 

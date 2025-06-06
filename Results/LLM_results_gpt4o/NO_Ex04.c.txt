@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition is always true, and the variable `i` decrements indefinitely without any termination condition, leading to an infinite loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program enters an infinite loop where the variable `i` decreases indefinitely without any exit condition to terminate the loop.
+

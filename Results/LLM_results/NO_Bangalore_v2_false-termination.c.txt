@@ -1,18 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-f(x, y) = x
-
-This program is terminating. The ranking function is `f(x, y) = x`, which decreases with each iteration of the loop as the value of `x` is decremented by `y` each time. Since `y` is non-negative and the loop condition is `x >= 0`, the loop will eventually terminate when `x` becomes less than 0.
+[RESULT]
+NONTERM
+[REASON]
+If y = 0 and x ≥ 0, each loop iteration leaves x unchanged (x = x – 0), so the while(x ≥ 0) loop never terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * y^1
+[RESULT]
+NONTERM
+[REASON]
+When y == 0 and x ≥ 0 the loop body leaves x unchanged (x = x – 0), so the condition x ≥ 0 remains true forever, yielding non-termination.
 

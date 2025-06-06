@@ -1,12 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The outer loop will never terminate because `x` is incremented by 1 and then decremented by 2, leading to a net decrease of 1. However, whenever `x` becomes non-positive, the first iteration increments `x` back to a non-negative value, thereby repeating indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+1.0 * x^1 + 1.0 * 1
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The outer loop increments `x` by 1 and decrements it by 2 in each iteration, ensuring that `x` will always eventually become negative and terminate the loop. However, since `x` is incremented at the start of the loop and `x >= 0` is checked, this results in an endless cycle of the outer loop, allowing the potentially infinite execution without ever terminating.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * 1
+1.0 * x^1 + -1.0 * y^1
 

@@ -1,19 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-The function `g` has a nested recursion with a ranking function:  
-if \( x = 0 \), then it terminates immediately.  
-if \( x > 0 \), the function calls itself with \( g(x-1) \), and \( x \) decreases due to the call to \( g(x - 1) \). Subsequently, when \( g(x - 1) \) terminates, it calls \( g \) with an even smaller argument, thus creating nested calls.  
-This ensures that the deeply nested recursive calls will eventually bottom out once \( x \) reaches zero in the innermost call, ensuring termination.
+[RESULT]
+NONTERM
+[REASON]
+If x<0 then g(x) calls g(x−1) indefinitely and never reaches the base case x==0, causing infinite recursion.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0
+[RESULT]
+NONTERM
+[REASON]
+If x<0 then each call to g does g(x–1), so x decreases unboundedly without ever hitting 0, leading to infinite recursion.
 

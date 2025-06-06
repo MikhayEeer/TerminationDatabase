@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. Decreasing on `n` when calling `hanoi(n-1)`  
+2. Base case determined by `if (n == 1)` in `hanoi` function  
+
+Explanation: The program terminates due to the recursive function `hanoi` having a base case when `n == 1`, which returns 1. Each recursive call reduces the value of `n` by 1, ensuring that eventually the base case is reached. The input `n` is bounded between 1 and 31, guaranteeing termination. The check `if (result >= 0)` in `main` ensures that an error is never triggered as the function `hanoi` will always return a positive integer when `n` is within valid bounds.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+The function `hanoi` is a recursive function that strictly decreases its argument by 1 in each recursive call until it reaches the base case of `n == 1`. Since the argument `n` is an integer that gets strictly smaller upon each recursive call and hits the base case when `n == 1`, the recursion is guaranteed to terminate. The `main` function calls `hanoi` only if `n` is within the valid range, ensuring `hanoi` is only called with valid input. Therefore, the whole program is terminating due to the finite range of valid input and the strictly decreasing nature of `hanoi`'s recursive calls.
+

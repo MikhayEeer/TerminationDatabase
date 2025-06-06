@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+The program's termination can be demonstrated by tracking a combination of variables that decrease over iterations. Here's one possible multi-phase ranking function:  
+
+1. Phase 1: \( T(x, y) = z - x \)  
+   - As long as the loop condition holds, \( x \) remains less than or equal to \( z \). Each iteration tends to exponentially increase \( x \), causing \( z - x \) to decrease because \( x \) approaches or surpasses \( z \).
+
+2. Phase 2: If needed, \( T(x, y) = \text{ - (x + y)} \)  
+   - The sum \( x + y \) will eventually become negative once \( x\) grows large enough or once \( y \) has incremented sufficiently, which causes a violation of the loop condition \( x + y \geq 0 \).
+
+In summary, the multi-phase ranking functions together illustrate that sufficient decrease occurs over iterations until the loop condition is violated.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: 0.5 * (-x)^1 - 0.5 * y^1 + 1.0 * z^1 (Decreases when x + y >= 0 and x < z)
+Phase 2: -1.0 * x^1 (Decreases when x >= z)
+

@@ -1,12 +1,22 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The values of *x and *y can increase indefinitely in the loop, causing the loop to potentially run infinitely without termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+f₁(x,y)=x    (when the then-branch “__VERIFIER_nondet_int() != 0” is taken)  
+f₂(x,y)=y    (when the else-branch “__VERIFIER_nondet_int() == 0” is taken)  
+
+Each piece strictly decreases on its respective transition:  
+– In the then-branch x′ = min(x,y)−1 < x.  
+– In the else-branch y′ = min(x,y)−1 < y.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The values of *x and *y can be modified in such a way that they always remain positive within the loop, causing the loop to execute indefinitely without any guaranteed progress towards termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0     (when x ≤ y)
+0.0 * x + 1.0 * y + 0.0     (when y <  x)
 

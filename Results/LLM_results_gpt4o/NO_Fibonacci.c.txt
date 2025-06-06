@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program computes Fibonacci numbers in the `j` variable. If `n` is a Fibonacci number not equal to 1, the loop will never terminate as `j` will increment past `n` in Fibonacci steps.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop updates variables `i` and `j` according to the Fibonacci sequence, with the condition that it continues as long as `j` is not equal to `n`. If `n` is a Fibonacci number, `j` will eventually equal `n`, terminating the loop. However, for non-Fibonacci values of `n` (especially if `n` is negative or zero but not initially assigned to `j`), the loop condition `j != n` will never be satisfied, making the program potentially non-terminating in those cases.
+

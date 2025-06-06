@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n  
+
+The program is terminating because the function `init_list` is called recursively with a decreasing argument `n`. Specifically, the argument of `init_list` is decremented by 1 at each recursive call until it reaches 0, at which point the recursion terminates. Since the input `n` is an integer and the decrement operation guarantees that `n` will eventually reach 0, the recursion will always terminate. Therefore, the program is terminating, and a linear ranking function `n` suffices to prove termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n  
+
+The program will terminate because the recursive function `init_list` creates a linked list of depth `n` and then completes, where `n` is non-negative and finite. The condition `n < 1` ensures that `n` is always finite and greater than or equal to 1 when `init_list` is called, so it will eventually reach the base case `n == 0` and stop recurring. The linear ranking function `n` demonstrates that the function makes finite progress toward termination with each call.
+

@@ -1,17 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-Length of list decreases after each iteration or the head is set to NULL.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+Phase 1: φ₁(j,n) = n − j  
+Phase 2: φ₂(head) = length_of_list(head)  
+
+Explanation:  
+– In init_list the loop counter j increases from 0 up to n−1, so φ₁ decreases by 1 each iteration and reaches 0 when the loop exits.  
+– In skip each iteration advances head to head->next, strictly decreasing the number of remaining nodes (length_of_list(head)), and when that reaches 0 the loop terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. At entry of `skip`: use the number of elements in the list `head` as a ranking function.  
-2. During `skip` execution: if `head->value == m`, the function processes the next node or exits. The number of nodes with `value == m` decrements on each iteration, ensuring termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1 (init_list loop): f₁(n,j) = n − j  
+Phase 2 (skip loop): f₂(head) = number of nodes remaining in the list starting at head
 

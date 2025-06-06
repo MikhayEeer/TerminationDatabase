@@ -2,19 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+multi-phase
 [RANKING FUNCTIONS]
-For the outer loop: 
-x (decreases by 1 in every iteration of the outer loop)
-For the inner loop:
-x - y (increases since x remains constant during one execution of the inner loop and y doubles, thus breaking the loop)
+1.0 * x^1 + 1.0 * 1
+1.0 * x^1 + -1.0 * y^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.0
-
+x + 1
+x - y
 

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The variable `i` decrements indefinitely if it starts with a negative value, causing the loop condition `i < 0` to always hold true.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+If `i` is initially negative, the condition `i < 0` will always be true while `i` is updated to be more negative with each iteration, causing an infinite loop.
+

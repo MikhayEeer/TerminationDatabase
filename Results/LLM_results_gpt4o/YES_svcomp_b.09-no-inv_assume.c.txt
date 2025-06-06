@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 for x > y
+1.0 * x^1 for x <= y
+
+The program terminates as the `while` loop in the function `test_fun` will eventually break, regardless of the initial conditions of `x` and `y`, as either `x` is being decreased or set to `y` which is less than or equal to `x`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+Explanation:
+- The termination of the program can be demonstrated by observing the linear decrement of the variable `x`. 
+- The program enters the while loop only if `x` is not zero and `x > 0`, `y > 0`.
+- Within the loop body:
+  - If `x > y`, `x` is assigned the value of `y`, which makes `x` less than or equal to its previous value.
+  - Otherwise, `x` is decreased by 1.
+- Thus, the value of `x` is non-increasing in the loop and will eventually reach zero, leading to the termination of the loop.
+- Therefore, `x` serves as a valid linear ranking function, proving the program terminates.
+

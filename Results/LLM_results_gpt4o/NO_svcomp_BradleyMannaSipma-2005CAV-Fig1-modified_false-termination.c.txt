@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program can enter a non-terminating state if the `gcd` function is called with inputs where one is zero and the other is positive, leading to an infinite loop since neither value will reach equality. For example, starting with inputs \(*y1 = 0, *y2 = 1\) will cause the loop to execute indefinitely because the condition \(*y1 != *y2\) will always hold.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+If either `*y1` or `*y2` are zero, the while loop condition in the `gcd` function doesn't hold; however, if initialized with numbers that have no common divisor, they can repeatedly decrease one variable without ever making the two numbers equal, potentially causing non-termination.
+

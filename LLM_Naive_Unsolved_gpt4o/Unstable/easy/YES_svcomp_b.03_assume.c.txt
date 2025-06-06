@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x - y  
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The condition `x > y` in the while loop is not guaranteed to decrease consistently. If `x` is positive and large and `y` is negative or significantly smaller, `y = y + x` might never surpass `x`, causing an infinite loop.
+

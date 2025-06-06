@@ -2,24 +2,28 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+nested
 [RANKING FUNCTIONS]
-Branch 1 (when `*x % 2 != 0` or `*debug != 0`): 
-  255 - *x 
-Branch 2 (when `*x % 2 == 0` and `*debug == 0`): 
-  255 - *x
+f₁(x) = x mod 2  
+f₂(x) = 255 – x  
+
+Explanation of the lexicographic (nested) ranking:
+- Phase 1: f₁(x)=1 when x is odd, 0 when x is even.  If x is odd, the loop does x→x–1 (even), so f₁ drops from 1 to 0.  
+- Phase 2: once x is even (f₁=0), we use f₂(x)=255–x.  Each even step does x→x+2, so f₂ decreases by 2.  
+Since (f₁,f₂) decreases lexicographically on every iteration and is bounded below by (0,0), the loop must terminate.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. When \(*x \% 2 \neq 0\) (odd case), ranking function: \(-x\)  
-2. When \(*x \% 2 = 0\) (even case),  ranking function: \(255 - x\)  
 
-Explanation:  
-1. If \(*x\) is odd, \(*x\) decreases by 1 in each iteration. This will eventually make it non-negative in the odd state, aiding termination.
-2. If \(*x\) is even, \(*x\) increases by 2. Since the while loop continues only when \(*x < 255\), this increment will quickly reach 255, terminating the loop.   
-3. The piecewise nature of these calculations ensures all paths lead to termination.
+[RANKING FUNCTION TYPE]  
+nested  
+
+[RANKING FUNCTIONS]  
+1) f₁(x) = x mod 2  
+2) f₂(x) = 255 – x  
+
+Explanation of decrease:  
+- If x is odd then f₁(x)=1 and after one iteration x becomes even so f₁ drops to 0.  
+- If x is even then f₁ stays 0 and f₂(x) = 255–x strictly decreases because x increases by 2.
 

@@ -1,24 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. In the case where `q < p`:  
-   Ranking function: q (since it decreases by 1 in each iteration of the loop and is bounded below by 0)  
-
-2. In the case where `p < q`:  
-   Ranking function: p (since it decreases by 1 in each iteration of the loop and is bounded below by 0)  
-
-In both cases, the respective ranking function strictly decreases and is bounded below by 0, ensuring that the loop will terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * p^1 + 1.0 * q^1 + 0.0
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-(q, p)
-
-Explanation: The program is structured such that in each iteration of the loop, either `q` or `p` is decreased by 1 if they are not equal. The termination of this program is ensured because the values of `q` and `p` are strictly decreasing until they are equal, at which point the loop terminates. If `q` and `p` are equal before entering the loop, the loop will not execute. Thus, the program will always terminate, which can be shown using a piecewise ranking function considering the pair `(q, p)`.
+1.0 * q^1 + 1.0 * p^1
 

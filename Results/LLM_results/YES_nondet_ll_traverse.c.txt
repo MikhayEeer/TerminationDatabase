@@ -4,15 +4,18 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-In the `traverse` function, the ranking function is the length of the list `n`. Each iteration of the loop in the `traverse` function moves one step closer to the end of the list, thereby decrementing the "remaining list length" by 1 until it reaches 0. Therefore, the program terminates.
+1.0 * R(curr)
+
+where R(curr) is the number of list‐nodes reachable from curr (i.e. the number of successive “next” pointers until NULL).  
+On each loop iteration curr moves to curr→next, so R(curr) decreases by exactly 1 and is bounded below by 0, proving termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
-[RANKING FUNCTION]
-list length
+[RANKING FUNCTIONS]
+1.0 * dist(curr, NULL)
 
-The given program will terminate. The reason is that the `traverse` function iterates over the linked list starting from the `head` node, moving to the next node until it encounters a node where `next` is `NULL`. The linked list is initialized with a non-negative number of nodes `n` in the `init_list` function. Since the list is finite (as determined by `n`), the traversal will eventually stop when it reaches the end of the list. Thus, the program is guaranteed to terminate. The ranking function here is simply the length of the list, which decreases as the traversal progresses through the nodes in the list.
+where dist(curr, NULL) is the number of “next”‐steps from the pointer curr to the NULL terminator of the list. Each loop iteration does one step along the list, strictly decreasing this distance until it reaches 0 and the loop exits.
 

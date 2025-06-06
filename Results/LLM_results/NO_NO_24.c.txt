@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-5 - (a + b)
+[RESULT]
+NONTERM
+[REASON]
+Each iteration swaps a and b, preserving a+b=3<5, so the loop guard remains true forever.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTION]
-5 - (a + b)
+NONTERM
+[REASON]
+The loop body merely swaps a and b, preserving a+b=3<5, so the loop condition remains true forever.
 

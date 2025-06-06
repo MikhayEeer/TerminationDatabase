@@ -1,18 +1,29 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The ranking function for the loop in the function `cstrchr` is derived from the monotonically decreasing integer variable `length - (s - nondetString)` (where `s` starts from `nondetString` and is incremented until it reaches `nondetString + length - 1`). As each character in `nondetString` will eventually be `\0` or match the character `c`, the loop will terminate after at most `length` iterations. Therefore, the loop will always terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length - (s - s0)
+
+[EXPLANATION]
+In the function cstrchr, let s0 be the initial value of the pointer s (the start of the string) and length ≥1 the string length. Define the ranking function
+
+  R(s,length) = length − (s − s0).
+
+Since each loop iteration increments s by 1, R decreases by exactly 1, staying non-negative (it reaches 0 when s points at the ‘\0’ terminator), hence it is a valid linear ranking function proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-Length of string 's' decreases per iteration.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+R(s) = (length − 1) − (s − nondetString)
 
-The program is guaranteed to terminate because the given function `cstrchr` scans through the string `s` until it either finds the character `c` or reaches the end of the string (null character `\0`). The pointer `s` advances one character at a time in each loop iteration, ensuring that the loop will eventually terminate when it either finds the character `c` or reaches the null terminator of the string. The string length is finite, as it is determined by the `length` variable which adjusts to 1 at minimum, ensuring there is always a null terminator. Hence, the loop will definitely reach the string end, guaranteeing termination.
+Explanation:
+– Let start = nondetString, end = start + (length−1) (where the '\0' is).  
+– Define the ranking function R(s) = end − s = (length−1) − (s − start).  
+– Initially R(s) ≥ 0, and each loop iteration increments s by 1, strictly decreasing R(s) by 1.  
+– When s reaches end, *s=='\0' and the loop exits. Thus R(s) is a valid (linear) ranking function proving termination.
 

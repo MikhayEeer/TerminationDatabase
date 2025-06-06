@@ -1,23 +1,24 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
 
-[RANKING FUNCTION TYPE]  
-linear  
-
-[RANKING FUNCTIONS]  
-f(x, y) = x + 1  
-
-Explanation: The program will terminate because the value of `x` decreases by `y` in each iteration of the loop, and `y` is increasing, ensuring that `x` will eventually become negative, causing the loop to exit. The linear ranking function `f(x, y) = x + 1` is positive when the loop is executing and becomes non-positive when the loop terminates.
+Explanation: On each iteration x decreases by y (which is at least 23), so f(x,y)=x is a non‐negative integer that strictly decreases and thus proves termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x, y) = x + y^2^(23)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
 
-Explanation:  
-The ranking function `f(x, y) = x + y^2^(23)` serves as a linear ranking function for the given program. Initially, `x` is any non-negative integer, and `y` is set to 23, decreasing the value of `x` iteratively by `y`, which increases with each iteration. The expression `x + y^2^(23)` is constructed such that it decreases with each iteration of the loop. Each time the loop executes, the decrement in `x` is more significant than the increment in the value added by `y^2^(23)`, ensuring that the overall value of the ranking function decreases monotonically and eventually terminates the loop.
+Explanation:
+The loop guard is x ≥ 0. Define the linear ranking function f(x,y)=x. On each iteration,
+  x′ = x – y,  y′ = y + 1,
+so f′ – f = (x – y) – x = –y ≤ –23 < 0.
+Since initially x ≥ 0 in the loop and f decreases by at least 23 each step, the loop must terminate.
 

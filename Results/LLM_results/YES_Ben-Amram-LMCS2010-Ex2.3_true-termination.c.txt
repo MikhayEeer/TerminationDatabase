@@ -1,12 +1,23 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program can enter a loop with x > 0, y = x + 1, and z = x + 1, which keeps cycling indefinitely due to resets and decrements that do not guarantee termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+case (y − x) > 0 : 1.0 * x
+case (y − x) ≤ 0 : 1.0 * z
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains a loop where all variables `x`, `y`, and `z` are updated non-deterministically, except for the condition `y > x`. The relation between the variables allows for the possibility of non-termination as `z` can keep getting reset to values that do not ensure eventual termination. The combination of non-deterministic choices and reset behaviors by assignments like `y = z` and `x = __VERIFIER_nondet_int(); z = x - 1;` can result in scenarios where `x > 0`, `y > 0`, and `z > 0` remain true indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: 0.0 *x + 0.0 *y + 1.0 *z  
+Phase 2: 0.0 *x + 0.0 *y + 1.0 *z  
+
+Explanation of the proof‐obligation discharge:  
+– Phase 1 covers all “y > x” iterations that stay in the same branch (“y > x” again).  In order to re‐enter that branch the fresh x must satisfy x′<z, so z′=x′−1<z−1 and the phase‐1 measure strictly decreases.  If instead x′≥z one leaves Phase 1 and enters Phase 2.  
+– Phase 2 covers all “y≤x” iterations (the else‐branch).  There z is decremented by 1 on every step, so the phase‐2 measure strictly decreases until z≤0 and the loop exits.  
+Hence the two‐phase (multi-phase) ranking function ⟨z,z⟩ proves termination.
 

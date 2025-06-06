@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The variable `x` can increase indefinitely if `y` is positive and `z` is non-negative, leading to a situation where the condition `x > 0` always holds, causing the loop not to terminate.
+If y₀ ≥ 0 then yₙ ≥ 0 for all n, so xₙ₊₁ = xₙ + yₙ ≥ xₙ and x never falls to ≤0, yielding an infinite loop.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The variable `x` can increase indefinitely if `y` and `z` are positive, leading to an infinite loop.
+For any initial state with x>0, y≥0, z≥0 we have x' = x + y ≥ x > 0 so x never decreases below 1 and the while‐loop never exits, yielding an infinite execution.
 

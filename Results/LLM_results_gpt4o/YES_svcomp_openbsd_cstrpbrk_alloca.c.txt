@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+- 5.0 * length1^1 + 1.0 * 1
+- 5.0 * length2^1 + 1.0 * 1
+
+Explanation:
+The `cstrpbrk` function iterates through `s1` until it encounters the null character `\0`, which signifies the end of the string. Each outer loop iteration examines a character from `s1`, then iterates through `s2` looking for a match. Once it traverses the entirety of `s1`, or finds a match, the function returns. This bounded behavior ensures termination. The provided lengths `length1` and `length2` are finite and positive due to their initialization and checks, which further assures the finite iteration of loops. The multi-phase ranking functions are based on reducing the remaining length of strings `s1` and `s2` upon each iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1. Lexicographic ranking function based on the position of the pointer `s1` within the string `nondetString1`.
+2. Inner loop terminates based on the pointer `scanp` moving through the string `nondetString2`.
+
+Explanation:
+- The outer `while` loop iterates through the string `nondetString1` using the pointer `s1`. The loop condition (`(c = *s1++) != 0`) ensures that the loop will terminate when `s1` reaches the null character `'\0'`, which is deliberately placed at the end of the string.
+- The inner `for` loop iterates through the string `nondetString2` with the pointer `scanp`. This loop also terminates because `scanp` reaches the null character placed at the end of `nondetString2`.
+- Both `s1` and `scanp` have finite lengths, as ensured by their respective null character placements, so pointer increment operations guarantee progress toward termination.
+

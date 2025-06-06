@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter a situation where `x` fluctuates between decreasing and increasing indefinitely without the guarantee of ever becoming negative. If `x` is initially non-negative, and each operation to decrease `x` by 1 can potentially be countered by an operation to increase `x` by 1, the loop may never terminate.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program may enter an infinite loop due to the non-deterministic choice at each iteration which can cause `x` to increase without bound whenever the choice makes `x` increment.
+

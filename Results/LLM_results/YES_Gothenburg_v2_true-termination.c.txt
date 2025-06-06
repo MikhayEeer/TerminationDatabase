@@ -1,16 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * x + 0.5 * y  
-
-The program is terminating because both variables `x` and `y` decrease by `1` in every iteration of the loop, hence strictly reducing the value of the linear combination `0.5 * x + 0.5 * y`. This linear ranking function ensures that the while-loop can only execute a finite number of times.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * x^1 + 1.0 * y^1 + 1.0 * 1
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `x >= 0 || y >= 0` can be perpetually true as the updates `x = x + a - b - 1` and `y = y + b - a - 1` do not ensure progress towards termination, especially when `a == b + 1`. The changes in `x` and `y` effectively cancel out, which can result in neither `x` nor `y` decreasing sufficiently to exit the loop, given certain initial values.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * x^1 + 1.0 * y^1 + 0.0
 

@@ -1,17 +1,23 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-min(x, y)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+# Region 1: x ≤ y
+f₁(x,y) = x
+# Region 2: x > y
+f₂(x,y) = y
 
+[ARGUMENT]
+At each loop iteration z = min(x,y). Then in both branches one of x,y is set to z−1 and the other to x+y ≥ z, so the minimum of {x,y} strictly decreases by 1. Once min(x,y) ≤ 0 the loop condition y>0&&x>0 fails, ensuring termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-min(x, y)
+if x ≤ y then f(x,y,z) = x
+if y <  x then f(x,y,z) = y
 

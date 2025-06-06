@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100000 - v
+
+This program will terminate because the main loop iterating over `v` runs from 0 to 100000 with `v` incrementing each time, and there are no operations that can cause it to repeat indefinitely or backtrack. The ranking function `100000 - v` decreases with each iteration of the loop, which indicates termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 100000 - v  
+Phase 2: 0  
+

@@ -1,15 +1,18 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The recursion in the function `average` can create an infinite loop due to the operations `x-1` and `x+1`, `y+1`, `y-2`. This allows the function to potentially cycle between cases indefinitely without decreasing to a base case, especially since conditions allow balancing the increase and decrease, leading to potentially infinite recursion if certain initial conditions are met.
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+1.0 * x^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographical
+nested
 [RANKING FUNCTIONS]
-1st component: 2.0 * x + y
-2nd component: y
+1.0 * x + 1.0 * y
+1.0 * x
 

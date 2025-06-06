@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * (10 - *x1)^1 + 1.0 * 1  
+1.0 * (*x2 - 1)^1 + 1.0 * 1  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1st component: 11 - *x1
+2nd component: *x2 - 1
+
+The program has a lexicographic ranking function. The first component (11 - *x1) decreases in every outer loop iteration and stays non-negative until the loop terminates. The second component (*x2 - 1) decreases and remains non-negative for each iteration of the inner loop until it terminates, ensuring progress towards the exit condition of the outer loop.
+

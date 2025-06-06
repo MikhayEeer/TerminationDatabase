@@ -1,20 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. (for x > M): 0  
-2. (for x <= M): M - x  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * M^1 + 0.0
+1.0 * M^1 + -1.0 * x^1 + 0.0
+
+Explanation of phases:
+– Phase 1 is active when x > M (f₁(x,M)=x–M>0). In that case the update x:=0 yields f₁′=0–M < f₁, so the first phase strictly decreases and then drops to f₁′≤0.  
+– Once x ≤ M, Phase 1 is no longer positive and Phase 2 takes over with f₂(x,M)=M–x>0. Each x<x<M iteration does x:=x+1 so f₂ decreases by 1, and when x=M the loop exits.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. x - M if x > M  
-2. M - x if x < M  
-
-The program is terminating. The piecewise ranking functions show decrease towards zero, leading to the loop's termination as x approaches M.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+component₁: if x > M then 1 else 0  
+component₂: M − x
 

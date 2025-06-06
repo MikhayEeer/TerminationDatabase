@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+For the loop with condition `*x_ref == 0`:  
+- If `*x_ref > *y_ref`, then `*x_ref` changes to `*y_ref`, which is non-increasing and bounded below by 0.
+- If `*x_ref <= *y_ref` and `*x_ref > 0`, `*x_ref` decreases by 1.  
+
+The nested ranking function for this situation can be seen as:  
+1. Decrease `*x_ref` to 0 while it is positive.  
+2. The loop terminates when `*x_ref` reaches 0.  
+
+Hence, using a lexicographic tuple with the components being non-negative will decrease:  
+1. `< *x_ref >` when `*x_ref` is positive and `*x_ref <= *y_ref`.   
+2. This exhibits progress as `*x_ref` becomes zero or stays non-positive post condition check.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * x_ref^1 + 0.0 * y_ref^1  
+Phase 2: 1.0 * x_ref^1 + 0.0 * y_ref^1  
+

@@ -2,17 +2,22 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+nested
 [RANKING FUNCTIONS]
-y - x
+f₁(x,y,z,i) = y − x
+f₂(x,y,z,i) = max(x − z, 0)
 
-This program is terminating because each iteration of the loop either increments `x` or `z`, resulting in `x` getting closer to `y`. As `x` is incremented when `z > x` and `z` is incremented otherwise, this guarantees that `x < y` eventually becomes false, terminating the loop. The difference `y - x` serves as a linear ranking function that strictly decreases with each iteration.
+Explanation of decrease each iteration under lex order (f₁,f₂):
+- If z > x then x increases by 1 ⇒ f₁ = y−x decreases by 1 (f₂ irrelevant).
+- If z ≤ x then z increases by 1 ⇒ x−z decreases by 1 while f₁ stays the same.
+Thus (f₁,f₂) strictly decreases in the lexicographic order on ℕ×ℕ.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+lexicographic
 [RANKING FUNCTIONS]
-(y - x)
+1.0 * y + -1.0 * x
+1.0 * x + -1.0 * z
 

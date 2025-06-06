@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0 * 1  (for the outer loop)  
+1.0 * y^1 - 1.0 * x^1 (for the middle loop)  
+1.0 * y^1 - 1.0 * x^1 - 3.0  (for the innermost loop) 
+
+The provided multi-phase ranking functions show that the program decreases for each loop guard condition, hence it ensures termination. The outer loop decreases with respect to `x`, the middle loop decreases more slowly with respect to `y` compared to `x`, and the innermost loop decreases with respect to both `y` and `x` when `y` is greater than `x + 3`.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase   
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+1.0 * (y - x)^1  
+1.0 * (y - x - 2)^1  
+
+The program terminates due to a combination of outer and inner loops with conditions that strictly decrease the control variables `x` and `y` in a well-ordered manner after each iteration. The multi-phase ranking functions show the decreasing phases of the variables, ensuring termination.
+

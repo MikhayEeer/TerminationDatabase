@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+x^2 + 4x  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+For function `f(int x)`:  
+if (x > 0) -> x  
+For function `g(int x)`:  
+if (x > 0) -> x
+

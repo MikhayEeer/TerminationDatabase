@@ -1,12 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The `while` loop condition `x > y` can be true indefinitely because `y` can increase indefinitely through `y = y + x`, without any mechanism to decrease `x`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y
+
+Explanation: On each iteration y'=y+x so x–y decreases by x>0, remains a positive integer as long as x>y, and thus strictly decreases to 0, proving termination.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop `while (x > y) { y = y + x; }` has the potential to run indefinitely if `x > 0` and `y < x`. As `y` is incremented by `x` each iteration and `x` remains constant, the condition `x > y` may never be false, leading to non-termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y
 

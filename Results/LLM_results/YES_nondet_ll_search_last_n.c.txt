@@ -1,12 +1,29 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The program may enter an infinite loop in the `search` function if the value `m` does not exist in any node of the list. Since list elements are assigned nondeterministic values, there's no guarantee that `curr->value` will ever equal `m`.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n + -1.0 * idx(curr)
+
+Explanation:
+We assign to each pointer‐state a virtual integer idx(curr) equal to the number of “next” links from the head to curr.  The loop guard is curr->value != n, which holds exactly while idx(curr) < n (since the unique node with value n sits at depth n – 1).  On each iteration curr moves one step forward, so idx(curr) increases by exactly 1 and the linear function
+
+   f(n, idx) = n – idx(curr)
+
+decreases by 1.  Since f is a non‐negative integer when the loop guard holds and strictly decreases on each iteration, the loop terminates.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The `search` function can enter an infinite loop if the list does not contain a node with the value `m`, as the `while` loop in `search` continues indefinitely when the value `m` is not found in the list. Since values in the list are non-deterministically assigned, there is no guarantee that `m` will be present in the list, leading to potential non-termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+Phase 1 (init_list loop): f₁(n,j) = 1.0 * n + (–1.0) * j  
+Phase 2 (search loop): f₂(n,k) = 1.0 * n + (–1.0) * k  
+
+Explanation of variables:  
+– In init_list, j is the loop index (j runs 1,…,n–1), so f₁ decreases by n each iteration.  
+– In search, k is the number of nodes visited so far (each loop iteration increments k by 1), so f₂ decreases by 1 each iteration.  
+Since both phases are bounded below by 0 and strictly decrease on every iteration of their respective loops, the whole program terminates.
 

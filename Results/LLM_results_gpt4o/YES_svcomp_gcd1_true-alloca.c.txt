@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+multi-phase  
+
+[RANKING FUNCTIONS]  
+Phase 1: 1 * |y_ref|  
+
+- The inner loop computes the modulus `r = x % y` by repeatedly subtracting `y` from `x`, which is bounded and terminates as `r` becomes less than `y`.  
+- The outer loop is the Euclidean algorithm that repeatedly reduces `y_ref` until it becomes zero, which also terminates as it strictly decreases with each loop iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+*y_ref
+

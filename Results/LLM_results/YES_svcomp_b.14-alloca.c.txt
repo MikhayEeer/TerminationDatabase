@@ -4,8 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1st level: y_ref
-2nd level: x_ref, if x_ref == y_ref
+1.0 * x_ref + 0.0 * y_ref + 0.0
+0.0 * x_ref + 1.0 * y_ref + 0.0
 
 === Response 2 ===
 [RESULT]
@@ -13,5 +13,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 *  y^1
+1.0 * x_ref + 1.0 * y_ref
+
+Explanation: Under the loop guard (*x_ref == *y_ref && *x_ref > 0) we have x_ref+y_ref = 2·x_ref > 0, and each iteration of the (nested) inner loop decrements both *x_ref and *y_ref by 1 until they reach 0, so x_ref+y_ref strictly decreases from a positive value to 0, proving termination.
 

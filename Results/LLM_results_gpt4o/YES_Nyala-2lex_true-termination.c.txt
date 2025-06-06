@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+lexicographic  
+[RANKING FUNCTIONS]  
+f(x, y) = <x, y>  
+
+The given program terminates because the lexicographic ranking function \( f(x, y) = <x, y> \) demonstrates that in each iteration, either \( x \) decreases or, if \( y \) is non-negative, \( y \) decreases when \( x \) remains constant. When \( y \) becomes less than 0, \( x \) is decremented and \( y \) is reset, allowing the countdown to continue until \( x \) becomes negative, at which point the loop condition \( x >= 0 \) is false and the loop exits.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+lexicographic  
+[RANKING FUNCTIONS]  
+<x, y>  
+
+Explanation:  
+The program decrements `y` by 1 in each iteration of the loop. If `y` becomes negative, `x` is decremented by 1, and `y` is reset to a non-deterministic integer value. The nested loop condition is based on `x` being non-negative. As `x` decreases over iterations and is not re-initialized with a larger non-negative value, it ensures termination. The lexicographic ranking function `f(x, y) = <x, y>` demonstrates strict decrease in at least one component (`y`) when necessary (`x` is decreased when `y` becomes negative), ensuring the program eventually terminates.
+

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `j` continuously increases with each iteration, thereby never allowing `i` to reach or exceed `j`, causing the loop to run indefinitely.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `j` is incremented in every loop iteration, and since `i` is incremented at the same rate, the condition `i < j` will always hold true once entered. This makes the loop non-terminating.
+

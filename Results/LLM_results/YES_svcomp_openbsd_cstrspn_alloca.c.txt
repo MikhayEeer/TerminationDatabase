@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-length1 - (p - s1)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length1 + 1.0 * 1.0 – 1.0 * (p – s1)
 
-The program terminates because the function `cstrspn` processes the string `s1` character by character using pointer `p` until a character not in `s2` is found or the end of `s1` is reached. The ranking function `length1 - (p - s1)` decreases with each iteration of the loop `cont`, eventually leading to termination when the pointer `p` traverses the string `s1`.
+Explanation: In the loop labeled “cont” each time we jump back p advances by 1, so f = length1+1–(p–s1) is always non-negative on entry and decreases by exactly 1 on every iteration, hence the loop must terminate.
 
 === Response 2 ===
 [RESULT]
@@ -14,7 +14,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-length1 - 1 - i
+1.0*length1 + -1.0*(p - s1)
 
-The program is terminating as the function `cstrspn` iterates over the string `s1` with a pointer `p` starting at `s1` and moving forward. The loop continues until a character from `s1` is not found in `s2`. The ranking function `length1 - 1 - i` (where `i` is the index of the current character in `s1` being processed) decreases with each iteration until the loop exits when a non-matching character is found. The function eventually returns as it cannot exceed the end of the string `s1` due to the null-termination.
+This ranking function measures the remaining distance from p to the end of the string (length1), decreases by exactly 1 on each iteration of the loop in cstrspn, and is bounded below by 0, proving termination.
 

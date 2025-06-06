@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains an infinite `while (true)` loop that does not have any terminating condition or mechanism to exit the loop. The values of `i` and `j` are always incremented, preventing the loop from reaching a halting state.
+[RESULT]
+NONTERM
+[REASON]
+Unconditional while(true) loop with no exit or decreasing measure.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop runs indefinitely as the condition is always true and there is no mechanism within the loop that can break or exit it.
+[RESULT]
+NONTERM
+[REASON]
+The loop is `while(true)` with no exit or break, so it runs indefinitely.
 

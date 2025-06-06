@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.2 *  x^1 + 1.0 * 1  
+0.1 *  |y|^1 + 1.0 * 1  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Lexicographic(x, y^2)
+
+Explanation:
+The program will terminate as follows:
+1. In the first component of the lexicographic tuple, `x` decreases by at least `(y - 5)`, hence eventually it will become non-positive for any initial values of `x` and `y`.
+2. The second component, `y^2`, will either remain the same or increase since `y` is repeatedly multiplied by `-2`, flipping its sign and expanding its absolute value.
+3. The function `Lexicographic(x, y^2)` demonstrates a nested ranking function because the reduction in `x` contributes to the overall termination, with the change in `y^2` ensuring diverse exploration of values.
+4. Eventually, the loop condition `x > 0` becomes false, causing the program to exit the loop and terminate.
+

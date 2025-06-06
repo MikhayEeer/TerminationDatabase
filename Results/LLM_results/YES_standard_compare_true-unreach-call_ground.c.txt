@@ -1,18 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-100000 - i  
-
-The program terminates as the `while` loop has a linear ranking function `100000 - i` which decreases with each iteration by 1, eventually reaching 0, at which point the loop exits. The subsequent `for` loop is bounded and thus also terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (100000 - i)
+1.0 * (100000 - x)
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
 100000 - i
+100000 - x
 

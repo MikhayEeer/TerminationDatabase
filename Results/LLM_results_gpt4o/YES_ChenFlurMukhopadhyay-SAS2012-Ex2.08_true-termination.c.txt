@@ -1,0 +1,21 @@
+=== Response 1 ===
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (x + y^2)
+```
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTIONS]  
+The program has a non-linear ranking function derived from the expression:  
+0.5 * x^2 + y * x  
+
+This is a non-linear expression that strictly decreases in every loop iteration. Since `x` is decreasing by `2*y` and `y` is incremented in each iteration, the value 0.5 * x^2 + y * x strictly decreases until the loop condition `x > 0` is not satisfied, hence proving termination.
+

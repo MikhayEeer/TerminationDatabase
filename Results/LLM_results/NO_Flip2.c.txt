@@ -1,15 +1,14 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program can exhibit infinite behavior when `i` and `j` are initialized to any positive number, satisfying `i == j`. In each iteration, `i` is decremented by 1 while `j` remains unchanged, leading to an infinite loop since `i` can continue decrementing indefinitely without reaching zero.
+[RESULT]
+NONTERM
+[REASON]
+There is a non‐terminating cycle on positive values. For example:
+(5,3) → (5,5) → (4,5) → (5,4) → (5,5) → …, so the loop never exits.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-i^1 + j^1
-
+NONTERM
+[REASON]
+There is a non-terminating cycle, e.g. starting (i,j)=(2,1):  
+(2,1)→(2,2)→(1,2)→swap→(2,1) ad infinitum.
 

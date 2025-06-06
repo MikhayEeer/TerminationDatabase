@@ -4,11 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x - z
+1.0 * x + -1.0 * z + 0.0
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The loop condition `x >= z` can remain true indefinitely by choosing appropriate values for `x`, `y`, and `z`. Specifically, if `x` and `z` are equal and `y > 0`, the value of `z` increases indefinitely without violating the loop condition.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + -1.0 * z
 

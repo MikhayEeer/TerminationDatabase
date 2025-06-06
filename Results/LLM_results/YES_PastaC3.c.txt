@@ -1,22 +1,26 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * (y - x)^1  
-1.0 * (z - x)^1  
-
-The program is terminating because the value of (y - x) decreases with every iteration of the loop when `x < z`. Also, the value of (z - x) decreases when `x >= z`. This indicates that each execution path of the loop results in strictly decreasing values of these ranking functions, and hence guarantees termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+-1.0 * x + 1.0 * y + 0.0 * z + 0.0
+1.0 * x + 0.0 * y + -1.0 * z + 0.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1.0 * (y - x) + 0.0 * 1 (when x < z)  
-1.0 * (y - z) + 0.0 * 1 (when x >= z)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if x < z then f(x,y,z) = y − x  
+else f(x,y,z) = y − z + 1  
 
-The program is terminating because in each iteration of the loop, either the value of `x` is increased (when `x < z`) or the value of `z` is increased (when `x >= z`). As `x` increases and approaches `y`, the difference `(y - x)` decreases, serving as a ranking function; meanwhile, when `x >= z`, the difference `(y - z)` decreases. These decreases guarantee that the loop will eventually terminate.
+Explanation of decrease by 1 each loop‐iteration:
+
+• Case x<z: x→x+1, so f_new = y−(x+1) = (y−x)−1 = f_old−1.  
+• Case x≥z and x>z: z→z+1, so f_new = y−(z+1)+1 = (y−z+1)−1 = f_old−1.  
+• Case x=z: z→z+1 puts us into the x<z branch next, so f_new = y−x = y−z = (y−z+1)−1 = f_old−1.  
+
+Moreover, for all states with x<y we have f(x,y,z)>0, so f is a well‐founded ranking.
 

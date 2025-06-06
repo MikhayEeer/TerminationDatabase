@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains a loop where the values of `i` and `j` are swapped continuously whenever both are non-zero. If `i` and `j` are initialized to be non-zero values and never become zero during swapping, the loop will continue indefinitely, resulting in non-termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program exhibits a swapping behavior where 'i' and 'j' continuously exchange values without a condition that ensures either variable is decreased towards zero. If 'i' and 'j' are initialized with non-zero values and are non-zero when the loop is reached, they will keep swapping indefinitely, leading to non-termination.
+

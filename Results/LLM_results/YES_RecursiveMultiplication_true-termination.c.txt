@@ -1,27 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-m if m > 0  
--n if m < 0  
-The function `mult` terminates because it decreases its second argument `m` on each recursive call until it becomes zero, and performs a simple arithmetic operation for negative `m`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+f₁(m) = −1.0 * m        // phase 1: when m<0, f₁>0 and strictly decreases to 0 in one step
+f₂(m) =  1.0 * m        // phase 2: when m≥0, f₂>0 and decreases by 1 on each recursive call
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-If \( m < 0 \):  
-Rank: -1 * m (decreases with each recursive call as m becomes positive)  
-
-If \( m == 0 \):  
-Rank: constant 0 (base case, no further recursion)  
-
-If \( m > 0 \):  
-Rank: m (decreases with each recursive call as m decreases)  
-
-The program always progresses towards a base case due to the recursive decrement of m when positive, thus ensuring termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(m < 0) : 1.0 + (-1.0) * m
+(m >= 0) : 1.0 * m
 

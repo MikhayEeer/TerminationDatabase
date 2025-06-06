@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains an infinite loop scenario where `x` can be set to values greater than or equal to `2*old_x` indefinitely by the nondeterministic assignment, which prevents termination by avoiding the break condition.
+[RESULT]
+NONTERM
+[REASON]
+The nondeterministic input can always choose x′≥2·old_x>2, so x remains >1 and the break never fires, yielding an infinite loop.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program can enter an infinite loop if `__VERIFIER_nondet_int()` repeatedly returns values greater than `1` without satisfying the break condition `x < 2*old_x`.
+There is an execution where at each iteration the nondeterministic x satisfies x ≥ 2·old_x, so the break is never taken and x remains >1 forever, yielding an infinite loop.
 

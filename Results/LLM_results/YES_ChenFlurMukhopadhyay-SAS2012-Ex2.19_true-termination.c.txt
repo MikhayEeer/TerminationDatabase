@@ -1,18 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (x + y)^1 + 1.0 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise (non‐linear)
+[RANKING FUNCTIONS]
+– Case y > 0: R(x,y) = (x+y)/(2·y) + 1  
+– Case y < 0: R(x,y) = (x+y)/(−2·y)  
+– Case y = 0: R(x,y) = x
 
+Explanation sketch:  
+  • Whenever y = 0 the loop behaves like x:=x−1 and x+y>0 forces x to decrease to ≤0.  
+  • If y≠0 then in one step y′=−2y, so |y′|=2|y|, and one checks by simple algebra that in each of the two nonzero cases  
+    R(x′,y′) < R(x,y)  
+  holds whenever x+y>0.  Since R is always positive on states satisfying the loop‐guard, this gives a well‐founded, strictly decreasing variant and hence the loop terminates.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-1.0 * (x + y) + 1.0 * 1
-0.5 * x + 1.0 * 1
+y > 0: 1.0 * x + 1.0 * y
+y ≤ 0: 1.0 * x – 2.0 * y
 

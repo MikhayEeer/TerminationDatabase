@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The ranking function for the `search` function is the distance from the current node's value `curr->value` to `m`, which decreases by one in each loop iteration when moving to the next linked list element, eventually reaching zero when `curr->value == m`.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n - m  
+
+Explanation: In the `search` function, the loop iterates through the list elements, and it terminates when `curr->value` is equal to `m`. Given that the list is initialized with decreasing values from `n` to `0`, the value `n` will definitely be present in the list. Therefore, the program terminates, with the ranking function being `n - m`, which decreases by 1 in each iteration until it reaches 0 when `curr->value` equals `m`.
+

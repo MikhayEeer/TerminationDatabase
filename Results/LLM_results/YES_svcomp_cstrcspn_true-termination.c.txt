@@ -2,20 +2,27 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+nested
 [RANKING FUNCTIONS]
-The function iterates over the length of the first input string `s1`, decrementing a simple counter until it reaches the null terminator `'\0'`, which ensures termination. Since each iteration consistently progresses towards the end of the string, the program can be proven terminating by counting down the number of remaining characters to process in `s1`.
+f₁ = length(s₁) – (sc1 – s1)  
+f₂ = length(s₂) – (   s – s2)  
+
+Explanation:  
+– The outer `for`‐loop index i = sc1–s1 ranges over 0 … length(s₁)–1, and f₁≥0 and strictly decreases by 1 each time the inner loop completes without early return.  
+– The inner `while`‐loop index j = s–s2 ranges over 0 … length(s₂), and f₂≥0 and strictly decreases by 1 on each iteration of that loop.  
+Hence (f₁,f₂) is a valid nested lexicographic ranking function proving termination.
 
 === Response 2 ===
-```
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1. Outer loop: The length of string `s1`, since each iteration moves `sc1` one step closer to the null-terminator of `s1`.
-2. Inner loop: The number of characters in `s2` to its null-terminator or the position of character `c` in `s2`. Since in each iteration of the inner loop, `s` moves one character closer to the null-terminator or to the character matching `c`.
-```
+f₁ = length(s2) – (s – s2)  
+f₂ = length(s1) – (sc1 – s1)  
 
-The program is terminating because the outer loop progresses over each character of `s1` and the inner loop over each character of `s2`, and both loops eventually reach a stopping condition when they encounter null-terminators or a match.
+Explanation:  
+– The inner `while (*s!='\0' && *s!=c)` loop is ranked by the measure f₁, which starts at length(s2) and strictly decreases by 1 on each iteration of the inner loop.  
+– The outer `for (sc1=…; *sc1!='\0'; sc1++)` loop is ranked by f₂, which starts at length(s1) and strictly decreases by 1 on each iteration of the outer loop (when the inner loop has finished).  
+Since both f₁ and f₂ are non‐negative integers and decrease on each step of their respective loops, the whole program must terminate.
 

@@ -1,12 +1,16 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The values of `*x_ref` and `*y_ref` increase without bound due to the updates `*x_ref = *x_ref + 1` and `*y_ref = *y_ref + 2`, potentially causing the loop to run indefinitely when the initial condition `*x_ref > *y_ref` is met and continues to be true no matter how large the values grow.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + -1.0 * y_ref^1
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The values of *x_ref and *y_ref increase at every iteration, so if initially *x_ref > *y_ref, the condition *x_ref > *y_ref will remain true, resulting in an infinite loop.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + -1.0 * y_ref^1 + 0.0 * c^1
 

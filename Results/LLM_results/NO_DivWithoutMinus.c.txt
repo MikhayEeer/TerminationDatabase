@@ -1,17 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * z^1 + 0.0 * 1
-0.0 * x^1 + 1.0 * y^1 + 0.0 * 1
-
-Explanation: This program can be analyzed using a multi-phase ranking function approach. In the first phase, we focus on the variable `z`, which is initially set to `y` and decreases in each iteration if the loop is active. The program runs the loop while `z > 0` and the condition `(y == 0 || y > 0 && x > 0)` holds true. In the second phase, once the condition `y == 0` is encountered, the ranking function can focus on `y` which decreases in each step of the loop by being replenished to `z` or decremented. Each stage of execution has a clearly defined descending ranking function, indicting the eventual termination of the loop.
+NONTERM
+[REASON]
+If initially x>0 and y>0 (so z>0), then y cycles from z down to 0 and is reset to z forever, x only increases, and the loop condition (z>0 and (y==0 or (y>0 and x>0))) remains true indefinitely, so the loop never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The conditions allow for an infinite execution: if \( x \) and \( y \) both start positive, and \( z \) is positive, the loop can continue indefinitely. When \( y \) reaches 0, it is reset back to \( z \) (which remains positive), and \( x \) keeps incrementing, allowing the cycle to repeat infinitely.
+If initial x>0 and y>0 (so z>0), each iteration decreases y to 0 then resets y to z and increments x, so the loop guard (z>0 ∧ y>0 ∧ x>0) stays true forever.
 

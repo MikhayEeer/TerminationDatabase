@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+x + y + 2^1
+
+This program is terminating because for each iteration of the loop: 
+1. `x` and `y` both decrease at least by 1, thus the sum `x + y` decreases by at least 2.
+2. Since `x` and `y` are non-negative and are strictly decreasing, the loop must eventually terminate when `x` or `y` becomes negative. 
+Thus, a ranking function can be defined as `x + y + 2`, which consistently decreases with each iteration of the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 1.0 * y^1  
+1.0 * x^1  
+

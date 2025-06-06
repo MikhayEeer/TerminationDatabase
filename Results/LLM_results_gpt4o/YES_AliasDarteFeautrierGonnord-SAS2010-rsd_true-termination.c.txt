@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * da  
+Phase 2: 2.0 * da + 0.0 * db + -2.0
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * da^1 + 1.0  
+Phase 2: 1.0 * db^1 + 1.0  
+
+Explanation:  
+The program uses a non-deterministic choice to decrease `da` and update `db` to eventually terminate the while loop when `da < r`. The multi-phase ranking function demonstrates decreased values in `da` and `db` in each phase of the loop, ensuring termination.
+

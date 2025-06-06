@@ -1,16 +1,12 @@
 === Response 1 ===
 [RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * i^1
+NONTERM  
+[REASON]  
+There is a 5‐state cycle for i∈{25,29,28,27,26}: e.g. 27→26→25→29→28→27… so the loop can run infinitely.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * i
+[RESULT]
+NONTERM
+[REASON]
+There is a non-terminating cycle: 26 → 25 → 29 → 28 → 27 → 26, so i never drops to ≤10.
 

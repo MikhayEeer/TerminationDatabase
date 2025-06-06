@@ -4,9 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-min(x, y) - 1
-
-The program terminates because in each iteration of the while loop, at least one of the variables `x` or `y` is decremented based on the condition provided, guaranteeing that the minimum of the two variables keeps decreasing and eventually reaches a non-positive value, terminating the loop. The ranking function `min(x, y) - 1` effectively ensures that the loop makes progress towards termination.
+(x <= y) : 1.0 * x
+(x > y)  : 1.0 * y
 
 === Response 2 ===
 [RESULT]
@@ -14,7 +13,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-min(x, y) - 1
+# Region           | Ranking function
+x ≤ y              | 1.0 * x + 0.0 * y + 0.0
+x >  y             | 0.0 * x + 1.0 * y + 0.0
 
-This program is terminating because the value of both `x` and `y` decrease toward 0 in each loop iteration, with the minimum of `x` and `y` being chosen and decremented. This ensures termination as `min(x, y)` is strictly decreasing and serves as a ranking function.
+Explanation: In each loop iteration the chosen variable is assigned min(x,y)−1, so in either region the corresponding piecewise linear function strictly decreases by at least 1 and remains non‐negative while the loop guard x>0∧y>0 holds.
 

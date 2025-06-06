@@ -1,18 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
 [RANKING FUNCTIONS]
-maxlen
+1.0 * maxlen
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-n - 1
-
-The program is terminating, as the function `cstrnlen` loops through a string with a decrementing counter `maxlen`. Since `n` is ensured to be at least 1, `maxlen` will eventually reach 0, causing the loop to terminate. The linear ranking function `n - 1` proves termination by showing that `maxlen` consistently decreases with each loop iteration.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * maxlen^1 + 0.0 * 1
 

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `i` is increased by 1 in each iteration of the loop, and since `i` starts greater than 2, it will never satisfy the termination condition `i <= 2`.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop incrementally increases `i`, which starts with a value greater than 2, leading to an infinite loop.
+

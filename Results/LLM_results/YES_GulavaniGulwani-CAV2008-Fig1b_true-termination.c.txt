@@ -1,16 +1,11 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * n - 1.0 * x^1  
-1.0 * m - 1.0 * x^1  
-
-Explanation:  
-The program consists of two separate `while` loops. The first loop runs while `x < n` and increments `x` by 1 in each iteration. Thus, the difference `n - x` serves as a valid ranking function for this loop, because it is strictly decreasing with each iteration and must eventually reach zero or fewer, terminating the loop.  
-
-Similarly, the second loop runs while `x < m` and also increments `x` by 1, so `m - x` is a valid ranking function for this loop. Both loops have linear ranking functions, and the loops are executed sequentially, making the entire program terminating.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n + -1.0 * x
+1.0 * m + -1.0 * x
 
 === Response 2 ===
 [RESULT]
@@ -18,8 +13,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * n + 0.0 *  m^0 + 0.0 * 1
-1.0 * m + 0.0 * 1 + 0.0 * 1
-
-Explanation: The program consists of two while loops. In the first loop, `x` is incremented until it reaches `n`, and in the second loop, `x` is incremented until it reaches `m`. Since both `n` and `m` are constants, the progress of `x` ensures both loops will eventually terminate. Thus, the program is terminating.
+1.0 * n + -1.0 * x
+1.0 * m + -1.0 * x
 

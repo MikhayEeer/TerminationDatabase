@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 1.0 * m (for the first and second branches of the Ack function where m is strictly decreasing)  
-Phase 2: 1.0 * n (for the third branch of the Ack function where n is strictly decreasing until the base case)  
-
-Explanation:  
-The Ackermann function is defined recursively, and each call decreases either \( m \) or \( n \) towards a base case when \( m \) is zero. The function terminates as long as both \( x \) and \( y \) are non-negative integers, which is ensured by the condition in `main()`. The recursive call structure ensures termination by strictly decreasing metrics.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * m + 0.0 * n
+0.0 * m + 1.0 * n
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-(x >= 0 && y >= 0) -> Ack(x, y) terminates due to each call reducing the lexicographic ordering (m, n) with strict decrease in m or eventual decrease in n after m reaches 0.
+1.0 * m + 0.0 * n
+0.0 * m + 1.0 * n
 

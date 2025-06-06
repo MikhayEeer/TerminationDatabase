@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * 1  
-1.0 * (x - y)^1 + 0.0 * 1  
-
-This program is terminating. The outer loop decreases the value of `*x_ref` at each iteration, ensuring eventual termination. The inner loop completes when `*y_ref` equals `*x_ref`, contributing to a multi-phase termination argument.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + 0.0
+1.0 * x^1 + 0.0 * y^1 + 0.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1st loop: 1.0 *  x_ref^1  
-2nd loop: -1.0 *  y_ref^1 + 1.0 *  x_ref^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x_ref + -1.0 * y_ref
+1.0 * x_ref
 

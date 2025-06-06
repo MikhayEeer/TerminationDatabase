@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The values of x and y can increase indefinitely, thus no guaranteed decrease towards termination in any loop iteration as long as x >= 0 and y >= 0.
+If initially x ≥ 0 and y ≥ 0 then each step y → y+1 and x → x+y makes both x,y grow unboundedly, so x never becomes negative and the loop never terminates.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variables \(x\) and \(y\) both increase when the loop is entered, and when \(x\) is non-negative initially, it will never become negative, causing the loop to continue indefinitely.
+[RESULT]
+NONTERM
+[REASON]
+If x₀≥0 and y₀≥0 then y increases and x:=x+y grows without bound, so x never becomes negative and the loop never ends.
 

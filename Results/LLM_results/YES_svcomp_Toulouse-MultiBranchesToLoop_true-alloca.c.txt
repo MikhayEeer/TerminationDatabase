@@ -1,12 +1,18 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The value of `*x` can oscillate based on the initial nondeterministic condition, leading to the possibility of positive increments if `*x` > 0 or negative decrements if `*x` < 0 for both `*y` and `*z`. Hence, the loop condition `*y < 100 && *z < 100` may never be violated, leading to potential infinite execution.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+x > 0 : 100.0 - y
+x < 0 : 100.0 - z
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-There is no guarantee that the increments and decrements to `*x` outside the loop affect termination since they toggle between -1 and 9 based on initial condition. The loop can run indefinitely when *x results in an increase to `*y` and a decrease to `*z` in such a way that their conditions remain true, particularly when their increments and decrements balance each other out.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(*x > 0) -> -1.0 * y^1 + 100.0 * 1
+(*x < 0) -> -1.0 * z^1 + 100.0 * 1
 

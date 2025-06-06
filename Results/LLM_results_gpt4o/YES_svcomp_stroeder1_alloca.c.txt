@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+array_size - i
+
+The program terminates because the loop iterates over a fixed range from `i = 0` to `i < array_size`. Since `array_size` is set to be at least 1, the loop has a finite number of steps determined by the positive integer `array_size`. The ranking function `array_size - i` decreases with each iteration, demonstrating termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+array_size - i
+
+The program is terminating because the loop in the `sumOfThirdBytes` function is controlled by a for-loop iterating from `i = 0` to `i < array_size`. The value `array_size` is set to at least 1 before entering the loop, and `i` is incremented in each iteration. Thus, the loop will eventually reach `i = array_size`, at which point it will terminate. The ranking function `array_size - i` demonstrates a strictly decreasing measure that ultimately reaches zero, proving termination.
+

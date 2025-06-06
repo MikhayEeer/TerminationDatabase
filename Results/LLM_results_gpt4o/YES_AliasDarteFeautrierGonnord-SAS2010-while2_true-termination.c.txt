@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * i^1 + 0.0 * 1  
+1.0 * j^1 + 0.0 * 1  
+  
+Explanation: The outer loop decreases `i` on each iteration, and the inner loop decreases `j`. For each increment of the outer loop where `i` is decremented, the inner loop always completes before returning control back to the outer loop. The ranking functions provided, correspondingly, are: `1.0 * i + 0.0` for the outer loop phase and `1.0 * j + 0.0` for the inner loop phase. Both ranking functions are linear and guarantee eventual termination to zero within their respective loops when they become non-positive, ensuring the whole program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * j^1
+0.0 * i^1 + 1.0 * j^1
+
+The program terminates because it consists of two nested loops. The outer loop is controlled by the variable `i`, which decreases by 1 in each iteration and is initialized to `N`, eventually reaching 0. The inner loop is controlled by the variable `j`, which decreases by 1 in each iteration and is re-initialized to `N` on each iteration of the outer loop. This structure ensures that both loops will terminate after a finite number of steps.
+

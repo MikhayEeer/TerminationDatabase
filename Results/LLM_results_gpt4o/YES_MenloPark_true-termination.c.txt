@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+First phase: while z == 1 and y >= 100  
+Ranking function: x  
+
+Second phase: while z == -1 and y >= 99  
+Ranking function: x  
+
+The program has a multi-phase ranking function. In the first phase, when z == 1 and y >= 100, the function x decreases. In the second phase, when z == -1 and y >= 99, the function x decreases again. This satisfies the conditions for termination, concluding that the program will eventually terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: x when y >= 100 and z = 1  
+Phase 2: x when y >= 99 and z = 1  
+
+This program uses a three-phase ranking function. The value of `x` is decreased in each iteration, and the conditions on `y` and `z` guide the transitions between the different phases, ultimately leading to termination when `x` becomes negative.
+

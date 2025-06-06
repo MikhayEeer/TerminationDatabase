@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The loop condition `i < 100` never changes because `i` is updated as `i = i + 0`, resulting in an infinite loop.
+i is initialized to 0 and never updated; the condition i<100 remains true forever, causing an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variable `i` is never incremented or decremented within the loop, causing an infinite loop as the loop condition `i < 100` will always remain true.
+[RESULT]
+NONTERM
+[REASON]
+i is never updated in the loop, so i<100 remains true indefinitely.
 

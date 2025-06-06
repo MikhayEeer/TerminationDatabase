@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop can continue indefinitely when 'a' and 'b' are not equal and have different signs or are both zero, making 'am' and 'bm' not converge.
+[RESULT]
+NONTERM
+[REASON]
+If one of a or b is zero and the other nonzero (e.g. a≠0, b=0), then bm or am never changes and the loop runs forever.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program can be non-terminating if \( a \) and \( b \) are positive integers that are not multiples of each other, causing the while loop to continue indefinitely as neither \( am \) nor \( bm \) will converge to an equal value.
+[RESULT]
+NONTERM
+[REASON]
+For example, if a=0 and b≠0 then am remains 0 while bm changes (bm=b,bm=2b,…), so am≠bm forever and the loop never terminates.
 

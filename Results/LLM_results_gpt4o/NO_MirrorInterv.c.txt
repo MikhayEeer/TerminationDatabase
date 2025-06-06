@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * range^1 + 1.0 * i^1 + 20.0 * 1  
+0.5 * range^1 + i + 0.5 * 1  
+
+The program is terminating as the range and i collectively ensure that the loop eventually exits. The ranking function first decreases lexicographically and then ensures termination as either range or i reaches a constraint that exits the loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON] 
+The variable `range` can increase indefinitely in the else block causing the loop to not necessarily terminate, especially since `range` reaching -1 prevents immediate termination due to the condition in the while loop, potentially allowing `i` to oscillate within the bounds without endpoint constraints.
+

@@ -1,16 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-50 - i + j
+NONTERM
+[REASON]
+The loop reaches the two‐state cycle (i,j)=(49,51) → (48,52) → (49,51) … and never exits.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-j - i  
+[RESULT]
+NONTERM
+[REASON]
+The loop enters a 2-state cycle: (i,j) = (49,51) → (48,52) → (49,51) …
 

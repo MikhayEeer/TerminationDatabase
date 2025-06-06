@@ -1,20 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 *  (length(s) - current_position)^1  
-
-=== Response 2 ===
-```
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-Length of the string - position of the current character being checked
-```
+f(s) = end − s
 
-The program terminates because `cstrchr` scans a null-terminated string and stops when it reaches either the desired character or the end of the string. Since the string is guaranteed to be null-terminated (as constructed in `__VERIFIER_nondet_String`), the loop will always reach the null character, causing termination. The ranking function decreases deterministically as it approaches the end of the string.
+Here, “end” denotes the address of the terminating ‘\0’ in the input string.  On each loop iteration s advances by one, so f(s) decreases by exactly 1 and stays non‐negative, hence it is a valid linear ranking function proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+f(s) = end_ptr – s
+
+Explanation of the ranking function:
+• end_ptr is the (constant) address of the terminating '\0' in the buffer  
+• s is the loop‐pointer in cstrchr  
+• On each iteration s increments by 1, so f(s) decreases by exactly 1  
+• When s == end_ptr, f(s)=0 and the loop exits  
+• f(s) is always a non‐negative integer and strictly decreases, hence it is a valid linear ranking function proving termination.
 

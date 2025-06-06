@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x + y - 2 * z
+
+The given program terminates as both variables `x` and `y` decrease by 1 in every loop iteration while being greater than the variable `z`. The ranking function `x + y - 2 * z` is linear and strictly decreases with each iteration, leading to eventual termination of the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x + y 
+

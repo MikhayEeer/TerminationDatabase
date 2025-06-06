@@ -2,14 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * z - 1073741823
-1.0 * (x + y)
+1.0 * x^1 + 0.0
+1.0 * y^1 + 0.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The non-termination arises in the loop labeled L2. When x > 0 and y > 0, and in cases where x = x - d decreases x by 1 or 2 but __VERIFIER_nondet_int() keeps choosing a new nondeterministic y that stays positive or the decrement of y - d does not reach zero, the while loop condition x > 0 && y > 0 may still be satisfied indefinitely, leading to non-termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+– On the “then” (P1) branch (x = x – d; …): f₁(x,y) = 1·x  
+– On the “else” branch (y = y – d): f₂(x,y) = 1·y
 

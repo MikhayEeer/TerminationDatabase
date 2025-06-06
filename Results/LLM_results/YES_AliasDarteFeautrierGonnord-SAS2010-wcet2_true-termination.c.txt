@@ -1,18 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-5 - i  
-10 - j  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+5.0 * 1 + (-1.0) * i^1 + 0.0 * j^1
+10.0 * 1 + 0.0 * i^1 + (-1.0) * j^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-5.0 - 1.0 * i^1  
-9.0 + 1.0 - 1.0 * j^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+5.0 - i
+10.0 - j
 

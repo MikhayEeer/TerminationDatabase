@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program enters an infinite loop if `i` is initialized to 3, since the condition `i < 10` will always be true and `i` is never incremented inside the loop when `i == 3`.
+If i is initialized to 3, then in the loop i<10 holds but i==3 makes the “if” body skip, so i never changes and the loop never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The loop does not terminate when `i` starts at a value less than 10 and equal to 3, as `i` remains unchanged in this case, causing an infinite loop.
+If i reaches 3 (with i<10), the loop body makes no update and i stays 3 forever, causing an infinite loop.
 

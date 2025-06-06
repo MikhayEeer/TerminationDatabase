@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program continuously increases `x` by a constant `c` (which is 5), ensuring that the condition `x >= 0` always holds. Hence, the loop does not terminate.
+Since c=5>0, whenever x≥0 the loop body increases x by 5, so x remains ≥0 forever and the loop never exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variable `x` is incremented by a constant positive value `c` in each iteration when `x >= 0`, which means `x` will keep increasing perpetually, causing the loop to never terminate.
+[RESULT]
+NONTERM
+[REASON]
+For any nonnegative initial x, each loop iteration adds 5 so x remains ≥0 forever, causing an infinite loop.
 

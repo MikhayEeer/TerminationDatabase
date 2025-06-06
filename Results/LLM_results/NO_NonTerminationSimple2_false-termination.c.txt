@@ -2,11 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The variable `x` is initialized to a non-deterministic value and is continuously incremented in the loop, which will never allow `x` to become negative, causing the program to loop indefinitely.
+If x ≥ 0 initially then each iteration does x++ so x remains ≥ 0 forever and the loop never exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variable `x` is incremented indefinitely within the loop, and there is no condition to break or exit the loop. Hence, the program enters an infinite loop for non-negative initial values of `x`.
+[RESULT]
+NONTERM
+[REASON]
+If the initial x ≥ 0 then each iteration x++ keeps x nonnegative, so the loop guard remains true forever.
 

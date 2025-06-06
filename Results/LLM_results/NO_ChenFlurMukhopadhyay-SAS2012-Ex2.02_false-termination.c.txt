@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program can enter an infinite loop if \( x \) is initially negative and \( y \) is zero. The loop condition \( x < 0 \) will keep holding as \( y \) does not affect \( x \) in a way that ensures it becomes non-negative.
+If x<0 and y≤0 (e.g. x=–1, y=0), then each step x stays negative while y decreases, so the loop guard x<0 remains true forever.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program is non-terminating if `x < 0` and `y` is a positive integer initially. In this case, the increments of `x` by `y` and the decrement of `y` will eventually lead `y` to become zero or negative while `x` remains negative, thus trapping the loop in an endless cycle without reaching the exit condition.
+[RESULT]
+NONTERM
+[REASON]
+For any y0>0 and x0<−y0(y0+1)/2, one shows x_i = x0 + i·y0 − i(i−1)/2 <0 for all i, so the loop never exits.
 

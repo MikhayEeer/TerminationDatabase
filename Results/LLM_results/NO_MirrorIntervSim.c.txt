@@ -1,27 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-- For the case when `-5 <= i && i < 0`: ranking function is `-5 - i`  
-- For the case when `0 <= i <= 35`: ranking function is `i`  
-- For the case when `i > 35`: direct transition to `i = 0` reduces `i` immediately  
+[RESULT]
+NONTERM
+[REASON]
+For any initial i in [−5,−1], the loop sets i to −5 and it stays −5 forever, never reaching 0.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-- For the case when `-5 <= i <= 35`: the ranking function is `i`.
-- For the case when `i < -5` or `i > 35`: the ranking function is constant as `0`.  
-
-Explanation:  
-The program has a piecewise structure where:
-
-1. If the value of `i` falls within `-5` and `35`, `i` is decremented, bounded by setting `i` to `-5` at the lower end and to `35` at the upper end, thereby ensuring termination as eventually `i` will reach `0`.
-2. If `i` falls outside the range `-5` to `35`, it is immediately set to `0`, ensuring termination.  
-
-Thus, the program uses a piecewise strategy to systematically reach termination.
+[RESULT]
+NONTERM
+[REASON]
+The loop has two nonzero fixed points: i=−5 (for any i<0) and i=35 (for any 31≤i≤35), causing infinite looping.
 

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The value of `y` does not decrease due to integer division rounding. If `y` starts within the range 0 <= y <= 10, `(2*y + 1) / 2` evaluates to `y`, creating an infinite loop.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+For values of y such that 0 <= y <= 10, the expression (2*y + 1) / 2 results in y itself because of integer division rounding, maintaining the loop invariant and leading to an infinite loop.
+

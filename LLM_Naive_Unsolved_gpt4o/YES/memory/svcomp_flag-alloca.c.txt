@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `*flag = ((*x_ref)++ < *y_ref);` always depends on the non-decreasing value of `*x_ref` and fixed value of `*y_ref`, potentially leading the loop to run indefinitely. If randomly chosen `initial x_ref` is less than `y_ref`, the increment of `x_ref` may always contribute to satisfying the loop condition *in case y_ref is large enough*, causing non-termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop continues as long as `*x_ref < *y_ref`, and `*x_ref` is incremented in every iteration. If the initial value of `*x_ref` is less than `*y_ref`, the loop condition may turn false eventually. However, due to nondeterminism, if `x` and `y` are such that `*x_ref` is already greater than or equal to `*y_ref`, the loop will never execute, causing unpredictable behavior contingent on nondeterministic input.
+

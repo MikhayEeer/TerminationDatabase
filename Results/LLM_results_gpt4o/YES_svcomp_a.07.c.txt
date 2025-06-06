@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x - max(y, z)  
+
+This program will terminate because the difference between `x` and the maximum of `y` and `z` is strictly decreasing with each iteration of the loop. Therefore, the program is guaranteed to eventually reach a state where the loop condition `(x > y) && (x > z)` no longer holds.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - max(y, z))^1
+

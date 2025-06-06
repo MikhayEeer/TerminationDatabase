@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: 1.0 * i
+Phase 2: 1.0 * (y - i)
+
+The program is terminating because the function `subxy` consists of two while loops that together form a multi-phase ranking function. In Phase 1, the variable `i` decrements from `x` to `0`, ensuring termination of the first loop. In Phase 2, `i` increments from `0` to `y`, ensuring termination of the second loop. Both phases have a finite number of steps and are decreasing or increasing towards a finite bound.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+For the first loop:  
+\( f(i) = i \)  
+
+For the second loop:  
+\( f(y - i) = y - i \)  
+
+The two loops decrease their respective counters until termination, thus the program terminates.
+

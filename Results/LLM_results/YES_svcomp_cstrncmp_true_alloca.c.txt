@@ -4,19 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-n - (number of matched characters between s1 and s2 until null terminator)
+1.0 * n^1 + 0.0 * 1
+
+Explanation: In the loop `while (n-- > 0 && *s1 == *s2)`, the integer `n` is non‐negative at entry and strictly decreases by 1 on each iteration, so the linear ranking function r(n)=n witnesses termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The ranking function for this program depends on the input `n` and reduces the value of `n` by 1 in each iteration of the loop within the `cstrncmp` function. Therefore, a potential ranking function is as follows:  
-1. `n`  
-
-Explanation:  
-- The function `cstrncmp` compares the strings `s1` and `s2` up to `n` characters.  
-- On each iteration, `n` is decremented by 1 until it reaches 0 or a difference between the characters is found.  
-- This results in a strictly decreasing value for `n`, ensuring that the program will eventually terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n + 0.0
 

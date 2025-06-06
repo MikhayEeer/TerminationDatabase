@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+0.5 * x^2 + 0.5 * x + 1
+x - y
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+0.0 * y^1 + 0.0 * 1
+
+Explanation:
+- The outer loop is bounded by `x >= 0`, which decreases by 1 in each iteration (`x = x - 1`). Therefore, the value of `x` acts as a ranking function where its value decreases on each iteration of the outer loop.
+- The inner loop, whose condition is governed by `x > y`, repeatedly doubles `y` until `y` exceeds `x`. The number of iterations of this inner loop is bounded as a function of `x` and follows a geometric growth pattern, hence it terminates before the outer loop decrements `x` again.
+

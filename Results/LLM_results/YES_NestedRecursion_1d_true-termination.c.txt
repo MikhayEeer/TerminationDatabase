@@ -1,12 +1,22 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The mutual recursion between functions `rec1` and `rec2` can lead to non-termination. Specifically, `rec2` can call `rec1` repeatedly without decreasing calls due to the nested nature of the recursive calls combined with potential non-decreasing behavior in the transformation of values.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i + 1.0
+1.0 * j + 1.0
 
 === Response 2 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The mutually recursive calls between `rec1` and `rec2` can create an infinite descent without reaching the base case, as they can repeatedly decrease their arguments in a manner that does not guarantee reaching zero.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * i  
+1.0 * j  
+
+Explanation:  
+– In rec1(i), each recursive call is on an argument strictly smaller than i (either i−2 or rec1(i−2)−1 ≤0), so f(i)=i is a valid ranking function.  
+– In rec2(j), the sole recursive call is rec2(rec1(j)−1), and for j>0 we have rec1(j)=1 so the call is on 0<j; thus f(j)=j decreases.
 

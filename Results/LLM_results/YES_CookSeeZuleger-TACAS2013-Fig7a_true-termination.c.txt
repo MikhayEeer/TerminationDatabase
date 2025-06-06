@@ -1,18 +1,24 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x + 1.0 * y  
-1.0 * d  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0 * d
+0.0 * x + 1.0 * y + 0.0 * d
+0.0 * x + 0.0 * y + 1.0 * d
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-x + y + d
-0.5 * y + 0.5 * d
+1.0 * y
+1.0 * x
+
+Explanation: We use the lexicographic (nested) tuple (y, x).  
+- In the “else” branch y decreases by 1, so the first component strictly decreases.  
+- In the “then” branch y stays the same, but x decreases by 1, so the second component strictly decreases while the first is non-increasing.  
+All components range over nonnegative integers, yielding a well‐founded ordering and hence termination.
 

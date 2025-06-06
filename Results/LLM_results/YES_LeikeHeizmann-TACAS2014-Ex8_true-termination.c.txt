@@ -4,12 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-(q > 0 && y > 0) -> q
-(q > 0 && y <= 0) -> q + y
-
-The program is terminating. The ranking function can be shown in two cases: 
-1. For the case where `y > 0`, `y` is set to 0 and `q` is non-deterministically updated, leading the program to eventually decrease in the next phase.
-2. For the case where `y <= 0`, `q` and `y` are both systematically decreased thereby eventually reaching the termination condition.
+y > 0  :  y
+y <= 0 :  q
 
 === Response 2 ===
 [RESULT]
@@ -17,16 +13,11 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 piecewise
 [RANKING FUNCTIONS]
-1. q, when y <= 0 
-2. 1, when y > 0
+– For states satisfying y > 0: φ₁(q,y) = y  
+– For states satisfying y ≤ 0: φ₂(q,y) = q  
 
-Explanation:
-
-This program consists of a loop that continues executing while `q > 0`. The update rules for `q` and `y` depend on the value of `y`:
-
-1. If `y > 0`, `y` is set to `0`, and `q` is assigned a nondeterministic value. The key here is that even though `q` gets a nondeterministic value, `y` becomes `0`, which leads us to the second piece of the ranking function.
-
-2. When `y <= 0`, the updates become deterministic: `y` decreases by `1`, and `q` decreases by `1`. Since `q` is positive and decreases with every iteration, it will inevitably reach `0`, which breaks the loop.
-
-These two components together form a piecewise ranking function, effectively reducing the values in a way that guarantees termination.
+Explanation:  
+  • If y>0 then the “then”‐branch fires, y is set to 0 < y, so φ₁ strictly decreases.  
+  • Once y≤0, we stay in the “else”‐branch forever, and each step does q := q−1 so φ₂ strictly decreases.  
+  • Both φ₁ and φ₂ map into the well‐founded naturals on their respective regions.
 

@@ -1,12 +1,14 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program does not always terminate because, when x is initially positive and y is large enough negative, the value of x may increase indefinitely instead of decreasing towards termination, resulting in an infinite loop.
+[RESULT]
+NONTERM
+[REASON]
+For any initial x,y with x+y>1 the loop update xₙ₊₁=2xₙ+yₙ, yₙ₊₁=yₙ−1 yields the closed‐form
+xₙ=(x₀+y₀−1)·2ⁿ + n +1−y₀. 
+If x₀+y₀−1>0 this grows without bound, so xₙ>0 for all n and the loop never terminates.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters an infinite loop if x is initially positive and y is non-positive and odd. In such cases, x increases exponentially while y decreases linearly, preventing the loop condition from becoming false.
+[RESULT]
+NONTERM
+[REASON]
+There is an infinite execution. E.g. with x₀=1, y₀=0 we get yₜ=−t and xₜ₊₁=2xₜ+yₜ = xₜ+1, so xₜ=t+1>0 for all t and the loop never exits.
 

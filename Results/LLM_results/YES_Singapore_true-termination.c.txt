@@ -1,12 +1,28 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The condition `x + y <= 0` with the loop `x = x + x + y; y = y - 1;` allows for non-terminating behavior. Specifically, `x` can increase indefinitely when `x > 0` and `y` is decreasing, while their sum remains initially nonpositive, leading to an endless loop.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x^1 + 1.0 * y^1 + 0.0 * 1
+
+Explanation of the ranking function f(x,y)=2x+y:
+  - In every state entering the loop we have x>0 and x+y≤0, so f(x,y)=2x+y ≥2x−x = x >0.
+  - After an iteration x′=2x+y, y′=y−1, so
+      f(x′,y′)−f(x,y) = (2x′+y′)−(2x+y) = (4x+3y−1)−(2x+y) = 2(x+y)−1 ≤ −1.
+  Hence f decreases by at least 1 each loop iteration and is bounded below by 0, proving termination.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The value of `x` can increase indefinitely when `x > 0` and `x + y <= 0`, causing the loop to run indefinitely without a terminating condition.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+Phase 1: 1.0 * y  
+Phase 2: 1.0 * x  
+
+Explanation:  
+– In every loop iteration y is decremented (y' = y–1), so Phase 1’s measure strictly decreases until the point y<–x.  
+– Once y<–x holds, x′=2x+y< x, so Phase 2’s measure x strictly decreases.  
+Together these two phases form a well‐founded, multi‐phase ranking function proving termination.
 

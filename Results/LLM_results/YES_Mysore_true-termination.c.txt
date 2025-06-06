@@ -1,14 +1,16 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variable `c` increases in each iteration, keeping `x + c` non-negative, preventing termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * c^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x, c) = x + c  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 1.0 * c
 

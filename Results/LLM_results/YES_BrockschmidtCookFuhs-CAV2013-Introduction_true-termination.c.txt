@@ -1,19 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-x
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * x - 0.5 * y - 0.25
-
-Explanation:
-The linear ranking function 0.5 * x - 0.5 * y - 0.25 shows that in each iteration of the loop, the value of the function decreases. The variable x is decremented by y, and y is incremented by 1 in each iteration, causing the expression to continually decrease until the loop exits. This guarantees termination of the program.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0
 

@@ -1,24 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * x^1 for the outer loop   
-1.0 * y^1 for the outer loop (alternative scenario)  
-1.0 * x^1 for the inner loop  
-1.0 * y^1 for the inner loop (alternative scenario)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 1.0 * y
+
+This ranking function is defined on the states satisfying the outer‐loop guard (x>0 ∧ y>0).  In every atomic decrement of either *x_ref or *y_ref, the sum x+y decreases by exactly 1 and remains non‐negative; once x+y reaches 0 the guard fails and no further transitions are possible, proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. Phase 1:  
-   (if *x_ref > *y_ref)  
-   ranking function: x_ref^1  
-2. Phase 2:  
-   (if *y_ref > *x_ref)  
-   ranking function: y_ref^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1 + 0.0 * 1
 

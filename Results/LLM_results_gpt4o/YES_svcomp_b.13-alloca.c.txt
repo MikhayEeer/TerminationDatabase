@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - z) + 1.0 * (y - z)
+
+Explanation: The program reduces either `x` or `y` towards `z` in each iteration of the loop. The loop condition checks if either `x > z` or `y > z`. Thus, the value of either `x - z` or `y - z` decreases with every iteration. The linear combination of `x - z` and `y - z` serves as the ranking function that shows strictly decreasing values, which proves termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  x_ref^1
+1.0 *  y_ref^1
+
+The program terminates because the values of `*x_ref` and `*y_ref` are both being decremented in each iteration of the loop when they are greater than `*z_ref`. This ensures that both `*x_ref` and `*y_ref` will eventually become less than or equal to `*z_ref`, causing the loop condition (`(*x_ref > *z_ref) || (*y_ref > *z_ref)`) to become false, thereby terminating the loop.
+

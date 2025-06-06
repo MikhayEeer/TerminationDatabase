@@ -1,19 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-i2^1  
-1.0 * 6 - i2^1
-
-The program is a distributed algorithm that uses multiple nodes and a loop that iterates a fixed number (6) of times. The key reasoning behind termination is that the loop-controlled variable `i2` starts at 0 and is incremented until it reaches 6. Once `i2` equals 6, the loop terminates. This can be modeled using multi-phase ranking functions: the first function `i2^1` starts from 0 and increases with each iteration, while the second function decreases from `6 - i2`. This pair shows that the loop will terminate when `i2` reaches 6.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+6.0 + -1.0 * i2
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-6 - i2
+-1.0 * i2^1 + 6.0 * 1
 

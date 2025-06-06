@@ -1,29 +1,26 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 1073741823 - z  
-Phase 2: x + y
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * k^1 + -1.0 * z^1 + 0.0 * 1
+1.0 * x^1 + 0.0 * 1
+1.0 * y^1 + 0.0 * 1
+
+Explanation of the three‐component nested ranking function ⟨f₁,f₂,f₃⟩:
+
+• f₁ = k – z strictly decreases in every L1 iteration (z doubles so k–z drops by at least 1) and once f₁≤0 loop L1 exits.  
+• While f₁≤0 and execution is in L2, f₂ = x decreases by d (≥1) on every P1‐branch; in the other branch f₂ stays the same but f₃ = y decreases by d.  
+• Hence in L2 the lexicographic pair ⟨f₂,f₃⟩ strictly decreases on every iteration, forcing termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: Multi-phase loop (L1)   
-1.0 * (*k - *z)^1 already bounded by the condition *z >= *k
-
-Phase 2: Multi-phase loop (L2)  
-1.0 * *z^1
-
-Explanation:  
-The program terminates because the loops have certain conditions that are met after a finite number of iterations. 
-
-- In L1, the loop `while (*z < *k)` will eventually terminate since *z is being doubled and will surpass or become equal to *k.  
-- In phase 2 (loop L2), variable *z decreases consistently every time `P1` block is executed, providing a sub-ranking function that will terminate the loop when *z becomes non-positive.  
-
-With these observations, the program can be shown to be terminating with the multi-phase ranking functions provided.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+1.0 * k^1 + -1.0 * z^1
+1.0 * x^1
+1.0 * y^1
 

@@ -2,19 +2,25 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi‐phase
 [RANKING FUNCTIONS]
-The program terminates because it only operates over a finite list of elements, which is created with a size determined by the nondeterministic input `n`. Since `n < 1` results in immediate termination, and any `n` that initializes a list has a finite number of elements, once the insertion operation is complete, the program terminates. Therefore, an implicit ranking function is the traversal of the list, which happens in finite time as the list has `n` elements and `n` is finite. The transformations in the list through the functions `init_list` and `insert` are all finite and deterministic, leading to program termination.
+Phase 1 (init_list’s for‐loop): f₁(j,n) = n − j  
+Phase 2 (insert’s while‐loop): f₂(curr) = the number of nodes reachable from curr (i.e. the length of the list segment starting at curr)
+
+Explanation of descent:
+- In init_list, j increases by 1 each iteration while n is fixed, so n–j strictly decreases and is always ≥ 0.  
+- Once j=n the first phase ends and control never returns to that loop; we enter insert.  
+- In insert’s while(curr->next!=NULL && …) loop, curr advances one node per iteration, so the number of nodes remaining from curr to the end strictly decreases and is always ≥ 0.  
+Both measures are natural numbers and hence well‐founded, proving termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-The program primarily consists of two parts that involve potential infinite loops: `init_list` and `insert`. The termination of `init_list` is straightforward; it iterates a fixed, non-negative, number of times 'n', thus guaranteeing termination.
+Phase 1 (init_list loop): 1.0 * n + –1.0 * j  
+Phase 2 (insert loop):     1.0 * n + –1.0 * k  
 
-The termination of `insert` depends on its single while loop, which advances through the linked list until the proper insertion point is found. Since the list is finite (with length initialized by `init_list`), and since each iteration potentially reduces the distance to the tail of the list (advancing to the next node), this loop will also terminate. Therefore, the program is guaranteed to terminate. 
-
-For a linear ranking function, the length of the input list from the initial head node to the insertion point (where `m` should be inserted) acts as a counting measure, which always decreases each time the loop condition is checked until it reaches zero.
+Here, in the first phase j is the for‐loop counter (0 ≤ j < n), so n–j strictly decreases to 0; in the second phase k is the number of steps down the list (0 ≤ k ≤ n), so n–k strictly decreases to 0.
 

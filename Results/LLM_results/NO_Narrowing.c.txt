@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program can get stuck in an infinite loop oscillating between increasing and decreasing `i` within the modified `range`, especially when `range` is decreased and `i` stays between `0` and the new `range`. The oscillation occurs indefinitely without reaching an exit condition.
+[RESULT]
+NONTERM
+[REASON]
+Once range is decremented down to 1, the loop state oscillates between (i=0,range=1) and (i=1,range=1) without ever violating 0≤i≤range, so it never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program enters an infinite loop where the variable `i` oscillates between `0` and a decreasing `range`. When `i` reaches `range-2`, the `range` decreases by 1, but this operation does not lead to a state where the loop condition `0 <= i && i <= range` becomes false. This causes the loop to potentially continue indefinitely without termination.
+Once range decrements down to 1, the loop invariants force i to alternate between 0 and 1 forever (up flips at 0 and 1) and the loop condition 0 ≤ i ≤ range (i.e. 0 ≤ i ≤ 1) never fails, so the loop never exits.
 

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+1.0 * y^1  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: y^1 (decreases until y reaches 0, bringing us to the condition x>0)  
+Phase 2: x^1 (decreases until x reaches 0, at which point the loop terminates)  
+
+The program is terminating as it has an outer loop controlled by `x` which decreases its value until it reaches 0, and an inner loop controlled by `y` which also decreases until 0. The ranking functions provided are in two phases: first the inner loop with respect to `y`, and then the outer loop with respect to `x`.
+

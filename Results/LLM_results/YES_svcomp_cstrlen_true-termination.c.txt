@@ -1,23 +1,23 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The length of the string `s` that `cstrlen` is processing.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length + -1.0 * (p – s)
 
-Explanation:  
-The loop within `cstrlen` iterates over the characters in the null-terminated string `s` until it reaches the null character. Since the string is null-terminated, there is a guaranteed upper bound on the number of iterations equal to the length of the string `s`. Therefore, this function terminates as long as the input string is properly null-terminated, which is ensured by the `__VERIFIER_nondet_String` function.
+Explanation:
+In the single loop “while (*p != '\0') p++;” we let length be the (fixed) size of the allocated buffer and i = p–s the current offset.  Then
+  R = length – i
+is always a non‐negative integer, strictly decreases by 1 on each iteration, and thus proves termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The loop in the `cstrlen` function iterates through each character of the string until it reaches the null-terminator, increasing the pointer `p`.  
-The ranking function is naturally given by the function `cstrlen` as it counts down the number of characters left until the null-terminator is found.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+f(p,s) = N + (–1)·(p – s)
 
-A simple ranking function is:  
-`(int)(p - s)`, where `p` is the current position in the string and `s` is the start. This function decreases by 1 with each iteration of the loop and reaches zero when the null-terminator is encountered, demonstrating that the loop terminates for any null-terminated string input.
+Here, s is the start of the string, p the current pointer in the loop, and N is the (nondeterministic but fixed) length of the allocated buffer.  At each iteration p increments by 1, so f decreases by exactly 1, remains non‐negative (since the terminating `'\0'` is at offset N–1), and hence proves termination.
 

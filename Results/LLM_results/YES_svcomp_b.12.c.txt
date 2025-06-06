@@ -1,11 +1,11 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-lexicographic  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * y^1  
-1.0 * y^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0
+0.0 * x + 1.0 * y + 0.0
 
 === Response 2 ===
 [RESULT]
@@ -13,7 +13,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x + y
-
-The program is terminating because the linear ranking function \(x + y\) decreases by 1 in each iteration of the while loop, and the loop condition \((x > 0) || (y > 0)\) eventually becomes false when both \(x\) and \(y\) reach 0.
+1.0 * x^1 + 1.0 * y^1
 

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * -x + 1.0 *  z
+
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: -x + z (decreases in each iteration as x grows exponentially beyond the bounds of z)  
+Phase 2: x (eventually ensures termination as it moves away from non-negative bounds)  
+

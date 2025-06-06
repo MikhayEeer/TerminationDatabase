@@ -1,19 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * n^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length(curr)
+
+where length(curr) denotes the number of nodes on the list from curr to the end (so length(NULL)=0), and each loop iteration does  
+ curr := curr→next  
+which strictly decreases length(curr) by 1 until it reaches 0.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-size of the list - 1  
+[RESULT]
+TERMINATE
 
-Explanation:  
-The `search` function iterates through a linked list starting from the `head` node until it either finds a node with the given value `m` or reaches the end of the list (`curr->next != NULL`). Each iteration moves to the next node in the list. Since the list is constructed with `n` nodes (from the `init_list` function), the loop in the `search` function will terminate after at most `n` iterations as it either finds the value or reaches the end of the list. Thus, the program is terminating.
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+rank(curr)
+
+[EXPLANATION]
+Here rank is an abstract non‐negative integer function on the heap nodes, defined so that rank(x) = the number of remaining nodes from x to the end of the list. On each loop iteration curr moves to curr->next, and by construction rank(curr->next) = rank(curr) – 1, which is a strict decrease. When curr->next == NULL, rank(curr) = 0 and the loop exits.
 

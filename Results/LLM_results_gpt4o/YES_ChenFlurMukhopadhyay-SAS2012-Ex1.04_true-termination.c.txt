@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+The program is terminating because the loop will eventually exit in all possible cases. The key observation here is that the loop will either:
+1. Select a new value for `x` such that `2*x <= old_x`, in which case `x` decreases in terms of its value.
+2. Select a new value for `x` such that `2*x > old_x`, triggering the `break` statement, which immediately terminates the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x 
+
+The program is terminating. The loop terminates due to the ranking function x, which decreases or the loop exits via the break condition. Thus, it is possible to use the linear ranking function to show termination.
+

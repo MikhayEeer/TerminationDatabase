@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+l1 - i  
+l2 - j  
+
+The program is terminating. The outer `while` loop that is controlled by `i < l1` gradually reduces as `i` increments with each iteration, ensuring termination of the outer loop. Similarly, the inner `while` loop is controlled by `j < l2`, and since `j` incrementally increases, it will eventually reach `l2`, ensuring the termination of the inner loop. Thus, the nested loop structure guarantees that the program will terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Alen^1 - i^1  
+Blen^1 - j^1  
+
+The program terminates as both loops have clear ranking functions. The outer loop's ranking function is based on the variable `i`, which decreases until it is less than `Alen`, ensuring termination. The inner loop's ranking function is based on the variable `j`, which decreases until it is less than `Blen` or a match is found setting `found` to 1, again ensuring termination.
+

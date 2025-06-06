@@ -4,7 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x^1 
+1.0 * x^1 + 1.0 * 1
 
 === Response 2 ===
 [RESULT]
@@ -12,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
 

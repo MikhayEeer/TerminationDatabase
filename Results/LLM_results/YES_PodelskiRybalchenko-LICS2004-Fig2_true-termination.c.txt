@@ -2,14 +2,18 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * x^1 + 1.0 * y^1
-
+piecewise
+[PIECEWISE CONDITIONS AND RANKING FUNCTIONS]
+1) if x >= y: f₁(x,y) = x  
+2) if y >= x + 2: f₂(x,y) = y  
+3) if y = x + 1: f₃(x,y) = x
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program can enter a loop where `(x, y)` cycles through states without converging to termination, such as alternating between states (0, 1) and (-1, 0).
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+1.0 * x^1 + 1.0 * y^1
 

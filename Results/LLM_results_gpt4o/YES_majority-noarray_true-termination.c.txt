@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (getE(1) - 2)^1 + 0.0
+0.0
+
+The program terminates by reducing the value of `getE(1)` towards a desired state where all conditions are met. The multi-phase ranking functions show that each agent's actions lead towards this state. The first phase ensures the adjustment of `getE(1)` towards the value 2, and post that, we reach a stable state (second phase) where no further changes lead to a decrease in any parameter, indicating termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (3 - getI(2, 0))^1 + 1.0 * 1
+1.0 * (3 - getI(0, 0))^1 + 1.0 * 1
+1.0 * (3 - getI(1, 0))^1 + 1.0 * 1
+
+The program can be proven to terminate using multi-phase ranking functions that decrease during execution for each phase, leading to a program exit condition when all agents satisfy ((getI(2, 0) == 0) || (getI(2, 0) == 2)) && ((getI(0, 0) == 0) || (getI(0, 0) == 2)) && ((getI(1, 0) == 0) || (getI(1, 0) == 2)).
+

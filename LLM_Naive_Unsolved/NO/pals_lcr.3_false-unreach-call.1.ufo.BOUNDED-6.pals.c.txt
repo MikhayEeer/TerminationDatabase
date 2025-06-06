@@ -2,9 +2,9 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-0.3333 * 6^1 - 0.3333 * i2^1
+6.0 * 1 + -1.0 * i2^1
 
 === Response 2 ===
 [RESULT]
@@ -12,7 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-6 - i2
-
-The program is terminating because of the loop variable `i2`, which is incremented in each iteration and limits the loop to run a maximum of 6 times (from 0 to 5). This can be represented by a simple linear ranking function `6 - i2`, which decreases in every iteration.
+6.0 - 1.0 * i2
 

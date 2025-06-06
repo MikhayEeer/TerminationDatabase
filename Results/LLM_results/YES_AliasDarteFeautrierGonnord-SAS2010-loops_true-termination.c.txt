@@ -1,25 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 0 * y^1 + 0  
-1.0 * x^1 + 0 * y^1 + 0  
-
-The program is terminating. It can be proved by the multi-phase ranking function on the variable `x`. The main loop decreases `x` by 1 in each iteration, and once `x` becomes negative, the loop terminates. The inner loop with `y` does not affect termination since it resets `y` to 1 and increases `y` until it is no longer less than `x`, which effectively causes it to terminate independently once `x` changes.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x + 1.0
+1.0 * x + -1.0 * y
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.0 * 1
-1.0 * (x - y)^1 + 0.0 * 1
-
-Explanation: 
-The program will terminate as there exists a multi-phase ranking function that eventually decreases and leads to program termination.
-- The first phase decreases the value of `x` with each iteration of the outer loop `while (x >= 0)`.
-- The second phase, inside the inner loop `while (y < x)`, involves `y` increasing until it is no longer less than `x`. When the inner loop exits, the outer loop decrements `x`, ensuring eventual termination.
+1.0 * x + 1.0 * 1
+1.0 * x + -1.0 * y
 

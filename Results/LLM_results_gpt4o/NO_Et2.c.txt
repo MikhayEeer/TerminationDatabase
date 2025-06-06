@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * b^1 + 0.0 * 1
+
+This program terminates because with each iteration of the while loop, the variable `b` is decremented by at least 1 due to the `a - 1 - r` value assigned to both `b` and `a`, where `r` can be at minimum 0. When `b` becomes non-positive, the loop condition `b > 0` will be false, causing the loop to stop. The ranking function `1.0 * b^1` shows that `b` strictly decreases towards zero or a negative value, leading to termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+0.5 * b + 0.5 * a  
+

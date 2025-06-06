@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program enters an infinite loop by alternating `i` between 51 and 49, never reaching the condition `i >= 100` needed to terminate the loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program has a non-terminating cycle between `i = 51` and `i = 49` within the while loop.
+

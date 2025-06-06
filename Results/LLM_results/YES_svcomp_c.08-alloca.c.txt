@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-Primary loop: 1.0 * i_ref^1  
-Secondary loop: 1.0 * (i_ref - j_ref)^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * i_ref^1 + 1.0 * 1
+1.0 * i_ref^1 + -1.0 * j_ref^1 + 0.0 * 1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * i_ref^1  
-1.0 * (i_ref - j_ref)^1  
-
-The program is terminating as shown by the nested ranking functions. The outer loop reduces the variable `i_ref`, which guarantees that it eventually terminates, and within each iteration of the outer loop, the inner loop reduces the variable `(i_ref - j_ref)`, ensuring it also terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * j^1 + 0.0 * 1
+1.0 * i^1 + -1.0 * j^1 + 0.0 * 1
 

@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+When \( y \geq 1 \) and \( y \leq 2 \):  
+\( x - y \) decreases by at least 1 in each iteration.
+

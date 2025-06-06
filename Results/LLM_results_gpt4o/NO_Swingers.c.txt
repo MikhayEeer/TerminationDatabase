@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The values of `bob` and `samantha` are swapped in an infinite cycle without changing their sum, so the condition `bob + samantha < 100` remains true indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains a non-terminating loop because the values of `bob` and `samantha` are swapped indefinitely without changing their sum, thus the loop condition `bob + samantha < 100` remains true forever.
+

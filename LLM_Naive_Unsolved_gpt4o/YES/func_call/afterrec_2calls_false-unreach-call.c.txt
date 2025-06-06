@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The mutual recursion between functions `f` and `f2` results in an endless loop without reaching the base condition where `n<3` and the recursive calls do not prevent it from reaching the `ERROR` label.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+Mutually recursive calls between f and f2 without a base condition to prevent indefinite alternation between the two functions.
+

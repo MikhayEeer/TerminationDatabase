@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+\( f(a, i) = \sum_{j=0}^{i-1} |a[j]| \)
+
+Explanation: 
+
+The function `test_fun` iterates over the array `a[]`. For each element `a[i]` in the array, there are two nested while loops:
+
+1. The first inner loop (`while (a[i] < 0)`) increments `a[i]` by 1 until it becomes zero, and increments `neg`. This loop decreases the magnitude of any negative value to zero, eventually terminating since the array element cannot decrease indefinitely.
+   
+2. The second inner loop (`while (a[i] > 0)`) decrements `a[i]` by 1 until it becomes zero, and increments `pos`. This loop decreases any positive value to zero, which also must terminate as the integer value cannot increase indefinitely.
+
+Overall, for any `a[i]`, the absolute value `|a[i]|` decreases in each step of any loop, and once it reaches zero, both loops terminate for that element. The sum of the absolute values of all elements in `a[]`, \( \sum_{j=0}^{N-1} |a[j]| \), decreases with each operation inside the loops, which guarantees overall termination. The function thus applies a linear ranking function based on reducing the total absolute sum of the array elements.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (sum_i |a[i]|)  
+
+Explanation:
+
+The program is terminating as the function `test_fun()` iterates through an array and internally, it modifies each element `a[i]` either by incrementing or decrementing it towards zero. 
+
+The outer loop runs for a fixed number of iterations `N`, and within each iteration, the inner loops run based on the `a[i]` value, i.e., until `a[i]` reaches zero. Thus, for each element `a[i]`, either `a[i]++` or `a[i]--` operation is performed to decrease its absolute value by 1, which means for every element, the sum of the absolute values decreases with every operation.
+
+Overall, the measure `(sum_i |a[i]|)` serves as a ranking function that decrements towards zero as each loop executes, thus proving termination through a multi-phase approach where the sum of the absolute values of elements is reduced over time until the loop ends.
+

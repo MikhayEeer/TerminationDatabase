@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program contains an infinite loop with a condition based on a nondeterministic integer `cond` that, if always non-zero, makes the loop never break out. Hence, the program may execute indefinitely depending on the values returned by `__VERIFIER_nondet_int()` for `cond`.
+The nondeterministic variable `cond` can be chosen nonzero on every iteration, causing the `while(1)` loop to never exit.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program contains an infinite loop with an unconstrained nondeterministic condition `cond` that either ends the loop or continues indefinitely. If `cond` never reaches 0, the loop can run indefinitely, leading to non-termination.
+The loop condition is based on a nondeterministic integer `cond`. There exists a scheduling (or choice of `cond != 0` at every iteration) that makes `goto out` never taken, so the `while(1)` loop can execute infinitely.
 

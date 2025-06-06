@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program can enter a non-terminating state if the `gcd` function is called with inputs where one is zero and the other is positive, leading to an infinite loop since neither value will reach equality. For example, starting with inputs \(*y1 = 0, *y2 = 1\) will cause the loop to execute indefinitely because the condition \(*y1 != *y2\) will always hold.
+If one input is zero and the other positive (e.g. y1=0, y2=5), then in the loop y2 = y2 - y1 leaves y2 unchanged and y1<y2 forever, so the while‐loop never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-If either `*y1` or `*y2` are zero, the while loop condition in the `gcd` function doesn't hold; however, if initialized with numbers that have no common divisor, they can repeatedly decrease one variable without ever making the two numbers equal, potentially causing non-termination.
+If one of y1,y2 is 0 and the other >0, the subtraction step leaves both unchanged (n–0=n), so the loop condition y1≠y2 holds forever and gcd never terminates.
 

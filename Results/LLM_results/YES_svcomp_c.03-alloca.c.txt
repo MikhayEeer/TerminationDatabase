@@ -1,20 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. If \( x < z \): Ranking function is \( y - x \)  
-2. Else: Ranking function is \( y - z \)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1) If z ≤ y: f(x,y,z) = (y − x) + (y − z)  
+2) If z > y: f(x,y,z) = (y − x)
+
+Explanation of decrease:
+- In the branch x<z (so x increments): in both pieces y−x drops by 1, and y−z does not increase, so f decreases by 1.
+- In the branch x≥z (so z increments): if z≤y then y−z drops by 1 (y−x unchanged) so f decreases by 1; if z>y then we are in piece 2 where f=y−x which is unchanged by z++—but in that case x<z so the next iteration will take the x<z branch, causing x++ and a decrease of 1 in f. All values of f at loop entry are ≥1 (since x<y), so f is a valid well‐founded ranking.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (y - x)^1 + 1.0 * 1  
-0.5 * (z - x)^1 + 0.5 * 1  
-
-The program is terminating as the main function calls `test_fun` with nondeterministic values. The program features a loop that continues while `x_ref < y_ref`. During each iteration of the loop, either `x_ref` is incremented, if it is less than `z_ref`, or `z_ref` is incremented, ensuring that either the difference `y - x` is nonnegative and strictly decreases, or the difference `z - x` remains nonnegative and strictly decreases. The ranking functions indicate a decrease in values ensuring termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+for *x_ref ≥ *z_ref: f₁(x,y,z) = y - x  
+for *x_ref <  *z_ref: f₂(x,y,z) = x - z
 

@@ -1,16 +1,24 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * x + 0.5 * y
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+// Case 1: y+z ≥ 0, use f₁(x,y,z)=y+z+1
+y + z + 1    (applicable when y+z ≥ 0)
+// Case 2: y+z ≤ –1, use f₂(x,y,z)=x+1
+x + 1        (applicable when y+z ≤ –1)
+
+Explanation of correctness:
+- In Case 1, y+z ≥ 0 ⇒ f₁ ≥ 1 and under the loop body y′=–z–1 so y′+z+1=0 ⇒ f₁′=0<f₁.
+- In Case 2, y+z ≤ –1 ⇒ f₂ ≥ x+1 ≥ 1 and x′=x+y+z ⇒ f₂′=x′+1=x+1+(y+z)≤f₂–1.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x, y, z) = x + y
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0 * z^1 + 1.0 * 1
+1.0 * x^1 + -1.0 * z^1 + 1.0 * 1
 

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The recursive function `rec` can enter an infinite loop for certain values of `x`, particularly when `x` is a large positive odd integer. The case `rec(--x)` will revert the increment done by `rec(++x)`, and as such, the program does not make progress and can continue indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The recursive function `rec` may not terminate for some inputs because it can enter a cycle when `x` is odd. Incrementing `x` (with `++x`) followed by decrementing it (with `--x`) brings it back to the same state, causing possible infinite recursion for such values.
+

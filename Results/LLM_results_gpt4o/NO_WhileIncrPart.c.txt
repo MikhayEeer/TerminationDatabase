@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program has a potential path (when `i > 3`) where the value of `i` is incremented each time, leading to an increase and potential non-termination as no condition decreases `i` to exit the loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+When \(i > 3\), \(i\) increases by 1, possibly creating an infinite loop.
+

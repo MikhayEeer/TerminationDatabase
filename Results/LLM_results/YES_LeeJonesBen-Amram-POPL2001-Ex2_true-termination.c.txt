@@ -1,20 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: i (decreases by 1 in f(i, x) due to the call to g(i-1, x, i))  
-Phase 2: a (remains non-negative and decreases as a approaches 0 in g(a, b, c))  
-
-The function `f` calls `g` with the first argument `i-1`, meaning that `i` decreases by 1 in each recursive step until `i` reaches zero. Furthermore, the condition `if (i==0)` acts as a base case, ensuring termination. Additionally, the call to `f(a, b+c)` in `g(a, b, c)` reinforces that the value of `a` is a control parameter eventually reaching zero, ensuring no infinite recursion. Thus, the program terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i + 0.0 * x + 0.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * i^1  
-1.0 * a^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * x^1 + 0.0
 

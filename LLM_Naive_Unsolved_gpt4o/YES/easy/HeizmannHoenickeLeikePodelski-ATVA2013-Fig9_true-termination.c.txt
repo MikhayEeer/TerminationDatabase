@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop continues indefinitely when `z == 1` and `x >= 0` with `2*y < z`, causing `x` to decrease without ever reaching a point where the loop condition `z == 1` would change.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `z == 1` prevents the exit condition from being met because `z` does not change within the loop, and with `2*y < z` being false, there might be cases where `x` keeps being updated without ensuring termination.
+

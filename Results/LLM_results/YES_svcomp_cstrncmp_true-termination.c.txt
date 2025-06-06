@@ -4,7 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-The program terminates because it is evident that the loop within the `cstrncmp` function has a bound determined by the parameter `n`. The `while` loop decrements `n` and eventually `n` will reach zero, at which point the loop terminates. This argument is independent of the contents of the strings `s1` and `s2`. Hence, the linear ranking function is based on the value of `n` decrementing towards zero.
+1.0 * n
 
 === Response 2 ===
 [RESULT]
@@ -12,7 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-n
-
-This program will terminate because the loop in the `cstrncmp` function only iterates a maximum of `n` times, where `n` is a non-negative integer provided by the function's argument. Each iteration either decreases `n` or causes the loop to terminate due to the `if (n == 0 || *s1 == '\0') return 0;` condition, ensuring that the loop cannot enter an infinite iteration cycle.
+1.0 * n^1 + 0.0
 

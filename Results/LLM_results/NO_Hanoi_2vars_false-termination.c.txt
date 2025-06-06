@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `x` can increase indefinitely if `y` is greater than or equal to 0, making the loop condition `x > 0` continuously true. Thus, the program may not terminate.
+[RESULT]
+NONTERM
+[REASON]
+For any initial state with x>0 and y≥0, each iteration gives y:=y+1≥y and x:=x+y≥x, so x stays positive forever and the loop never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The variable `x` can increase indefinitely if `y` is positive, leading to non-termination as the condition `x > 0` may remain true.
+For any initial x>0 and y≥0, each step adds y+k≥0 to x (where k is the iteration count), so x never falls to ≤0 and grows unboundedly, making the loop infinite.
 

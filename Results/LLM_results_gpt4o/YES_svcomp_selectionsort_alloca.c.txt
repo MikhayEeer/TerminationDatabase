@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+First Phase: 1 * (array_size - i)  
+Second Phase: 1 * (array_size - j)  
+
+The program is terminating because the outer loop runs from `i = 0` to `array_size - 2`, strictly decreasing the value `array_size - i` in each iteration. The inner loop runs from `j = i + 1` to `array_size - 1`, also decreasing the value `array_size - j` in each iteration. Both phases are bounded by the array size.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+- A linear decrease of `array_size` during the execution of the main for-loop of the SelectionSort function.  
+- A secondary decrease within the inner loop, scanning from `i+1` to `array_size` as `i` increases. The combination guarantees progress toward termination as the outer loop progresses.
+

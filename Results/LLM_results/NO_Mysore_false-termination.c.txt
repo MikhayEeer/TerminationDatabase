@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-c
+[RESULT]
+NONTERM
+[REASON]
+For c<0 and x≥−c, each loop iteration increases x+c by (−c−1)≥0, so once x+c≥0 the condition remains true forever, yielding an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-c + x + 1  
+[RESULT]
+NONTERM
+[REASON]
+For any initial c<0 and x≥−c, each iteration does x→x−c and c→c−1, so the guard x+c≥0 remains true forever, yielding an infinite loop.
 

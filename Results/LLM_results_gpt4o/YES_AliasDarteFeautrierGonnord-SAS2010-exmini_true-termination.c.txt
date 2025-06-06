@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.333 * (101 - i) + 0.333 * (k - j + 1)  
+0.5 * (k - j)  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1.0 * k^1 + 101.0 * 1
+0.5 * 100^- (0.5*2) * (j^2 + i^2)
+

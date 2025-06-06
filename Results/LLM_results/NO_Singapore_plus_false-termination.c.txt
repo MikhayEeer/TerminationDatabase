@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-If \( x > 0 \) and \( y \geq 0 \), then \( x \) increases indefinitely because the update \( x = x + x + y \) in the loop increases \( x \), causing it never to reach \( 0 \), leading to non-termination.
+[RESULT]
+NONTERM
+[REASON]
+There exists a feasible infinite run: e.g. starting with x=1, y=0 (which satisfies x+y≥0), the loop update x:=2x+y, y:=y+1 makes x grow (1→2→5→12→…), so x stays >0 forever and the loop never terminates.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop can potentially run indefinitely if the initial value of `x` is positive and `x + x + y` results in `x` remaining positive or increasing. For example, if initially `x > 0` and `y = 0`, the value of `x` doubles on each iteration, thus never allowing the loop condition `x > 0` to be false.
+[RESULT]
+NONTERM
+[REASON]
+For example, with x=1, y=0 (so x+y≥0) each step does x←2x+y, y←y+1, giving x_{n+1}=2x_n+n and x_n>0 for all n, so the loop never exits.
 

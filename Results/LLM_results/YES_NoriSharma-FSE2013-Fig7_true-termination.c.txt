@@ -1,20 +1,21 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-(M - i) + (N - j)  
-
-The program is terminating because the sum \((M - i) + (N - j)\) acts as a linear ranking function. Since \(i\) and \(j\) are incremented in each iteration, and \(i\) is bounded by \(M\) and \(j\) is bounded by \(N\), the function decreases until the loop condition is no longer satisfied.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max( M - i,  N - j )  
+ 
+Explanation: On each loop iteration i and j both increase by 1, so M-i and N-j each decrease by 1, hence their maximum is a well-founded piecewise linear ranking function.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-(M - i) + (N - j)
+– f₁(i,j) = M – i  
+– f₂(i,j) = N – j  
 
-This program is terminating, and the termination can be proven by a linear ranking function. The values `(M - i)` and `(N - j)` both strictly decrease as the loop iterates because `i` and `j` are incremented in each iteration while `M` and `N` are constants. The loop condition `i<M || j<N` eventually fails as both `i` and `j` will reach and then exceed `M` and `N`, respectively, making the program terminate.
+(The loop-guard (i<M ∨ j<N) ensures max(f₁,f₂)>0 on entry, and each iteration decrements both f₁ and f₂ by exactly 1, hence max(f₁,f₂) is a well-founded ranking function.)
 

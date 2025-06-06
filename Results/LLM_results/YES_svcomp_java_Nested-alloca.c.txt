@@ -4,17 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-10 - *i
-9 - *j/2 + 1
+10.0 * 1 + -1.0 * i^1
+12.0 * 1 + -1.0 * j^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-10.0 - 1.0 *  i^1
-13.0 - 1.0 *  j^1
-
-The program contains two nested loops. The outer loop increments `*i` from 0 to 9, and the inner loop starts with `*j` initialized to 3 and increments by 1 each time. The `*j` loop consists of a decrement (`*j -= 1`) and an increment (`*j += 2`), resulting in a net increment of 1 each iteration. This causes the inner loop to terminate once `*j` reaches 12, allowing the outer loop to continue its iteration. Both loops have clear decreasing ranking functions proving termination: the outer with respect to `*i` and the inner with respect to `*j`.
+10.0 - i
+12.0 - j
 

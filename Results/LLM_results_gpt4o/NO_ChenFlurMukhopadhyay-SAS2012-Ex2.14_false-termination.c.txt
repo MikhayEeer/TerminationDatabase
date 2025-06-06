@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+For specific initial values, such as x=10k and y=3k for any k>0, the expression 10*y - 2*x keeps x non-positive in each iteration of the loop. Therefore, x and y never both become non-positive, causing the loop to never terminate.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating for initial values where the relationship `x = 10y` holds, such as `x = 10k` and `y = k` for any `k > 0`. During each loop iteration, `x` updates to `10y - 2x`, maintaining the invariant `x = 10y`. Thus, the loop condition `x > 0 && y > 0` is never violated.
+

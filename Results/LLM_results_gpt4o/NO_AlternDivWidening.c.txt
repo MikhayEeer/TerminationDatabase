@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+phase 1: (|i| > 5)  
+     f(i, w) = |i|  
+phase 2: (-5 <= i <= 5)  
+     f(i) = i  
+
+This program can be shown to terminate using a multi-phase ranking function. In the first phase, when |i| is greater than 5, the absolute value of i is reduced in every iteration of the loop. Once i is within the range [-5, 5], the second phase ensures that eventually i is set to 0, terminating the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * |i|^1 + 0.0 
+

@@ -1,21 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x) = x  
-
-Explanation:  
-The program has a loop with a condition `while (x > 1)`, and the loop executes as long as `x > 1`. Inside the loop, `x` is potentially reassigned to a nondeterministic value using `__VERIFIER_nondet_int()`. The loop gets terminated prematurely with a `break` statement if the condition `-2*x != old_x` is met. However, if we assume that the reassignment makes progress towards satisfying the loop condition by producing a smaller positive value each time, the execution will eventually satisfy the loop's exit condition (`x <= 1`).
-
-By considering `f(x) = x`, we can see that the value of `x` only needs to reduce to terminate the loop. Any sequence of assignments where `x` decreases or remains the same will ensure termination due to the nature of the condition inside the loop and the eventual satisfaction of the loop's exit condition. Thus, it's a linear ranking function.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * 1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-|-x|^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * 1
 

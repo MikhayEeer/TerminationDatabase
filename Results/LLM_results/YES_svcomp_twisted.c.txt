@@ -1,12 +1,23 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains a pair of mutually recursive loops (L1 and L2) with `goto` statements causing it to loop indefinitely under certain conditions. Specifically, if both `k` and `l` are positive, the function enters an infinite loop without any guaranteed exit, depending on how `i` increments and the modulo operation outcome.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+f₁(k,i,j,l) = k – i  
+f₂(k,i,j,l) = l – j  
+
+Explanation:  
+– On every L1‐to‐L1 or L1‐to‐L2 transition i increases by 1 (so k–i strictly decreases, f₂ unchanged).  
+– On every L2‐to‐L2 or L2‐to‐L1 transition j increases by 1 (so l–j strictly decreases, f₁ unchanged).  
+Both components stay non‐negative in all reachable states, hence (f₁,f₂) is a lexicographic ranking function.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains mutual dependence between the loops L1 and L2, with infinite redirections possible due to the `goto` statements based on the values of `i`. If `k` and `l` are both sufficiently large, the program does not guarantee progression out of both loops, leading to potential non-termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * k + -1.0 * i
+1.0 * l + -1.0 * j
 

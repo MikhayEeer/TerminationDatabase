@@ -1,0 +1,15 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can exhibit infinite behavior when `i` and `j` are initialized to any positive number, satisfying `i == j`. In each iteration, `i` is decremented by 1 while `j` remains unchanged, leading to an infinite loop since `i` can continue decrementing indefinitely without reaching zero.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+i^1 + j^1
+
+

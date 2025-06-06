@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The function `cstrspn` iterates over the characters of the first string `s1` until it finds a character not present in the second string `s2` or reaches the end of `s1`. The loop iterating over `s2` is nested within the loop iterating over `s1`, and each cycle of the outer loop either terminates early or progresses towards completing `s1`. The inner loop terminates as it traverses a finite string `s2`. Therefore, a linear ranking function is the length of the remaining string `s1`, which decreases with every iteration of the outer loop until termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1. Decrease in the number of characters in `s1` to process, measured by the difference between `sc1` and the end of `s1`.  
+2. Nested loop with `s` pointer progresses towards the end of `s2` while comparing characters, eventually either finding a match or iterating through `s2`.  
+
+The outer loop processes one character from `s1` in each iteration, and the inner loop processes one character from `s2`, either breaking the inner loop or reaching its end. The finite nature of the strings ensures that each loop iteration represents progress towards termination.
+

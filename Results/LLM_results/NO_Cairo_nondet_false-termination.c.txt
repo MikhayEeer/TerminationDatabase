@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-x
+[RESULT]
+NONTERM
+[REASON]
+If x and the second nondet both yield negatives with x > y (e.g. x=–5, y=–10), the loop “while(x!=0) x=x–1” starts at a negative x, decrements further, never reaches 0, and so runs forever.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x^1  
+[RESULT]
+NONTERM
+[REASON]
+If x<0 but x>k initially, the while(x!=0) loop decrements x further negative and never reaches 0, so it diverges.
 

@@ -2,19 +2,21 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * x^1 
-5.0 * y^1 + 1.0 * x^1 
+1.0 * x
+1.0 * y + -1.0 * x + 1.0
+
+Explanation:
+– The outer loop is ranked by R₁(x,y)=x, which strictly decreases by 2 on each full iteration (so eventually x<2 and the loop exits).
+– The inner loop is ranked by R₂(x,y)=y−x+1, which decreases by 1 on each inner‐loop step and is non‐negative exactly when y≥x, ensuring termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-x  
-y   
-  
-Explanation: The program terminates as each iteration of the outer `while` loop decreases `x` by 2. In the inner loop, `y` is decremented until it is less than `x`. Thus, the variables `x` and `y` are both bounded and decrease over time, indicating that this program concludes. The phases can be observed with `x` decreasing to terminate the outer loop and `y` within the inner loop.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0
+-1.0 * x^1 + 1.0 * y^1 + 0.0
 

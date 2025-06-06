@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `x` can increase indefinitely if `y` is greater than or equal to 0, making the loop condition `x > 0` continuously true. Thus, the program may not terminate.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The variable `x` can increase indefinitely if `y` is positive, leading to non-termination as the condition `x > 0` may remain true.
+

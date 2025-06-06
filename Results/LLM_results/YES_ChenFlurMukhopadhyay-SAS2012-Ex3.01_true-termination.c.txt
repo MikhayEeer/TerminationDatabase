@@ -1,12 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-If `z` is assigned a value larger than `y`, the condition `x < y` can remain true indefinitely, causing the loop to run eternally without reaching termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+piece 1 (when y > z): 1.0 * y + –1.0 * x  
+piece 2 (when y ≤ z): 1.0 * z + –1.0 * x
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program contains a loop where `x` is incremented but `y` is reset to the value of `z` in each iteration. Depending on the initial values, `x` may never reach or exceed `y`, leading to a potential infinite loop if `z` is set in such a way that the condition `x < y` always holds.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+(y - z)^2
+(z - x)
 

@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 0.0 * 1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Primary: f(x) = x
+Secondary: g(y) = x - y
+
+Explanation: The outer loop decreases `x` from its initial value, down to 0. The inner loop increments `y` from 0 to `x`, ensuring it always terminates for each iteration of the outer loop. The nested ranking functions provide a clear measure that decreases overall as the loops execute, proving termination.
+

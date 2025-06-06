@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+0.5 *  x^1 + 0.5 * 1  
+0.5 * (n - y^1) + 0.5 * 1  
+
+The program terminates because the outer loop variable `x` decreases at every iteration of the outer loop, and the inner loops adjust `y` within bounds but do not prevent eventual termination of the outer loop. The multi-phase ranking function captures the progress towards termination, where `x` contributes to the first phase and `y` is controlled within `n` in the second phase.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0 * 1  
+1.0 * (n - y)^1 + 0.0 * 1  
+
+The program is terminating. The multi-phase ranking function uses two phases: the first function decreases the value of `x` to ensure it eventually drops below 0, thus breaking the outer loop. The second function ensures that within each iteration of the outer loop, the inner modifications of `y` maintain a bounded and eventually decreasing pattern as `x` decreases.
+

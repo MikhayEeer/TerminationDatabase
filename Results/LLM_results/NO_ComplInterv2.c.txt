@@ -1,22 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1.0 * abs(i)
+[RESULT]
+NONTERM
+[REASON]
+If i ≥ 5 or i ≤ –5, none of the branches in the loop body fire, so i remains unchanged and the loop runs infinitely.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-If (i > 0):  
-   1.0 * i^1  
-If (i < 0):  
-   -1.0 * i^1  
-
-Explanation:  
-The program has a loop that terminates when `i` equals 0. Within the loop, if `i` is within the range (-5, 5), it is incremented towards 0 if negative and decremented towards 0 if positive. Thus, `i` will eventually reach 0 and the loop will terminate. The ranking functions demonstrate how the values decrease or increase monotonically towards 0, ensuring termination.
+[RESULT]
+NONTERM
+[REASON]
+If the nondeterministic initial i ≥ 5 or i ≤ –5, the loop body makes no updates and i remains nonzero forever, so the loop never terminates.
 

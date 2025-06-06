@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x_ref - (y_ref + z_ref)  
+
+Explanation:  
+The loop condition is `*x_ref > *y_ref + *z_ref`, and within the loop, both `*y_ref` and `*z_ref` are incremented by 1 in each iteration. The value of `*x_ref - (*y_ref + *z_ref)` decreases by 2 in each iteration, which ensures termination because it eventually becomes non-positive when `*x_ref` is no longer greater than `*y_ref + *z_ref`. The ranking function `x_ref - (y_ref + z_ref)` naturally decreases and is bounded below, hence proving termination.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The condition *x_ref > *y_ref + *z_ref ensures that the loop can continue indefinitely if the initial value of *x_ref starts significantly larger than the sum of *y_ref and *z_ref, and since both *y_ref and *z_ref are incremented by 1 in each loop iteration, this condition can be maintained indefinitely, leading to potential non-termination. There is no decreasing measure that guarantees termination since the increments on *y_ref and *z_ref can keep the loop condition true.
+

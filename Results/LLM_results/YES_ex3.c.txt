@@ -2,21 +2,22 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+linear
 [RANKING FUNCTIONS]
-The functions `rec1` and `rec2` have separate ranking functions based on recursive depth reduction.
-
-For `rec1`, the ranking function is based on the decreasing depth of recursion on `i`:
-- Ranking function for `rec1`: The parameter `i` strictly decreases with each recursive call until it reaches `0` or less, at which point the recursion terminates.
-
-For `rec2`, the ranking function is based on the transformation through calls to `rec1`:
-- Ranking function for `rec2`: The combination of `rec2` and `rec1` ensure that every recursive call chain makes progress towards termination by reducing the input in a structured manner.
-
-Hence both functions will eventually reach their base cases and terminate.
+1.0 * i + 0.0 * 1
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The function `rec2` calls `rec1` with an argument `j+1`, causing `rec2` to repeatedly call itself with a non-terminating recursive pattern when `j` is positive.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * 1
+
+Explanation of the ranking argument:
+For any call rec1(i) with i>0, each recursive sub‐call is made on an argument k strictly smaller than i:
+  • First sub‐call: k₁ = i−2 < i.
+  • Second: k₂ = rec1(i−2)−1 ≤ 1−1 = 0 < i.
+  • Third: k₃ = rec1(k₂) ≤ 1 < i.
+Since k < i in all cases and rec1(·) returns immediately when its argument is ≤0, the linear measure R(i)=i is a well‐founded ranking function, proving termination.
 

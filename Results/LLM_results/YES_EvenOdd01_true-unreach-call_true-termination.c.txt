@@ -1,20 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 *  n^1 + 0.0 * 1  
-
-The program is terminating. The recursive calls in the functions `isOdd` and `isEven` decrease the input `n` by 1 in each step until it reaches 0 or 1. When `n` is 0 or 1, the recursion stops, thus the program is terminating. The ranking function `1.0 * n` effectively reflects the decrease in `n` towards termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-1. n for n >= 0
-
-This program always terminates because the values passed to `isOdd()` or `isEven()` functions are always decremented by 1, and since `n` is initially non-negative, they always reach 0 or 1, which are the base cases, and terminate. The recursive calls strictly decrease `n`, ensuring termination. The main loop doesn’t involve any non-terminating cases due to the checks present for non-negative `n`.
+1.0 * n
 

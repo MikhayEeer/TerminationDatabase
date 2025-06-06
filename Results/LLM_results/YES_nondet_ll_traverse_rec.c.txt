@@ -2,17 +2,23 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-n - current list length
+Phase 1 (in init_list): f₁(n) = 1.0·n + 0.0  
+Phase 2 (in traverse): f₂(curr) = 1.0·length(curr) + 0.0  
 
-The program initializes a linked list with a length of `n` and then uses the `traverse` function to recursively traverse this list. The only recursion occurs in the `traverse` function, which is guaranteed to terminate because it works through the list's `next` nodes until it encounters a `NULL`, which marks the end of the list. The length of the current sublist decreases with each recursive call, serving as a linear ranking function based on the number of nodes left to traverse. Hence, the program is terminating.
+where “n” is the argument to init_list, and length(curr) is the number of remaining list nodes from curr (a non‐negative integer that strictly decreases on each recursive call).
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
- n 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1 (init_list): 1.0 * n  
+Phase 2 (traverse): 1.0 * length(curr)  
+
+Explanation:  
+– In init_list(n), the argument n is a non‐negative integer (guaranteed by the check in main) and decreases by 1 on each recursive call, so 1·n is a valid ranking function for that phase.  
+– In traverse(curr), the remaining list length is a non‐negative integer that decreases by 1 on each recursive call, so 1·length(curr) is a valid ranking function for that phase.
 

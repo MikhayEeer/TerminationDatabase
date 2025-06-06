@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+f(x, y) = x  
+
+The program is terminating and can be proved by the linear ranking function f(x, y) = x with the supporting invariant y >= 1. As the loop runs, x is decremented by y in each iteration, and since y >= 1, x eventually becomes negative, leading to loop termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+f(x, y) = x
+
+Explanation: The program terminates because in each iteration of the loop, the value of `x` is decremented by at least `y`, which is a positive number since the condition `y >= 1` is an invariant. The loop condition `x >= 0` ensures that the loop exits when `x` becomes negative, guaranteeing termination. The ranking function `f(x, y) = x` is a linear ranking function that decreases with each iteration, proving termination.
+

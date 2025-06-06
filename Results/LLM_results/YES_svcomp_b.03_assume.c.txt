@@ -1,14 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-x - y  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The condition `x > y` in the while loop is not guaranteed to decrease consistently. If `x` is positive and large and `y` is negative or significantly smaller, `y = y + x` might never surpass `x`, causing an infinite loop.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + 0.0 * 1
+
+Explanation: In the loop `while(x>y)`, the value f(x,y)=x−y is always positive when entering and decreases by exactly x>0 on each iteration, hence it is a valid linear ranking function proving termination.
 

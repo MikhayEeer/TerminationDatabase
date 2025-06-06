@@ -1,14 +1,10 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-i - j
-
-Explanation: 
-
-The program uses a `for` loop that decrements the value of `i` and increments the value of `j` in each iteration. The execution of the loop depends on the condition `i - j >= 1`. Initially, `i` is set to 10000 and `j` is set to 1, so the difference `i - j` is initially 9999. In each iteration, the value of `i` decreases by 1 and `j` increases by 1, effectively making `i - j` decrease by 2. Since the difference `i - j` is positive initially and decreases by 2 in every iteration, it will eventually become less than 1, causing the loop to terminate. Hence, the program is terminating.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + -1.0 * j^1 + 0.0 * 1^1
 
 === Response 2 ===
 [RESULT]  
@@ -16,7 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 linear  
 [RANKING FUNCTIONS]  
-i - j - 1  
-
-The program is terminating. The ranking function `i - j - 1` strictly decreases by 1 in each iteration of the loop and is bounded below by 0. Initially, `i - j - 1` evaluates to 9998, and in each iteration `i` is decreased by 1 and `j` is increased by 1, thus making `i - j - 1` decrease by 2. Eventually, `i - j` becomes less than 1, and the loop terminates.
+1.0 * i^1 + -1.0 * j^1  
 

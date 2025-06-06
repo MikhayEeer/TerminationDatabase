@@ -1,24 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. \( \text{if } x < 1 \)  
-2. \( x^1 \text{ if } x \geq 1 \)  
-
-The program is terminating as the function `fibonacci` will always reach a base case for any non-negative integer `x`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-1.0 * x for main function
-n for fibonacci function with n>=0
-
-This program is terminating. The termination can be shown using a piecewise ranking function. 
-- For the `main()` function, the value of `x` decreases towards a base condition (`x < 1`) which exits the function.
-- For the `fibonacci()` function, it gives a strictly decreasing multi-phase interpretation: `n` first, which eventually hits a base condition because the function is defined in terms of itself with decreasing values (`n-1`, `n-2`), leading to termination when `n < 1`.
+1.0 * n + 0.0
 

@@ -2,15 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The value of i oscillates between positive and negative values without ever reaching zero, causing the loop to run indefinitely.
+|i| increases by 1 on each loop iteration, so any nonzero i never reaches 0 and the loop never terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-|i|  
-
-This program terminates. The absolute value of `i`, denoted |i|, strictly decreases in every iteration of the loop. If i is negative, it becomes positive and larger in magnitude; if i is positive, it becomes negative and larger in magnitude (one step away from zero). Eventually, |i| decrements to zero, at which point the loop exits, guaranteeing termination.
+[RESULT]
+NONTERM
+[REASON]
+For any nonzero i the update f(i)=if i>0 then −i−1 else −i+1 strictly increases |i|, e.g. 1→−2→3→−4→…, so the loop never reaches 0 and runs forever.
 

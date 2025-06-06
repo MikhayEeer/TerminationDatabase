@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 *  length1^1 + 0.0 * 1
+0.0 * 1 + 0.0 * 1
+
+The program is terminating. The termination of the recursive function `strlen_rec` is guaranteed by the fact that it processes a string that ends with a null character ('\0'). The decrease in the length of the input string (`p` pointer) during each recursive call ensures that the recursion progresses towards the base case, terminating when the null character is encountered.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+The recursion within `strlen_rec` is based on the length of a string that ends with a null character '\0'. Each recursive call moves closer to the base case, decreasing the remaining length of the string. The function halts when the null terminator is encountered, thus causing a finite number of recursive calls. This can be interpreted as a nested ranking function with a decreasing measure of the length of the string.
+

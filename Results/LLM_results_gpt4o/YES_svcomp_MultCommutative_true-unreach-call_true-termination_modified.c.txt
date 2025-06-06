@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+recursive
+[RANKING FUNCTIONS]
+The function `mult(n, m)` is recursively called with the value of 'm' strictly decreasing in each call, which acts as a ranking function. 
+- For `mult(n, m)`, if `m < 0`, it transforms to `mult(n, -m)`. 
+- If `m == 0`, the function returns 0.
+- Otherwise, `mult(n, m - 1)` is called, each time reducing `m` by 1, ensuring that it's moving towards the base case `m == 0`.
+
+Since the recursive calls decrease the value of `m` and eventually reach the base case where `m == 0`, the recursion will terminate. The main function relies on conditions that ensure the computations complete without infinite loops or unhandled recursions.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * m^1 + 0.0 * 1
+1.0 * n^1 + 0.0 * 1
+
+Explanation:
+The program performs multiplication of two integers using a recursive technique that repeatedly adds. The recursion involves decreasing the second argument `m` until it becomes zero, at which point it contributes zero to the sum. We use two phases for the ranking function corresponding to the recursive calls:
+  
+1. The first phase handles negative `m` by negating it, successfully directing towards positive `m`.
+2. The second phase reduces `m` from its current value towards zero.
+
+Both rankings strictly decrease for each recursive call towards a base case of `m == 0`, implying termination of recursion. The main function handles non-negative integers `m` and `n`, ensuring the recursive process progresses toward this base case. There is no possibility of non-termination under these rules as each call decreases the phase strictly by 1.
+

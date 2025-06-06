@@ -1,17 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 *  x^1 + 1.0 *  y^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+-- Piece 1 (x > y > 0): f₁(x,y) = 1.0·x + 0.0·y + 0.0  
+-- Piece 2 (y ≥ x ≥ 0, y>0): f₂(x,y) = 0.0·x + 1.0·y + 0.0
+
+Explanation of the pieces:
+• In piece 1, x>y>0, the recursive call is f(x,y)→f(y,x−1) with new x′=y< x, so f₁ strictly decreases.  
+• In piece 2, y≥x≥0 with y>0, the call is f(x,y)→f(y,x−1) with new y′=x−1<y, so f₂ strictly decreases.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x + 1.0 * y  
- 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+1.0 * y^1
 

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * r^1 + 0.0 * n^1 + 0.0 * m^1  
+1.0 * n^1 + 0.0 * m^1 + 0.0 * r^1  
+
+The function `p` is terminating because it uses a multi-phase ranking where in the first phase, the value of `r` decreases until it reaches zero while `n` and `m` remain unchanged. In the second phase, after `r` reaches zero, the value of `n` decreases. Each phase of decreasing non-negative integers ensures the termination of the function under the given conditions.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+2.0 * r^1  
+2.0 * n^1  
+

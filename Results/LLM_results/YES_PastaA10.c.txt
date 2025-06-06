@@ -2,17 +2,19 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
-|x - y|
+(x >= y): 1.0 * x + -1.0 * y
+(x <  y): 1.0 * y + -1.0 * x
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTION]
-|x - y| 
-
-The program terminates because the absolute difference between `x` and `y` decreases by 1 in every iteration of the loop, eventually reaching zero, at which point the loop exits.
+piecewise
+[RANKING FUNCTIONS]
+# when x > y
+1.0 * x + -1.0 * y
+# when x <= y
+-1.0 * x + 1.0 * y
 

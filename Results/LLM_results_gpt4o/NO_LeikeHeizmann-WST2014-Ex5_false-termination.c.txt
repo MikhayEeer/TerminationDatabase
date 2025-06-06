@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program enters a state where variables `a` and `b` swap values and increment indefinitely while maintaining the condition `a >= 7`, thus forming an infinite loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program has a cycle where `a` becomes `b`, and `b` becomes `a + 1`. If `a` starts at a value of 7 or more, the values of `a` and `b` will keep swapping and incrementing, creating an infinite loop with no termination condition.
+

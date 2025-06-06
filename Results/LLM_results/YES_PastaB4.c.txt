@@ -1,12 +1,18 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The program swaps the values of `x` and `y` if `x > y`, which can create an infinite loop if `x` is always greater than `y` after the swap.
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y + 0.0
+0.0 * x + 0.0 * y + 0.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters an infinite loop when `x > y`. The values of `x` and `y` are swapped indefinitely without a condition to break the loop, making it non-terminating.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+guard: x > y  -> 1
+guard: x <= y -> 0
 

@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z^1
+1.0 * y^1
+1.0 * x^1
+
+The program terminates with a multi-phase ranking function. Initially, `z` serves as the decreasing measure, and once `z` becomes non-positive, `y` is used as the next measure. Finally, when both `z` and `y` are non-positive, `x` is used as the final measure to guarantee termination. As each of these variables decreases deterministically within the corresponding phases, the overall execution is guaranteed to terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z^1
+1.0 * y^1
+1.0 * x^1
+
+The program is terminating and can be proved by the multi-phase ranking function. The phases strictly decrease: first `z` decreases to a non-negative value, then `y`, and finally `x` ensures termination.
+

@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+n when calling isOdd  
+n when calling isEven  
+
+The program is terminating. It can be explained by a nested ranking function considering the mutual recursion between `isOdd` and `isEven`. Each call to these functions decreases `n` until it eventually reaches a base case (`n == 0` or `n == 1`).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+recursive
+[RANKING FUNCTIONS]
+The functions `isOdd` and `isEven` recursively decrement the input `n` by 1 in each call, and when `n` is zero, they stop calling each other, creating a base case that leads directly to termination.
+

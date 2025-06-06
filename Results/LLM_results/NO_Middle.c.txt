@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1 * (i - j) 
+[RESULT]
+NONTERM
+[REASON]
+Let d = i - j. Each loop iteration does d := d - 2, so d mod 2 is invariant. If initially d is odd, d never reaches 0 and the loop never terminates.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-0.5 * (i - j)^1
+NONTERM
+[REASON]
+The quantity d = i − j decreases by 2 each iteration, so if initially d is odd it can never reach 0 and the loop runs forever.
 

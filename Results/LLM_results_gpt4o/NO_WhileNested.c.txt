@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The inner while-loop `while (j > 0)` increments `j` indefinitely when `j` is greater than 0, causing non-termination.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The inner loop increments `j` indefinitely when `j` is positive, which prevents termination.
+

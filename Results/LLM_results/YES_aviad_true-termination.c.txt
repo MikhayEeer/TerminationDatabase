@@ -2,17 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-1.0 * 1 + 1.0 *  a^1
-
+1.0 * a + -1.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-0.5 * x^1  
-5.0 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a + 0.0 * count
+
+Explanation: In each loop iteration, when a>1, the new a is either a/2 or a−1, both strictly less than a, so the linear function f(a,count)=a is a valid ranking function.
 

@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The condition `i <= j` in the while loop will always be satisfied once `j` is incremented to 2 while `i` is still 0, causing the loop to continue indefinitely.
+Each cycle increases i and j by 2 in lockstep, maintaining i <= j forever, so the loop never exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The condition `i <= j` in the loop allows `i` to increase, but `j` can also increase, leading to a scenario where `i` catches up to `j`, and the loop condition remains true indefinitely.
+[RESULT]
+NONTERM
+[REASON]
+At each step i increments by 1 and j by 2 on every other iteration, so the loop invariant i ≤ j always holds, and the loop never exits.
 

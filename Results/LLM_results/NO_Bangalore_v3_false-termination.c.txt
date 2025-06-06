@@ -1,14 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-x^1
+[RESULT]
+NONTERM
+[REASON]
+If y = 0 (with y ≤ x) then each iteration does x = x – y = x, so x ≥ 0 forever and the loop never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-If \(y \leq x\) and \(y = 0\), then \(x\) will never decrease and the loop will run indefinitely.
+If y ≤ 0 and x ≥ 0 then each iteration does x := x – y ≥ x, so x stays ≥ 0 forever (e.g. y = 0 keeps x constant), causing an infinite loop.
 

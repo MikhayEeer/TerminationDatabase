@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non-linear
+[RANKING FUNCTIONS]
+T(x, y) = ((x - y)^2) + 1
+
+The program is terminating as the expression \((x - y)^2\) strictly decreases in each iteration of the loop until the condition \(x - y > 0\) is no longer satisfied.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (x - y)^1  
+This ranking function shows that the program will eventually terminate as the expression (x - y) is decreased in each iteration of the loop, guaranteeing that it will eventually become non-positive, causing the loop to terminate.
+

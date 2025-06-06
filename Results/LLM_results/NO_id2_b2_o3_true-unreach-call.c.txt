@@ -1,25 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-Phase 1: 1.0 * input^1
-Phase 2: 1.0 * x^1
-
-The program is terminating due to the recursive calls in the functions `id` and `id2`. These functions decrease the input value `x` by 1 in each recursive call until they reach the base case `x == 0`. The multi-phase ranking function applies here, with the first phase decreasing `input` and the second phase decreasing `x` in the recursion of `id` and `id2`, ensuring progress towards termination.
+NONTERM
+[REASON]
+For any negative input, x<0 is never caught by the x==0 base case, so id and id2 call each other with ever-decreasing x and recurse infinitely.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-The recursive calls in `id` and `id2` functions decrease the non-negative integer argument by 1 in each call. The base case for both functions is when the argument reaches 0, at which point the recursion stops. As the arguments are bounded to decrease until 0, the recursion will always terminate. Therefore, the program terminates.
-
-The ranking functions are:
-1. For `id`: The argument `x` decreases with each call until it reaches 0.
-2. For `id2`: Similarly, the argument `x` decreases with each call until it reaches 0.
-
-Both functions have a nested and well-founded ranking function based on the decrease of the argument `x` in the recursive calls.
+NONTERM
+[REASON]
+For negative inputs, both id and id2 recurse on x−1 without ever hitting the base case x==0, leading to infinite mutual recursion.
 

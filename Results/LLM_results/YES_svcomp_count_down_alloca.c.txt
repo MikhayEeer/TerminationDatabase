@@ -4,23 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1st phase: j from length-1 to 0
-2nd phase: arr[j] from positive to 0
-
-The program is terminating. In the first phase, the outer loop variable `j` iterates from `0` to `length-1`, ensuring that each element in the array `arr` is processed. In the second phase, the inner loop decrements the value of `arr[j]` from a positive value to `0`, which guarantees termination for each element at index `j`. The nested ranking function composed of these decreasing measures proves termination.
+1.0 * length + -1.0 * j
+1.0 * arr[j]
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * length^1 + 0.0 * 1  
-1.0 * sum(arr[j]) + 0.0 * 1
-
-Explanation:  
-The program consists of two main loops. The first loop initializes an array of a certain length with non-negative integers. The second loop iterates through the array and decrements each non-zero element to zero. The process is guaranteed to terminate as each element of the array is decreased to zero, and the number of elements is finite (given by `length`). Therefore, the ranking function can be expressed in two phases: 
-
-- The first phase represents the iteration over the `length` of the array.
-- The second phase represents the sum of elements in the array, which decreases over time until all elements are zero.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * length + -1.0 * j
+1.0 * arr[j]
 

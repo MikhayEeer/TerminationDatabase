@@ -1,23 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (length1)^1  
-1.0 * (length2)^1  
-
-The `cstrcspn` function processes the input strings character by character, moving forward, and the loops are controlled by the terminating null characters of the strings. This ensures that the iteration count is finite since both strings eventually reach their null terminators, making the program terminating. The multi-phase ranking function is defined by the lengths of both input strings that decrease as the iteration progresses.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+length1 – (sc1 – s1)
+length2 – (s – s2)
 
 === Response 2 ===
-[RESULT]  
+[RESULT]
 TERMINATE
-
-[RANKING FUNCTION TYPE]  
-linear
-
-[RANKING FUNCTIONS]  
-Lexicographic ordering on `(length1 - (sc1 - s1))` and `(length2 - (s - s2))`
-
-Explanation: The function `cstrcspn` iterates over strings `s1` and `s2` using pointers `sc1` and `s`. The outer loop decreases the value of `(length1 - (sc1 - s1))` as it progresses, and the inner loop decreases the value of `(length2 - (s - s2))`. Both loops will eventually terminate once they reach their string length constraints. The strings are allocated with null terminators, ensuring the designated loop conditions will eventually be false. Thus, the program terminates.
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (length1 - (sc1 - s1))
+1.0 * (length2 - (s - s2))
 

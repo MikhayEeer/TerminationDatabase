@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear    
+[RANKING FUNCTIONS]  
+y - x  
+
+The program terminates because the value of `y - x` decreases with each iteration of the loop. Since `x` is incremented in each loop iteration and `y` remains constant, eventually `x` will become greater than or equal to `y`, causing the condition `flag = (x++ < y)` to become false and the loop to exit. Thus, the loop terminates for all integer values of `x` and `y`. The ranking function `y - x` is linear as it shows a decrease at each step.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y - x
+

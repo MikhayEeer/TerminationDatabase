@@ -1,14 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop `while (y<100 && z<100)` can continue indefinitely when `x = 0` after the series of increments and decrements. The value of `x` is determined non-deterministically, and the series of conditions on `x` ensure it alternates between some positive and some negative values, ultimately being reduced back to the same state of deterministically being positive in one branch and negative in the other by 1 increment or decrement. If this process results in `x = 0`, the values of `y` and `z` do not change, leading to a non-terminating state.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+x > 0 : 100.0 * 1 + (-1.0) * y^1
+x <= 0 : 100.0 * 1 + (-1.0) * z^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+piecewise
 [RANKING FUNCTIONS]
--multiple of the while loop iteration count, since the loop condition `y < 100 && z < 100` ensures termination. Initially, the loop will terminate after a finite number of iterations depending on the starting values of `y` and `z` and the fixed modification `x` applied to them. Here's a linear ranking function: `f(y, z) = 100 - y + 100 - z`.
+x>0 : 100.0 + (-1.0) * y^1  
+x<0 : 100.0 + (-1.0) * z^1
 

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program is terminating because the loop inside `init_list` function iterates a fixed number of times, specifically `n` times. The ranking function in this case is simply `n` which decreases with each iteration and ensures termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+Based on the argument `n`, the loop in `init_list` iterates `n` times, reducing by 1 each iteration until it reaches 0, at which point the loop terminates. Thus, a simple linear ranking function can be `n` itself, because it decreases strictly by 1 in each iteration of the loop.
+

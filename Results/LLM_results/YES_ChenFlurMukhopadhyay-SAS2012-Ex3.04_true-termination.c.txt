@@ -1,18 +1,17 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-The program's termination can be demonstrated by tracking a combination of variables that decrease over iterations. Here's one possible multi-phase ranking function:  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non-linear (exponential)
+[RANKING FUNCTIONS]
+φ(x,y,z) = (z – x + 1) / 2^(x + y)
 
-1. Phase 1: \( T(x, y) = z - x \)  
-   - As long as the loop condition holds, \( x \) remains less than or equal to \( z \). Each iteration tends to exponentially increase \( x \), causing \( z - x \) to decrease because \( x \) approaches or surpasses \( z \).
-
-2. Phase 2: If needed, \( T(x, y) = \text{ - (x + y)} \)  
-   - The sum \( x + y \) will eventually become negative once \( x\) grows large enough or once \( y \) has incremented sufficiently, which causes a violation of the loop condition \( x + y \geq 0 \).
-
-In summary, the multi-phase ranking functions together illustrate that sufficient decrease occurs over iterations until the loop condition is violated.
+Explanation of decrease:
+  – Loop guard x + y ≥ 0 ∧ x ≤ z ensures A = z – x + 1 ≥ 1 and B = x + y ≥ 0.
+  – After one step, A′ = A – B, B′ = 2B + 1.
+  – Whenever the loop continues (i.e. A′ ≥ 1),  
+      φ′/φ = (A – B)/A · 1/2^(B + 1) < 1  
+    since 0 ≤ B and A ≥ B + 1.  Hence φ is always positive in the loop and strictly decreases on every iteration.
 
 === Response 2 ===
 [RESULT]
@@ -20,6 +19,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-Phase 1: 0.5 * (-x)^1 - 0.5 * y^1 + 1.0 * z^1 (Decreases when x + y >= 0 and x < z)
-Phase 2: -1.0 * x^1 (Decreases when x >= z)
+1.0 * 1 + -1.0 * x^1 + -1.0 * y^1
+1.0 * z^1 + -1.0 * x^1
 

@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+Length of list decreases after each iteration or the head is set to NULL.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. At entry of `skip`: use the number of elements in the list `head` as a ranking function.  
+2. During `skip` execution: if `head->value == m`, the function processes the next node or exits. The number of nodes with `value == m` decrements on each iteration, ensuring termination.
+

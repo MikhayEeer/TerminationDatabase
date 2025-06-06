@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+If `d` is set to 0 through both initial decrements, the loop `while (x > 0)` becomes non-terminating when it starts with a positive `x`, because `x` would never decrease.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+If `d` becomes 0 due to the nondeterministic decrements before entering the `while` loop, `x` will never decrease, causing non-termination if `x > 0`.
+

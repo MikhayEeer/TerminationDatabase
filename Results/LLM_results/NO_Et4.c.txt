@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-b - c  
+[RESULT]
+NONTERM
+[REASON]
+The nondeterministic r can always be –1, so c stays constant, b is reset to 10, and (b–c≥1 && a==c) remains true, yielding an infinite loop.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-b - c
+NONTERM
+[REASON]
+By choosing r = –1 every iteration, we have c ← c + 1 + (–1) = c, a ← c, b = 10, so (b–c ≥ 1 && a == c) remains true forever, yielding an infinite loop.
 

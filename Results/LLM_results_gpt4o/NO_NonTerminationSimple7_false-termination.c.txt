@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The value of `x` is non-increasing or constant for `c = 0`, and for `c < 0`, `x` will decrease but will never reach below 0 for certain values of `x`, causing the loop to iterate indefinitely.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating if `c` is 0. In this case, the condition `while (x >= 0)` will always be true, and the value of `x` will not change, causing an infinite loop.
+

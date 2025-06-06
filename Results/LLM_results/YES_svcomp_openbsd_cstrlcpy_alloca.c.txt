@@ -1,20 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-Size of the source string (`length`) continuously reduces or remains non-increasing as it is copied character by character to the destination string (`nondetString1`). This guarantees termination because the source string will eventually be exhausted, given that both `n` and `length` are initially set to positive values and decremented or stopped when they reach 0.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: 1.0 * n  
+Phase 2: 1.0 * (length - (s - src))
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n  
+1.0 * length + -1.0 * (s - src)  
 
-[RANKING FUNCTION TYPE]  
-linear
-
-[RANKING FUNCTIONS]  
-1.0 * n + 0.0  
-
-The program will terminate for all inputs as the function `cstrlcpy` is bounded by `n`, which decreases linearly as the characters are copied, and additional constraints ensure `n` is a positive integer, thus making the loop finish after at most `n` iterations.
+Explanation:  
+– Phase 1: the copy‐loop “while (--n != 0)” is ranked by n, which strictly decreases to 0.  
+– Phase 2: if that loop fell through (n==0), the tail‐scan “while (*s++)” is ranked by the remaining distance to the terminator, i.e. length – (s–src), which decreases to 0.
 

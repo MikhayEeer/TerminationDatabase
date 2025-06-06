@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1.0 * -(i - 6)^1 for i > 5  
-1.0 * (i + 6)^1 for i < -5  
-linear constant for -5 ≤ i ≤ 5  
-
-=== Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program does not terminate because when `i > 5`, the value of `i` is incremented by 1, causing it to loop indefinitely since it will always remain greater than 5.
+For any initial i>5 (resp. i<−5), the loop takes the branch i=i+1 (resp. i=i−1), moving i strictly away from 0 forever, so it never exits.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+If i>5 it is incremented forever (never reaches 0); if i<–5 it is decremented forever (never reaches 0).
 

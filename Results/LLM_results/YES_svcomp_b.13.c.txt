@@ -2,18 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-1.0 * (x + y) - 2.0 * z
+Phase 1: 1.0 * x + (-1.0) * z
+Phase 2: 1.0 * y + (-1.0) * z
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. x - z  
-2. y - z  
-
-The program is terminating because whenever the loop is entered, either `x` or `y` is greater than `z`. The loop body results in either `x` or `y` being decremented by 1, while `z` remains constant. Hence, the values of `x - z` and `y - z` are strictly decreasing and the loop will eventually terminate. The termination can be proven by using piecewise ranking functions as shown.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * z^1
+1.0 * y^1 + -1.0 * z^1
 

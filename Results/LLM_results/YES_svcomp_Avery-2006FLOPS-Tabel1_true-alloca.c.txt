@@ -1,23 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-first loop: `1.0 * i^1`  
-second loop: `1.0 * (y_ref - i)^1`  
-
-Explanation:  
-The function subxy involves two loops. The first loop decreases `*i` starting from `*x_ref` and this loop terminates when `*i` reaches zero. The second loop increases `*i` from zero back to `*y_ref`, and it terminates when `*i` reaches `*y_ref`. Both loops have straightforward monotonic progress towards their respective bounds. Thus, the function terminates for non-negative inputs `x` and `y`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i
+1.0 * y + -1.0 * i
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1.0 * i^1   
-1.0 * (y_ref - i)^1  
-
-The program is terminating. The first loop decreases the value of `*i` from `*x_ref` to `0`, while the second loop increases `*i` from `0` until it equals `*y_ref`. Both loops ensure progress towards termination by either reducing or increasing the value of `*i` in each iteration, leading to a termination when they exit their respective conditions.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i
+1.0 * y + -1.0 * i
 

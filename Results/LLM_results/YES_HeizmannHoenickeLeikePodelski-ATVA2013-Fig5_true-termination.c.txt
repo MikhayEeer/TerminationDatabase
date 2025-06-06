@@ -1,18 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-x^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * y^1 + -1.0 * 1
+1.0 * x^1 + 1.0 * 1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x, y) = 2 * x + y  
-
-The given program is terminating. The function \( f(x, y) = 2 * x + y \) serves as a linear ranking function, which strictly decreases in each iteration of the loop, as \( x \) decreases by at least 2 and \( y \) is non-negative and also decreases, ensuring that \( f(x, y) \) eventually becomes negative, terminating the loop.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: f₁(x,y) = y − 1  
+Phase 2: f₂(x,y) = x + 1
 

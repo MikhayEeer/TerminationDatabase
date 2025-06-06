@@ -2,20 +2,30 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
--1 * i + 100000 for each loop that iterates over `i`
--1 * x + 100000 for the loop that iterates over `x`
-
-Explanation: Each loop in the program iterates 100,000 times, decrementing the termination distance with each iteration. The loops process sequentially without any dependencies or modifications outside their counters. Therefore, they will all complete in a finite number of steps, ensuring termination of the program.
+100000.0 - i
+100000.0 - i
+100000.0 - i
+100000.0 - i
+100000.0 - i
+100000.0 - i
+100000.0 - i
+100000.0 - i
+100000.0 - x
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-100000 - i  
-
-The program contains several loops that iterate a fixed number of times, specifically 100,000 times. Therefore, the program is guaranteed to terminate after iterating through these predetermined loops. The ranking function `100000 - i` confirms that the counter `i` decreases with each iteration, leading to program termination after all iterations are completed.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * i^1 + 100000.0 * 1
+-1.0 * x^1 + 100000.0 * 1
 

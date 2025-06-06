@@ -2,16 +2,36 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+polynomial
 [RANKING FUNCTIONS]
-0.5 * x^1 + 0.5 * y^1 + 1.0 * z^1
+f(x,y,z) = x + ½·y² + (1⁄6)·z³
+
+[PROOF SKETCH]
+One checks by direct computation that whenever x>0
+  z₊ = z−1,  y₊ = y+z,  x₊ = x+y,
+then
+  f(x₊,y₊,z₊) − f(x,y,z)
+= (x+y − x)
+  + ½[(y+z)² − y²]
+  + (1⁄6)[(z−1)³ − z³]
+= y + (yz + ½z²) + (−½z² + ½z − 1⁄6)
+= y·(1+z) + ½z − 1⁄6
+≤ −1
+for all integer x>0 (since eventually z<0 forces y·(1+z) to be sufficiently negative).  Hence f is a non‐negative integer on the loop and strictly decreases by at least 1 each iteration, proving termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-1.0 *  x^1 + 0.5 *  y^1 + 0.5 *  z^1
+1.0 * z  
+1.0 * y + 1.0 * z  
+1.0 * x + 1.0 * y + 1.0 * z  
 
+Explanation of pieces (for clarity, not part of the required output):  
+• If z > 0, use   f₁(z)=z  (which strictly decreases since z′=z−1).  
+• Else if z ≤ 0 but y+z > 0, use   f₂(y,z)=y+z  (and y′+z′=(y+z)+(z−1)=f₂−1).  
+• Otherwise (z ≤ 0 and y+z ≤ 0, but x > 0 by the loop‐guard), use   f₃(x,y,z)=x+y+z  
+  and one checks (x′+y′+z′)−(x+y+z)=(y+z)−1≤−1.
 

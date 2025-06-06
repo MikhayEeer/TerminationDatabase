@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The function `transmit1` contains a function call to `error()` inside an infinite loop, which will call `__VERIFIER_error()` and cause the program to enter an undefined state without termination. Additionally, the infinite loop in the `eval` function continuously checks for and executes runnable threads without a clear halting condition within those threads, leading to potential nontermination.
+The main scheduler’s eval() loop (while(exists_runnable_thread())) only advances a thread when __VERIFIER_nondet_int() returns true. If it repeatedly returns false, both threads remain runnable (st==0) and no state change ever occurs, yielding an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The `transmit1` function includes an infinite loop due to the recursive call to `error()` within the `T1_WAIT` label path, making the program non-terminating.
+[RESULT]
+NONTERM
+[REASON]
+In eval(), if both __VERIFIER_nondet_int() return 0 indefinitely, m_st and t1_st stay 0 so exists_runnable_thread() is always true, causing an infinite loop.
 

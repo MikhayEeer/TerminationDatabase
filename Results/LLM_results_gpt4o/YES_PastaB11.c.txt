@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+In regions where \(x > y\): 
+x + y
+
+In regions where \(x \leq y \):
+x + y
+
+The program's termination can be proved using a ranking function based on the linear combination of \(x\) and \(y\). The sum \(x + y\) strictly decreases in each iteration of the loop as it decrements either \(x\) or \(y\), depending on their values, and thus, serves as a valid piecewise ranking function showing termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (x + y)^1
+

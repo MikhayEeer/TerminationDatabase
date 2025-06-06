@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * n + 1.0
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+The program is terminating because the `cmemset` function contains a loop that iterates while `n` is not zero, decrementing `n` in each iteration. Because `n` starts as a non-negative value due to the conditional check in `main`, and is decremented in each iteration, the linear ranking function `1.0 * n^1` shows that the loop strictly decreases towards termination when `n` reaches zero. The main function itself does not contain any loops that may lead to non-termination.
+

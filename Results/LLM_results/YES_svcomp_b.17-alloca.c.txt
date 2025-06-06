@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * y_ref^1  
-1.0 * x_ref^1  
-
-The program terminates because the inner loop decreases the value of `y_ref` through `*y_ref = *y_ref - 1` until `*y_ref <= *z_ref`, ensuring that it will eventually exit. The outer loop likewise decreases `x_ref` through `*x_ref = *x_ref - 1` independently of the inner loop. Since both `x_ref` and `y_ref` are bounded below by `z_ref`, and both are strictly decreasing during their respective loops, the process will terminate. The ranking function is multi-phase because it follows two phases of reduction: first `y_ref` and then `x_ref`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + -1.0 * z^1
+1.0 * x^1 + -1.0 * z^1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 1.0 * y^1  
-Phase 2: 1.0 * x^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+1.0 * y + -1.0 * z
+1.0 * x + -1.0 * z
 

@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * ls^1 + 0.0 * 1
+
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested
+[RANKING FUNCTIONS]  
+The main function contains a condition `if (ls >= 0)` which filters for non-negative values of `ls`. When this condition is satisfied, the `rev` function is called, which in turn calls the `r1` function with `ls` and `0`.
+
+The `r1` function decrements the first argument `ls` in the recursive call (`r1(ls-1, ls+1+a)`) until it becomes `0`. Since `ls` is non-negative at the start, it will eventually reach `0`, which leads to a base case that returns a constant value `a`. This ensures that the recursion will terminate.
+
+The ranking function can be described as:
+- Primary: `ls`, decreases with each recursive call by `1` until it hits `0`.
+

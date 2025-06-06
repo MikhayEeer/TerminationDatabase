@@ -1,12 +1,21 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `*x >= *y` can remain true indefinitely due to the adjustments of `*x` and `*y` inside the loop. The variable `*x` can increase by `*z - 1` when `*z > 1`, which may cause `*x` to grow rapidly. Additionally, `*y` can increment by 1 when `*z` is not greater than 1; this fluctuation of `*x` and `*y`, especially with control over `*z`, prevents the guarantee of termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * z^1 + 0.0
+1.0 * x^1 + -1.0 * y^1 + 0.0
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program is non-terminating because there is a potential for an infinite increase in the value of `*x` relative to `*y`, specifically when `*z > 1`, resulting in `*x` being incremented by `*z` in an unbounded manner, thus maintaining the loop condition `*x >= *y` indefinitely.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+f₁(z,y,x)=z−1
+f₂(z,y,x)=x−y+1
+Explanation:
+– Phase 1: while z>1, f₁=z−1≥1 and each iteration with z>1 decreases z by 1 so f₁ decreases by 1.  
+– Once z≤1, f₁≤0 and we enter Phase 2; the loop condition x≥y gives f₂=x−y+1≥1, and in each subsequent iteration y increments by 1 (z≤1 so the “else” branch), hence f₂ decreases by 1 until it reaches 0 and the loop exits.
 

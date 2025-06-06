@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `i` can only increase in the loop, as there are no conditions that decrease the value effectively for non-terminating cases. Initially, `i` starts at 3, and any increment or modification inside the loop never makes `i` less than 3. Hence, the loop condition `i >= 3` always holds true, leading to non-termination.
+[RESULT]
+NONTERM
+[REASON]
+Once i reaches 6 it always takes the i>5 branch, doing i=i+3 each time, so i grows unboundedly and the loop condition i>=3 never fails.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `i` is only modified to be greater than or equal to 3 in the loop, and the loop condition `i >= 3` will always be true, leading to a non-terminating loop.
+[RESULT]
+NONTERM
+[REASON]
+i starts at 3 and is only ever incremented (by +1 until 6, then by +3 forever), so i≥3 always and the loop never exits.
 

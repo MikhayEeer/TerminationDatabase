@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program contains a call to the Ackermann function, which is known for its non-terminating behavior when `x >= 0` and `y < 0`. In such cases, the program enters an infinite recursion without hitting a base case leading to termination.
+For x≥1 and y<0, Ack(x,y) always takes the “else” branch, calling Ack(x, y−1) indefinitely without ever reaching n==0.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program does not terminate for inputs where x >= 0 and y < 0 due to the nature of the Ackermann function and the recursive calls with non-decreasing arguments.
+[RESULT]
+NONTERM
+[REASON]
+For any x>0 and y<0, Ack(x,y) calls Ack(x,y−1) endlessly without ever reaching m==0 or n==0, causing infinite recursion.
 

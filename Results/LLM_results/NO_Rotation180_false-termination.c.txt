@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of `x` and `y` are continuously rotated by 90 degrees in an infinite loop without any condition to break the loop.
+[RESULT]
+NONTERM
+[REASON]
+Unconditional while(1) loop with no exit; infinite rotation of (x,y).
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains an infinite loop that continuously rotates the values of `x` and `y` without any terminating condition.
+[RESULT]
+NONTERM
+[REASON]
+Unconditional infinite loop with no exit conditions.
 

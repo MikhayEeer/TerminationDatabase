@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+- For the inner loop: \( x2 \), which decreases from 10 to 1
+- For the outer loop: \( 10 - x1 \), which decreases from its initial value (depending on the nondeterministic choice) until it exceeds 10.  
+
+Explanation: The program is composed of a nested loop structure. The inner loop (with respect to variable `x2`) terminates because `x2` continuously decreases from 10 to 1. For the outer loop (with respect to variable `x1`), its range of operation is from its nondeterministic initial value up to 10, which ensures that `x1` will increment towards exceeding 10, causing the entire loop to terminate. The ranking function for the outer loop is a piecewise-defined function based on the initial nondeterministic value of `x1`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+Phase 1: 11 - x1
+Phase 2: x2 - 1
+
+The outer loop with condition `x1 <= 10` decreases `11 - x1` to zero. Within the outer loop, in every iteration, the inner loop with condition `x2 > 1` decreases `x2 - 1` to zero. Consequently, both loops have ranking functions that guarantee termination. The program terminates because once `x1` surpasses 10, the outer loop terminates, and the inner loop always terminates before the outer loop continues.
+

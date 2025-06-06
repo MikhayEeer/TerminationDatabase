@@ -1,12 +1,20 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The loop can oscillate indefinitely since *x can be either 1 or -1, causing *y and *z to fluctuate between values that might prevent one or both of them from reaching 100.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+# when *x > 0
+100.0 + -1.0 * y
+# when *x < 0
+100.0 + -1.0 * z
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The values of *x can be either 1 or -1, allowing for the possibility of oscillation where the updates to *y and *z do not progress towards termination, thus can continue indefinitely. *y can increase while *z decreases or vice versa, preventing the loop condition from becoming false and thus causing non-termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+Condition x>0: 100.0 – y  
+Condition x<0: 100.0 – z
 

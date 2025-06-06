@@ -1,22 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-First phase:  
-0.5 * y^1 + 5000.0 * 1  
-Second phase:  
-1.0 * z^1 + (-1.0) * y^1 + 10000.0 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: f₁(x,y,z) = z − y  
+  – Active while z − y > 0; in each inner‐loop iteration z decreases by 1, so f₁ strictly decreases to 0.  
+Phase 2: f₂(x,y,z) = x  
+  – Once z ≤ y, the inner loop is skipped and each outer‐loop iteration does x := x−1, so f₂ strictly decreases until x < 0.  
+Phase 3: f₃(x,y,z) = y  
+  – Once x < 0 and z ≤ y, each outer‐loop iteration does y := y + x (with x negative), so y strictly decreases until y < 1, at which point the while‐loop exits.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1. The outer loop with condition `y >= 1` has the ranking function: `y`, which decreases in each iteration when exiting the inner loop.
-2. The inner loop with condition `y < z` has the ranking function: `z - y`, which decreases in each iteration of the inner loop. 
-
-The program terminates as these nested loops contribute to a globally decreasing behavior. The outer loop ensures `y` eventually drops below 1.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * z^1 + -1.0 * y^1
+1.0 * x^1 + 10000.0 * 1
 

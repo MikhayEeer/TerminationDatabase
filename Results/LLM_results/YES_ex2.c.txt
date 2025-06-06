@@ -1,12 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-Mutual recursion between `rec1` and `rec2` can lead to non-termination as `rec1` may call itself with increasing values of `i`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * j^1 + 0.0 * 1
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The mutual recursion between `rec1` and `rec2` leads to infinite recursion for certain inputs. Specifically, `rec1` calls itself with an incremented value in its recursion through `rec2`, causing non-termination when started with positive values.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * j^1
+
+Explanation: In every call to rec2(j) with j>0, the argument j strictly decreases by 1, and rec2 never invokes rec1 on any positive argument (it always passes 0), so all recursion is well‐founded.
 

@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program terminates because it only operates over a finite list of elements, which is created with a size determined by the nondeterministic input `n`. Since `n < 1` results in immediate termination, and any `n` that initializes a list has a finite number of elements, once the insertion operation is complete, the program terminates. Therefore, an implicit ranking function is the traversal of the list, which happens in finite time as the list has `n` elements and `n` is finite. The transformations in the list through the functions `init_list` and `insert` are all finite and deterministic, leading to program termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The program primarily consists of two parts that involve potential infinite loops: `init_list` and `insert`. The termination of `init_list` is straightforward; it iterates a fixed, non-negative, number of times 'n', thus guaranteeing termination.
+
+The termination of `insert` depends on its single while loop, which advances through the linked list until the proper insertion point is found. Since the list is finite (with length initialized by `init_list`), and since each iteration potentially reduces the distance to the tail of the list (advancing to the next node), this loop will also terminate. Therefore, the program is guaranteed to terminate. 
+
+For a linear ranking function, the length of the input list from the initial head node to the insertion point (where `m` should be inserted) acts as a counting measure, which always decreases each time the loop condition is checked until it reaches zero.
+

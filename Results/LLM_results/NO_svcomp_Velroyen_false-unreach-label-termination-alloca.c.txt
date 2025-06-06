@@ -1,19 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * 1 + 1.0 * (*x)^1  
-1.0 * 1
+[RESULT]
+NONTERM
+[REASON]
+If *x starts in [–5,–1], the loop sets *x to –5 and it never reaches 0, causing an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. if *x < 0 then *x = -5  
-2. if *x > 30 then *x = 35  
-3. otherwise *x decreases monotonically by 1 until *x = 0  
+[RESULT]
+NONTERM
+[REASON]
+For *x = –5 (or ≥31, e.g. 35) the loop body maps *x back to the same value, so *x≠0 forever and the loop never terminates.
 

@@ -1,12 +1,13 @@
 === Response 1 ===
-[RESULT]  
+[RESULT]
 TERMINATE
-
-[RANKING FUNCTION TYPE]  
+[RANKING FUNCTION TYPE]
 linear
+[RANKING FUNCTIONS]
+length1 - (p - s)
 
-[RANKING FUNCTIONS]  
-1.0 * (length1 - (p - s))^1
+Explanation:
+In the call cstrlen(nondetString1), we have s fixed and p initialized to s. On each iteration of `while (*p!='\0') p++`, the quantity R = length1 – (p – s) is an integer ≥1 at loop entry and strictly decreases by 1 on each loop‐body execution, reaching 0 exactly when p–s = length1 so that *p == '\0'. Hence R is a valid linear ranking function proving termination.
 
 === Response 2 ===
 [RESULT]
@@ -14,7 +15,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-(length1 - (p - s))
+R(p) = (s + length1 − 1) − p  
 
-The program's function `cstrlen` iteratively advances the pointer `p` through the string `s` until it encounters the null character `\0`. The main function ensures `length1` is at least 1, and sets the last character of `nondetString1` to `\0`. Since `nondetString1` has a guaranteed null terminator and the loop advances `p` until it reaches this null terminator, the loop will terminate. The ranking function `(length1 - (p - s))` decreases with each step of the loop as `p` moves towards the null terminator, proving that the loop terminates.
+Explanation:  In cstrlen, let s be the start pointer and length1 the (fixed) buffer length; the loop pointer p starts at s and advances by 1 each iteration, stopping as soon as p = s+length1−1 (where we have placed the '\0').  Hence R(p) is a non‐negative integer that strictly decreases by 1 on each loop iteration and reaches 0 exactly when *p=='\0'.
 

@@ -2,20 +2,25 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographic
+piecewise
 [RANKING FUNCTIONS]
-1.0 * x^1
-1.0 * y^1
-1.0 * z^1
+x
+y
+z
 
-The program terminates because each iteration of the loop decreases at least one of the positive variables x, y, or z, ensuring eventual termination. This can be represented by the lexicographic ranking function where priority is given to the non-increasing positive integers x, y, and z in order.
+Each of the three linear functions suffices to witness a strict decrease in the corresponding branch of the loop:  
+– When the first branch is taken, x decreases by 1.  
+– When the second branch is taken, y decreases by 1.  
+– When the third branch is taken, z decreases by 1.  
+Thus the disjunction of the three linear ranking functions proves termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1 + 1.0 * y^1 + 1.0 * z^1  
-
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1.0 * y
+1.0 * z
+1.0 * x
 

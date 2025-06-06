@@ -4,7 +4,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-0.5 * x^1 + 0.5 * y^1 - z^1
+1.0 * x^1 + 1.0 * y^1 + -2.0 * z^1
 
 === Response 2 ===
 [RESULT]
@@ -12,5 +12,7 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * (x - z)^1 + 1.0 * (y - z)^1
+0.5 * x^1 + 0.5 * y^1 + -1.0 * z^1
+
+Explanation: In the loop we have x>z and y>z, so f = (x+y)/2 – z ≥1 and on each iteration x and y are each decremented by 1, so f decreases by exactly 1 and remains non‐negative until the loop exits. This single linear ranking function proves termination.
 

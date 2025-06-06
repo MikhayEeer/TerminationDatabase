@@ -1,12 +1,16 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variable `y` is incremented unconditionally in the loop, which could repeatedly increase `y` indefinitely without making `x > y` false, if `x` is a large value or also increasing.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program is non-terminating because if `x` is initialized to a value greater than `y`, the loop `while (x > y)` will continue indefinitely as `y` is incremented, but `x` remains unchanged, leading to an infinite execution when `x` > `y`.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + -1.0 * y
 

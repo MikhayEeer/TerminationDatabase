@@ -2,11 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The variables `x`, `y`, and `z` increase in a way that can lead to `x` never reaching a non-positive value, creating the possibility of an infinite loop.
+For any initial x>0,y,z (e.g. x=y=z=1), each iteration yields x' = x+y > x, so x grows without bound and never becomes ≤0, causing a non‐terminating loop.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of `x`, `y`, and `z` can increase indefinitely inside the loop, causing `x` to remain greater than zero and the loop to never terminate.
+[RESULT]
+NONTERM
+[REASON]
+There exist initial values (e.g. x=1, y=0, z=0) for which x remains positive and grows on each iteration, so the loop never exits.
 

@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10 - i, 12 - j
+
+Explanation: The outer loop runs for a finite number of iterations from 0 to 9, so there are at most 10 iterations. The inner loop variable `j` starts at 3, and within each iteration, it increases by 1 (since `j += 2` followed by `j -= 1` results in `j += 1`). Thus, the inner loop will terminate when `j` reaches 12, which is also a finite number of steps. Thus, the program terminates due to the linear nature of these loops.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10 - i
+
+

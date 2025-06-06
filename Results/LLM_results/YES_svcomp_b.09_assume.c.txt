@@ -2,24 +2,15 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-1.0 * x + 1.0 * y, phase 1 (x > y)
-1.0 * x, phase 2 (x <= y) 
-
-The program terminates because, in the first phase when \(x > y\), the value of \(x\) is reduced to \(y\), and in the second phase when \(x <= y\), the value of \(x\) is decremented by 1 in each step until it reaches 0, at which point the loop exits. Therefore, the program has a well-defined multi-phase ranking function that ensures termination.
+1.0 * x
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-For the case when x > 0 and y > 0:  
-1. `x` is decreased to zero in the while loop when `x <= y`.  
-
-For the case when x <= 0 or y <= 0:  
-1. The function exits immediately after the initial if condition.
-
-The function achieves termination through a combination of different scenarios based on the initial values of `x` and `y`, resulting in a piecewise ranking that ensures a decrease towards termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0
 

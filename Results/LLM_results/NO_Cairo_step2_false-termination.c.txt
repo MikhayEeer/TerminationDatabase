@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * x^1 + 0.0 * 1
+[RESULT]
+NONTERM
+[REASON]
+If x is initialized to a positive odd value (e.g., 1), each loop iteration does x := x−2, so x remains odd and never reaches 0, causing an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * x^1
+[RESULT]
+NONTERM
+[REASON]
+If x>0 is odd, then x takes values 1, –1, –3, … and never reaches 0, so the loop runs forever.
 

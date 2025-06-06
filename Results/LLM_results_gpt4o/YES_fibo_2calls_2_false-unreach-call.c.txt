@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+For `fibo1(int n)` and `fibo2(int n)`, use: 
+n,  if n ≥ 0
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n  
+
+Explanation:  
+The main function calls `fibo1(x)` with a fixed value of `x = 2`. The computation for `fibo1(2)` entails calculating `fibo2(1) + fibo2(0)`. Since `fibo2(1)` and `fibo2(0)` are base cases, they return 1 and 0, respectively. Thus, `fibo1(2)` returns 1. This program terminates after a finite number of recursive calls due to the decreasing argument `n` in recursive calls until reaching the base case, and there are no infinite loops or uncontrolled recursion.
+

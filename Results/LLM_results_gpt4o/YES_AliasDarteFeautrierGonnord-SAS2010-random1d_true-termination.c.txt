@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * max^1
+-1.0 * x^1 + 1.0 * max^1 + 1.0 * x^1
+
+The program terminates based on the fact that:
+1. The outer condition `if (max > 0)` ensures `max` is positive and fixed.
+2. The loop runs `while (x <= max)`, and `x` is incremented in each iteration by one.
+3. Hence, the loop has a finite number of iterations (at most `max` iterations).
+
+The multi-phase ranking function is given:
+- The first phase function corresponds to the constant upper bound grounded by `max`.
+- The second phase function demonstrates how it decreases towards 0 based on `x`, ensuring termination as `x` exceeds `max`.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+max - x  
+
+The program is terminating because there is a linear ranking function `max - x` that strictly decreases with every iteration of the while loop, as `x` is incremented by 1 in each loop iteration and `max` remains constant. The loop terminates when `x` becomes greater than `max`.
+

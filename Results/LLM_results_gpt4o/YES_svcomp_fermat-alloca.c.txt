@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.001 * MAX^2 - a^2 + MAX
+0.001 * MAX^3 - b^3 + MAX^2
+0.001 * MAX^4 - c^4 + MAX^3
+
+The program is terminating. It systematically increments `a`, `b`, and `c` in a nested manner, and exits when `c` exceeds `MAX`. Each nested loop controls its respective variable, resetting and incrementing the next as necessary, ensuring a bounded termination when `c` reaches `MAX`. The ranking functions show that the values decrease towards termination in respective phases.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+Ranking functions can be defined based on the nested escalation and reset of the variables a, b, and c. A suitable ranking function is a lexicographic ordering comprising the tuple (*MAX - *c, *MAX - *b, *MAX - *a), where the decrement in values signifies progress towards termination. 
+
+This program is essentially equivalent to three nested loops with conditions that progressively "reset" inner loops and increment outer loops until the outermost loop terminates. Thus, it will eventually terminate.
+

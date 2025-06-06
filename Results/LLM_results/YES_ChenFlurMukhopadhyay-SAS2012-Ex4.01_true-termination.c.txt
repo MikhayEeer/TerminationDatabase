@@ -1,21 +1,38 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-First phase:  
-0.5 * (n - x)^1  
-Second phase:  
--decreasing ranks due to non-linear transformations as combined increases in `x` and `y` given constraints will eventually violate `x + y >= 0` as `z` ensures increases. 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non-linear
+[RANKING FUNCTIONS]
+2^(−z) * (n − x + 1)
 
-This demonstrates that although the relation is non-linear, the program will eventually terminate due to constraints breaking.
+Explanation sketch:
+Define f(x,y,z,n)=2^(−z)·(n−x+1).  In the loop we have x+y≥0, so
+f′ = 2^(−(z+1))·(n−(2x+y)+1)
+   = 2^(−z)·½·((n−x+1) − (x+y))
+   ≤ 2^(−z)·½·(n−x+1)
+   = f/2
+and strictness follows since x+y≥0.  Hence f is always positive in the loop and strictly decreases each iteration, proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-non-linear  
-[RANKING FUNCTIONS]  
-The non-linear nature and structure of the loop imply a decrease in the composite expression `x - n/2` on each iteration, which ensures termination as `x` becomes larger than `n`. As `x` increases exponentially based on the operation `x = 2*x + y`, while `x <= n` initially, eventually `x` surpasses `n`, causing the loop condition `x <= n` to fail, thus terminating the loop. This non-linearly structured ranking function effectively demonstrates the termination of the program.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+non-linear (exponential)
+[RANKING FUNCTIONS]
+f(x,y,z,n) = (n + 1 − x) · 2^(−z)
+
+Explanation of decrease:
+  • Loop invariant ensures x ≤ n and x + y ≥ 0 ⇒ y > −n−1, so f>0 throughout.
+  • On the update
+      x′ = 2x + y,  z′ = z + 1
+    we have
+      f′ = (n + 1 − x′) · 2^(−z′)
+         = (n + 1 − 2x − y) · 2^(−(z+1))
+         = ½·(n + 1 − 2x − y) · 2^(−z)
+    and since −y < n+1, 
+      (n + 1 − 2x − y) < 2·(n + 1 − x)
+    so
+      f′ < (n + 1 − x) · 2^(−z) = f.
+  Hence f is a positive, strictly decreasing ranking function.
 

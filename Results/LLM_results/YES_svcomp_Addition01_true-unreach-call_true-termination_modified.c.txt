@@ -1,25 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-Phase 1: If `n > 0`, use the function `f(m, n) = n`.  
-Phase 2: If `n < 0`, use the function `f(m, n) = -n`.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n + 0.0
 
-Explanation:  
-The recursive function `addition(int m, int n)` modifies the second parameter `n` either by subtracting 1 (if `n > 0`) or adding 1 (if `n < 0`) in each recursive call, bringing `n` closer to zero. For positive `n`, the ranking function `f(m, n) = n` decreases with each recursive call until it reaches 0, at which point the recursion terminates. Similarly, for negative `n`, the ranking function `f(m, n) = -n` decreases towards zero. The piecewise nature of the ranking function addresses both positive and negative values of `n`, assuring termination.
+Explanation: In each recursive call with n>0, n decreases by 1, so the linear function f(m,n)=n strictly decreases and is bounded below by 0, proving termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-For the function `addition`:
-- When `n > 0`: the ranking function is `n`.
-- When `n < 0`: the ranking function is `-n`. 
-
-For the `main` function:
-- Since the function `addition` terminates, and the main function only deals with non-negative values for `m` and `n`, it terminates as well.
+0.0 * m^1 + 1.0 * n^1
 

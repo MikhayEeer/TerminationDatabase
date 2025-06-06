@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+|x| (absolute value of x)  
+
+The program is terminating because the value of `x` is strictly decreasing towards zero, no matter whether it is initially positive or negative. In each iteration of the loop, the magnitude of `x` gets reduced by 1, which ensures termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+abs(x)  
+
+The program is terminating because the absolute value of `x` serves as a linear ranking function that decreases by 1 in each iteration of the loop, eventually reaching 0, at which point the loop terminates.
+

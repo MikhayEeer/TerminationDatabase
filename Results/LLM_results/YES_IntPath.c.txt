@@ -1,12 +1,16 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `x == y` is always true after the initialization, causing the program to enter an endless loop.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * x + 1.0 * y + 1.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop condition `x == y` will hold indefinitely because `x` and `y` are set to either `0, 0` or `1, 1` based on the condition `if (i > 10)`. In both cases, the loop condition is satisfied, and neither `x` nor `y` are updated within the loop, causing it to run indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * x + 1.0 * y + 2.0
 

@@ -1,12 +1,45 @@
 === Response 1 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The function `loop(int a, int b)` will recurse indefinitely if initialized with values where `a > b`. In each recursive call, `a` is incremented and `b` is increased by `a`, which can maintain or even widen the gap where `a > b`, causing the recursion to continue without a base case to stop the process.
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+polynomial  
+
+[RANKING FUNCTIONS]  
+f(a,b) = ½·a² – ½·a – b  
+
+[EXPLANATION]  
+On each recursive call  
+  a′ = a + 1  
+  b′ = b + a  
+so  
+  f(a′,b′)  
+= ½·(a+1)² – ½·(a+1) – (b+a)  
+= ½·(a²+2a+1) – ½·a – ½ – b – a  
+= (½·a² – ½·a – b) – 1  
+= f(a,b) – 1.  
+
+Moreover, whenever the guard a>b holds, one checks by case‐analysis on the sign of a and b that  
+  ½·a² – ½·a – b ≥ 1,  
+so f(a,b) always takes a non‐negative integer value on reachable states and strictly decreases by 1 each step. Hence it is a valid well‐founded ranking function proving termination.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-There is no guaranteed decrease in the recursive call of `loop(a, b)`. If `a` starts as a positive value and `b` starts as a negative value, `a` will increase and `b` will increase as well, potentially creating an infinite loop where `a` is always greater than `b` and the condition `a > b` is always satisfied.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+Phase 1: f₁(a,b) = –1.0·a  
+Phase 2: f₂(a,b) = –0.5·a² – 0.5·a + 1.0·b
+
+Explanation of phases:
+• While a ≤ 0 (and a > b), f₁(a,b)=–a is a natural number and decreases by exactly 1 each recursive step (since a↦a+1).  
+• Once a>0 (but still a>b), switch to f₂.  One checks by direct calculation that under the update  
+      a′=a+1,  b′=b+a  
+we have  
+      f₂(a′,b′) = (–0.5(a+1)² –0.5(a+1) +1·(b+a))  
+                 = (–0.5a²–1.0a–0.5 –0.5a–0.5 +b+a)  
+                 = (–0.5a²–0.5a +b) –1  
+                 = f₂(a,b) –1,  
+so f₂ also strictly decreases.  Since both f₁ and f₂ are bounded below by 0 on their respective phases, the recursion must terminate.
 

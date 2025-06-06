@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program allows for non-terminating behavior if the value of `a` is negative, causing the recursive calls in `sum` to continue indefinitely, as the base case `n == 0` is never reached.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program is non-terminating because the function `sum` will not terminate when `n` is negative, as the base case `n == 0` is never reached by decrementing `n`.
+

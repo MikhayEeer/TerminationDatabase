@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The loop in the function `transmit6` contains an infinite loop with a call to `error`, which is a non-returning function that leads to `__VERIFIER_error`, indicating non-termination by reaching an error state.
+The main scheduling loop’s eval() uses a nondeterministic choice to run each runnable thread. If __VERIFIER_nondet_int() repeatedly returns false, no thread ever executes and the inner while(exists_runnable_thread()) loop never exits, yielding an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The `transmit6` function enters an infinite loop that continually calls `error()`, leading to non-termination.
+[RESULT]
+NONTERM
+[REASON]
+The main scheduler loop in start_simulation never terminates: after draining all runnable threads, time‐events are fired and threads reactivated, so exists_runnable_thread remains true and the while(1) loop runs forever.
 

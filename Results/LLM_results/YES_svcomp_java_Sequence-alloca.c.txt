@@ -2,17 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-100 - *i
-21 - *j
+100.0 - 1.0 * i
+21.0  - 1.0 * j
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-100 - i
-21 - j
+100.0 * 1 + -1.0 * i^1
+7.0 * 1 + -0.3333333333333333 * j^1
 

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x + 0.0
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+\( f(x) = x \)  
+
+This program terminates because the function \( f(x) = x \) is a linear ranking function which demonstrates that \( x \) will decrease in value with each iteration of the loop until the condition \( x < 0 \) is satisfied, causing the loop to exit.
+

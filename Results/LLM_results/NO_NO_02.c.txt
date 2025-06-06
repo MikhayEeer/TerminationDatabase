@@ -1,16 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-100 - i
+NONTERM
+[REASON]
+The inner loop is infinite: j is initialized to 0 and updated by j = j + 0, so j < 1 remains true forever.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-100 - i
+[RESULT]
+NONTERM
+[REASON]
+The inner loop “while (j < 1) { j = j + 0; }” never changes j (remains 0), so j<1 always holds and the loop is infinite.
 

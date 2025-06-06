@@ -1,21 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-phase 1: (|i| > 5)  
-     f(i, w) = |i|  
-phase 2: (-5 <= i <= 5)  
-     f(i) = i  
-
-This program can be shown to terminate using a multi-phase ranking function. In the first phase, when |i| is greater than 5, the absolute value of i is reduced in every iteration of the loop. Once i is within the range [-5, 5], the second phase ensures that eventually i is set to 0, terminating the loop.
+[RESULT]
+NONTERM
+[REASON]
+If |i₀|>5 then each loop iteration does |i|:=|i|+1 and w:=w+1, so |i|−w remains >0 forever and the loop never reaches |i|≤w to terminate.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * |i|^1 + 0.0 
+[RESULT]
+NONTERM
+[REASON]
+If |i₀|>5 then each two iterations i is replaced by i+2 (or −i+2) while w increases by 2, so |i|−w remains constant positive and never falls into [−w..w], hence i never becomes 0.
 

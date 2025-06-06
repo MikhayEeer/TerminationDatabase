@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+99 - x
+
+This program is terminating. The linear ranking function `99 - x` decreases with each iteration of the loop because the loop is broken whenever the new `x` is not sufficiently large (i.e., when `x < 2*old_x + 10`). Consequently, the program does not continue indefinitely, ensuring termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+f(x) = 101 - x  
+
+Explanation:  
+The program consists of a loop where the variable `x` is updated with a nondeterministic integer each iteration. However, within the loop, there is a `break` statement that is executed if `x` satisfies the condition `x < 2*old_x + 10`. Given the constraints `x > 0` and `x < 100`, the loop will terminate if it eventually satisfies the break condition or if `x` exits the defined range, resulting in the termination of the loop. The linear ranking function `f(x) = 101 - x` decreases as `x` approaches 100, thereby proving termination.
+

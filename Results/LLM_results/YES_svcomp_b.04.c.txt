@@ -1,26 +1,19 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-For the region where \(x > y\):  
-Ranking function: \(x - y\)  
-
-Explanation:  
-The program switches the values of \(x\) and \(y\) until \(x\) is no longer greater than \(y\). In each iteration of the loop:
-- \(x\) takes the previous value of \(y\)
-- \(y\) takes the previous value of \(x\)  
-
-This causes the difference \(x - y\) to strictly decrease with each iteration when \(x > y\). Thus, the program will eventually reach a point where \(x \leq y\), causing the loop to exit, demonstrating termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+// Region 1: x > y
+1.0 * x + -1.0 * y + 0.0 * tmp + 0.0
+// Region 2: x ≤ y
+0.0 * x + 0.0 * y + 0.0 * tmp + 0.0
 
 === Response 2 ===
 [RESULT]
-TERM
+TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x - y
-
-In the `test_fun` function, each iteration of the while loop swaps the values of `x` and `y`. The loop condition `x > y` ensures that after each swap, the new `x` (which was the old `y`) is less than or equal to the new `y` (which was the old `x`). By using the ranking function `x - y`, which decreases with each loop iteration, it can be shown that the function `test_fun` eventually exits the loop, provided the input values are such that they do not make the loop condition false from the start.
+1.0 * x + -1.0 * y + 0.0 * tmp
 

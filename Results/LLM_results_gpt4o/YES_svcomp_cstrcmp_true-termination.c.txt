@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The `cstrcmp` function iterates through the two input strings `s1` and `s2` simultaneously, character by character, until either of them reaches the null terminator (`'\0'`). Since both strings are null-terminated, the function is guaranteed to exit the loop once it reaches a null character in either string, no matter how long they are. Therefore, the function always terminates. The ranking function can be considered as decrementing the length of the remaining unmatched portion of the strings in each loop iteration, moving towards reaching `'\0'`.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * (strlen(s1) - number of matched characters before a differing one) + 0.0  
+1.0 * (strlen(s2) - number of matched characters before a differing one) + 0.0
+
+Explanation:  
+The `cstrcmp` function compares two strings character by character. It terminates as it either reaches the end of one of the strings or finds differing characters, as indicated by the loop condition `*s1 != '\0' && *s1 == *s2`, which reduces the length of remaining substrings to compare at each iteration. Thus, the maximum length of strings s1 and s2 can be seen as a linear ranking function that decreases with each matched character until a mismatch or null terminating character is encountered, ensuring termination.
+

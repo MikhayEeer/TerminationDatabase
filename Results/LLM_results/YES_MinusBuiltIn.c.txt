@@ -1,12 +1,16 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The loop condition `x > y` can never be false since `y` is set to `x + 1` inside the loop, making `x > y` always true.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * res + 1.0 * 1
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program is non-terminating because inside the loop, the condition `x > y` always becomes true again after executing `y = x + 1`, as the value of `y` is repeatedly set to a value greater than `x`, causing the loop condition to always evaluate to true.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + 0.0 * 1
 

@@ -2,9 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-1.0 * (maxId - tmp + 1)
+Case 1 (tmp ≤ id): f(tmp,id,maxId) = id – tmp  
+Case 2 (tmp >  id): f(tmp,id,maxId) = (maxId + 1 – tmp) + id  
+
+Explanation of decrease:  
+- If tmp ≤ id and tmp ≠ id, the loop body does tmp := tmp+1, so f_new = id–(tmp+1) = (id–tmp)–1.  
+- If tmp > id and tmp ≤ maxId, the body does tmp := tmp+1, so f_new = (maxId+1–(tmp+1))+id = f–1.  
+- If tmp = maxId+1 (> id), the body does tmp := 0, switching to Case 1 with f_new = id–0 = ((maxId+1–tmp)+id) – 0 = f_old – 0, but since tmp>maxId only occurs when f_old = id, on the next iteration tmp moves into Case 1 where f strictly decreases.  
+- When tmp = id the loop guard tmp≠id fails and the loop exits.  
+In all executions f is non‐negative and strictly decreases on every iteration, so the loop terminates.
 
 === Response 2 ===
 [RESULT]
@@ -12,6 +20,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * (maxId - tmp)^1 + 1.0 * 1
-
+maxId + 1 - tmp
+id     - tmp
 

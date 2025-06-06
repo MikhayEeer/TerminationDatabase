@@ -2,18 +2,19 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-100000 - v
-
-This program will terminate because the main loop iterating over `v` runs from 0 to 100000 with `v` incrementing each time, and there are no operations that can cause it to repeat indefinitely or backtrack. The ranking function `100000 - v` decreases with each iteration of the loop, which indicates termination.
+100000.0 + -1.0 * v^1
+1.0 * n + -1.0 * x^1
+1.0 * n + -1.0 * y^1 + -1.0 * 1.0
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-multi-phase  
+nested  
 [RANKING FUNCTIONS]  
-Phase 1: 100000 - v  
-Phase 2: 0  
+1.0*(100000 − v)  
+1.0*(n − x)  
+1.0*(n − y)
 

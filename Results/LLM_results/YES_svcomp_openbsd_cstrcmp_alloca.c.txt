@@ -1,26 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The program terminates because the loop within the `cstrcmp` function consistently progresses towards termination. The condition of the while loop, `*s1 == *s2++`, iterates over the strings and compares their characters. It stops if the characters do not match or when the end of the strings (null character '\0') is reached.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length1 + -1.0 * (s1 - nondetString1)
 
-The conditions for loop termination are met because:  
-1. If two strings are identical up to the end (including the null terminator), the loop will stop.
-2. If two strings have any differing characters, the loop will also terminate eventually.
+Explanation:
+We observe that in each iteration of the `while (*s1 == *s2++)` loop in `cstrcmp`, both pointers advance by exactly one position (when the bytes match and are non‐zero).  If we let nondetString1 be the original value of `s1` on entry, then the quantity
 
-Thus, the loop in `cstrcmp` will not result in an infinite iteration and guarantees termination. A simple ranking function in this context can be the length difference between the strings, which provides a linear progression towards the null terminator or mismatch, ensuring the loop will not continue indefinitely.
+    f = length1 − (s1 − nondetString1)
+
+is a non‐negative integer and decreases by 1 on every loop iteration.  Hence it is a valid linear ranking function proving that the loop—and therefore the whole program—must terminate.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-1. length_of_matching_prefix(nondetString1, nondetString2) when both end are not reached.
-0. when the null character is reached in either string.
+1.0 * length1 + 1.0 * length2 + -1.0 * idx1 + -1.0 * idx2
 
-
-Explanation: The main function constructs two non-empty strings of non-determined lengths and terminates them with a null character (`'\0'`). It then compares the two strings using the `cstrcmp` function, which will find a mismatch or reach the end of one string, either way ensuring termination. The program will thus always terminate as it will eventually reach the end of one or both of the strings, if not earlier due to a character mismatch. This is proved by the ranking function showing the process of matching characters from beginning to the end of the strings.
+where idx1 = (s1 – base_address_of_nondetString1) and idx2 = (s2 – base_address_of_nondetString2). This function is always non‐negative upon loop entry and decreases by 2 on every iteration, proving termination.
 

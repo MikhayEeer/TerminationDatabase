@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1st Level:  
+0.5 * x^1 + 0.5 * |z|
+
+2nd Level:  
+|y + z^1|  
+   
+Explanation:  
+The ranking function is nested with two levels. On the 1st level, the ranking function `0.5 * x + 0.5 * |z|` shows the primary decreasing measure. As long as `x` is positive, the loop's control variable `x` eventually decreases, moving towards termination. At the 2nd level, changes in `y` and `z` are captured by `|y + z|`, controlling secondary behaviors. The program ensures that for each execution of the loop, the principal decreasing measure and secondary conditions eventually lead the variables towards program termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1 + 1.0
+1.0 * z^2 + 2.0 * z + 1.0
+

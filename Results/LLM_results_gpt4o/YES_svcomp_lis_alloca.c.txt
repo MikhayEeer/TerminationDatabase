@@ -1,0 +1,16 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (N^2 - N)
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The function can be shown to terminate because the loops within the `lis` function have definite bounds. The outer loops iterate from 0 to N, where N is the size of the input array. Since N is determined by the `array_size`, which is positive, the loops have a finite number of iterations. Therefore, the function terminates, as each loop has a clear termination condition defined by the range of indices it iterates over.
+

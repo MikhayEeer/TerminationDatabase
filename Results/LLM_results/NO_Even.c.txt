@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * i^1
+[RESULT]
+NONTERM
+[REASON]
+If the initial value of i is negative, each loop iteration subtracts 2, so i remains negative and never reaches 0 or 1, causing an infinite loop.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.5 * i^1 
+[RESULT]
+NONTERM
+[REASON]
+For any negative initial i, subtracting 2 repeatedly keeps i negative and never reaches 0 or 1, so the loop runs forever.
 

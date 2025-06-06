@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x - y
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - y)^1 + 0.0 * 1
+
+This linear ranking function shows that the program is terminating as the value \( x - y \) decreases by \( y \) in each iteration of the loop, and since \( y \) is positive, the loop must eventually terminate.
+

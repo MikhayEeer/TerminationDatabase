@@ -1,18 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-recursion depth within function calls in `g(x)` decreases eventually to the base case, `g(0)`.
+[RESULT]
+NONTERM
+[REASON]
+For any x≥1, g(1) calls g(2), g(2) calls g(1) in turn, creating an infinite mutual recursion that never reaches the base case.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-nested
-[RANKING FUNCTIONS]
-The function `g` is recursive and contains nested calls to itself. The recursive calls are structured to decrease the argument in a way that ensures termination. The key insight is that each call to `g(x)` entails evaluating `g(x - 1) + 1`, leading to eventual base case satisfaction. The termination can be reasoned by observing that each call with `x > 0` further breaks down into subsequent calls with smaller values, eventually reaching `g(0)`, which returns 1, thereby unwinding the call stack successfully.
-
-The evaluation evaluates down a hierarchy of recursive calls until the non-recursion condition `x == 0` is met, making it a nested ranking scenario where the termination is ensured through recursive descent to the base case.
+NONTERM
+[REASON]
+For any x>0, g(x) calls g(x–1) to compute y=g(x–1), then calls g(y+1) with y≥1, so the argument never strictly decreases to 0 and recursion never bottoms out.
 

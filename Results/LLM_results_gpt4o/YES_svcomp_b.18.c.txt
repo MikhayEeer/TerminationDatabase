@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+For the outer loop:
+1.0 * x + 1.0 * y
+
+For the inner loops:
+1.0 * x (when x > y)
+1.0 * y (when y >= x)
+
+The program will definitely terminate because each loop strictly reduces the value of x or y, eventually leading the loop conditions to become false.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.  x^1 for the outer loop  
+2.  x^1 for the inner loop if x > y  
+3.  y^1 for the inner loop if x <= y  
+
+The outer loop decreases because either `x` or `y` will eventually reach zero, at which point the outer loop condition `(x > 0) && (y > 0)` will fail. For the inner loops, `x` and `y` are strictly decreased in every iteration until they reach zero. Thus, the program will terminate.
+

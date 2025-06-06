@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+|x_ref - y_ref|  
+
+Explanation:  
+The program terminates because in each iteration of the loop within `test_fun`, either `*x_ref` or `*y_ref` is incremented, thus decreasing the absolute difference between `*x_ref` and `*y_ref` by exactly 1 until they are equal. Once `*x_ref` equals `*y_ref`, the loop condition `!(*x_ref == *y_ref)` becomes false, causing the loop to terminate. Therefore, `|x_ref - y_ref|` serves as a linear ranking function demonstrating termination.
+
+=== Response 2 ===
+[RESULT] 
+TERMINATE 
+[RANKING FUNCTION TYPE] 
+multi-phase 
+[RANKING FUNCTIONS] 
+1.0 * (abs(x-y))^1 + 0.0 * 1
+

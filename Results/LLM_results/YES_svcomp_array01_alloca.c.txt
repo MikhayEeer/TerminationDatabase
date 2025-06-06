@@ -4,13 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * sum(a)^1 + 1.0 * N^1
+1.0 * a[i]^1 + 1.0 * 1  
+1.0 * N^1 + -1.0 * i^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * a[i]^1 + 1.0 * 1
+1.0 * a[i]
+1.0 * N + -1.0 * i
 

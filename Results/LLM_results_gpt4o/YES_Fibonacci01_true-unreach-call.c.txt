@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+  
+1. Decrement of `n` in `fibonacci(n-1)` and `fibonacci(n-2)` calls.  
+
+The `fibonacci` function is a classic example of recursion where each call results in a strictly smaller parameter value (`n-1` or `n-2`). The process continues until the base case is reached (`n < 1`). Each recursive call strictly reduces the size of `n`, leading towards termination. In the `main` function, the calls to `fibonacci` use a non-deterministic integer, which is bounded within a certain range, ensuring that the program will eventually terminate or reach an existing base case.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+3.0 * 1 + 4.0 * n^1 - 1.0 * 1   
+
+The program is terminating because the recursive function `fibonacci(int n)` uses a decreasing sequence represented by the argument `n` in the recursive calls, such that each call reduces `n` by at least 1, until it reaches a base case where the recursion stops. The main program bounds `x` to reasonable values, ensuring termination in practice. The piecewise function derives from the fact that there are base cases for which the function ends, and outside of these cases, each recursive step brings `n` closer to a base condition.
+

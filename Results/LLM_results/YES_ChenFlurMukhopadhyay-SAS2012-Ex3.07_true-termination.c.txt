@@ -2,20 +2,34 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+non-linear
 [RANKING FUNCTIONS]
-1.0 * x^1 + 0.5 * (y^2 + z^2) + 1.0 * 1
+r(x,y,z) = (z + 1)² + 2·x
+
+Explanation:
+  On each loop‐iteration
+    x′ = x + y,      y′ = z,      z′ = –z – 1
+  so
+    r′
+    = (z′+1)² + 2·x′
+    = (–z–1+1)² + 2·(x+y)
+    = (–z)² + 2x + 2y
+    = z² + 2x + 2y
+    = (z+1)² + 2x  – 1      (since y = z in the loop)
+    = r – 1.
+  Moreover, while x ≥ 0 (the loop‐condition) we have r(x,y,z) = (z+1)² + 2x ≥ 0, so r is a well‐founded non-negative integer function that strictly decreases by 1 each iteration. Hence the loop terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1:  
-0.5 * x^2 + 0.5 * y^2 + 0.5 * z^2  
-Phase 2:  
-x + 0.5 * y + 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+– For states with z ≥ 0:  
+   R₁(x,y,z) = 2·x + z + 1  
+– For states with z < 0:  
+   R₂(x,y,z) = 2·x − z  
 
-The program is terminating due to a decrease in the multi-phase ranking function as the loop progresses. The quadratic nature of `x`, `y`, and `z` ensures termination through suitable updates degrading the values until the loop condition `x >= 0` is violated.
+[EXPLANATION]
+Partitioning by the sign of z gives two linear ranking functions.  One checks that whenever z ≥ 0 the next state has z′ = −z−1 < 0 (so we switch to R₂), and whenever z < 0 the next state has z′ = −z−1 ≥ 0 (so we switch back to R₁), and in each case the corresponding R‐function drops by at least 1.  Since x ≥ 0 throughout the loop ensures R₁,R₂ stay non-negative, this piecewise ranking proves termination.
 

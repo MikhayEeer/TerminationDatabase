@@ -1,16 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (i - j)
+[RESULT]
+NONTERM
+[REASON]
+Both `i` and `j` updates are nondeterministic (potentially negative), so `i-j` can increase indefinitely, allowing the loop condition `i-j>=1` to hold forever.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (i - j)
+[RESULT]
+NONTERM
+[REASON]
+Both i and j are updated by unrestricted nondeterministic values, so i − j can be kept ≥1 indefinitely, allowing infinite looping.
 

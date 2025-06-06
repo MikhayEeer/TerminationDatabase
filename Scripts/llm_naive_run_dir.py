@@ -6,8 +6,8 @@ from datetime import datetime
 
 from openai import OpenAI
 
-secrete = "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"
-chatgpt_model = "openai/gpt-4o"
+secrete = "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"
+chatgpt_model = "openai/o4-mini"
 
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 

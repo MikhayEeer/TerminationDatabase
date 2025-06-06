@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+If `x > 0` and `y >= 0`, the value of x will never decrease within the loop. Thus, the loop can continue indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+If \( x > 0 \) and \( y \geq 0 \), then \( x \) will keep increasing in each iteration, causing the loop to run indefinitely.
+

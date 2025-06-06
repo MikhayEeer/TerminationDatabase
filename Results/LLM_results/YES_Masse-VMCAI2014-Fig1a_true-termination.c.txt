@@ -2,21 +2,26 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+multi-phase
 [RANKING FUNCTIONS]
-First level: b decreases for each two steps in the cycle if initially b >= 0.
-Second level: a decreases when b = -1 due to the decrement in b, leading to eventual exit since a must become negative when b continuously reduces 'a' by at least 1 in each cycle.
+Phase 1: r₁(a,b) = b + 1  
+Phase 2: r₂(a,b) = a + 1
+
+Explanation of the phases:
+• Phase 1 applies whenever b ≥ 0.  In one step we do b′ = −b−1, so r₁′ = (−b−1)+1 = −b ≤ 0, hence r₁ strictly goes to 0 or below and we immediately enter Phase 2.  
+• Phase 2 applies whenever b < 0.  Then a′ = a + b ≤ a−1, so r₂′ = (a + b) + 1 ≤ a < a + 1 = r₂, i.e. r₂ strictly decreases by at least 1 each iteration in Phase 2, and since r₂ is bounded below by 1 as long as a ≥ 0, it must eventually reach 0 and force a < 0, terminating the loop.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-First Phase:  
-\( a + 1 \) when \( b \leq 0 \)  
-Second Phase:  
-\( b^2 + 1 \) when \( b > 0 \)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+a + b + 1
+a + 1
 
-Explanation: The program has two phases. In the first phase, if \( b \leq 0 \), the function \( a + 1 \) strictly decreases every iteration since \( b \) will remain non-positive, and \( a \) will decrease by at least 1. In the second phase, if \( b > 0 \), then \( b \) is reassigned to a negative number or decremented further; hence \( b^2 + 1 \) decreases. The loop terminates when \( a < 0 \).
+Explanation sketch (for your reference):  
+– When b ≥ 0, one iteration sends (a,b)↦(a+b, –b–1), and a + b + 1 strictly decreases by 1.  
+– When b < 0, one iteration sends (a,b)↦(a+b, –b), and a + 1 strictly decreases (since b < 0 ⇒ a+b < a).  
+Together these two “phases” prove that the loop must eventually drive a < 0 and terminate.
 

@@ -1,20 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-|x| (absolute value of x)  
-
-The program is terminating because the value of `x` is strictly decreasing towards zero, no matter whether it is initially positive or negative. In each iteration of the loop, the magnitude of `x` gets reduced by 1, which ensures termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+piece 1: predicate x > 0,    ranking function f(x) = 1.0 * x
+piece 2: predicate x < 0,    ranking function f(x) = -1.0 * x
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-abs(x)  
-
-The program is terminating because the absolute value of `x` serves as a linear ranking function that decreases by 1 in each iteration of the loop, eventually reaching 0, at which point the loop terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+x > 0 : 1.0 * x^1  
+x < 0 : 1.0 * (-x)^1
 

@@ -1,14 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The function `g(int x)` contains nested recursive calls that can lead to infinite recursion for certain inputs. Since the function depends on the result of another call to `g`, calculating a direct ranking function is not straightforward. Additionally, no definite base case termination guarantee ensures that the recursion will stop for all non-negative inputs, making the program non-terminating in some scenarios.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 0.0
+
+Explanation: In every recursive call to g, the argument is strictly smaller than the caller’s x (either x−1 or g(x−1)−1≤0<x), so f(x)=x is a valid linear ranking function over the naturals.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-The program employs a nested recursion in the function `g` which decreases the argument `x` in each recursive call. The recursion unfolds such that the outer call `g(x)` eventually reduces `x` to 0 through multiple recursive layers, each decreasing `x` by 1 until reaching the base case. Hence, the termination can be argued by the eventual reduction of `x` to zero through the nested calls.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x + 1.0
 

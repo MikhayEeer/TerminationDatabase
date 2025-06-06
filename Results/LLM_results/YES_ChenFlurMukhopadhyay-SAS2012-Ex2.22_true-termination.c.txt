@@ -2,11 +2,14 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTION]
-1.0 * x + 0.0 * y
+piecewise
+[RANKING FUNCTIONS]
+# Piece 1: applies when x>0 (i.e. loop‐entry states)
+DISCRIMINATOR: 1.0 * x^1 + 0.0 * y^1 + 0.0 > 0  
+RANKING FUNCTION: 0.0 * x^1 + 0.0 * y^1 + 1.0  
 
-The program is terminating. When inside the loop, the variable `x` is assigned the value of `y`. Given the condition `if (y > -old_y)` results in a break from the loop, we must consider cases where it is bypassed. With each iteration, the nondeterministic value of `y` is such that `x` will eventually become non-positive, ensuring termination since the condition `x > 0` will become false. The linear ranking function `f(x, y) = x` decreases over iterations, proving termination.
+Explanation:
+Under any non‐terminating (i.e. non‐break) iteration we have x>0 initially and then x′=y≤−old_y<0, so the discriminator x′>0 fails and no further decrease obligation remains. Thus the piecewise constant function f(x,y)=1 on x>0 strictly decreases to 0 (outside the discriminator) on every loop transition.
 
 === Response 2 ===
 [RESULT]
@@ -14,5 +17,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-x
+1.0 * x + -1.0 * 1.0
 

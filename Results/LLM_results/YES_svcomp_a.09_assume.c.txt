@@ -1,21 +1,16 @@
 === Response 1 ===
 [RESULT]  
-NONTERM  
-[REASON]  
-The innermost while loop may never terminate if the initial condition x >= z holds and y > 0, as z will keep increasing by positive y, and x remaining constant, maintaining the loop condition indefinitely.
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0 * y^1 + -1.0 * z^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-piecewise
+linear
 [RANKING FUNCTIONS]
-If `y <= 0`: the function terminates immediately as it hits a return statement.
-
-Else:   
-First Phase:  
-Linear ranking function on the while loop condition: `x - z`
-(Ranking function decreases since `z` increases with `y`, making `x - z` eventually negative, breaking the loop.) 
-
-These functions show that the program will not run indefinitely given any initial values for `x`, `y`, and `z`.
+1.0 * x + -1.0 * z + 1.0
 

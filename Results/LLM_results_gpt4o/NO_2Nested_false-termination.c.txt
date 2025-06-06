@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The values of x and y can increase indefinitely, thus no guaranteed decrease towards termination in any loop iteration as long as x >= 0 and y >= 0.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variables \(x\) and \(y\) both increase when the loop is entered, and when \(x\) is non-negative initially, it will never become negative, causing the loop to continue indefinitely.
+

@@ -1,22 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * z^1  
-1.0 * y^1 + 1.0  
-
-=== Response 2 ===
-```plaintext
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 *  z^1 + 5.0 * 1
-1.0 *  y^1 + 5.0 * 1
-```
+1.0 * y + 1.0
+1.0 * z + 1.0
 
-The program terminates because it uses a multi-phase approach to ensure the variables decrease in ordered phases as the program progresses. The multi-phase ranking is composed of two functions, one for each significant phase, ensuring first `z` decreases and once `y` becomes negative, it switches phase to decrease `y` until it terminates the loop.
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y + 1.0
+1.0 * z + 1.0
 

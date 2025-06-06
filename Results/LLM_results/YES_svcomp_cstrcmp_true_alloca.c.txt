@@ -1,20 +1,26 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTION]  
-The function `cstrcmp` iterates over the characters in the strings `s1` and `s2` until the end of either string or until a differing character is found. The loop condition is based on the contents of the strings, which are guaranteed to terminate when a null character is encountered, as null terminators are explicitly set. This provides a linear progression towards reduction that guarantees termination. Hence, considering `n` as the minimum length between the two strings, the ranking function is:  
-`n - number of iterations`
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length1 – 1.0 * (s1 – s1₀)
+
+Explanation of the ranking function:
+• We view cstrcmp as iterating a pointer s1 from its initial value s1₀ up to the terminating '\0' at most length1–1 steps.  
+• At each loop iteration s1 advances by one, so (s1 – s1₀) increases by 1 and R = length1 – (s1 – s1₀) strictly decreases by 1.  
+• R is initially ≤ length1 and remains non-negative, hence proves the loop must terminate.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-length1 + length2  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * ( length1 − (s1 − s1₀) )
 
-Explanation:  
-The main function allocates two non-deterministic strings of lengths `length1` and `length2`, each with a null terminator at the end. The function `cstrcmp` then compares these two strings character by character until it encounters a difference or reaches the end of either string (indicated by the null terminator `\0`). The loop within `cstrcmp` iterates at most `length1 - 1` or `length2 - 1` times, whichever is smaller. Thus, the execution of this program is bounded and terminates after a finite number of steps.
+Explanation:
+Let s1₀ be the initial value of s1 on entry to the loop, and length1 the length of the first string buffer. Define 
+  f(s1) = length1 − (s1 − s1₀).
+Each iteration of the while‐loop increments s1 by 1, so f decreases by exactly 1. Since s1 stops advancing as soon as *s1=='\0' (and length1−(s1−s1₀)≥0 initially), f is a non‐negative integer that strictly decreases on each loop iteration, hence the loop must terminate.
 

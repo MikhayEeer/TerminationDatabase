@@ -1,10 +1,10 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * (i - j)
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + -1.0 * j^1 + 0.0 * 1
 
 === Response 2 ===
 [RESULT]
@@ -12,5 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-i - j
+1.0 * i + -1.0 * j
 

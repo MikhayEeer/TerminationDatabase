@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The inner loop `while (j > 5)` increments `j` without a terminating condition, allowing `j` to potentially grow indefinitely when `i >= 6`. This causes the program to become non-terminating.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The inner loop `while (j > 5) { j = j+1; }` is non-terminating when `j` is initially greater than 5, as `j` only increases, ensuring the condition `j > 5` remains true indefinitely.
+

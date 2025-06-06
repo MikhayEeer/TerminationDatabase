@@ -1,18 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear   
-[RANKING FUNCTIONS]  
-1.0 * i
+[RESULT]
+NONTERM
+[REASON]
+If i starts at 10 (or any value ≥10), the loop decrements until i==10, then i!=10 is false so i stays 10 and the while(i>5) loop never terminates.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-i - 5
-
-This ranking function decreases by 1 in each iteration of the loop when `i > 5` and `i != 10`, which guarantees that the loop will eventually terminate when `i` reaches 5.
+NONTERM
+[REASON]
+If i==10 (or i>10 eventually decrements to 10), then in the loop i>5 holds but i!=10 is false, so i never changes and the loop never terminates.
 

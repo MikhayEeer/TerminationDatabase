@@ -1,12 +1,25 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of *x can increase indefinitely due to the addition of *y, which can be assigned any value by the nondeterministic function, preventing the condition *x > 0 from necessarily becoming false. Moreover, *z alternates signs with potentially increasing absolute value, making the system unpredictable regarding termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+phase 1: 1.0 * y + 1.0 * z + 1.0
+phase 2: 1.0 * x + 1.0 * y + 1.0 * z + 1.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of x, y, and z can change in such a way that *x increases indefinitely and thus the loop condition *x > 0 may never be violated, causing the loop to potentially run forever.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1 (odd iterations): f₁(x,y,z) = x + z  
+Phase 2 (even iterations): f₂(x,y,z) = x  
+
+Explanation of decrease:
+– On odd iterations z has just been updated to –z–1, and x′=x+y with y=previous z, so 
+    f₁′ = x′ + z′ = (x + z₀) + (–z₀–1) = x – 1 < x + z = f₁.
+– On even iterations z has just been reset to its original value z₀, and x′=x+y with y=previous z, so 
+    f₂′ = x′ = x – 1 < x = f₂.  
+Each phase’s ranking function is always non‐negative while that phase is active and strictly decreases, hence the loop must terminate.
 

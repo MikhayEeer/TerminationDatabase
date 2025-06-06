@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  x_ref^1 + 1.0 *  y_ref^1
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+\( f(x, y) = x + y \)
+
+Explanation:  
+The loop will decrement either `*x_ref` or `*y_ref` in each iteration such that `*x_ref + *y_ref` is reduced by 1 until the condition `*x_ref + *y_ref > 0` is no longer satisfied, proving that the program terminates.
+

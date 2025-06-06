@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The loop can be non-terminating for specific inputs, such as x = -1 and y = 0, where the condition x < y will always be true, and the variables do not change in a way that affects the loop condition.
+The state x=−1, y=0 satisfies x<y and is preserved by the body (x:=x+y=−1, y:=y/2=0), yielding an infinite loop.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program is non-terminating for the initial values x = -1 and y = 0 since the loop condition x < y will always be false for these values, meaning the loop does not execute at all. For some other values, such as x = 0 and y = 1, the variables can result in an infinite loop with x alternating, while y eventually reaches 0, causing the loop to continue indefinitely, unable to exit the condition x < y.
+For example, with x = -1 and y = 0 each iteration leaves x = -1 and y = 0, so the condition x < y remains true forever.
 

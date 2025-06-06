@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program enters an infinite loop when `c` is non-negative. In this case, the value of `x` either stays the same or increases in each iteration, thus `x` remains non-negative, causing the loop to never terminate.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `x >= 0` with update `x += c` will not terminate for `c >= 0`, since `x` will either stay the same or increase indefinitely.
+

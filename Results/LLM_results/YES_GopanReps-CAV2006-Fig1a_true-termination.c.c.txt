@@ -1,13 +1,11 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * y^1  (when x <= 50, y is increased)  
--1.0 * y^1 (when x > 50, y is decreased)  
-
-The program is terminating as the value of y will eventually decrease to a negative value once x exceeds 50. This will cause the loop to exit. The multi-phase ranking function shows that within the while loop, y is incremented when x is less than or equal to 50, and decremented otherwise, which ensures termination as y decreases below 0.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: f₁(x,y) = 50.0 − 1.0·x  
+Phase 2: f₂(x,y) = 1.0·y + 1.0
 
 === Response 2 ===
 [RESULT]
@@ -15,6 +13,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-0.5 * x - 1 * y + 25.0 for phase 1 (x <= 50)
-1.0 * x for phase 2 (x > 50)
+51.0 * 1 + -1.0 * x^1
+1.0 * y^1 + 1.0 * 1
 

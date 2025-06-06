@@ -1,0 +1,15 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+The outer loop (`for (i = 0; i < array_size; i++)`) decreases the remaining elements to process in the array, which will eventually terminate as the index `i` reaches `array_size`.
+The inner loop (`while (*p > 0)`) iterates over a signed byte value, decreasing it until it reaches zero. The `char` being decrementable from a positive value guarantees termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter an infinite loop within the `sumOfThirdBytes` function if any of the third bytes of the integers in the `numbers` array is initialized to a positive value. The `while (*p > 0)` loop will keep decrementing `*p` indefinitely if the third byte remains positive without a guaranteed change to reach zero, particularly if the `numbers` array is uninitialized.
+

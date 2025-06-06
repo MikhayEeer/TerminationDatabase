@@ -1,19 +1,30 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The function `cstrspn` iterates over the characters of the first string `s1` until it finds a character not present in the second string `s2` or reaches the end of `s1`. The loop iterating over `s2` is nested within the loop iterating over `s1`, and each cycle of the outer loop either terminates early or progresses towards completing `s1`. The inner loop terminates as it traverses a finite string `s2`. Therefore, a linear ranking function is the length of the remaining string `s1`, which decreases with every iteration of the outer loop until termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+# Phase 1: inner‐loop progress
+   f₁(s, s2) = |s2| – (s – s2)
+# Phase 2: outer‐loop progress
+   f₂(sc1, s1) = |s1| – (sc1 – s1)
+
+Explanation:
+– |s2| is the (fixed) length of the second string; s – s2 is the current inner‐loop index.  Each inner‐loop iteration decreases f₁ by 1 and when f₁=0 the inner loop exits.  
+– |s1| is the (fixed) length of the first string; sc1 – s1 is the current outer‐loop index.  Each completed inner loop (at f₁=0) advances sc1 and decreases f₂ by at least 1.  
+Both f₁ and f₂ are non‐negative and strictly decrease in their respective loops, proving termination.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1. Decrease in the number of characters in `s1` to process, measured by the difference between `sc1` and the end of `s1`.  
-2. Nested loop with `s` pointer progresses towards the end of `s2` while comparing characters, eventually either finding a match or iterating through `s2`.  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+f₁ = length(s1) – (sc1 – s1)  
+f₂ = length(s2) – (s – s2)  
 
-The outer loop processes one character from `s1` in each iteration, and the inner loop processes one character from `s2`, either breaking the inner loop or reaching its end. The finite nature of the strings ensures that each loop iteration represents progress towards termination.
+Explanation:  
+– The outer loop index i = sc1–s1 starts at 0 and increases up to length(s1), so f₁>0 and strictly decreases when the outer loop advances.  
+– The inner loop index j = s–s2 starts at 0 and increases up to length(s2), so f₂>0 and strictly decreases on each inner‐loop iteration.  
+Together (f₁,f₂) form a lexicographic (nested) ranking function proving termination.
 

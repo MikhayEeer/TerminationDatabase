@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+The program terminates because the loop within the `cstrcmp` function consistently progresses towards termination. The condition of the while loop, `*s1 == *s2++`, iterates over the strings and compares their characters. It stops if the characters do not match or when the end of the strings (null character '\0') is reached.
+
+The conditions for loop termination are met because:  
+1. If two strings are identical up to the end (including the null terminator), the loop will stop.
+2. If two strings have any differing characters, the loop will also terminate eventually.
+
+Thus, the loop in `cstrcmp` will not result in an infinite iteration and guarantees termination. A simple ranking function in this context can be the length difference between the strings, which provides a linear progression towards the null terminator or mismatch, ensuring the loop will not continue indefinitely.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1. length_of_matching_prefix(nondetString1, nondetString2) when both end are not reached.
+0. when the null character is reached in either string.
+
+
+Explanation: The main function constructs two non-empty strings of non-determined lengths and terminates them with a null character (`'\0'`). It then compares the two strings using the `cstrcmp` function, which will find a mismatch or reach the end of one string, either way ensuring termination. The program will thus always terminate as it will eventually reach the end of one or both of the strings, if not earlier due to a character mismatch. This is proved by the ranking function showing the process of matching characters from beginning to the end of the strings.
+

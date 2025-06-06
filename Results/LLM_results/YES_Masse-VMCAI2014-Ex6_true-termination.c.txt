@@ -1,12 +1,23 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The value of `x` can keep increasing indefinitely if `y` starts as a non-negative number and is initially large enough. When `y` is decrementing but `x` is incremented by `y`, `x` can be updated to a higher non-negative value that sustains the loop's condition indefinitely. Hence, there are scenarios where the loop will not terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: f₁(x,y) = y + 1  
+Phase 2: f₂(x,y) = x + 1
+
+Explanation:
+• While y ≥ 0 (Phase 1) each iteration y↦y–1 so f₁ decreases by 1 and is always ≥0.  
+• Once y<0 (Phase 2) each iteration x↦x+y with y<0 so x decreases by at least 1, making f₂ decrease by ≥1 and remain ≥0.  
+Hence the lexicographic pair (f₁,f₂) is a valid 2-phase ranking function proving termination.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program is non-terminating because if `y` is non-negative, `x` can continuously increase in the loop as `x` is updated by `x = x + y`. Since `x` can increase indefinitely while `y` decreases but remains non-negative, the loop condition `x >= 0` can always remain true, thus allowing the loop to run indefinitely.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0
+1.0 * x^1 + 1.0
 

@@ -1,16 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * k - j
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * k + -1.0 * i + -1.0 * j + 100.0
+
+This function is non‐negative whenever i ≤ 100 and j ≤ k (so in every loop state) and decreases by 2 on each iteration:  
+f′ = (k−1) − j − (i+1) + 100 = f − 2.
 
 === Response 2 ===
 [RESULT]  
 TERMINATE  
 [RANKING FUNCTION TYPE]  
-linear  
+multi-phase  
 [RANKING FUNCTIONS]  
-k - j  
+Phase 1: f₁(j) = j − 101  
+Phase 2: f₂(k,j) = k − j  
+
+Explanation (implicit in the multi‐phase choice):  
+– While j>101 (so f₁>0), each iteration makes j←i+1≤100+1=101, so f₁ strictly decreases to ≤0.  
+– Once j≤101 (f₁≤0), we switch to phase 2, and in each iteration k decreases by 1 and j≤101 while i≤100, ensuring  
+ f₂_new−f₂_old=(k−1−(i+1))−(k−j)=−2−(i−j)≤−1, so f₂ strictly decreases and remains non‐negative (since j≤k in the loop guard).
 

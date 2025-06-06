@@ -4,17 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-40 - x
-
-The program terminates because in each iteration of the loop, the value of `x` is incremented by either 1 or 2. `x` starts at 0 and the loop continues while `x < 40`. This guarantees that the loop will eventually terminate since `x` will reach or exceed 40, causing the loop condition to become false. The linear ranking function `40 - x` decreases with every iteration, which proves termination.
+-1.0 * x + 40.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-40 - x  
-
-The program is terminating because the value of `x` increases with every iteration of the loop, while `z` does not affect the termination condition. `x` starts at 0 and increases by 1 or 2 until it reaches 40, at which point the loop terminates. The ranking function `40 - x` is a linear function that demonstrates that with each iteration, the result decreases until it reaches 0, proving termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+40.0 - 1.0 * x
 

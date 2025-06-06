@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+x  
+
+Explanation:  
+The program terminates because the variable `x` is decremented in each iteration of the loop, either from the `foo()` function when the nondeterministic condition inside the loop is true or false. Since `x` is only decremented and the loop condition is `x > 0`, the variable `x` will eventually become non-positive, causing the loop to terminate.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1
+

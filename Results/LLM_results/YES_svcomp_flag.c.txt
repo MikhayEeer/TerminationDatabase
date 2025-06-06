@@ -1,18 +1,26 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear    
-[RANKING FUNCTIONS]  
-y - x  
-
-The program terminates because the value of `y - x` decreases with each iteration of the loop. Since `x` is incremented in each loop iteration and `y` remains constant, eventually `x` will become greater than or equal to `y`, causing the condition `flag = (x++ < y)` to become false and the loop to exit. Thus, the loop terminates for all integer values of `x` and `y`. The ranking function `y - x` is linear as it shows a decrease at each step.
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-y - x
+1.0 * y^1 + -1.0 * x^1 + 0.0 * 1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+– Region “x < y”  
+  f₁(x,y,flag) = y – x + 2  
+– Region “x ≥ y”  
+  f₂(x,y,flag) = flag
+
+Explanation of decrease:  
+• If x<y, then flag stays 1 and x increments by 1, so  
+    f₁′ = y – (x+1) + 2 = f₁ – 1.  
+• Eventually x reaches ≥y, entering the second region with f₂=1; on that iteration flag becomes 0, so  
+    f₂′ = 0 = f₂ – 1.  
+All fᵢ remain non‐negative on loop‐entry states and decrease strictly on every loop step, proving termination.
 

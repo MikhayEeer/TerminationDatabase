@@ -2,11 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The `master` and `transmit` functions contain infinite loops that continuously execute without a condition to break out of them. Additionally, each thread's waiting and execution conditions do not coerce termination naturally, and thus the simulation does not have a natural termination without external intervention or specific conditions met which aren't satisfied based on the provided code.
+The `start_simulation` loop (`while(1)`) never empties `exists_runnable_thread`: master and the five transmit threads form a never-ending ping-pong cycle, so the scheduler always finds a runnable thread and never terminates.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The master and transmit functions contain infinite loops without any condition to break out, potentially leading to non-termination of the program.
+[RESULT]
+NONTERM
+[REASON]
+The scheduler’s eval loop may repeatedly call __VERIFIER_nondet_int() and never schedule any thread (always returning 0), so exists_runnable_thread() remains true but no st is changed—leading to an infinite loop.
 

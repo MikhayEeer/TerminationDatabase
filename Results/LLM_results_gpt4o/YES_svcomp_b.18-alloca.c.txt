@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1.0 * x^1 for the outer loop   
+1.0 * y^1 for the outer loop (alternative scenario)  
+1.0 * x^1 for the inner loop  
+1.0 * y^1 for the inner loop (alternative scenario)  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. Phase 1:  
+   (if *x_ref > *y_ref)  
+   ranking function: x_ref^1  
+2. Phase 2:  
+   (if *y_ref > *x_ref)  
+   ranking function: y_ref^1  
+

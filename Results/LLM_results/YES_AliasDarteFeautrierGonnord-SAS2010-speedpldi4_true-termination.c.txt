@@ -1,24 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1.0 * i^1 when i < m  
-1.0 * (i / m)^1 when i >= m  
-
-The program is terminating, and the termination is shown by a piecewise ranking function. The function decreases in each path: `i` decreases directly when `i < m` and decreases in terms of the number of times to subtract `m` from `i` when `i >= m`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-- For the path where `i < m`:  
-  Linear ranking function: `i^1`  
-- For the path where `i >= m`:  
-  Linear ranking function: `floor(i / m)^1`  
-
-The program is terminating as it enters a loop that decrements `i`. When `i < m`, it decrements by 1, and when `i >= m`, it decrements by `m`. Since `m` is positive and `n > m`, `i` will eventually decrease to 0, ensuring termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i + 0.0
 

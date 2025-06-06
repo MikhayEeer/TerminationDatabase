@@ -2,17 +2,19 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+piecewise
 [RANKING FUNCTIONS]
-1.0 * (x - y)^1
+guard: x^1 - y^1 > 0    → 1
+otherwise             → 0
+
+Explanation: On each loop iteration x>y holds so f=1, and after the single swap we have x<y so f drops to 0, proving termination.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTION]
-*x_ref - *y_ref
-
-This program eventually terminates because the difference (*x_ref - *y_ref) decreases in every iteration of the loop, making it a linear ranking function and ensuring that the loop cannot execute indefinitely. The loop exits when *x_ref is no longer greater than *y_ref.
+piecewise
+[RANKING FUNCTIONS]
+Region: *x_ref > *y_ref
+  1.0 * *x_ref + -1.0 * *y_ref + 0.0
 

@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The inner loop `while (j > 5)` increments `j` without a terminating condition, allowing `j` to potentially grow indefinitely when `i >= 6`. This causes the program to become non-terminating.
+If i∈{6,7,8,9} then j=i>5 and the inner loop does j=j+1 forever, so it never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The inner loop `while (j > 5) { j = j+1; }` is non-terminating when `j` is initially greater than 5, as `j` only increases, ensuring the condition `j > 5` remains true indefinitely.
+If i∈{6,7,8,9}, then j=i>5 and the inner loop does j=j+1 repeatedly, so j stays >5 and never exits.
 

@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program is non-terminating for initial values x = 0 and y = 0. In this case, the updates result in x and y remaining at 0, causing an infinite loop since the condition x < 5 is never violated.
+[RESULT]
+NONTERM
+[REASON]
+There is a non‐terminating run for x=0, y=0 since each iteration maps (x,y)=(0,0)→(0,0), so the loop never exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of \( x \) and \( y \) can enter a cycle for certain initial values (e.g., \( x = 0, y = 0 \)) where the changes in \( x \) and \( y \) keep \( x \) less than 5, causing an infinite loop.
+[RESULT]
+NONTERM
+[REASON]
+Starting from x=0, y=0 the update (x,y)→(x−y,x+y) leaves (0,0) unchanged, so x<5 forever and the loop never terminates.
 

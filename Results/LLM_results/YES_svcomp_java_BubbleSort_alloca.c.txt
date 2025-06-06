@@ -1,23 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * n^1 + 0.0  
-1.0 * (n - pass)^1 + 0.0  
-
-The program's termination can be proved by noting that the outer loop runs for `pass = 1` to `pass = n-1`, making `n - pass` decrease by 1 with each iteration, ensuring that the loop terminates once `pass` reaches `n`. The inner loop iterates from `i = 0` to `i = n - pass - 1`, further decreasing the number of iterations of the inner loop with each pass, ensuring termination. The absence of non-deterministic operations influencing the loop bounds guarantees that these iterations will complete in a finite number of steps.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * n + -1.0 * pass
+1.0 * n + -1.0 * pass + -1.0 * i
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-nested  
-[RANKING FUNCTIONS]  
-1. Length(pass, n)
-2. Length(i, n-pass)  
-
-Explanation:  
-The program uses a nested loop structure. The outer loop iterates `pass` from 1 to `n-1` (which is a fixed and bounded range as `n` is determined at the beginning and isn't modified inside the loop). Inside the outer loop, the inner loop iterates `i` from 0 to `n-pass-1`. Both loops have strictly decreasing lengths, indicating that they will terminate. Thus, the program is guaranteed to terminate.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n - pass
+n - pass - i
 

@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The variable `i` is incremented in every loop iteration while remaining positive, causing an infinite loop.
+If i > 0 initially, each iteration does i=i+1 so i stays >0 forever and the loop never exits.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The variable `i` is incremented within the loop, causing it to diverge to positive infinity, leading to a non-terminating loop.
+[RESULT]
+NONTERM
+[REASON]
+If the nondeterministic initial i > 0, each loop iteration does i=i+1 so i remains >0 forever, causing an infinite loop.
 

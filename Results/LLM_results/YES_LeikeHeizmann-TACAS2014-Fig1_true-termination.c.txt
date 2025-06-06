@@ -1,14 +1,22 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+max(0, 1 - y)
 q
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program enters an infinite loop when \( q = 1 \) and \( y = -1 \). In this scenario, the value of \( q \) will remain positive since \( q \) will increase with each iteration, causing the loop to never terminate.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+Phase 1: 0.0 * q^1 + (−1.0) * y^1 + 1.0 * 1  
+Phase 2: 1.0 * q^1 + 0.0 * y^1 + 0.0 * 1
+
+Explanation of phases:
+- Phase 1 (when y<1): f₁ = 1−y > 0 and each loop iteration increments y by 1, so f₁ decreases by 1. Once y≥1, f₁≤0 and we move to Phase 2.
+- Phase 2 (when y≥1 and q>0): f₂ = q > 0 and each iteration subtracts y≥1 from q, so f₂ decreases by at least 1, ensuring termination.
 

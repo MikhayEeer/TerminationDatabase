@@ -2,28 +2,16 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-nested
+multi-phase
 [RANKING FUNCTIONS]
-Level 1: *y_ref - *z_ref
-Level 2: *x_ref - *z_ref
-
-Explanation:
-In the given program, there are two nested loops. The outer loop continues as long as `*x_ref == *y_ref` and `*x_ref > *z_ref`. The inner loop decreases both `*x_ref` and `*y_ref` by 1 while `*y_ref > *z_ref`. 
-
-For termination:
-1. The inner loop has a simple decreasing ranking function `*y_ref - *z_ref` which decreases with each iteration because `*y_ref` is decremented and `*z_ref` remains constant.
-2. Once the inner loop terminates (i.e., when `*y_ref <= *z_ref`), the condition for the outer loop becomes false because the inner loop is the only place where `*y_ref` or `*x_ref` can change. `*x_ref == *y_ref` initially implies they decrease together, so the outer condition `*x_ref > *z_ref` can't cause non-termination infinitely.
-
-Thus, the program terminates with this nested ranking function.
+1.0 * y^1 + -1.0 * z^1
+1.0 * x^1 + -1.0 * z^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-1.0 *  (x_ref - y_ref)^1 + 0.0
-1.0 * (y_ref - z_ref)^1 + 0.0
-
-In the provided code, the function `test_fun` takes three integer arguments `x`, `y`, and `z`, which are input through the nondeterministic integer function `__VERIFIER_nondet_int`. The loop inside `test_fun` will only execute if initially `x_ref == y_ref` and `x_ref` is greater than `z_ref`. Inside the inner loop, both `x_ref` and `y_ref` are decremented while maintaining the relation `y_ref > z_ref`. The outer loop condition eventually becomes false once `y_ref` is no longer greater than `z_ref`, leading to termination. The ranking function reflects the conditions weakening over the course of execution: once `x_ref - y_ref` solely evaluates the progression to decreased positivity, which leads to termination as the difference becomes negative or zero.
+1.0 * x + 1.0 * y + -2.0 * z
 

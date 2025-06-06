@@ -1,0 +1,24 @@
+=== Response 1 ===
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length2
+```
+
+This program is terminating because the `cstrcpy` function, which contains the only loop, is a bounded loop that processes each character of the string `nondetString` length (`length2`), including the terminating null character `'\0'`. The linear ranking function `length2` indicates that the loop will terminate after copying `length2` characters, as it decrements the number of characters left to copy with each iteration until it hits the terminating null character.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1 if length1 < length2  
+0 if length1 >= length2  
+
+Explanation: 
+The program will consistently terminate based on the conditions provided in the `main` function. Specifically, if `length1 < length2`, the program immediately returns 0. Even if this condition is not met, the use of the `cstrcpy` function, which relies on null-terminated strings, will eventually terminate as long as 'nondetString' has a null character in it. Therefore, the program terminates.
+

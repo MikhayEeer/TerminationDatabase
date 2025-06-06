@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `i <= 2147483647` is always satisfied as `i` is incremented indefinitely by 1 starting from any non-negative integer. Therefore, the loop does not terminate.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop condition `i <= 2147483647` is always true for any initial value of `i` that is less than or equal to 2147483647. The incrementation `i = i+1` will eventually cause integer overflow at 2147483647, causing an indefinite loop.
+

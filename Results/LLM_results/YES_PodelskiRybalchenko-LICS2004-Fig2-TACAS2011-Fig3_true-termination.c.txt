@@ -1,17 +1,28 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The program can enter a loop where the state oscillates indefinitely, such as transitioning between the states (x = 1, y = 2) and (x = 2, y = 1).
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+Branch “then” (x=oldx−1): f₁(x,y) = 1.0 * x + 0.0 * y + 0.0  
+Branch “else” (x=oldy−2, y=oldx+1): f₂(x,y) = 1.0 * x + 1.0 * y + 0.0
+
+Explanation:
+- In the “then” branch x is replaced by oldx−1, so f₁ strictly decreases by 1 on every transition of that branch.
+- In the “else” branch x+y is replaced by (oldy−2)+(oldx+1)=oldx+oldy−1, so f₂ strictly decreases by 1 on every transition of that branch.
+Since every loop transition decreases one of these linear functions over the well-founded ordering of nonnegative integers, the program terminates.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-x + y
-x - 1
+– on the “then” branch (x←oldx−1, y←oldx): f₁(x,y) = 1.0·x  
+– on the “else” branch (x←oldy−2, y←oldx+1): f₂(x,y) = 1.0·x + 1.0·y  
 
-The program is terminating. The multi-phase ranking function explains that in each phase of the loop execution, the sum of `x` and `y` decreases in a well-founded manner, as well as `x` itself decreases independently after the first phase, ensuring termination.
+Explanation:
+- In the then‐branch x decreases by 1, so f₁ decreases by 1.  
+- In the else‐branch x+y decreases by 1, so f₂ decreases by 1.  
+Both f₁,f₂ are bounded below (x>0,y>0⇒x>0,x+y>0), so every loop transition strictly decreases one of these piecewise linear functions, proving termination.
 

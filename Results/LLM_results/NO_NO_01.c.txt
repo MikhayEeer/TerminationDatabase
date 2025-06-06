@@ -2,11 +2,11 @@
 [RESULT]  
 NONTERM  
 [REASON]  
-The loop `while (i < 103) { i = i+0; }` will never terminate because the condition `i < 103` is always true and `i` is never incremented inside the loop.
+The final branch executes `while (i < 103) { i = i + 0; }` with `i` fixed at 0, so the loop never terminates.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The while loop `while (i < 103)` contains the statement `i = i+0;`, which does not change the value of `i`. As a result, if the loop is entered, it runs indefinitely, resulting in non-termination.
+[RESULT]
+NONTERM
+[REASON]
+For c = 864 (>100) the final branch executes while(i<103) { i = i+0; }, so i remains 0 and the loop never terminates.
 

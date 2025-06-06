@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+Possible increments to `x` can keep it non-negative indefinitely.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating because it's possible for the value of `x` to never become negative. The `__VERIFIER_nondet_int()` can return non-positive values, which would prevent the condition `x >= 0` from ever failing.
+

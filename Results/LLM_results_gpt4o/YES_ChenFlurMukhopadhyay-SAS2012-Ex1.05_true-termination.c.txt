@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+old_x - 2*x  
+
+Explanation: The program terminates because the while loop will break when the condition `2*x > old_x` is satisfied. Initially, `x` is assigned a non-deterministic value and the loop only continues while `x > 0`. On each iteration, `x` is assigned a new non-deterministic value. The break statement ensures that whenever `2*x > old_x`, the loop exits. The presence of the break condition and the fact that `x` could be driven to change in such a way that will satisfy the break condition, ensures the termination of the loop. The ranking function `old_x - 2*x` is a linear function that decreases with each loop iteration until the loop exits.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE
+
+[RANKING FUNCTION TYPE]  
+linear
+
+[RANKING FUNCTION]  
+The ranking function can be `f(x) = x`. Each iteration of the loop decreases the value of `x` under the condition `2*x <= old_x`, ensuring that the value of `x` eventually becomes non-positive, thus terminating the loop.
+

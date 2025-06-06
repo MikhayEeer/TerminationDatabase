@@ -1,18 +1,12 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (range - i)^1  
-
+[RESULT]
+NONTERM
+[REASON]
+When range reaches 0 and i is 0, the loop guard 0 ≤ i ≤ range holds but the body’s if-condition skips both updates, so execution stutters forever.
 
 === Response 2 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-multi-phase
-[RANKING FUNCTIONS]
-1.0 * (range - i)^1 + 1.0 * 1
-
+NONTERM
+[REASON]
+When i and range reach 0 (a reachable state), the loop guard (0 ≤ i ≤ range) remains true but neither branch updates any variable, causing an infinite loop.
 

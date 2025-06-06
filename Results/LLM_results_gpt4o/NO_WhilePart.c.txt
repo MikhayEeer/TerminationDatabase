@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The loop does not have a mechanism to exit when `i` starts between 6 and 9, inclusively. In this range, `i` remains trapped because it will only decrease if it is less than 10, but since the loop continues as long as `i > 5`, it will keep decreasing and remain above 5 indefinitely, creating an infinite loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program can enter an infinite loop when the value of `i` is initially greater than 5 and less than 10, causing `i` to decrease without ever terminating the loop.
+

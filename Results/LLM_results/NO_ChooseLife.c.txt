@@ -1,18 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-17 - life 
-
-The given program terminates because the loop condition `life < death` is eventually falsified due to the specific way `life` and `death` are updated during each iteration. Initially, `death` is greater than `life` (17 > 13). In every iteration of the loop, `life` is set to the previous value of `death`, and `death` is set to `life + 1`. The subtraction decreases in each step, ensuring `life` eventually becomes equal to or greater than `death`, consequently terminating the loop. The linear ranking function `17 - life` decreases in every iteration, proving termination.
+NONTERM
+[REASON]
+The loop reaches the invariant state (life=2, death=3) and then repeats endlessly, so it does not terminate.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-death - life
+[RESULT]
+NONTERM
+[REASON]
+After a few iterations life and death stabilize at (2,3), so life<death always holds and the loop never exits.
 

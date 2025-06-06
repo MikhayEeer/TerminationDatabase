@@ -1,13 +1,10 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-n^1
-
-Explanation:  
-In the given `cbzero` function, the loop iterates `length` times (in this context, `length` is represented by `n` in the function call `cbzero(nondetArea, n);`). The function `cbzero` assigns `'\0'` to each character in the memory area, decrementing `length` each time, and continues until `length` becomes zero. This loop will always terminate given that `n` is initialized to be at least 1 and non-increasing. Hence, we can use `n` as a linear ranking function to demonstrate that the loop terminates, and consequently, the program terminates.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length
 
 === Response 2 ===
 [RESULT]
@@ -15,7 +12,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-length - n
-
-The program will always terminate as the `cbzero` function decrements the `length` variable until it reaches zero, thus ensuring termination. Furthermore, the main function is conditioned such that `length` and `n` have valid values, ensuring that the loop in `cbzero` iterates a finite number of times. The ranking function `length - n` decreases during each iteration, ensuring progress towards termination.
+1.0 * length
 

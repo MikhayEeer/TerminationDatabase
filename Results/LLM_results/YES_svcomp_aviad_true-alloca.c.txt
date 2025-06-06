@@ -1,16 +1,17 @@
 === Response 1 ===
-[RESULT] 
-TERMINATE 
-[RANKING FUNCTION TYPE] 
-linear 
-[RANKING FUNCTIONS] 
-x
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a_ref^1 + 0.0  
+Explanation: On each iteration a_ref is replaced by either a_ref/2 (if even) or a_ref–1 (if odd), both of which are strictly less than a_ref for a_ref>1, and the loop guards a_ref>1, so f(a_ref)=a_ref is a valid linear ranking function.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * a_ref^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a_ref^1 + -1.0 * 1
 

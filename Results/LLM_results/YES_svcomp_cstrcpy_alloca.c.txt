@@ -1,16 +1,24 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-The function `cstrcpy()` has a linear ranking function based on the length of `src`. Each iteration of the loop copies one character until a null-terminator (`'\0'`) is encountered, reducing the remaining length of `src` to be copied by one in each iteration. This guarantees termination when a valid null-terminated string is present in `src`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length2 + 1.0 * s2 + -1.0 * src
+
+This ranking function φ = length2 + s2 – src is initially non‐negative (since src = s2 at loop entry) and decreases by exactly 1 on each iteration (as src increments), proving the copy loop terminates.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-length2
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length2^1 + 1.0 * s2^1 + -1.0 * src^1
+
+Explanation: In the loop  
+    while ((*dst++ = *src++) != '\0') ;  
+each iteration increments the pointer src by 1, so the affine function  
+    f = length2 + s2 – src  
+strictly decreases by 1 on every loop iteration and is bounded below by 0 (since the string is null‐terminated within length2 bytes), which proves termination.
 

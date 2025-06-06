@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+First phase:  
+0.5 * (n - x)^1  
+Second phase:  
+-decreasing ranks due to non-linear transformations as combined increases in `x` and `y` given constraints will eventually violate `x + y >= 0` as `z` ensures increases. 
+
+This demonstrates that although the relation is non-linear, the program will eventually terminate due to constraints breaking.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTIONS]  
+The non-linear nature and structure of the loop imply a decrease in the composite expression `x - n/2` on each iteration, which ensures termination as `x` becomes larger than `n`. As `x` increases exponentially based on the operation `x = 2*x + y`, while `x <= n` initially, eventually `x` surpasses `n`, causing the loop condition `x <= n` to fail, thus terminating the loop. This non-linearly structured ranking function effectively demonstrates the termination of the program.
+

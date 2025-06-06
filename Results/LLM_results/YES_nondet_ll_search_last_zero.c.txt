@@ -1,12 +1,21 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The `search` function could enter an infinite loop if the target value `m` is not present in the list, since it does not check for the end of the list (i.e., `curr` could become NULL) and keeps traversing indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+case (curr→value != m): 1.0 * |reach(curr)|  
+case (curr→value == m): 0.0  
+
+Here |reach(curr)| denotes the number of nodes on the acyclic list from curr up to (and including) the unique node whose value equals m (in this program m = 0). On each loop iteration curr advances to curr→next, strictly decreasing |reach(curr)| by 1 until it reaches 0, at which point curr→value == m and the loop exits.
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The `search` function's while loop might not terminate if the value `m` does not exist in the list, creating an infinite loop since `curr` will eventually become NULL, leading to undefined behavior when dereferencing.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+f(curr) = “the number of remaining next‐pointer steps from curr until reaching the first node whose value equals m”  
+
+Explanation: the linked list built by init_list(n) is acyclic and always contains exactly one node with value == m (the very first node, initialized to 0).  In each iteration of search, curr moves along the next‐pointer, so f(curr) is a non‐negative integer that strictly decreases by 1 on every loop iteration and hence proves termination.
 

@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The program allows for non-terminating behavior if the value of `a` is negative, causing the recursive calls in `sum` to continue indefinitely, as the base case `n == 0` is never reached.
+When the initial a is negative, each recursive call decrements n further away from 0, so the base case n==0 is never reached and the recursion does not terminate.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program is non-terminating because the function `sum` will not terminate when `n` is negative, as the base case `n == 0` is never reached by decrementing `n`.
+[RESULT]
+NONTERM
+[REASON]
+If a<0 then sum(a,b) calls itself with ever more negative n and never reaches the base case, leading to infinite recursion.
 

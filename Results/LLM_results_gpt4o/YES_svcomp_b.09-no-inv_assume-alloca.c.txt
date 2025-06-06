@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+x_ref^1  
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 when x_ref > y_ref
+1.0 * x_ref^1 when x_ref <= y_ref
+
+The program is terminating. For `x_ref > y_ref`, the ranking function `1.0 * x_ref^1` demonstrates a strictly decreasing sequence, moving towards zero with each iteration. Similarly, for `x_ref <= y_ref`, a similar ranking function `1.0 * x_ref^1` continues to decrease, leading the loop to eventually terminate when `x_ref` reaches zero.
+

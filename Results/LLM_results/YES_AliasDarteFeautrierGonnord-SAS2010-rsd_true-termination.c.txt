@@ -1,21 +1,23 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 1.0 * da  
-Phase 2: 2.0 * da + 0.0 * db + -2.0
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * db + -1.0 * r + 1.0
+1.0 * da + -1.0 * r + 1.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-Phase 1: 1.0 * da^1 + 1.0  
-Phase 2: 1.0 * db^1 + 1.0  
-
-Explanation:  
-The program uses a non-deterministic choice to decrease `da` and update `db` to eventually terminate the while loop when `da < r`. The multi-phase ranking function demonstrates decreased values in `da` and `db` in each phase of the loop, ensuring termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * db + -1.0 * r
+1.0 * da + -1.0 * r
+[COMMENTS]
+We take the 2‐vector (f₁,f₂) with f₁ = db – r and f₂ = da – r.  In each loop iteration:
+- if the “then” branch (da– –) fires, f₁ stays the same and f₂ decreases by 1;
+- if the “else” branch fires, db– – so f₁ decreases by 1 (and then da is reset to db–1 so f₂=f₁).
+Hence the pair (f₁,f₂) decreases lexicographically and is bounded below by (0,0), proving termination.
 

@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x_ref^1 + 1.0 * y_ref^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + 1.0 * y_ref^1
+
+This linear ranking function demonstrates that the sum of the values pointed to by `x_ref` and `y_ref` strictly decreases with each iteration of the loop, eventually reaching zero or causing the loop condition to fail, thus ensuring termination.
+

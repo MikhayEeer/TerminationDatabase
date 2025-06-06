@@ -1,21 +1,21 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x + 0.0 * y  
-0.0 * x + 1.0 * y
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+y >= 0 : y + 1  
+y <  0 : x  
+[COMMENT]
+When y ≥ 0 each iteration y↦y−1 so y+1 decreases by 1 and stays ≥1.  
+When y < 0 the loop guard x>0 forces x_old>0 and x_new=y<0 so x decreases to ≤−1, hence x strictly decreases in that region.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * x^1  
-y^1 + 0.5 * y^0  
-
-Explanation:
-The given program will terminate because the value of `x` is updated from `x` to `y` in each iteration, and `y` is decremented by 1 in each iteration. This causes `x` to eventually become non-positive, fulfilling the termination condition of the loop `x > 0`. With each loop iteration, `y` reduces, leading both variables toward the loop's exit condition. The ranking function for this non-linear pattern employs a multi-phase method, first decreasing `x` towards zero and then reducing `y`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0   [applicable when y + 1 < x]
+0.0 * x + 1.0 * y + 1.0   [applicable when y + 1 ≥ x]
 

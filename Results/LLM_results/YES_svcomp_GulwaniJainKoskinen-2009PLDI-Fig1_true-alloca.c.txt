@@ -1,12 +1,20 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The loop `while (*tmp != *id && __VERIFIER_nondet_int())` can potentially execute indefinitely. Because `*tmp` is incremented and reset to 0, but can fail to meet the `*tmp != *id` condition depending on the values and behavior of `__VERIFIER_nondet_int()`, the program can fall into an infinite loop without a guarantee of termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(tmp > id)     : tmp - id
+(tmp <= id)    : tmp + (maxId + 1) - id
+
+Explanation: Let δ = (tmp - id) if tmp>id, else δ = tmp + (maxId+1) - id.  Each loop iteration decrements δ by 1, and the loop exits when δ reaches 0 (i.e. tmp == id) or when the nondeterministic guard fails. Hence δ is a well‐founded piecewise linear ranking function.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The loop can potentially cycle indefinitely if `*maxId` is a large positive number, `*id` is an initial positive integer, and `__VERIFIER_nondet_int()` continues returning true. In such cases, `*tmp` will keep increasing without reaching `*id`, leading to non-termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * maxId^1 + 1.0 * 1 + -1.0 * tmp^1
+1.0 * id^1       + -1.0 * tmp^1
 

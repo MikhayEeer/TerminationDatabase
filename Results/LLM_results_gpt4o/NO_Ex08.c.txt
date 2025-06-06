@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter an infinite loop: when `i = 10`, the variable `i` is incremented to `11` in the next iteration, and it cycles repeatedly between `10` and `11` due to the conditions given, without ever reaching `i = 0`.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter a cycle where `i` alternates between 1 and 10 without reaching termination. When `i` becomes 1, `up` is set to 1, causing `i` to increment. Eventually, `i` reaches 10, and `up` is set to 0, causing `i` to decrement. This leads `i` back to 1, and the cycle repeats indefinitely.
+

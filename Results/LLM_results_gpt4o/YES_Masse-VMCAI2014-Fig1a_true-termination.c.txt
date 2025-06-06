@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+First level: b decreases for each two steps in the cycle if initially b >= 0.
+Second level: a decreases when b = -1 due to the decrement in b, leading to eventual exit since a must become negative when b continuously reduces 'a' by at least 1 in each cycle.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+First Phase:  
+\( a + 1 \) when \( b \leq 0 \)  
+Second Phase:  
+\( b^2 + 1 \) when \( b > 0 \)  
+
+Explanation: The program has two phases. In the first phase, if \( b \leq 0 \), the function \( a + 1 \) strictly decreases every iteration since \( b \) will remain non-positive, and \( a \) will decrease by at least 1. In the second phase, if \( b > 0 \), then \( b \) is reassigned to a negative number or decremented further; hence \( b^2 + 1 \) decreases. The loop terminates when \( a < 0 \).
+

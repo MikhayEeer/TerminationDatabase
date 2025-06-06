@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+n^1  
+
+The program's termination is primarily governed by the variable `n` in the `cstrncpy` function's `while` loop. The decreasing nature of `n` with each iteration (as `n--` is done at each step) guarantees that the loop will eventually terminate when `n` becomes zero, provided `n` starts as a non-negative integer. Given that there are condition checks to ensure `n` is at least 1 at the beginning of the `main`, and `n` is strictly decreasing during the loop, the function will terminate. Therefore, the ranking function for termination is simply linear with respect to `n`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program terminates because the loop in the `cstrncpy` function will execute at most `n` times, as it decrements the variable `n` in each iteration until it reaches zero or encounters a null character from the source string `s2`. The ranking function is linear with respect to `n`, where `n` is decremented by 1 in each iteration, guaranteeing termination.
+

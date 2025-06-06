@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+non-linear  
+[RANKING FUNCTIONS]  
+As `(x > 0 && x < y)`, the difference `y - x` serves as a non-linear ranking function. As the loop progresses, `x` doubles and `y` increments. Hence, the value `y - x` decreases in each iteration, ensuring that the loop eventually terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (y - x)
+
+The program is terminating as the value \( y - x \) strictly decreases in each iteration of the loop and is bounded below, thus proving termination through the multi-phase ranking function. Initially, \( x > 0 \) and \( x < y \), and after each loop iteration, \( x \) is doubled while \( y \) increases by 1, meaning the gap \( y - x \) narrows as the loop executes. Eventually, \( x \) becomes greater than or equal to \( y \), satisfying the loop termination condition.
+

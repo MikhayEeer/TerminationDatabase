@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program can enter a loop with x > 0, y = x + 1, and z = x + 1, which keeps cycling indefinitely due to resets and decrements that do not guarantee termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program contains a loop where all variables `x`, `y`, and `z` are updated non-deterministically, except for the condition `y > x`. The relation between the variables allows for the possibility of non-termination as `z` can keep getting reset to values that do not ensure eventual termination. The combination of non-deterministic choices and reset behaviors by assignments like `y = z` and `x = __VERIFIER_nondet_int(); z = x - 1;` can result in scenarios where `x > 0`, `y > 0`, and `z > 0` remain true indefinitely.
+

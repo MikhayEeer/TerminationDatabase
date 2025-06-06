@@ -1,14 +1,18 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of `d1` and `d2` can be nondeterministic, allowing `x` to be adjusted in a way where it might never become negative if `d1 <= 0`. Thus, the loop can potentially run indefinitely.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+max(1.0 - d1, 1.0 - d2)
+x + 1.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-f(x, d1) = x
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi‐phase
+[RANKING FUNCTIONS]
+phase 1: −1.0 *d1 + −1.0 *d2  
+phase 2: 1.0 *x
 

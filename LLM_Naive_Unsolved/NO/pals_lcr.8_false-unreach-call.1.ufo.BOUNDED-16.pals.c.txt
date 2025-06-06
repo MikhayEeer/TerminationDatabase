@@ -4,15 +4,13 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-r1 * -1 + 8
+16.0 + -1.0 * i2
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-0.0625 * (16 - i2)  
-
-The program has a clear termination condition as the loop controlled by `i2` runs a finite number of times (16 iterations), ensuring that the program will eventually terminate. The ranking function `16 - i2` monotonically decreases with each iteration of the loop, starting from 16 and going down to 0.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * i2 + 16.0
 

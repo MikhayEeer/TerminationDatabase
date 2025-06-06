@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 0.0  
+1.0 * xtmp^1 + 0.0  
+
+This program is terminating. The outer while loop decreases the value of `x` by at least 1 each iteration whenever `x > 1`. The inner loop reduces `xtmp` by 2 each time, making `xtmp <= 1` after a finite number of iterations. Therefore, the outer loop eventually terminates when `x` becomes 1 or less. This can be shown by the multi-phase ranking functions provided above.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.25 * x^2 + 1.0 * 1
+

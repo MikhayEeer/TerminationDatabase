@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains a call to the Ackermann function, which is known for its non-terminating behavior when `x >= 0` and `y < 0`. In such cases, the program enters an infinite recursion without hitting a base case leading to termination.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The program does not terminate for inputs where x >= 0 and y < 0 due to the nature of the Ackermann function and the recursive calls with non-decreasing arguments.
+

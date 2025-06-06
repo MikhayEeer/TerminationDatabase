@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+2.0 * 1 + 1.0 * x^1 + 2.0 * 1  
+0.1 * y^1 + 0.3 * 1 + 0.3 * 1  
+
+This program's termination can be established using a multi-phase ranking function. Initially, the linear decrease in `x` when `y` causes a negative increase signifies termination towards negative values, as the combined operation will ultimately violate the `x >= 0` condition of the loop. The rapid decrease in `y` shrinks its overall contribution to `x` over iterations, ensuring that eventually, `x` will be decremented sufficiently to exit the loop.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1:  
+-2.0 *  y^1 + 1.0  
+
+Phase 2:  
+1.0 *  x^1 + 1.0  
+

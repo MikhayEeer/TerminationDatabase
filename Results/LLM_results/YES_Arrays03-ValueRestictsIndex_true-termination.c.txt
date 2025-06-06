@@ -4,15 +4,15 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * x^1
-
-Explanation: The program's termination depends on the while loop, `while(x >= 0)`, where `x` is decreased by `k` in each iteration. Since `k` is a positive integer between 0 and 1048 (exclusive) and `x` starts as a non-negative integer, the loop will eventually terminate when `x` becomes negative. Thus, this can be proved with a linear ranking function `1.0 * x^1`, showing that `x` is decreasing in every iteration and the loop will exit.
+1.0 * x^1 + 1.0 * 1
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x^1
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+Explanation: On each iteration x ≥ 0 is the loop guard, and x is decreased by k ≥ 1, so the linear function f(x)=x strictly decreases in the well-founded domain of non-negative integers.
 

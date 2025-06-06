@@ -1,21 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-max{x, 0} + max{y, 0}  
-
-Explanation:  
-The program is terminating, as it continuously decreases the values of `x` and `y` based on their initial conditions. The ranking function `max{x, 0} + max{y, 0}` shows that the sum of the non-negative parts of `x` and `y` strictly decreases with each iteration of the loop, ensuring termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * 1
+1.0 * y^1 + 1.0 * 1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-parallel
+multi-phase
 [RANKING FUNCTIONS]
-max{x, 0} + max{y, 0}
-
-The program will terminate because, in every iteration of the loop, either `x` is nonnegative and is decremented by 1, or if `x` is negative, `y` is decremented by 1 if `y` is nonnegative. Hence, the value of the ranking function `max{x, 0} + max{y, 0}` decreases with every iteration, which proves termination using a parallel ranking function.
+max(x, 0)
+max(y, 0)
 

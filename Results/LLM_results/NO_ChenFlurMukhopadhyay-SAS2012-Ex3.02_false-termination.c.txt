@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program contains a loop where if \( x > 0 \), \( y \geq 0 \), and \( z \geq 0 \), both \( x \) and \( y \) can increase indefinitely due to the operations \( x = x + y \) and \( y = y + z \). Thus, the loop can potentially execute infinitely without reaching a termination condition.
+[RESULT]
+NONTERM
+[REASON]
+There exists an infinite execution: if x>0, y≥0, z≥0 then y and z never decrease so x_{n+1}=x_n+y_n stays >0 forever and the loop never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-x increases indefinitely with non-negative y and z, causing an infinite loop when x starts positive.
+For example, with x=1, y=0, z=0 we have x:=x+y=1, y:=y+z=0 at each iteration, so x remains >0 forever and the loop never terminates.
 

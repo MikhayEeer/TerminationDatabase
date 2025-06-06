@@ -2,17 +2,35 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi‐phase
 [RANKING FUNCTIONS]
-The program terminates because it processes the strings `s1` and `s2` in a sequential manner. For each character in `s1`, it performs a scan over `s2`, which has a finite and bounded length as both strings are null-terminated. The linear ranking function can be based on the length of `s1`, where each iteration of the outer loop decreases the remaining length of `s1` by 1, eventually reaching its end and terminating the function.
+1.0 * n₁^1 + -1.0 * (sc1 – s1)^1
+1.0 * n₂^1 + -1.0 * (s – s2)^1
+
+Explanation:
+– Let n₁ = the length of the string s1 (so that s1[n₁–1]=='\0'), and sc1 be the current pointer in the outer loop over s1.  
+– Let n₂ = the length of the string s2, and s be the current pointer in the inner loop over s2.  
+Phase 1 ranking f₁ = n₁ – (sc1–s1) decreases by one each time the outer loop advances to the next character.  
+Phase 2 ranking f₂ = n₂ – (s–s2) decreases within each inner scan, and when the inner loop restarts f₂ is reset while f₁ strictly decreases.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+nested
 [RANKING FUNCTIONS]
-Lexicographical order over the remaining string lengths of s1 and s2
+length(s1) - (sc1 - s1)
+length(s2) - (s - s2)
 
-Explanation: The function `cstrpbrk` systematically moves through each character in the first string `s1` and attempts to locate it within the second string `s2`. The loops through `s1` and `s2` are confined to the lengths of the strings which are finite due to the null-terminated condition enforced by string construction and the single null character. Furthermore, no branching or recursion alters the loop structure in a way that could introduce a non-terminating condition. Hence, the function will always terminate after all elements have been processed. The ranking function uses the lengths of `s1` and `s2`, both of which decrease as the search progresses.
+Explanation of the ranking functions:
+
+– We view the two loops (“while (*sc1!='\0') … while (*s!='\0' && *s!=c) …”) as a nested/lexicographic ranking:
+
+  1. Outer phase φ₁ = |s1| − (sc1 − s1)  
+     Every time the inner loop finishes without returning, sc1 advances by 1, so φ₁ strictly decreases and the inner pointer s is reset.
+
+  2. Inner phase φ₂ = |s2| − (s − s2)  
+     During each execution of the inner loop, s advances by 1, so φ₂ strictly decreases until the inner loop exits.
+
+Both |s1| and |s2| are the (finite) lengths of the null‐terminated input strings. Since both phases are bounded below by 0 and decrease on every iteration in the lexicographic order, the program must terminate.
 

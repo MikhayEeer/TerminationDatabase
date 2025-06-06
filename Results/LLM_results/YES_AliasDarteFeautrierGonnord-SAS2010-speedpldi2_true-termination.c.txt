@@ -2,23 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * v1^1 + 0.0
-0.0 * v1^1 + 1.0 * v2^1 + 0.0
-
-Explanation:
-The program is terminating and can be proved by a multi-phase ranking function. The first ranking function is \( v1 \), which decreases by 1 in each iteration of the while loop when \( v1 > 0 \). Once \( v1 \) reaches 0, the while loop terminates. The second phase utilizes \( v2 \) which resets and increments in the inner loop but does not affect termination directly. The outer loop is guaranteed to terminate because \( v1 \) starts as a non-negative integer and is decremented consistently when \( v2 < m \).
+1.0 * v1
+1.0 * v2
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-1. (v1, v2) with v2 < m: (v1)  
-2. (v1, v2) with v2 >= m: (v1)  
-
-Explanation:  
-The program initializes `v1` to `n` and `v2` to 0. The loop decreases `v1` until it reaches zero while adjusting `v2`. The loop will terminate as long as `v1` starts as non-negative, which is guaranteed by the conditions `n >= 0` and `m > 0`. Regardless of the value of `v2`, `v1` is steadily decreased, ensuring termination. The different treatments based on `v2` merely affect the speed at which `v1` decreases but doesn't prevent its eventual decrease to zero.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * v1 + 0.0
+1.0 * v2 + 0.0
 

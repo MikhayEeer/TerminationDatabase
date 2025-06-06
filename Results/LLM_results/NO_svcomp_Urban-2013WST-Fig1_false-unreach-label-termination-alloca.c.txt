@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters an infinite loop when *x > 6, as the value of *x continuously increases by 2, maintaining *x <= 10 and thus the loop never exits.
+[RESULT]
+NONTERM
+[REASON]
+If *x starts ≤6, the loop body never updates *x yet the condition *x≤10 remains true, so it loops infinitely.
 
 === Response 2 ===
 [RESULT]  
 NONTERM  
 [REASON]  
-The value of *x is increased by 2 when it is greater than 6, creating an endless loop when initially greater than 6, as there is no mechanism to break it.
+If *x starts ≤ 6 then the while-body never updates *x, so *x≤10 remains true forever and the loop is infinite.
 

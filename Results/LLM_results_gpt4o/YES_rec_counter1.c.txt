@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+a^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+For the outer recursive function `rec(a)`, a linear ranking function is sufficient:
+a (the depth of recursion function call decreases as the recursion goes deeper) 
+
+For the inner `while` loop within the `rec` function which operates on `rescopy`:
+rescopy (the value decreases until it reaches zero)  
+
+The combination of the recursion decreasing and the termination of the `while` loop within each recursion proves that the program is terminating.
+

@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program enters an infinite loop by alternating `i` between 51 and 49, never reaching the condition `i >= 100` needed to terminate the loop.
+[RESULT]
+NONTERM
+[REASON]
+i alternates between 51 and 49, so i<100 always holds and the loop never exits.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The program has a non-terminating cycle between `i = 51` and `i = 49` within the while loop.
+The loop alternates i between 51 and 49, both of which are <100, so the condition i<100 remains true forever.
 

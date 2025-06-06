@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The inner while-loop `while (j > 0)` increments `j` indefinitely when `j` is greater than 0, causing non-termination.
+The inner loop “while (j>0) j=j+1;” strictly increases j when j>0, so once i≥1 the inner loop never terminates.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The inner loop increments `j` indefinitely when `j` is positive, which prevents termination.
+The inner loop “while (j>0) j=j+1;” only increases j, so once j>0 it never decreases. For any initial i in 1..9 (or eventually when i reaches 1), the inner loop is infinite.
 

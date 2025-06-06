@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program continuously increases `x` by a constant `c` (which is 5), ensuring that the condition `x >= 0` always holds. Hence, the loop does not terminate.
+
+=== Response 2 ===
+[RESULT]  
+NONTERM  
+[REASON]  
+The variable `x` is incremented by a constant positive value `c` in each iteration when `x >= 0`, which means `x` will keep increasing perpetually, causing the loop to never terminate.
+

@@ -1,16 +1,12 @@
 === Response 1 ===
 [RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-1.0 * n^1
+NONTERM
+[REASON]
+If n<0 then each iteration does n=n−1, so n never reaches 0 and the loop runs forever.
 
 === Response 2 ===
-[RESULT]
-TERMINATE
-[RANKING FUNCTION TYPE]
-linear
-[RANKING FUNCTIONS]
-n
+[RESULT]  
+NONTERM  
+[REASON]  
+If n<0 initially, each iteration decrements n further away from 0, so the loop never terminates.
 

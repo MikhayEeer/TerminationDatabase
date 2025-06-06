@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The while loop condition is always true, creating an infinite loop.
+[RESULT]
+NONTERM
+[REASON]
+Infinite loop (`while(1)`) with no exit condition.
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-Infinite loop due to the `while (1)` condition, which always evaluates to true.
+Infinite while(1) loop with no exit condition.
 

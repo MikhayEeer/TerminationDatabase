@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1st phase: 2 *  y +  z  
+2nd phase:  z 
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+Phase 1: 1.0 * (x > y) * (*z^1) + 0.0 * 1  
+Phase 2: 1.0 * (x <= y) * (*y^1) + 0.0 * 1  
+
+The given program can be proven terminating using a multi-phase ranking function. The phases are determined based on the comparison between *y and *x. For the first phase, when *y > *x, the ranking function is based on *z, which decrements in every loop iteration. Once the condition *y <= *x is met, the program transitions to the second phase, where the ranking function is based on *y, which also decrements. Both variables ensure that the program will terminate as they are bounded by their initial non-negative values and consistently decrease.
+

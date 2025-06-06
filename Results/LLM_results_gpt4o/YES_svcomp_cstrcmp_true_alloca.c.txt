@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTION]  
+The function `cstrcmp` iterates over the characters in the strings `s1` and `s2` until the end of either string or until a differing character is found. The loop condition is based on the contents of the strings, which are guaranteed to terminate when a null character is encountered, as null terminators are explicitly set. This provides a linear progression towards reduction that guarantees termination. Hence, considering `n` as the minimum length between the two strings, the ranking function is:  
+`n - number of iterations`
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+length1 + length2  
+
+Explanation:  
+The main function allocates two non-deterministic strings of lengths `length1` and `length2`, each with a null terminator at the end. The function `cstrcmp` then compares these two strings character by character until it encounters a difference or reaches the end of either string (indicated by the null terminator `\0`). The loop within `cstrcmp` iterates at most `length1 - 1` or `length2 - 1` times, whichever is smaller. Thus, the execution of this program is bounded and terminates after a finite number of steps.
+

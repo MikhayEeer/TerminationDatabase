@@ -1,16 +1,24 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 * (N^2 - N)
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * N^1 + -1.0 * i^1 + 0.0
+1.0 * i^1 + -1.0 * j^1 + 0.0
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-linear
+multi-phase
 [RANKING FUNCTIONS]
-The function can be shown to terminate because the loops within the `lis` function have definite bounds. The outer loops iterate from 0 to N, where N is the size of the input array. Since N is determined by the `array_size`, which is positive, the loops have a finite number of iterations. Therefore, the function terminates, as each loop has a clear termination condition defined by the range of indices it iterates over.
+Phase 1 (first for‐loop “for (i=0; i<N; i++)”):  
+ f₁(N,i) = N – i  
+Phase 2 (nested loops “for (i=1; i<N; i++) for (j=0; j<i; j++)”):  
+ lexicographic pair ⟨g₁(N,i,j), g₂(N,i,j)⟩ with  
+  g₁(N,i,j) = N – i  
+  g₂(N,i,j) = i – j  
+Phase 3 (last for‐loop “for (i=0; i<N; i++)”):  
+ f₃(N,i) = N – i
 

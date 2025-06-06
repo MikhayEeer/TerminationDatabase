@@ -4,26 +4,17 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 multi-phase
 [RANKING FUNCTIONS]
-1.0 * 1 - 1.0 * c^1 + 1.0 * 1
-0.0 * 1 - 1.0 * b^1 + 0.0 * 1
-0.0 * 1 - 1.0 * a^1 + 0.0 * 1
-
-Explanation: 
-
-The given program iterates over triplets (a, b, c) to check if a^3 = b^3 + c^3. During each iteration, it increases `a`, and if `a` exceeds `MAX`, it resets `a` to 1 and increases `b`. Similarly, if `b` exceeds `MAX`, it resets `b` to 1 and increases `c`. When `c` exceeds `MAX`, the loop breaks, ensuring the program terminates.
-
-The ranking function is multi-phase, representing the decrement count of `c`, then `b`, and finally `a`, in successive phases, within their respective bounds.
+1001.0 - c
+1001.0 - b
+1001.0 - a
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1000.0 - 1.0 * c^1 + 0.0 * 1  
-999.0 - 1.0 * b^1 + 0.0 * 1  
-999.0 - 1.0 * a^1 + 0.0 * 1  
-
-Explanation:  
-The loop iteratively increments `a`, `b`, and `c` in a systematic manner, each within their respective bounds. When `a` exceeds `MAX`, it resets to 1 and increments `b`. Similarly, when `b` exceeds `MAX`, it resets to 1 and increments `c`. When `c` exceeds `MAX`, the loop exits. Thus, given that `a`, `b`, and `c` are constrained by finite bounds, the loop is guaranteed to terminate. The ranking functions indicate reduction in integers `c`, `b`, and `a` relative to their maximum limits.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+-1.0 * c + 1001.0
+-1.0 * b + 1001.0
+-1.0 * a + 1001.0
 

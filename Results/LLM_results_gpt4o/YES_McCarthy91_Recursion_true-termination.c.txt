@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+1. if n > 100: Use ranking function f(n) = n - 100.  
+2. if n <= 100: Use ranking function f(n) = 101 - n, which decreases for each recursive call until n > 100.  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+1. `n`  
+2. `mc91(n+11)`
+

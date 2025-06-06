@@ -1,20 +1,23 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-min(p, q)  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+# Piece 1: when p < q
+guard: p − q ≤ −1
+ranking function: 1.0 * p + 0.0 * q + 0.0
 
-The program is terminating because the value of `min(p, q)` is guaranteed to decrease in each iteration of the loop. The loop continues while both `p` and `q` are positive and not equal, and in each step, either `p` or `q` is decremented, thus reducing the minimum of the two until one becomes zero or they become equal, at which point the loop terminates.
+# Piece 2: when q < p
+guard: q − p ≤ −1
+ranking function: 0.0 * p + 1.0 * q + 0.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-piecewise  
-[RANKING FUNCTIONS]  
-min(p, q)  
-
-The program terminates because the value of `min(p, q)` strictly decreases with each iteration of the loop as one of the values `p` or `q` is decreased each time, while the other is reset but remains non-negative. Once either `p` or `q` reaches zero, the loop exits.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * q    (applicable when q < p)
+1.0 * p    (applicable when p < q)
 

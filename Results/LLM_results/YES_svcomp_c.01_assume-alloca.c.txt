@@ -4,10 +4,8 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1.0 * x_ref^1
-0.5 * x_ref^1 - 1.0 * y_ref^1
-
-This means the outer loop decreases `x_ref` linearly until it is non-positive, while the inner loop, which doubles `y_ref` until it surpasses `x_ref`, helps ensure termination by decreasing the distance between `x_ref` and `y_ref`. The nested ranking functions cater to both loops' progress.
+1.0 * x^1 + 0.0 * y^1 + 1.0 * 1
+1.0 * x^1 + -1.0 * y^1 + 0.0 * 1
 
 === Response 2 ===
 [RESULT]
@@ -15,8 +13,6 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 nested
 [RANKING FUNCTIONS]
-1.0 *  x_ref^1
-0.5 *  x_ref^1 - 1.0 *  y_ref^1 + 1.0 * 1
-
-Here, the nested structure of the loops allows us to construct a ranking function that ensures eventual termination. The outer loop decreases the value of `x_ref`, and the inner loop has a pseudo 2-exponential decrement pattern in terms of `y_ref`, bounded by `x_ref`, ensuring that both loops eventually terminate.
+1.0 * x^1 + -1.0 * y^1
+1.0 * x^1 + 1.0 * 1
 

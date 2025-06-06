@@ -1,20 +1,16 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-single-phase  
-[RANKING FUNCTIONS]  
-Length of the input strings `n`.  
-
-[EXPLANATION]  
-The `cstrncmp` function processes each character in the input strings `s1` and `s2` up to `n` times. In each iteration of the loop, either `n` is decremented, or the loop exits early if characters differ or a null character is encountered. Therefore, the program eventually terminates because the loop iterates a finite number of times, bounded by `n`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+linear
 [RANKING FUNCTIONS]
-n
-
+1.0 * n^1
 

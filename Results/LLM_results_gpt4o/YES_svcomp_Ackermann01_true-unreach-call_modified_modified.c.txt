@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (m + 1)^3 + 1.0 * (n + 1)^2 
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+3.0 *  m^1 + 24.0 *  n^1 + 3.0 * 1
+
+The program is implementing the Ackermann function, which is known to terminate for the range of inputs specified (m between 0 and 3, and n between 0 and 23). The decreasing complexity of the recursive calls in conjunction with the bounded input guarantees termination. Therefore, the program will eventually terminate for all allowed input values.
+

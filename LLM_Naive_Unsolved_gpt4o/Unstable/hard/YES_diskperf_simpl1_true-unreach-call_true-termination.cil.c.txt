@@ -1,0 +1,14 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+Using the state transitions and assertions, the program decreases abstract states and satisfies the termination criteria due to the enforced conditions and states s, pended, UNLOADED, NP, DC, SKIP1, and the non-deterministic choices limiting the infinite loops.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The function `main` relies heavily on the outcome of the non-deterministic inputs, especially `status`, `irp_choice`, and others, but there are multiple branches and conditions where the function can continuously invoke procedures like `IofCallDriver`, `KeWaitForSingleObject`, etc., which can lead to an indefinite loop or recursive-like behavior based on driver behavior settings and control flow within its many breakpoints and error handling stubs. Moreover, built-in auxiliary functions with non-deterministic returns could manifest as ever-changing states that may prevent termination under given conditions.
+

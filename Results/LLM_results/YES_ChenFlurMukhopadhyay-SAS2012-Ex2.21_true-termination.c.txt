@@ -2,17 +2,16 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+non-linear
 [RANKING FUNCTIONS]
-0.5 * x^2 + 1.5 * x * y + 0.5 * y^2
+2.0 * x + (y + 1)^2
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-non-linear
+multi-phase
 [RANKING FUNCTIONS]
-1/2 * x^2 + 1/2 * y^2
-
-Explanation: The program's loop terminates due to the non-linear nature of the updates to `x` and `y`. The quadratic expression `1/2 * x^2 + 1/2 * y^2` functions as a ranking function that decreases at each loop iteration because `x` eventually becomes non-positive, leading to the termination of the loop.
+1.0 * x^1 + 1.0 * y^1 + 1.0
+1.0 * x^1 + 1.0 * y^1 + 1.0
 

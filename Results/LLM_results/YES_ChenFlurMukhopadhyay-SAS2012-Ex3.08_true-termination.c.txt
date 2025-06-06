@@ -2,16 +2,17 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 * (x - y)^1 + 1.0 * 1
-
+-1.0 * z
+1.0 * x + -1.0 * y + 1.0
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-non-linear  
-[RANKING FUNCTIONS]  
-x - y
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+-1.0 * x + 1.0 * y + -1.0 * z
+1.0 * x + -1.0 * y
 

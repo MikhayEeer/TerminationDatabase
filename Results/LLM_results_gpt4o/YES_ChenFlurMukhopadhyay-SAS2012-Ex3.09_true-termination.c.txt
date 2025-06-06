@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+Phase 1: Termination due to loop break condition.  
+
+Explanation: The program is terminating because there exists a break condition inside the loop: `if (x <= 2*old_x) { break; }`. This condition ensures that for any `x` not satisfying `x > 2*old_x`, the loop will exit. Thus, the loop does not run indefinitely.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]
+1. (x > 0 and x < y and x > 2 * old_x): -2 * old_x (decreases linearly)
+2. (x > 0 and x < y and x <= 2 * old_x): Constant termination due to break statement
+

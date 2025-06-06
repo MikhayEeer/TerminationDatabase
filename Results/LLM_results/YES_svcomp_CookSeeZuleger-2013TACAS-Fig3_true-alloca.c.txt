@@ -1,24 +1,19 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-1.0 *  x^1  
-
-Explanation: 
-
-- The program uses two pointers, `x` and `y`, which point to integers allocated on the stack.
-- In each iteration of the loop, either `*x` is decreased by 1, or `*x` is assigned a non-deterministic value and `*y` is decreased by 1.
-- The loop continues as long as `*x > 0` and `*y > 0`.
-- For termination, we consider the ranking function `1.0 * x^1` which maps values of `*x` to non-negative integers.
-- When choosing the first branch (`*x = *x - 1`), the ranking function strictly decreases by 1.
-- In the other branch, even if `*x` is assigned a new value, `*y` decreases by 1.
-- This guarantees that the loop cannot execute indefinitely, hence proving termination.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * y^1 + 0.0
+1.0 * x^1 + 0.0
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program can enter a state where *x is reset to a non-deterministic value while *y is decremented. If the non-deterministic value for *x always provides a positive number, and eventually the same or another non-deterministic choice does not decrement *x fast enough or at all, the loop may never terminate. Thus, non-termination is possible.
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * y + 0.0
+1.0 * x + 0.0
+
 

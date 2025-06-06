@@ -1,12 +1,12 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program is non-terminating because if `x > 6` initially, `x` will keep increasing by 2 indefinitely while remaining less than or equal to 10, causing an infinite loop.
+[RESULT]
+NONTERM
+[REASON]
+If x ≤ 6 initially, the loop body never updates x, so x ≤ 10 stays true forever and the loop does not terminate.
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The program does not update the variable `x` to decrease its value or make it exit the loop once `x <= 6`, and if `x` starts at a value `7 <= x <= 10`, then `x` enters an infinite loop since `x` keeps increasing by 2, making it impossible to exit the loop.
+[RESULT]
+NONTERM
+[REASON]
+If x ≤ 6, the loop body leaves x unchanged and the guard x ≤ 10 stays true forever, so it loops infinitely.
 

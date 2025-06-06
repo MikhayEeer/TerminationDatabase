@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+N - i  
+
+The program is terminating because the loop iterates a fixed number of times, exactly `N` times. Each iteration of the loop increments `i` by 1, and once `i` reaches `N`, the loop condition `i < N` becomes false, causing the loop to terminate. Thus, the linear ranking function `N - i` monotonically decreases with each loop iteration until it reaches zero, proving termination.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+N - i
+

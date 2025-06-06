@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+In the `traverse` function, the ranking function is the length of the list `n`. Each iteration of the loop in the `traverse` function moves one step closer to the end of the list, thereby decrementing the "remaining list length" by 1 until it reaches 0. Therefore, the program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTION]
+list length
+
+The given program will terminate. The reason is that the `traverse` function iterates over the linked list starting from the `head` node, moving to the next node until it encounters a node where `next` is `NULL`. The linked list is initialized with a non-negative number of nodes `n` in the `init_list` function. Since the list is finite (as determined by `n`), the traversal will eventually stop when it reaches the end of the list. Thus, the program is guaranteed to terminate. The ranking function here is simply the length of the list, which decreases as the traversal progresses through the nodes in the list.
+

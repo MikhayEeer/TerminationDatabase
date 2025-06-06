@@ -1,19 +1,18 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-(m - j) + (n - i) * m  
-0 
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * n + -1.0 * i
+1.0 * m + -1.0 * j
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-dimensional
+nested
 [RANKING FUNCTIONS]
-(n - i, m - j)
-
-This program is terminating and can be proved by a multi-dimensional ranking function. The ranking functions used are (n - i) and (m - j). Each iteration of the outer loop decreases the first component (n - i) when j reaches m and resets j to 0, while each full cycle through the inner loop (i.e., when j counts up from 0 to m) decreases it. The second component (m - j) decreases with each increment of j and resets upon i incrementation. This process ensures progress towards termination, since i eventually reaches n, at which point the loop condition i < n fails.
+1.0 * n + -1.0 * i
+1.0 * m + -1.0 * j
 

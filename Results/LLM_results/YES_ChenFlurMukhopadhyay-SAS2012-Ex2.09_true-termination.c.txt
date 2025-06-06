@@ -1,28 +1,25 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-non-linear  
-[RANKING FUNCTIONS]  
-The program is terminating because as the loop executes, the variable `x` gets assigned a new value as `-x + y - 5` and `y` values double each time. Here's how it converges towards termination:  
-- Initially, `x > 0` and `x < n`.  
-- Each iteration causes `x` to change its sign and decrease in absolute value due to the subtraction `- 5`.
-- The variable `y` doubles, accelerating the decrease in `x` when loop conditions continue to check.
-- As this induces a change towards meeting the termination condition of `x <= 0` or `x >= n`, eventually the loop exits.
-
-In specific, there isn't an explicit single mathematical function because the termination arises due to a complex state by altering between positive and negative values of `x` via accumulated increments of `y`. This non-linear behavior guides toward termination as described.  
-
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+case y ≤ 0         : 1.0
+case 0 < y ≤ 2·x+5 : 1.0
+case y > 2·x+5     : n − x
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-Phase 1:
-1.0 * x + 1.0 * y + 5n (to ensure y exponentially increases faster than any decrease in x due to non-linear operations)
-Phase 2:
-0.5 * x + 0.5 * y + constant (as x progresses towards zero or n, proving eventual termination) 
-
-This reasoning proves the program is terminating due to the eventual diverging nature of y, and adjusted constraints on x in each phase.
+-- Piece 1 (y ≤ 0):  
+   f₁(x,y) = x  
+   • In this case y≤0 ⇒ on the very next iteration x′=−x+y−5≤−x−5<0, so the loop guard (x′>0) fails and the loop exits.  
+-- Piece 2 (y > 0):  
+   f₂(x,y) = n − x  
+   • If the loop stays in this piece then 0<x<n and y>0, and either x′≥n (so the guard fails and we exit) or x′<n and  
+      n−x′ = n−(−x+y−5) = (n−x) + (2x+5−y) < n−x  
+      as soon as y>2x+5.  Since y doubles every round, eventually y>2x+5 and so f₂ strictly decreases until the loop exits.
 

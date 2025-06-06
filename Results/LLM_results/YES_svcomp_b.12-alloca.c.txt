@@ -2,17 +2,26 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+piecewise
 [RANKING FUNCTIONS]
-1.0 *  x_ref^1 + 1.0 *  y_ref^1
+Region1 (x>0, y>=0):   1.0 * x + 1.0 * y + 0.0  
+Region2 (x>0, y<0):    1.0 * x + 0.0 * y + 0.0  
+Region3 (x<=0, y>0):   0.0 * x + 1.0 * y + 0.0  
+
+Explanation of the piecewise ranking function “r” on each loop iteration:
+
+- If x>0 and y>=0, r = x+y ≥1, and the loop body decrements x by 1 so r↓ by 1.
+- If x>0 and y<0, r = x ≥1, and again x↓ by 1 so r↓ by 1.
+- If x<=0 and y>0, r = y ≥1, and the loop body decrements y by 1 so r↓ by 1.
+
+In every reachable state of the loop r is a non-negative integer, strictly decreases on each iteration, and once x≤0 and y≤0 the loop exits. Hence the program terminates.
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-lexicographic
+multi-phase
 [RANKING FUNCTIONS]
-x_ref, y_ref
-
-The program is terminating because the values of `*x_ref` and `*y_ref` are both being decremented in every iteration of the loop, and since they start as non-negative integers, they will eventually both reach zero, at which point the loop terminates. The lexicographic ranking function `x_ref, y_ref` implies that the primary measure (`*x_ref`) decreases until it hits zero, and whenever it's zero, the secondary measure (`*y_ref`) decreases until it also hits zero. This shows the loop terminates.
+1.0 * x^1
+1.0 * y^1
 

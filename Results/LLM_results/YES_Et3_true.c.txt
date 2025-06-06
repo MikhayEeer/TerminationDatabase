@@ -1,12 +1,18 @@
 === Response 1 ===
 [RESULT]
-NONTERM
-[REASON]
-The value of `a` can increase indefinitely due to `a = a + b` when `b` remains non-positive, preventing termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.0 * a + 1.0 * b + 1.0
+1.0 * a + 0.0 * b + 0.0
 
 === Response 2 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of \( a \) and \( b \) can be adjusted such that \( a \) remains positive indefinitely due to the addition of \( b \) to \( a \), even as \( b \) decreases. This creates conditions where the recursion can continue forever without reaching a termination condition.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * b^1 + 1.0
+1.0 * a^1
 

@@ -4,21 +4,28 @@ TERMINATE
 [RANKING FUNCTION TYPE]  
 multi-phase  
 [RANKING FUNCTIONS]  
-1.0 * x^1 + 0.0 * 1  (for the outer loop)  
-1.0 * y^1 - 1.0 * x^1 (for the middle loop)  
-1.0 * y^1 - 1.0 * x^1 - 3.0  (for the innermost loop) 
+1.0 * y^1 + -1.0 * x^1 + -3.0 * 1  
+1.0 * y^1 + -1.0 * x^1 + -1.0 * 1  
+1.0 * x^1 + -2.0 * 1  
 
-The provided multi-phase ranking functions show that the program decreases for each loop guard condition, hence it ensures termination. The outer loop decreases with respect to `x`, the middle loop decreases more slowly with respect to `y` compared to `x`, and the innermost loop decreases with respect to both `y` and `x` when `y` is greater than `x + 3`.
+Explanation of phases:  
+– Phase 1 (inner2): when y ≥ x + 3, f₁(y,x)=y–x–3 decreases by 3 each iteration.  
+– Phase 2 (inner1): when y ≥ x + 1 but y < x + 3, f₂(y,x)=y–x–1 decreases to <0 in at most two steps.  
+– Phase 3 (outer): when x ≥ 2, f₃(x)=x–2 decreases by at least 0 (actually by ≥2) each outer iteration, forcing x<2.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase   
-[RANKING FUNCTIONS]  
-1.0 * x^1  
-1.0 * (y - x)^1  
-1.0 * (y - x - 2)^1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+# Piece 1: when y ≥ x + 1
+guard: y - x - 1 ≥ 0  
+f₁(x,y) = y - x  
+# In one outer‐loop iteration from this region f₁ drops from ≥1 to ≤0
 
-The program terminates due to a combination of outer and inner loops with conditions that strictly decrease the control variables `x` and `y` in a well-ordered manner after each iteration. The multi-phase ranking functions show the decreasing phases of the variables, ensuring termination.
+# Piece 2: when y < x + 1
+guard: y - x - 1 < 0  
+f₂(x,y) = 2·x - y  
+# Each outer‐loop iteration in this region decreases f₂ by at least 5
 

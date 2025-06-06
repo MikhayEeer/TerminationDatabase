@@ -2,11 +2,11 @@
 [RESULT]
 NONTERM
 [REASON]
-The recursive function `rec` can enter an infinite loop for certain values of `x`, particularly when `x` is a large positive odd integer. The case `rec(--x)` will revert the increment done by `rec(++x)`, and as such, the program does not make progress and can continue indefinitely.
+For any odd x>0, rec(x) calls rec(x+1) (which reduces to rec((x+1)/2)) and then rec(x) again, creating a direct recursive cycle rec(x)→rec(x).
 
 === Response 2 ===
 [RESULT]
 NONTERM
 [REASON]
-The recursive function `rec` may not terminate for some inputs because it can enter a cycle when `x` is odd. Incrementing `x` (with `++x`) followed by decrementing it (with `--x`) brings it back to the same state, causing possible infinite recursion for such values.
+There is a recursion cycle: rec(1)→rec(2)→rec(1)…, so calls never terminate.
 

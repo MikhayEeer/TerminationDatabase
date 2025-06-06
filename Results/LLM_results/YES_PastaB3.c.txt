@@ -1,12 +1,17 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The inner loop `while (x > y)` is non-terminating as `y = x + y` will always increase `y` when `x > y`, and thus the condition `x > y` will remain true if initially `x > y`.
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.0 * x^1 + -1.0 * y^1 + 0.0 * 1
+1.0 * x^1 + -1.0 * y^1 + 0.0 * 1
 
 === Response 2 ===
 [RESULT]
-NONTERM
-[REASON]
-The program can enter an infinite loop if `x` is greater than `y` initially. In this case, `y` gets updated by adding `x` and `y` in each iteration, which will always satisfy the loop condition `x > y`, thereby leading to non-termination.
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + 0.0 * 1
 

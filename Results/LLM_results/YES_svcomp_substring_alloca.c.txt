@@ -2,34 +2,22 @@
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-- The outer while loop at `char *ps = s; while (*ps != '\0')` 
-  - Ranking function: `|nondetString1 - ps|`
-  - The ranking function decreases by 1 for each iteration, and it terminates when `ps` reaches the end of `nondetString1` as the null character `'\0'` is found.
-
-- The inner while loop at `char *pt = t; while (*pt != '\0' && *pt == *ps2)`
-  - Occurs at most `|nondetString2|` times, as `pt` moves forward through `nondetString2`.
-  - The ranking function: `|nondetString2 - pt|`
-  - This loop terminates when a mismatch occurs or the end of `nondetString2` is reached, as indicated by `pt` reaching `'\0'`.
-
-These ranking functions demonstrate termination for both nested loops under the condition that both strings end with a null character, which adheres to the C string convention and is explicitly ensured in the program.
+1.0 * (length1 - (ps - s))
+1.0 * (length2 - (pt - t))
 
 === Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-The function `substring` involves two nested loops. Each time the outer loop progresses (`ps` increments), the inner loop is expected to finish if `*pt` reaches the end (`'\0'`). The inner loop only advances when characters match, and it guarantees to exit once `*pt != '\0'` is false. Since each loop condition involves finite traversal through null-terminated strings and the pointers `ps` and `ps2` advance towards `'\0'`, the function will terminate after a finite number of steps given valid input strings (`nondetString1` and `nondetString2` being properly null-terminated).
+1.0 * length1^1 + -1.0 * (ps - s)^1
+1.0 * length2^1 + -1.0 * (pt - t)^1
 
-The termination can be argued by considering:
-1. The length of the outer loop controlled by `ps`, which is bound by the length of `nondetString1` (say `n1`).
-2. The length of the inner loop controlled by `pt`, which is bound by the length of `nondetString2` (say `n2`).
-
-Multi-phase ranking function:
-- Phase 1: The number of positions `ps` needs to increment before the outer loop stops: `n1`.
-- Phase 2: For each step in Phase 1, how `pt` (and `ps2` which shadows `ps`) increments until null termination in the inner loop for each prefix from `ps`: At most `n2` steps.
-
-Each phase guarantees decrement in available steps leading towards null-terminated string positions ensuring loop progress, hence confirming termination.
+Explanation:
+– The outer loop “while (*ps != '\0')” is ranked by φ₁ = length1 – (ps–s), which decreases by 1 on each iteration and is always non‐negative.  
+– The inner loop “while (*pt!='\0' && *pt==*ps2)” is ranked by φ₂ = length2 – (pt–t), which decreases by 1 on each character match and is bounded below by 0.  
+Together these form a valid nested (lexicographic) ranking function proving termination.
 

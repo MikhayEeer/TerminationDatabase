@@ -4,9 +4,9 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-q^1
+1.0 * q + 0.0 * y + 0.0
 
-The program will terminate because the value of `q` is strictly decreasing in each iteration of the loop when `q > 0`. The condition `q > 0` is the loop guard, and once `q` becomes zero or negative, the loop exits. The linear ranking function `q` shows that there is a consistent decrease with each iteration.
+Explanation: On each loop iteration, whether y>0 or y≤0, q is decreased by at least 1, and the loop guard is q>0, so f(q,y)=q is a valid linear ranking function.
 
 === Response 2 ===
 [RESULT]
@@ -14,5 +14,5 @@ TERMINATE
 [RANKING FUNCTION TYPE]
 linear
 [RANKING FUNCTIONS]
-1.0 * q^1
+1.0 * q^1 + 0.0 * 1
 

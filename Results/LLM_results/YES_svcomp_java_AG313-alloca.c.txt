@@ -1,19 +1,20 @@
 === Response 1 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-linear  
-[RANKING FUNCTIONS]  
-1.0 * x_ref + 1.0 * y_ref
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+Explanation: Inside the loop *x_ref strictly decreases by y_ref≥1 on each iteration and is bounded below by 0, so f(x)=x is a valid linear ranking function.
 
 === Response 2 ===
-[RESULT]  
-TERMINATE  
-[RANKING FUNCTION TYPE]  
-multi-phase  
-[RANKING FUNCTIONS]  
-2.0 * 1 + 1.0 * (x - 1) * y^0 + 1.0 * (x - y)^0  
-0.5 * x^1 + 1.0 * 0 + 0.5 * 1  
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1
 
-The program is terminating. The function computes the quotient of x divided by y, decrementing x by the value of y until x is non-positive or y is zero. The multi-phase ranking function shows progress toward termination.
+This ranking function maps the loop state to the current value of x_ref, which is always non‐negative on entry, strictly decreases by y_ref>0 each iteration, and thus proves termination.
 

@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+5.0 * |x| + 1.0 * y^1 + 5.0  
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+x^1 (when x > 0)  
+y^1 (when x <= 0 and y > 0)  
+
+This program will terminate because the ranking function decreases strictly in each phase:  
+1. When `x > 0`, the variable `x` decreases because whenever the inner `if` condition is true, `x` is decremented by 1 while `y` can be any value, keeping the progress towards termination.  
+2. When `x <= 0`, the variable `y` must still be greater than 0 to continue the loop. However, the program will decrease the value of `y`, resulting in its decrease towards 0, eventually terminating the loop.  
+Thus, the phases ensure that the program termination is achieved.
+

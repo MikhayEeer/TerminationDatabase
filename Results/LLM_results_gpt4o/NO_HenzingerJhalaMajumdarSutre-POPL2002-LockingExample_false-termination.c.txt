@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 * (new - old) ^ 1  
+
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+3.0 * 1 + 1.0 * new^1 + 3.0 * 1  
+0.5 * old^1 + 0.5 * LOCK^1 + 0.5 * 1  
+
+The program is terminating because the execution of the loop gradually leads the `new` variable to equal `old`. Upon `new == old`, the loop exits. The lock and unlock operations ensure proper control flow, and do not affect the termination since they consistently toggle the LOCK state. The combination of these factors guarantees termination.
+

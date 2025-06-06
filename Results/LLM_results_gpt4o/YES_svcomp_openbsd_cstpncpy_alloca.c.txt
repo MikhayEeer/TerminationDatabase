@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * n^1 if n > 0, 
+0 otherwise
+
+Explanation:  
+The program will terminate as long as `n` is positive because the function `cstpncpy` will decrement `n` with each iteration of the loops, eventually reaching zero and exiting. The function `cstpncpy` performs two main loops: the first loop copies characters from `src` to `dst` up to `n` characters or until a null terminator is encountered, and the second loop pads with zeros if the null terminator was reached before `n` characters were copied. Since `n` is decremented in each loop, the function must terminate when `n` becomes zero. The piecewise nature of the ranking function accounts for terminal conditions: one ranking function ensures termination for positive initial `n`, while if `n` is initially zero or negative, the function avoids entry or immediate termination, respectively.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+The function `cstpncpy` contains loops, and its termination is based on the decrementation of the variable `n`. Since `n` is decremented in each iteration and there is a conditional check for `n != 0`, the loop will terminate when `n` reaches zero. Thus, a simple linear ranking function based on `n` can be used to show that the loops inside `cstpncpy` terminate. As `n` starts from a positive integer and decreases by 1 in each loop iteration, the linear function `f(n) = n`, checking `n > 0`, suffices. When `n` is zero, the loops exit, which guarantees termination.
+

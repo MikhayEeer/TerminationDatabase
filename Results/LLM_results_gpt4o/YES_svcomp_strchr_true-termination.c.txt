@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 *  (length(s) - current_position)^1  
+
+=== Response 2 ===
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+Length of the string - position of the current character being checked
+```
+
+The program terminates because `cstrchr` scans a null-terminated string and stops when it reaches either the desired character or the end of the string. Since the string is guaranteed to be null-terminated (as constructed in `__VERIFIER_nondet_String`), the loop will always reach the null character, causing termination. The ranking function decreases deterministically as it approaches the end of the string.
+

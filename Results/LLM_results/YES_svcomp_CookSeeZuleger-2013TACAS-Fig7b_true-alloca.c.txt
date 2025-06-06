@@ -1,14 +1,17 @@
 === Response 1 ===
-[RESULT]  
-NONTERM  
-[REASON]  
-The values of `*x`, `*y`, and `*z` can be independently reset to non-positive values or can be set to arbitrary non-negative values by `__VERIFIER_nondet_int()`, allowing the loop to continue indefinitely without guarantee of termination.
-
-=== Response 2 ===
 [RESULT]
 TERMINATE
 [RANKING FUNCTION TYPE]
-multi-phase
+nested
 [RANKING FUNCTIONS]
-1.0 *  x^1 + 1.0 *  y^1 + 1.0 *  z^1
+1.0 * y  
+1.0 * z  
+1.0 * x  
+
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The nondeterministic branches can reset x or z to arbitrarily large values, preventing any global well-founded decrease and allowing infinite looping.
 
