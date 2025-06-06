@@ -39,7 +39,7 @@ ulimit -Sv $((64*1024*1024)) && python Scripts/irank_run_dirs.py SVComp_C/ TPDB_
 - 如果存在函数调用，当前参数组会报错，irankfinder默认有-eager-inline
   例如`TerminatorRec02_true.c`
   该类问题较多，且尝试多种参数组合都仍然报错同样的问题，暂时置为FAILED
-- Timeout 了
+- Timeout了
 
 
 ## ~~Build From Source Code~~
