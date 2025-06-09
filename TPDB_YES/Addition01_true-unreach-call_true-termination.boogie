@@ -1,0 +1,36 @@
+procedure addition(m: int, n: int)
+{
+  if ((n==0))
+  {
+  }
+
+  if ((n>0))
+  {
+  }
+
+  if ((n<0))
+  {
+  }
+
+}procedure main()
+{
+  var m: int;
+  var n: int;
+  var result: int;
+  m := __VERIFIER_nondet_int();
+  if (((m<0)||(m>2147483647)))
+  {
+  }
+
+  n := __VERIFIER_nondet_int();
+  if (((n<0)||(n>2147483647)))
+  {
+  }
+
+  result := addition(m,n);
+  if ((result==(m+n)))
+  {
+  } else {
+    ERROR:     __VERIFIER_error();  }
+
+}

@@ -1,1 +1,16 @@
-python3: can't open file '/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/CLI_main.py': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 269, in <module>
+    ast = cparser.parse(src)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/.venv/lib/python3.10/site-packages/pycparser/c_parser.py", line 149, in parse
+    return self.cparser.parse(
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/.venv/lib/python3.10/site-packages/pycparser/ply/yacc.py", line 331, in parse
+    return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/.venv/lib/python3.10/site-packages/pycparser/ply/yacc.py", line 1199, in parseopt_notrack
+    tok = call_errorfunc(self.errorfunc, errtoken, self)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/.venv/lib/python3.10/site-packages/pycparser/ply/yacc.py", line 193, in call_errorfunc
+    r = errorfunc(token)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/.venv/lib/python3.10/site-packages/pycparser/c_parser.py", line 1758, in p_error
+    self._parse_error(
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/.venv/lib/python3.10/site-packages/pycparser/plyparser.py", line 66, in _parse_error
+    raise ParseError("%s: %s" % (coord, msg))
+pycparser.plyparser.ParseError: :60:1: before: __extension__

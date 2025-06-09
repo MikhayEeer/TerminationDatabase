@@ -1,0 +1,17 @@
+procedure main()
+{
+  var k: int;
+  var i: int;
+  var j: int;
+  var tmp: int;
+  k := __VERIFIER_nondet_int();
+  i := __VERIFIER_nondet_int();
+  j := __VERIFIER_nondet_int();
+  while (((i<=100)&&(j<=k)))
+  {
+  tmp := i;
+  i := j;
+  j := (tmp+1);
+  k := (k-1);  }
+
+}

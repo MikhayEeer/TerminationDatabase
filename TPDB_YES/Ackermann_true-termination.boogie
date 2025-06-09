@@ -1,0 +1,24 @@
+procedure Ack(m: int, n: int)
+{
+  if ((m==0))
+  {
+  } else {
+    if ((n==0))
+    {
+    } else {
+    }
+  }
+
+}procedure main()
+{
+  var x: int;
+  var y: int;
+  var r: int;
+  x := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  if (((x<0)||(y<0)))
+  {
+  }
+
+  r := Ack(x,y);
+}

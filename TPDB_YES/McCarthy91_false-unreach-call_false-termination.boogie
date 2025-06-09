@@ -1,0 +1,19 @@
+procedure f91(x: int)
+{
+  if ((x>100))
+  {
+  } else {
+  }
+
+}procedure main()
+{
+  var x: int;
+  var result: int;
+  x := __VERIFIER_nondet_int();
+  result := f91(x);
+  if (((result==91)||((x>102)&&(result==(x-10)))))
+  {
+  } else {
+    ERROR:     __VERIFIER_error();  }
+
+}

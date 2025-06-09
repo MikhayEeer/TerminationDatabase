@@ -1,0 +1,12 @@
+procedure main()
+{
+  var q: int;
+  var y: int;
+  q := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  while ((q>0))
+  {
+  q := (q-y);
+  y := (y+1);  }
+
+}

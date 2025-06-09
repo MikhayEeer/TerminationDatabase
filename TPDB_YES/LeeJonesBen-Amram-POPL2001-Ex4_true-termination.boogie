@@ -1,0 +1,24 @@
+procedure p(m: int, n: int, r: int)
+{
+  if ((r>0))
+  {
+  } else {
+    if ((n>0))
+    {
+    } else {
+    }
+  }
+
+}procedure main()
+{
+  var m: int;
+  var n: int;
+  var r: int;
+  m := __VERIFIER_nondet_int();
+  n := __VERIFIER_nondet_int();
+  r := __VERIFIER_nondet_int();
+  if ((((m>=0)&&(n>=0))&&(r>=0)))
+  {
+    p(m,n,r);  }
+
+}

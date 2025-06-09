@@ -1,0 +1,30 @@
+procedure twoWay(terminate: int, n: int)
+{
+  if ((n<0))
+  {
+  } else {
+    m := n;
+    if (terminate)
+    {
+      m := m - 1;    } else {
+      m := m + 1;    }
+  }
+
+}procedure main()
+{
+  var x: int;
+  var y: int;
+  var z: int;
+  x := __VERIFIER_nondet_int();
+  if ((x<0))
+  {
+  }
+
+  y := __VERIFIER_nondet_int();
+  if ((y<0))
+  {
+  }
+
+  z := __VERIFIER_nondet_int();
+  twoWay(1,x);
+}

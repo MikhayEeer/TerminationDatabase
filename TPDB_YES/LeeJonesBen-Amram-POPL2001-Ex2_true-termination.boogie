@@ -1,0 +1,21 @@
+procedure f(i: int, x: int)
+{
+  if ((i==0))
+  {
+  } else {
+  }
+
+}procedure g(a: int, b: int, c: int)
+{
+
+}procedure main()
+{
+  var i: int;
+  var x: int;
+  i := __VERIFIER_nondet_int();
+  x := __VERIFIER_nondet_int();
+  if (((i>=0)&&(x>=0)))
+  {
+    f(i,x);  }
+
+}

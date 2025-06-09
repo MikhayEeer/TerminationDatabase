@@ -1,0 +1,20 @@
+procedure A(a1: int, a2: int)
+{
+  if (a1)
+  {
+    A(a2,a1);  } else {
+    g := a2;  }
+
+}procedure main()
+{
+  var g: int;
+  var h: int;
+  g := __VERIFIER_nondet_int();
+  h := !(g);
+  A(g,h);
+  A(g,h);
+  if (g)
+  {
+    ERROR:     __VERIFIER_error();  }
+
+}

@@ -1,0 +1,18 @@
+procedure main()
+{
+  var x: int;
+  var M: int;
+  x := __VERIFIER_nondet_int();
+  M := __VERIFIER_nondet_int();
+  if ((M>0))
+  {
+    while ((x!=M))
+    {
+    if ((x>M))
+    {
+      x := 0;    } else {
+      x := (x+1);    }
+    }
+  }
+
+}

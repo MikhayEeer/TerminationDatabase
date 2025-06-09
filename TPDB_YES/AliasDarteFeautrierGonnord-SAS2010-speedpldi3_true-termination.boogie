@@ -1,0 +1,23 @@
+procedure main()
+{
+  var n: int;
+  var m: int;
+  var i: int;
+  var j: int;
+  n := __VERIFIER_nondet_int();
+  m := __VERIFIER_nondet_int();
+  if (((m>0)&&(n>m)))
+  {
+    i := 0;
+    j := 0;
+    while ((i<n))
+    {
+    if ((j<m))
+    {
+      j := j + 1;    } else {
+      j := 0;
+      i := i + 1;    }
+    }
+  }
+
+}

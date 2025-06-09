@@ -1,0 +1,16 @@
+procedure main()
+{
+  var i: int;
+  var j: int;
+  i := 0;
+  j := 3;
+  while ((i<10))
+  {
+  while ((j<12))
+  {
+  j := (j-1);
+  j := (j+2);  }
+
+  i := (i+1);  }
+
+}

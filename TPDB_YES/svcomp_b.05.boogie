@@ -1,0 +1,12 @@
+procedure test_fun(x: int, tmp: int)
+{
+  tmp := __VERIFIER_nondet_int();
+  while (((x>0)&&(x==(2*tmp))))
+  {
+  x := (x-1);
+  tmp := __VERIFIER_nondet_int();  }
+
+}procedure main()
+{
+
+}

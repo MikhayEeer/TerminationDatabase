@@ -1,0 +1,17 @@
+procedure main()
+{
+  var x: int;
+  var y: int;
+  var z: int;
+  x := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  z := __VERIFIER_nondet_int();
+  while ((x>z))
+  {
+  while ((y>z))
+  {
+  y := (y-1);  }
+
+  x := (x-1);  }
+
+}

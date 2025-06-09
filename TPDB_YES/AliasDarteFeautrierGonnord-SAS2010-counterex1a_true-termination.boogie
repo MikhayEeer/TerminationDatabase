@@ -1,0 +1,28 @@
+procedure main()
+{
+  var n: int;
+  var b: int;
+  var x: int;
+  var y: int;
+  n := __VERIFIER_nondet_int();
+  b := __VERIFIER_nondet_int();
+  x := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  while ((((x>=0)&&(0<=y))&&(y<=n)))
+  {
+  if ((b==0))
+  {
+    y := y + 1;
+    if (__VERIFIER_nondet_int())
+    {
+      b := 1;    }
+  } else {
+    y := y - 1;
+    if (__VERIFIER_nondet_int())
+    {
+      x := x - 1;
+      b := 0;    }
+  }
+  }
+
+}

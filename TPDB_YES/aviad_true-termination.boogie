@@ -1,0 +1,22 @@
+procedure f(a: int)
+{
+  var tmp: int;
+  var count: int;
+  count := 0;
+  while ((a>1))
+  {
+  tmp := (amod2);
+  if ((tmp==0))
+  {
+    a := (adiv2);  } else {
+    a := (a-1);  }
+
+  count := count + 1;  }
+
+}procedure main()
+{
+  var x: int;
+  var count: int;
+  x := __VERIFIER_nondet_int();
+  count := f(x);
+}

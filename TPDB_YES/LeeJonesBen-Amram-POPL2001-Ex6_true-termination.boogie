@@ -1,0 +1,25 @@
+procedure f(a: int, b: int)
+{
+  if ((b==0))
+  {
+  } else {
+  }
+
+}procedure g(c: int, d: int)
+{
+  if ((c==0))
+  {
+  } else {
+  }
+
+}procedure main()
+{
+  var a: int;
+  var b: int;
+  a := __VERIFIER_nondet_int();
+  b := __VERIFIER_nondet_int();
+  if (((a>=0)&&(b>=0)))
+  {
+    f(a,b);  }
+
+}

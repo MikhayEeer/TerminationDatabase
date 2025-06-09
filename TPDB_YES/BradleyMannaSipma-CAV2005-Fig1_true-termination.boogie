@@ -1,0 +1,21 @@
+procedure gcd(y1: int, y2: int)
+{
+  while ((y1!=y2))
+  {
+  if ((y1>y2))
+  {
+    y1 := (y1-y2);  } else {
+    y2 := (y2-y1);  }
+  }
+
+}procedure main()
+{
+  var y1: int;
+  var y2: int;
+  y1 := __VERIFIER_nondet_int();
+  y2 := __VERIFIER_nondet_int();
+  if (((y1>0)&&(y2>0)))
+  {
+    gcd(y1,y2);  }
+
+}
