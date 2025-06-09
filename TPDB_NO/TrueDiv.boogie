@@ -1,0 +1,13 @@
+procedure main()
+{
+  var i: int;
+  i := __VERIFIER_nondet_int();
+  while (true)
+  {
+  if ((i<=0))
+  {
+    i := (i-1);  } else {
+    i := (i+1);  }
+  }
+
+}

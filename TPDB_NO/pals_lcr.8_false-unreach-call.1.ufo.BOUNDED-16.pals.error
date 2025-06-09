@@ -1,1 +1,14 @@
-python3: can't open file '/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/CLI_main.py': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 281, in <module>
+    t = translate_FuncDef(x, ctx)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 209, in translate_FuncDef
+    decl = translate_Decl(c_ast.decl)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 102, in translate_Decl
+    typ = translate_typ(raw_typ)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 33, in translate_typ
+    return translate_FunDecl(c_ast)
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 20, in translate_FunDecl
+    args.append(translate_Decl(a))
+  File "/home/clexma/Desktop/fox3/TermDB/SVMRanker/src/./C2Boogie.py", line 98, in translate_Decl
+    name = subst.lookup("name")
+AttributeError: 'NoneType' object has no attribute 'lookup'

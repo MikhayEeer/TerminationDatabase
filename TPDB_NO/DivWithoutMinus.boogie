@@ -1,0 +1,21 @@
+procedure main()
+{
+  var x: int;
+  var y: int;
+  var z: int;
+  var res: int;
+  x := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  z := y;
+  res := 0;
+  while (((z>0)&&((y==0)||((y>0)&&(x>0)))))
+  {
+  if ((y==0))
+  {
+    res := (res+1);
+    y := z;  } else {
+    x := (x+1);
+    y := (y-1);  }
+  }
+
+}

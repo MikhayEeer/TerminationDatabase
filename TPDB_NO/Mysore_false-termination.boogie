@@ -1,0 +1,15 @@
+procedure main()
+{
+  var x: int;
+  var c: int;
+  x := __VERIFIER_nondet_int();
+  c := __VERIFIER_nondet_int();
+  if ((c<0))
+  {
+    while (((x+c)>=0))
+    {
+    x := (x-c);
+    c := (c-1);    }
+  }
+
+}
