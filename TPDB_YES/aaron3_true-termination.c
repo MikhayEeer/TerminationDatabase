@@ -7,18 +7,18 @@
  * Author: Caterina Urban
  */
 
-extern int __VERIFIER_nondet_int(void);
+
 
 int main() {
-	int x = __VERIFIER_nondet_int();
-	int y = __VERIFIER_nondet_int();
-	int z = __VERIFIER_nondet_int();
-	int tx = __VERIFIER_nondet_int();
+	int x = 0;
+	int y = 0;
+	int z = 0;
+	int tx = 0;
 	while (x >= y && x <= tx + z) {
-		if (__VERIFIER_nondet_int()) {
+		if (0) {
 			z = z - 1;
 			tx = x;
-			x = __VERIFIER_nondet_int();
+			x = 0;
 		} else {
 			y = y + 1;
 		}
