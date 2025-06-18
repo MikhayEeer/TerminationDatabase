@@ -9,6 +9,10 @@ python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Res
 
 参数组2会更加细致的分析
 python Scripts/irank_run_dirs.py SVComp_C/ TPDB_Y2024_filtered_VBS/ --output Results/irank_ALL_complexArgs.csv -cg 2
+
+TPDB_Certain:
+python Scripts/irank_run_dirs.py TPDB_NO/ TPDB_YES/ --output Results/irank_TPDB-Certain_complexArgs.csv -cg 2
+
 '''
 import os
 import csv

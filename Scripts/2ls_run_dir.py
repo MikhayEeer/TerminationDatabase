@@ -9,6 +9,7 @@ import csv
 from datetime import datetime
 
 COMMAND = '../2ls/src/2ls/2ls'
+TIMEOUT = 300
 
 def get_processed_files(csv_file):
     """读取已存在的CSV文件，获取已处理的文件列表"""
@@ -32,7 +33,7 @@ def get_processed_files(csv_file):
     return processed_files
 
 def analyze_termination(file_path, 
-                        timeout=300, 
+                        timeout=TIMEOUT, 
                         context_sensitive=True,
                         using_i_file=False):  # 添加标志表示是否已经在使用.i文件
     """运行2ls终止性分析，返回结果和可能的错误"""
@@ -115,8 +116,8 @@ def main():
     parser.add_argument("--output", "-o", 
                         default="Results/2ls_SVComp_copy3-2.csv", 
                         help="Output file for results (default: termination_results.csv)")
-    parser.add_argument("--timeout", "-t", type=int, default=300,
-                        help="Timeout in seconds for each file (default: 300)")
+    parser.add_argument("--timeout", "-t", type=int, default=TIMEOUT,
+                        help=f"Timeout in seconds for each file (default: {TIMEOUT})")
     parser.add_argument("--no-context-sensitive", action="store_true",
                         help="Disable context-sensitive analysis")
     parser.add_argument("--force", "-f", action="store_true",

@@ -4,7 +4,7 @@ Run this scripts:
 ulimit -Sv $((64*1024*1024)) && \
     python Scripts/cpa_run_dir.py \
         -d TPDB_YES/ TPDB_NO/ \
-        -o Results/CPA_TPDB_Certain_lasso+general.csv \
+        -o Results/CPA_TPDB_Certain_lasso+general_cp2.csv \
         -m 32
 
 test mode:
@@ -15,7 +15,7 @@ ulimit -Sv $((64*1024*1024)) && \
         -m 32
 
 Original Command:
-cpachecker --preprocess --timelimit 120 \
+cpachecker --preprocess --timelimit 300 \
     --config /opt/cpachecker/config/lassoRankerAnalysis.properties \
     --spec /opt/cpachecker/config/specification/TerminatingStatements.spc \
     --heap 32G --no-output-files --output-path ../CPAcheck/output/ \
@@ -101,7 +101,7 @@ def main():
                         default="CPAchecker_Term_Res_SVCOMP.csv", 
                         help="Output file for results (default: CPAchecker_Term_Res_SVCOMP.csv)")
     parser.add_argument("--timeout", "-t", type=int, default=TIMEOUT,
-                        help="Timeout in seconds for each file (default: 120)")
+                        help=f"Timeout in seconds for each file (default: {TIMEOUT})")
     parser.add_argument("-m", "--memory", type=int, default=8,
                         help="int, Memory for cpachecker use (default: 8GB)")
     args = parser.parse_args()
@@ -135,25 +135,32 @@ def main():
     print(f"Found {len(c_files)} C files to analyze")
 
     with open(args.output, "w") as f:
-        f.write("file,result_lasso,error1,result_general,error2,path\n")
+        f.write("file,result_lasso,error1,result_general,error2,cost_time_lasso,cost_time_general,path\n")
     
     for i, file_path in enumerate(c_files):
         start_time = datetime.now()
         basename = os.path.basename(file_path)
         print(f"[ {i+1}:1 / {len(c_files)} ] Analyzing {file_path}...")
+        
+        lasso_start = datetime.now()
         result1, error1 = analyze_termination(
             file_path, 
             CONFIG_LASSO,
             args.timeout,
             args.memory
         )
+        lasso_time = (datetime.now() - lasso_start).total_seconds()
+        
         print(f"[ {i+1}:2 / {len(c_files)} ] Analyzing {file_path}...")
+        
+        general_start = datetime.now()
         result2, error2 = analyze_termination(
             file_path, 
             CONFIG_GENERAL,
             args.timeout,
             args.memory
         )
+        general_time = (datetime.now() - general_start).total_seconds()
         
         time_taken = (datetime.now() - start_time).total_seconds()
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -168,7 +175,7 @@ def main():
             file_path_escaped = file_path.replace('/root/term/TerminationDatabase/', '').replace('"', '""')
             error1_escaped = "" if error1 is None else error1.replace('"', '""')
             error2_escaped = "" if error2 is None else error2.replace('"', '""')
-            f.write(f'"{basename}",{result1},"{error1_escaped}",{result2},"{error2_escaped}","{file_path_escaped}"\n')
+            f.write(f'"{basename}",{result1},"{error1_escaped}",{result2},"{error2_escaped}",{lasso_time:.2f},{general_time:.2f},"{file_path_escaped}"\n')
 
 if __name__ == "__main__":
     main()
