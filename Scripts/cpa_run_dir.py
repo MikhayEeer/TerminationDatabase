@@ -33,10 +33,11 @@ CONFIG_GENERAL = "/opt/cpachecker/config/terminationAnalysis.properties"
 CONFIG_LASSO = "/opt/cpachecker/config/lassoRankerAnalysis.properties"
 OUTPUT_PATH = "../CPAchecker/output/"
 SPEC_PATH = "/opt/cpachecker/config/specification/TerminatingStatements.spc"
+TIMEOUT = 300
 
 def analyze_termination(file_path, 
                         config_type, 
-                        timeout=120,
+                        timeout=TIMEOUT,
                         mem=32):
     """
     Runs CPAchecker termination analysis on a given C file.
@@ -68,7 +69,7 @@ def analyze_termination(file_path,
             cmd, 
             stdout=subprocess.PIPE, 
             stderr=subprocess.PIPE,
-            timeout=timeout,  # 给工具自身超时多留一点时间
+            timeout=TIMEOUT,  # 给工具自身超时多留一点时间
             universal_newlines=True
         )
 
@@ -99,7 +100,7 @@ def main():
     parser.add_argument("--output", "-o", 
                         default="CPAchecker_Term_Res_SVCOMP.csv", 
                         help="Output file for results (default: CPAchecker_Term_Res_SVCOMP.csv)")
-    parser.add_argument("--timeout", "-t", type=int, default=120,
+    parser.add_argument("--timeout", "-t", type=int, default=TIMEOUT,
                         help="Timeout in seconds for each file (default: 120)")
     parser.add_argument("-m", "--memory", type=int, default=8,
                         help="int, Memory for cpachecker use (default: 8GB)")

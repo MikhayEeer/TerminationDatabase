@@ -21,7 +21,7 @@ from typing import List, Dict, Tuple, Any, Optional, Set
 from tqdm import tqdm
 
 COMMAND = '../irankfinder-exe/irankfinder'
-TIMEOUT = 120
+TIMEOUT = 300
 
 # 命令组1: 简单分析配置 (分析线性循环)
 CMD_GROUP_1 = [
