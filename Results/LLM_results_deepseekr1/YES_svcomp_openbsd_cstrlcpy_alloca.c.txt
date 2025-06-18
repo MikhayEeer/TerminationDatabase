@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+n
+length - (s - src)
+
+**Explanation:**  
+The program terminates because both loops in `cstrlcpy` are bounded:
+1. **First loop (copying phase):** Runs at most `n-1` iterations, where `n` decreases by 1 per iteration until it reaches 0. Ranking function `n` proves termination for this phase.
+2. **Second loop (traversal phase):** Runs only if the destination buffer is full (`n == 0`). It traverses the source string until hitting the null terminator. Since `nondetString2[length-1] = '\0'` ensures termination, the ranking function `length - (s - src)` decreases by 1 per iteration (as `s` increments), starting from at most `length - (n_init - 1)` and ending at 0. The value `length` (from `main`) and `src` (source pointer) are constants for each call, making this valid for whole-program analysis.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n_var
+1.0 * length - 1.0 * (s - nondetString2)
+
+**Explanation:**  
+The program terminates as both loops in `cstrlcpy` are guaranteed to terminate:
+1. **First loop (copying phase):**  
+   - The loop decrements `n_var` (initially `siz = n`) until it becomes `0` or encounters a null terminator.  
+   - Ranking function: `n_var` (decreases by at least 1 per iteration, bounded below by 0).  
+
+2. **Second loop (traversal phase, if triggered):**  
+   - Runs only if the first loop exhausted the buffer (`n_var == 0`).  
+   - Traverses the remaining source string until a null terminator is found.  
+   - Since `nondetString2` is null-terminated at index `length-1`, the expression `length - (s - nondetString2)` represents the remaining characters to traverse (non-negative and decreases by 1 per iteration).  
+   - Ranking function: `length - (s - nondetString2)`.  
+
+The multi-phase ranking function covers both loops, proving termination. Initialization and constraints in `main` ensure strings are properly bounded.
+

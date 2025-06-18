@@ -1,0 +1,51 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+The key part of this program is the loop in `test_fun`:
+```c
+if (*x_ref <= 0) {
+    return *y_ref;
+}
+while (*x_ref > *y_ref) {
+    *y_ref = *y_ref + *x_ref;
+}
+```
+
+Let's analyze the loop behavior:
+- We only enter this loop if *x_ref > 0 (due to the if condition)
+- In each iteration, *y_ref increases by *x_ref
+- Since *x_ref > 0, *y_ref strictly increases in each iteration
+- The loop continues until *y_ref becomes greater than or equal to *x_ref
+
+Since *y_ref is strictly increasing and *x_ref remains constant, if initially *y_ref < *x_ref, then eventually *y_ref will become ≥ *x_ref (in at most ceil((*x_ref - *y_ref) / *x_ref) iterations). Therefore, the loop will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * y
+
+The ranking function (x - y) decreases with each iteration and is bounded below by 0, which proves termination.
+
+=== Response 2 ===
+Analyzing this program for termination:
+
+The main function calls `test_fun` with two non-deterministic integer inputs.
+
+In `test_fun`:
+1. If x ≤ 0, the function returns immediately with value y.
+2. If x > 0, we enter a while loop that continues as long as x > y.
+3. Inside the loop, y is increased by x in each iteration.
+
+Since x remains constant throughout the loop and y increases by x (which is positive) in each iteration, y will eventually become greater than or equal to x, causing the loop to terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - y)
+
+This is a linear ranking function. Since x > 0 (otherwise we don't enter the loop) and x is constant, while y increases by x in each iteration, the value (x - y) decreases by x (a positive value) in each iteration until it becomes non-positive, at which point the loop terminates.
+

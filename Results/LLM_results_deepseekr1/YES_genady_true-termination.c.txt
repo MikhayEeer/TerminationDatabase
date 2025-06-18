@@ -1,0 +1,35 @@
+=== Response 1 ===
+The program consists of a loop where the condition is based on the expression `i - j >= 1`. Initially, `i` is set to 10000 and `j` to 1, making the initial value of `i - j` equal to 9999. In each iteration, `i` is decremented by 1 and `j` is incremented by 1, resulting in `i - j` decreasing by exactly 2. 
+
+Since `i - j` starts at 9999 and decreases by 2 each iteration, it forms a strictly decreasing sequence: 9999, 9997, 9995, ..., 1, -1. When `i - j` becomes -1, the condition `i - j >= 1` fails, and the loop terminates. Therefore, the program terminates.
+
+A ranking function that proves termination is the value of `i - j` at the loop head, which is a linear expression. This function decreases by exactly 2 with each iteration and is bounded below (since it eventually becomes negative, exiting the loop). When the loop condition holds (`i - j >= 1`), this value is at least 1, ensuring the function decreases in a well-founded sense (nonnegative integers) until termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + -1.0 * j^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + (-1.0) * j^1 + (-1.0) * 1
+
+### Explanation:
+The program terminates because the loop condition `i - j >= 1` is satisfied initially (with `i = 10000`, `j = 1`), and in each iteration:
+- `i` decreases by 1 (`i--`)
+- `j` increases by 1 (`j++`)
+- Thus, the value of `i - j` decreases by 2 per iteration (e.g., from 9999 → 9997 → ...).
+
+The ranking function `r = i - j - 1`:
+- Is **non-negative** at the start of every iteration (since `i - j >= 1` implies `r >= 0`).
+- **Decreases by exactly 2** in each iteration (as `i` decreases by 1 and `j` increases by 1, so `r` becomes `(i - 1) - (j + 1) - 1 = i - j - 3 = r - 2`).
+- Reaches `0` after 4999 iterations (when `i = 5001`, `j = 5000`), and the next iteration makes `r = -2`, violating the loop condition and terminating the loop.
+
+This linear ranking function proves termination.
+

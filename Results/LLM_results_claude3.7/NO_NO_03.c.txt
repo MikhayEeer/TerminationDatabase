@@ -1,0 +1,50 @@
+=== Response 1 ===
+Let me analyze this program for termination:
+
+```c
+typedef enum {false,true} bool;
+
+extern int __VERIFIER_nondet_int(void);
+
+int main() {
+    int i;
+    int j;
+    i = 0;
+    
+    while (i < 100) {
+        j = 0;
+        while (j < 1) {
+            j = j+1;
+        }
+        i = i+0;
+    }
+    
+    return 0;
+}
+```
+
+Looking at the outer loop condition `i < 100` with the update statement `i = i+0`, I notice that `i` is initialized to 0 and never changes within the loop. Therefore, the loop condition `i < 100` will always be true, and the loop will never terminate.
+
+The inner loop `while (j < 1)` does terminate after exactly one iteration, because `j` is initialized to 0, and then incremented by 1, making `j < 1` false after the first iteration.
+
+[RESULT]
+NONTERM
+[REASON]
+The variable i starts at 0 and is never modified in the outer loop (i = i+0 keeps i unchanged), so the condition i < 100 always remains true, causing the program to run indefinitely.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program has two nested loops:
+1. The outer loop runs while `i < 100`
+2. The inner loop runs while `j < 1`
+
+Looking at the inner loop, `j` starts at 0 and increments by 1 in each iteration. Since the loop condition is `j < 1`, this loop will execute exactly once and then terminate.
+
+For the outer loop, `i` starts at 0 and the update statement is `i = i+0`, which means `i` never changes. Since `i` remains 0 and the loop condition is `i < 100`, this loop will never terminate.
+
+[RESULT]
+NONTERM
+[REASON]
+The outer loop does not terminate because i is initialized to 0 and never changes (i = i+0), while the loop condition i < 100 remains true indefinitely.
+

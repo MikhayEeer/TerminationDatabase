@@ -1,0 +1,48 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(0, n)
+
+### Explanation:
+The program terminates for all inputs because:
+1. The `main` function either returns immediately (when `x > 46` or `x == -2147483648`) or calls `fibonacci(x)`.
+2. The `fibonacci` function uses recursion but has base cases:
+   - `n < 1` returns immediately (no recursion).
+   - `n == 1` returns immediately (no recursion).
+   - For `n >= 2`, recursive calls use arguments `n-1` and `n-2`, which are strictly less than `n`.
+3. **Termination argument**: For any integer `n`, the recursion depth is bounded by `max(0, n)` because:
+   - If `n <= 0`, no recursion occurs (base case).
+   - If `n > 0`, each recursive call reduces the value of `n` (by at least 1 in one branch), eventually reaching a base case within at most `n` steps.
+
+**Ranking function justification**:
+- **Type**: Piecewise (due to distinct cases for `n <= 0` and `n > 0`).
+- **Function**: `rank(n) = max(0, n)`:
+  - When `n <= 0`, `rank(n) = 0` (no further recursion).
+  - When `n > 0`, `rank(n) = n`, and recursive calls have `rank(n-1) < n` and `rank(n-2) < n` (since `n-1` and `n-2` are at least 0 and less than `n`).
+- This function decreases with each recursive call and is bounded below by 0, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (x >= 1 && x <= 46): x
+else: 0
+
+**Explanation:**  
+The program termination is ensured by the structure of the recursive `fibonacci` function and bounds on the input `x`:
+1. **Input Constraints:** The `main` function restricts `x` to the range `[-2147483647, 46]` (avoiding `x = -2147483648` to prevent undefined behavior). 
+2. **Recursive Termination:** For any call to `fibonacci(n)`:
+   - If `n ≤ 0`, immediately return (base case).
+   - If `n == 1`, immediately return (base case).
+   - For `n ≥ 2`, each recursive call reduces `n` by at least 1 (in `n-1` and `n-2` paths), approaching a base case.
+3. **Work Bound:** 
+   - For `x ≤ 0` or `x > 46`, `fibonacci` is either not called or exits immediately (measure `0`).
+   - For `x ∈ [1, 46]`, recursion depth is bounded by `x`, making it a valid ranking function.
+   
+This piecewise ranking function proves termination by assigning an explicit positive integer bound (`x`) to the recursion workload, which decreases with each recursive step until base cases are reached. The error path (via `__VERIFIER_error()`) terminates via an explicit `noreturn` directive.
+

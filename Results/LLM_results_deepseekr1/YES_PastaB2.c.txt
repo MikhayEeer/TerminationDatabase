@@ -1,0 +1,40 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.5 * x^1 + (-0.5) * y^1 + 0.5
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration, `x` decreases by 1 and `y` increases by 1, so the difference `x - y` decreases by 2. The ranking function `(x - y + 1)/2` is:  
+- **Linear** in program variables.  
+- **Decreases by exactly 1** per iteration (since `(x - y + 1)/2 - ((x-1) - (y+1) + 1)/2 = 1`).  
+- **Bounded below** (at loop entry, `x > y` implies `x - y >= 1`, so the ranking function is at least `(1 + 1)/2 = 1`).  
+- When the ranking function drops below 1, the loop exits (e.g., initial `x - y = 1` gives ranking value 1; after one iteration, `x - y = -1`, ranking value `(-1 + 1)/2 = 0`, and loop terminates).  
+
+This proves termination for all inputs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+**Explanation:**  
+The program terminates because the loop condition `x > y` (equivalent to `x - y > 0`) ensures that the integer difference `d = x - y` decreases by exactly 2 in each iteration:
+- Initial state: `d₀ = x - y > 0`
+- After one iteration: `d' = (x-1) - (y+1) = d₀ - 2`
+The difference `d` is strictly decreasing and bounded below by 0 (since it decreases by 2 each step until it becomes non-positive). Thus, the loop must terminate after at most `⌈d₀/2⌉` iterations.
+
+**Ranking Function Justification:**  
+The linear ranking function `r(x, y) = x - y` satisfies:
+1. **Non-negativity in loop:** At loop entry, `x > y` implies `r(x, y) ≥ 1` (integers).
+2. **Strict decrease:** Each iteration decreases `r` by 2:  
+   `r(x', y') = (x-1) - (y+1) = (x - y) - 2 = r(x, y) - 2 < r(x, y)`.
+3. **Well-foundedness:** The range of `r` in the loop is a subset of the positive integers, which is well-founded under the standard order.
+
+Thus, `r(x, y) = x - y` proves termination.
+

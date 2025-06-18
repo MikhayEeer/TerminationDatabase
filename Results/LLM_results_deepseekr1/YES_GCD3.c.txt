@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y^1
+
+**Explanation:**  
+The program implements a variant of the Euclidean algorithm. The outer loop condition `(y > 0 && x > 0)` ensures both variables start positive. In each iteration:
+1. `tmp` stores the current `y`, and `xtmp` stores the current `x`.
+2. The inner loops compute `xtmp mod y` (remainder when `x` is divided by `y`), stored in `y`.
+3. `x` is then set to the original `y` (from `tmp`).
+
+The key termination argument is that **`y` strictly decreases** in each outer iteration:
+- Since `x mod y < y` (for `y > 0`), the new `y` (remainder) is always less than the previous `y`.
+- `y` is a positive integer initially and decreases by at least 1 each iteration until it reaches 0, at which point the loop exits.
+
+Thus, a linear ranking function `f(x, y) = y` suffices, as it:
+- Is bounded below by 0.
+- Decreases with each iteration: `y_{new} = x \mod y < y_{old}`.
+
+The inner loops also terminate because they subtract `y` (≥1) from `xtmp` a finite number of times (until `xtmp < y`).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y
+
+**Explanation:**  
+The program implements a variant of the Euclidean algorithm. The loop condition requires both `x > 0` and `y > 0`. In each iteration:
+1. `tmp` stores the original `y` value.
+2. `xtmp` is set to `x` (which remains positive due to the loop condition).
+3. The modulus operation reduces `xtmp` to `x mod y` (non-negative and less than `y`).
+4. `y` is updated to this remainder (`x mod y`), and `x` is set to the original `y`.
+
+Since `y` is strictly decreasing (as `0 ≤ x mod y < y`) and bounded below by 0, it must eventually reach 0, causing the loop to terminate. Thus, `y` serves as a valid linear ranking function.
+

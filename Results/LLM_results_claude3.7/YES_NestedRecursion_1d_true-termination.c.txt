@@ -1,0 +1,68 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+Looking at the recursive functions:
+
+1. `rec1(i)`:
+   - Base case: returns 0 when i ≤ 0
+   - Recursive case: rec1(rec1(rec1(i-2) - 1)) + 1
+
+2. `rec2(j)`:
+   - Base case: returns 0 when j ≤ 0
+   - Recursive case: rec2(rec1(j)-1) - 1
+
+Let's analyze function `rec1`:
+- For any i ≤ 0, rec1(i) = 0
+- For i = 1, rec1(1) calls rec1(-1) which returns 0, so rec1(1) = 1
+- For i = 2, rec1(2) calls rec1(0) which returns 0, so rec1(2) = 1
+- For i = 3, rec1(3) calls rec1(1) which returns 1, so rec1(3) = 2
+- For i = 4, rec1(4) calls rec1(2) which returns 1, so rec1(4) = 2
+
+For any input i > 0, rec1(i) returns a positive value.
+
+For function `rec2`:
+- If j ≤ 0, rec2(j) = 0
+- If j > 0, rec2(j) calls rec2(rec1(j)-1)
+
+Since rec1(j) > 0 for j > 0, and rec1(j)-1 ≥ 0 for j ≥ 3, the argument to rec2 is decreasing for inputs j ≥ 3. For small inputs (j=1,2), rec1(j)-1 is 0 which triggers the base case.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+j + rec1(j)
+
+The program terminates because for any input to rec2, the value passed in recursive calls strictly decreases until it reaches the base case. The nested ranking function captures both the direct decrease in j and the contribution of rec1.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The program involves mutual recursive functions `rec1` and `rec2`. Let's examine their behavior:
+
+1. `rec1(i)`:
+   - Base case: If i ≤ 0, returns 0
+   - Recursive case: rec1(rec1(rec1(i-2) - 1)) + 1
+
+2. `rec2(j)`:
+   - Base case: If j ≤ 0, returns 0
+   - Recursive case: rec2(rec1(j)-1) - 1
+
+For `rec1(i)` with i > 0:
+- Each recursive call decrements the argument by at least 1
+- The nested pattern eventually reaches the base case since we keep decreasing values
+
+For `rec2(j)` with j > 0:
+- It calls rec1(j) which returns a value ≥ 0
+- Then calls rec2 with this value minus 1
+- This guarantees a decreasing sequence of arguments
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+λ(x). x for the outer level
+λ(i). i for rec1
+λ(j). j for rec2
+

@@ -1,0 +1,54 @@
+=== Response 1 ===
+**Result:**  
+The program is terminating.  
+
+**Proof:**  
+The termination of this program can be proven using a **multi-phase ranking function**. The recursive calls systematically decrease the problem size by leveraging the properties of the arguments `x` and `y` until they reach a base case (`y == 0` or `x == 0` with `y == 0`). 
+
+### Key Observations:
+1. **Call Site Analysis:**
+   - **Branch `x == 0` and `y > 0`:** Calls `f(y, y-1)`. Here, the segunda argument (`y-1`) decreases.
+   - **Branch `x > 0` and `y > 0`:** Calls `f(y, x-1)`. Here, the sum `x + y` decreases by 1.
+
+2. **Argument Behavior:**
+   - Non-negative inputs are preserved (since initial `x, y ≥ 0` and recursive calls decrement only when inputs are positive).
+   - The recursive structure ensures arguments eventually reduce (via either direct decrement or lexicographical cascading).
+
+### Ranking Function Explanation:
+A two-phase ranking function captures the termination:
+- **Phase 1:** Uses `max(x, y)` to bound the "primary" dimension.  
+- **Phase 2:** Uses `min(x, y)` to handle cases where the max doesn't decrease immediately (e.g., transitioning between branches).  
+
+The lexicographical combination of these phases forms a well-founded order.
+
+---
+
+**Output:**  
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  max(x,y) + 0.0  
+0.5 *  min(x,y) + 0.5
+
+=== Response 2 ===
+After analyzing the program, it is determined that the program terminates for all non-negative inputs of `x` and `y`. The termination can be proven using a multi-phase ranking function. The recursion in function `f` operates in two distinct phases based on the values of `x` and `y`:
+
+- **Phase 1**: When `x == 0` and `y > 0`. The ranking function for this phase is `1 + y`.
+- **Phase 2**: When `x > 0` and `y > 0`. The ranking function for this phase is `x + y`.
+
+The ranking functions decrease as follows:
+- In Phase 1, a call leads to a state in Phase 2. Since Phase 1 has a higher priority in the multi-phase order, this transition decreases the measure.
+- In Phase 2, a call either stays in Phase 2 and decreases the measure (since `x + y` decreases by 1), or terminates (if `x-1 == 0`).
+
+The lexicographic order of phases (Phase 1 > Phase 2) ensures termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * 1 + 1.0 * y
+1.0 * x + 1.0 * y
+

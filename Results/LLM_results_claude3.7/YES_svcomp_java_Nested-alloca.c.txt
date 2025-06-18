@@ -1,0 +1,57 @@
+=== Response 1 ===
+I'll analyze this C program for termination:
+
+The program has two nested for-loops:
+1. The outer loop iterates `i` from 0 to 9
+2. The inner loop starts with `j = 3` and continues while `j < 12`, incrementing by 2 in each iteration
+3. Within the inner loop, `j` is decremented by 1 in each iteration
+
+Let's analyze the inner loop behavior:
+
+For each iteration of the outer loop:
+- Initial `j = 3`
+- Each iteration: `j += 2` (increment by 2) followed by `j -= 1` (decrement by 1)
+- Net effect: `j` increases by 1 in each iteration
+- Starting from 3, the values of `j` will be: 3→3→4→5→...
+- This will eventually exceed 12, causing the inner loop to terminate
+
+Since both loops have clear bounds and the inner loop has a net incrementing effect on `j`, the program will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10.0 - 1.0 * i
+
+The ranking function for the outer loop is straightforward since it's a simple bounded counter. For the inner loop, since we effectively increment j by 1 each iteration, the implied ranking function would be (12 - j), but we need only prove termination of the entire program, which depends on the outer loop bound.
+
+=== Response 2 ===
+Let me analyze this program for termination:
+
+The program has nested loops. Let's examine each loop:
+
+1. Outer loop: `for (*i = 0; *i < 10; (*i)++)` 
+   - Starts with *i = 0
+   - Continues while *i < 10
+   - Increments *i by 1 each iteration
+
+2. Inner loop: `for (*j = 3; *j < 12; *j += 2)`
+   - Starts with *j = 3
+   - Continues while *j < 12
+   - Each iteration:
+     - Decrements *j by 1 (via *j -= 1)
+     - Then increments *j by 2 (via *j += 2)
+     - Net change: *j increases by 1 each iteration
+
+Both loops have clear bounds and monotonically increasing counters that will eventually exceed those bounds. The outer loop will execute exactly 10 times. The inner loop starts with *j = 3 and increases by 1 in each iteration until *j >= 12, which will happen after a finite number of steps.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10*(12-*j) + (10-*i-1)
+
+This ranking function captures the remaining iterations by combining the progress of both loops. The first term counts the remaining iterations of the inner loop, and the second term counts the remaining iterations of the outer loop.
+

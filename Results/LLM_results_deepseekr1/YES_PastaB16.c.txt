@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1
+1.0 * x^1
+
+The program terminates because:
+1. The inner loop decreases y by 1 each iteration until y becomes non-positive. Since y starts at some integer value and decreases by 1 each time, it will eventually become <=0, causing the inner loop to terminate.
+2. After the inner loop completes, the outer loop decreases x by 1 each iteration. Since x starts at some integer value and decreases by 1 each time, it will eventually become <=0, causing the outer loop to terminate.
+
+The multi-phase ranking function proves termination:
+- Phase 1 ranking function: y (used when y > 0). This decreases by 1 each inner loop iteration and is bounded below by 0.
+- Phase 2 ranking function: x (used when y ≤ 0). This decreases by 1 each outer loop iteration and is bounded below by 0.
+
+The program transitions from Phase 1 to Phase 2 when y becomes ≤0, after which only Phase 2 is active until termination. Both ranking functions decrease monotonically and are bounded below, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1
+1.0 * x^1
+
+**Explanation:**  
+The program consists of nested loops. The outer loop runs while `x > 0`, and the inner loop runs while `y > 0`. The inner loop decrements `y` until it becomes non-positive. After the inner loop exits, `y` remains non-positive for all subsequent iterations of the outer loop, as it is never reset. The outer loop then decrements `x` until it becomes non-positive.  
+
+**Termination Proof:**  
+- **Phase 1 (inner loop):** When `y > 0`, the ranking function is `y`. Each iteration decrements `y` by 1, decreasing the function.  
+- **Phase 2 (outer loop, after inner loop):** When `y <= 0`, the ranking function is `x`. Each outer iteration decrements `x` by 1, decreasing the function.  
+- **Transition:** After Phase 1 ends (`y` becomes 0), `x` is decremented, reducing the Phase 2 ranking function value for the next state.  
+Both functions are bounded below (by 0), and each step decreases a ranking function, ensuring termination.
+

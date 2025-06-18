@@ -1,0 +1,48 @@
+=== Response 1 ===
+I'll analyze the termination of this program.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+30 - a
+
+Looking at this program, we can see it will always terminate because:
+
+1. The outermost loop runs while `a < 30`, and each iteration either:
+   - Increases `a` by at least 1 in the inner loop, then adds 2 more (if inner loop runs)
+   - Or adds 2 directly to `a` (if inner loop doesn't run)
+
+2. The inner loop terminates because each iteration increases `b` by at least 2, while `a` increases by at most 10, so eventually `b` will catch up to `a`.
+
+3. The decrement of `b` by 10 in the outer loop doesn't affect termination because the inner loop will always terminate regardless of `b`'s value.
+
+The ranking function `30 - a` for the outer loop decreases with each iteration and is bounded below by 0, which proves termination.
+
+=== Response 2 ===
+I'll analyze this program's termination:
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+30 - a + max(0, a - b)
+
+The program terminates because:
+
+1. The outer loop condition requires `a < 30`. Inside this loop, `a` increases in two ways:
+   - After the inner loop: `a = a + 2`
+   - Inside the inner loop: either `a = a + 10` or `a = a + 1`
+
+2. The inner loop condition requires `b < a`. Inside this loop, `b` increases by either 7 or 2, while `a` increases by at most 10. The value of `b` grows at least as fast as `a` within the inner loop, so the inner loop must terminate.
+
+3. After the inner loop terminates, we increment `a` by 2 and decrement `b` by 10. This means `a` is strictly increasing across outer loop iterations, eventually exceeding 30.
+
+The ranking function combines the outer loop's bound (30 - a) with the inner loop's measure (a - b when b < a, otherwise 0), guaranteeing termination.
+

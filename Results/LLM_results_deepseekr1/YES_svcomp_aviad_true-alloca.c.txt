@@ -1,0 +1,40 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a_ref^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates for all inputs because the loop in function `f` always reduces the value of `*a_ref` until it becomes ≤1. Specifically:
+- If `*a_ref` is even, it is halved (strictly decreasing since `*a_ref ≥ 2`).
+- If `*a_ref` is odd, it is decremented by 1 (strictly decreasing).  
+The value of `*a_ref` starts at some integer `a` and decreases by at least 1 in each iteration (when odd) or more (when even), eventually reaching ≤1. The ranking function `*a_ref` is linear, nonnegative in the loop (since `*a_ref > 1` initially), and decreases by at least 1 in every iteration, proving termination. The constant term `0.0 * 1` is included for consistency with the output format.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*a_ref)^1 + 0.0
+
+### Explanation:
+The program terminates for all integer inputs because the loop in function `f` always reduces the value of `*a_ref` until it becomes ≤ 1. 
+
+**Termination Proof:**
+- **Loop Condition:** `while (*a_ref > 1)`
+- **Loop Behavior:**
+  - If `*a_ref` is even: `*a_ref = *a_ref / 2` (decreases by at least 1, since `*a_ref ≥ 2`).
+  - If `*a_ref` is odd: `*a_ref = *a_ref - 1` (decreases by exactly 1).
+- **Key Insight:** In every iteration, `*a_ref` decreases by at least 1 and is bounded below by 1. Thus, the loop must terminate.
+
+**Ranking Function:**  
+The expression `1.0 * (*a_ref)^1 + 0.0` is a linear ranking function:
+- It maps the loop state to a nonnegative integer (since `*a_ref ≥ 2` at loop entry).
+- It strictly decreases in each iteration (by ≥1 in both even and odd cases).
+- It is bounded below by 1 (loop exits when `*a_ref ≤ 1`).
+
+This ranking function proves termination for all inputs.
+

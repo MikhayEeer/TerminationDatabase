@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * i^1 + 11.0 * 1
+
+**Explanation:**  
+The program terminates because the loop condition (`while (1)`) has a break when `*i > 10`. The variable `*i` starts at 0 and increments by 1 in each iteration. After 11 iterations, `*i` becomes 11, triggering the break and exiting the loop. The ranking function `11 - i` (where `i` represents the value stored at the pointer) is linear, decreases by 1 each iteration, and remains non-negative in the loop body (when `i ≤ 10`). The variable `*c` does not affect termination and is omitted from the ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+11.0 * 1 - 1.0 * i^1
+
+**Explanation:**  
+The loop terminates because variable `i` is initialized to 0 and incremented by 1 in each iteration. The loop condition `while (1)` breaks when `*i > 10` becomes true. Thus, the loop executes exactly 11 times (for `*i` values 0 to 10). 
+
+**Ranking Function Justification:**  
+- **Type:** Linear (single affine expression).  
+- **Function:** `11.0 - i` (expressed as `11.0 * 1 - 1.0 * i^1`).  
+  - **Initial value:** At loop entry, `i = 0` → `11`.  
+  - **Decreases monotonically:** Each iteration increments `i` by 1, decreasing the value of the ranking function by 1.  
+  - **Bounded below:** The function is defined only while `i <= 10`, where it remains non-negative (`11 - i >= 1`). The loop exits when the function drops below 1 (specifically at `i=11`, function value `-1`, but exit occurs before the iteration body).  
+Variables `c` are irrelevant for termination and thus omitted.
+

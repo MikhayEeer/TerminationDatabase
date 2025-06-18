@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze the given program to determine if it terminates or not.
+
+The program implements selection sort on an array. Let's examine the loops:
+
+1. The outer loop iterates from `i = 0` to `array_size - 2` (inclusive)
+2. The inner loop iterates from `j = i+1` to `array_size - 1` (inclusive)
+3. After both loops, the function returns and the program terminates
+
+Since `array_size` is constrained to be at least 1 (through the check in main), and both loops have a fixed number of iterations based on this finite value, the program will always terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(array_size - 1 - i) for the outer loop
+(array_size - j) for the inner loop
+
+=== Response 2 ===
+I need to analyze this SelectionSort implementation to determine if it terminates.
+
+The program consists of a selection sort algorithm applied to an array and a main function that calls it.
+
+Let's analyze the loops:
+
+1. The outer loop in SelectionSort runs from i = 0 to array_size - 2 (inclusive)
+2. The inner loop runs from j = i+1 to array_size - 1 (inclusive)
+
+Both loops have fixed bounds based on array_size which is set in main:
+- array_size is either a non-deterministic value (but if it's less than 1, it gets set to 1)
+- The memory for the array is allocated using alloca()
+- Then SelectionSort is called with this array and array_size
+
+Since:
+- array_size is at least 1
+- The outer loop will execute exactly (array_size - 1) times
+- The inner loop has a fixed bound for each iteration of the outer loop
+- There are no recursive calls or other control flow constructs that might cause non-termination
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(array_size - 1) - i
+
+The outer loop terminates when i reaches array_size-1, and the inner loop's termination depends on the outer loop's variable i, but always terminates in a finite number of steps for each i. The linear ranking function (array_size - 1) - i strictly decreases with each iteration of the outer loop and becomes zero when the loop terminates.
+

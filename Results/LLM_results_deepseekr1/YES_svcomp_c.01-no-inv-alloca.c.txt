@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (x_ref + 1) + 0.0 * y_ref + 0.0
+1.0 * (x_ref - y_ref) + 0.0
+
+**Explanation:**  
+The program terminates for all inputs. The termination is proven by a lexicographic (multi-phase) ranking function. The first component, \(x_{\text{ref}} + 1\), decreases by at least 1 in each outer loop iteration (after decrementing \(x_{\text{ref}}\) and resetting \(y_{\text{ref}}\)). The second component, \(x_{\text{ref}} - y_{\text{ref}}\), decreases by at least 1 in each inner loop iteration (after doubling \(y_{\text{ref}}\)) while the first component remains constant. Both components are integers, and the lexicographic order ensures eventual termination since the first component is bounded below by 0 and strictly decreases in the outer loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (*x_ref) + 1.0
+1.0 * (*x_ref) - 1.0 * (*y_ref)
+
+**Explanation:**  
+The program terminates for all integer inputs. The termination is proven using a **multi-phase ranking function** with two components:  
+1. The first component, `*x_ref + 1`, tracks the outer loop progress. It decreases by 1 in each outer iteration (when `*x_ref` is decremented) and is bounded below by 0 (loop exits when `*x_ref < 0`).  
+2. The second component, `*x_ref - *y_ref`, tracks the inner loop progress. During inner loop execution, it decreases by at least 1 per iteration (as `*y_ref` doubles, increasing by at least 1) while the first component remains constant.  
+
+Lexicographic ordering ensures termination:  
+- Inner loop: First component fixed, second component strictly decreases (bounded by inner loop exit condition `*x_ref <= *y_ref`).  
+- Outer loop: After inner loop exits, first component decreases (when `*x_ref` decrements), and second component resets (to `*x_ref - 1`) for the next iteration.  
+
+The ranking function is linear and valid at all loop headers, proving termination.
+

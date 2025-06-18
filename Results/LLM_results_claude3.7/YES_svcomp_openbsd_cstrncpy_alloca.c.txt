@@ -1,0 +1,58 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The main function creates two character arrays and calls `cstrncpy` to copy from `nondetString` to `nondetArea` with a length of `n`. Let's analyze the `cstrncpy` function:
+
+1. The function copies at most `n` bytes from `src` to `dst`.
+2. It stops early if it encounters a null character in `src`.
+3. If it stops early, it pads the remaining bytes with zeros.
+
+The loop in `cstrncpy` has two termination conditions:
+1. When `--n != 0` becomes false (meaning we've copied `n` characters)
+2. When `*s++` is `0` (meaning we've reached the end of the source string)
+
+In this program:
+- `nondetString` has a guaranteed null terminator at position `length-1`
+- `n` is guaranteed to be at least 1
+- The copy operation will either stop when all `n` characters are copied or when the null terminator is reached
+
+There are no conditions that could lead to an infinite loop, as `n` is decremented in each iteration and will eventually reach 0.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The ranking function is simply the value of `n`, which starts at a non-negative integer and decreases by exactly 1 in each iteration until it reaches 0, at which point the loop terminates.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program does the following:
+1. Gets two non-deterministic integers: `length` and `n`
+2. Ensures both are at least 1
+3. Allocates two character arrays
+4. Sets the last character of `nondetString` to '\0' (null terminator)
+5. Calls `cstrncpy` to copy from `nondetString` to `nondetArea` with length `n`
+
+The termination of this program depends on the `cstrncpy` function. Looking at its implementation:
+
+- It iterates at most `n` times (the loop decrements `n` and stops when `n` reaches 0)
+- If it encounters a null character in the source string, it breaks out of the loop after padding the destination
+
+Since:
+1. `n` is finite (initialized to a non-deterministic but concrete value) and decreases by 1 in each iteration
+2. We're guaranteed that `nondetString` has a null terminator at position `length-1`
+3. The loop will either run at most `n` times or terminate earlier if it hits the null terminator
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+The function decreases linearly with each iteration of the loop, and since `n` starts as a finite value and decreases by exactly 1 each iteration, this is a valid ranking function that proves termination.
+

@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n - i
+i + 1 - j
+
+The program terminates because:
+
+For the outer loop, the ranking function is n - i. Since i is incremented by 1 in each iteration and the loop condition is i < n, this function is strictly decreasing and bounded from below, guaranteeing termination of the outer loop.
+
+For the inner loop, the ranking function is i + 1 - j. The loop condition is j <= i, and j is incremented by k in each iteration. Since the program requires k >= 1, j increases by at least 1 in each iteration, making the ranking function strictly decreasing until j > i, which makes the loop terminate.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n - i
+i - j + 1
+
+The program is terminating because:
+
+1. For the outer loop, `i` increases by 1 in each iteration, and the loop terminates when `i >= n`. This gives us a ranking function of `n - i`.
+
+2. For the inner loop, `j` increases by at least `k` in each iteration (since `k >= 1` from the guard condition), and the loop terminates when `j > i`. This gives us a ranking function of `i - j + 1`.
+
+The nested structure ensures the program terminates as long as both loops individually terminate, which they do.
+

@@ -1,0 +1,50 @@
+=== Response 1 ===
+I'll analyze the program to determine if it terminates.
+
+The core of this program is the `gcd` function which computes the greatest common divisor using subtraction. Let's analyze its termination:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y1 + 1.0 * y2
+
+This program terminates because in each iteration of the while loop, either y1 or y2 decreases by a positive amount while both variables remain positive (until they become equal). The sum of y1 and y2 strictly decreases in each iteration:
+
+1. If y1 > y2: y1 becomes y1-y2, so the sum decreases by y2 (which is positive)
+2. If y1 < y2: y2 becomes y2-y1, so the sum decreases by y1 (which is positive)
+
+Since both y1 and y2 are initially positive (as checked in the main function) and each iteration decreases their sum while keeping them positive, the loop must eventually terminate when y1 equals y2.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The main function calls the `gcd` function with two positive integers `y1` and `y2`. The `gcd` function implements Euclid's algorithm for finding the greatest common divisor.
+
+Let's look at the while loop in the `gcd` function:
+```c
+while (y1 != y2) {
+    if (y1 > y2) {
+        y1 = y1 - y2;
+    } else {
+        y2 = y2 - y1;
+    }
+}
+```
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+1.0 * y1 + 1.0 * y2
+
+The program is terminating because in each iteration:
+1. if y1 > y2: we decrease y1 by at least 1 (since y2 > 0)
+2. if y1 < y2: we decrease y2 by at least 1 (since y1 > 0)
+
+The ranking function y1 + y2 strictly decreases in each iteration, and since both variables remain positive (which can be proven by induction), the function has a lower bound of 2 (when both y1 and y2 equal 1). Therefore, the loop must terminate.
+

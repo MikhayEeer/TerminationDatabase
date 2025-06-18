@@ -1,0 +1,36 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(nondetString1 + (length1 - 1)) - p
+
+**Explanation:**  
+The program terminates because the loop in `cstrlen` always finds a null terminator in the allocated string. Specifically, the allocated string `nondetString1` has its last character explicitly set to `\0` at index `length1-1`. The loop variable `p` starts at `s` (which is `nondetString1`) and increments until it finds the null terminator. Since a null is guaranteed to exist within the allocated memory, the number of iterations is bounded by `length1` (which is fixed during the loop execution). 
+
+The ranking function `(nondetString1 + (length1 - 1)) - p`:
+- Is linear in the pointer `p` (with coefficient -1 for `p` and constant offset `nondetString1 + length1 - 1`).
+- Decreases by exactly 1 in each iteration (since `p` increments by 1).
+- Is always non-negative before each iteration (as `p` does not exceed the address of the last character).
+- Reaches 0 when `p` points to the last character, proving termination.  
+
+**Note:** Although `length1` is defined in `main`, the ranking function uses it because the entire program context (including the allocation and initialization in `main`) is considered in the analysis. The address `nondetString1 + length1 - 1` is the explicit null position, making the ranking function valid throughout the loop execution.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(-1.0) * p^1 + 1.0 * s^1 + 1.0 * length1^1 + (-1.0) * 1
+
+### Explanation:
+The program always terminates because the `cstrlen` function's loop will eventually encounter the null terminator placed at index `length1-1` of the string. The ranking function is derived from the maximum distance the pointer `p` must traverse: starting at `s`, it moves toward `s + length1 - 1` (the guaranteed null terminator). The expression `(s + length1 - 1 - p)` decreases by exactly 1 in each iteration and remains non-negative, ensuring termination. 
+
+- **Variables**: 
+  - `p`: Current pointer position in the string (incremented each iteration).
+  - `s`: Start address of the string (fixed during the loop).
+  - `length1`: Length of the string (fixed from `main`).
+- **Expression**: `-p + s + length1 - 1` is linear and decreases monotonically, proving termination.
+

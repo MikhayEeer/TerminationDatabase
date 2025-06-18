@@ -1,0 +1,18 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * (n - 1) + (-1.0) * pass^1
+1.0 * n + (-1.0) * pass^1 + (-1.0) * i^1
+
+**Explanation:**  
+The program implements Bubble Sort with fixed loop bounds determined by the array size `n` (set non-deterministically but fixed to at least 1). The termination is proven using a **nested ranking function** for the two loops in `sort()`:  
+- **Outer loop** (`pass` from 1 to `n-1`): The first component `(n - 1) - pass` decreases by 1 per iteration, starting from `n-2` (when `pass=1`) down to 0.  
+- **Inner loop** (`i` from 0 to `n - pass - 1`): The second component `n - pass - i` decreases by 1 per inner iteration, resetting for each `pass`.  
+Lexicographic ordering ensures termination: when the inner loop finishes, the outer loop decrements, reducing the first component and resetting the second to a smaller initial value. Constants `n` is fixed during sorting.
+
+=== Response 2 ===
+
+

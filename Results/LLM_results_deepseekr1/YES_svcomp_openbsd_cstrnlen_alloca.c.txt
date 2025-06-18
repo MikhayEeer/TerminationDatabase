@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * maxlen^1
+
+**Explanation:**  
+The loop in `cstrnlen` terminates because `maxlen` decreases by 1 in each iteration and is bounded below by 0. The ranking function `maxlen` is a linear function that decreases monotonically, proving termination. The string's null termination (ensured by `nondetString1[length1-1] = '\0'`) may cause earlier exit but does not affect the ranking function's validity, as `maxlen` still provides a finite bound. The program has no other loops.
+
+=== Response 2 ===
+Upon analyzing the given program, the function `cstrnlen` contains a loop that iterates until either `maxlen` reaches zero or a null terminator is encountered in the string. The program ensures that `nondetString1` is properly null-terminated at index `length1-1`, and both `length1` and `n` are at least 1. The key observations are:
+
+1. **Termination Argument**: The loop in `cstrnlen` is guaranteed to terminate because:
+   - `maxlen` (initialized to `n`) decreases by exactly one in each iteration.
+   - `maxlen` starts as a positive integer (≥1) and becomes zero after at most `n` iterations, ensuring the loop exits.
+   - Even if a null terminator is encountered earlier (due to uninitialized string content), the loop still exits early without violating the termination condition.
+
+2. **Ranking Function**: The loop's termination can be proven by a linear ranking function based on the decreasing value of `maxlen`. This variable:
+   - Decreases monotonically (by 1 per iteration).
+   - Is bounded below (≥0).
+   - Ensures the loop exits when it reaches zero.
+
+Thus, the program is **terminating**.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * maxlen^1 + 0.0 * 1
+

@@ -1,0 +1,30 @@
+=== Response 1 ===
+After analyzing the provided C program, it is determined that the program terminates for all initial values of `x`, `y`, and `z`. The termination is proven using a linear ranking function derived from the loop invariant and the update behavior.
+
+The expression `x + y`:
+- Is nonnegative at the start of each loop iteration (due to the loop condition `x + y >= 0`).
+- Decreases by exactly 1 in each iteration (since `x_next + y_next = (x + y + z) + (-z - 1) = x + y - 1`).
+- Since it is an integer starting at a nonnegative value and strictly decreases with each iteration, it will eventually become negative, causing the loop condition to fail and the program to terminate.
+
+Thus, the ranking function is linear in `x` and `y`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 1.0 *  y^1
+
+**Explanation:**  
+The loop condition requires `x >= 0 && x + y >= 0`. In each iteration, the expression `x + y` decreases by exactly 1:  
+- After update: `x' = x + y + z` and `y' = -z - 1`, so `x' + y' = (x + y + z) + (-z - 1) = x + y - 1`.  
+Since `x + y` starts nonnegative (due to the loop condition) and decreases by 1 each iteration, it must eventually become negative, causing the loop to terminate. The expression `x + y` is a valid linear ranking function as it is bounded below (by -1) and strictly decreases in every iteration, proving termination.
+

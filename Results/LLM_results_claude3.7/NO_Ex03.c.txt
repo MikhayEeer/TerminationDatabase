@@ -1,0 +1,35 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program has a while loop that executes when `i < 0`. Inside the loop, if `i` is not equal to -5, then `i` is incremented by 1. Let's consider what happens:
+
+1. For any `i < -5`: Each iteration, `i` increases by 1, moving closer to -5.
+2. For `i = -5`: The condition in the if statement is false, so `i` remains -5, causing an infinite loop.
+3. For `-5 < i < 0`: Each iteration, `i` increases by 1, eventually becoming 0, which terminates the loop.
+
+Since there exists an initial value (`i = -5`) that causes the program to loop indefinitely, the program is non-terminating.
+
+[RESULT]
+NONTERM
+[REASON]
+When i = -5 initially, the program enters the while loop but then skips the if-condition's body, so i remains -5 forever.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program has a while loop that runs as long as `i < 0`. Inside the loop, we have:
+- If `i != -5`, then `i` is incremented by 1
+- If `i == -5`, nothing happens in the loop body
+
+Let's analyze termination:
+- For all initial values of `i` where `i >= 0`, the loop doesn't execute.
+- For initial values of `i` where `i < 0` and `i != -5`, the variable `i` is incremented in each iteration, eventually reaching 0, which terminates the loop.
+- For the initial value of `i = -5`, the loop body does nothing, so `i` remains -5 forever, and the condition `i < 0` remains true indefinitely.
+
+Therefore, the program does not terminate for the input `i = -5`.
+
+[RESULT]
+NONTERM
+[REASON]
+If the initial value of i is -5, the loop condition (i < 0) remains true forever, but the loop body does nothing when i = -5, causing an infinite loop.
+

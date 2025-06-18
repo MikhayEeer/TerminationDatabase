@@ -1,0 +1,58 @@
+=== Response 1 ===
+Let me analyze this program for termination.
+
+The critical part is the loop in `test_fun`:
+```c
+while ((*x_ref > 1) && (*x_ref < 100)) {
+    *x_ref = (*x_ref) * (*x_ref);
+    *c = *c + 1;
+}
+```
+
+When we square a number that is greater than 1, it grows faster than linearly. For any x where 1 < x < 100:
+- If x ≥ 10, then x² ≥ 100, which immediately exits the loop
+- If 1 < x < 10, then x will grow with each squaring until it exceeds 100
+
+Therefore, this program always terminates for any initial value. For values ≤ 1 or ≥ 100, the loop doesn't execute at all. For values between 1 and 100, the loop terminates after a finite number of iterations.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * log2(100 - *x_ref)
+
+This ranking function works because:
+1. For any value 1 < x < 100, log2(100-x) is positive
+2. When x is squared, log2(100-x²) decreases by at least a constant amount
+3. Eventually, x becomes ≥ 100, making the loop condition false
+
+=== Response 2 ===
+I'll analyze the program for termination.
+
+The key part of this program is the loop in the `test_fun` function:
+```c
+while ((*x_ref > 1) && (*x_ref < 100)) {
+    *x_ref = (*x_ref) * (*x_ref);
+    *c = *c + 1;
+}
+```
+
+Let's analyze what happens to `*x_ref` in each iteration:
+- If initially `*x_ref ≤ 1` or `*x_ref ≥ 100`, the loop doesn't execute at all.
+- If initially `1 < *x_ref < 100`:
+  - After one iteration: `*x_ref` becomes `(*x_ref)²`
+  - Since the initial value is greater than 1, squaring it makes it even larger
+  - Once `*x_ref ≥ 100`, the loop terminates
+
+For any value where `1 < *x_ref < 100`, squaring will eventually make it exceed 100 in a finite number of steps. The maximum iterations would occur when `*x_ref` is just above 1 (e.g., 1.01), but since we're working with integers here, the smallest value would be 2, which squares to 4, then 16, then 256 (which exceeds 100).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - *x_ref
+
+This ranking function decreases with each iteration and is bounded below by 0, as the value of *x_ref increases exponentially by squaring until it exceeds 100, at which point the loop terminates.
+

@@ -1,0 +1,53 @@
+=== Response 1 ===
+I'll analyze this program for termination:
+
+The main loop's condition is `(x > 1) && (x < 100)`.
+Inside the loop, the program updates `x = x*x`.
+
+Let's analyze what happens to different initial values of x:
+- If x ≤ 1 or x ≥ 100 initially: the loop doesn't execute at all
+- If 1 < x < 100 initially: the operation x = x*x will increase x exponentially
+  * For any x where 1 < x < 10: after squaring, x will eventually exceed 100
+  * For x = 2: after one iteration, x becomes 4, then 16, then 256 (which exceeds 100)
+  * For larger values like x = 5: after one iteration, x becomes 25, then 625 (exceeds 100)
+
+Since x grows exponentially through squaring, and the loop terminates when x ≥ 100, the program will always terminate after a finite number of iterations.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - x
+
+The ranking function works because:
+- It's positive inside the loop (since x < 100 in the loop condition)
+- It decreases with each iteration (since x increases by squaring)
+- When x reaches or exceeds 100, the function becomes ≤ 0 and the loop terminates
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+Looking at the while loop in `test_fun()`, we need to check if there's any possible input that could lead to non-termination.
+
+The loop condition is `(x > 1) && (x < 100)`. Inside the loop, we update x as `x = x*x`.
+
+For any value of x where:
+- If x ≤ 1, the loop doesn't enter
+- If x ≥ 100, the loop doesn't enter
+- If 1 < x < 100, the loop enters
+
+When x is in the range (1,100) and we square it:
+- If 1 < x < 2, then x*x will still be < 100, but getting larger
+- If x ≥ 2, then x*x ≥ 4, and with each iteration x grows extremely fast
+- For any value in this range, after at most a few iterations, x will exceed 100
+
+Therefore, the loop will always terminate after a finite number of iterations.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100.0 - x
+

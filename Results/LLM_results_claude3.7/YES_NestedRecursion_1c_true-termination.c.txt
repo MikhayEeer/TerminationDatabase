@@ -1,0 +1,55 @@
+=== Response 1 ===
+I'll analyze the termination of this program, focusing on the recursive functions `rec1` and `rec2`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+f(i) = max(0, i)
+g(j) = max(0, j)
+
+The program terminates because:
+
+1. For `rec1(i)`:
+   - Base case: When i ≤ 0, it returns immediately
+   - Recursive case: Each recursive call decreases the argument (i-2 < i, and further recursive calls with (rec1(i-2) - 1) continue to decrease or maintain non-positive values)
+
+2. For `rec2(j)`:
+   - Base case: When j ≤ 0, it returns immediately
+   - Recursive case: Each call decreases j by 1, and calls to rec1 eventually terminate
+
+The nested ranking functions capture how each recursive call brings the program closer to termination, with the outer function g tracking the recursion depth of rec2, and the inner function f tracking the recursion in rec1.
+
+=== Response 2 ===
+I'll analyze the program termination.
+
+First, let's examine the recursive functions `rec1` and `rec2`:
+
+For `rec1(i)`:
+- Base case: if i ≤ 0, it returns 0
+- Recursive case: it calls rec1 three times nested, with decreasing values
+
+For `rec2(j)`:
+- Base case: if j ≤ 0, it returns 0
+- Recursive case: it calls rec2(j-1) and passes the result to rec1
+
+Let's analyze if this program terminates:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+lexicographic (j, i)
+
+The termination can be proven by a lexicographic ranking function where:
+1. The j parameter of rec2 strictly decreases in each recursive call to rec2
+2. For rec1, we have a more complex ranking: for any call rec1(i), we eventually reach the base case because:
+   - Each recursive call decreases the value of i
+   - rec1(n) for any n≤0 returns 0
+   - rec1(n) for any n>0 eventually leads to calls with smaller values
+   - The nested calls rec1(rec1(rec1(i-2) - 1)) eventually terminate because each inner call produces values that lead to termination of outer calls
+
+The key insight is that rec1 always produces finite values and rec2's parameter j strictly decreases toward the base case.
+

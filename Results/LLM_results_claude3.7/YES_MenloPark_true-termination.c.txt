@@ -1,0 +1,64 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates.
+
+The program has a loop with the condition `x >= 0`. Inside the loop, the following updates occur:
+1. `x = x - y`
+2. `y = y - z`
+3. `z = -z`
+
+Let's analyze the behavior of `y` and `z` first:
+- Initially `y = 100` and `z = 1`
+- `z` alternates between 1 and -1
+- When `z = 1`, `y` decreases by 1
+- When `z = -1`, `y` increases by 1
+- This means `y` alternates between 100, 99, 100, 99, ...
+
+Next, let's analyze `x`:
+- Each iteration, `x` is reduced by the current value of `y`
+- Since `y` alternates between 100 and 99, `x` is reduced by either 100 or 99 in each iteration
+- This means `x` decreases by at least 99 units per iteration
+- Since `x` continuously decreases and the loop continues only while `x >= 0`, the loop must eventually terminate
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * z^1 + 0.0 * 1
+0.01 * x^1 + 0.0 * y^1 + 0.0 * z^1 + 0.0 * 1
+0.01 * x^1 + 0.0 * y^1 + 0.0 * z^1 + 0.0 * 1
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates.
+
+The main loop is `while (x >= 0)` with the following body:
+```c
+x = x - y;
+y = y - z;
+z = -z;
+```
+
+Let's track how these variables evolve:
+- Initially: y = 100, z = 1
+- After iteration 1: y = 99, z = -1
+- After iteration 2: y = 100, z = 1
+- After iteration 3: y = 99, z = -1
+
+We notice that z alternates between 1 and -1, and consequently y alternates between 99 and 100.
+
+Looking at the impact on x, in each pair of iterations:
+- First iteration: x = x - 100
+- Second iteration: x = x - 99
+- Net effect over two iterations: x decreases by 199
+
+Since x decreases by a positive amount (199) every two iterations and the loop condition is x >= 0, the program will eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * z^1 + 0.0 * 1
+1.0 * x^1 + 0.01 * y^1 + 0.0 * z^1 + 0.0 * 1 
+1.0 * x^1 + 0.0 * y^1 + 0.5 * z^1 + 0.0 * 1
+

@@ -1,0 +1,46 @@
+=== Response 1 ===
+I'll analyze the termination of this program by examining the loop in `test_fun`.
+
+The key loop condition is `x + y > 0`, and at each iteration, either `x` or `y` is decremented by 1. Let's analyze the behavior closely:
+
+- If `x > y`: `x` is decremented by 1
+- If `x == y`: `x` is decremented by 1
+- If `x < y`: `y` is decremented by 1
+
+In all cases, exactly one variable (`x` or `y`) is decremented by 1 in each iteration, which means the sum `x + y` decreases by 1 in each iteration. Since the loop only continues while `x + y > 0`, and this sum is strictly decreasing, the loop will eventually terminate when the sum becomes non-positive.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+The ranking function is simply `x + y`, which starts at some initial value and decreases by exactly 1 in each iteration until it becomes non-positive, at which point the loop terminates.
+
+=== Response 2 ===
+I'll analyze the termination of this program.
+
+The main function calls `test_fun` with two non-deterministic integer inputs.
+
+Let's analyze the loop in `test_fun`:
+- The loop runs as long as `x + y > 0`
+- In each iteration, exactly one of `x` or `y` is decremented by 1
+- No variable ever increases
+
+Since the loop decreases either `x` or `y` by 1 in each iteration, and the termination condition is `x + y > 0`, the function must eventually terminate as long as the loop executes at least once.
+
+If `x + y ≤ 0` initially, the loop doesn't execute at all, and the function also terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+The ranking function `x + y` is valid because:
+1. It is always non-negative when the loop condition is true
+2. It decreases by exactly 1 in each iteration
+3. When it reaches 0 or becomes negative, the loop terminates
+

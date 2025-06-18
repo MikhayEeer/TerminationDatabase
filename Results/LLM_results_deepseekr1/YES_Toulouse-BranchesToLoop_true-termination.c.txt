@@ -1,0 +1,57 @@
+=== Response 1 ===
+The program terminates for all possible inputs because the loop condition will eventually fail due to increments and decrements based on the fixed value of `x`.
+
+- **Case 1: When `x = 1`**, the loop body becomes:
+  - `y = y + 1`
+  - `z = z - 1`
+  Here, `y` increases by 1 each iteration. Since `y` eventually becomes at least 100 (starting from any integer less than 100), the loop condition `y < 100` fails. Additionally, `z` decreases, keeping `z < 100`, so termination is solely due to `y`.
+
+- **Case 2: When `x = -1`**, the loop body becomes:
+  - `y = y - 1`
+  - `z = z + 1`
+  Here, `z` increases by 1 each iteration. Since `z` eventually becomes at least 100 (starting from any integer less than 100), the loop condition `z < 100` fails. Here, `y` decreases, keeping `y < 100`, so termination is solely due to `z`.
+
+A piecewise ranking function confirms termination by ensuring a nonnegative value that decreases strictly by at least 1 each iteration:
+
+- For `x = 1`, `rank = 100 - y`.
+  - Initially, since `y < 100` in the loop, `rank > 0`.
+  - After an iteration: `y_new = y + 1` → `rank_new = 100 - (y + 1) = rank - 1`.
+- For `x = -1`, `rank = 100 - z`.
+  - Initially, since `z < 100` in the loop, `rank > 0`.
+  - After an iteration: `z_new = z + 1` → `rank_new = 100 - (z + 1) = rank - 1`.
+
+This proves termination.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+x == 1 ? 100 - y  
+x == -1 ? 100 - z
+
+=== Response 2 ===
+After analyzing the program, the termination is confirmed due to the loop running a finite number of iterations in both cases of `x`. 
+
+**Termination Reasoning**:  
+The loop condition requires both `y < 100` and `z < 100`. Depending on the initial value of `x` (either 1 or -1):
+- If `x = 1`, `y` increases by 1 per iteration until `y ≥ 100`, which breaks the loop condition (`y < 100`) after a finite number of steps.
+- If `x = -1`, `z` increases by 1 per iteration (since `z = z - x` results in `z + 1` as `x` is -1) until `z ≥ 100`, breaking the loop condition (`z < 100`) finitely.
+
+Thus, regardless of the non-deterministic choices for `y`, `z`, and `x`, the loop always terminates.
+
+**Ranking Function Explanation**:  
+The termination proof uses a piecewise ranking function where each case of `x` has a separate affine function:
+- For `x = 1`: The ranking function is `100 - y`, which decreases by 1 per iteration (as `y` increases) and is bounded below by 0 (since the loop runs only when `y < 100`).
+- For `x = -1`: The ranking function is `100 - z`, which decreases by 1 per iteration (as `z` increases) and is similarly bounded.
+
+Below is the output in the required format.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+100.0 * 1 + -1.0 * y^1  
+100.0 * 1 + -1.0 * z^1
+

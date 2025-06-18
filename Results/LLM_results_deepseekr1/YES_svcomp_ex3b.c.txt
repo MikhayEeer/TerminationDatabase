@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(0, y - x)
+
+**Explanation:**  
+The loop runs only when `x > 1` and `x < y`. In each iteration, `x` is squared (`x = x * x`), which strictly increases `x` since `x ≥ 2` initially. The expression `y - x` decreases by at least `2` (as `x * x - x ≥ 2` for `x ≥ 2`). The ranking function `max(0, y - x)` is:  
+- **Nonnegative:** Ensures mapping to a well-founded set (natural numbers).  
+- **Decreasing:** At each iteration, `y - x` reduces (since `x` increases), and `max(0, y - x)` strictly decreases until it reaches `0`, causing loop exit.  
+The `piecewise` type handles the nonnegative constraint, and `y - x` captures the linear relationship between variables. Termination holds for all integer inputs under mathematical integer semantics (ignoring overflow).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+floor(log2(y)) - floor(log2(x))
+
+**Explanation:**  
+The loop condition `(x > 1) && (x < y)` ensures that within the loop, \(x\) and \(y\) satisfy \(1 < x < y\). The ranking function \(f(x, y) = \text{floor}(\log_2(y)) - \text{floor}(\log_2(x))\) is nonnegative during loop execution because \(x < y\) implies \(\text{floor}(\log_2(x)) \leq \text{floor}(\log_2(y))\).  
+
+At each iteration, \(x\) is updated to \(x^2\). This causes \(\text{floor}(\log_2(x))\) to increase by at least 1 (since \(x \geq 2\) implies \(x^2 \geq 2x\), and \(\log_2(x^2) = 2\log_2(x)\)). Thus, \(f(x, y)\) decreases by at least 1:  
+- Let \(a = \text{floor}(\log_2(x))\), so \(a \geq 1\).  
+- After update, \(\text{floor}(\log_2(x^2)) \geq 2a\) (as \(x^2 \geq 2^{2a}\)).  
+- The new value \(f(x^2, y) = \text{floor}(\log_2(y)) - \text{floor}(\log_2(x^2)) \leq \text{floor}(\log_2(y)) - 2a\).  
+- The decrease is \(f(x, y) - f(x^2, y) \geq (\text{floor}(\log_2(y)) - a) - (\text{floor}(\log_2(y)) - 2a) = a \geq 1\).  
+
+Since \(f\) decreases by at least 1 per iteration and is bounded below by 0, the loop terminates. The ranking function is piecewise due to the floor operations.
+

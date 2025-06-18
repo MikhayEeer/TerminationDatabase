@@ -1,0 +1,58 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program contains a while loop with condition `c > 0`. Inside the loop, there are two branches:
+1. If `n > 100`, then `n` is decreased by 10 and `c` is decreased by 1
+2. If `n ≤ 100`, then `n` is increased by 11 and `c` is increased by 1
+
+Initially, `c = 1` and `n` is assigned a non-deterministic value.
+
+Let's analyze the possible behaviors:
+
+If `n` starts out ≤ 100:
+- The second branch will execute, increasing `n` by 11 and `c` by 1
+- Eventually, `n` will exceed 100 (after at most 10 iterations)
+- Once `n > 100`, we'll take the first branch, decreasing `c` by 1 each time
+- However, each time we go through the second branch, `c` increases
+- Therefore, it will take `c` iterations of the first branch to terminate
+
+The key insight is that we can establish bounds on how much `c` can grow. Each time `n ≤ 100`, `c` increases by 1, but this can only happen a finite number of times before `n > 100`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * c^1 + 0.1 * max(0, 101-n) + 0.0
+
+The ranking function combines two aspects:
+1. The value of `c` (which must decrease to 0 for termination)
+2. A component that measures how far `n` is from exceeding 100, which bounds how many times `c` can increase
+
+=== Response 2 ===
+I'll analyze this program for termination:
+
+The program has a loop with the condition `c > 0`. Inside the loop:
+- If `n > 100`, then `n` decreases by 10 and `c` decreases by 1.
+- If `n ≤ 100`, then `n` increases by 11 and `c` increases by 1.
+
+Let's analyze what happens:
+1. Initially, `c = 1` and `n` is an arbitrary value.
+2. If `n > 100`, then `c` decreases by 1, making it 0, and the loop terminates.
+3. If `n ≤ 100`, then `c` increases by 1, and `n` increases by 11.
+4. After each iteration where `n ≤ 100`, the value of `n` increases by 11.
+5. Eventually, `n` will exceed 100, since it increases by 11 in each iteration where `n ≤ 100`.
+6. Once `n > 100`, `c` decreases by 1 in each iteration.
+7. Since `c` can only increase when `n ≤ 100`, and `n` will eventually exceed 100, `c` will eventually decrease to 0.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if n > 100 then c else (110 - n)
+
+This piecewise ranking function captures that:
+- When n > 100: We count down on c until it reaches 0
+- When n ≤ 100: We count how far n is from exceeding 100 (which will eventually happen)
+

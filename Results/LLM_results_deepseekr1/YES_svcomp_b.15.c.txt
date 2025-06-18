@@ -1,0 +1,17 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(x == y && x > z) ? (y - z) : 0
+
+**Explanation:**  
+The program terminates because the outer loop runs at most once. When the condition `(x == y) && (x > z)` holds, the inner loop executes, decreasing both `x` and `y` by 1 in each iteration while maintaining `x == y`. The inner loop terminates because `y` decreases toward `z` (a fixed lower bound), making `y - z` decrease by 1 per iteration until it becomes non-positive. After the inner loop, `y <= z` (and `x == y`), so the outer condition `(x > z)` fails, preventing further iterations. The piecewise ranking function:
+- Is `y - z` when `(x == y) && (x > z)` (guaranteeing `y > z` initially, so `y - z > 0`).
+- Decreases by exactly 1 in each inner loop iteration.
+- Is `0` otherwise, ensuring termination when the loop exits.
+

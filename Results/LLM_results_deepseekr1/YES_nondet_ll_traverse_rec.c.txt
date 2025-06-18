@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+n  // For init_list recursion phase: decreases by 1 per recursive call from initial n to 0
+length_of_remaining_list(curr)  // For traverse phase: decreases by 1 per recursive call from initial list length n to the last node
+
+[EXPLANATION]
+The program terminates because:
+1. **init_list recursion**: It recursively allocates a linked list of length `n` (where `n >= 1`). Each recursive call decreases `n` by 1 until it reaches 0, which is proven terminating by the ranking function `n`.
+2. **traverse recursion**: It recursively traverses the list starting from the head. At each recursive call to `traverse(curr->next)`, the length of the remaining list decreases by 1. Since the list was initially of finite length `n`, this phase is proven terminating by the ranking function `length_of_remaining_list(curr)`, which is an abstract measure of the list length from `curr` to the end. This measure decreases from `n` (at head) to 1 (at the last node) and is bounded.
+
+The ranking functions are multi-phase: the first phase uses `n` from the stack of `init_list`, and the second phase uses the abstract measure of remaining list length during `traverse`. Both measures decrease strictly with each recursive call.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n
+1.0 * len(curr)
+
+### Explanation:
+- **Phase 1 (Building with `init_list`):**  
+  The ranking function is `n` (the argument to `init_list`). At each recursive call, `n` decreases by 1. When `n` reaches 0, recursion stops. This is well-founded since `n` is a non-negative integer and strictly decreases.
+
+- **Phase 2 (Traversal with `traverse`):**  
+  The ranking function is `len(curr)` (the length of the linked list segment starting from the current node `curr` in `traverse`). At each recursive call, the list shortens by 1 node (`curr = curr->next`). The length decreases to 0, terminating the recursion.  
+  (Note: `len(curr)` is a ghost variable representing the number of nodes from `curr` to the list's end, computable as `1 + len(curr->next)` for non-NULL next, else 1.)
+
+The program sequentially uses these two ranking functions. Each exhibits a well-founded decrease:
+1. Building reduces `n` from initial input (≥1) to 0.
+2. Traversal reduces `len(curr)` from initial `n` to 0, ensuring termination. 
+
+Non-deterministic values from `__VERIFIER_nondet_int()` do not affect the ranking functions, as only the list length matters. The list structure remains immutable after construction, ensuring the traversal measure is well-defined.
+

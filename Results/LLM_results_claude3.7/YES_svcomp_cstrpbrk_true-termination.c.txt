@@ -1,0 +1,64 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The main focus here is the `cstrpbrk` function, which tries to find the first character in string `s1` that doesn't match any character in string `s2`.
+
+Let's analyze the loops:
+
+1. The outer `for` loop iterates through each character of `s1` until it reaches the null terminator `'\0'`.
+2. For each character in `s1`, the inner `while` loop iterates through characters of `s2` until either:
+   - It finds a matching character (where `*s == (char)c`)
+   - It reaches the end of `s2` (null terminator)
+
+Since both strings are null-terminated (the input strings from `__VERIFIER_nondet_String()` are explicitly null-terminated), both loops will eventually terminate because:
+- The outer loop will stop when it reaches the end of `s1`
+- The inner loop will stop either when it finds a match or reaches the end of `s2`
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+len(s1) - position_in_s1
+len(s2) - position_in_s2
+
+This is a nested ranking function where:
+- The outer loop's measure decreases as we progress through string s1
+- The inner loop's measure decreases as we progress through string s2 for each character of s1
+
+The loops are guaranteed to terminate because both strings are finite, null-terminated strings.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program contains a function `cstrpbrk` that appears to be a variant of the standard C `strpbrk` function, but with slightly different logic. Let me trace through the execution:
+
+1. The function takes two string parameters `s1` and `s2`.
+2. It iterates through each character in `s1` with the outer loop.
+3. For each character in `s1`, it searches through `s2` to find a character match.
+4. If it finds a character in `s1` that is NOT present in `s2`, it returns a pointer to that character in `s1`.
+5. If all characters in `s1` are found in `s2`, it returns 0.
+
+The termination of this program depends on the strings `s1` and `s2`. Let's examine the loops:
+
+- The outer loop terminates when we reach the end of `s1` (i.e., when `*sc1 == '\0'`).
+- The inner loop terminates either when we reach the end of `s2` or when we find a matching character.
+
+Since the strings are generated using `__VERIFIER_nondet_String()`, which always returns null-terminated strings (the function explicitly sets the last character to `'\0'`), both loops will eventually terminate.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+len(s1) - position(sc1)
+len(s2) - position(s)
+
+The termination can be proved by a nested ranking function:
+- The outer ranking function measures the distance from the current position `sc1` to the end of string `s1`.
+- The inner ranking function measures the distance from the current position `s` to the end of string `s2`.
+
+Both measures decrease strictly on each iteration of their respective loops, guaranteeing termination.
+

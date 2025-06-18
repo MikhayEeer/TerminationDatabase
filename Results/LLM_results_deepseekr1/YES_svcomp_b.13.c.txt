@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 -1.0 * z^1 + 0.0
+0.0 * x^1 + 1.0 * y^1 -1.0 * z^1 + 0.0
+
+**Explanation:**  
+The program terminates because it employs a multi-phase ranking function with two affine components. The loop condition `(x > z) || (y > z)` ensures that either `x` or `y` decreases by 1 in each iteration until both are at most `z`.  
+
+- **Phase 1 (first ranking function):** When `x > z`, use `x - z`. This decreases by 1 each time `x` is decremented until `x <= z`.  
+- **Phase 2 (second ranking function):** After `x <= z` and while `y > z`, use `y - z`. This decreases by 1 each time `y` is decremented until `y <= z`.  
+
+The lexicographic ordering of these phases (where the second phase activates only after the first is exhausted) guarantees termination. Both ranking functions are affine, bounded below, and decrease discretely in their active phases. Constant `z` remains unchanged during the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * z^1
+1.0 * y^1 + (-1.0) * z^1
+
+**Explanation:**  
+The program terminates because the loop decreases either `x` or `y` in each iteration until both are at most `z`. A multi-phase ranking function proves termination:  
+- **Phase 1:** Uses `x - z` when `x > z`. This decreases by 1 per iteration (as `x` is decremented) and is bounded below by 0.  
+- **Phase 2:** Uses `y - z` when `x <= z` and `y > z`. This decreases by 1 per iteration (as `y` is decremented) and is bounded below by 0.  
+The phases are sequential (Phase 1 completes before Phase 2 starts), and the ranking functions are linear. The loop exits when both ranking functions become non-positive.
+

@@ -1,0 +1,47 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+constant
+[RANKING FUNCTIONS]
+1
+
+### Explanation:
+The program consists of two calls to the recursive function `A(g, h)`, where `g` is non-deterministic and `h = !g`. The function `A` has two cases:
+1. If `a1` is non-zero, it recursively calls `A(a2, a1)` (swapping the arguments).
+2. If `a1` is zero, it assigns `a2` to the global `g` and returns.
+
+Given the initial values:
+- If `g = 0`, then `h = 1`: 
+  - The first call `A(0, 1)` takes the else branch (no recursion). 
+- If `g ≠ 0`, then `h = 0`:
+  - The first call `A(g, 0)` takes the if branch and calls `A(0, g)`, which then takes the else branch. 
+
+In both cases, **each call to `A` results in at most one recursive call**, bounding the recursion depth to 1. Thus, recursion terminates in `. O(1)` steps.
+
+The second call to `A(g, h)` in `main()` is independent (using the same fixed `g` and `h` from the beginning) and also terminates in at most one recursion step.
+
+After both calls, the program either:
+- Executes `__VERIFIER_error()` (terminating abruptly) if the local `g` was non-zero.
+- Or exits normally.
+
+Since all control paths are bounded and recursion has constant depth, termination is proven using a **constant ranking function of 1**. This constant represents the worst-case maximum recursion depth per call. 
+
+**Note**: The ranking function type is `constant` because recursion depth is bounded by a fixed value (1) and does not depend on variables. The value `1` indicates progress to base case within a fixed number of steps.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a1^1 + 0.0
+
+**Explanation:**  
+The program always terminates due to the following reasons:  
+- The `main` function calls `A(g, h)` twice, where `h = !g`, ensuring arguments are always either `(0,1)` or `(1,0)`.  
+- In function `A(a1, a2)`, recursion occurs only when `a1 != 0`. The invariant maintained is that arguments are always `(0,1)` or `(1,0)`, preventing cycles (e.g., `(1,1)` never occurs).  
+- The linear ranking function `r(a1, a2) = a1` decreases at each recursive call:  
+  - For `a1 = 1`, recursion converts it to `a1' = a2 = 0` in the next call (since arguments toggle and remain complementary), so `r` drops from 1 to 0.  
+- Each call to `A` thus terminates within ≤2 steps, and the entire program executes in bounded steps.
+

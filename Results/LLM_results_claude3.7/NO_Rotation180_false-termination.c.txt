@@ -1,0 +1,21 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program contains a while loop with the condition `1`, which is always true. Inside the loop, the values of `x` and `y` are updated as follows:
+- `old_x = x`
+- `x = -y`
+- `y = old_x`
+
+This transformation is equivalent to a 90-degree rotation in the coordinate system. After 4 iterations, the values of `x` and `y` will return to their original values, creating a cycle that repeats indefinitely.
+
+[RESULT]
+NONTERM
+[REASON]
+The program has an unconditional loop (while(1)) with no exit condition. The variables x and y undergo a 90-degree rotation transformation that cycles every 4 iterations, but the loop never terminates.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop (while(1)) that continuously rotates the coordinates (x, y) by 90 degrees counterclockwise without any exit condition. The transformation preserves the magnitude of the point (x, y) and just changes its orientation, so the program will continue executing indefinitely.
+

@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+(-1.0) * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The program terminates because the absolute difference between `x` and `y` decreases by exactly 1 in each loop iteration. We use a piecewise-linear ranking function:  
+- When `x > y`, the expression `x - y` decreases by 1 (since `y` increments).  
+- When `x < y`, the expression `y - x` decreases by 1 (since `x` increments).  
+Both expressions are nonnegative during loop execution and bound the number of iterations by the initial difference `|x - y|`. The loop exits when `x == y`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+(-1.0) * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The program terminates because the absolute difference between `x` and `y` decreases by exactly 1 in each loop iteration. Specifically:
+- When `x > y`, `y` increases by 1 → `(x - y)` decreases by 1.
+- When `x < y`, `x` increases by 1 → `(y - x)` decreases by 1.  
+
+The ranking function is piecewise linear:
+- In the region `x ≥ y`, use `f(x, y) = x - y`.
+- In the region `x < y`, use `f(x, y) = y - x`.  
+
+Both expressions are nonnegative while the loop runs (`x ≠ y`), and each decreases by 1 per iteration until reaching 0 (where `x = y` and the loop exits). The coefficients directly reflect the linear operations in the respective branches.
+

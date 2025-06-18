@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y1^1 + 1.0 * y2^1
+
+**Explanation:**  
+The program implements Euclid's algorithm for computing the greatest common divisor (GCD) recursively. For termination analysis:  
+- The recursive function `gcd` is called with positive integers `y1` and `y2` (ensured by the checks in `main`).  
+- In each recursive call:  
+  - If `y1 > y2`, it calls `gcd(y1 - y2, y2)`.  
+  - If `y2 > y1`, it calls `gcd(y1, y2 - y1)`.  
+- The **sum of the arguments** `y1 + y2` decreases by at least 1 in each recursive step (since the subtracted value is at least 1).  
+- The sum is a natural number and bounded below by 2 (minimum for distinct positives), ensuring termination.  
+- A linear ranking function `f(y1, y2) = y1 + y2` suffices, as it decreases monotonically and is well-founded over the natural numbers.  
+
+The main function terminates after the GCD computation, as it has no loops and the recursive call terminates. The error condition is irrelevant to termination (it is guarded by a conditional that either triggers an error or returns).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y1^1 + 1.0 * y2^1
+
+**Explanation:**  
+The program implements Euclid's algorithm for GCD computation recursively. For termination analysis:  
+1. The recursive calls occur only when both arguments are positive and unequal.  
+2. In each recursive call:  
+   - If `y1 > y2`, new arguments are `(y1 - y2, y2)`.  
+   - If `y1 < y2`, new arguments are `(y1, y2 - y1)`.  
+3. The **sum of the arguments** `y1 + y2` decreases by at least 1 in each recursive step (since the subtracted value is at least 1).  
+4. The sum is strictly decreasing and bounded below (minimum sum is 2 at base case `y1 == y2 > 0`), ensuring termination.  
+
+The ranking function `y1 + y2` is linear and proves termination of the recursion. The `main` function has no loops and always terminates after the GCD call. The `__VERIFIER_error()` branch is unreachable for valid inputs (as GCD of positives is ≥1), but even if reached, the noreturn attribute implies program termination via external handling (e.g., abort).
+

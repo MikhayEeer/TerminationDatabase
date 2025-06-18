@@ -1,0 +1,32 @@
+=== Response 1 ===
+The program allocates an integer on the heap and enters a loop that decrements the integer until it becomes negative. The initial value of the allocated memory is arbitrary (non-deterministic). 
+
+**Termination Analysis:**
+- If the initial value of `*p` is negative, the loop condition `*p >= 0` fails immediately, and the program terminates.
+- If the initial value of `*p` is non-negative (including zero), each iteration decrements `*p` by 1. Since the value is bounded (by the integer range), it will eventually become negative, causing the loop to terminate. Even considering integer wrap-around (e.g., from `INT_MAX` to `INT_MIN`), the loop condition fails when `*p` becomes negative.
+
+Thus, the program terminates for all possible initial values of `*p`.
+
+**Ranking Function:**
+A linear ranking function suffices, as the value of `*p` decreases by exactly 1 in each iteration and is bounded below by 0 (at loop entry). The ranking function is:
+- `*p` (the dereferenced value)
+
+This decreases monotonically and proves termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * *p^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*p)^1 + 1.0 * 1
+
+Explanation: The program terminates regardless of the initial value of the uninitialized memory allocated for `*p`. When `*p < 0` initially, the loop is skipped, terminating immediately. When `*p >= 0`, the loop decrements `*p` each iteration until it becomes negative. The ranking function `(*p) + 1` decreases by exactly 1 in each iteration (since `*p` is decremented) and is bounded below (nonnegative within the loop body). Note that termination occurs without integer overflow because the loop exits when `*p` becomes `-1`, avoiding the edge case of `INT_MIN`. The ranking function is linear and uses `*p` as the variable term.
+

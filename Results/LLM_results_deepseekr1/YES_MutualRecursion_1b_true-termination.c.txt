@@ -1,0 +1,44 @@
+=== Response 1 ===
+After analyzing the program, it is determined to be terminating. The program consists of two mutually recursive functions, `f(x)` and `g(x)`, which are called only with integer arguments. The base cases (when `x <= 0`) ensure direct termination. For positive `x`, every nested call uses arguments that are strictly less than the initial or current arguments, ensuring progress towards the base cases. 
+
+The termination argument relies on a measure that combines the function identity and the argument value, ensuring that each recursive call decreases this measure lexicographically. Specifically:
+- For `g(x)`, calls are made to `f(x-2)` and `f(x-3)`, with smaller arguments.
+- For `f(x)`, calls are to `g(x)` and `g(x+1)`, where `g(x+1)` eventually reduces to `f((x+1)-2) = f(x-1)` and `f(x-2)`, which have arguments smaller than the initial.
+
+This structure guarantees that the call depth is finite, leading to termination for any initial `x`.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+For function `g(x)`: \(3x + 1\) if \(x > 0\)  
+For function `f(x)`: \(3x\) if \(x > 0\)  
+
+### Explanation of Ranking Functions:
+- **Call from `g(x)` to `f(x-2)`**:  
+  Original: \(3x + 1\)  
+  New: \(3(x-2) = 3x - 6\)  
+  Since \(3x - 6 < 3x + 1\) when \(x > 0\), the measure decreases.  
+- **Call from `f(x)` to `g(x)`**:  
+  Original: \(3x\)  
+  New: \(3x + 1\)  
+  But note: `g(x)` immediately calls `f(x-2)` or `f(x-3)`, and the measure there will be \(3(x-2) = 3x - 6 < 3x + 1\), ensuring an overall decrease in the subsequent step.  
+The piecewise functions guarantee a decrease with every recursive call, confirming termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0   [for x > 0]
+0.0                [for x <= 0]
+
+**Explanation:**  
+The program involves mutual recursion between functions `f` and `g`. Termination is proven using a piecewise ranking function based on the input value `x`:
+- For `x > 0`, the ranking function is `x`, which decreases by at least 1 in each recursive call (e.g., calls to `f` or `g` lead to arguments like `x-1`, `x-2`, or `x-3`, all smaller than `x`).  
+- For `x <= 0`, the base case is triggered immediately, so the ranking function is `0`.  
+
+This ensures the recursion depth is bounded by the initial value of `x` (when positive), and the measure decreases strictly in each step, proving termination.
+

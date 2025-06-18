@@ -1,0 +1,54 @@
+=== Response 1 ===
+I'll analyze the program to determine whether it terminates or not.
+
+The key part is the `sum` function which is recursive. Let's trace its execution:
+
+When `n > 0`, the function recursively calls itself with the parameters:
+- `n` decreasing by 1
+- `m` increasing by 1
+
+The base case is when `n <= 0`, at which point the function returns `m + n`.
+
+In each recursive call, `n` decreases by 1, so it will eventually reach the base case if `n` starts as a finite value. In this program, `n` starts at 2 (the value of `a`), so it will take exactly 2 recursive calls to reach the base case.
+
+The function will terminate for any initial non-negative value of `n`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+The ranking function is simply the value of `n`, which starts at 2 and decreases by exactly 1 in each recursive call until it reaches 0, at which point the recursion terminates.
+
+=== Response 2 ===
+I'll analyze the program for termination.
+
+First, let's look at the `sum` function which contains recursion:
+```c
+int sum(int n, int m) {
+    if (n <= 0) {
+      return m + n;
+    } else {
+      return sum(n - 1, m + 1);
+    }
+}
+```
+
+This function is recursive, decreasing `n` by 1 and increasing `m` by 1 in each recursive call. The recursion terminates when `n <= 0`.
+
+Let me analyze whether this recursive function terminates:
+- Every recursive call strictly decreases `n` by 1
+- The base case is reached when `n <= 0`
+- Starting with any finite value of `n`, the function will eventually reach the base case after at most `n` recursive calls
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0 * m^1 + 0.0 * 1
+
+The ranking function is simply `n`, which decreases by exactly 1 in each recursive call and is bounded below by 0, guaranteeing termination.
+

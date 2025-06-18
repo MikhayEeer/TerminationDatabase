@@ -1,0 +1,26 @@
+=== Response 1 ===
+The given program terminates. The `twoWay` function is called with `terminate` set to 1, meaning the recursive call is always made with a decremented value of the argument `n`. The initial input `x` is non-negative (if it were negative, the program would terminate immediately). The recursion reduces `n` by 1 in each step until it becomes negative, at which point the base case is reached and the recursion stops. This ensures termination.
+
+To prove termination, a piecewise ranking function is provided. The ranking function is defined for the recursive function arguments (`terminate` and `n`), but only depends on `n` since `terminate` remains constantly 1 in the call. The function ensures a decrease in every recursive call and boundness below.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if n >= 0 then n + 1 else 0
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + 1.0
+
+**Explanation:**  
+The program terminates because the recursive function `twoWay` is always called with `terminate = 1` (from `main`). In this case:
+- When `n >= 0`, the parameter for the next recursive call is `m = n - 1`, strictly decreasing `n` by 1 each time.
+- The base case `n < 0` is eventually reached (after at most `n + 1` calls), stopping recursion.  
+The ranking function `f(n) = n + 1` is linear and decreases with each recursive call (since `n` decreases by 1, `f(n)` decreases by 1). It remains non-negative for all `n >= 0` and reaches 0 when `n = -1` (base case), proving termination.
+

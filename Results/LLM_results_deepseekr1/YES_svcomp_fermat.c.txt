@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * a^1 - 1000.0 * b^1 - 1000000.0 * c^1 + 1001001001.0 * 1
+
+### Explanation:
+The program searches for integer solutions to \(a^3 = b^3 + c^3\) where \(1 \leq a, b, c \leq 1000\). Since Fermat's Last Theorem (proven) states no such positive integer solutions exist for exponent 3, the loop will never find a solution and instead exhaust all \((a, b, c)\) combinations. The loop structure behaves as a triple nested loop with:
+- \(a\) incrementing from 1 to 1000 (resetting to 1 when exceeding 1000, then incrementing \(b\)),
+- \(b\) similarly resetting and incrementing \(c\),
+- \(c\) incrementing up to 1000, with termination when \(c > 1000\).
+
+The ranking function \(f(a, b, c) = 1001001001 - a - 1000b - 1000000c\) is linear and decreases by exactly 1 in every iteration (verified during resets). It starts at \(1000000000\) (when \(a=b=c=1\)) and decreases to \(1\) (when \(a=b=c=1000\)), ensuring termination after \(1000^3 = 1,000,000,000\) iterations. The constant term ensures non-negativity within the loop's domain (\(c \leq 1000\)).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+(MAX+1 - c), (MAX+1 - b), (MAX+1 - a)
+
+**Explanation:**  
+The program terminates because it exhaustively searches all triples `(a, b, c)` from 1 to MAX (1000) without finding a solution (as guaranteed by Fermat's Last Theorem). The lexicographic ranking function `(MAX+1 - c, MAX+1 - b, MAX+1 - a)` strictly decreases with each iteration:  
+- **No overflow:** When `a` increases, `MAX+1 - a` decreases by 1 (third component).  
+- **a-overflow:** When `a` resets to 1 and `b` increments, `MAX+1 - b` decreases by 1 while `MAX+1 - a` resets but is dominated by the decrease in the second component.  
+- **b-overflow:** When `b` resets to 1 and `c` increments, `MAX+1 - c` decreases by 1, dominating any subsequent changes.  
+The loop exits when `c > MAX`, and since the ranking function is bounded (components are nonnegative and decreasing lexicographically), termination is assured. The constant `MAX=1000` is fixed in the program.
+

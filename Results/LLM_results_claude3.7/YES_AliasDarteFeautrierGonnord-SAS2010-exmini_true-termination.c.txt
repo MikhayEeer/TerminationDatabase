@@ -1,0 +1,55 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+Looking at the while loop, we have:
+- The condition is `i <= 100 && j <= k`
+- In each iteration:
+  - We swap `i` and `j`, then increment the new `j` by 1
+  - We decrement `k` by 1
+
+Let's track what happens to the variables:
+- `k` decreases by 1 in each iteration
+- The relationship between `i` and `j` changes, but importantly, after the first iteration, `j = i_old + 1`
+
+For the program to terminate, the condition `i <= 100 && j <= k` must eventually become false. Since `k` decreases in each iteration and `j` generally increases, the difference `k - j` will eventually become negative, making `j <= k` false.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * k + 1.0 * 1 - 1.0 * j
+
+The ranking function `k + 1 - j` decreases in each iteration as `k` decreases by 1 and `j` typically increases. This ensures that the loop will eventually terminate because this expression will eventually become negative, making the condition `j <= k` false.
+
+=== Response 2 ===
+Let me analyze the termination of this program.
+
+The loop in the program has the condition `i <= 100 && j <= k`. Inside the loop, the variables are updated as follows:
+- `tmp = i`
+- `i = j`
+- `j = tmp + 1` which is equivalent to `j = i + 1`
+- `k = k - 1`
+
+So, after each iteration we have:
+- `i` becomes the old value of `j`
+- `j` becomes the old value of `i` plus 1
+- `k` decreases by 1
+
+Let's consider what happens to the condition `j <= k`. In each iteration:
+- The value of `j` increases (becomes old `i` + 1)
+- The value of `k` decreases by 1
+
+This means that the difference `k - j` decreases by at least 2 in each iteration. Eventually, this difference will become negative, making `j <= k` false, which will terminate the loop.
+
+Even if we consider the other condition `i <= 100`, the loop will still terminate because `i` takes the value of `j` in each iteration, and `j` keeps increasing.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * (k - j + 1)
+
+The ranking function decreases by at least 2 in each iteration and is always non-negative while the loop condition holds.
+

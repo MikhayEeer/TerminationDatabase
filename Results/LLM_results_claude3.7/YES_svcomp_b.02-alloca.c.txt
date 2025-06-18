@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*x_ref - *y_ref)
+
+The program is terminating. In each iteration of the loop, the difference between *x_ref and *y_ref decreases by exactly 2 (since *x_ref decreases by 1 and *y_ref increases by 1). The loop condition requires that *x_ref > *y_ref, so eventually this condition will become false after a finite number of iterations.
+
+The ranking function (*x_ref - *y_ref) is strictly decreasing in each iteration and is bounded below by 1 (since the loop exits when *x_ref ≤ *y_ref, so the last valid value would be *x_ref - *y_ref = 1).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - y)
+
+The program terminates because in each iteration of the loop:
+1. The condition checks if x > y
+2. If true, x decreases by 1 and y increases by 1
+3. This means that (x - y) decreases by 2 in each iteration
+
+Since (x - y) strictly decreases in each iteration and is bounded from below (the loop exits when x ≤ y), the loop must eventually terminate.
+

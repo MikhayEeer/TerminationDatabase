@@ -1,0 +1,51 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length2) - (from - nondetString)
+
+### Explanation:
+The program terminates because the loop in `cstpcpy` is guaranteed to execute at most `length2` iterations. Here's why:
+
+1. **Initialization**: 
+   - `nondetString[length2-1]` is explicitly set to `'\0'`, ensuring a null terminator exists within the allocated buffer.
+   - `length1 >= length2` is enforced before copying, so the destination buffer `nondetArea` has sufficient space.
+
+2. **Loop Behavior**:
+   - The loop copies characters from `nondetString` to `nondetArea` until a `'\0'` is encountered.
+   - Even if uninitialized elements in `nondetString` contain random data, the guaranteed null terminator at index `length2-1` ensures the loop will terminate within at most `length2` iterations.
+
+3. **Ranking Function**:
+   - Let `from` be the current pointer position in the source string (`nondetString`).
+   - The expression `(from - nondetString)` represents the number of characters copied so far (an integer).
+   - The ranking function `f = length2 - (from - nondetString)`:
+     - **Starts** at `length2` (when `from = nondetString`).
+     - **Decreases by 1** each iteration (as `from` increments).
+     - **Remains non-negative** (since `(from - nondetString) <= length2`).
+     - When `f` reaches `1`, the next character copied will be the null terminator (at `nondetString + length2 - 1`), causing loop exit.
+
+This linear ranking function proves termination. The entire program terminates because:
+- Early return if `length1 < length2` avoids the copy.
+- The `cstpcpy` loop always terminates when called.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(nondetString + length2) - from
+
+**Explanation:**  
+The program terminates because the loop in `cstpcpy` is guaranteed to terminate. The source string `nondetString` is explicitly null-terminated at index `length2-1`, ensuring a null byte exists within the first `length2` bytes. The loop copies characters until it encounters this null terminator. 
+
+The ranking function `(nondetString + length2) - from` is linear and decreases by exactly 1 in each iteration:
+- **Initial value:** `length2` (when `from = nondetString`)
+- **Decreases by 1** each iteration (as `from` increments)
+- **Bounded below by 1** (loop exits when `from` reaches the null terminator at `nondetString + k` where `k ≤ length2-1`, making the value `≥ 1`)
+- Uses the fixed values `nondetString` and `length2` (from `main`'s scope) and the current pointer `from` (loop variable).
+
+This proves termination within at most `length2` iterations. The early return when `length1 < length2` ensures safe copying without buffer overflows.
+

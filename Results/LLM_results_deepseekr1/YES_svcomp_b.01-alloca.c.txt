@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + -1.0 * y_ref^1
+
+### Explanation:
+The program termination is guaranteed because:
+1. The loop condition is `*x_ref > *y_ref`, where `*y_ref` remains constant (initialized to input `y`).
+2. `*x_ref` decreases by exactly 1 in each iteration.
+3. Since `*x_ref - *y_ref` is a positive integer when the loop starts (due to the condition), and decreases by 1 each iteration, it will eventually become non-positive, causing the loop to terminate.
+4. The ranking function `rank = *x_ref - *y_ref` is linear, nonnegative at loop entry (as `*x_ref > *y_ref`), and strictly decreases by 1 per iteration. When `rank ≤ 0`, the loop exits. 
+
+Thus, the program always terminates, proven by the linear ranking function above.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + (-1.0) * y_ref^1
+
+Explanation:
+The ranking function is based on the values stored in the memory locations pointed to by `x_ref` and `y_ref`. The expression `*x_ref - *y_ref` decreases by exactly 1 in each iteration due to the assignment `*x_ref = *x_ref - 1` while `*y_ref` remains unchanged. Since this ranking function decreases with each iteration and is bounded below by any value ≤0 (as the loop exits when `*x_ref <= *y_ref`), it proves termination. The ranking function type is linear as it involves affine expressions of the program state variables.
+

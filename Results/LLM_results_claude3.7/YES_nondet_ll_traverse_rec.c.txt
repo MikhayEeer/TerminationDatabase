@@ -1,0 +1,45 @@
+=== Response 1 ===
+I'll analyze the program for termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n (for init_list)
+depth (for traverse, where depth is the distance to the furthest NULL pointer)
+
+The program terminates for the following reasons:
+
+1. For the `init_list` function:
+   - Each recursive call decreases `n` by 1
+   - The base case `n == 0` is explicitly handled, stopping recursion
+   - Since `n` starts as a finite value and decreases by 1 each call, it must terminate
+
+2. For the `traverse` function:
+   - The recursion follows the linked list structure
+   - Each call moves one node closer to the end of the list
+   - The recursion stops when `curr->next` is NULL
+   - Since the list was created with the finite size `n`, the traversal must terminate
+
+The nested ranking function shows that both recursions are well-founded, with the outer one depending on the input parameter `n`, and the inner one depending on the depth of the linked list structure.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+For init_list: n
+For traverse: length(list) - current_position
+
+The program is terminating because:
+
+1. The function `init_list(n)` terminates because `n` starts with some finite value and decreases by 1 in each recursive call, eventually reaching the base case of n=0.
+
+2. The function `traverse(curr)` also terminates because it starts at the head of a finite list and moves toward the end in each recursive call, eventually reaching a node where `curr->next == NULL`.
+
+3. The main function calls both functions with finite inputs and performs no loops itself.
+
+Each recursive function has a simple linear ranking function that strictly decreases with each recursive call, guaranteeing termination.
+

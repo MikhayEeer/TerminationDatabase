@@ -1,0 +1,29 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+Looking at the code, there's a while loop with the condition `5<8`. This is a constant condition that evaluates to true, as 5 is always less than 8. Therefore, the loop will always execute.
+
+Inside the loop, the variable `i` is incremented by 1 in each iteration. However, since the loop condition doesn't depend on `i`, the loop will continue executing regardless of the value of `i`.
+
+[RESULT]
+NONTERM
+[REASON]
+The loop condition (5<8) is a constant expression that always evaluates to true, forming an infinite loop that never terminates.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+Looking at the main loop:
+```c
+while(5<8) {
+    i = i+1;
+}
+```
+
+The loop condition `5<8` is always true since 5 is less than 8. This is a constant condition that never changes. Since the condition will always evaluate to true, the loop will continue executing indefinitely, and the program will never reach the return statement.
+
+[RESULT]
+NONTERM
+[REASON]
+The loop condition (5<8) is a constant expression that always evaluates to true, creating an infinite loop.
+

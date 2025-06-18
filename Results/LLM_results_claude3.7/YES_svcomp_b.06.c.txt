@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze the program's termination properties:
+
+The key component is the loop in `test_fun`:
+```c
+while ((x > 0) && (y > 0)) {
+    x = x - 1;
+    y = y - 1;
+    c = c + 1;
+}
+```
+
+In each iteration, both `x` and `y` decrease by 1. The loop continues as long as both `x > 0` and `y > 0`. Since both variables strictly decrease in each iteration and are bounded from below (they must be greater than 0 to continue), the loop must eventually terminate when either `x` or `y` becomes less than or equal to 0.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+min(x, y)
+
+This linear ranking function captures that the loop will run for the minimum of the initial values of x and y iterations, which is when one of them reaches zero.
+
+=== Response 2 ===
+I'll analyze the program for termination.
+
+Looking at the loop in `test_fun`, I can see that each iteration:
+- Decreases `x` by 1
+- Decreases `y` by 1
+- Increases `c` by 1
+
+The loop condition requires both `x > 0` AND `y > 0`. Therefore, the loop will terminate when either `x` or `y` reaches 0 or becomes negative.
+
+Since both `x` and `y` are strictly decreasing in each iteration, and the loop only continues when both are positive, the loop must eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
+
+The ranking function `x` is sufficient because:
+1. It is always positive inside the loop (since x > 0 is part of the loop condition)
+2. It strictly decreases by exactly 1 in each iteration
+3. When it reaches 0 or below, the loop terminates
+
+Alternatively, `y` could also be used as a valid ranking function for the same reasons.
+

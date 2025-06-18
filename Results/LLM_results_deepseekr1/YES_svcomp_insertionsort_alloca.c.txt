@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+array_size - i  // Outer loop: decreases with each iteration, bounded by array_size
+j  // Inner loop: decreases with each iteration, bounded by 0
+
+**Explanation:**  
+The program terminates due to bounded loops. The outer loop runs exactly `array_size - 1` times (since `i` ranges from 1 to `array_size - 1`). For each outer iteration, the inner loop runs at most `i` times (as `j` starts at `i` and decrements to 0). Uninitialized array values are treated as non-deterministic but do not affect termination, since the inner loop condition (`j > 0`) alone ensures a finite number of steps per iteration.  
+
+- **Outer Loop:** The ranking function `array_size - i` decreases by 1 after each completion of the inner loop and ensures progress toward termination.  
+- **Inner Loop:** The ranking function `j` decreases by 1 in each iteration of the inner loop until it reaches 0.  
+
+These nested ranking functions guarantee termination regardless of array values, as both are integer-valued, bounded below (by 0), and strictly decrease with each iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * array_size - 1.0 * i
+1.0 * j
+
+**Explanation:**  
+The program implements insertion sort. The outer loop runs `array_size - 1` times, controlled by `i` (from 1 to `array_size - 1`). The inner loop, controlled by `j`, starts at `i` and decrements until `j <= 0` or the condition `a[j-1] > index` fails. Crucially, `j` decreases by at least 1 in each inner iteration, ensuring termination within `i` steps. The lexicographic ranking function `(array_size - i, j)` decreases:  
+- **Inner loop:** `j` decreases (second component), while `array_size - i` remains constant.  
+- **Outer loop:** After inner loop completion, `i` increments, decreasing `array_size - i` (first component), and `j` resets to the new `i` (but lex order allows arbitrary reset when the first component decreases).  
+Constants are fixed per run, and `array_size >= 1` ensures non-negativity. Array values do not affect termination bounds.
+

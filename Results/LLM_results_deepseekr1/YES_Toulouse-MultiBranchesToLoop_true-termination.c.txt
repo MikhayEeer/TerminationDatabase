@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2000 - (10 + x) * y - (10 - x) * z
+
+**Explanation:**  
+The program always terminates. After initialization, `x` becomes either 10 or -10 due to the series of conditional increments/decrements. The loop condition is `while (y < 100 && z < 100)`.  
+
+- **Case 1 (x = 10):**  
+  In each iteration, `y` increases by 10 and `z` decreases by 10. The loop exits when `y >= 100` (since `z` decreases indefinitely but `y` will eventually exceed 99). The ranking function component for this case is `100 - y`, which decreases by 10 per iteration.  
+
+- **Case 2 (x = -10):**  
+  In each iteration, `y` decreases by 10 and `z` increases by 10. The loop exits when `z >= 100` (since `y` decreases indefinitely but `z` will eventually exceed 99). The ranking function component for this case is `100 - z`, which decreases by 10 per iteration.  
+
+The unified linear ranking function `2000 - (10 + x) * y - (10 - x) * z` captures both cases:  
+- When `x = 10`, it simplifies to `2000 - 20y` (decreases by 200 per iteration).  
+- When `x = -10`, it simplifies to `2000 - 20z` (decreases by 200 per iteration).  
+
+At loop entry, `y < 100` and `z < 100` ensure the function is positive. It decreases by a fixed amount (200) each iteration, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (x > 0): 100.0 + (-1.0) * y
+if (x < 0): 100.0 + (-1.0) * z
+
+[ANALYSIS]
+After the initialization, `x` becomes either 10 or -10 due to the series of conditional increments/decrements. In the loop:
+- If `x > 0` (i.e., x=10), we use the ranking function `100 - y`. Since `y` increases by 10 per iteration and starts as an integer `< 100`, `100 - y` decreases by exactly 10 each iteration and remains non-negative until `y >= 100`, when the loop terminates.
+- If `x < 0` (i.e., x=-10), we use `100 - z`. Since `z` increases by 10 per iteration (as `z = z - (-10)`), and `z` starts as an integer `< 100`, `100 - z` decreases by 10 each iteration until `z >= 100`, ensuring termination.
+
+The piecewise ranking function covers both cases effectively, guaranteeing termination for all executions.
+

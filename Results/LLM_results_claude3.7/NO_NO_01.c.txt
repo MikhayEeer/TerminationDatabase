@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+In this program, c is initialized to 24*6*6 = 864, which is > 100. This means the program enters the last else branch where there is a loop "while (i < 103) { i = i+0; }". Since i is initialized to 0 and never incremented within this loop (it's set to i+0 which doesn't change i), the condition i < 103 remains true forever, making the program non-terminating.
+
+=== Response 2 ===
+I'll analyze this program's termination status by examining each branch and loop.
+
+First, let's calculate the value of `c`:
+`c = (24*6)*6 = 144*6 = 864`
+
+Based on this value, let's trace the program execution:
+1. Since `c = 864 > 10`, we skip the first branch and go to the `else` branch
+2. Since `c = 864 > 50`, we skip the first `if` inside the `else`
+3. Since `c = 864 > 100`, we skip the second `if` and enter the `else` clause
+4. We set `i = 0` and enter the loop `while (i < 103)`
+5. Inside this loop, we have the statement `i = i+0`, which doesn't change the value of `i`
+6. Since `i` remains 0 and always satisfies `i < 103`, this loop will never terminate
+
+[RESULT]
+NONTERM
+[REASON]
+The program enters the last branch where c > 100, and the loop "while (i < 103) { i = i+0; }" will never terminate because i remains 0 and the condition i < 103 is always true.
+

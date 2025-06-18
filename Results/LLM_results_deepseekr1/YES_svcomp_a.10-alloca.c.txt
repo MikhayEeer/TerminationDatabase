@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * (*x_ref) - 1.0 * (*y_ref)
+1.0 * (*y_ref) - 1.0 * (*x_ref)
+
+**Explanation:**  
+The program always terminates for any finite integer inputs `x` and `y`. The loop increments the smaller of the two values referenced by `x_ref` and `y_ref` until they become equal. The absolute difference `|*x_ref - *y_ref|` decreases by exactly 1 in each iteration:  
+- When `*x_ref > *y_ref`, `*y_ref` is incremented, reducing `(*x_ref - *y_ref)` by 1.  
+- When `*x_ref < *y_ref`, `*x_ref` is incremented, reducing `(*y_ref - *x_ref)` by 1.  
+
+The ranking function uses a **piecewise linear** form:  
+- In the branch where `*x_ref > *y_ref`, the expression is `1.0 * (*x_ref) - 1.0 * (*y_ref)`.  
+- In the branch where `*x_ref < *y_ref`, the expression is `1.0 * (*y_ref) - 1.0 * (*x_ref)`.  
+
+Both expressions are non-negative in their respective branches and decrease monotonically until reaching 0, at which point the loop terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+*x_ref - *y_ref   [when *x_ref >= *y_ref]
+*y_ref - *x_ref   [when *x_ref < *y_ref]
+
+### Explanation:
+The loop terminates because the absolute difference between `*x_ref` and `*y_ref` decreases by exactly 1 in each iteration:
+- When `*x_ref > *y_ref`, `*y_ref` increases by 1, reducing `(*x_ref - *y_ref)` by 1.
+- When `*x_ref < *y_ref`, `*x_ref` increases by 1, reducing `(*y_ref - *x_ref)` by 1.
+The loop exits when `*x_ref == *y_ref`, and the initial difference `|x - y|` ensures termination after at most `|x - y|` iterations. The piecewise ranking function uses two linear expressions, each applicable in mutually exclusive cases, and both decrease monotonically toward 0.
+

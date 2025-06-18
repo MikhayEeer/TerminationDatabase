@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * (*y_ref) - 1.0 * (*x_ref) + 1.0
+1.0
+
+The program terminates because the loop runs for a finite number of iterations determined by the initial values of `*x_ref` and `*y_ref`. The ranking function is piecewise:
+- When `*x_ref <= *y_ref`, the expression `*y_ref - *x_ref + 1.0` decreases by exactly 1 in each iteration (since `*x_ref` increments by 1 and `*y_ref` remains constant).
+- When `*x_ref > *y_ref`, the constant value 1.0 is used, and the loop exits after this iteration.
+
+The ranking function is non-negative and decreases in every iteration where the loop continues, ensuring termination. The piecewise structure handles both cases where the difference `*y_ref - *x_ref` is non-negative (first expression) and negative (second expression).
+
+=== Response 2 ===
+The program terminates because the loop condition depends on the comparison between `*x_ref` and `*y_ref`, where `*x_ref` is incremented in each iteration. The loop runs at least once and continues only if `*x_ref` (before increment) is less than `*y_ref`. Since `*x_ref` increases by 1 each iteration and `*y_ref` remains constant, the difference `*y_ref - *x_ref` decreases by exactly 1 in each iteration until it becomes non-positive, ensuring termination. Signed integer overflow is not a concern here because the analysis assumes mathematical integers without wrap-around, as is standard in termination analysis.
+
+The ranking function is linear, based on the current values of the dereferenced pointers. The expression `*y_ref - *x_ref` is non-negative at the start of each loop body (due to the loop condition) and decreases by 1 in each iteration.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * (*x_ref)^1 + 1.0 * (*y_ref)^1
+

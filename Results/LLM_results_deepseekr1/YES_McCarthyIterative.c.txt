@@ -1,0 +1,19 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * 1 + 101.0 * 1 + 1.0 * c^1 + 0.0909 * x^1  # Phase 1: When x ≤ 100
+1.0 * 1                                          # Phase 2: When x > 100 (c used as measure)
+
+[EXPLANATION]
+The program terminates for all inputs. A two-phase ranking function proves termination:
+- **Phase 1 (x ≤ 100):** The ranking function is \( f_1(x, c) = 101 - x \). This decreases by at least 1 with each else-branch iteration (since x increases by 11, so \( 101 - (x+11) = (101 - x) - 11 \)), and remains non-negative. The term \( c \) ensures composability across phases.
+- **Phase 2 (x > 100):** The ranking function is \( f_2(c) = c \). This decreases by 1 with each then-branch iteration. When transitioning from Phase 1 to Phase 2, the phase shift ensures overall measure decrease.
+
+The initial constant and coefficients handle edge cases (e.g., negative x) and ensure well-foundedness. Each phase separately decreases, and the multi-phase composition covers all paths.
+

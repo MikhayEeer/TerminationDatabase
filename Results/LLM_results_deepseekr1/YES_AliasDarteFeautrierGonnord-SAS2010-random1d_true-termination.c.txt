@@ -1,0 +1,47 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * max^1 - 1.0 * x^1 + 1.0 * 1
+
+### Explanation:
+The program terminates for all inputs because:
+- The loop condition depends only on `x` and `max`, with `x` increasing monotonically by 1 in each iteration.
+- `max` is fixed upon entering the loop (and must be positive for the loop to execute).
+- The loop executes exactly `max` iterations:
+  - Initial: `x = 1`
+  - Condition: `x <= max`
+  - Each iteration: `x = x + 1`
+  - Loop exits when `x = max + 1`
+
+**Ranking Function**: `f(max, x) = max - x + 1`  
+- **Decreases** by 1 per iteration (since `x` increases by 1).  
+- **Bounded below**: When the loop starts, `f = max > 0` (as `max > 0`). The loop exits when `f = max - (max + 1) + 1 = 0`, preventing infinite runs.  
+- Non-deterministic updates to `a` do not affect `f` or termination.  
+
+The function is linear and is expressed in the coefficients above for monomials `max^1`, `x^1`, and the constant term.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * max^1 - 1.0 * x^1 + 1.0 * 1  
+
+### Explanation:  
+The program always terminates because:  
+1. The loop condition `x <= max` depends on `x` and `max`, where `max` is fixed after initialization.  
+2. `x` starts at 1 and increments by 1 in each iteration.  
+3. The loop runs for exactly `max` iterations (since `x` increases from 1 to `max + 1`, at which point `x > max` and the loop exits).  
+4. The updates to `a` (via nondeterministic choices) do not affect the loop condition or termination behavior.  
+
+**Ranking Function Justification**:  
+- The expression `max - x + 1` is a valid linear ranking function:  
+  - **Initial value**: When `x = 1`, the value is `max` (≥ 1 since `max > 0`), which is positive.  
+  - **Decreases strictly**: Each iteration increments `x` by 1, decreasing the ranking function by 1.  
+  - **Bounded below**: The function reaches 0 when `x = max + 1`, at which point the loop terminates.  
+- Coefficients are derived directly from the expression: `1.0 * max^1 - 1.0 * x^1 + 1.0 * 1`.
+

@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0   // when *x_ref > *y_ref
+0.0   // otherwise
+
+### Explanation:
+The loop condition `while (*x_ref > *y_ref)` swaps the values of `*x_ref` and `*y_ref` using a temporary variable `*tmp_ref`. After one swap, the values are exchanged, making `*x_ref` (originally `*y_ref`) less than or equal to `*y_ref` (originally `*x_ref`). Thus, the loop condition becomes false, and the loop exits after at most one iteration. 
+
+The ranking function is piecewise:
+- Assigns `1.0` when `*x_ref > *y_ref` (indicating the loop will execute once).
+- Assigns `0.0` otherwise (loop skipped or exited).
+This decreases from `1.0` to `0.0` after the single possible iteration, proving termination. The temporary variable `*tmp_ref` does not affect termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(0, x - y)
+
+**Explanation:**  
+The loop condition `*x_ref > *y_ref` is only satisfied when the initial value of `x` is greater than `y`. In this case, the loop body swaps `x` and `y` using `tmp`, resulting in `x` becoming the original `y` and `y` becoming the original `x`. After the swap, the condition `*x_ref > *y_ref` becomes false (since the new `x` is the original `y`, which is less than the original `x` now stored in `y`). Thus, the loop executes at most once.  
+
+The ranking function `max(0, x - y)` is piecewise:  
+- When `x > y` (loop condition true), the value is `x - y` (≥1 for integers), which decreases to `0` after the swap.  
+- When `x ≤ y`, the value is `0`, and the loop does not execute.  
+This function decreases by at least 1 in the iteration where the loop runs and is non-negative, proving termination. The `tmp` variable does not affect the ranking.
+

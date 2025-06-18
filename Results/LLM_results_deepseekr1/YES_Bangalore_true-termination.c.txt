@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because the loop condition `x >= 0` and the invariant `y >= 1` ensure that in each iteration, `x` decreases by at least 1 (since `x = x - y` and `y >= 1`). The ranking function `f(x) = x` is valid because:  
+1. **Bounded below:** At the start of each loop iteration, `x >= 0` (due to the loop condition), so the function values are non-negative integers.  
+2. **Strictly decreasing:** Each loop iteration reduces `x` by `y` (where `y >= 1`), so `x` decreases by at least 1.  
+Thus, `x` serves as a linear ranking function over the well-founded domain of non-negative integers, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because the loop decreases the value of `x` by at least 1 (since `y ≥ 1` is invariant in the loop due to the initial condition) in each iteration while `x ≥ 0`, ensuring eventual exit. The function `f(x, y) = x` serves as a **linear ranking function**:  
+- In the loop body, after `x = x - y`, `f` becomes `x - y`. The difference is `y ≥ 1`, confirming strict decrease.  
+- The loop condition `x ≥ 0` ensures `f ≥ 0` at loop entry and during iterations.  
+Thus, `f` decreases by at least 1 each iteration and is bounded below, proving termination.
+

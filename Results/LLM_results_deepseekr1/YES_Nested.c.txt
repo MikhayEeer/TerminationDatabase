@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * i^1 + -1.0 * j^1 + 22.0 * 1
+
+**Explanation:**  
+The program terminates because both loops are bounded. The outer loop runs exactly 10 times (for `i` from 0 to 9). The inner loop runs only during the first iteration of the outer loop (when `i=0`), where `j` increases from 3 to 12 in steps of 1 (9 iterations). In subsequent outer iterations (`i=1` to `i=9`), the inner loop is skipped since `j=12` remains unchanged.  
+
+A linear ranking function `f(i, j) = 22 - i - j` suffices:  
+- **Initial state:** `i=0, j=3` → `f=19`  
+- **Inner loop step:** `j` increases by 1 → `f` decreases by 1 (e.g., `j=4` → `f=18`)  
+- **Outer loop step:** `i` increases by 1 → `f` decreases by 1 (e.g., `i=1, j=12` → `f=9`)  
+- **Termination:** When `i=10`, the loop exits. The function remains non-negative throughout execution (minimum value `f=1` at `i=9, j=12`).  
+
+This ranking function decreases monotonically with every loop iteration (inner or outer) and proves termination.
+
+=== Response 2 ===
+
+

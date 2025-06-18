@@ -1,0 +1,29 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+The program terminates for all inputs. Here's the analysis:
+
+**Termination Reason**:  
+The loop condition `while (*x_ref != 0)` ensures the loop runs only when `*x_ref` is non-zero. Within the loop:
+- In the `if` branch (`*x_ref > *y_ref`), `*x_ref` is set to `*y_ref`. Since `*y_ref` is constant and positive (as ensured by the pre-loop check), this assignment strictly decreases `*x_ref` (because `*x_ref > *y_ref` implies `*x_ref ≥ *y_ref + 1`).
+- In the `else` branch (`*x_ref ≤ *y_ref`), `*x_ref` is decremented by 1, again decreasing its value.  
+Thus, `*x_ref` decreases by at least 1 in every iteration. Since `*x_ref` starts as a positive integer and decreases monotonically, it must eventually reach 0, exiting the loop.
+
+**Ranking Function**:  
+A linear ranking function `f = *x_ref` suffices. At each loop iteration:
+- `f` decreases by at least 1 (strictly decreasing).
+- `f` is initially non-negative (since the loop only executes when `*x_ref > 0`).
+- Termination occurs when `f = 0`.
+
+Output formatted as required:
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1  
+
+Note: Here, `x` represents the current value of `*x_ref` at the start of each loop iteration. This ranking function captures the decreasing measure ensuring termination.
+

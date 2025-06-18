@@ -1,0 +1,51 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+11.0 * 1 - 1.0 * x1^1
+1.0 * x2^1 - 1.0 * 1
+
+### Explanation:
+The program consists of two nested loops:
+1. **Outer loop**: Runs while `x1 <= 10`, incrementing `x1` by 1 per iteration.
+2. **Inner loop**: Runs while `x2 > 1`, initializing `x2` to 10 at the start of each outer iteration and decrementing `x2` by 1 per inner iteration.
+
+**Termination Proof**:
+- The inner loop always terminates because `x2` decreases from 10 to 1 (fixed 9 iterations per outer entry).
+- The outer loop terminates because `x1` increases by 1 per iteration, starting from any initial value, and exits when `x1 > 10` (finite iterations).
+
+**Ranking Function**:
+A lexicographic (multi-phase) ranking function is used:
+- **Phase 1 (outer loop)**: `11 - x1`  
+  Decreases by 1 when the inner loop completes and `x1` increments. Bounded below (≥1 in loop).
+- **Phase 2 (inner loop)**: `x2 - 1`  
+  Decreases by 1 per inner iteration. Bounded below (≥0 in loop).
+
+The tuple `(11 - x1, x2 - 1)` decreases lexicographically at every step:
+- Inner step: Second component decreases (first unchanged).
+- After inner loop: First component decreases (second resets to 9 on next entry).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+11 - x1
+x2 - 1
+
+**Explanation:**  
+The program terminates for all inputs. The outer loop runs at most `11 - x1` iterations (if `x1 <= 10` initially), where `x1` increases by 1 per iteration until it exceeds 10. The inner loop always terminates within 9 iterations (since `x2` is reset to 10 per outer iteration and decreases by 1 until it becomes 1).  
+
+A **nested (lexicographic) ranking function** is used:  
+1. **Outer loop ranking function:** `11 - x1`  
+   - Decreases by 1 per outer iteration (when `x1` increments).  
+   - Non-negative when `x1 <= 10` (loop condition).  
+2. **Inner loop ranking function:** `x2 - 1`  
+   - Decreases by 1 per inner iteration (when `x2` decrements).  
+   - Non-negative when `x2 > 1` (loop condition).  
+
+The lexicographic order ensures termination: during inner loop execution, the first component (`11 - x1`) remains constant while the second (`x2 - 1`) decreases. After the inner loop exits, the outer update decreases the first component.
+

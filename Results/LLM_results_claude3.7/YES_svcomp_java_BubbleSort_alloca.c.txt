@@ -1,0 +1,46 @@
+=== Response 1 ===
+Analyzing this program for termination:
+
+The program implements the Bubble Sort algorithm, which sorts an array by repeatedly stepping through it and swapping adjacent elements if they are in the wrong order. Let's analyze the loops:
+
+1. The outer for loop runs from pass=1 to pass<n, so it will execute n-1 times
+2. The inner for loop runs from i=0 to i<n-pass, so it decreases in iterations as pass increases
+3. Both loops have a clear, strictly decreasing counter with a fixed lower bound
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+(n - pass) + (n * (n - 1) / 2 - (pass - 1) * pass / 2)
+
+This ranking function has two components:
+1. (n - pass) represents the iterations left in the current inner loop
+2. (n * (n - 1) / 2 - (pass - 1) * pass / 2) represents the total number of remaining inner loop iterations across all remaining outer loop passes
+
+This function strictly decreases with each iteration of either loop and is bounded below by 0.
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates.
+
+The program implements a bubble sort algorithm and applies it to an array of integers. Let's examine the control flow:
+
+1. In main(), an array of size `array_size` is allocated and then sorted using the `sort()` function
+2. If `array_size` is less than 1, it's set to 1, ensuring a valid array size
+3. In the `sort()` function, there are two nested loops:
+   - Outer loop runs from 1 to n-1
+   - Inner loop runs from 0 to n-pass-1
+
+The outer loop will execute exactly n-1 times, and the inner loop will execute n-pass times for each iteration of the outer loop. Both loops have a fixed number of iterations based on the input array size, and the loop counters change in a consistent way (incrementing/decrementing by 1).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(n - pass) + (n - pass - i)
+
+This ranking function captures the remaining iterations across both nested loops. For the outer loop, we have (n - pass) iterations remaining, and for each iteration of the outer loop, we have (n - pass - i) iterations of the inner loop remaining. The function strictly decreases with each iteration and is always non-negative until termination.
+

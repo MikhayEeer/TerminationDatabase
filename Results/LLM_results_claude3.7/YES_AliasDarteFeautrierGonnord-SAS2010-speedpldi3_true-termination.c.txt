@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - i - 1 + (m + 1 - j)/m
+
+The program terminates because in each iteration either j increases until it reaches m (at which point i increases and j resets to 0), or i increases directly. Since i is bounded by n and increases monotonically toward this bound, the loop will eventually terminate.
+
+The ranking function (n - i - 1) + (m + 1 - j)/m captures this behavior: the first part measures progress in terms of the outer loop counter i, while the second part measures progress within each iteration of j. This decreases with each iteration until it reaches 0, at which point the loop terminates.
+
+=== Response 2 ===
+Analyzing this program step by step:
+
+1. The main loop `while (i < n)` continues as long as `i` is less than `n`.
+2. Inside the loop:
+   - If `j < m`, then `j` is incremented by 1
+   - Otherwise, `j` is reset to 0 and `i` is incremented by 1
+3. Variables `i` and `j` are initialized to 0 at the beginning
+4. The loop only executes if `m > 0` and `n > m`
+
+The loop will terminate because:
+- Each time `j` reaches `m`, the variable `i` is incremented by 1
+- Since `i` is monotonically increasing and will eventually reach `n`, the loop condition will eventually become false
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(n - i) * (m + 1) + (m - j)
+
+This ranking function expresses the remaining number of iterations needed to complete the loop. It decreases by 1 in each iteration (either by decreasing (m-j) or by decreasing (n-i) and resetting j). The function is always non-negative when the loop executes and strictly decreases with each iteration, proving termination.
+

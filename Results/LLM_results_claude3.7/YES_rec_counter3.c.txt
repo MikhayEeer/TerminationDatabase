@@ -1,0 +1,69 @@
+=== Response 1 ===
+I'll analyze the given program to determine if it terminates or not.
+
+First, let's analyze the recursive function `rec(int a)`:
+- It's a recursive function that terminates when `a` becomes 0
+- For any positive `a`, it calls `rec(a-1)` and decrements `a` each time
+- It has a while loop that decrements `rescopy` until it reaches 0
+- It returns 1 + the result of the recursive call
+
+Now, let's look at the `main` function:
+- It reads a non-deterministic integer `i`
+- If `i <= 0`, the function returns immediately
+- Otherwise, it calls `rec(i)` and stores the result in `res`
+- Then it has a while loop that runs while `res < 1`
+
+The issue is in the final while loop. Let's analyze the value of `res` after calling `rec(i)`:
+- For any positive `i`, `rec(i)` returns a value of at least 1 (since it returns 1 + rec(i-1))
+- This means that `res` will always be at least 1
+- The condition `res < 1` will never be true
+- But the while loop has an empty body that runs as long as `res < 1`
+
+Since the condition is never true, the while loop will never execute, and the program will terminate.
+
+However, if through some unexpected behavior `res` were less than 1, then the while loop would run indefinitely with no way to change the value of `res`, causing non-termination.
+
+Let's carefully trace the execution:
+1. If `i <= 0`, the program terminates immediately
+2. If `i > 0`, `rec(i)` will return a value of exactly `i`
+3. Since `i > 0`, `res` will be greater than 0
+4. The condition `res < 1` is true only if `res` is 0 (which happens if `i` is exactly 1)
+5. In this case, the program would not terminate because `res` never changes inside the empty while loop
+
+Wait, I made a mistake. Let's recalculate. For any positive `i`, `rec(i)` will return exactly `i`. For `i=1`, `rec(1)` returns 1 (which is not less than 1). So the while loop in main will never execute.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates.
+
+First, let me trace the logic:
+
+1. The `rec` function is a recursive function that:
+   - Returns 0 for input 0
+   - For positive inputs a, it computes rec(a-1), decrementing a counter variable from that value to 0, then returns 1 + rec(a-1)
+
+2. The main function:
+   - Gets a non-deterministic integer i
+   - If i ≤ 0, it returns immediately (terminating)
+   - If i > 0, it calls rec(i) and assigns the result to res
+   - Then enters a while loop checking if res < 1
+
+Looking at the recursive function, for any positive input a, rec(a) will always return a positive value (specifically, a itself). This is because for a=1, rec(1) = 1+rec(0) = 1. For a=2, rec(2) = 1+rec(1) = 1+1 = 2, and so on.
+
+The issue is in the main function. After calling rec(i) for positive i, res will be equal to i, which is positive. Then the while loop `while(res < 1)` will never be entered since res ≥ 1. However, if i were somehow 0, then res would be 0, and the while loop would run indefinitely.
+
+But the program checks that i > 0 before calling rec(i), so the condition for non-termination should never occur.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1
+

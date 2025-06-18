@@ -1,0 +1,22 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * a^1 + 0.0 * 1
+1.0 * rescopy^1 + 0.0 * a^1
+
+The program terminates because:
+1. Recursive calls decrease `a` by 1 in each invocation until reaching the base case (`a == 0`). The initial value of `a` is a positive integer, so recursion must end.
+2. After each recursive call returns, the loop in `rec` iterates exactly `rescopy` times (which equals the returned value of `rec(a-1)`). Since `rec(k) = k` by its recursive definition, the loop for call `rec(a)` runs `a-1` times. The loop counter `rescopy` decreases linearly from `a-1` to `0`.
+
+The ranking function uses two phases:
+- First phase (recursive call chain): Ranking function `a` decreases with each recursion depth.
+- Second phase (loop execution): Ranking function `rescopy` decreases with each loop iteration. 
+
+Switching from recursion phase to loop phase occurs after recursive calls complete; the loop ranking function is now active and decreases to termination. The program fully terminates when all phases complete.
+

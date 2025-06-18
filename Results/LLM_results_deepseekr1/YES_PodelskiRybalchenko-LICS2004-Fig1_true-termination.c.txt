@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x + 1
+max(0, x - y)
+
+**Explanation:**  
+The program terminates for all inputs. The outer loop runs while `x >= 0`, decrementing `x` by 1 each iteration. The inner loop runs while `y < x`, doubling `y` each iteration (starting from `y = 1`).  
+
+- **Outer ranking function:** `x + 1`  
+  This decreases by 1 in each outer iteration (when `x` is decremented) and is bounded below by 0 (when `x` becomes negative, the loop exits).  
+
+- **Inner ranking function:** `max(0, x - y)`  
+  This is active only when the inner loop runs (`x >= 2` and `y < x`). It decreases by at least 1 in each inner iteration (since `y` doubles, reducing `x - y` by at least `y >= 1`). The `max(0, ...)` ensures non-negativity; the loop exits when `x - y <= 0`.  
+
+The lexicographic order (first `x + 1`, then `max(0, x - y)`) proves termination: the inner loop reduces the second component while the first remains constant, and the outer loop reduces the first component after the inner loop exits.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x + 1
+if (x >= 2) then ceil(log2(x)) - floor(log2(y)) else 0
+
+### Explanation:
+- **Termination Reason**: The program terminates because:
+  1. The outer loop variable `x` starts at a non-negative integer (due to the loop condition `x >= 0`) and decreases by 1 in each iteration (`x = x - 1`), eventually becoming negative and exiting the loop.
+  2. The inner loop always terminates for any fixed `x >= 0` because:
+     - If `x <= 1`, the inner loop condition `y < x` is false initially (since `y` is set to 1), so it skips the inner loop.
+     - If `x >= 2`, `y` starts at 1 and doubles each iteration (`y = 2*y`), growing exponentially until `y >= x` (which occurs in at most `ceil(log2(x))` steps).
+
+- **Nested Ranking Function**:
+  - **Outer Loop Measure**: `x + 1` (linear). This decreases by 1 in each outer iteration (when `x` is decremented), starting from `initial_x + 1` and reaching 0 when `x = -1`.
+  - **Inner Loop Measure**: `if (x >= 2) then ceil(log2(x)) - floor(log2(y)) else 0`. This is:
+    - **0** if `x <= 1` (inner loop not entered).
+    - **Positive integer** when `x >= 2` and `y < x` (inside inner loop). It decreases by at least 1 in each inner iteration (since `y` doubles, increasing `floor(log2(y))` by 1). It becomes 0 when `y >= x`, exiting the loop.
+  - The lexicographic order `(x + 1, inner_measure)` proves termination: the inner measure decreases strictly while the outer measure stays constant; when the inner loop exits, the outer measure decreases strictly.
+

@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + 0.0 * 1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration:
+- `x` increases by 1
+- `y` increases by 2  
+The difference `d = x - y` decreases by 1 per iteration (`d' = (x+1) - (y+2) = d - 1`). Since `d` starts as a positive integer (due to the loop condition and integer types), it decreases until `d <= 0`, at which point the loop terminates. The ranking function `x - y` is linear, non-negative in the loop (as `x > y`), and strictly decreases by 1 each iteration, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration:
+- `x` increases by 1
+- `y` increases by 2  
+The difference `x - y` decreases by exactly 1 per iteration (since `(x+1) - (y+2) = (x - y) - 1`). Since `x` and `y` are integers, the initial difference `d = x - y` is a positive integer when entering the loop. The value `d` decreases until it becomes non-positive, at which point the loop terminates. The ranking function `x - y` is:
+- **Non-negative** at loop entry (since `x > y` implies `x - y ≥ 1` for integers)
+- **Decreases by at least 1** each iteration  
+Thus, termination is proven by this linear ranking function.
+

@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length^1
+
+**Explanation:**  
+The program terminates because the loop in `cbzero` always runs a finite number of times. The loop condition uses `length--`, which decrements `length` by 1 per iteration starting from the initial `n` (which is at least 1). When `length` reaches 0, the loop exits. The ranking function `length` (evaluated at each loop condition check) decreases by exactly 1 per iteration, is nonnegative, and starts at a fixed `n` value. Thus, the program terminates. The ranking function is linear in the loop variable `length`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  length^1
+
+**Explanation:**  
+The only loop in the program is the `for` loop in the `cbzero` function. The loop increments the pointer `p` and decrements `length` (of type `size_t`, unsigned) until `length` becomes zero. Since `length` is initialized to a fixed nonnegative integer `n` (where `n >= 1` at the time of the call due to the guards in `main`), and `length` decreases by exactly 1 in each iteration (due to the post-decrement `length--`), the loop will execute exactly `n` times.  
+
+The ranking function is defined at the start of the loop body as `R = length`, which is:  
+- **Nonnegative:** At loop entry, `length` is `n - 1, n - 2, ..., 0` (after the initial decrement).  
+- **Strictly decreasing:** Each iteration sets `length = length - 1` (via the condition), reducing `R` by 1.  
+- **Well-founded:** `R` maps to natural numbers, bounded below by 0.  
+
+Thus, termination is proven by a linear ranking function.
+

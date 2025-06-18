@@ -1,0 +1,51 @@
+=== Response 1 ===
+I'll analyze this program step by step to determine whether it terminates.
+
+First, let's understand the loop behavior:
+- Initial values: a = 1, b = 2
+- Loop condition: a + b < 5
+- Loop body swaps a and b values using the three-step swap algorithm
+
+Let me trace the execution:
+- Initially: a = 1, b = 2, a+b = 3 < 5, so we enter the loop
+- First iteration:
+  - After a = a - b: a = 1-2 = -1, b = 2
+  - After b = a + b: a = -1, b = -1+2 = 1
+  - After a = b - a: a = 1-(-1) = 2, b = 1
+  - Now a = 2, b = 1, a+b = 3 < 5, enter loop again
+- Second iteration:
+  - After swap: a = 1, b = 2
+  - Now a = 1, b = 2, a+b = 3 < 5, enter loop again
+
+We can see that the values of a and b are cycling between (1,2) and (2,1), with a+b always being 3, which is less than 5. This means the loop condition remains true forever, and the program never terminates.
+
+[RESULT]
+NONTERM
+[REASON]
+The program contains a loop that cycles between the states (a=1,b=2) and (a=2,b=1), with a+b=3 < 5 in both states, causing the loop condition to remain true indefinitely.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The program initializes `a = 1` and `b = 2`, then enters a while loop that continues as long as `a + b < 5`.
+
+Let's trace the execution:
+1. Initially, `a = 1, b = 2` → `a + b = 3` which is less than 5, so we enter the loop.
+2. First iteration:
+   - `a = a - b` → `a = 1 - 2 = -1`
+   - `b = a + b` → `b = -1 + 2 = 1`
+   - `a = b - a` → `a = 1 - (-1) = 2`
+   - After first iteration: `a = 2, b = 1, a + b = 3` < 5, loop continues.
+3. Second iteration:
+   - `a = a - b` → `a = 2 - 1 = 1`
+   - `b = a + b` → `b = 1 + 1 = 2`
+   - `a = b - a` → `a = 2 - 1 = 1`
+   - After second iteration: `a = 1, b = 2, a + b = 3` < 5, loop continues.
+
+We notice that after two iterations, we have `a = 1, b = 2` again, which is exactly our initial state. This means the program has entered a cycle that will repeat indefinitely, as the values of `a` and `b` will oscillate between `(1,2)` and `(2,1)`, always keeping `a + b = 3` which is less than 5.
+
+[RESULT]
+NONTERM
+[REASON]
+The program doesn't terminate because the values of a and b cycle between (1,2) and (2,1), keeping a+b=3 which is always less than 5, so the loop condition remains true indefinitely.
+

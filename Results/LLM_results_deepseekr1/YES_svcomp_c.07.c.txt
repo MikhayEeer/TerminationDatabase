@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * i^1 + -1.0 * j^1 + 1.0 * k^1
+
+The program terminates because the loop condition `(i <= 100) && (j <= k)` cannot hold indefinitely. The ranking function \( f(i, j, k) = k - j - i \) decreases by exactly 2 in each iteration and is bounded below by -100 (since \( i \leq 100 \) and \( j \leq k \) imply \( k - j - i \geq -100 \)). This guarantees termination within a finite number of steps. The variables `tmp` and `c` do not affect termination and are excluded from the ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * k^1
+
+### Explanation:
+The loop terminates because the variable `k` decreases by exactly 1 in each iteration and is bounded below for any fixed initial state. The invariant \(S = i + j + k\) (constant) and the condition \(i \leq 100\) imply \(k \geq \frac{S - 100}{2}\), which provides a fixed lower bound for `k` during each program execution. Since `k` decreases monotonically by 1 and is integer-valued, it can only take finitely many values before violating \(j \leq k\) or \(i \leq 100\), ensuring termination. The ranking function \(f(k) = k\) decreases by at least 1 per iteration and is bounded below, proving termination.
+

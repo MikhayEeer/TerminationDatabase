@@ -1,0 +1,36 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+Looking at the program:
+- It initializes `i = 0` and `c = 0`
+- It has a `while(1)` loop, which is an infinite loop unless there's a break condition
+- Inside the loop, if `i > 10`, it breaks out of the loop
+- Each iteration, it increments both `i` and `c`
+
+Since `i` starts at 0 and increases by 1 in each iteration, it will eventually reach 11, at which point the condition `i > 10` becomes true and the loop terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+11 - i
+
+The ranking function shows that with each iteration, the value (11-i) decreases by exactly 1, starting at 11 and ending at 0, at which point the loop terminates.
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates and provide a ranking function if it does.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+11 - i
+
+The program is clearly terminating. The loop has a condition `while(1)` which would normally indicate an infinite loop, but there's a `break` statement when `i > 10`. 
+
+The variable `i` starts at 0 and increments by 1 in each iteration. After 11 iterations, `i` will reach the value 11, at which point `i > 10` becomes true, and the loop will break. The ranking function `11 - i` starts at 11 when `i = 0` and decreases by 1 in each iteration, reaching 0 when `i = 11`, at which point the loop terminates.
+

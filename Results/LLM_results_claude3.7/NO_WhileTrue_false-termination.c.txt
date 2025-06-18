@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop with the condition `while (1)` which always evaluates to true, and there's no break statement inside the loop to exit it.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+This program contains an infinite loop with the condition `while (1)` which is always true, and the loop body does nothing. Since the condition is permanently true and there's no way to exit the loop, the program will never terminate.
+

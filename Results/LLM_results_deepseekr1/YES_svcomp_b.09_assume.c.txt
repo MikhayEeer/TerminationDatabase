@@ -1,0 +1,16 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0
+
+Reasoning: The function terminates because the loop iterates while `x ≠ 0`, and in each iteration, the value of `x` strictly decreases. Specifically:
+1. If `x > y`, `x` is set to `y` (where `y < x` since `x > y` and both are integers), decreasing `x`.
+2. If `x ≤ y`, `x` is decremented by 1 (and `x > 0` initially ensures `x` remains ≥0).
+Since `x` starts positive and decreases by at least 1 in every iteration, it eventually reaches 0, terminating the loop. The ranking function `f(x, y) = x` decreases monotonically, proving termination. Constants are included for completeness but are zero as they do not affect the measure coefficient.
+

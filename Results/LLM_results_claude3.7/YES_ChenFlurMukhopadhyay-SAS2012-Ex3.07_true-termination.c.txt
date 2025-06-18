@@ -1,0 +1,51 @@
+=== Response 1 ===
+I'll analyze the program to determine whether it terminates and provide an appropriate ranking function if it does.
+
+Let's track the evolution of variables in this loop:
+- Initially, we have values (x, y, z)
+- After 1 iteration: (x+y, z, -z-1)
+- After 2 iterations: (x+y+z, -z-1, z+1)
+- After 3 iterations: (x+y+z+(-z-1), z+1, -z-2)
+  = (x+y-1, z+1, -z-2)
+
+The key observation is that the value of z alternates between positive and negative values, decreasing in absolute value with each pair of iterations. This causes y to oscillate as well, but with a decreasing amplitude. Eventually, these values stabilize such that y is negative enough to make x decrease with each iteration, leading to termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 2.0 * y^1 + 1.0 * z^1 + 5.0 * 1
+1.0 * x^1 - 2.0 * z^1 + 5.0 * 1
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates.
+
+The program has a loop with condition `x >= 0`. In each iteration:
+1. `x` is updated to `x + y`
+2. `y` is updated to `z`
+3. `z` is updated to `-z - 1`
+
+Let's track what happens to the value of `z` over iterations:
+- Initial value: z₀
+- After 1st iteration: z₁ = -z₀ - 1
+- After 2nd iteration: z₂ = -z₁ - 1 = -(-z₀ - 1) - 1 = z₀ + 1 - 1 = z₀
+- After 3rd iteration: z₃ = -z₂ - 1 = -z₀ - 1 = z₁
+- After 4th iteration: z₄ = -z₃ - 1 = -z₁ - 1 = -(-z₀ - 1) - 1 = z₀
+
+So z cycles between two values: z₀ and -z₀-1
+
+Similarly, y cycles: y → z₀ → -z₀-1 → z₀ → ...
+
+Now for x: in each iteration, x increases by the current value of y.
+With y oscillating between z₀ and -z₀-1, the change in x over two consecutive iterations is z₀ + (-z₀-1) = -1.
+
+This means x decreases by 1 after every two iterations, eventually becoming negative and terminating the loop.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x + (y + z + 1 >= 0 ? 0 : 1)
+

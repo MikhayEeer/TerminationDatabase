@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100000 - i
+100000 - x
+
+The program is terminating because:
+1. The first loop (while) has i starting at 0 and incrementing by 1 in each iteration, with a bound of 100000, so it will execute exactly 100000 times.
+2. The second loop (for) has x starting at 0 and incrementing by 1 in each iteration, with a bound of 100000, so if it executes, it will run exactly 100000 times.
+
+Both loops have simple linear ranking functions showing the remaining iterations.
+
+=== Response 2 ===
+Looking at this program:
+
+1. The program has a while loop that iterates from i=0 to i=99999 (< 100000).
+2. Inside the loop, it checks if a[i] != b[i] and sets rv to 0 if this is true.
+3. After the while loop, if rv is still 1 (meaning all a[i] == b[i]), it enters a for loop that iterates from x=0 to x=99999.
+4. In the for loop, it calls __VERIFIER_assert(a[x] == b[x]) for each x.
+
+The program clearly terminates because:
+- The while loop has a fixed number of iterations (100000).
+- The for loop also has a fixed number of iterations (100000).
+- There are no other loops or recursive calls.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100000 - i
+
+The ranking function for the while loop is simply 100000 - i, which decreases by 1 in each iteration and is always non-negative until the loop condition becomes false. Similarly, the ranking function for the for loop would be 100000 - x.
+

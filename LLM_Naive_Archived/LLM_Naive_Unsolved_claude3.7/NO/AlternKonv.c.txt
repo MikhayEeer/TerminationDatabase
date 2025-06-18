@@ -1,0 +1,71 @@
+=== Response 1 ===
+I'll analyze the program to determine if it's terminating or not.
+
+Let's track the behavior of the variable `i` in the loop:
+
+1. If `i < 0`:
+   - `i = i+2` (increases i by 2)
+   - If `i` is still negative after adding 2, then `i = i*(-1)` (makes i positive)
+
+2. If `i >= 0`:
+   - `i = i-2` (decreases i by 2)
+   - If `i` is still positive after subtracting 2, then `i = i*(-1)` (makes i negative)
+
+Let's examine different cases:
+
+- If `i` starts negative:
+  - If `i+2` is still negative, it becomes positive (multiplied by -1)
+  - If `i+2` is non-negative (0 or positive), it remains as is
+
+- If `i` starts positive:
+  - If `i-2` is still positive, it becomes negative (multiplied by -1)
+  - If `i-2` is non-positive (0 or negative), it remains as is
+
+The key insight is that in each iteration, `i` either:
+- Gets closer to 0 by increasing (if negative) or decreasing (if positive) by 2, or
+- Flips sign and becomes further from 0, but on the next iteration will move closer by 2
+
+This guarantees that `i` will eventually reach 0, terminating the loop.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|i|
+
+The absolute value of i serves as a ranking function because:
+1. It's always non-negative
+2. It strictly decreases in every loop iteration or decreases after at most two iterations
+3. When it reaches 0, the loop terminates
+
+=== Response 2 ===
+I'll analyze the termination of this program.
+
+Let's trace the behavior of the loop for different values of `i`:
+
+For `i < 0`:
+- `i = i + 2` (increase by 2)
+- If `i` is still < 0, then `i = i*(-1)` (becomes positive)
+
+For `i > 0`:
+- `i = i - 2` (decrease by 2)
+- If `i` is still > 0, then `i = i*(-1)` (becomes negative)
+
+For any initial value, this program will eventually reach `i = 0` and terminate:
+- When `i` is negative, it either gets closer to 0 or becomes positive
+- When `i` is positive, it either gets closer to 0 or becomes negative
+- When flipping sign, the absolute value either decreases or stays very close to the original value
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(2*|i|, |i|)
+
+This piecewise ranking function captures the decrease toward termination:
+- For large values, the function decreases by at least 1 in each iteration
+- When |i| is small, the operations still make progress toward zero
+- The maximum ensures we capture both cases where we decrement directly and where we flip signs
+

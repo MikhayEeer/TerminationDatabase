@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The loop condition `(x > 0 && y > 0)` ensures that both variables must be positive for the loop to continue. In each iteration, both `x` and `y` are decremented by 1. The ranking function `x + y` is linear and decreases by exactly 2 in each iteration (since both variables decrease by 1). At the start of each loop iteration, `x > 0` and `y > 0` imply `x + y ≥ 2`, ensuring the ranking function is non-negative and bounded below. As it decreases by a fixed positive amount (2) each iteration, it must eventually drop below 2, causing the loop to terminate. Thus, the program always terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The loop condition `(x > 0 && y > 0)` requires both variables to be positive. In each iteration, both `x` and `y` decrease by exactly 1. The ranking function `x + y` is linear and satisfies:  
+- **Non-negativity:** At loop entry, `x > 0` and `y > 0` imply `x + y ≥ 2 > 0`.  
+- **Strict decrease:** After one iteration, `x' = x - 1` and `y' = y - 1`, so `x' + y' = (x + y) - 2`, decreasing by 2 (≥1).  
+Since `x + y` decreases by at least 1 in each iteration and is bounded below by 0, the loop must terminate after at most `min(x, y)` iterations (if initially positive) or immediately otherwise.
+

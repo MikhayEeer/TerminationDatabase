@@ -1,0 +1,40 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0
+0.0 * x^1 + 1.0 * y^1 + 0.0
+
+**Explanation:**  
+The program terminates because the minimum of the values pointed to by `x` and `y` decreases by exactly 1 in every loop iteration, regardless of the non-deterministic choice. Initially, both `*x > 0` and `*y > 0` to enter the loop. In each iteration:
+- The branch updates either `(x, y)` to `(min(x,y)-1, x+y)` or `(x+y, min(x,y)-1)`.
+- The new minimum value is always `min(x,y) - 1`, which is strictly less than the previous minimum.  
+Since the minimum starts as a positive integer and decreases by 1 each time, it eventually becomes 0, causing the loop condition `*y > 0 && *x > 0` to fail. The ranking function is the piecewise minimum of `x` and `y`, represented as two linear expressions for the two cases (when `x` is minimal and when `y` is minimal). The expressions `x` and `y` correspond to these cases, and both decrease monotonically.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+*x if *x <= *y
+*y if *x > *y
+
+### Explanation:
+The program terminates because the loop condition `(*y > 0 && *x > 0)` requires both `*x` and `*y` to be positive. In each iteration, the value of `min(*x, *y)` decreases by exactly 1, regardless of the non-deterministic branch chosen:
+- **Branch 1**: Sets `*x = min(*x, *y) - 1` and `*y = *x + *y`.
+- **Branch 2**: Sets `*y = min(*x, *y) - 1` and `*x = *x + *y`.
+
+The minimum value `min(*x, *y)` serves as a ranking function:
+- At loop entry, `min(*x, *y) ≥ 1` (since both are positive).
+- In each iteration, `min(*x, *y)` decreases by 1 (e.g., from `m` to `m-1`).
+- When `min(*x, *y)` reaches 0, the loop condition fails (as one variable becomes ≤0).
+
+The ranking function is expressed **piecewise**:
+- Use `*x` when `*x ≤ *y` (i.e., `min(*x, *y) = *x`).
+- Use `*y` when `*x > *y` (i.e., `min(*x, *y) = *y`).
+
+This piecewise function decreases by exactly 1 in every iteration, proving termination within at most `min(*x, *y)` initial iterations.
+

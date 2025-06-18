@@ -1,0 +1,67 @@
+=== Response 1 ===
+I'm going to analyze whether this recursive program terminates or not.
+
+Let's examine the recursive function `rec1` first:
+
+When `i <= 0`, `rec1(i)` returns 0 and terminates.
+When `i > 0`, `rec1(i)` calls `rec1(i-2)`, then `rec1(rec1(i-2) - 1)`, and finally `rec1(rec1(rec1(i-2) - 1))`.
+
+Looking at the pattern of these recursive calls:
+1. `rec1(i-2)` reduces the input by 2
+2. When we call `rec1(i-2)`, we get some value (let's call it `v`)
+3. But `v-1` might be negative, which means `rec1(v-1)` would terminate immediately
+4. Even if it doesn't terminate immediately, the recursive calls have a decreasing pattern
+
+For any positive `i`, the recursive calls to `rec1` will eventually reach the base case (`i <= 0`), because:
+- Each recursive call reduces the argument by at least 1
+- For `i > 0`, `rec1(i-2)` is called, which is a strict decrease in the argument
+- The function always converges toward and reaches the base case
+
+The function `rec2` is not called in `main()`, so we don't need to analyze it for the program's termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * 1
+
+The ranking function is simply the parameter `i`, which strictly decreases by at least 2 in each outer recursive call, ensuring termination.
+
+=== Response 2 ===
+I'll analyze the program for termination.
+
+First, I need to understand the behavior of the recursive functions `rec1` and `rec2`.
+
+For `rec1(i)`:
+- Base case: if i ≤ 0, returns 0
+- Recursive case: returns rec1(rec1(rec1(i-2) - 1)) + 1
+
+For `rec2(j)`:
+- Base case: if j ≤ 0, returns 0
+- Recursive case: returns rec2(rec1(j+1)) - 1
+
+The main function calls `rec1(x)` with a non-deterministic integer x.
+
+Let's analyze `rec1`:
+- When i ≤ 0, we get 0
+- When i = 1, we get rec1(rec1(rec1(-1) - 1)) + 1 = rec1(rec1(0 - 1)) + 1 = rec1(rec1(-1)) + 1 = rec1(0) + 1 = 0 + 1 = 1
+- When i = 2, we get rec1(rec1(rec1(0) - 1)) + 1 = rec1(rec1(0 - 1)) + 1 = rec1(rec1(-1)) + 1 = rec1(0) + 1 = 0 + 1 = 1
+- When i > 2, the inner calls receive i-2, which is strictly decreasing until reaching the base case
+
+For any input i, `rec1(i)` will always terminate because:
+1. The innermost recursive call decreases the parameter by 2
+2. All recursive calls have strictly smaller arguments
+3. There is a base case when i ≤ 0
+
+Note that `rec2` is defined but never called in the main function, so it doesn't affect termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i + 0.0
+
+The ranking function for `rec1` is simply the parameter i itself, which decreases by at least 1 in each recursive call chain until reaching the base case.
+

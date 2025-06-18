@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * |x|
+
+**Explanation:**  
+The program terminates for all integer inputs `x` because:
+1. For `x <= 0`, `rec2(x)` immediately returns without recursion.
+2. For `x > 0`:
+   - `rec2(x)` calls `rec1(x)`, which always returns 1 (verified through base cases and nested recursion on decreasing arguments).
+   - `rec2(x)` then calls `rec2(0)` (since `rec1(x)-1 = 0`), which is a base case.
+   - The recursion depth of `rec1(x)` is bounded by `O(|x|)` (specifically, `floor((x+1)/2) + 1`), ensuring termination.
+
+The ranking function `|x|` (absolute value of the initial input) is linear and suffices as a termination measure:
+- It decreases indirectly through recursive calls (e.g., `rec1(i)` calls `rec1(i-2)` for `i > 0`).
+- The total number of function calls is linear in `|x|`, providing an upper bound on execution steps.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+For function rec1: max(0, i)
+For function rec2: max(0, j)
+
+**Explanation:**  
+Both `rec1` and `rec2` recurse only when their arguments are positive. For `rec1(i)`, recursive calls decrease `i` by at least 2 (e.g., `i-2 < i`), ensuring each call reduces the argument until it becomes non-positive. For `rec2(j)`, the only recursive case calls `rec1(j)` (with linear recursion depth) then calls `rec2(0)` (which terminates immediately). The ranking functions `max(0, i)` and `max(0, j)` decrease strictly in these recursions, proving termination. Constant-depth paths in `rec1` (e.g., arguments ≤ 0) and base cases support this. Initial input `x` bounds total recursion depth linearly.
+

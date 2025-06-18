@@ -1,0 +1,54 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates or not.
+
+In this program:
+1. `x` is initialized to a non-deterministic value
+2. `c` is initialized to 1
+3. While loop continues as long as `c > 0`
+4. In each iteration:
+   - If `x > 100`, decrease `x` by 10 and decrease `c` by 1
+   - Otherwise, increase `x` by 11 and increase `c` by 1
+
+Let's analyze the termination behavior:
+
+- When `x > 100`, `c` decreases by 1, moving toward termination
+- When `x ≤ 100`, `c` increases by 1, moving away from termination
+- However, `x` increases by 11 when `x ≤ 100`, so eventually `x` will exceed 100
+- Once `x > 100`, `c` will decrease in each iteration
+- Since `c` starts at 1, if it decreases enough times, the loop will terminate
+
+The program terminates because even if `c` increases for a while (when `x ≤ 100`), eventually `x` will exceed 100, after which `c` will consistently decrease until it's no longer positive.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if x > 100 then c else 0
+
+=== Response 2 ===
+I'll analyze this program's termination behavior by examining the loop and its conditional statements.
+
+In the program:
+- We have a while loop that continues as long as `c > 0`
+- Inside the loop:
+  - If `x > 100`, then `x` decreases by 10 and `c` decreases by 1
+  - If `x ≤ 100`, then `x` increases by 11 and `c` increases by 1
+
+Let's trace the behavior:
+- Initially, `c = 1` (positive)
+- If `x` stays > 100 forever, then `c` will eventually reach 0 and the loop terminates
+- If `x ≤ 100` at some point, then `c` will increase while `x` increases
+- Eventually, `x` will exceed 100, then `c` will start decreasing
+- For the loop to not terminate, `x` would need to drop below 100 again before `c` reaches 0
+
+Looking deeper, we can see that when `x` drops below 100, it lands at most at 91 (if x was 101). Then it increases by 11 to 102 and stays above 100. This means once `x > 100`, it will eventually stay > 100, and `c` will steadily decrease to 0.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+c when x > 100
+2*c - x/50 when x ≤ 100
+

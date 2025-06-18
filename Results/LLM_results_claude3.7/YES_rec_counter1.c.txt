@@ -1,0 +1,65 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program takes a non-deterministic integer `i`, checks if it's less than or equal to 0, and if not, calls a recursive function `rec(i)`.
+
+The `rec` function has the following behavior:
+- Base case: If `a == 0`, it returns 0 immediately
+- Recursive case: It calls itself with `a-1`, stores the result, creates a copy of the result, decrements the copy in a while loop until it reaches 0, then returns 1 + the original result
+
+Let's analyze if this program terminates:
+
+1. The recursive function `rec` always decreases the parameter `a` by 1 in each call until it reaches 0
+2. The while loop inside `rec` always decreases `rescopy` until it reaches 0
+3. The main function only calls `rec` if `i > 0`
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+a + res + rescopy
+
+The nested ranking function shows that:
+- The outer measure is the parameter `a`, which decreases by 1 in each recursive call until it reaches 0
+- For each value of `a`, the inner measure is `rescopy` (copy of the result), which decreases by 1 in each iteration of the while loop until it reaches 0
+
+For any initial value of `i > 0`, the recursive calls will eventually terminate when `a` reaches 0, and each while loop will terminate as it's just decrementing a positive integer until it reaches 0.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The function `rec` is a recursive function that:
+1. Returns 0 when `a == 0` (base case)
+2. For other cases, it:
+   - Calls itself with `a-1`
+   - Copies the result
+   - Has a loop that decrements `rescopy` until it reaches zero
+   - Returns 1 plus the result of the recursive call
+
+The main function:
+1. Takes a non-deterministic input `i`
+2. If `i <= 0`, it returns immediately
+3. Otherwise, it calls `rec(i)` and doesn't use the result
+
+Let me analyze termination:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * 1
+1.0 * rescopy^1 + 0.0 * 1
+
+The program terminates because:
+1. In the recursive function `rec`: 
+   - The parameter `a` is decremented by 1 in each recursive call
+   - The base case `a == 0` eventually terminates the recursion
+   - The inner while loop terminates because `rescopy` is decremented each iteration until it reaches 0
+2. In the main function:
+   - If `i <= 0`, the program terminates immediately
+   - If `i > 0`, the program calls `rec(i)`, which terminates as explained above
+
+The ranking functions show that both loops (the recursive function and the inner while loop) have clear decreasing measures that eventually reach a minimum value.
+

@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1 + -1.0 * z^1
+
+### Explanation:
+The program always terminates because the loop condition \(x > y + z\) depends on the sum \(y + z\), which increases by 2 in each iteration (since both \(y\) and \(z\) increment by 1). The variable \(x\) remains unchanged. 
+
+- **Initial state**: If \(x \leq y + z\), the loop skips entirely → terminates.
+- **Loop execution**: When \(x > y + z\), the expression \(x - y - z\) is a positive integer (due to integer types). Each iteration reduces this value by 2 (since \(y + z\) increases by 2). The loop continues until \(x - y - z \leq 0\), which must occur after a finite number of steps because \(x - y - z\) decreases monotonically and is bounded below by non-positive integers.
+
+**Ranking function**: \(r = x - y - z\)  
+- **Type**: Linear (affine expression with no divisions/piecewise components).  
+- **Behavior**:  
+  - At loop entry: \(r > 0\) (ensured by the condition \(x > y + z\)).  
+  - After each iteration: \(r\) decreases by 2 (since \(y \mapsto y+1\), \(z \mapsto z+1\) → \(r' = x - (y+1) - (z+1) = r - 2\)).  
+- **Termination**: \(r\) is strictly decreasing and bounded below (eventually \(r \leq 0\)), proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.5 * x^1 + (-0.5) * y^1 + (-0.5) * z^1
+
+**Explanation:** The loop condition `x > y + z` ensures that at the start of each iteration, the expression `x - y - z` is positive. In each iteration, both `y` and `z` increase by 1, causing `x - y - z` to decrease by exactly 2. The ranking function `r = (x - y - z)/2` is linear and decreases by exactly 1 per iteration. Since `r > 0` at loop entry and decreases monotonically, it must eventually become non-positive, causing the loop to terminate. The coefficients are derived directly from the linear combination of variables in `r`.
+

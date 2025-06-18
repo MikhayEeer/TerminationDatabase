@@ -1,0 +1,22 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x + 1.0 * y + 0.0 * z
+1.0 * x + 0.0 * y + 0.0 * z
+
+**Explanation:**  
+The program terminates as the value of `x` decreases over iterations within a two-phase cycle. The ranking functions are:
+- **Phase 0 (even-numbered iterations, including initial):** \( f_0 = x + y \).  
+- **Phase 1 (odd-numbered iterations):** \( f_1 = x \).
+
+**Behavior:**  
+- **From even (phase 0):** Transition to odd (phase 1) with \( f_1 = x + y \) (same as \( f_0 \)).  
+- **From odd (phase 1):** Transition to next even state reduces \( f_0 \) by 1 (i.e., if current even state has \( f_0 = c \), next even state has \( f_0 = c - 1 \)).  
+The strict decrease in \( f_0 \) every two iterations ensures eventual termination, as \( x \) becomes non-positive. Loop checks `x > 0` before each iteration, so negative \( f_0 \) or \( f_1 \) cause exit.
+

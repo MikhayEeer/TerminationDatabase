@@ -1,0 +1,22 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(0, x - z) + max(0, y - z)
+
+**Explanation:**  
+The program terminates because both loops decrease their respective variables toward a fixed bound. The outer loop runs while `x > z`, decrementing `x` by 1 each iteration. The inner loop runs while `y > z`, decrementing `y` by 1 each iteration. Crucially:
+- The inner loop always terminates (reducing `y` to `≤ z`).
+- After the inner loop finishes, `y` remains `≤ z` for subsequent outer iterations (since `y` is never increased), so the inner loop runs at most once.
+- The outer loop runs at most `max(0, x - z)` times, as `x` decreases by 1 per iteration until `x ≤ z`.
+
+The ranking function `max(0, x - z) + max(0, y - z)` is piecewise linear and non-negative. It decreases by at least 1 in every iteration:
+- **Inner loop step:** `y` decreases → `max(0, y - z)` decreases by 1 (if `y > z`).
+- **Outer loop step (no inner):** `x` decreases → `max(0, x - z)` decreases by 1 (if `x > z`).  
+The function is bounded below by 0, ensuring termination.
+

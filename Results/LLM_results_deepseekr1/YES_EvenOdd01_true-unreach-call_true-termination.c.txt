@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program terminates for all nonnegative inputs because:
+1. The main function checks if n < 0 and exits immediately for negative values.
+2. For n ≥ 0, the mutually recursive functions isOdd and isEven reduce the argument by 1 in each call until reaching base cases (n=0 or n=1).
+3. The recursion depth is exactly n, which decreases by 1 in each step, ensuring termination.
+
+The ranking function is the argument value `n` passed to the recursive functions. It decreases linearly with each recursive call and is bounded below by 0, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+1.0 * n
+
+### Explanation:
+The program uses mutually recursive functions `isOdd` and `isEven` to determine the parity of a nonnegative integer `n`. The recursion depth is linear in `n`, as each recursive call in either function decrements `n` by 1 until it reaches a base case (0 or 1). 
+
+- **Termination Argument**: For any `n ≥ 0`, the argument to `isOdd` or `isEven` decreases by at least one in each recursive step. Since the initial `n` is finite and strictly decreases until it hits a base case (where recursion stops), the program terminates for all inputs. The error branch in `main` is unreachable because `result` always equals `n % 2`.
+
+- **Ranking Function**: The value of `n` (the parameter in the current recursive call) serves as a linear ranking function. It strictly decreases with each recursion and is bounded below by 0. Thus, `f(n) = n` validates termination.
+

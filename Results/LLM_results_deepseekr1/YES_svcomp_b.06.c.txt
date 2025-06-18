@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The loop condition `(x > 0) && (y > 0)` requires both variables to be positive. In each iteration, both `x` and `y` are decremented by 1. The ranking function \( r = x + y \) decreases by exactly 2 per iteration (since \( x' = x - 1 \) and \( y' = y - 1 \), so \( r' = (x - 1) + (y - 1) = r - 2 \)). At loop entry, \( x \geq 1 \) and \( y \geq 1 \), so \( r \geq 2 \). The value of \( r \) is bounded below by 0 (as integers), and its decrease by a fixed positive amount (2) ensures termination. The loop exits when either variable becomes non-positive, which must occur within \( \lfloor r/2 \rfloor \) iterations.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The loop terminates because in each iteration, both `x` and `y` decrease by 1. The loop condition `(x > 0) && (y > 0)` ensures the loop runs only when both variables are positive. The ranking function \( f(x, y) = x + y \) is linear and decreases by at least 1 (specifically, by 2) in every iteration:  
+- Initial state: \( f(x, y) = x + y \)  
+- After one iteration: \( f(x-1, y-1) = (x-1) + (y-1) = x + y - 2 \)  
+Since \( x + y \) starts at a positive integer (≥2 when the loop is entered) and decreases by 2 each iteration, it is bounded below and eventually causes the loop condition to fail. The ranking function is valid for all states where the loop executes.
+

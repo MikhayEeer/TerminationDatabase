@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-9.0 * i^1 + -1.0 * j^1 + 93.0
+
+### Explanation:
+The program terminates because:
+1. **Outer loop**: `*i` starts at 0 and increments by 1 until `*i >= 10` (10 iterations).
+2. **Inner loop**: For each outer iteration, `*j` starts at 3. Due to the body (`*j -= 1`) and update (`*j += 2`), `*j` effectively increases by 1 per iteration. The loop runs while `*j < 12`, resulting in exactly 9 iterations per outer loop (values 3 to 11 inclusive).
+
+The total number of inner loop iterations is fixed at 90 (10 × 9). The linear ranking function `93 - 9*i - j`:
+- Decreases by 1 with every inner loop iteration (as `j` increases by 1).
+- Decreases by 9 when moving to the next outer iteration (as `i` increases by 1 and `j` resets to 3).
+- Remains non-negative throughout execution (minimum value is 1 at `i=9, j=11`), proving termination.
+
+=== Response 2 ===
+
+

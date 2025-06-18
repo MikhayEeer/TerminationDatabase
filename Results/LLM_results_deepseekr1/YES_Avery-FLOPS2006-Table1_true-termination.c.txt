@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * i^1 + 0.0 * y^1 + 0.0 * 1
+-1.0 * i^1 + 1.0 * y^1 + 0.0 * 1
+
+The program features a function `subxy` that begins by immediately returning if either input is non-positive. For positive inputs, it first executes a loop decrementing `i` from `x` to 0 (with `x > 0`). This loop utilizes the ranking function **i** (first expression), which starts at `x > 0` and decreases by 1 each iteration until it becomes 0, ensuring termination of the first loop.
+
+After the first loop, `i = 0`, and the second loop begins, incrementing `i` from 0 to `y` (with `y > 0`). The ranking function **y - i** (second expression) is used here. Initially, it is `y > 0`, and it decreases by 1 each iteration as `i` increases. This ensures termination of the second loop.
+
+The multi-phase ranking function combines these using lexicographic order:
+- Phase 1 (first expression) applies during the first loop.
+- Phase 2 (second expression) applies during the second loop.
+At the transition between loops, the phase index decreases (from 1 to 0), which constitutes a strict reduction in the lexicographic order. Both phases use linear expressions, and the overall structure ensures termination for all inputs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * y^1 + 1.0 * i^1 + 0.0 * 1
+1.0 * y^1 + (-1.0) * i^1 + 0.0 * 1
+
+### Explanation:
+The program terminates for all inputs. The function `subxy` contains two sequential loops:
+1. **First loop**: Decrements `i` from `x` (if `x > 0`) to 0. Ranking function: `i` (decreases linearly).
+2. **Second loop**: Increments `i` from 0 to `y` (if `y > 0`). Ranking function: `y - i` (decreases linearly).
+
+A multi-phase ranking function is used:
+- **Phase 1 (first loop)**: `2y + i` (decreases as `i` decrements; bounded by `2y` at loop exit).
+- **Phase 2 (second loop)**: `y - i` (decreases as `i` increments; initial value `y < 2y` ensures lexicographic decrease at phase transition).
+
+This proves termination as both phases decrease and the transition from phase 1 to phase 2 reduces the ranking value lexicographically.
+

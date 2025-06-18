@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * 1
+1.0 * *y_ref
+
+**Explanation:**  
+The program terminates because the outer loop runs at most once, and the inner loop always terminates. The nested ranking function proves termination:
+- The first component (`1.0 * 1`) represents the outer loop phase (active = 1, inactive = 0). It remains constant (`1`) while in the outer loop.
+- The second component (`1.0 * *y_ref`) decreases strictly in each inner loop iteration (since `*y_ref` is decremented by `1` per iteration) and is bounded below by `0`.  
+When the inner loop exits, the outer loop condition fails (as `*x_ref != *y_ref` or `*x_ref <= 0`), setting the first component to `0` (inactive), and the program terminates. The lexicographic order ensures termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * 1 + 0.0 * x_ref^1 + 1.0 * y_ref^1 + 0.0 * c^1
+
+### Explanation:
+The program terminates because the outer loop runs at most once, and the inner loop always terminates due to a linear ranking function. 
+
+**Termination Reasoning:**
+- The outer loop condition `(*x_ref == *y_ref) && (*x_ref > 0)` is checked first. If false, the loop exits immediately.
+- If true, the inner loop runs, decrementing both `*y_ref` and `*x_ref` by 1 in each iteration while `*y_ref > 0`. Since `*y_ref` starts at a positive value (equal to `*x_ref`), it decreases strictly by 1 per iteration until it becomes 0, ensuring the inner loop terminates.
+- After the inner loop, `*x_ref` and `*y_ref` are both 0, making the outer loop condition `(0 == 0) && (0 > 0)` false, so the outer loop exits after at most one iteration.
+
+**Ranking Function:**
+- The inner loop uses the linear ranking function `f = *y_ref` (value pointed to by `y_ref`). 
+- This function is non-negative when the inner loop starts (since `*y_ref > 0`), decreases by exactly 1 in each iteration, and reaches 0 when the loop exits.
+- Coefficients for other variables (`*x_ref`, `*c`, and constant) are 0 as they do not contribute to the ranking. 
+
+Thus, termination is proven by the linear ranking function for the inner loop.
+

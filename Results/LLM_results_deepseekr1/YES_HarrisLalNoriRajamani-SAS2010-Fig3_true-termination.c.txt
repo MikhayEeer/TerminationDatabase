@@ -1,0 +1,30 @@
+=== Response 1 ===
+The program terminates because the global variable `x` is decremented by exactly 1 in each iteration of the loop, regardless of the non-deterministic branch taken. The loop condition `x > 0` ensures that once `x` becomes non-positive, the loop exits. The initial value of `x` is arbitrary, but the decrement operation guarantees that `x` eventually falls below or equal to zero, leading to termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+
+This linear ranking function `f(x) = x` decreases with each iteration (since `x` is decremented by 1). It remains non-negative during loop execution (as the loop body runs only when `x > 0`), and it bounds the number of iterations to the initial value of `x`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because the global variable `x` is decremented by 1 in every loop iteration (regardless of the non-deterministic choice). The loop condition `x > 0` ensures that the loop runs only when `x` is positive. Since `x` decreases by exactly 1 in each iteration and starts at a finite integer value (set non-deterministically), it will eventually become ≤0, causing the loop to terminate.  
+
+The ranking function `r(x) = x` is linear and satisfies:  
+- **Decreases:** After each iteration, `x` becomes `x - 1`, so `r` decreases by 1.  
+- **Bounded below:** `r(x) ≥ 0` is not required during the loop (since the loop exits when `x ≤ 0`), but `r(x)` is strictly positive at loop entry and decreases toward 0.  
+- **Well-founded:** The natural numbers under `<` form a well-founded domain.  
+
+This proves termination.
+

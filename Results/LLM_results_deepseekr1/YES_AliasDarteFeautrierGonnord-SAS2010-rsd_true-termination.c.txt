@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1.0 * db^1 + (-1.0) * r^1
+1.0 * da^1 + (-1.0) * r^1
+
+**Explanation:**  
+The program terminates for all inputs where `r >= 0`. The lexicographic ranking function `(db - r, da - r)` decreases with every iteration of the loop:  
+- **Branch 1 (da--):** `db` is unchanged, so the first component `db - r` remains the same, while the second component `da - r` decreases by 1.  
+- **Branch 2 (assignment):** Both `da` and `db` become `dbₒₗₒ - 1`, so `db - r` decreases by 1 (regardless of whether it was positive or negative), ensuring a decrease in the first component.  
+Since `da >= r` holds upon loop entry, `da - r >= 0`. The lexicographic order over integers ensures eventual termination when either component becomes negative (triggering loop exit). Constants `db - r` and `da - r` are linear expressions in the program variables.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+0.0 * 1 + 0.0 * da^1 + 1.0 * db^1
+0.0 * 1 + 1.0 * da^1 + 0.0 * db^1
+
+**Explanation:**  
+The program terminates for all inputs. Termination is proven using a nested (lexicographic) ranking function with two components:  
+1. The first component is \( \text{db} \), which decreases in the else-branch (branch2) and remains unchanged in the if-branch (branch1).  
+2. The second component is \( \text{da} \), which decreases in the if-branch (branch1) and is reset in the else-branch (branch2), but only when the first component decreases.  
+
+The lexicographic order \(( \text{db}, \text{da} )\) strictly decreases in every loop iteration:  
+- **Branch1 (da--):** \((\text{db}, \text{da}) \rightarrow (\text{db}, \text{da}-1)\) → second component decreases.  
+- **Branch2 (da = db-1; db = db-1):** \((\text{db}, \text{da}) \rightarrow (\text{db}-1, \text{db}-1)\) → first component decreases.  
+
+Since \(\text{db}\) starts at \(2r \geq 0\) and \(\text{da} \geq r\) (loop condition), the values are bounded below, ensuring termination. The ranking function expressions are linear and use only the program variables \(\text{da}\) and \(\text{db}\).
+

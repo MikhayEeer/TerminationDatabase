@@ -1,0 +1,33 @@
+=== Response 1 ===
+I'll analyze whether this program terminates or not.
+
+This program consists of a function `subseq` that checks if string `s` is a subsequence of string `t`, and a `main` function that allocates two strings and calls `subseq`.
+
+The while loop in `subseq` has the condition `*ps != '\0' && *pt != '\0'`, which means it continues as long as we haven't reached the end of either string. Inside the loop, we conditionally increment `ps` (when characters match), and always increment `pt`. This means we're advancing through both strings, and will eventually reach the end of at least one of them.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length2 - (pt - t))
+
+The ranking function represents the number of characters remaining in string `t`. Since `pt` is incremented in every iteration of the loop, this value decreases by 1 in each iteration. The function is bounded from below (by 0) and strictly decreasing, thus proving termination.
+
+Alternatively, since both strings are finite (with lengths length1 and length2), a valid ranking function could also be:
+(length1 - (ps - s)) + (length2 - (pt - t))
+
+This represents the total number of characters remaining in both strings, and it strictly decreases in each iteration of the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length2 - pt + s0
+
+The program is terminating because the loop in the `subseq` function always makes progress by incrementing `pt` in each iteration. Since `pt` starts at `t` and ends when `*pt == '\0'`, and `t` is a null-terminated string of finite length `length2`, the loop will always terminate.
+
+The ranking function is the remaining distance from the current position `pt` to the end of string `t` (which is at position `t + length2 - 1`), plus a constant `s0` to ensure positivity. This function strictly decreases in each iteration and is bounded below by `s0`.
+

@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * 1
+1.0 * M^1 + (-1.0) * x^1
+
+### Explanation:
+The program terminates for all inputs. The loop runs only when \(M > 0\), and in this case:
+- **Phase 1 (at most one iteration)**: When \(x > M\), \(x\) is set to 0. The ranking function for this phase is the constant 1, as it executes at most once.
+- **Phase 2**: When \(x \leq M\), \(x\) is incremented by 1 until it equals \(M\). The ranking function \(M - x\) decreases by 1 each iteration (since \(M\) is fixed and \(x\) increases), remains non-negative (\(M - x \geq 0\) when \(x \leq M\)), and ensures termination.
+
+The multi-phase ranking function combines these phases lexicographically, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * M
+1.0 * M - 1.0 * x
+
+**Explanation:**  
+The program terminates because:
+1. When `M <= 0`, the loop is skipped.
+2. When `M > 0`, termination is proven by a two-phase ranking function:
+   - **First phase:** Measures excess magnitude (`x - M`) when `x > M`. The reset branch (`x = 0`) decreases this significantly, moving `x` to the second phase.
+   - **Second phase:** Measures distance to `M` (`M - x`) when `x <= M`. Each iteration in this phase increases `x` by 1, decreasing the distance by exactly 1 until termination.
+
+The ranking functions use constants and program variables that are available. The transition from phase 1 to phase 2 happens at most once, ensuring overall termination.
+

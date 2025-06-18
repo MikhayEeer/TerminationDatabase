@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+x
+y
+
+The program terminates because it has two distinct phases:
+1. **Phase 1 (x ≥ 0):** The value of `x` decreases by 1 in each iteration until it becomes negative. The ranking function for this phase is `x`, which is non-negative and strictly decreases.
+2. **Phase 2 (x < 0 and y ≥ 0):** After `x` becomes negative, the value of `y` decreases by 1 in each iteration until it becomes negative. The ranking function for this phase is `y`, which is non-negative and strictly decreases.
+
+Once both `x` and `y` are negative, the loop breaks. The multi-phase ranking functions (`x` for phase 1, `y` for phase 2) ensure termination, as each phase has a bounded, decreasing measure. The transition from phase 1 to phase 2 occurs exactly once, and neither phase reactivates after exiting.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0
+0.0 * x^1 + 1.0 * y^1 + 0.0
+
+The program always terminates because:
+1. In the first phase (x ≥ 0), x decreases by 1 each iteration until it becomes negative. The ranking function for this phase is \( x \) (non-negative and strictly decreasing).
+2. In the second phase (x < 0 and y ≥ 0), y decreases by 1 each iteration until it becomes negative, at which point the loop breaks. The ranking function for this phase is \( y \) (non-negative and strictly decreasing).
+3. The transition from phase 1 to phase 2 occurs when x becomes negative, and lexicographically, any state in phase 2 (\( x < 0 \)) is ranked lower than states in phase 1 (\( x \geq 0 \)).
+
+The ranking functions are linear and represent each phase:
+- Phase 1: \( f_1(x, y) = x \) (decreases while \( x \geq 0 \))
+- Phase 2: \( f_2(x, y) = y \) (decreases while \( x < 0 \) and \( y \geq 0 \))
+

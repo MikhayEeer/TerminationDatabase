@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + (-1.0) * z_ref^1
+
+**Explanation:**  
+The loop terminates because the ranking function \( \text{x\_ref} - \text{z\_ref} \) is a linear function that decreases by exactly 1 in each iteration and is bounded below. Specifically:
+- At loop entry, the condition \( \text{x\_ref} > \text{z\_ref} \) ensures \( \text{x\_ref} - \text{z\_ref} \geq 1 \) (since variables are integers).
+- Each iteration decrements both `x_ref` and `y_ref` by 1, but `z_ref` remains unchanged. Thus, \( \text{x\_ref} - \text{z\_ref} \) decreases by 1.
+- The loop exits when \( \text{x\_ref} \leq \text{z\_ref} \) or \( \text{y\_ref} \leq \text{z\_ref} \), which must occur because \( \text{x\_ref} - \text{z\_ref} \) decreases toward 0 (or below) and cannot decrease indefinitely. The ranking function ensures termination within at most \( \text{x\_ref} - \text{z\_ref} \) iterations.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+min(1.0 * x - 1.0 * z, 1.0 * y - 1.0 * z)
+
+**Explanation:**  
+The loop terminates because in each iteration, both `x` and `y` are decremented by 1 while the loop condition requires both `x > z` and `y > z`. The value `min(x - z, y - z)` decreases by exactly 1 in each iteration and is bounded below by 0. When this minimum becomes non-positive (i.e., either `x <= z` or `y <= z`), the loop exits. The piecewise linear ranking function `min(x - z, y - z)` captures this behavior, proving termination.
+

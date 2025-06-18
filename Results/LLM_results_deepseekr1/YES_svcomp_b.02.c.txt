@@ -1,0 +1,27 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration:
+- `x` decreases by 1
+- `y` increases by 1
+- The difference `d = x - y` decreases by 2 (since `d' = (x-1) - (y+1) = x - y - 2 = d - 2`).  
+
+Since `d` starts positive (when the loop is entered) and strictly decreases by 2 each iteration, it will eventually become non-positive, causing the loop to terminate.  
+
+**Ranking Function Justification:**  
+The expression `x - y`:
+- Is **linear** in the program variables.
+- At loop entry: `x - y > 0` (loop condition holds).
+- After one iteration: `(x - 1) - (y + 1) = (x - y) - 2`, decreasing by exactly 2.
+- Bounded below: The loop exits when `x - y ≤ 0`, so the value decreases until it exits the well-founded domain (positive integers).  
+Thus, `x - y` is a valid linear ranking function.
+

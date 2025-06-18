@@ -1,0 +1,24 @@
+=== Response 1 ===
+The program computes the Fibonacci sequence using mutual recursion between `fibo1` and `fibo2`. The recursion is well-founded because the argument `n` decreases with each call until it reaches a base case (n < 1 or n == 1). The initial call in `main` is `fibo1(2)`, which recursively calls `fibo2(1)` and `fibo2(0)`, both base cases. Thus, the recursion terminates.
+
+However, the program calls `__VERIFIER_error()` because `fibo1(2)` returns 1, satisfying the condition `result == 1`. The termination of `__VERIFIER_error()` depends on its external definition. Since the program only declares it as `extern void __VERIFIER_error();` without a definition, and assuming standard SV-COMP harnesses where `__VERIFIER_error()` terminates (e.g., via `assert(0)` or similar), the program terminates.
+
+The ranking function is based on the recursion depth, measured by the argument `n` in the recursive functions. As `n` decreases in each call and is bounded below by 0, a linear ranking function suffices.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+The program terminates due to the recursion structure. For any call to `fibo1` or `fibo2` with input `n`, the recursive calls pass arguments `n-1` and `n-2`, which are strictly smaller than the original `n` (for `n ≥ 2`). Since `n` is non-negative and decreases with each recursive call until it reaches the base cases (`n < 1` or `n == 1`), the computation must terminate. The ranking function `n` (the function parameter) decreases linearly and is bounded below by a fixed minimum value. Despite the program reaching `__VERIFIER_error()` for the input `x=2`, this abrupt termination is still considered termination (program execution halts).
+

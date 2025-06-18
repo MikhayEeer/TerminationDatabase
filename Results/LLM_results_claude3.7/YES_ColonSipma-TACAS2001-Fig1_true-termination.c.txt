@@ -1,0 +1,57 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+First, let's understand the loop behavior:
+- We have 3 variables: i, j, and k
+- The loop continues while (i <= 100 && j <= k)
+- In each iteration:
+  - i becomes j
+  - j becomes old_i + 1
+  - k decreases by 1
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * k + 1.0
+
+This program terminates because in each iteration, k decreases by 1, and j increases relative to i. This means that eventually either:
+1. k will decrease enough that j > k (since k decreases by 1 each iteration), or
+2. i will eventually exceed 100 (since i takes j's value and j increases)
+
+The ranking function k*2+1 works because:
+- It is always positive when the loop condition holds
+- It decreases by at least 1 in each iteration (specifically by 2 when k decreases by 1)
+- When it reaches 0 or negative, the loop condition will be false
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program has a while loop where three variables (i, j, k) are updated:
+- i takes the value of j
+- j takes the value of i+1
+- k is decremented by 1
+
+Let's examine if this loop always terminates:
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+2.0 * k + 1.0 * i + 1.0
+
+This linear ranking function decreases with each iteration:
+- k decreases by 1 in each iteration, contributing a decrease of 2
+- i gets the value of j, but j can be at most k (from the loop condition)
+- The combined effect ensures the function decreases at each step
+- The function is bounded from below (when the loop terminates)
+
+The loop must terminate because:
+1. k decreases in each iteration, so eventually j > k will hold
+2. If i starts above 100, the loop terminates immediately
+3. Even if i ≤ 100, the swapping between i and j (with j increasing) will eventually make i > 100
+

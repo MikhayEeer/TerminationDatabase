@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref_val^1 + 1.0 * y_ref_val^1
+
+**Explanation:**  
+The loop condition `(*x_ref > 0) && (*y_ref > 0)` requires both dereferenced pointer values to be positive. In each iteration:  
+- `*x_ref` decreases by 1  
+- `*y_ref` decreases by 1  
+The sum `*x_ref + *y_ref` decreases by 2 per iteration and is bounded below by 0 (since the loop runs only when both values are positive, starting sum ≥ 2). This provides a linear ranking function:  
+`r = (*x_ref) + (*y_ref)`  
+expressed as `1.0 * x_ref_val^1 + 1.0 * y_ref_val^1` where `x_ref_val`/`y_ref_val` represent the current values pointed to by `x_ref`/`y_ref`. The program terminates after at most `min(initial_x, initial_y)` iterations.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The loop runs while both `*x_ref > 0` and `*y_ref > 0`. In each iteration, both `*x_ref` and `*y_ref` are decremented by 1. The ranking function \( r = x + y \) (where \( x \) and \( y \) represent the values of `*x_ref` and `*y_ref` at the loop head) is a valid linear ranking function because:  
+- At loop entry, \( r \geq 2 \) (since both \( x > 0 \) and \( y > 0 \)), so \( r \) is positive.  
+- Each iteration decreases \( r \) by exactly 2 (since both variables decrement), which is a fixed positive amount.  
+- \( r \) is bounded below by 0 (as the variables are integers).  
+The loop terminates after at most \( \lfloor \min(x_{\text{init}}, y_{\text{init}}) \rfloor \) iterations when one variable becomes non-positive.
+

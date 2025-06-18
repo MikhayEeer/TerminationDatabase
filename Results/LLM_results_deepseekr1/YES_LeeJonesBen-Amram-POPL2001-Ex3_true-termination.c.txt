@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+m
+n
+
+The program implements the Ackermann function, which is known to terminate for all non-negative inputs. Termination is proven using a nested (lexicographic) ranking function based on the arguments (m, n) of the recursive function. Each recursive call reduces the arguments lexicographically:
+- In the case where m > 0 and n <= 0, the call a(m-1, 1) reduces m (first component).
+- In the case where m > 0 and n > 0:
+  - The inner call a(m, n-1) keeps m the same but reduces n (second component).
+  - The outer call a(m-1, a(m, n-1)) reduces m (first component), regardless of the value returned by the inner call.
+The lexicographic order on (m, n) is well-founded for non-negative integers, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * m^1 + 0.0 * n^1 + 0.0 * 1
+0.0 * m^1 + 1.0 * n^1 + 0.0 * 1
+
+### Explanation:
+The Ackermann function `a(m, n)` terminates for all nonnegative inputs `m` and `n` (as ensured by the condition in `main`). Termination is proven using a **lexicographic ranking function** represented as a multi-phase ranking function:
+- **Phase 1:** The primary measure is `m`. In recursive calls:
+  - `a(m-1, 1)` decreases `m` (since `m > 0`).
+  - `a(m-1, a(m, n-1))` decreases `m` (since `m > 0`).
+- **Phase 2:** When `m` remains unchanged (in the call `a(m, n-1)`), the secondary measure `n` decreases (since `n > 0`).
+
+The ranking functions are:
+- First phase: `f₁(m, n) = m` (decreases when `m` reduces).
+- Second phase: `f₂(m, n) = n` (decreases when `n` reduces and `m` is unchanged).
+
+This lexicographic order ensures all recursive calls decrease `(m, n)` in a well-founded manner (since `(ℕ × ℕ, <ₗₑₓ)` is well-ordered). The coefficients explicitly show the weights for `m`, `n`, and the constant term (0.0 for constants).
+

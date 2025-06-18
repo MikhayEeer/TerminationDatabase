@@ -1,0 +1,19 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y + (-1.0) * x
+1.0 * x + (-1.0) * z
+
+The program terminates because the lexicographic ranking function (y - x, x - z) decreases in every loop iteration. 
+
+- **First component (y - x):** Measures the distance to the loop exit condition (x ≥ y). This component decreases by 1 when the branch `x = x + 1` executes (Case 1).
+- **Second component (x - z):** Relevant when `x >= z` (Case 2). This component decreases by 1 when `z = z + 1` executes. Even if `x - z` becomes negative (switching to Case 1), the first component ensures termination by decreasing in subsequent iterations.
+
+Lexicographic order guarantees termination: either the first component decreases (Case 1), or it remains constant while the second component decreases (Case 2). Since `y` is fixed and `x` increases over time (directly in Case 1 or indirectly via Case 2), `x` eventually reaches or exceeds `y`, exiting the loop.
+

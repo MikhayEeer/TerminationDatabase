@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + -1.0 *  y^1
+
+**Explanation:**  
+The loop condition `min == y` implies `y <= x` initially. In each iteration, `y` increases by 1 while `x` remains fixed. The value `x - y` starts non-negative (due to the loop condition) and decreases by exactly 1 in each iteration. When `y` exceeds `x`, `min` becomes `x` (breaking `min == y`), ensuring termination. The linear ranking function `x - y` decreases monotonically and is bounded below by eventual loop exit.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+
+**Explanation:**  
+The loop condition `min == y` is equivalent to `y <= x` because `min` is the minimum of `x` and `y`. The loop body increments `y` by 1 in each iteration. The ranking function `x - y` is:  
+- **Nonnegative** at loop entry (since `y <= x` implies `x - y >= 0`).  
+- **Decreases by exactly 1** each iteration (as `y` increases by 1 while `x` remains unchanged).  
+- Ensures termination because it strictly decreases toward a lower bound (becomes negative when `y > x`, breaking the loop).  
+
+This linear ranking function proves termination for all integer inputs.
+

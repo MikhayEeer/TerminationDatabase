@@ -1,0 +1,23 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+max(0, y)
+q
+
+**Explanation:**  
+The program always terminates. A two-phase ranking function proves termination:  
+1. **Phase 1 (when y > 0):** The expression `max(0, y)` decreases from a positive value to 0 in the first branch (since y is set to 0). This phase runs at most once.  
+2. **Phase 2 (when y ≤ 0):** The variable `q` decreases by 1 in each iteration of the else branch. Since `q` starts positive and decreases until ≤0, this phase is bounded.  
+
+The ranking functions are:  
+- `max(0, y)` for Phase 1 (ensures decrease when y > 0)  
+- `q` for Phase 2 (ensures decrease in subsequent iterations)  
+
+The non-deterministic assignment to `q` in Phase 1 does not prevent termination, as Phase 2 will execute finitely based on the new value of `q`.
+

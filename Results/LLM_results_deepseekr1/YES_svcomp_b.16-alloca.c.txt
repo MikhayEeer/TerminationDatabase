@@ -1,0 +1,62 @@
+=== Response 1 ===
+### Analysis of Program Termination
+
+The given program terminates for all possible input values of `x` and `y`. Here's why:
+
+1. **Outer Loop Termination**:
+   - The outer loop condition is `*x_ref > 0`.
+   - Each iteration decrements `*x_ref` by 1 (via `*x_ref = *x_ref - 1`).
+   - Since `*x_ref` starts as a finite integer and strictly decreases by 1 each time the outer loop body executes, it will eventually become non-positive (≤ 0), causing the loop to terminate.
+
+2. **Inner Loop Termination**:
+   - The inner loop condition is `*y_ref > 0`.
+   - Each iteration decrements `*y_ref` by 1 until it becomes ≤ 0.
+   - After the first complete execution of the inner loop, `*y_ref` becomes ≤ 0 and **is never reset or incremented**. Thus, once the inner loop exits, it will not be re-entered during subsequent outer-loop iterations.
+
+3. **State Evolution**:
+   - **Phase 1 (if `*y_ref > 0` initially)**: The inner loop runs, decrementing `*y_ref` to 0.
+   - **Phase 2**: The outer loop runs while decrementing `*x_ref` by 1 per iteration, skipping the inner loop (since `*y_ref` remains ≤ 0).
+
+**Ranking Function Explanation**:
+- The program can be proven terminating using a **piecewise linear ranking function**. The function is:
+  - `rank = (*y_ref > 0) ? (*x_ref + *y_ref) : *x_ref`
+- **Behavior**:
+  - **During Phase 1 (inner loop)**:
+    - `rank = *x_ref + *y_ref` (since `*y_ref > 0`)
+    - Each inner-loop iteration decrements `*y_ref`, decreasing `rank` by 1.
+  - **During Phase 2 (outer loop only)**:
+    - `rank = *x_ref` (since `*y_ref ≤ 0`)
+    - Each outer-loop iteration decrements `*x_ref`, decreasing `rank` by 1.
+- This function is strictly decreasing in every iteration (both inner and outer) and bounded below by 0.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (*y_ref > 0) then (*x_ref + *y_ref) else *x_ref
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * y^1
+
+### Explanation:
+The program consists of two nested loops:
+1. **Outer loop**: Runs while `*x_ref > 0`.
+2. **Inner loop**: Runs while `*y_ref > 0` inside the outer loop.
+
+**Termination Proof**:
+- **Inner Loop Ranking Function**: `y = *y_ref` decreases by 1 in each iteration, is bounded below by 0, and ensures the inner loop terminates.
+- **Outer Loop Ranking Function**: `x = *x_ref` decreases by 1 in each outer iteration (after the inner loop completes or is skipped), is bounded below by 0, and ensures the outer loop terminates.
+
+**Nested Ranking Functions**:
+- The outer loop uses `x` as its ranking function (linear).
+- The inner loop uses `y` as its ranking function (linear).
+
+Even if `y` is non-positive (skipping the inner loop), the outer loop's ranking function `x` still decreases until termination. The program always terminates as both ranking functions are non-increasing and bounded below.
+

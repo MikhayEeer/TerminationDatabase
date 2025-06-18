@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + 0.0
+log2(x_ref - y_ref + 1) if x_ref > y_ref else 0
+
+The program terminates because:
+1. The outer loop decreases x_ref by 1 in each iteration and terminates when x_ref < 0
+2. The inner loop increases y_ref exponentially (doubles it) until y_ref >= x_ref
+   - For any finite x_ref, the doubling of y_ref will eventually exceed x_ref
+   - The worst case is log₂(x_ref) iterations of the inner loop
+
+The nested ranking function captures this behavior with a linear function for the outer loop and a logarithmic function for the inner loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + 1.0 * 1
+log2(x_ref^1 - y_ref^1 + 1) for the inner loop
+
+I analyzed this nested loop structure:
+
+1. The outer loop decreases `*x_ref` by 1 in each iteration and terminates when `*x_ref < 0`.
+   - The ranking function for this loop is `1.0 * x_ref^1 + 1.0 * 1`
+
+2. The inner loop doubles `*y_ref` in each iteration until `*y_ref` exceeds `*x_ref`.
+   - Since `*y_ref` starts at 1 and doubles each time, this is a logarithmic progression
+   - The number of iterations is bounded by log2(x_ref)
+   - The ranking function is logarithmic: `log2(x_ref^1 - y_ref^1 + 1)`
+
+Since both loops have clear termination conditions and monotonically decreasing ranking functions, the program terminates for all inputs.
+

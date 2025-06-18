@@ -1,0 +1,60 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * max(0, k - i) + 1.0 * max(0, l - j)
+
+[EXPLANATION]
+The program always terminates for any integer values of k and l. 
+- Variables i and j start at 0 and are non-decreasing (i increments in the loop L1, j increments in loop L2).
+- Each iteration in either loop makes progress: increments i in L1 or j in L2, reducing the weighted sum of remaining work.
+- The expression `max(0, k - i) + max(0, l - j)` is a linear ranking function: non-negative (bounded below by 0), decreases by at least 1 in every iteration (since each loop iteration increases i or j by at least 1), and becomes 0 when both `i >= k` and `j >= l`, enabling termination.
+- k and l are constant inputs, and though control jumps between L1 and L2, overall progress is captured by this sum. 
+- For example:
+  - When k ≤ 0 and l ≤ 0 → both max terms are 0, no loops execute.
+  - When k ≤ 0, l > 0 → `max(0, -i)` = 0, but `l - j` decreases to 0 as j reaches l.
+  - Symmetric for k > 0, l ≤ 0.
+  - For k > 0, l > 0 → both terms decrease until termination (i grows toward k, j toward l). 
+
+This linear ranking function proves termination.
+
+=== Response 2 ===
+Upon analyzing the program, it consists of two loops, L1 and L2, that are mutually dependent via `goto` statements. The termination behavior depends on the non-deterministic inputs `k` and `l`, but the program will always terminate.
+
+### Termination Reason:
+The program maintains state variables `i` and `j`, both initialized to 0. The loops progress as follows:
+- **L1 Loop**: While `i < k`, increments `i` until it becomes even (then jumps to L2).
+- **L2 Loop**: While `j < l`, increments `j` and if `i` is even, jumps back to L1.
+
+Key observations:
+1. Each iteration through **L1 to L2 and back to L1** increases `i` by 2 and `j` by 1.
+2. During the alternating cycle, the value:
+   - `i` increases toward `k`
+   - `j` increases toward `l`
+3. If `i >= k`, L1 is skipped. In L2, `j` is incremented until `j >= l`.
+4. If `j >= l` during the cycle, the program exits immediately.
+
+Since `k` and `l` are finite integers, the values of `i` and `j` eventually reach or exceed `k` and `l`, ensuring termination.
+
+To prove termination formally, we use a **multi-phase ranking function**:
+
+- **Phase 1**: Occurs while `i < k` and `j < l` (active alternating phase). The ranking function captures progress as `i` increases by 2 and `j` by 1 per full alternation.
+- **Phase 2**: Occurs if `i >= k` and `j < l` (finishing phase for `j`). Only `j` needs to be incremented until completion.
+
+### Ranking Functions:
+- **Phase 1**: \( 2k - 2i + l - j \)  
+  Decreases by at least 4 per full alternation cycle (since `i` increases by 2 and `j` by 1).
+- **Phase 2**: \( l - j \)  
+  Decreases by 1 per iteration in L2, even when jumping to L1 and back since `i >= k`.
+
+Thus, the output is:
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 *  k^1 + -2.0 *  i^1 + 1.0 *  l^1 + -1.0 *  j^1
+1.0 *  l^1 + -1.0 *  j^1
+

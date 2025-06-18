@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+**Explanation:**  
+The function `g(x)` always terminates for non-negative inputs (ensured by the guard in `main`). The termination is proven by a linear ranking function `r(x) = x` for the recursive calls in `g`:
+- The base case `x = 0` terminates immediately.
+- For `x > 0`, the first recursive call `g(x - 1)` has a strictly smaller argument (`x - 1 < x`), ensuring the ranking function decreases with each recursive step. The subsequent call `g(g(x - 1) - 1)` becomes `g(0)` since `g(x - 1)` returns 1, which is a base case and terminates without further recursion. Thus, the argument `x` decreases monotonically towards 0 in a well-founded manner (over natural numbers), guaranteeing termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+### Explanation:
+The program defines a recursive function `g(x)` that is called in `main()` with a non-negative integer `x`. Analysis shows:
+1. **Base case**: When `x == 0`, `g(0)` returns `1` without recursion.
+2. **Recursive case**: For `x > 0`, `g(x)` calls `g(x-1)` first. Since `x-1 < x`, this argument is strictly decreasing. After `g(x-1)` returns `1` (as proven by induction), the outer call becomes `g(1 - 1) = g(0)`, which is the base case.
+
+The recursion always reduces the argument `x` in each nested call until it reaches `0`. Thus, termination is guaranteed for all non-negative `x`. A linear ranking function `x` suffices, as:
+- It decreases with every recursive call (`x-1 < x` for `x > 0`).
+- It is bounded below by `0` (the base case). 
+
+The ranking function `1.0 * x^1` measures the current argument value of `g`, ensuring termination.
+

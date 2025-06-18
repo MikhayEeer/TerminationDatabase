@@ -1,0 +1,56 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1
+1.0 * z^1
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because any infinite execution would require taking at least one branch infinitely often, but:
+- Taking branch 1 infinitely often would drive `x ≤ 0`.
+- Taking branch 2 infinitely often would drive `y ≤ 0`.
+- Taking branch 3 infinitely often would drive `z ≤ 0`.  
+Each contradicts the loop condition `x>0 && y>0 && z>0`. The lexicographic ranking function `(y, z, x)` decreases at every iteration:
+- **Branch 1:** `x` decreases → third component decreases (lex order preserved).
+- **Branch 2:** `y` decreases → first component decreases (lex order preserved, regardless of `z`'s new value).
+- **Branch 3:** `z` decreases → second component decreases (lex order preserved, regardless of `x`'s new value).  
+The well-founded lexicographic order on ℕ³ ensures termination. The multi-phase ranking function components directly correspond to the lexicographic components.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+y
+z
+x
+
+**Explanation of the Ranking Function:**
+
+The program termination is proven using a **lexicographic ranking function** of three components: `(y, z, x)`. Each component decreases in a well-founded manner (using the natural numbers under standard order), ensuring termination.
+
+1. **First Component (`y`):**  
+   - Decreases on every execution of the `y = y - 1` branch (branch 2).  
+   - Since `y` is initially positive and only decremented (never reset), it can decrease at most `y0` (initial `y`) times, bounding the number of branch 2 steps.
+
+2. **Second Component (`z`):**  
+   - Decreases on every execution of the `z = z - 1` branch (branch 3).  
+   - Reset by branch 2, but lexicographic order allows it to increase arbitrarily when `y` decreases. Within a fixed `y`, the number of branch 3 steps is bounded by `z`'s current value before decrements.
+
+3. **Third Component (`x`):**  
+   - Decreases on every execution of the `x = x - 1` branch (branch 1).  
+   - Reset by branch 3, but lexicographic order allows it to increase arbitrarily when `z` decreases. Within fixed `y` and `z`, the number of branch 1 steps is bounded by `x`'s current value.
+
+### Why Lexicographic?
+- On **branch 1**: `(y, z, x) → (y, z, x-1)`, decreasing the third component.
+- On **branch 2**: `(y, z, x) → (y-1, *new_z*, x)`, decreasing the first component (even if `new_z` is larger).
+- On **branch 3**: `(y, z, x) → (y, z-1, *new_x*)`, decreasing the second component (even if `new_x` is larger).
+
+No matter the non-deterministic choices in resets (`__VERIFIER_nondet_int`), the lexicographic tuple strictly decreases on each iteration until the loop condition `x>0 && y>0 && z>0` fails, ensuring termination. 
+
+**Note:** The ranking function is measured at the start of each loop iteration, and components are integers bounded below by 0 (from loop conditions). The well-foundedness of lexicographic orders over ℕ³ guarantees termination.
+

@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n_ptr
+
+Where n_ptr represents the number of remaining linked list nodes to traverse. The function traverse walks through the linked list by following the 'next' pointers, starting from head and continuing until reaching NULL. Each iteration of the while loop in traverse advances one node in the list by setting ptr to the next pointer value. Since the list has a finite number of nodes (n from the input), and each iteration reduces this distance by exactly 1, the function will eventually terminate when ptr becomes NULL.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * list_length
+
+The program is terminating because the traverse function follows the linked list from head to tail, and the linked list is finite. In each iteration of the while loop in traverse(), ptr is updated to the next element in the list. 
+
+The pointer arithmetic with the skip variable correctly calculates the offset to the 'next' field, and each iteration advances to the next node until reaching NULL. Since init_list() creates a finite list of length n (where n >= 1), the traverse function will always terminate after exactly n iterations.
+

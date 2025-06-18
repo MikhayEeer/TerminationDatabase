@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+2.0 * x + 0.0   if y >= 0
+2.0 * x + 2.0 * y + 1.0   if y < 0
+
+**Explanation:**  
+The program terminates because the loop decreases a piecewise linear ranking function at every iteration. The ranking function is defined as:
+- \( f(x, y) = 2x \) when \( y \geq 0 \)
+- \( f(x, y) = 2x + 2y + 1 \) when \( y < 0 \)
+
+This function decreases by exactly 1 in each loop iteration, regardless of the path taken. The initial value is finite, and the integer-valued decrease ensures termination within a finite number of steps. The piecewise definition handles the different behaviors of \( y \) (non-negative vs. negative), capturing the non-linear aspect of the loop dynamics.
+
+=== Response 2 ===
+
+

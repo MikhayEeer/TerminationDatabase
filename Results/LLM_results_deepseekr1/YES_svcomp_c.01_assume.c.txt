@@ -1,0 +1,55 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+max(0, x)
+max(0, x - y)
+
+**Explanation:**
+
+The program terminates for all inputs because both loops have bounded iteration:
+- Outer loop: `x` starts non-negative and decreases by 1 each iteration, eventually becoming negative.
+- Inner loop: Within each outer iteration, `y` starts at 1 and doubles repeatedly (`y = 2*y`) until `y >= x`, which happens in logarithmic steps relative to `x`.
+
+**Ranking Function Justification:**
+1. **Outer Loop Ranking:** `max(0, x)` decreases by at least 1 in every outer iteration. At the start of each outer iteration (when `x >= 0` holds), we have:
+   - Since `x` decreases by 1 (`x = x - 1`) after processing the inner loop, the new value of `x` ensures `max(0, x)` decreases by exactly 1.
+
+2. **Inner Loop Ranking:** `max(0, x - y)` decreases by at least 1 in every inner iteration. After setting `y = 1`:
+   - At entry to the inner loop body, assume `x > y` (otherwise the loop skips). Thus `x - y >= 1`.
+   - After updating `y = 2*y`, consider cases:
+     - If `x - 2*y >= 0`: Then `max(0, x - 2*y) = x - 2*y ≤ (x - y) - 1 = max(0, x - y) - 1` (since `y ≥ 1`).
+     - If `x - 2*y < 0`: Then `max(0, x - 2*y) = 0`. Since `x - y ≥ 1`, the value decreases by at least 1.
+
+This nested ranking function (ordered: outer first, then inner) guarantees strict decreases lexicographically at each iteration step, proving termination.
+
+=== Response 2 ===
+The program always terminates. 
+
+The termination can be proven using a lexicographic ranking function structure, which is categorized here as "nested" due to the nested loops. The outer loop runs as long as \( x \geq 0 \), and in each iteration, \( x \) is decremented by 1. The inner loop runs as long as \( x > y \), with \( y \) initialized to 1 at the start of each outer loop iteration and doubled in each inner loop iteration. 
+
+- **Termination Reasoning**:
+  1. **Outer Loop**: \( x \) starts non-negative and decreases by 1 in each iteration until it becomes negative, ensuring the outer loop runs at most \( \text{initial}(x) + 1 \) times.
+  2. **Inner Loop**: For each fixed \( x \) (during an outer iteration), \( y \) starts at 1. Doubling \( y \) to \( 2y \) in each iteration guarantees \( y \) eventually exceeds \( x \) (since integers and exponential growth), ensuring termination in at most \( \lceil \log_2(x) \rceil \) steps for \( x > 1 \), and the loop is skipped if \( x \leq 1 \).
+
+The ranking functions are defined at key program points to ensure lexicographic decrease:
+
+- **Nested Ranking Functions**:
+  - **Outer Loop Head**: Ranking function: \( x \).
+    - Decreases by 1 upon completing the outer loop body and exiting the loop.
+  - **Inner Loop Head**: Ranking function: \( x - y \).
+    - Decreases by at least 1 in each inner loop iteration (since \( y \to 2y \), increasing by at least 1, so \( x - y \) decreases).
+
+**Output**:
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * x^1 + -1.0 * y^1
+```The first ranking function (\( x \)) applies to the outer loop, and the second (\( x - y \)) applies to the inner loop, forming a lexicographical measure that decreases with every iteration of both loops.
+

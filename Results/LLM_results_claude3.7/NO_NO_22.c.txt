@@ -1,0 +1,42 @@
+=== Response 1 ===
+I'll analyze this termination problem step by step.
+
+Looking at the given program:
+- It initializes `i` to 0
+- It has a loop that continues while `i < 100`
+- Inside the loop:
+  - If `i < 50`, then `i` increases by 1
+  - Otherwise (`i ≥ 50`), `i` decreases by 1
+
+Let's trace the execution pattern:
+- `i` starts at 0
+- While `i < 50`, `i` increases by 1 in each iteration
+- When `i = 50`, it starts decreasing by 1
+- When `i` decreases to 49, it will increase again to 50
+- This creates an infinite oscillation between 49 and 50
+
+[RESULT]
+NONTERM
+[REASON]
+The program doesn't terminate because once i reaches 50, it decreases to 49, then increases back to 50, creating an infinite loop that oscillates between i=49 and i=50.
+
+=== Response 2 ===
+I'll analyze the given C program to determine if it terminates.
+
+This program has:
+- A variable `i` initialized to 0
+- A while loop that runs while `i < 100`
+- Inside the loop, if `i < 50`, then `i` is incremented, else `i` is decremented
+
+Let's trace the execution:
+- Initially `i = 0`
+- While `i < 50`, it's incremented in each iteration until `i = 50`
+- When `i = 50`, it decrements to 49
+- At `i = 49`, it increments to 50 again
+- This creates an infinite oscillation between 49 and 50
+
+[RESULT]
+NONTERM
+[REASON]
+The program creates an infinite loop where i oscillates between 49 and 50, never reaching 100 to terminate the while loop.
+

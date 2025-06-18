@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze the program to determine whether it terminates or not.
+
+Let's examine the loop condition `x < y` and the loop body:
+- `x = x + y`
+- `y = -2*y`
+
+If we start with `x = -1` and `y = 0`:
+- Loop condition: `-1 < 0` is true, so we enter the loop
+- Update: 
+  - `x = -1 + 0 = -1`
+  - `y = -2*0 = 0`
+- Loop condition: `-1 < 0` remains true
+
+In this case, the variables do not change their values, causing the loop to run forever.
+
+[RESULT]
+NONTERM
+[REASON]
+For inputs where x=-1 and y=0, the program enters an infinite loop because the assignments x=x+y and y=-2*y result in no change to x and y (they remain -1 and 0), leaving the loop condition x<y always true.
+
+=== Response 2 ===
+I'll analyze whether this program terminates or not.
+
+Looking at the loop condition `x < y` and the loop body:
+```c
+x = x + y;
+y = -2*y;
+```
+
+Let me trace the execution for some inputs to understand the behavior:
+
+- If y ≤ 0 initially: The loop condition `x < y` won't be satisfied, so the loop never executes.
+- If y > 0 initially and x ≥ y: The loop never executes.
+- If y > 0 initially and x < y: 
+  - After first iteration: x becomes x+y, and y becomes -2y (negative)
+  - Since y becomes negative, the loop condition becomes false, and we exit.
+
+However, there's one specific case that leads to non-termination:
+- If x = -1 and y = 0:
+  - Loop condition: -1 < 0, which is true
+  - After iteration: x = -1 + 0 = -1, y = -2*0 = 0
+  - The values don't change, and the loop condition remains true forever
+
+[RESULT]
+NONTERM
+[REASON]
+When x = -1 and y = 0, the loop executes indefinitely as the values remain constant: x = -1, y = 0, and -1 < 0 is always true.
+

@@ -1,0 +1,50 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * b + 0.0
+1.0 * c + 0.0
+
+This program terminates for all non-negative inputs a and b. The termination is proven by a multi-phase ranking function:
+
+- **Phase 1** (function `f`): The ranking function `b` strictly decreases in each recursive call to `f` (from `b` to `b-1`) until it reaches 0. 
+- **Phase 2** (function `g`): When `b = 0`, the program enters `g` with parameter `c = a+b` (the original `a` increased by the initial `b`). The ranking function `c` strictly decreases in each recursive call to `g` (from `c` to `c-1`) until it reaches 0.
+
+The transition from phase 1 to phase 2 occurs when `b` becomes 0. At this point, the phase 1 ranking function (`b`) becomes 0, and the phase 2 ranking function (`c`) assumes a non-negative initial value. The ranking functions use only locally defined parameters in each function state.
+
+=== Response 2 ===
+After analyzing the provided program, the termination behavior is determined as follows:
+
+**Termination Analysis**:
+The program consists of two mutually recursive functions `f` and `g`, initiated from `main` with non-negative integers `a` and `b`. The recursive calls unfold in distinct phases:
+1. **Phase 1 (function `f`)**:
+   - When `b > 0`, `f(a, b)` is replaced by `f(a+1, b-1)`.
+   - Each call decreases `b` by 1 and increases `a` by 1.
+   - This phase continues until `b` becomes 0, after which `g(a, 0)` is called.
+2. **Phase انتقال (function `g`)**:
+   - When `c > 0`, `g(c, d)` is replaced by `g(c-1, d+1)`.
+   - Each call decreases `c` by 1 (and `d` is irrelevant for termination).
+   - This phase continues until `c` becomes 0, terminating the recursion.
+
+In **Phase 1**, `b` decreases strictly with each call (`b-1`) and bounds the number of recursive calls (starting from initial `b`). Once `b` reaches 0, control transfers to **Phase 2**. Here, `c` (initialized to the accumulated `a` value from **Phase 1**) decreases strictly (`c-1`) and bounds the remaining calls. Thus, the entire execution consists of a finite number of steps: `b` iterations in `f` followed by `a + b` iterations in `g`. Consequently, the program terminates for all non-negative inputs.
+
+**Ranking Function**:
+To formally prove termination, a piecewise ranking function is used, defined separately for functions `f` and `g`. The rank decreases by at least 1 at each recursive step:
+- For `f(a, b)`: The rank is `a + 2*b + 1`.  
+  - When `b > 0`, the recursive call to `f(a+1, b-1)` yields a new rank `(a+1) + 2*(b-1) + 1 = a + 2*b`, which is `1` less than the current rank `a + 2*b + 1`.
+  - When `b == 0`, the call to `g(a, 0)` has rank `a`, which is less than the current rank `a + 2*0 + 1 = a + 1`.
+- For `g(c, d)`: The rank is `c`.  
+  - Each recursive call to `g(c-1, d+1)` yields a new rank `c-1`, decreasing by `1`.
+
+The ranking functions are linear and non-negative for non-negative inputs.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+f(a,b): 1.0 * a^1 + 2.0 * b^1 + 1.0  
+g(c,d): 1.0 * c^1
+

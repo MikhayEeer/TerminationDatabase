@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * i^1 + 10.0 * 1
+
+### Explanation:
+The loop runs for exactly 10 iterations (N=10) because:
+- Variable `i` starts at 0
+- Each iteration increments `i` by 1
+- Loop condition `i < N` fails when `i` reaches 10
+
+The ranking function `10 - i`:
+- **Decreases linearly**: Each iteration increases `i` by 1, decreasing the value by 1
+- **Bounded below**: Remains non-negative (≥0) during all loop iterations (when `i`=0, value=10; when `i`=9, value=1)
+- **Termination**: When `i`=10, the expression becomes 0 and the loop exits
+
+Non-deterministic updates to `x`/`y` via `r` do not affect termination since the loop condition depends solely on `i` and the fixed constant `N`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10.0 * 1 - 1.0 * i^1
+
+### Explanation:
+The program terminates because the loop runs for a fixed number of iterations (N=10). The loop counter `i` starts at 0 and increments by 1 in each iteration until `i >= N` (i.e., after exactly 10 iterations). The non-deterministic choices (via `__VERIFIER_nondet_int()`) only affect the values of `x` and `y`, but not the loop counter `i` or the termination condition. 
+
+**Ranking Function Justification:**  
+The ranking function is `f(i) = 10 - i`, which is:
+- **Linear** in `i`.
+- **Non-negative** during loop execution (since `i` ranges from 0 to 9).
+- **Decreases by 1** in each iteration (as `i` increases by 1).
+- Reaches `0` when `i = 10`, at which point the loop exits.
+
+This proves termination. The expression `10.0 * 1 - 1.0 * i^1` breaks down as:
+- `10.0 * 1`: Constant term (initial value when `i=0`).
+- `-1.0 * i^1`: Linear term in `i` (decreases as `i` increases).
+

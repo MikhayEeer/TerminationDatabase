@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * y^1
+
+### Explanation:
+The program terminates for all initial values of `x` and `y` (positive integers) due to a nested (lexicographic) ranking function. The ranking function components are:
+1. **First component (`x`):** Decreases strictly in the if-branch (when `random < 42`), as `x` is decremented by 1. It remains unchanged in the else-branch.
+2. **Second component (`y`):** Decreases strictly in the else-branch (when `random >= 42`), as `y` is decremented by 1. In the if-branch, `y` is reset non-deterministically, but this does not violate the ranking because the first component (`x`) decreases strictly, making the new state lexicographically smaller regardless of the new `y` value.
+
+The lexicographic order ensures termination:
+- In if-branch: `(x-1, y_{new}) < (x, y)` since `x-1 < x`.
+- In else-branch: `(x, y-1) < (x, y)` since `y-1 < y` when `x` is unchanged.
+
+The loop condition `(x > 0 && y > 0)` ensures the ranking function components remain non-negative, and the well-founded lexicographic order on ℕ × ℕ guarantees termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x
+y
+
+**Explanation:**  
+The program terminates because the loop condition `(x > 0 && y > 0)` must eventually fail. This is proven by a nested ranking function `(x, y)` under lexicographic order:
+- **First component (`x`):**  
+  In the branch `random < 42`, `x` decreases by 1 (progress). The new value of `y` is arbitrary but irrelevant for lexicographic comparison since `x` decreased.
+- **Second component (`y`):**  
+  In the branch `random >= 42`, `y` decreases by 1 while `x` remains unchanged. Lexicographic order requires progress in the second component when the first is unchanged.
+
+Since `x` and `y` start as finite positive integers (due to the loop condition), and each branch strictly decreases the lexicographic rank, the loop must terminate. The ranking function components are `x` and `y`, listed separately for nested ranking functions.
+

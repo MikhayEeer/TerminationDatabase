@@ -1,0 +1,49 @@
+=== Response 1 ===
+After analyzing the given program, the termination verdict and supporting ranking function are provided below.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+// Phase 1: Initial state before entering any loop
+// Phase for the branch (x > y) in the outer loop body
+(1.0 * (x > 0 && y > 0 && x > y), 1.0 * x^1)
+// Phase for the branch (y >= x) in the outer loop body
+(2.0 * (x > 0 && y > 0 && y >= x), 1.0 * y^1)
+
+### Explanation:
+- **Termination Reason**: The program always terminates because the outer loop runs at most once. After entering the outer loop body, one of the inner loops will execute, monotonically decreasing either `x` or `y` (based on the initial branch condition) to 0. This makes the outer loop condition `(x > 0 && y > 0)` false in subsequent checks.
+- **Ranking Function Justification**:
+  - The ranking function is **nested** (lexicographic), composed of:
+    - A *phase component* that indicates which inner loop is active (based on the branch taken: `1` for the `x`-decreasing branch, `2` for the `y`-decreasing branch).
+    - A *linear component* (`x` or `y`) that decreases with each iteration of the active inner loop.
+  - **Phase 1 handling `x`-loop**: The term `(x > 0 && y > 0 && x > y)` evaluates to `1` when branching into the `x`-decreasing loop. The inner ranking function `x` decreases by `1` per iteration until `x <= 0`, and its lower bound is `0`.
+  - **Phase 2 handling `y`-loop**: Similarly, `(x > 0 && y > 0 && y >= x)` evaluates to `1` when entering the `y`-decreasing loop. Here, `y` decreases by `1` per iteration until `y <= 0`.
+- **Boundedness**: The inner loops reduce variables linearly from initial positive values to zero, ensuring termination. The outer loop runs exactly zero times (if initially `x <= 0` or `y <= 0)` or once (otherwise), preserving global termination. 
+
+This nested ranking function proves termination for all input values, including cases where `x` and `y` start with non-positive values (bypassing the loops immediately).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (x > 0 && y > 0) {
+    if (x > y) {
+        x;
+    } else {
+        y + 1;
+    }
+} else {
+    0;
+}
+
+**Explanation:**  
+The program terminates because the outer loop runs at most once. The ranking function is defined for the outer loop head (condition check). When entering the loop body, the ranking function value is:
+- `x` if `x > y` (will be decremented to 0 in the inner loop),  
+- `y + 1` if `y >= x` (will be decremented to 0 in the inner loop, and `y + 1 > y` ensures positivity).  
+
+After executing the inner loop, either `x <= 0` or `y <= 0` holds, causing the outer loop condition to fail. Thus, the ranking function decreases from a positive integer to 0 after one iteration of the outer loop, proving termination. The inner loops terminate because they decrement a positive integer (x or y) by 1 each iteration until non-positive.
+

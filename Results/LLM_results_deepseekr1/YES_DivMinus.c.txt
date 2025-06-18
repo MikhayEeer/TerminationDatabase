@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+**Explanation:**  
+The loop condition requires `x >= y` and `y > 0`. Within the loop, `x` is decremented by `y` (a fixed positive value) in each iteration. Since `y` remains constant and `x` decreases by at least 1 (as `y >= 1`) per iteration, the value of `x` forms a strictly decreasing sequence bounded below by 0 (as the loop exits when `x < y`). Thus, the linear ranking function `x` suffices to prove termination, as it maps loop states to a well-founded set (natural numbers) and decreases by at least 1 in each iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+**Explanation:**  
+The loop condition requires `y > 0` and `x >= y`. In each iteration, `x` is decreased by `y` (a fixed positive integer). Since `y` remains constant and `y ≥ 1`, `x` decreases by at least 1 per iteration. Initially, `x ≥ y ≥ 1`, so `x` is bounded below by 1 in the loop. As `x` decreases by a minimum of 1 each step and is bounded below, it must eventually become less than `y`, causing the loop to terminate. The linear ranking function `x` suffices as it decreases monotonically and is bounded below within the loop.
+

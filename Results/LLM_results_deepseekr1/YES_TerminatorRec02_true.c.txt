@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x  // for the argument of fact() during recursion
+
+**Explanation of Termination:**  
+The program uses recursion to compute factorial. The recursive function `fact(x)` is called with a non-negative integer `x` (enforced by the guard `if(x<0) return 0;` in `main()`). At each recursive call in `fact()`, the argument strictly decreases: `x → x-1` when `x > 1`. This forms a strictly decreasing chain of integer values (`x`, `x-1`, `x-2`, ...) bounded below by 1 (the base case). Since the initial `x` is finite and non-negative, the recursion depth is finite, ensuring termination.
+
+**Ranking Function Details:**  
+- **Type:** Linear ranking function (`f(x) = x`) applied to the argument of `fact()`.  
+- **Behavior:** At each recursive call, `f(x) = x` decreases by at least 1 (minimum decrease when `x` drops to `x-1`). The function reaches the base case when `f(x) ≤ 1`.  
+- **Validity:** The constraint `x ≥ 0` in `main()` ensures the ranking function is always nonnegative.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates for all inputs because the recursive function `fact` is called with a nonnegative integer `x` (due to the `x < 0` check in `main`). In `fact`, the recursion depth is strictly controlled:  
+- **Base case:** When `x <= 1`, recursion stops.  
+- **Recursive case:** For `x > 1`, each call invokes `fact(x - 1)`, reducing `x` by exactly 1.  
+
+The **ranking function** is `x` (linear), defined for the state of `fact` during recursion. It decreases with each recursive call:  
+- Initial call: `x = n` (some nonnegative integer).  
+- Next call: `x = n - 1`, then `n - 2`, etc., until `x <= 1`.  
+Since `x` decreases monotonically and is bounded below (by 1), the recursion terminates. The variables `y` and `z` in `main` do not affect termination.
+

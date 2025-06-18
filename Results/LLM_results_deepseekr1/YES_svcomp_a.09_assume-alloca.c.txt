@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * 1 + 1.0 *  x^1 + -1.0 *  z^1
+
+**Explanation:**  
+The program terminates for all inputs. The loop runs only when `y > 0` (initial check ensures this) and `x >= z`. In each iteration, `z` is increased by `y` (a positive integer), which strictly decreases the value of `x - z` by at least 1. Since `x - z` starts as a non-negative integer (due to the loop condition) and decreases by at least 1 per iteration, it must eventually become negative, causing the loop to terminate. The ranking function `x - z` is linear and valid, as it is non-negative at loop entry and decreases monotonically. The constant term `0.0 * 1` is included for consistency with the expected format.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + (-1.0) * z_ref^1
+
+**Explanation:**  
+The loop terminates because:
+1. The loop condition `*x_ref >= *z_ref` and the initial check ensure that when the loop starts, `*y_ref > 0` (as negative or zero `*y_ref` causes immediate return).
+2. In each iteration, `*z_ref` is increased by `*y_ref` (a positive integer), strictly decreasing the value of `(*x_ref - *z_ref)`.
+3. Since `*x_ref` is fixed and `*z_ref` increases indefinitely, `(*x_ref - *z_ref)` eventually becomes negative, violating the loop condition after a finite number of steps.
+
+The ranking function `f = x_ref - z_ref` is:
+- **Linear** and decreases by at least 1 per iteration (as `*y_ref ≥ 1`).
+- Nonnegative when the loop starts (due to the loop condition) and decreases monotonically, proving termination.
+

@@ -1,0 +1,76 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The key part is the while loop in `test_fun`:
+```c
+while (!(*x_ref == 0)) {
+    if (*x_ref > *y_ref) {
+        *x_ref = *y_ref;
+    } else {
+        *x_ref = *x_ref - 1;
+    }
+    *c = *c + 1;
+}
+```
+
+Looking at the loop behavior:
+1. The loop continues as long as `*x_ref != 0`
+2. If `*x_ref > *y_ref`, then `*x_ref` becomes `*y_ref`
+3. Otherwise, `*x_ref` is decreased by 1
+
+Before the loop, there's a guard condition:
+```c
+if (*x_ref <= 0 || *y_ref <= 0) {
+    return *x_ref + *y_ref;
+}
+```
+
+This means the loop is only executed when both `*x_ref > 0` and `*y_ref > 0`.
+
+In every iteration, `*x_ref` either:
+- Decreases by at least 1 (when `*x_ref <= *y_ref`)
+- Or is set to `*y_ref` (when `*x_ref > *y_ref`), which is a smaller positive value
+
+Since `*x_ref` starts positive and strictly decreases or becomes a smaller positive value in each iteration, and the loop terminates when `*x_ref` reaches 0, the program will always terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + 0.0 * y_ref^1 + 0.0 * 1
+
+The ranking function shows that the value of `*x_ref` is always decreasing and is bounded below by 0, which guarantees termination.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The key part is the while loop in `test_fun()`:
+```c
+while (!(*x_ref == 0)) {
+    if (*x_ref > *y_ref) {
+        *x_ref = *y_ref;
+    } else {
+        *x_ref = *x_ref - 1;
+    }
+    *c = *c + 1;
+}
+```
+
+First, let's observe that before entering the loop, we have the condition that `*x_ref > 0` and `*y_ref > 0` (due to the early return if either is ≤ 0).
+
+In each iteration:
+1. If `*x_ref > *y_ref`, then `*x_ref` becomes `*y_ref` (which is positive)
+2. Otherwise, `*x_ref` decreases by 1
+
+In both cases, `*x_ref` either decreases or becomes a smaller positive value. Since `*x_ref` is bounded below by 0, and the loop exit condition is `*x_ref == 0`, the loop will eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref
+
+This is a linear ranking function because the value of `*x_ref` is strictly decreasing toward zero in each iteration (either directly by subtracting 1, or by being set to a smaller value `*y_ref`).
+

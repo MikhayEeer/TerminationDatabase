@@ -1,0 +1,36 @@
+=== Response 1 ===
+I'll analyze the program to determine if it terminates and provide a ranking function if it does.
+
+Looking at the `test_fun` function, we have a loop with the condition `(x > y) && (x > z)`. Inside the loop, `y` and `z` are both incremented by 1 in each iteration, while `x` remains constant.
+
+Since `x` is fixed and both `y` and `z` are increasing by 1 in each iteration, eventually either `y` or `z` will reach or exceed `x`, causing the loop condition to become false. This means the loop will terminate after a finite number of iterations.
+
+The ranking function can be expressed as the minimum of `(x - y)` and `(x - z)`, which decreases by 1 in each iteration.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+min(x - y, x - z)
+
+This is a piecewise ranking function that shows the loop terminates after at most `min(x - y, x - z)` iterations (when this value is positive; if it's not positive initially, the loop doesn't execute at all).
+
+=== Response 2 ===
+I'll analyze the given program to determine termination.
+
+The main function calls `test_fun` with three non-deterministic integers.
+
+In `test_fun`, there's a while loop that continues as long as `x > y` and `x > z`. In each iteration, both `y` and `z` are incremented by 1, and `c` is also incremented (though `c` doesn't affect the loop condition).
+
+Since `x` remains constant and both `y` and `z` increase by 1 in each iteration, eventually either `y` or `z` will become greater than or equal to `x`, causing the loop to terminate.
+
+The maximum number of iterations possible is bounded by min(x-y, x-z) if both x-y and x-z are positive initially. If either condition is not met initially, the loop won't execute at all.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * min(y,z)
+

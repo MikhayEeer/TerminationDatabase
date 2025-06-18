@@ -1,0 +1,46 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program computes the greatest common divisor (GCD) using Euclid's algorithm with a recursive implementation. Let's focus on the `gcd` function since that's where potential non-termination could occur.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+1.0 * (y1 + y2)
+
+The program terminates because in the recursive implementation of Euclid's algorithm:
+1. If y1 <= 0 or y2 <= 0, the function returns immediately
+2. If y1 == y2, the function returns immediately
+3. If y1 > y2, we recurse with (y1-y2, y2) where y1-y2+y2 < y1+y2
+4. If y1 < y2, we recurse with (y1, y2-y1) where y1+y2-y1 < y1+y2
+
+In each recursive call, the sum of the arguments decreases by at least 1, and both arguments remain positive (as checked in the first condition). Since the initial values are finite positive integers and each recursive call decreases their sum, the recursion must eventually terminate.
+
+The linear ranking function y1+y2 proves this termination as it decreases in each recursive call while remaining non-negative.
+
+=== Response 2 ===
+I need to analyze whether this program terminates by examining the recursive function `gcd`.
+
+The main function passes positive integers `m` and `n` to the `gcd` function and then checks a condition on the result.
+
+Analyzing the `gcd` function:
+1. If either `y1` or `y2` is non-positive, it returns 0 immediately
+2. If `y1 == y2`, it returns `y1` immediately
+3. If `y1 > y2`, it recursively calls `gcd(y1 - y2, y2)`
+4. If `y1 < y2`, it recursively calls `gcd(y1, y2 - y1)`
+
+In cases 3 and 4, the function is decreasing either the first or second argument while keeping the other constant. This strictly decreases the sum of the arguments in each recursive call. Since both arguments remain positive (due to the first check), the recursion will eventually reach the base case where either the arguments become equal or one becomes non-positive.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y1 + 1.0 * y2
+
+The linear ranking function representing the sum of both arguments (y1 + y2) decreases in each recursive call, and since both values are bounded below by 1 (due to the termination condition), the function must eventually terminate.
+

@@ -1,0 +1,40 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+for the loop in cstrlen: 
+let K = min { i | s[i] == '\0' }  // smallest index where null terminator occurs
+then ranking function: K - (p - s) 
+
+// Explanation: K is fixed at loop entry (unknown constant), (p - s) increases by 1 per iteration.
+// This gives a positive integer that strictly decreases by 1 each iteration until 0.
+
+But since K is not directly in the code, a more practical approach is:
+// Alternate expression using the guaranteed terminator at allocated end:
+let allocated_length = __VERIFIER_nondet_int() + 1  // from nondet_String initialization
+then: (allocated_length - 1) - (p - s) 
+
+Both variants are linear in terms of the current state:
+1. K is fixed for each execution, and p-s is the offset
+2. allocated_length is fixed per string allocation, and p-s is the offset
+The value is bounded below by 0 and decreases by exactly 1 per iteration.
+
+However, since program variables lack explicit length, the primary proof principle is pointer bounding: p strictly increases until encountering a null byte (fixed in memory), ensuring termination within a bound (unknown but finite). The ranking function relies on external constants from allocation.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * p^1 + 1.0 * s^1
+
+**Explanation:**  
+The termination of the program relies on the `cstrlen` function, which computes the length of a null-terminated string. The loop in `cstrlen` iterates until the null terminator (`'\0'`) is found. The nondeterministically generated string ensures termination because:  
+1. The string always ends with a null terminator (set at the last allocated index).  
+2. The pointer `p` advances by one char per iteration, guaranteeing it will eventually hit the null terminator within finite bounds.  
+
+The ranking function `f(p, s) = s - p` (linear in `p` and `s`) decreases by exactly 1 each iteration as `p` increments, and is bounded below for each fixed string (bounded by `-length`, where `length` is the allocated string size). The program's termination is thus proven.
+

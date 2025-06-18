@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * n + 1.0
+2.0 * n
+
+**Explanation:**  
+The program terminates because the loops in `cstrncpy` are guaranteed to complete within a bounded number of iterations. The ranking function uses two phases:  
+1. **Outer loop phase:** Ranking function `2.0 * n + 1.0` decreases because either:  
+   - `n` decrements normally (via `--n` in the loop condition), reducing the value.  
+   - A break occurs (when null terminator is copied), transitioning to the inner loop phase with a lower lexicographical value (since `2.0 * n < 2.0 * n + 1.0`).  
+2. **Inner loop phase:** Ranking function `2.0 * n` decreases strictly as `n` decrements in each iteration until termination.  
+
+The initial `n` (≥1) ensures both phases are bounded, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+The analysis confirms that the program terminates. The critical function `cstrncpy` employs the parameter `n` as a ranking function. This variable is guaranteed to be at least 1 due to the initial checks in `main`. Within `cstrncpy`, every iteration of either loop (`do-while` or `while`) strictly decreases `n` by at least 1, ensuring eventual termination. Specifically:
+
+- **Outer loop**: Each iteration copies one character and decreases `n` by 1.
+- **Inner loop**: If a null terminator is found during outer loop execution, the inner loop pads the remaining bytes (excluding the last) with zeroes, decreasing `n` by 1 per pad operation.
+
+Since `n` starts as a finite positive integer and decreases monotonically, it serves as a linear ranking function for the loops in `cstrncpy`, proving termination. The `main` function has no other loops and simply calls `cstrncpy` once, ensuring the whole program terminates.
+

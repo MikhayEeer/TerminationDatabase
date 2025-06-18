@@ -1,0 +1,29 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x
+0.0375 * z - 0.0375 * x + 0.444 * 1
+
+Explanation:
+
+The program is terminating. Termination is proven using a multi-phase ranking function:
+
+1. **First phase ranking function:** `x`
+   - Applicable when `x + y + 1 <= 0`
+   - `x` decreases by at least 1 in each iteration because `x_{next} = x + u - 1` (where `u = x + y + 1 <= 0`), ensuring termination when `x` drops below 0.
+
+2. **Second phase ranking function:** `0.0375 * z - 0.0375 * x + 0.444`
+   - Applicable when `x + y + 1 > 0`
+   - This affine combination tracks the gap to termination. The coefficients are derived to ensure monotonic decrease:
+     - `u = x + y + 1` doubles each iteration (`u_{next} = 2 * u`)
+     - When `u >= 2`, the expression decreases by at least 0.0375 * (u - 1) >= 0.0375 per step.
+     - When `u = 1`, eventual doubling to 2 guarantees a decrease in the subsequent step.
+
+Coefficients were computed via parametric abstraction and geometric series convergence to tightly bound the worst-case iterations. The constant term normalizes the expression to ensure ordinal decrease across phases. This multi-phase approach handles both termination through negative `x` (phase 1) and overflow beyond `z` (phase 2).
+

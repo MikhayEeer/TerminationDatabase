@@ -1,0 +1,55 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The key part of this program is the recursive function `loop(int a, int b)`. Let's examine its behavior:
+
+1. The program only continues recursion when `b > 0`.
+2. When the condition is met, it:
+   - Generates a random non-negative value `r`
+   - Updates `b = a - 1 - r`
+   - Updates `a = a - 1 - r`
+   - Makes a recursive call with the updated values
+
+The important observation is that `r` is always non-negative (due to the `random()` function implementation). This means both `a` and `b` decrease by at least 1 in each recursive call.
+
+Since `b` is decremented by at least 1 each time, and we only continue recursion when `b > 0`, the recursion must eventually terminate when `b` becomes 0 or negative.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * b^1 + 0.0 * a^1 + 0.0 * 1
+
+The ranking function is simply `b`, which starts at some value and decreases by at least 1 in each iteration until it becomes 0 or negative, at which point the recursion stops.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The key part is the recursion in the `loop` function:
+```c
+void loop(int a, int b){   	
+    if (b > 0) {
+        int r = random();		
+        b = a - 1 - r;
+        a = a - 1 - r;
+        loop(a,b);
+    }
+}
+```
+
+Looking at this code, where `random()` returns a non-negative integer:
+1. The function only recurses if `b > 0`
+2. In each iteration, `b` is updated to `a - 1 - r`
+3. Since `r` is a non-negative integer, `a - 1 - r ≤ a - 1`
+4. This means `b` is decreasing by at least 1 in each iteration
+
+Since `b` is strictly decreasing by at least 1 in each recursive call and the recursion only continues while `b > 0`, the program will terminate after at most `b` recursive calls.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * b
+

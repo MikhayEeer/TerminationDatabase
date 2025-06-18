@@ -1,0 +1,58 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+In this program, we have a while loop with the condition `x > 0`. In each iteration:
+- `x` is updated as `x = x + y`
+- `y` is updated as `y = -y - 1`
+
+Let's analyze what happens to `y` across iterations:
+- After 1 iteration: `y1 = -y0 - 1`
+- After 2 iterations: `y2 = -(-y0 - 1) - 1 = y0 + 1 - 1 = y0`
+- After 3 iterations: `y3 = -(y0) - 1 = -y0 - 1`
+- After 4 iterations: `y4 = -(-y0 - 1) - 1 = y0 + 1 - 1 = y0`
+
+So `y` alternates between `y0` and `-y0 - 1`.
+
+For `x`:
+- After 1 iteration: `x1 = x0 + y0`
+- After 2 iterations: `x2 = x1 + y1 = x0 + y0 + (-y0 - 1) = x0 - 1`
+- After 3 iterations: `x3 = x2 + y2 = (x0 - 1) + y0 = x0 + y0 - 1`
+- After 4 iterations: `x4 = x3 + y3 = (x0 + y0 - 1) + (-y0 - 1) = x0 - 2`
+
+We can see that after every 2 iterations, `x` decreases by 1. Since the loop continues only while `x > 0`, and `x` decreases by at least 1 every two iterations, the loop must eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * x^1 + 0.0 * y^1 + 0.0 * 1
+2.0 * x^1 + 2.0 * y^1 + 1.0 * 1
+
+=== Response 2 ===
+I'll analyze the program to determine whether it terminates or not.
+
+The core of the program is:
+```c
+while (x > 0) {
+    x = x + y;
+    y = -y - 1;
+}
+```
+
+Let's examine what happens to the variables after each iteration:
+- `x` is updated to `x + y`
+- `y` is updated to `-y - 1`
+
+After two iterations, `y` becomes `-(-y - 1) - 1 = y - 0`, which is equivalent to `y` again. However, in those two iterations, `x` is modified by adding `y` in the first iteration, and adding `-y - 1` in the second iteration. This means after two iterations, `x` decreases by 1.
+
+Since `x` decreases by 1 after every two iterations, and the loop continues only while `x > 0`, the program must eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(2*x + max(0, y + 1)) when y ≥ 0
+(2*x - min(0, y)) when y < 0
+

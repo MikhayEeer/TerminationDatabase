@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+strlen(s1) - (sc1 - s1)
+strlen(s2) - (s - s2)
+
+**Explanation:**  
+The program implements the `cstrpbrk` function, which searches the first string (`s1`) for the first occurrence of any character in the second string (`s2`). The termination is guaranteed because:
+1. The outer loop iterates over each character in `s1` until the null terminator is reached. The number of iterations is bounded by `strlen(s1)`.
+2. For each character in `s1`, the inner loop scans `s2` until either a match is found or the null terminator is reached. The number of iterations per outer loop is bounded by `strlen(s2)`.
+3. Both strings are null-terminated (ensured by `__VERIFIER_nondet_String`), making the loop bounds finite.
+
+**Ranking Function Justification:**  
+- **Type:** Nested (lexicographic) ranking function.  
+- **Component 1:** `strlen(s1) - (sc1 - s1)`  
+  Tracks the remaining characters in `s1` from the current pointer `sc1`. Decreases by 1 in each outer loop iteration when `sc1` increments.  
+- **Component 2:** `strlen(s2) - (s - s2)`  
+  Tracks the remaining characters in `s2` from the current pointer `s`. Decreases by 1 in each inner loop iteration when `s` increments.  
+- **Lexicographic Order:**  
+  - During the inner loop, Component 1 remains constant while Component 2 decreases.  
+  - When moving to the next outer iteration, Component 1 decreases (as `sc1` advances), and Component 2 resets to `strlen(s2)`. The new state `(strlen(s1) - (sc1 - s1) - 1, strlen(s2))` is lexicographically smaller than the previous outer iteration's initial state `(strlen(s1) - (sc1 - s1), strlen(s2))`.  
+
+This proves termination for all non-deterministic null-terminated inputs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+-1.0 * sc1^1 + 1.0 * (s1 + \strlen(s1))^1
+-1.0 * s^1 + 1.0 * (s2 + \strlen(s2))^1
+
+**Explanation:**  
+The program terminates because both loops in `cstrpbrk` are guaranteed to complete:  
+1. **Outer loop** iterates over `s1` until it hits the null terminator. The ranking function `-sc1 + (s1 + strlen(s1))` decreases as `sc1` advances (since `strlen(s1)` is fixed at call time).  
+2. **Inner loop** iterates over `s2` for each character in `s1`. The ranking function `-s + (s2 + strlen(s2))` decreases as `s` advances (since `strlen(s2)` is fixed).  
+
+The nested structure arises because the inner loop runs to completion (or finds a match and returns) for each iteration of the outer loop. The linear expressions measure the remaining distance to the null terminators, ensuring bounded termination.
+

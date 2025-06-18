@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because the loop condition `x != 0` is only entered when `x > 0` (due to the initial `if` condition). Inside the loop, `x` is decremented by 1 in each iteration. Since `x` is an integer and starts at a positive value, it strictly decreases until it reaches 0, causing the loop to exit.  
+
+**Ranking Function Justification:**  
+- **Type:** Linear ranking function `f(x) = x`.  
+- **Behavior:**  
+  - At loop entry, `x ≥ 1` (since `x > 0` and integer).  
+  - Each iteration: `x` decreases by 1 (`x := x - 1`).  
+  - `f(x) = x` is strictly decreasing and bounded below by 0.  
+- **Termination:** When `x = 0`, the loop condition fails, ensuring termination.  
+
+This ranking function is valid over integers (as specified in the program comments).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates for all integer inputs. The initial condition ensures the loop is only entered when `x > 0`. In each iteration, `x` is decremented by 1, strictly decreasing toward 0. The ranking function `f(x) = x` is linear and decreases by at least 1 per iteration, proving termination. The lower bound 0 is reached when the loop exits.
+

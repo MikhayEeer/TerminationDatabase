@@ -1,0 +1,54 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program's core loop is:
+```c
+while (q > 0) {
+    q = q - y;
+    y = y + 1;
+}
+```
+
+Looking at this loop, we need to determine if it always terminates.
+
+The value of `y` increases by 1 in each iteration. After some number of iterations, `y` will become positive (if it wasn't already). Once `y` is positive, each iteration will decrease `q` by at least 1. This means that eventually `q` will become less than or equal to 0, causing the loop to terminate.
+
+Even if `y` starts negative, it will eventually become positive, and then `q` will start decreasing until termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+y < 0 ? -y : 0
+q
+
+The ranking function is lexicographic: first we track how many iterations until `y` becomes non-negative (if it starts negative), then we track the value of `q` which will decrease once `y` is positive, ensuring termination.
+
+=== Response 2 ===
+I'll analyze this program for termination:
+
+The main while loop `while (q > 0) { q = q - y; y = y + 1; }` continues as long as `q > 0`.
+
+In each iteration:
+- `q` is decreased by the current value of `y`
+- `y` is increased by 1
+
+Let's examine the behavior of this loop:
+
+If `y ≤ 0` initially, then `q` will either stay the same or increase in each iteration, while `y` keeps increasing. Eventually, `y` will become positive, and once it does, `q` will start decreasing.
+
+When `y` is positive, `q` decreases by at least 1 per iteration. This means the program will eventually terminate as `q` will eventually become non-positive.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if y > 0: q
+if y ≤ 0: (q+1)*y²
+
+The ranking function shows that:
+- When y > 0, q decreases in each iteration
+- When y ≤ 0, we're measuring progress toward reaching a positive y value, after which q will start decreasing
+

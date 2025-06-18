@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1 + 0.0 * 1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration:
+- `x` decreases by 1 (via `x = x - 1`)
+- `y` remains unchanged
+Thus, the value of `x - y` decreases by exactly 1 per iteration. Since `x - y` is an integer that starts positive (when the loop is entered) and decreases by at least 1 each time, it must eventually become non-positive, causing the loop to terminate. The ranking function `x - y` is linear and decreases monotonically, proving termination. The constant term `0.0 * 1` explicitly shows no constant offset.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration, `x` decreases by 1 while `y` remains unchanged, reducing the value of `x - y` by exactly 1. Since `x - y` is a positive integer when the loop starts (due to the condition `x > y`), and it decreases monotonically, it will eventually become non-positive, causing the loop to terminate. The linear ranking function `f(x, y) = x - y` satisfies:
+- **Non-negativity in loop:** `x > y` implies `f(x, y) ≥ 1` initially.
+- **Strict decrease:** Each iteration decreases `f(x, y)` by 1 (since `f(x-1, y) = (x-1) - y = (x - y) - 1`).
+- **Well-foundedness:** The non-negative integers under standard ordering ensure termination.
+

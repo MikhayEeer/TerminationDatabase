@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+2 * k_ref - 2 * i + 1  if at L1
+2 * k_ref - 2 * i  if at L2 and j = 0
+
+The program terminates because:
+1. In the first loop (L1), i increases until i >= k_ref, or jumps to L2 when i is even
+2. In the second loop (L2), j increases until j >= 1, or jumps back to L1 when i is even
+3. The key insight is that when control jumps from L1 to L2, i is even
+4. When at L2 with an even i, the condition "if (*i % 2)" is false, so control doesn't jump back to L1
+5. Thus, j will eventually reach 1 and the second loop terminates
+6. If control returns to L1, i has increased, so we're making progress toward k_ref
+7. The piecewise ranking function decreases with each step and is bounded below, guaranteeing termination
+
+=== Response 2 ===
+I need to analyze the program's termination by examining the flow between the two labeled loops L1 and L2.
+
+Let's trace through the control flow:
+
+1. In loop L1, `i` increases until it reaches `k_ref`
+2. If `i` is odd, we continue in L1
+3. If `i` is even, we goto L2
+4. In loop L2, `j` increases until it reaches 1
+5. If `i` is odd (which it can't be when entering from L1), it continues in L2
+6. If `i` is even, it goes back to L1
+
+Since we're always going to L2 when `i` is even, and back to L1 when we finish L2, we need to determine if this back-and-forth can lead to non-termination.
+
+The key insight is that `i` only increases (never decreases) and is bounded by `k_ref`. Eventually, `i` will reach `k_ref` and exit L1 permanently. After that, loop L2 will execute at most once, as `j` can only increase up to 1.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2*k_ref - 2*i + (1-j)
+
+This ranking function decreases with each iteration across both loops. It captures that each increment of `i` reduces the distance to termination by 2, and `j` can contribute at most 1 to the measure.
+

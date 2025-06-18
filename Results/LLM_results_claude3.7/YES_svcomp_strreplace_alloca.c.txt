@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (length1 - 1 - (p - s))
+
+The function `cstrreplace` iterates through the string `s` until it encounters the null terminator ('\0'). Since `nondetString1` is guaranteed to have a null terminator at `nondetString1[length1-1]`, and the pointer `p` starts at `s` and is incremented by 1 in each iteration, the loop will terminate after at most `length1` iterations.
+
+The ranking function shows that the distance from the current position `p` to the end of the string (where the null terminator is located) strictly decreases in each iteration, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (length1 - p)
+
+The program terminates because the function `cstrreplace` always processes a string until it reaches the null terminator. The termination can be proven with a linear ranking function based on the distance from the current pointer position to the end of the string.
+
+Since `nondetString1[length1-1] = '\0'` is set before calling the function, the string is properly null-terminated. In each iteration of the while loop, the pointer `p` is incremented by one, which strictly decreases the distance to the null terminator. Therefore, the function will always terminate after at most `length1-1` iterations.
+

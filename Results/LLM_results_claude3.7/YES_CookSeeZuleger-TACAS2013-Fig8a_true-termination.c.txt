@@ -1,0 +1,45 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program contains a single while loop that continues as long as x is not zero. In each iteration:
+- If x > 0, it decrements x by 1
+- If x ≤ 0, it increments x by 1
+
+Looking at the loop behavior:
+- When x is positive, it decreases x, moving it closer to zero
+- When x is negative, it increases x, also moving it closer to zero
+
+Since every iteration moves x exactly one unit closer to zero (regardless of starting value), the program will always terminate when x reaches zero.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|x|
+
+The ranking function is the absolute value of x, which strictly decreases in every iteration and is bounded below by 0. This proves termination.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+This program has a while loop that continues as long as `x` is not 0. In each iteration:
+- If x > 0, x is decreased by 1
+- If x < 0, x is increased by 1
+
+Looking at this behavior, we can see that:
+- For any positive value of x, it will decrease by 1 each iteration until reaching 0
+- For any negative value of x, it will increase by 1 each iteration until reaching 0
+
+In both cases, x approaches 0, and once it equals 0, the loop terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+x when x > 0
+-x when x ≤ 0
+
+This is a piecewise ranking function because we need different expressions depending on whether x is positive or negative. In both cases, the function is strictly decreasing and bounded below by 0, guaranteeing termination.
+

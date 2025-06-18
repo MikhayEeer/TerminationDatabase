@@ -1,0 +1,53 @@
+=== Response 1 ===
+Let me analyze the termination of this GCD program.
+
+The program has two nested loops:
+1. The outer loop runs while `y > 0`
+2. The inner loop runs while `r >= y`
+
+First, I'll analyze the inner loop: `while (r >= y) r = r - y;`
+In each iteration, `r` is decreased by `y`, which is a positive value (since we're in the outer loop where `y > 0`). Since `r` is strictly decreasing by at least 1 in each iteration, and the loop continues only when `r >= y`, this inner loop must terminate.
+
+For the outer loop: `while (y > 0) {...}`
+After the inner loop completes, we perform:
+- `x = y` (old value of `y`, which is > 0)
+- `y = r` (where `r` is the remainder of x divided by y, so `0 ≤ r < y`)
+
+This is the standard Euclidean GCD algorithm. In each iteration:
+- The new `y` is strictly less than the old `y` (since `r < y`)
+- `y` remains non-negative
+- Eventually, `y` must reach 0, terminating the loop
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+For the outer loop: y
+For the inner loop: r
+
+The nested ranking function proves termination - the inner loop decreases `r` until `r < y`, and the outer loop decreases the value of `y` in each iteration until it becomes 0.
+
+=== Response 2 ===
+I'll analyze this GCD (Greatest Common Divisor) program for termination.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+For the outer loop: max(0, y)
+For the inner loop: max(0, r - y + 1)
+
+This program is definitely terminating. The GCD algorithm has two nested loops:
+
+1. The inner loop decreases r in each iteration while keeping y constant, and terminates when r < y.
+
+2. The outer loop maintains the invariant that y ≥ 0, and each iteration sets y to the remainder of x divided by y (which is strictly less than y). Since y strictly decreases and is bounded below by 0, the outer loop must terminate.
+
+The nested ranking function captures this behavior: the outer ranking function measures the current value of y, and the inner ranking function measures the distance between r and y. Both decrease during execution and are bounded below, ensuring termination.
+

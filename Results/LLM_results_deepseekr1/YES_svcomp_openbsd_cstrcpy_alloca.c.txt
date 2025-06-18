@@ -1,0 +1,21 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length2 - (to - save)
+
+**Explanation:**  
+The program always terminates because the loop in `cstrcpy` is guaranteed to terminate. The loop copies characters from `nondetString` (which is explicitly null-terminated at index `length2-1`) to `nondetArea`. Since `length1 >= length2` (ensured by the guard in `main`), the destination buffer is sufficiently large. The loop iterates at most `length2 - 1` times (number of non-null characters) plus one for the null terminator assignment, but stops immediately after copying the null terminator. 
+
+The ranking function `length2 - (to - save)` is linear and decreases by exactly 1 per iteration:
+- `to - save` is the number of characters copied so far (offset from the start).
+- `length2` is the maximum possible offset needed (fixed at call time).
+- The expression is non-negative initially (since `to = save` at start) and decreases until the loop exits.
+
+This proves termination as the value is bounded below by 0 and strictly decreases.
+

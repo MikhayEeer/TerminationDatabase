@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 - 1.0 * y^1 - 1.0 * z^1
+
+**Explanation:**  
+The loop condition is `x > y + z`. Define the expression \( v = x - y - z \). Since `x`, `y`, and `z` are integers, and the loop condition holds (so \( v \geq 1 \) initially), \( v \) acts as a ranking function. In each iteration:
+- \( y \) increases by 1 and \( z \) increases by 1, so \( v \) becomes \( x - (y+1) - (z+1) = v - 2 \).
+- Thus, \( v \) decreases by exactly 2 per iteration, remaining integer-valued.  
+
+The values of \( v \) start at \(\geq 1\) and strictly decrease by 2 each time. Since integers are well-ordered, \( v \) must eventually become \(\leq 0\), causing the loop to terminate. The ranking function \( v = x - y - z \) is linear and proves termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1 + (-1.0) * z^1
+
+**Explanation:**  
+The loop condition is `x > y + z`. The ranking function is \( r = x - y - z \).  
+- **Nonnegativity in loop:** At loop entry, \( x > y + z \) holds, so \( r \geq 1 \) (since variables are integers).  
+- **Decrease per iteration:** Each iteration increments both \( y \) and \( z \) by 1, so \( r \) decreases by \( 2 \) (since \( y + z \) increases by 2).  
+- **Termination:** \( r \) decreases by at least 1 (actually 2) each iteration and is bounded below (minimum 1 in the loop). Once \( r \leq 0 \), the loop exits.  
+Thus, the program terminates, proven by this linear ranking function.
+

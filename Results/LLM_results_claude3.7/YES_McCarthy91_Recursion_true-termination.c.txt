@@ -1,0 +1,62 @@
+=== Response 1 ===
+I'll analyze whether this program terminates or not.
+
+The key to this problem is understanding the behavior of the `mc91` function, which is the famous McCarthy 91 function.
+
+Let's analyze the termination of this function:
+
+1. If n > 100, the function immediately returns n-10 (base case).
+2. If n ≤ 100, the function makes two recursive calls: mc91(mc91(n+11)).
+
+For the inner call mc91(n+11), if n+11 > 100 (i.e., n > 89), it will return (n+11)-10 = n+1.
+Otherwise, it will make further recursive calls.
+
+For any input n ≤ 100, it can be proven that mc91(n) always returns 91. This is a well-known property of the McCarthy 91 function.
+
+The recursion always terminates because each path of recursion eventually reaches the base case. The number of recursive calls is finite for any input n.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+101 - n if n ≤ 100
+0 if n > 100
+
+The nested ranking function captures the fact that we have nested recursion, where the outer recursion depends on the result of the inner recursion. For values ≤ 100, the function 101-n decreases with each nested call until we eventually reach the base case.
+
+=== Response 2 ===
+Let's analyze the termination of this program, focusing on the `mc91` function.
+
+The function `mc91` has the following structure:
+```c
+int mc91(int n)
+{
+  if (n > 100) return n-10;
+  else return mc91(mc91(n+11));
+}
+```
+
+This is a recursive function with a nested recursive call. Let's analyze when it terminates:
+
+1. If n > 100, the function simply returns n-10 with no recursive call, so it terminates.
+2. If n ≤ 100, the function makes two nested recursive calls: mc91(mc91(n+11))
+
+To determine termination, I need to understand what happens in the second case:
+- For the inner call mc91(n+11), if (n+11) > 100, it returns (n+11)-10 = n+1
+- If (n+11) ≤ 100, it makes further nested calls
+
+This function is known as McCarthy's 91 function, which has been proven to terminate for all inputs. For n ≤ 100, it always returns 91, and for n > 100, it returns n-10.
+
+The termination can be proven using a lexicographic ranking function:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+max(101 - n, 0)
+max(101 - (n+11), 0) + 1
+
+This nested ranking function captures the recursive structure of the program. The outer ranking function decreases with each outer recursive call until n > 100. The inner ranking function decreases with each inner recursive call, ensuring overall termination.
+

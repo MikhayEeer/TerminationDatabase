@@ -1,0 +1,51 @@
+=== Response 1 ===
+To determine if this program terminates, I'll analyze the recursive calls between functions f and g.
+
+Looking at the call structure:
+- f(x) calls g(x) and g(x+1) if x > 0
+- g(x) calls f(x-2) and f(x-3) if x > 0
+
+This forms a mutually recursive system where:
+1. Function f calls g with values that are either the same or slightly larger (x and x+1)
+2. Function g calls f with values that are strictly smaller (x-2 and x-3)
+
+For any initial call to g(x), the recursive calls will eventually reach base cases (x ≤ 0) because of the strict decrease in the argument for calls from g to f. Even though f calls g with slightly larger values, the net effect of the call chain f→g→f is always a decrease.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+max(0, x)
+
+The nested ranking function is appropriate here because the termination argument relies on the observation that for any mutual recursion between f and g, the parameters eventually decrease to below or equal to 0, at which point both functions return immediately.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+First, let's understand the functions:
+- Function `f(x)` calls `g(x)` and `g(x+1)` if `x > 0`
+- Function `g(x)` calls `f(x-2)` and `f(x-3)` if `x > 0`
+- Each function has a base case that returns 0 when `x <= 0`
+
+This creates a mutual recursion pattern. For termination, I'll check if each recursive call decreases a well-founded measure.
+
+For any value of x > 0:
+- f(x) calls g(x) which then calls f(x-2) and f(x-3)
+- f(x) also calls g(x+1) which then calls f(x-1) and f(x-2)
+
+So f(x) leads to recursive calls f(x-1), f(x-2), and f(x-3), all of which have strictly smaller parameters.
+
+Similarly, g(x) leads to recursive calls with strictly smaller parameters.
+
+Since each recursive path eventually reaches values ≤ 0 (the base cases), the program terminates for all inputs.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+
+The ranking function is simply the parameter value x, which decreases by at least 1 in every chain of recursive calls until it reaches the base case.
+

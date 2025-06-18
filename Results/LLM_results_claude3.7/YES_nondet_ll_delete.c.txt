@@ -1,0 +1,61 @@
+=== Response 1 ===
+I'll analyze the program to determine if it terminates.
+
+Looking at the program, it first initializes a linked list with `n` elements using the `init_list` function, then it calls `delete` to remove all occurrences of elements with value `m` from the list.
+
+Let's analyze each function:
+
+1. `init_list`: This function creates a linked list with `n` elements. It terminates after executing exactly `n` iterations of the for loop.
+
+2. `delete`: This function traverses the linked list and removes elements with value `m`. The critical part is the while loop `while(curr->next != NULL)`.
+
+In the `delete` function, `curr` starts at the head and in each iteration either:
+- Advances to the next node if the next node's value is not `m`
+- Removes the next node if its value is `m` (which doesn't advance `curr`)
+
+What's important here is that the linked list has a finite length, and each iteration of the while loop either advances to the next node or removes a node. Since we can only remove a finite number of nodes (at most all nodes in the list), and we can only advance a finite number of times (at most the number of nodes in the list), the loop must terminate.
+
+After the loop, there's a simple conditional statement to possibly remove the head if its value is `m`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * list_length
+
+Where `list_length` refers to the number of nodes remaining to be processed in the list (starting from the current `curr->next` position to the end of the list). This decreases by at least 1 in each iteration of the while loop in the `delete` function, ensuring termination.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program consists of:
+1. Creating a linked list with `n` nodes via `init_list(n)`
+2. Deleting nodes with a specific value `m` from the list via `delete(&head, m)`
+
+Let's examine each function:
+
+- `init_list(n)`: This has a for loop that iterates exactly `n` times. It clearly terminates.
+- `delete(&head, m)`: This has a loop that traverses the linked list and removes nodes with value `m`. Will this loop always terminate?
+
+Looking at the `delete` function, the key observation is that it iterates through the linked list using `curr = curr->next` when the next node's value doesn't match `m`. When there is a match, it skips the node but doesn't move `curr`. 
+
+Importantly, the loop condition is `while(curr->next != NULL)`, and in each iteration:
+- Either `curr->next` becomes `curr->next->next` (skipping a node)
+- Or `curr` advances to `curr->next`
+
+In both cases, we're making progress toward the end of the list. Since the list is finite (created with `n` nodes), and the traversal always moves toward the end, this loop will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+len(list) - position(curr)
+
+Where:
+- len(list) is the length of the remaining list
+- position(curr) is the position of the current node from the head
+
+This ranking function decreases with each iteration as we either reduce the list length by removing a node or increase the position of the current node by moving forward in the list.
+

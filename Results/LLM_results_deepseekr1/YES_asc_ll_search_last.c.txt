@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + (-1.0) * curr->value^1
+
+**Explanation:**
+- The program first builds a linked list containing integers from 0 to `n` (both inclusive) via `init_list`. This loop terminates after `n+1` iterations, as the loop counter `j` decreases from `n` to 0.
+- The `search` function traverses the list starting from the head (value 0) until it finds the node with value `n`. The loop condition checks if `curr->value != n`.
+- The ranking function `f(n, curr) = n - curr->value` is linear and proves termination:
+  - **Non-negative:** Initially, `curr->value = 0`, so `f = n ≥ 0`. At each iteration, `curr` points to a node with `value < n` (since we haven't reached `n`), so `f > 0`.
+  - **Decreases by ≥1:** Each iteration advances `curr` to the next node, increasing `curr->value` by exactly 1 (list values are consecutive). Thus, `f` decreases by exactly 1.
+  - **Bounded below:** `f ≥ 0`, and when `f = 0` (`curr->value = n`), the loop exits.
+- The ranking function uses `n` (constant during the loop) and `curr->value` (state variable), demonstrating linear decrease.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - curr->value
+
+**Explanation:**  
+The program builds a linked list with nodes containing values from 0 to `n` (inclusive) in ascending order (0 → 1 → ... → n). The `search` function traverses the list starting from the head (value 0) until it finds the node with value `n`. Since the list is finite and contains `n` (guaranteed by `init_list`), the loop iterates exactly `n` times. The ranking function `n - curr->value` decreases by 1 in each iteration (as `curr->value` increases by 1 when moving to `curr->next`), is non-negative, and reaches 0 when the node with value `n` is found, proving termination.
+

@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(1.0 * array_size^2) + (-1.0003 * j) + (-1.0 * array_size) + (-2.0 * i) + 2.0003
+
+**Explanation:**  
+The program implements Selection Sort with two nested loops. The termination argument relies on:  
+1. The outer loop runs `array_size - 1` times (from `i = 0` to `i = array_size - 2`).  
+2. The inner loop runs `array_size - i - 1` times for each outer iteration `i`.  
+
+The ranking function combines both loop counters into a single linear expression:  
+- `(array_size^2 - array_size)` accounts for the total possible iterations.  
+- `(-2 * i)` decreases with each outer iteration step (including initialization jumps).  
+- `(-1.0003 * j)` decreases with each inner iteration (adjusting for floating-point precision).  
+The term decreases on every iteration of either loop, proving termination. The uninitialized array values do not affect loop bounds.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1 * i^1 + (array_size - 1) * 1
+-1 * j^1 + array_size * 1
+
+**Explanation:**  
+The program implements Selection Sort with two nested loops. The termination is guaranteed because:
+1. The outer loop runs exactly `array_size - 1` times, controlled by `i` (from `0` to `array_size - 2`).
+2. For each iteration of the outer loop, the inner loop runs exactly `array_size - i - 1` times, controlled by `j` (from `i+1` to `array_size - 1`).
+
+The ranking function uses two linear components in a multi-phase (lexicographic) order:
+- **First phase:** `array_size - 1 - i` decreases by 1 per outer loop iteration and is bounded below by 0.
+- **Second phase:** `array_size - j` decreases by 1 per inner loop iteration and is bounded below by 0. When the inner loop completes, the outer loop increments `i`, reducing the first component lexicographically.
+
+The uninitialized array values do not affect loop termination since control depends solely on `i`, `j`, and the fixed `array_size`.
+

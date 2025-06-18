@@ -1,0 +1,44 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+### Explanation:
+The program terminates because the loop condition depends on the decreasing difference between `x` and `y`. 
+
+- **Termination Proof**:  
+  The loop condition `*x_ref > *y_ref` ensures that at the start of each iteration, the difference `x_ref - y_ref` is at least 1. In each iteration:
+  - `*x_ref` decreases by 1.
+  - `*y_ref` increases by 1.
+  
+  This reduces the difference `(*x_ref - *y_ref)` by exactly 2 per iteration, and the difference remains bounded below by 1 inside the loop. Once the difference becomes 0 or negative, the loop terminates. Since the difference starts as a finite integer and decreases by at least 2 each iteration, the program is guaranteed to terminate.
+
+- **Ranking Function**:  
+  The ranking function `r = (*x_ref) - (*y_ref)` (modeled as `x - y`) maps loop states to integers.  
+  - It is bounded below by 1 (due to the loop condition).
+  - It decreases by exactly 2 per iteration (`x' = x - 1`, `y' = y + 1` implies `x' - y' = (x - y) - 2`).
+  - As it decreases by a constant positive amount (≥1) and is integer-valued, it proves termination. 
+
+This linear ranking function (in the state variables \(x\) and \(y\), representing the current values stored at `x_ref` and `y_ref`) sufficiently demonstrates termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+
+**Explanation:**  
+The termination of the loop is proven by the linear ranking function \( x - y \), where \( x \) and \( y \) represent the current values of the variables tracked by `x_ref` and `y_ref` at the loop head.  
+
+- **Loop Condition:** The loop runs while \( x > y \).
+- **Ranking Function Behavior:** Initially, \( x - y \geq 1 \) (since \( x > y \) implies at least one integer apart). Each iteration updates:
+  - \( x_{\text{new}} = x - 1 \)
+  - \( y_{\text{new}} = y + 1 \)
+  Thus, after each iteration, the ranking function becomes \( (x - 1) - (y + 1) = (x - y) - 2 \), decreasing by exactly 2.  
+- **Termination Guarantee:** This strict decrease (by 2) ensures that \( x - y \) progresses downward from a positive integer toward values below 1 (e.g., sequences like 5→3→1), eventually breaking the condition \( x > y \). The ranking function remains nonnegative throughout loop execution and decreases by a fixed positive amount per iteration, guaranteeing termination.
+

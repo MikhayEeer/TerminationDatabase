@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * s + end
+
+**Explanation:**  
+The program terminates because the `cstrchr` function scans a null-terminated string of finite length. The loop condition `while (*s != '\0' && *s != (char)c)` increments the pointer `s` until either the null terminator is reached or the target character `c` is found. Since the string from `__VERIFIER_nondet_String()` is guaranteed to be null-terminated and of finite length (≥1), the loop must terminate within at most `n` iterations (where `n` is the string length including the null terminator).  
+
+The ranking function `f(s) = -1.0 * s + end` is linear, where:  
+- `s` is the current pointer (program variable).  
+- `end` is the fixed address of the null terminator (constant from the initial state).  
+
+This function decreases by `1` in each iteration (as `s` increments by `sizeof(char)`), is bounded below by `0` (when `s == end`), and proves termination. The loop exits early if `c` is found, but the ranking function still holds as it decreases monotonically.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * s^1 + K 
+
+### Explanation:
+- **Termination Reason**: The loop in `cstrchr` iterates through a `\0`-terminated string of finite length (guaranteed by `__VERIFIER_nondet_String`). The pointer `s` increments until either the character `c` or the null terminator is encountered. Since the string has a finite length (at least 1), the loop is guaranteed to terminate.
+- **Ranking Function**: `K - (unsigned long)s`, where `K = (unsigned long)(initial_string_base) + initial_length + 1` (an implementation-specific constant representing the address beyond the null terminator). This affine function decreases by 1 per iteration (as `s++` increments the pointer) and is bounded below by 0 when `s` reaches the terminator. The type is **linear** as it depends solely on the pointer `s` with a constant offset.
+- **Note**: `K` encodes the string's end address, fixed at loop entry. The coefficient `-1.0` captures the pointer arithmetic decrement per iteration. The function remains nonnegative since `s ≤ K - 1` during the loop.
+

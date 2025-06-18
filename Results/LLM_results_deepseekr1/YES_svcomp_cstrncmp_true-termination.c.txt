@@ -1,0 +1,60 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Explanation:**  
+The loop in `cstrncmp` terminates because:
+1. The loop condition `(n-- > 0 && *s1 == *s2)` ensures that:
+   - `n` is decremented by 1 in each iteration (via `n--`).
+   - The loop body executes only when `n > 0` (before decrement) and the current characters of `s1` and `s2` are equal.
+2. `n` is a non-negative integer (if negative, the loop skips entirely), and each iteration reduces `n` by 1.
+3. The loop exits when:
+   - `n` reaches 0 (after decrement) in the condition check, or
+   - Characters become unequal (`*s1 != *s2`), or
+   - The null terminator is encountered (handled by the early return in the body).
+
+The ranking function `n` (value at loop entry) decreases by at least 1 per iteration and is bounded below by 0, proving termination. The strings are guaranteed null-terminated (via `__VERIFIER_nondet_String`), ensuring no infinite character comparisons.
+
+=== Response 2 ===
+The program implements a custom string comparison function `cstrncmp` that compares up to `n` characters of two strings. The termination of the loop within this function depends on the non-deterministic inputs: two strings and an integer `n`.
+
+### Analysis:
+1. **Loop Condition**: The loop runs while `n-- > 0` and `*s1 == *s2`. 
+   - `n` is decremented in each iteration.
+   - The loop breaks early if `*s1 != *s2` or if `n` becomes zero after decrement.
+   - Inside the loop, if `n == 0` (after decrement) or `*s1 == '\0'`, the function returns immediately.
+
+2. **Termination Argument**:
+   - `n` is an integer that decreases by exactly 1 in each iteration where the loop condition holds.
+   - The loop runs at most `max(0, initial_n)` times because:
+     - If `initial_n <= 0`, the loop condition fails immediately.
+     - If `initial_n > 0`, `n` decreases from `initial_n` to 0, limiting iterations to `initial_n`.
+   - Early exit conditions (character mismatch or null terminator) do not affect termination, as they only reduce the number of iterations but not the upper bound.
+
+3. **Safety**: 
+   - Strings are null-terminated (ensured by `__VERIFIER_nondet_String`), preventing out-of-bounds access.
+   - Loop iterations are bounded by `initial_n`, which is finite.
+
+### Conclusion:
+The program always terminates because the loop variable `n` decreases monotonically and is bounded below by 0.
+
+### Ranking Function:
+A **linear ranking function** suffices, based on the value of `n` at the start of each loop condition evaluation:
+- **Ranking function**: \( r = n \) (evaluated before decrement in the condition).
+- **Properties**:
+  - Non-negative when entering the loop (since \( n > 0 \)).
+  - Decreases by at least 1 per iteration (as \( n \) is decremented).
+  - When \( n = 0 \), the loop exits.
+
+Output:
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  n^1
+

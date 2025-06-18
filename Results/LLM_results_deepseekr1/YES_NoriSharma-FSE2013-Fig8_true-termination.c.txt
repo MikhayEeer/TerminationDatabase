@@ -1,0 +1,36 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z
+1.0 * x + (-1.0) * y
+
+**Explanation:**  
+The program terminates because it has two distinct phases:  
+1. **Phase 1 (z > 1):** The value of `z` decreases by 1 in each iteration (bounded below by 1).  
+2. **Phase 2 (z ≤ 1):** The expression `x - y` decreases by 1 in each iteration (since `y` increases while `x` remains fixed), and the loop exits when `x < y`.  
+
+The multi-phase ranking function uses:  
+- First component: `z` (for Phase 1, decreases until z ≤ 1)  
+- Second component: `x - y` (for Phase 2, decreases until negative)  
+
+Transitions are well-founded: Phase 1 strictly decreases `z` until switching to Phase 2, where `x - y` decreases until termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z
+1.0 * x + (-1.0) * y
+
+**Explanation:**  
+The program terminates for all inputs. A two-phase ranking function proves termination:  
+1. **First phase (when z > 1):** The expression `z` decreases by at least 1 in each iteration (since `z` is decremented) and is bounded below by 1 (as the phase exits when z ≤ 1).  
+2. **Second phase (when z ≤ 1):** The expression `x - y` decreases by at least 1 in each iteration (since `y` is incremented) and is bounded below by 0 (due to the loop condition `x ≥ y`).  
+
+Once the second phase starts (after z becomes ≤ 1), the program remains in this phase and `x - y` strictly decreases until the loop condition fails. The phases are mutually exclusive, and transitions only occur from the first to the second phase.
+

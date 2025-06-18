@@ -1,0 +1,40 @@
+=== Response 1 ===
+I'll analyze the program for termination:
+
+The program initializes a linked list with a specified length `n` and then terminates.
+
+The key to analyzing termination is the recursive function `init_list(n)` which:
+1. Has a base case: returns NULL when n == 0
+2. Recursively calls itself with n-1 for each step
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+The function terminates because the parameter n decreases by exactly 1 in each recursive call, and the recursion stops when n reaches 0. This is a simple linear ranking function where n serves as the measure that strictly decreases toward the base case.
+
+=== Response 2 ===
+I need to analyze this program for termination.
+
+The program creates a linked list of size n, where n is a non-deterministic integer. If n < 1, the program returns immediately. Otherwise, it calls init_list(n) to create a linked list of n nodes.
+
+The init_list function is recursive and operates as follows:
+- Base case: if n == 0, return NULL
+- Recursive case: create a node and recursively call init_list(n-1) to build the rest of the list
+
+Let's analyze the termination:
+
+For each recursive call to init_list(n), the parameter n strictly decreases by 1. Since n starts at some concrete value and the recursion stops when n reaches 0, the function init_list will always terminate. Even if n is initially very large, after n recursive calls, the function will reach the base case and terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0 * 1
+
+The ranking function is simply n, which starts at some non-negative value and decreases by exactly 1 in each recursive call until it reaches 0, at which point the recursion terminates.
+

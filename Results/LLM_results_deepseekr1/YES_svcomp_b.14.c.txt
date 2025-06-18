@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y
+
+### Explanation:
+The program consists of an outer loop and an inner loop. The outer loop condition `(x == y) && (x > 0)` ensures that the loops run only when `x` and `y` are equal and positive. The inner loop condition `y > 0` allows entry into the inner loop only when `y` is positive.
+
+- **Termination Reasoning**:  
+  Once the outer loop is entered (i.e., `x == y` and `x > 0`), the inner loop reduces both `x` and `y` by 1 in each iteration until `y` becomes `0`. Since `y` starts at a finite positive integer and decreases by `1` each iteration, the inner loop is guaranteed to terminate. After the inner loop exits, `x` and `y` become `0`, causing the outer loop condition to fail (`x > 0` is false), so the outer loop runs at most once. Thus, the entire program terminates.
+
+- **Ranking Function**:  
+  The ranking function `y` is linear and valid because:
+  - Base: At the start of each inner loop iteration, `y` is a positive integer (due to the inner loop condition).
+  - Decrease: Each inner loop iteration decreases `y` by `1`.
+  - Bounded: `y` is bounded below by `0`; once `y ≤ 0`, the inner loop exits.
+  
+This ranking function proves termination of the inner loop, which governs the program's termination behavior since the outer loop executes at most once.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y
+
+The program terminates because:
+1. The outer loop condition `(x == y) && (x > 0)` ensures both variables are positive and equal before entering the loop body.
+2. The inner loop condition `y > 0` uses `y` as a ranking function:
+   - At the start of the inner loop, `y` is positive (since `x = y > 0`).
+   - Each iteration decrements `y` by 1 (`y = y - 1`).
+   - `y` is bounded below by 0 and strictly decreases, guaranteeing termination of the inner loop.
+3. After the inner loop completes, `y = 0` and consequently `x = 0`, making the outer loop condition `(0 == 0) && (0 > 0)` false, thus the outer loop exits after exactly one iteration.
+The linear ranking function `y` for the inner loop proves termination. The outer loop runs at most once and has no persistent iterations, so the inner loop's linear ranking suffices.
+

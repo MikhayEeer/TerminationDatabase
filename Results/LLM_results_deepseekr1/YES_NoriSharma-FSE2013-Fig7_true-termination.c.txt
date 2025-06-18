@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * M^1 + (-1.0) * i^1
+1.0 * N^1 + (-1.0) * j^1
+
+**Explanation:**  
+The program terminates because the loop condition `(i < M || j < N)` will eventually become false. The loop increments both `i` and `j` by 1 in each iteration, ensuring that after a finite number of steps, `i >= M` and `j >= N` will hold. 
+
+The ranking function uses a **multi-phase** approach:
+- **Phase 1:** Uses `M - i` (expressed as `1.0 * M^1 + (-1.0) * i^1`). This decreases by 1 per iteration while `i < M`.  
+- **Phase 2:** Uses `N - j` (expressed as `1.0 * N^1 + (-1.0) * j^1`). This decreases by 1 per iteration after `i >= M` and while `j < N`.  
+
+Each phase's ranking function is linear, non-negative when active, and decreases by at least 1 per iteration, proving termination. Constants `M` and `N` are fixed (unmodified in the loop), and variables `i` and `j` are the changing quantities.
+
+=== Response 2 ===
+The program terminates for all possible initial values of the variables. The termination is proven using a piecewise ranking function that decreases with each iteration and remains bounded below.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max((M - i), (N - j))
+
+**Explanation:**  
+The loop condition `(i < M || j < N)` holds if and only if at least one of `M - i > 0` or `N - j > 0` is true, which is equivalent to `max(M - i, N - j) > 0`. Inside the loop, `i` and `j` increment by 1, reducing both `M - i` and `N - j` by 1. Thus, the ranking function `r = max(M - i, N - j)`:
+- Is positive when the loop is entered,
+- Decreases by exactly 1 each iteration (since the maximum component decreases by 1),
+- Remains non-negative until the loop terminates (when `r <= 0`).  
+This guarantees termination within a finite number of iterations.
+

@@ -1,0 +1,46 @@
+=== Response 1 ===
+I'll analyze the program for termination.
+
+The main function is straightforward - it allocates two strings, ensures they're null-terminated, and calls `cstrpbrk`. So the termination of the program depends on the termination of the `cstrpbrk` function.
+
+Looking at `cstrpbrk`:
+1. It has an outer while loop that iterates through each character of `s1` until it reaches the null terminator
+2. For each character in `s1`, it has an inner for loop that checks every character of `s2` until it reaches the null terminator
+
+Both strings are guaranteed to be null-terminated by the code in `main`, so both loops will eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+length1 - position_in_s1
+length2 - position_in_s2
+
+The termination can be proven with a nested ranking function where:
+1. The outer function counts down the distance to the end of string s1
+2. The inner function counts down the distance to the end of string s2
+
+Each iteration of the outer loop decreases the distance to the end of s1, and each iteration of the inner loop decreases the distance to the end of s2. Since both strings are finite and null-terminated, both loops will eventually terminate.
+
+=== Response 2 ===
+I'll analyze this program to determine if it's terminating or not.
+
+The main function allocates two strings of non-deterministic lengths (with minimum length of 1) and terminates them with null characters. Then it calls the `cstrpbrk` function which searches for the first occurrence in `s1` of any character in `s2`.
+
+Looking at the `cstrpbrk` function:
+1. It has two nested loops.
+2. The outer loop iterates through each character in `s1` until it reaches the null terminator (0).
+3. The inner loop searches through each character in `s2` until it finds a match or reaches the null terminator.
+
+Since both strings are null-terminated (by the lines `nondetString1[length1-1] = '\0'` and `nondetString2[length2-1] = '\0'`), and the loops are explicitly terminated when encountering these null characters, the program will always terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length1 - 1.0 * index_s1
+
+Here, `index_s1` represents the current position in the string `s1` being examined. The ranking function decreases with each iteration of the outer loop, and since the loop terminates when the null character is reached (which we know exists at `length1-1`), the program will terminate after at most `length1` iterations of the outer loop.
+

@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates for all possible initial values of `*x` (including uninitialized values). The loop condition `*x > 0` ensures termination because:  
+- If `*x ≤ 0` initially, the loop is skipped.  
+- If `*x > 0` initially, in each iteration:  
+  - `*x` decreases by `*y` (which is ≥1 and increases by 1 each iteration).  
+  - The minimal decrease per iteration is 1 (since `*y ≥ 1`).  
+  - Thus, `*x` decreases by at least 1 per iteration and is bounded below (by any value ≤0).  
+  - The loop exits when `*x ≤ 0`, guaranteed within `ceil(*x_initial)` iterations.  
+
+The ranking function `*x` (value pointed by `x`) is linear and decreases monotonically by at least 1 per iteration, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 0.0 *  y^1 + 0.0
+
+**Explanation:**  
+The program terminates for all initial values of `*x` (even though uninitialized, we consider arbitrary integers). The loop condition `*x > 0` ensures that at the start of each iteration, `*x ≥ 1` (since integers). In each iteration:
+- `*x` decreases by `*y` (which is at least `1` initially and increases by `1` each iteration).
+- The decrease in `*x` is at least `1` per iteration because `*y ≥ 1` always holds.
+
+The ranking function `f = *x` is:
+- **Linear** in the program variables.
+- Strictly decreases by at least `1` each iteration (since `*x_new = *x_old - *y ≤ *x_old - 1`).
+- Bounded below by `0` (loop exits when `*x ≤ 0`).  
+
+Thus, the loop can execute at most `*x` (initial value) iterations, proving termination. The ranking function uses `x` and `y` to denote the integer values at the pointers.
+

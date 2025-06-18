@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1 + 0.0 * 1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration, `y` is incremented by 1, which reduces the value of `x - y` by exactly 1. Since `x - y` is initially a finite positive integer (when the loop is entered), it decreases monotonically by 1 in each iteration. Once `x - y` becomes less than or equal to 0, the loop terminates. The function `r(x, y) = x - y` serves as a linear ranking function, bounded below by 0 upon loop entry, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+
+**Explanation:**  
+The loop condition `x > y` and the update `y = y + 1` ensure termination. The expression `x - y` decreases by exactly 1 in each iteration (since `x` is unchanged while `y` increases). Initially, if `x > y`, the difference `x - y` is a positive integer. It strictly decreases until it becomes non-positive (at which point `x ≤ y` holds and the loop exits). This linear ranking function `r = x - y` maps loop states to a well-founded domain (natural numbers), proving termination.
+

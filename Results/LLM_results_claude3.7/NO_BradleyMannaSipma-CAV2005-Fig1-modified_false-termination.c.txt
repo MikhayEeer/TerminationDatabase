@@ -1,0 +1,31 @@
+=== Response 1 ===
+I'll analyze the termination of this program, particularly focusing on the `gcd` function.
+
+[RESULT]
+NONTERM
+
+[REASON]
+The program is non-terminating when both y1 and y2 are zero. In this case, the condition y1 != y2 is false at the start (since 0 == 0), so the loop doesn't execute. But if only one of them is zero (e.g., y1 = 0, y2 > 0), the loop will never terminate because the non-zero value will continually be reduced by zero, which doesn't change it.
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates or not.
+
+The main function calls `gcd(y1, y2)` only when both `y1` and `y2` are non-negative. Let's analyze the termination of the `gcd` function.
+
+The `gcd` function contains a while loop that continues as long as `y1 != y2`. Inside the loop:
+- If `y1 > y2`, then `y1` is decreased by `y2`
+- If `y1 < y2`, then `y2` is decreased by `y1`
+
+If both `y1` and `y2` are positive, each iteration reduces either `y1` or `y2` while keeping both values non-negative, and their sum strictly decreases. This would normally guarantee termination.
+
+However, there's a special case: if either `y1` or `y2` is 0, the program may not terminate:
+- If `y1 = 0` and `y2 > 0`: We'll always subtract `y1` from `y2`, but since `y1 = 0`, `y2` never changes, and the loop never terminates.
+- Similarly, if `y2 = 0` and `y1 > 0`, we'll have non-termination.
+
+Since the inputs `y1` and `y2` are non-deterministic and only constrained to be non-negative (which includes 0), this program is non-terminating.
+
+[RESULT]
+NONTERM
+[REASON]
+If either y1=0 and y2>0 or y2=0 and y1>0, the loop in the gcd function will not terminate because one value stays zero while the other remains unchanged.
+

@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + -1.0 *  z^1
+
+### Explanation:
+The program terminates for all inputs. The loop executes only when `y > 0` and `x >= z` initially. Inside the loop, `z` is incremented by `y` (a positive integer) in each iteration. Since `x` remains fixed and `z` increases indefinitely, `x >= z` eventually becomes false, causing the loop to terminate. 
+
+**Ranking Function Justification:**  
+The expression `x - z` serves as a valid linear ranking function because:
+1. **Nonnegative in loop:** At the start of each iteration, `x >= z` implies `x - z >= 0`.
+2. **Strict decrease:** Each iteration sets `z_new = z + y`, so `x - z_new = (x - z) - y`. Since `y ≥ 1`, the value decreases by at least 1.
+3. **Bounded below:** The function is bounded by 0 (as it becomes negative upon loop exit).
+
+This proves the loop terminates, and the program always terminates (skipping the loop when `y ≤ 0`).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * z^1
+
+**Explanation:**  
+The program terminates for all inputs. The loop executes only when `y > 0`. In the loop, `z` increases by `y` (a positive integer) in each iteration, while `x` remains unchanged. The loop condition `x >= z` must eventually become false because `z` grows unbounded. 
+
+The ranking function `f = x - z` is linear and valid because:
+- At loop entry, `x >= z` implies `f ≥ 0`.
+- Each iteration updates `z` to `z + y`, decreasing `f` by `y` (at least 1).
+- `f` decreases monotonically and will become negative, causing termination.
+
+This linear ranking function proves termination.
+

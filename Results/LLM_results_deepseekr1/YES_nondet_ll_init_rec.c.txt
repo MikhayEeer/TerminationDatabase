@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Explanation:**  
+The program terminates because the recursive function `init_list` is called exactly `n` times, where `n` is a non-deterministic integer ≥ 1. Each recursive call decreases `n` by 1 until it reaches 0, at which point recursion stops. The ranking function `n` (linear in the parameter of `init_list`) decreases by at least 1 in each recursive call and is bounded below by 0, proving termination. Resource limitations (e.g., stack overflow) are not considered in this idealized termination analysis.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Brief Explanation:**  
+The program uses recursion to initialize a linked list. The recursion depth is strictly determined by the input `n`, which decreases by 1 in each recursive call until it reaches 0 (base case). The ranking function `n` (current argument in `init_list`) decreases monotonically with each call and is bounded below by 0, proving termination. The recursion is linear in structure, requiring only one linear ranking function expressed as `1.0 * n^1`. Memory allocation (`malloc`) success is assumed for termination analysis.
+

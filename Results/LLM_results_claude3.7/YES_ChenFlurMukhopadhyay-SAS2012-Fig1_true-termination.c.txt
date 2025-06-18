@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x^1 + y^1 + z^1 + 1.0
+
+The program terminates because the values of (y, z) in each iteration follow a pattern that ensures x will eventually become negative. 
+
+Looking at the assignments:
+- z alternates between some value and its negative minus 1
+- y takes the value of z in each iteration
+- x is incremented by y
+
+This creates a pattern where the sum added to x (the values of y) follows a decreasing sequence that eventually makes x negative, causing the loop to terminate. The linear ranking function above strictly decreases in each iteration and is bounded from below.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates and provide a ranking function if applicable.
+
+Looking at the while loop:
+- Loop condition: x > 0
+- Loop body:
+  - x = x + y;
+  - y = z;
+  - z = -z - 1;
+
+Let's examine the behavior of these variables:
+- z is updated as z = -z - 1, which alternates between negative values that decrease in absolute value
+- y takes the value of z in each iteration, so it also alternates
+- x is updated as x = x + y, where y takes the alternating values of z
+
+The key insight is that after at most 2 iterations, the value of y becomes negative and continues to be negative with increasing absolute value. This ensures that x will eventually become non-positive, causing the loop to terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * 1 + 1.0 * x^1 + 0.0 * y^1 + 0.0 * z^1
+1.0 * x^1 - 1.0 * y^1 + 0.0 * z^1 + 0.0 * 1
+

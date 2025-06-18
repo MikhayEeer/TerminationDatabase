@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x + y
+max(x, y)
+
+The program terminates because:
+1. The outer loop requires both x and y to be positive to continue
+2. In each iteration, either x or y is reduced to 0 (depending on which is larger)
+3. Once either x or y becomes non-positive, the outer loop terminates
+
+The nested ranking function shows that:
+- The sum (x + y) serves as an upper bound
+- In each iteration, either x or y is reset to 0, and max(x, y) captures this decrease
+- Both x and y are strictly decreasing in their respective inner loops
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+max(x, y) * 2 + (x > 0 && y > 0)
+
+The program terminates because in each branch of the if statement, either x or y is decremented to 0. 
+
+In the outer loop, the condition requires both x > 0 and y > 0. After one iteration, either x or y becomes 0 (depending on which branch is taken), which makes the outer loop condition false and terminates the program.
+
+The nested ranking function shows that:
+- The outer measure is max(x, y), representing the maximum of the two variables
+- The inner measure is either x or y (whichever is being decremented in the inner loop)
+- Each inner loop iteration decreases the corresponding variable
+- After the inner loop completes, one variable becomes 0, breaking the outer loop condition
+

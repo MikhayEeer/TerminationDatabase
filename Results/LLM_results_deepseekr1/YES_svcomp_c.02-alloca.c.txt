@@ -1,0 +1,45 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref
+
+**Explanation:**  
+The program terminates due to the behavior of the outer loop variable `x_ref` (i.e., the integer value pointed to by `x_ref`). At each entry to the outer `while (*x_ref >= 0)` loop:
+- The value of `x_ref` is nonnegative (due to the loop condition).
+- Within one iteration, `x_ref` is updated to `(*x_ref + 1) - 2 = *x_ref - 1`.
+- Thus, the next value of `x_ref` at the loop head decreases by 1, creating a strictly decreasing sequence: \(n, n-1, n-2, \ldots\) starting from the initial nonnegative integer \(n\).
+
+This forms a linear ranking function \(r = \texttt{x_ref}\):
+- \(r\) is \(\geq 0\) at entry by the loop condition.
+- \(r\) decreases by exactly 1 per outer iteration until it becomes negative (causing loop exit).
+  
+The inner loop (`while (*x_ref > *y_ref)`) does not threaten termination:
+- It always terminates within \(\max(0, \texttt{x\_ref})\) steps per outer iteration (since `y_ref` increments from 1 until it reaches `x_ref`).
+- Its termination relies on the outer loop's `x_ref` value but does not affect the ranking function governing overall termination.
+
+Thus, `r = 1.0 * x_ref` is a valid linear ranking function proving termination for any integer inputs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*x_ref)^1 + 1.0 * 1
+
+### Explanation:
+The program terminates for all integer inputs. The outer loop condition `while (*x_ref >= 0)` is governed by a linear ranking function `*x_ref + 1`, which decreases by exactly 1 in each iteration and remains non-negative until the loop exits.
+
+- **Initial state**: At the start of the outer loop, `*x_ref >= 0`, so the ranking function value is `*x_ref + 1` (≥ 1).
+- **Iteration effect**: Each outer loop iteration:
+  1. Increments `*x_ref` by 1 (making `*x_ref` ≥ 1).
+  2. Sets `*y_ref = 1` and runs the inner loop (which terminates independently as it increments `*y_ref` until `*y_ref >= *x_ref`, taking `*x_ref - 1` steps).
+  3. Decrements `*x_ref` by 2, resulting in a net change of `*x_ref - 1` for the next iteration.
+- **Ranking function decrease**: The new value of `*x_ref` at the next loop head is `*x_ref - 1`, so the ranking function becomes `(*x_ref - 1) + 1 = *x_ref`, a decrease of 1 from the previous value `*x_ref + 1`.
+- **Termination**: When `*x_ref` becomes negative, the loop exits. The ranking function ensures termination within `max(0, initial_*x_ref + 1)` iterations.
+
+The inner loop does not affect the ranking function as it preserves `*x_ref` and terminates in a bounded number of steps (`*x_ref - 1` iterations). The initial value of `y` is irrelevant due to the reset `*y_ref = 1` in each outer iteration.
+

@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z^1 + 0.0 * y^1 + 0.0 * 1
+0.0 * z^1 + 1.0 * y^1 + 1.0 * 1
+
+=== Response 2 ===
+I'll analyze this program to determine if it's terminating.
+
+The program has a while loop that continues as long as `z >= 0`. Inside the loop:
+1. `y` is decremented by 1
+2. If `y >= 0`, then `z` is assigned a non-deterministic value
+3. If `y < 0`, then `z` is decremented by 1
+
+Let me analyze the termination behavior:
+
+When `y >= 0`, the value of `z` can be reset to any value (including potentially larger values), which means we don't have guaranteed progress toward termination.
+
+However, once `y < 0`, the value of `z` will be decremented in each iteration until it eventually becomes negative, causing the loop to terminate.
+
+This program terminates because `y` continuously decreases and will eventually become negative. Once `y` is negative, `z` will also continuously decrease until it becomes negative.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y + 1.0
+1.0 * z + 1.0
+
+The ranking function is multi-phase because:
+- In the first phase, `y` eventually becomes negative
+- In the second phase, `z` decreases until it becomes negative
+

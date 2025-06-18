@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2 * x_ref - 2 * y_ref
+
+The program terminates because in each iteration of the while loop, the difference between *x_ref and *y_ref decreases by 1. Initially, the loop condition is *x_ref > *y_ref. Inside the loop, *x_ref increases by 1 and *y_ref increases by 2, which means that *y_ref grows faster than *x_ref. Eventually, *x_ref will no longer be greater than *y_ref, causing the loop to terminate.
+
+The linear ranking function 2 * x_ref - 2 * y_ref is strictly decreasing in each iteration and is bounded from below, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x_ref - 2.0 * y_ref
+
+The program is terminating because in each iteration of the loop, the difference between *x_ref and *y_ref decreases. Initially, we have the condition *x_ref > *y_ref. In each iteration, *x_ref increases by 1 and *y_ref increases by 2, so the gap between them shrinks by 1 in each iteration. Eventually, *x_ref will no longer be greater than *y_ref, causing the loop to terminate.
+
+The linear ranking function 2.0 * x_ref - 2.0 * y_ref captures this: it decreases by 2 in each iteration since x_ref increases by 1 and y_ref increases by 2, making the function decrease by (2*1 - 2*2) = -2 per iteration.
+

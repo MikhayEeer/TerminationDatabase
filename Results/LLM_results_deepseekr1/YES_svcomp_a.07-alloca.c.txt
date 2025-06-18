@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x_ref^1 + (-1.0) *  y_ref^1
+
+**Explanation:**  
+The program terminates because the loop condition `(*x_ref > *y_ref) && (*x_ref > *z_ref)` cannot hold indefinitely. The ranking function `(*x_ref) - (*y_ref)` is linear and decreases by exactly 1 in each iteration:  
+- **Initialization:** At loop entry, `*x_ref > *y_ref` (so `(*x_ref) - (*y_ref) > 0`).  
+- **Decrease:** Each iteration increments `*y_ref` by 1, decreasing the ranking function by 1.  
+- **Boundedness:** The ranking function is a decreasing integer sequence bounded below (terminates when `(*x_ref) - (*y_ref) <= 0` or the other condition fails).  
+Since `*x_ref` is constant and `*y_ref` increases monotonically, the loop must terminate after at most `(*x_ref) - (*y_ref)` iterations (if initially positive). The ranking function is expressed using the dereferenced pointer values (though the output uses pointer names for conciseness, implying their integer values).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+min(*x_ref - *y_ref, *x_ref - *z_ref)
+
+### Explanation:
+The program terminates because the loop condition `(*x_ref > *y_ref) && (*x_ref > *z_ref)` cannot hold indefinitely. Inside the loop, `*y_ref` and `*z_ref` are incremented by 1 each iteration, while `*x_ref` remains constant. The loop runs as long as `*x_ref` is greater than both `*y_ref` and `*z_ref`. Since `*y_ref` and `*z_ref` increase monotonically, eventually one of them will become at least equal to `*x_ref`, causing the condition to fail. 
+
+The **piecewise ranking function** `min(*x_ref - *y_ref, *x_ref - *z_ref)`:
+- Is **non-negative** when the loop condition holds (since `*x_ref > *y_ref` and `*x_ref > *z_ref` imply both differences are positive).
+- **Decreases by exactly 1** each iteration (as both `*y_ref` and `*z_ref` increase by 1, reducing both components of the min by 1).
+- Bounds the number of iterations to `min(*x_ref - *y_ref_initial, *x_ref - *z_ref_initial)`.
+
+This ranking function proves termination as it decreases monotonically and is bounded below by 0.
+

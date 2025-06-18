@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y for (x <= y)
+0.0 * x + 1.0 * y for (y <= x)
+
+### Explanation:
+The program terminates because in each iteration where both `x > 0` and `y > 0`, one variable is set to `min(x, y) - 1`. The nondeterministic assignment to the other variable does not increase the minimum value, as the new minimum in the next state is at most `min(x, y) - 1`. Since `min(x, y)` decreases by at least 1 per iteration and is bounded below by 0 (as both variables must remain positive to continue the loop), it serves as a piecewise linear ranking function:
+- When `x ≤ y`, the function is `x`
+- When `y ≤ x`, the function is `y`
+
+This proves termination and adheres to the problem's note that no linear lexicographic ranking function exists, requiring a piecewise approach.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+min(x, y)
+
+**Explanation:**  
+The program terminates because the value of `min(x, y)` strictly decreases by at least 1 in every loop iteration and is bounded below by 0.  
+
+- **Initial state:** Both `x > 0` and `y > 0`, so `min(x, y) ≥ 1`.  
+- **In each iteration:**  
+  - **Branch 1 (update `y`):**  
+    - If `x < y`, set `y = x - 1`. New state: `(x_new, x - 1)`.  
+      New min = `min(x_new, x - 1) ≤ x - 1 < x` (old min).  
+    - If `x ≥ y`, set `y = y - 1`. New state: `(x_new, y - 1)`.  
+      New min = `min(x_new, y - 1) ≤ y - 1 < y` (old min).  
+  - **Branch 2 (update `x`):**  
+    - If `x < y`, set `x = x - 1`. New state: `(x - 1, y_new)`.  
+      New min = `min(x - 1, y_new) ≤ x - 1 < x` (old min).  
+    - If `x ≥ y`, set `x = y - 1`. New state: `(y - 1, y_new)`.  
+      New min = `min(y - 1, y_new) ≤ y - 1 < y` (old min).  
+- **Termination:** Since `min(x, y)` decreases by at least 1 each iteration and starts at a positive integer, it must eventually reach ≤0, violating the loop condition `x > 0 && y > 0`.  
+
+The ranking function `min(x, y)` is **piecewise** because it is defined as `x` when `x ≤ y` and `y` otherwise, requiring case analysis. This program has no linear lexicographic ranking function, as noted in the comments, making a piecewise approach necessary.
+

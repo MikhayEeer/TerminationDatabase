@@ -1,0 +1,59 @@
+=== Response 1 ===
+I'll analyze whether this program terminates and provide a ranking function if it does.
+
+The key to this program is the while loop behavior. Let's examine its termination:
+
+The program:
+1. Initializes `id` and `maxId` with nondeterministic values
+2. If `0 <= *id < *maxId`, it creates `tmp` initialized to `*id + 1`
+3. The loop runs while `*tmp != *id` and a nondeterministic condition is true
+4. Inside the loop, `*tmp` is incremented if `*tmp <= *maxId`, otherwise reset to 0
+
+Looking at this pattern, the variable `*tmp` cycles through the values 0, 1, 2, ..., `*maxId`, and then back to 0. Eventually, `*tmp` will equal `*id`, which is the loop exit condition.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(*maxId + 1) - (*tmp - *id) when *tmp > *id
+(*maxId + 1) - ((*maxId + 1) + *id - *tmp) when *tmp <= *id
+
+The piecewise ranking function accounts for the cycle pattern. When `*tmp > *id`, we measure the distance to complete the current cycle. When `*tmp <= *id`, we measure how much more is needed to cycle around to `*id`.
+
+Note: The nondeterministic condition `__VERIFIER_nondet_int()` could potentially make the loop exit early, but doesn't affect the guaranteed termination.
+
+=== Response 2 ===
+I'll analyze this program's termination behavior.
+
+The key loop in this program is:
+```c
+while (*tmp != *id && __VERIFIER_nondet_int()) {
+    if (*tmp <= *maxId) {
+        *tmp = *tmp + 1;
+    } else {
+        *tmp = 0;
+    }
+}
+```
+
+Let's consider what happens:
+1. Initially, `*tmp = *id + 1`
+2. In each iteration, if `*tmp <= *maxId`, then `*tmp` increases by 1
+3. If `*tmp > *maxId`, then `*tmp` resets to 0
+4. The loop continues as long as `*tmp != *id` and a non-deterministic condition is true
+
+Analyzing the behavior:
+- `*tmp` starts at `*id + 1`
+- It increases until it reaches `*maxId`, then resets to 0
+- This creates a cycle: `*id+1, *id+2, ..., *maxId, 0, 1, ..., *id-1, *id`
+- Eventually, `*tmp` will equal `*id` and the loop will terminate
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(*maxId - *tmp + 1) when *tmp > *id
+(*maxId + *id - *tmp + 1) when *tmp < *id
+

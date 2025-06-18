@@ -1,0 +1,50 @@
+=== Response 1 ===
+After analyzing the program, we conclude that it terminates for all inputs. The termination can be proven via a multi-phase ranking function that addresses the different behaviors in both branches. The ranking function is structured as follows:
+
+- **Phase 1**: When \( z > 0 \), we use \( z \) as the first component of the ranking function, which strictly decreases in the else branch and remains unchanged in the then branch.
+- **Phase 2**: When \( z \leq 0 \), we use \( x - y + z^2 \) as the ranking function. This component decreases in both branches under the constraints:
+
+  - In the else branch: When \( z \leq 0 \), \( z \) becomes more negative, causing \( z^2 \) to increase quadratically while \( x - y \) changes by \( -z - z^2 \), resulting in a net decrease.
+  - In the then branch: Works concurrently with the first phase to ensure eventual termination.
+
+The ranking functions are bounded below by 0 in the else branch and decrease lexicographically, ensuring termination.
+
+**[RESULT]**  
+TERMINATE  
+**[RANKING FUNCTION TYPE]**  
+multi-phase  
+**[RANKING FUNCTIONS]**  
+\( z \) for \( z > 0 \)  
+\( x - y + z^2 \) for \( z \leq 0 \)
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+// Outer ranking function for the first phase
+{
+   type : "sum",
+   expr : "x - y + z * z + z"
+},
+// Inner ranking function for the second phase
+{
+   type : "sum",
+   expr : "x - y"
+}
+
+### Explanation:
+The program terminates for all inputs and non-deterministic choices. A **nested ranking function** is used to prove termination, consisting of:
+1. **Outer ranking function**: \( x - y + z^2 + z \)
+   - Decreases in the second branch when \( z \geq 0 \), as \( z^2 + z \) dominates the change.
+   - Remains non-negative in the loop by the loop condition \( x \geq y \) and \( z^2 + z \geq 0 \) for integer \( z \).
+
+2. **Inner ranking function**: \( x - y \)
+   - Takes over when the outer function stabilizes (e.g., when \( z < 0 \)).
+   - Decreases in both branches when active:
+     - In branch 1, \( x - y \) may expose new decreases in the outer function.
+     - In branch 2, the large subtraction from \( z^2 + z \) ensures eventual decrease.
+
+This nesting handles arbitrary interleaving of branches, with \( (x - y + z^2 + z) \) primarily bounding the impact of branch 2, and \( (x - y) \) managing the residual in complex phases. The ranking functions map to integers and decrease lexicographically, ensuring well-founded termination.
+

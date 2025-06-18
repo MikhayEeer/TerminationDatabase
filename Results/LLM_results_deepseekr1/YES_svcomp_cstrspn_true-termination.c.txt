@@ -1,0 +1,19 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+n1 - (sc1 - s1)
+n2 - (s - s2)
+
+**Explanation:**  
+The program always terminates because both input strings from `__VERIFIER_nondet_String()` are finite and null-terminated. The function `cstrspn` uses two nested loops:
+1. **Outer loop:** Iterates over each character in `s1` (until `\0`). Its progress is measured by `n1 - (sc1 - s1)`, where `n1` is the fixed length of `s1`. This decreases by 1 per iteration as `sc1` advances.
+2. **Inner loop:** For each character in `s1`, scans `s2` until matching the character or reaching `\0`. Its progress is measured by `n2 - (s - s2)`, where `n2` is the fixed length of `s2`. This decreases by at least 1 per iteration as `s` advances.  
+
+The nested ranking functions prove termination: the inner loop's measure decreases strictly within each outer iteration, and the outer loop's measure decreases strictly between iterations. The lengths `n1` and `n2` are constants determined at function entry.
+

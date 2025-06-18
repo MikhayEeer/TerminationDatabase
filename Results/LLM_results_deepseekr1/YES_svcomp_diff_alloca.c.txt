@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+(Alen - i, Blen - j)
+
+**Explanation:**  
+The program consists of an outer loop iterating over array `A` (size `Alen`) and an inner loop iterating over array `B` (size `Blen`). Both loops are bounded:  
+- The **outer loop** termination is guaranteed by the ranking function component `Alen - i`, which decreases by 1 per iteration (since `i` increments) and is bounded below by 0.  
+- The **inner loop** termination is guaranteed by the component `Blen - j`, which decreases by at least 1 per inner iteration (since `j` increments or the loop exits early due to `found = true`).  
+
+The lexicographic tuple `(Alen - i, Blen - j)` ensures that each flow path reduces the measure. Specifically:  
+- During the inner loop, `Alen - i` remains constant while `Blen - j` decreases.  
+- Upon exiting the inner loop and incrementing `i` (outer body end), `Alen - i` decreases, and control returns to the outer loop head where `j` is reset to 0 (reflected as increased `Blen - j`, completing the nested measure).  
+
+Thus, the program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * l1 + (-1.0) * i
+1.0 * l2 + (-1.0) * j
+
+### Explanation:
+The program consists of two nested loops:
+1. **Outer loop**: Iterates over array `A` (length `l1 = Alen`). The loop counter `i` increases from 0 to `l1 - 1`, ensuring termination after exactly `l1` iterations. Ranking function: `l1 - i` (decreases by 1 per iteration).
+2. **Inner loop**: For each element in `A`, searches array `B` (length `l2 = Blen`). The loop counter `j` increases from 0 until either a match is found or `j >= l2`. Worst-case, it runs `l2` iterations per outer loop. Ranking function: `l2 - j` (decreases by at least 1 per inner iteration).
+
+The **nested ranking function** proves termination:
+- The inner loop terminates locally due to its ranking function.
+- The outer loop terminates because its ranking function decreases with each iteration, and the inner loop always terminates within each outer iteration.
+
+Constants `l1` and `l2` are fixed at loop entry (set to `Alen` and `Blen`), and the ranking functions are linear in the loop counters `i` and `j`.
+

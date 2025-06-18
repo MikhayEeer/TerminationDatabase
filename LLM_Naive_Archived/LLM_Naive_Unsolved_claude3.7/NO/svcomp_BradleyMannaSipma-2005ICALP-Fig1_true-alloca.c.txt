@@ -1,0 +1,43 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+The main function calls `gcd(y1, y2)` only when both `y1` and `y2` are non-negative. Let's analyze the termination of the `gcd` function.
+
+The `gcd` function implements Euclid's algorithm for finding the greatest common divisor. The loop continues as long as `*y1_ref` and `*y2_ref` are not equal. In each iteration, the larger value is reduced by subtracting the smaller one.
+
+For the special case where both inputs are 0, the function terminates immediately since 0 = 0.
+
+For all other valid inputs where both `y1` and `y2` are non-negative and at least one is positive, the algorithm will terminate because:
+1. The values of `*y1_ref` and `*y2_ref` remain non-negative
+2. At least one value decreases in each iteration
+3. The sum `*y1_ref + *y2_ref` strictly decreases in each iteration
+4. Eventually, the algorithm will reach the gcd value, at which point `*y1_ref == *y2_ref`
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (y1_ref + y2_ref)
+
+The linear ranking function shows that the sum of the two values strictly decreases in each iteration, guaranteeing termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(*y1_ref, *y2_ref) when *y1_ref ≠ *y2_ref
+0 when *y1_ref = *y2_ref
+
+The program calculates the greatest common divisor (GCD) using the subtraction method. It terminates because:
+
+1. Initially, *y1_ref and *y2_ref are non-negative (from the precondition in main).
+2. In each iteration, we subtract the smaller value from the larger one, strictly decreasing the sum.
+3. If both values are positive, at least one decreases in each iteration.
+4. The values remain non-negative throughout execution.
+5. Eventually, the values will become equal, terminating the loop.
+
+The piecewise ranking function max(*y1_ref, *y2_ref) decreases with each iteration and is bounded below by 0.
+

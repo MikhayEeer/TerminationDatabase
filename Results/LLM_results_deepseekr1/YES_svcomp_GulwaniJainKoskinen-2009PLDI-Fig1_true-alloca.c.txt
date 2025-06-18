@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * ( *tmp - *id - 1 >= 0 ? 1 : 0 )
+1.0 * ( *tmp - *id - 1 >= 0 ? *maxId - *tmp : *id - *tmp )
+
+**Explanation:**  
+The program always terminates. The loop has two distinct phases:  
+1. **Phase 1** (`*tmp ≥ *id + 1`): `*tmp` increments from `*id+1` toward `*maxId`. The value `*maxId - *tmp` decreases by 1 each iteration until `*tmp` exceeds `*maxId` (triggering reset to 0).  
+2. **Phase 2** (`*tmp ≤ *id`): After reset, `*tmp` increments from 0 toward `*id`. The value `*id - *tmp` decreases by 1 each iteration until `*tmp` matches `*id`, breaking the loop.  
+
+The lexicographic ranking function:  
+- First component: `1` in Phase 1, `0` in Phase 2 (decreases during phase transition).  
+- Second component: Phase 1 uses `*maxId - *tmp`; Phase 2 uses `*id - *tmp` (both decrease within their phases).  
+
+This guarantees termination as both components are non-negative and strictly decrease in each iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(*(tmp) >= *(id) + 1 && *(tmp) <= *(maxId)) ? (*(maxId) - *(tmp) + *(id) + 1) : (*(id) - *(tmp))
+
+### Explanation:
+The program terminates because even in the worst-case scenario where the nondeterministic choice always allows the loop to continue, the value of `*tmp` will eventually equal `*id`, causing the loop to exit. 
+
+- **Termination Reason**: The loop modifies `*tmp` in one of two ways:
+  1. If `*tmp <= *maxId`, it increments `*tmp` by 1.
+  2. Otherwise, it resets `*tmp` to 0.
+  Since `*id` is initially in `[0, *maxId - 1]`, `*tmp` starts at `*id + 1` and cycles through values from `*id + 1` to `*maxId` (then reset to 0), and finally increments from 0 to `*id`. This ensures `*tmp` will eventually match `*id`, terminating the loop.
+
+- **Ranking Function**:
+  - **Type**: Piecewise linear ranking function.
+  - **Function**:
+    - **Phase 1** (scanning high values): When `*tmp` is between `*id + 1` and `*maxId`, the rank is `*(maxId) - *(tmp) + *(id) + 1`, which decreases as `*tmp` increases.
+    - **Phase 2** (scanning low values): When `*tmp` is in `[0, *id]`, the rank is `*(id) - *(tmp)`, which decreases as `*tmp` increases toward `*id`.
+  - The function decreases on every iteration, proving termination. The transition from Phase 1 to Phase 2 (when `*tmp` resets to 0) also decreases the rank lexicographically.
+

@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * 1
+
+**Explanation:**  
+The program terminates because the variable `x` decreases by exactly 1 in every iteration of the outer loop, regardless of the non-deterministic choices. Initially, `x = m` (where `m ≥ 0` for the loop to start). The outer loop condition `x ≥ 0 && y ≥ 0` ensures `x` starts non-negative. Since `x` decreases monotonically by 1 per iteration, after at most `m + 1` iterations, `x` becomes negative, causing loop termination. The inner loop always terminates because `y` is bounded by `m + 1` (it increments `y` until `y > m` or non-deterministic break). The ranking function `x + 1` is linear, decreases by 1 each outer loop iteration, and remains non-negative during loop execution.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(m + 1) * x + y
+
+### Explanation:
+The program terminates for all possible non-deterministic choices and initial values of `m`. The ranking function `(m + 1) * x + y` is a linear function that decreases by at least 1 in every iteration of the outer loop:
+- **Case 1 (inner loop executed):**  
+  After the inner loop, `y` becomes `y + k - 1` (where `k` is the number of inner loop iterations, `0 ≤ k ≤ m - y + 1`), and `x` decreases by 1. The change in the ranking function is:  
+  `Δ = [(m + 1) * x + y] - [(m + 1) * (x - 1) + (y + k - 1)] = (m + 1) - k + 1 ≥ (m + 2) - (m + 1) = 1` (since `k ≤ m - y + 1 ≤ m + 1`).
+- **Case 2 (inner loop skipped):**  
+  `y` decreases by 1, `x` unchanged. The change is:  
+  `Δ = [(m + 1) * x + y] - [(m + 1) * x + (y - 1)] = 1`.
+
+The ranking function is non-negative while the loop runs (since `x ≥ 0`, `y ≥ 0`, and `m` is fixed), and it decreases by at least 1 each iteration, ensuring termination. The inner loop always terminates because `y` is bounded above by `m + 1` and increases by at most `m - y + 1` times.
+

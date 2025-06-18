@@ -1,0 +1,23 @@
+=== Response 1 ===
+### Termination Analysis
+
+The program always terminates. The loop condition checks if `x > 1`. Inside the loop:
+1. The current value of `x` is stored in `old_x`.
+2. `x` is reassigned to a nondeterministic value.
+3. If `-2 * x != old_x`, the loop breaks immediately.
+4. Otherwise (if `-2 * x == old_x`), the loop continues, but the new value `x` must satisfy `old_x = -2 * x` and `old_x > 1`, implying `x < -0.5`. Thus, in the next iteration, the condition `x > 1` fails, and the loop
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+The program terminates because the loop runs at most one iteration. Initially, if `x > 1`, the loop body executes. The non-deterministic assignment to `x` can lead to two outcomes:
+1. If `-2 * x != old_x` (which occurs for almost all values), the loop breaks immediately.
+2. If `-2 * x == old_x`, then `x = -old_x/2`. Since `old_x > 1`, this makes `x < 0`, so the loop condition `x > 1` fails in the next iteration.
+
+A linear ranking function `f(x) = x` suffices. At the loop head, `x > 1`, so `f(x) >= 2`. There are no transitions back to the loop head (as the loop runs at most once), so the ranking function is valid without requiring a decrease. The boundedness (from below by 2) ensures termination.
+

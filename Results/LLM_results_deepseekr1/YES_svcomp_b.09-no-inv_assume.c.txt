@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The loop terminates because the value of `x` strictly decreases in each iteration and is bounded below by 0. Specifically:
+- If `x > y`, `x` is set to `y` (where `y < x`), reducing `x`.
+- If `x <= y`, `x` is decremented by 1.  
+Since `x` starts positive and decreases by at least 1 in every iteration (due to integer constraints), it must eventually reach 0, exiting the loop. The ranking function `x` maps the loop state to a decreasing natural number, proving termination. The fixed variable `y` does not affect the ranking.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.0 * 1 + 1.0 * x^1 - 1.0 * y^1
+0.0 * 1 + 1.0 * x^1 + 0.0 * y^1
+
+The program terminates due to a multi-phase ranking function. 
+
+### Explanation:
+- **Termination Argument**: The loop runs while `x != 0`, with initial guard `x > 0 && y > 0`. 
+- **Ranking Function**:
+  - **Phase 1**: `f1(x, y) = x - y`. Active when `x > y`, decreasing by at least 1 per iteration (as `x` becomes `y`).
+  - **Phase 2**: `f2(x) = x`. Active when `x <= y` and `x > 0`, decreasing by at least 1 per iteration (as `x` decrements).
+- **Behavior**: 
+  - If `x > y`, the first phase reduces `x` to `y`, making `f1 = 0` (switch to Phase 2).
+  - In Phase 2, `x` decrements to 0, ensuring termination. 
+- **Well-foundedness**: Both `f1` and `f2` range over non-negative integers, decreasing strictly in their active phases.
+

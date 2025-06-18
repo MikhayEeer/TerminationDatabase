@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * 1 + 0.0 * 1
+1.0 * 1 + 1.0 * x_ref^1
+1.0 * 1 + 1.0 * y_ref^1
+
+### Explanation:
+The program terminates because the outer loop runs at most once, and each inner loop terminates in finite steps. The ranking functions are defined per loop head:
+- **Outer loop head (when `*x_ref > 0 && *y_ref > 0`):**  
+  Ranking function is the constant tuple `(2.0, 0.0)`. This phase ends immediately upon entering either inner loop.
+- **Inner loop head for x (when `*x_ref > 0` in the x-branch):**  
+  Ranking function is `(1.0, *x_ref)`. The second component decreases by 1 each iteration until `*x_ref <= 0`.
+- **Inner loop head for y (when `*y_ref > 0` in the y-branch):**  
+  Ranking function is `(1.0, *y_ref)`. The second component decreases by 1 each iteration until `*y_ref <= 0`.
+
+Lexicographic ordering ensures termination:  
+- Transition from outer loop head `(2.0, 0.0)` to an inner loop head `(1.0, v)` decreases the first component (since 2.0 > 1.0).  
+- Within an inner loop, the second component decreases strictly until the loop exits.  
+After any inner loop completes, the program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+### Explanation:
+The program terminates for all inputs. The outer loop condition `(*x_ref > 0 && *y_ref > 0)` is satisfied at most once because:
+1. If entered, the program executes one of the inner loops (based on `*x_ref > *y_ref`).
+2. Each inner loop decrements either `*x_ref` or `*y_ref` to 0, making the outer loop condition false afterward.
+
+A **linear ranking function** suffices:  
+- The expression `*x_ref + *y_ref` (denoted as `x + y` for simplicity) decreases by at least 1 in every iteration of the inner loops.  
+- It is non-negative when the outer loop condition holds (`x > 0, y > 0`), and decreases until loop exit.  
+- Since the outer loop runs at most once and inner loops terminate due to decrementing integers, termination is proven.
+

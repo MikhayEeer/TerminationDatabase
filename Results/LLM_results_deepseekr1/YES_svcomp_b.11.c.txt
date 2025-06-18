@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+### Explanation:
+The program terminates because the loop condition `x + y > 0` is guaranteed to eventually become false. In each iteration, exactly one of the variables `x` or `y` is decremented by 1, causing the sum `x + y` to decrease by exactly 1. Since the loop only executes when `x + y > 0` (implying the initial sum is at least 1 for integers), the expression `x + y` serves as a linear ranking function:
+
+- **Initial value**: Positive integer `s = x + y ≥ 1` at loop entry.
+- **Decrease**: `s` decreases by 1 each iteration (`s' = s - 1`).
+- **Termination**: When `s ≤ 0`, the loop exits. Since `s` decreases monotonically from a finite positive value, the loop must terminate after at most `s` iterations.
+
+The ranking function is linear: `r(x, y) = x + y`, which maps program states to a value in the well-founded domain of non-negative integers (though the loop condition ensures it starts ≥1 and decreases until ≤0). No multi-phase, nested, or piecewise ranking is needed.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1 + 0.0 * 1
+
+### Explanation:
+The loop condition is `x + y > 0`. In each iteration:
+- If `x > y`, `x` decreases by 1.
+- If `x == y`, `x` decreases by 1.
+- If `x < y`, `y` decreases by 1.
+
+In all cases, the sum `s = x + y` decreases by exactly 1 per iteration. Since `s` starts at some integer value and must be positive to enter the loop, it will decrease until `s ≤ 0`, at which point the loop terminates. The linear ranking function `x + y` decreases by 1 in every iteration and is bounded below by 0 (when the loop exits), proving termination.
+

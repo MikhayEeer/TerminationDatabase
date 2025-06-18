@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y1 + y2
+
+The program is terminating because every recursive call to the `gcd` function reduces the sum of its arguments. Let's analyze:
+
+1. When `y1 <= 0 || y2 <= 0`, the function returns immediately.
+2. When `y1 == y2`, the function returns immediately.
+3. When `y1 > y2`, it calls `gcd(y1 - y2, y2)` - here the sum of arguments decreases by `y2`.
+4. When `y1 < y2`, it calls `gcd(y1, y2 - y1)` - here the sum of arguments decreases by `y1`.
+
+Since both arguments are positive integers (which is checked at the beginning of the function), the sum of arguments strictly decreases with each recursive call and is bounded below by 2 (smallest possible positive values for both arguments). This guarantees termination.
+
+The ranking function is simply `y1 + y2`, which strictly decreases with each recursive call and is always positive until the base cases are reached.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+This program implements Euclid's algorithm for finding the greatest common divisor (GCD) of two positive integers. Let's examine the termination behavior of the `gcd` function.
+
+The `gcd` function has the following properties:
+1. If either y1 or y2 is ≤ 0, it returns immediately
+2. If y1 equals y2, it returns immediately
+3. If y1 > y2, it calls itself with (y1-y2, y2)
+4. If y1 < y2, it calls itself with (y1, y2-y1)
+
+In cases 3 and 4, one of the arguments strictly decreases while both remain positive, and their sum strictly decreases with each recursive call. Since the parameters cannot decrease indefinitely while remaining positive integers, the recursion must eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (y1 + y2)
+
+The ranking function y1 + y2 strictly decreases with each recursive call while remaining positive until a base case is reached, proving termination of the gcd function and therefore of the entire program.
+

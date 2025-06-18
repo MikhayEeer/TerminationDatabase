@@ -1,0 +1,65 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The main aspect to check for termination is the recursion in the various functions:
+
+1. `mult(n, m)`: This function decreases `m` by 1 in each recursive call until it reaches 0 or 1, which are base cases. It will always terminate as long as `m` is non-negative (which the function ensures by converting negative `m` to positive).
+
+2. `multiple_of(n, m)`: This function decreases `n` by `m` in each recursive call until `n` becomes 0 or negative, which are handled in base cases. It will always terminate as long as `m > 0` (which the function ensures).
+
+3. `is_prime_(n, m)`: This function decreases `m` by 1 in each recursive call until `m` becomes 1, which is a base case. It will always terminate.
+
+The main function itself does not contain any loops and calls these recursive functions a bounded number of times with inputs that are bounded (by the checks on `n`, `f1`, and `f2`).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+For mult(n, m): m
+For multiple_of(n, m): n (when m > 0)
+For is_prime_(n, m): m
+
+Each recursive function has a simple linear ranking function that strictly decreases with each recursive call and is bounded below, ensuring termination.
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates or not.
+
+The program implements a prime number test using a recursive Sieve of Eratosthenes approach, along with helper functions for multiplication and checking divisibility. Let's look at all the recursive functions:
+
+1. `mult(n, m)`: This recursively computes n*m by adding n to itself m times.
+2. `multiple_of(n, m)`: This checks if n is divisible by m by repeatedly subtracting m from n.
+3. `is_prime(n)` and `is_prime_(n, m)`: These determine if n is prime by checking if n is divisible by any number from 2 to n-1.
+
+Let me check the termination of each recursive function:
+
+For `mult(n, m)`:
+- If m < 0, it calls mult(n, -m), which makes m positive
+- Otherwise, m decreases by 1 in each recursive call
+- The recursion stops when m is 0 or 1
+- Each recursive call reduces m, so it will eventually terminate
+
+For `multiple_of(n, m)`:
+- If m or n is negative, it makes them positive
+- If m or n is 0, it returns directly
+- Otherwise, n decreases by m in each recursive call
+- Since m > 0 and n decreases by a positive value each time, it will eventually terminate
+
+For `is_prime_(n, m)`:
+- The base cases are when n ≤ 1, n = 2, or m ≤ 1
+- In each recursive call, m decreases by 1
+- Since m starts at n-1 and decreases until it reaches 1, it will terminate
+
+The main function performs a bounded check of a property related to prime numbers and has no loops or recursion itself.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+For mult(n, m): m
+For multiple_of(n, m): n (when m and n are positive)
+For is_prime_(n, m): m
+
+The program terminates for all inputs due to the decreasing value of parameters in each recursive call, with well-defined base cases to stop recursion.
+

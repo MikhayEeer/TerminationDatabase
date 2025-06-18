@@ -1,0 +1,47 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+N - i
+|a[i]|
+
+The program is terminating because:
+
+1. The outer for loop (i = 0 to i < N) executes exactly N iterations, with i incrementing by 1 each time.
+
+2. For each array element (a[i]), there are two while loops:
+   - The first while loop (a[i] < 0) decrements the absolute value of a[i] if it's negative, eventually reaching 0
+   - The second while loop (a[i] > 0) decrements a[i] if it's positive, eventually reaching 0
+
+3. Each of these inner while loops has a bounded number of iterations based on the initial absolute value of a[i].
+
+The nested ranking function shows that:
+- The outer function (N - i) counts down the number of array elements left to process
+- The inner function |a[i]| (absolute value of a[i]) counts down in each while loop
+
+Both the first and second while loops will terminate because they strictly decrease the absolute value of a[i] with each iteration, eventually reaching 0.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program allocates an array and calls `test_fun` which processes each element of the array. For each element, it increments negative numbers until they reach 0, and decrements positive numbers until they reach 0.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+N - i for the outer loop
+|a[i]| for the inner loops (absolute value of a[i])
+
+The program terminates because:
+
+1. The outer loop runs from 0 to N-1, which is a finite bound.
+2. For each array element, the inner loops each iterate at most |a[i]| times:
+   - The first inner loop decrements negative values toward 0
+   - The second inner loop decrements positive values toward 0
+
+Each inner loop iteration strictly decreases the absolute value of a[i] until it reaches 0, at which point the loop terminates. The outer loop terminates after processing N elements. Therefore, the program always terminates.
+

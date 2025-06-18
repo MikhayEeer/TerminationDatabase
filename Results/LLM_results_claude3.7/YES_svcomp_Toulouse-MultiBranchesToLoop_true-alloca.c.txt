@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+100 - max(*y, *z)
+
+This program terminates because either *y increases until it reaches 100 or *z decreases until it reaches -100 (actually *z < 0), depending on the final value of *x.
+
+After the sequence of if statements, *x will be either 9 (if it started as 1) or -9 (if it started as -1). This value remains constant throughout the loop.
+
+If *x is 9, then *y increases by 9 in each iteration, ensuring *y will eventually reach 100.
+If *x is -9, then *z decreases by 9 in each iteration (since *z = *z - *x means *z = *z + 9), ensuring *z will eventually reach or exceed 100 in absolute value.
+
+The linear ranking function 100 - max(*y, *z) decreases in each iteration and is bounded below.
+
+=== Response 2 ===
+I need to analyze the termination of this program by examining its behavior, particularly the loop.
+
+[RESULT]
+NONTERM
+
+[REASON]
+The loop condition is `while (*y < 100 && *z < 100)`, but the variables `y` and `z` are allocated using `alloca` but never initialized. They contain garbage values. Furthermore, if `*x` is positive (which happens if the initial nondeterministic choice is true), then `*y` increases and `*z` decreases in each iteration, making it possible for the loop to execute indefinitely if both initial values of `*y` and `*z` are low enough.
+

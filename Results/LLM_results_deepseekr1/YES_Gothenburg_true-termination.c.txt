@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * y^1
+
+The program is terminating due to the loop invariant `a = b`, which reduces the loop body to `x = x - 1; y = y - 1;`. The ranking function is piecewise, defined as:
+- Use `x` as the rank when `x >= y`
+- Use `y` as the rank when `y > x`
+
+In both cases:
+- **Non-negativity**: At loop entry, since the condition `x >= 0 || y >= 0` holds, the selected piece (either `x` or `y`) is non-negative.
+- **Strict decrease**: The loop body decrements both variables, so whichever piece is selected (either `x` or `y`) decreases by exactly 1 each iteration.
+- **Well-foundedness**: The pieces take values over non-negative integers initially, bounded below by 0. They decrease monotonically until both variables become negative, causing the loop to terminate.
+
+Thus, the piecewise ranking function proves termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * y^1
+
+**Explanation:**  
+The program terminates because the loop condition `x >= 0 || y >= 0` ensures that at least one variable is non-negative. Given the invariant `a = b` (enforced by the initial check), the loop body simplifies to:
+```c
+x = x - 1;
+y = y - 1;
+```
+This decreases both variables by 1 each iteration. A multi-phase ranking function proves termination:
+- **Phase 1:** While `x >= 0`, use `x` as the ranking function. It decreases by 1 per iteration and is bounded below by 0 in this phase. When `x` becomes negative, transition to Phase 2.
+- **Phase 2:** While `y >= 0` (and `x < 0`), use `y` as the ranking function. It decreases by 1 per iteration and is bounded below by 0. 
+
+Each phase maps to non-negative integers (well-founded domain), and the lexicographic transition ensures eventual termination. Constants `a` and `b` are irrelevant due to the invariant `a = b`.
+

@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+y
+z
+
+**Explanation:**  
+The program terminates for all inputs. The termination is proven using a two-phase ranking function:  
+1. **Phase 1 (y ≥ 0):** The ranking function is `y`. In this phase, `y` decreases by 1 in each iteration (due to `y = y - 1`). Since `y` starts at a finite integer and decreases until it becomes negative, this phase must end after at most `max(0, y₀ + 1)` iterations.  
+2. **Phase 2 (y < 0):** The ranking function is `z`. After Phase 1, `y` is negative, and the loop enters the `else` branch where `z` decreases by 1 each iteration. Since `z` starts at a non-negative value (loop condition `z ≥ 0` holds at the start of each iteration) and decreases until negative, this phase ends after at most `zₜ + 1` iterations (where `zₜ` is the value of `z` at the start of Phase 2).  
+
+The non-deterministic assignment in the `if` branch (when `y ≥ 0`) does not prevent termination:  
+- If it sets `z` to a negative value, the loop condition fails in the next iteration.  
+- Otherwise, Phase 1 progresses toward making `y` negative, ensuring eventual entry into Phase 2.  
+
+The multi-phase ranking function (`y` for Phase 1, `z` for Phase 2) decreases in each iteration and is bounded below by 0 in each phase, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0 * 1
+1.0 * z^1 + 1.0 * 1
+
+**Explanation:**  
+The program terminates for all inputs. A multi-phase ranking function proves termination:  
+- **Phase 1 (when y ≥ 0):** Ranking function is \(y + 1\). Each iteration decreases \(y\) by 1 until it becomes negative. The function decreases and remains non-negative in this phase.  
+- **Phase 2 (when y < 0):** Ranking function is \(z + 1\). After \(y\) becomes negative, \(z\) decreases by 1 each iteration until it becomes negative. The function decreases and remains non-negative until loop exit.  
+The phase transition (from Phase 1 to Phase 2) occurs exactly once, and lexicographic ordering ensures termination. Non-deterministic assignments in Phase 1 do not affect the ranking functions.
+

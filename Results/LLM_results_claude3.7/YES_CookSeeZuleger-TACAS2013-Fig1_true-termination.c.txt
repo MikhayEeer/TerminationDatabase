@@ -1,0 +1,39 @@
+=== Response 1 ===
+Analyzing this program:
+
+The program has a while loop that continues as long as both x > 0 and y > 0. In each iteration:
+- Either x is decremented by 1 (when the nondet condition is true)
+- Or y is decremented by 1 and x gets a new arbitrary value (when the nondet condition is false)
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+y, x
+
+The program terminates because:
+1. y never increases, and decreases in the second branch
+2. When y remains constant in the first branch, x decreases
+3. Eventually, either x or y will become ≤ 0, terminating the loop
+
+This is a lexicographic ranking function where y is the primary measure and x is the secondary measure, showing that the program will always terminate regardless of the nondeterministic choices.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+(y, x)
+
+This program terminates because in each iteration, either:
+1. x decreases by 1 while y remains unchanged, or
+2. y decreases by 1 while x may take any value
+
+The lexicographic ranking function (y, x) proves termination because:
+- Either y decreases, which is the primary termination measure
+- Or y stays the same but x decreases, which is the secondary measure
+
+Since both x and y are bounded below (by the loop condition requiring x>0 and y>0), and either x or y decreases in each iteration, the program must eventually terminate.
+

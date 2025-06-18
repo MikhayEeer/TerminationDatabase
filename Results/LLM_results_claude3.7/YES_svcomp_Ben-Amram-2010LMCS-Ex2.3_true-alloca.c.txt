@@ -1,0 +1,56 @@
+=== Response 1 ===
+I'll analyze the program to determine if it terminates or not.
+
+The program has a while loop that executes as long as `*x > 0 && *y > 0 && *z > 0`. Inside the loop, there are two branches:
+
+1. If `*y > *x`:
+   - `*y` is set to `*z`
+   - `*x` is set to a nondeterministic value
+   - `*z` is set to `*x - 1`
+
+2. Else (if `*y ≤ *x`):
+   - `*z` is decremented by 1
+   - `*x` is set to a nondeterministic value
+   - `*y` is set to `*x - 1`
+
+Let's analyze if this program terminates:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+max(0, *z) + max(0, min(*y, *z))
+
+This is a nested ranking function. In each iteration:
+
+1. Either `*z` decreases by 1 (in the `*y ≤ *x` branch)
+2. Or `*z` is assigned `*x - 1` and `*y` is assigned `*z` (in the `*y > *x` branch)
+
+In the second case, the value of `min(*y, *z)` decreases because `*y` becomes equal to the old value of `*z`, and `*z` becomes `*x - 1` which is less than the old value of `*x` (and we're in the branch where `*y > *x`).
+
+The loop ends when any of `*x`, `*y`, or `*z` becomes non-positive. Because `*z` can only decrease or be assigned `*x - 1` (where `*x` is nondeterministic), and `*y` either gets the value of `*z` or `*x - 1`, the program will eventually terminate.
+
+=== Response 2 ===
+I'll analyze whether the given C program terminates and provide appropriate justification.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(when *y > *x): *z
+(when *y ≤ *x): *z
+
+The program terminates because in each iteration, one of the branches is executed, and both branches strictly decrease the value of *z:
+
+1. In the first branch (when *y > *x):
+   - *z becomes *x-1 (after *x gets a new value)
+   - Since the loop condition requires *z > 0, eventually *z will decrease to a non-positive value
+
+2. In the second branch (when *y ≤ *x):
+   - *z is directly decremented by 1
+   - This will eventually make *z non-positive
+
+The key observation is that regardless of which branch is taken, the value of *z decreases in every iteration. When *z becomes non-positive, the loop terminates. The piecewise ranking function where both pieces focus on *z (but apply in different conditions) proves termination.
+

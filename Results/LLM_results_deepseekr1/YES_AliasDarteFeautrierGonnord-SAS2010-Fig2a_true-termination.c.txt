@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+**Explanation:**  
+The program terminates because the outer loop condition depends solely on `x`, which decreases by 2 in each iteration (via `x--` operations). The ranking function `r(x) = x` is linear and decreases by at least 1 (specifically by 2) in each iteration. Since `x` starts at ≥2 and decreases until it falls below 2, the loop terminates after a finite number of steps. The inner loop terminates due to the non-deterministic condition and bounded decrements of `y`, but it does not affect the termination of the outer loop. Thus, a linear ranking function based on `x` suffices.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * \[y^1\]
+-1.0 * x^1 + 1.0 * \[y^1\]
+
+**Explanation:**  
+The program terminates as proven by a multi-phase ranking function.  
+
+- **Phase 1 (Outer loop):**  
+  The rank \( x \) decreases by 2 in every full iteration of the outer loop. This ensures \( x \) eventually falls below 2 (the loop guard \( x \geq 2 \)).  
+
+- **Phase 2 (Inner loop):**  
+  The rank \( y - x \) decreases by 1 in each inner loop iteration. The inner loop must terminate because:  
+  - \( y - x \) starts non-negative (due to the guard \( y \geq x \)),  
+  - It decreases strictly per inner loop body execution (\( y \texttt{--} \)),  
+  - Non-termination of the inner loop would require \( y - x \) to stay non-negative indefinitely, which is impossible due to the decrement.  
+
+After the inner loop terminates, the outer loop completes its iteration, ensuring \( x \) decreases consistently. The multi-phase ranking function captures this behavior: Phase 1 guarantees overall progress, while Phase 2 handles the nested loop.
+

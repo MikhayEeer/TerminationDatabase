@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+0.0 * 1 + 1.0 * x + 0.0 * y
+0.0 * 1 + 0.0 * x + 1.0 * y
+
+**Explanation:**  
+The program terminates because in each loop iteration, the minimum of `x` and `y` decreases by exactly 1. The loop condition `(y > 0 && x > 0)` ensures termination when this minimum becomes non-positive. The ranking function uses a **piecewise** definition:  
+- When `x ≤ y`, the ranking value is `x` (first expression).  
+- When `x > y`, the ranking value is `y` (second expression).  
+In both cases, the value decreases by 1 in every iteration (verified for all branches), is bounded below by 0, and proves termination. The variable `z` does not affect the ranking.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+min(x, y)
+
+**Explanation:**  
+The program terminates because the value of `min(x, y)` decreases by exactly 1 in each loop iteration. Initially, `min(x, y) > 0` (due to the loop condition `y > 0 && x > 0`). In each iteration:
+- `z` is set to `min(x, y)`.
+- Regardless of the non-deterministic choice:
+  - One variable becomes `z - 1` (i.e., `min(x, y) - 1`).
+  - The other becomes `x + y` (which is `≥ min(x, y) + 1` since both are positive).
+- Thus, the new `min(x', y')` is `min(x, y) - 1`, which is strictly less than the previous minimum.  
+Since `min(x, y)` is a positive integer that decreases by 1 each iteration, it must eventually reach 0, causing the loop to terminate. The piecewise ranking function `min(x, y)` captures this decreasing measure.
+

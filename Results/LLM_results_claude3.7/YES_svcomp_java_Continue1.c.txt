@@ -1,0 +1,37 @@
+=== Response 1 ===
+I'll analyze the termination of this program.
+
+Looking at the code, we have a while loop with the condition `i < 20`. Inside the loop, `i` is incremented by 1 on each iteration with `i++`.
+
+The variable `i` starts at 0 and increases by 1 each iteration, so it will eventually reach 20, at which point the loop condition becomes false and the loop terminates.
+
+The `if (i <= 10) continue;` statement simply skips counting `c` for the first 10 iterations, but doesn't affect the termination of the loop.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+20 - i
+
+This linear ranking function starts at 20 (when i=0) and decreases by exactly 1 on each iteration, reaching 0 when i=20, at which point the loop terminates.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program has a `while` loop that increments `i` from 0 until it reaches 20, at which point the loop terminates. Inside the loop, if `i` is less than or equal to 10, the loop skips the rest of the current iteration and continues with the next iteration. Otherwise, it increments `c`. After the loop, it returns the value of `c`.
+
+This program is clearly terminating because:
+1. The variable `i` starts at 0
+2. Each iteration of the loop increments `i` by 1
+3. The loop condition `i < 20` will eventually become false after 20 iterations
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+20 - i
+
+The ranking function shows that the distance to termination is simply the difference between 20 and the current value of `i`. This function decreases by 1 on each iteration and is always non-negative until termination.
+

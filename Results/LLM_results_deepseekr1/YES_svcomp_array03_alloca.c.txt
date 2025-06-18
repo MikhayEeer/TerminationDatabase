@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+N - i
+max(a[i], 0)
+
+**Explanation:**  
+The program terminates for all inputs. The termination is proven using a nested ranking function with two components:  
+1. **Outer loop (for-loop):** The expression `N - i` decreases by 1 in each iteration of the outer loop, starting from `N` (when `i=0`) down to `0` (when `i=N`). This component is bounded below by 0.  
+2. **Inner loop (while-loop):** For a fixed `i`, the expression `max(a[i], 0)` decreases by 1 in each iteration of the inner loop (when `a[i] > 0`). This component is bounded below by 0 and ensures the inner loop terminates.  
+
+The lexicographic order ensures termination:  
+- When the inner loop runs, the first component remains constant while the second decreases.  
+- When moving to the next outer iteration (`i++`), the first component decreases (resetting the second component arbitrarily).  
+
+This holds regardless of the initial (non-deterministic) values of the array elements.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * N^1 - 1.0 * i^1 + 0.0
+1.0 * a_i^1 + 0.0
+
+### Explanation:
+The program processes an array of size `N` using an outer loop (index `i`) and an inner while loop for each element. Termination is proven via a **nested (lexicographic) ranking function**:
+1. **First component**: `N - i` (linear in `i`), representing remaining outer loop iterations. Decreases by 1 when moving to the next array element (after finishing the inner loop or skipping it).
+2. **Second component**: `a_i` (current array element `a[i]`). During the inner loop (when `a[i] > 0`), it decreases by 1 in each iteration until it becomes non-positive. 
+
+The lexicographic order ensures termination:
+- In the inner loop, `a_i` strictly decreases while `N - i` remains constant.
+- When exiting the inner loop or skipping it (for non-positive `a[i]`), `i` increments, causing `N - i` to strictly decrease (and `a_i` for the next element resets arbitrarily, but the first component's decrease dominates).
+
+**Note**: `a_i` denotes the current array element `a[i]` at index `i`. Initial values are arbitrary, but the ranking function holds as:
+- Negative/zero `a_i` skips the inner loop, allowing `N - i` to decrease immediately.
+- Positive `a_i` ensures the inner loop terminates by decrementing to 0.
+

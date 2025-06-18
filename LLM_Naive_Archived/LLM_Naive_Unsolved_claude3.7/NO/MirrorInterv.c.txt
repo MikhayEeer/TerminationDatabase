@@ -1,0 +1,60 @@
+=== Response 1 ===
+Let me analyze this program for termination:
+
+The program has a loop where `i` starts with a non-deterministic value and `range` starts at 20. I need to analyze the possible state transitions to determine if termination is guaranteed.
+
+Looking at the loop conditions and state updates:
+- The loop continues as long as `-range ≤ i ≤ range`
+- If `range-i < 5 OR range+i < 5`, we negate `i` (multiply by -1)
+- Otherwise, we increment `range`, decrement `i`, and if `i` becomes 0, we set `range` to -1
+
+The key insight is in the second branch where if `i` becomes 0, `range` is set to -1. This immediately violates the loop condition (since -range ≤ i ≤ range would be -(-1) ≤ 0 ≤ -1, which is false).
+
+Moreover, if we keep decrementing `i` in the second branch, we'll eventually either reach 0 (causing immediate termination), or `i` will eventually become < -range (especially since range keeps growing), causing termination.
+
+If we're in the first branch repeatedly, the negation of `i` can't go on forever because eventually the second branch will be taken or we'll exit the loop bounds.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (i == 0) then 0 else max(1, range+1-|i|)
+
+This piecewise ranking function captures that:
+- If i reaches 0, termination is immediate
+- Otherwise, the function decreases when we either decrease |i| or when range decreases relative to |i|
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program has a while loop with condition `-range <= i && i <= range` and two main branches inside:
+
+1. If `range-i < 5 || range+i < 5`, then `i = i*(-1)` (i gets negated)
+2. Else:
+   - `range = range+1`
+   - `i = i-1`
+   - And if `i == 0`, then `range = -1`
+
+Let's analyze the termination:
+
+When `i == 0` and we enter the second branch, the program immediately terminates because setting `range = -1` makes the loop condition false (since `-range <= i` would be `1 <= 0`).
+
+For other cases, I need to check if there's a pattern that could lead to non-termination.
+
+The first branch flips the sign of `i` without changing `range`.
+The second branch increases `range` by 1 and decreases `i` by 1.
+
+After careful analysis, I can confirm this program terminates because:
+- If i ever becomes 0 in the second branch, the program terminates immediately
+- Otherwise, the second branch always decreases i while increasing range, which will eventually cause either:
+  - i to reach 0, triggering immediate termination
+  - The loop condition to fail as i decreases below -range
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (i == 0 && range-i >= 5 && range+i >= 5) then 0 else 2*range + |i| + 3
+

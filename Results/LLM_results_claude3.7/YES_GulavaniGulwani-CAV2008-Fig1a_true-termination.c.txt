@@ -1,0 +1,20 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y - 1.0 * x
+
+The program always terminates because in each iteration either x increases by 1 or z increases by 1. When z > x, x increases directly, bringing it closer to y. When z ≤ x, z increases by 1, and eventually z will become greater than x (since z increases while x stays the same), at which point the program will start increasing x. The value of y remains constant throughout the loop, so eventually x will become greater than or equal to y, causing the loop to terminate. The ranking function y - x directly measures the remaining distance to termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y^1 - 1.0 * x^1
+
+The program is terminating because in each iteration of the loop, either x increases by 1 (when z > x) or z increases by 1 (when z ≤ x). When z > x, the gap between y and x decreases by 1. When z ≤ x, z increases by 1, and this can only happen a finite number of times before z becomes greater than x, after which x will increase by 1 in each iteration. Therefore, eventually, the condition x < y will become false, and the loop will terminate. The ranking function y - x measures the gap between y and x, which is bounded and strictly decreasing overall.
+

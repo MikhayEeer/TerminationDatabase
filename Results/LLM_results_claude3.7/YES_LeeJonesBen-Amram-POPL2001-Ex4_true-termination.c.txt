@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze the termination of this program, focusing on the recursive function `p(m, n, r)`.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+multi-phase
+
+[RANKING FUNCTIONS]
+1.0 * r^1 + 0.0 * m^1 + 0.0 * n^1 + 0.0 * 1
+1.0 * n^1 + 0.0 * m^1 + 0.0 * r^1 + 0.0 * 1
+1.0 * 1
+
+The program terminates for all inputs where m ≥ 0, n ≥ 0, and r ≥ 0. The multi-phase ranking function works as follows:
+
+1. First phase: The value of `r` decreases in each recursive call when r > 0, eventually reaching 0.
+2. Second phase: When r = 0, the value of `n` decreases in each recursive call when n > 0, eventually reaching 0.
+3. Third phase: When both r = 0 and n = 0, the function returns m without further recursion.
+
+This ranking function proves that the program terminates because each recursive call decreases either r or n, and the recursion stops when both r and n are 0.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The key part to analyze is the recursive function `p(int m, int n, int r)` which has the following structure:
+- If r > 0, it recursively calls p(m, r-1, n)
+- If r ≤ 0 and n > 0, it recursively calls p(r, n-1, m)
+- If r ≤ 0 and n ≤ 0, it returns m (base case)
+
+Given that m, n, and r are all initialized to non-negative values (from the constraint in main()), let's determine if this always terminates.
+
+For this program, I need to analyze the recursive pattern and parameter changes.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * r^1 + 0.0 * m^1 + 0.0 * n^1 + 0.0 * 1
+1.0 * n^1 + 0.0 * m^1 + 0.0 * r^1 + 0.0 * 1
+
+The termination proof works with a 2-phase ranking function:
+- In the first phase, r decreases until it becomes ≤ 0
+- In the second phase, n decreases until it becomes ≤ 0
+- Once both r and n are ≤ 0, the recursion terminates
+
+Since both r and n start non-negative and strictly decrease in their respective phases (without increasing in between phases), the program must terminate.
+

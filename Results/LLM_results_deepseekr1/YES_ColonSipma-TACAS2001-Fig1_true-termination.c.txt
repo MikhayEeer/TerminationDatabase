@@ -1,0 +1,32 @@
+=== Response 1 ===
+After analyzing the program, the loop condition is `i <= 100 && j <= k`. The loop body updates variables as follows: `tmp = i; i = j; j = tmp + 1; k = k - 1;`, which can be rewritten as `i' = j; j' = i + 1; k' = k - 1;`.
+
+The program terminates because:
+1. `k` decreases by 1 in each iteration.
+2. `i` and `j` are bounded due to the loop condition `i <= 100` and the update `j = i + 1`, which implies `j <= 101` for the next iteration to run. However, if `j > 100`, the next iteration fails because `i' = j > 100` violates `i' <= 100`.
+3. Since `k` decreases indefinitely and `j` is bounded above (effectively by 101), the condition `j <= k` will eventually fail when `k` becomes sufficiently small.
+
+A linear ranking function that decreases by at least 3 in each iteration is `2 * k - i - j`. This function is derived from the loop transitions and decreases monotonically:
+- Let `f(i, j, k) = 2 * k - i - j`.
+- After one iteration: `f(i', j', k') = 2 * (k - 1) - j - (i + 1) = 2k - 2 - j - i - 1 = 2k - i - j - 3`.
+- The difference is `f(i, j, k) - f(i', j', k') = 3 > 0`.
+
+Although `2 * k - i - j` is not bounded below, the loop condition will fail after a finite number of iterations due to the consistent decrease in `k` and the boundedness of `j`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2 * k - i - j
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * k^1 + -1.0 * i^1 + -1.0 * j^1
+
+**Explanation:** The loop terminates because the expression \(k - i - j\) decreases by exactly 2 in each iteration and is bounded below by \(-100\) (due to the loop conditions \(i \leq 100\) and \(j \leq k\)). This guarantees eventual termination as the value cannot decrease indefinitely. The ranking function \(k - i - j\) is linear and valid for proving termination.
+

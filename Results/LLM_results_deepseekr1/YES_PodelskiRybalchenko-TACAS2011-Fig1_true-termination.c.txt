@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y^1
+
+**Explanation:**  
+The program terminates for all inputs because:
+1. Variable `y` is initialized non-deterministically (any integer value).
+2. When `y < 0`, the loop condition `y >= 0` fails immediately, and the program terminates.
+3. When `y >= 0`, each iteration decreases `y` by exactly 1. Since integers are unbounded in termination analysis, `y` eventually becomes negative (after at most `y` initial value iterations), causing the loop to exit.
+
+**Ranking Function Explanation:**  
+A linear ranking function `R(y) = y` proves termination:
+- **Non-negativity:** At loop entry, `y >= 0` implies `R(y) >= 0`.
+- **Strict Decrease:** Each iteration sets `y' = y - 1`, so `R(y') = y - 1 < y = R(y)`.
+- **Boundedness:** The sequence of `R(y)` values is a strictly decreasing sequence of non-negative integers, guaranteeing termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0 * 1
+
+**Explanation:**  
+The program terminates for all initial values of `y` because:
+- If `y < 0` initially, the loop is skipped.
+- If `y >= 0`, each iteration decreases `y` by 1. Since integers are unbounded below, `y` eventually becomes negative, exiting the loop.
+
+**Ranking Function Justification:**  
+The linear ranking function \( r(y) = y + 1 \) (expressed as `1.0 * y^1 + 1.0 * 1`) proves termination:
+1. **Non-negativity in loop:** At loop entry, \( y \geq 0 \implies r(y) \geq 1 \).
+2. **Strict decrease:** Each iteration sets \( y' = y - 1 \), so \( r(y') = (y - 1) + 1 = y \), and \( r(y) - r(y') = (y + 1) - y = 1 > 0 \).
+3. **Well-foundedness:** The value decreases toward 0 (when \( y = -1 \), the loop exits before \( r \) is evaluated again). 
+
+This confirms termination via a single linear ranking function.
+

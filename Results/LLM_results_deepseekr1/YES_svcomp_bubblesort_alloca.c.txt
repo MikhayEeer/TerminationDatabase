@@ -1,0 +1,49 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+0.0 * 1 + 1.0 * i^1 + 0.0 * j^1
+0.0 * 1 + 1.0 * i^1 + (-1.0) * j^1
+
+Explanation:
+- The program implements bubble sort, which has two nested loops.
+- The outer loop runs from `array_size - 1` down to 0, controlling the number of passes.
+- The inner loop runs from 1 to the current value of `i`, performing comparisons and swaps.
+- Despite the non-deterministic array values, the loop termination depends only on the decreasing loop counters, making the program terminating.
+- A lexicographic (multi-phase) ranking function is used:
+  - **First component (outer loop):** `i` decreases by 1 in each outer iteration.
+  - **Second component (inner loop):** `i - j` decreases as `j` increases, ensuring termination of the inner loop.
+- The inner loop resets when the outer loop decrements, but the outer index (`i`) strictly decreases, ensuring overall termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * i
+1.0 * i - 1.0 * j
+
+### Explanation:
+The program performs a bubble sort algorithm with a non-deterministic array size. Termination is guaranteed because:
+- The outer loop iterates from `array_size - 1` down to `0`.
+- For each outer iteration `i`, the inner loop runs from `1` to `i`.
+- The inner loop index `j` increases until `j > i`, ensuring termination per outer iteration.
+- The outer loop index `i` decreases by 1 each iteration until `i < 0`.
+
+To prove termination, a **nested (lexicographic) ranking function** is used:
+- **First component**: `i` (outer loop index).  
+  Decreases by 1 for each outer loop iteration.
+- **Second component**: `i - j` (difference between outer index and inner index).  
+  Decreases by 1 for each inner loop iteration (as `j` increases).
+
+This ranking function satisfies:
+1. Bounded below (non-negative in loop regions).
+2. Strictly decreases for every step:  
+   - Within the inner loop, `i` remains fixed while `j` increases → `i - j` decreases.  
+   - When exiting the inner loop and updating the outer loop, `i` decreases and `j` resets, reducing the lexicographic order.
+
+Thus, the loop termination is proven. The uninitialized array values do not affect termination since loop control depends solely on indices `i` and `j`.
+

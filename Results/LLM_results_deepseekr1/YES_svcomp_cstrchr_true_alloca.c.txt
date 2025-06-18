@@ -1,0 +1,46 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (nondetString + length - 1) * 1 + (-1.0) * s^1
+
+**Explanation for Termination and Ranking Function:**
+
+The program is terminating because the loop in `cstrchr` is guaranteed to terminate. The loop condition scans a string `s` of finite length (set by the input variable `length` from `main`), which terminates at the `'\0'` character explicitly set at index `length-1` of `nondetString`. Even if the searched character `c` is not found, the loop will eventually encounter the null terminator and exit.
+
+**Ranking Function Justification:**  
+- **Expression:** `(nondetString + length - 1) - s`  
+  - `nondetString`: Base address of the allocated string (a constant).  
+  - `length - 1`: Index of the null terminator (fixed after allocation).  
+  - `s`: The current string pointer (incremented in each iteration).  
+- **Behavior:**  
+  - The expression represents the distance in memory between the current pointer `s` and the end of the string.  
+  - Each loop iteration increments `s` by 1 (via `s++`), reducing the value of the ranking function by exactly 1.  
+  - Initially, the expression has at least value `0` (when `length = 1` and `s` is at the terminator). For longer strings, it starts positive and strictly decreases.  
+  - The loop exits when `*s == '\0'` (or when the character `c` is found), coinciding with the ranking function reaching a value ≤ 0.  
+- **Type:** Simple **linear** ranking function in one variable (`s`), valid for all runs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length - 1) - (s - nondetString)
+
+### Explanation:
+The program always terminates because the loop in `cstrchr` is guaranteed to terminate. Here's why:
+1. The string `nondetString` is explicitly null-terminated at index `length-1` (line 25).
+2. The loop condition `while (*s != '\0' && *s != (char)c)` will eventually encounter either:
+   - The target character `c`, or
+   - The null terminator at position `length-1`
+3. Since `length >= 1` (enforced at line 20-22), the string has at least one character (the null terminator), ensuring the loop terminates within at most `length-1` iterations.
+
+**Ranking Function Explanation**:  
+The expression `(length - 1) - (s - nondetString)` is a linear ranking function where:
+- `s - nondetString` = current position index (0-based)
+- `length - 1` = index of the guaranteed null terminator
+- The value decreases from `length-1` to `0` as `s` increments, proving termination.
+

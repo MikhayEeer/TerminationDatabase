@@ -1,0 +1,17 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+10.0 - 1.0 * c + 0.0 : [Guard: b - c >= 1 && a - c == 0 && c <= 9]
+1.0 * 1 + 0.0 : [Guard: b - c >= 1 && a - c == 0 && c > 9]
+
+**Explanation:**  
+The program terminates because the recursion depth is bounded. At each recursive call where the condition holds (`b - c >= 1 && a == c`):
+- If `c <= 9`, the ranking function `10 - c` decreases by at least 1 since `c` increases by at least 1 (`c_next = c + 1 + r`, `r >= 0`), ensuring progress toward termination.
+- If `c > 9`, the ranking function is constant `1`, but after the next call, `c_next > 9` (since `c_next >= c + 1 >= 11`), causing recursion to stop (next condition fails). The ranking function ensures termination as it applies only until the recursive chain ends. Initial conditions with no recursion (condition false) trivially terminate.
+

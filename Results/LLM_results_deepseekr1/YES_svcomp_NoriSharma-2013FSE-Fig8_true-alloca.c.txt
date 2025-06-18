@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+*z
+*x - *y
+
+**Explanation:**  
+The program terminates for all initial integer values of `*x`, `*y`, and `*z`. The lexicographic ranking function `(*z, *x - *y)` decreases with every loop iteration:  
+- **If branch (`*z > 1`):**  
+  - `*z` decreases by 1 (first component strictly decreases).  
+  - `*x - *y` may increase, but lexicographic order prioritizes the first component's decrease.  
+- **Else branch (`*z <= 1`):**  
+  - `*z` remains unchanged.  
+  - `*x - *y` decreases by 1 (second component strictly decreases).  
+
+The loop condition `*x >= *y` ensures `*x - *y >= 0` at the start of each iteration. The ranking function is bounded because:  
+1. `*z` decreases finitely until `*z <= 1` (if initially `*z > 1`).  
+2. `*x - *y` decreases finitely until negative (triggering loop exit).  
+Thus, no infinite executions exist.
+
+=== Response 2 ===
+
+

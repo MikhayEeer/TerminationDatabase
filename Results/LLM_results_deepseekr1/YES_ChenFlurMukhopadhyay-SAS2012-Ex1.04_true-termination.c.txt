@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because in each loop iteration where the loop continues (without breaking), the new value of `x` must satisfy `x > 1` and `2*x ≤ old_x` (where `old_x` is the previous value). This forces `x` to decrease by at least a factor of 2 in each iteration (i.e., `new_x ≤ old_x / 2`). Since `x` is an integer starting greater than 1, the sequence of `x` values is strictly decreasing (e.g., from initial value `N`, subsequent values are ≤ `N/2`, then ≤ `N/4`, etc.). This sequence is bounded below by 1, and must eventually fall below 2 within `O(log N)` iterations, causing the loop condition `x > 1` to fail or triggering the break condition.  
+
+The ranking function `r(x) = x` is linear and valid:  
+- **Bounded below:** `x ≥ 2` at the start of each iteration.  
+- **Decreases by at least 1:** For any iteration that continues (no break), `new_x ≤ old_x / 2 < old_x` (since `old_x ≥ 2`), so `r(new_x) = new_x < old_x = r(old_x)`, with an integer decrease of at least 1.  
+The break branch terminates immediately and does not affect the ranking.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+The loop terminates because the value of `x` at the start of each iteration strictly decreases by at least 1 in the sequence of iterations where the loop body executes without breaking early. Specifically:
+- The loop condition requires `x > 1` to enter.
+- In each iteration, if the new non-deterministic `x` satisfies `2*x <= old_x`, then the next iteration's starting `x` (which is this new value) is at most `floor(old_x / 2)`. Since `old_x >= 2` (as the loop was entered), it follows that `new_x <= old_x - 1` (because `old_x / 2 <= old_x - 1` for integers `old_x >= 2`).
+- Thus, the value of `x` at the loop head decreases by at least 1 each time the loop body completes without breaking.
+- The integer-valued sequence `x` starts at some value ≥2 and decreases by ≥1 per iteration, so it must eventually drop to ≤1, causing loop exit.
+
+The ranking function `f(x) = x` is linear and suffices to prove termination, as it decreases by at least 1 in every full iteration (where the loop condition is rechecked). Early breaks via `2*x > old_x` also terminate the loop immediately.
+

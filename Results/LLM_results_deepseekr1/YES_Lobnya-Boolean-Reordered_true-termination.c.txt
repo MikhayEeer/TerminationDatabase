@@ -1,0 +1,35 @@
+=== Response 1 ===
+The program terminates because regardless of the initial non-deterministic values of `x` and `b`, the loop will eventually break. The loop runs only if `b` is non-zero. In each iteration:
+- If `b` is non-zero, `x` is decremented by 1, and `b` is set to 1 if the new `x` is non-negative, otherwise 0.
+- The loop breaks at the start of the next iteration if `b` is 0.
+
+The termination is proven using a nested (lexicographic) ranking function. The first component ensures that when `b` becomes 0, the loop exits. The second component decreases when `b` remains non-zero, ensuring progress toward termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * (b != 0 ? 1 : 0)
+1.0 * x
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * 1
+1.0 * 1
+
+### Explanation:
+The program terminates for all inputs. The loop condition depends on variable `b`, which is set to `(x >= 0)` at the end of each iteration. 
+
+- **Phase 1 (when `b != 0` and `x >= 0`):**  
+  The ranking function is `x + 1`. In each iteration, `x` decreases by 1, so the ranking value decreases by 1 (e.g., from `x+1` to `x`). When `x` becomes negative after an iteration, the program transitions to Phase 2 or breaks.
+
+- **Phase 2 (when `b != 0` and `x < 0`):**  
+  The ranking function is `1`. After one iteration, `x` decreases further (becoming more negative), and `b` is set to `0`, causing the loop to break in the next iteration. The constant ranking function ensures termination after exactly one iteration in this phase.
+
+The ranking functions are non-negative and decrease with each iteration, proving termination. The multi-phase approach handles the two distinct states of `x` (non-negative vs. negative) under the condition `b != 0`.
+

@@ -1,0 +1,39 @@
+=== Response 1 ===
+The program is terminating. The reasoning is based on the provided 2-nested ranking function and the observation that the loop decreases the lexicographic ranking function at each iteration.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1 * y + 1
+1 * x + 0
+
+**Explanation:**  
+- The nested ranking function consists of two components: `f0(x, y) = y + 1` and `f1(x, y) = x`.  
+- At each iteration, the lexicographic order `(f0, f1)` strictly decreases:  
+  - After updating `x = x + y` and `y = y - 1`, the new `f0` becomes `y` (since `(y - 1) + 1 = y`), which is strictly less than the original `f0 = y + 1` by 1.  
+  - This lexicographic decrease guarantees termination, as integers cannot decrease infinitely without violating the loop condition `x >= 0`.  
+- The loop exits once `x` becomes negative, which occurs within finite steps due to the decreasing nature of the ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+// Phase 1: active when y ≥ 0
+max(y + 1, 0)   // y + 1 is used directly since y ≥ 0 implies y+1 ≥ 1
+// Phase 2: active when y < 0 and x ≥ 0
+x
+[EXPLANATION]
+The program always terminates. The analysis identifies two phases:
+1. **Phase 1 (y ≥ 0):** The ranking function is \(y + 1\). Each iteration decreases \(y\) by 1, causing the function to decrease by at least 1. Since \(y\) starts as a non-negative integer, this phase terminates in at most \(y_0 + 1\) steps.
+2. **Phase 2 (y < 0):** The ranking function is \(x\). Each iteration updates \(x = x + y\). Since \(y\) is negative, \(x\) decreases by at least 1 (as \(|y|\) is at least 1) because \(x\) is an integer and \(y\) is negative. This phase terminates since \(x\) will drop below 0 in at most \(x_{\text{start}}\) steps (where \(x_{\text{start}}\) is the \(x\)-value when this phase begins, which is always finite).
+
+When the loop condition \(x \geq 0\) fails, the program exits. No inputs cause non-termination, as shown by the multi-phase ranking function above. The given nested ranking in the comment (f0 = y+1, f1 = x) was adjusted for well-foundedness (\(f_0\) non-negative in Phase 1) and to handle the second phase independently.
+
+```c
+// Tool version hints: Use T2: Bool for termination proofs with multi-phase ranking functions
+```
+

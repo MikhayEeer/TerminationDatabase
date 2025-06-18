@@ -1,0 +1,46 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1
+
+The program is structured such that the `main` function executes a single pass through its logic without any loops. Control flow consists of conditionals and switch statements that direct execution to specific handler functions based on non-deterministic input. All inner functions contain bounded loops:
+- The loop in `DiskPerfDeviceControl` terminates as `i` increments to a fixed upper bound `deviceExtension__Processors`
+- The loop in `DiskPerfRegisterDevice` terminates due to bounded iterations based on fixed buffer sizes
+State transitions (via variable `s`) are finite (8 possible states) and don't form cycles beyond the scope of a single IRP processing. Since the program executes linearly with no potential for infinite recursion or unbounded iteration, it always terminates. A constant ranking function of 1 suffices as the program executes in a finite number of steps without repetition.
+
+=== Response 2 ===
+The provided C program models a Windows driver that processes I/O Request Packets (IRPs). After analyzing the control flow, the program terminates because:
+
+1. The `main` function operates without any looping constructs. It initializes global state, processes one IRP non-deterministically chosen from a finite set of dispatch routines, and exits.
+2. Any loops within IRP processing functions (e.g., in `DiskPerfDeviceControl`) are bounded:
+   - The loop in `DiskPerfDeviceControl` iterates exactly `deviceExtension__Processors` times (a non-negative integer).
+3. All functions terminate in bounded time:
+   - The call graph is acyclic with no recursion.
+   - State transitions (via `s`) are deterministic and navigate a finite state space without yielding cycles.
+4. Non-deterministic choices (e.g., `__VERIFIER_nondet_int()`) do not introduce non-termination, as global state advancement always progresses toward completion.
+
+Although IRP handlers like `IofCallDriver` and `PoCallDriver` may invoke completion routines modifying global state, these operations complete in finite steps without undoing progress (e.g., resetting to prior states).
+
+**Termination Proof via Piecewise Ranking Function**:  
+The termination argument leverages multiple ranking functions covering distinct execution phases:
+- **Loop in `DiskPerfDeviceControl`**: Bounded by `deviceExtension__Processors`, decreasing `i`.
+- **State transitions (global `s` variable)**: Moves toward terminal states (e.g., `DC`, `IPC`) without loops.
+
+The ranking functions integrate these aspects:
+
+**[RESULT]**  
+TERMINATE  
+**[RANKING FUNCTION TYPE]**  
+piecewise  
+**[RANKING FUNCTIONS]**  
+1.0 * deviceExtension__Processors - 1.0 * i  // For the loop in DiskPerfDeviceControl  
+3.0 * (s == NP ? 1 : 0) + 2.0 * (s == SKIP1 ? 1 : 0) + 1.0 * (s == MPR1 ? 1 : 0) + 0.0  // For state-machine progression (s decreases)  
+
+**Explanation**:  
+- `deviceExtension__Processors - i` decreases strictly during the bounded loop in `DiskPerfDeviceControl`.  
+- The state-based expression maps states to values (e.g., `NP=3`, `SKIP1=2`, `MPR1=1`), decreasing as the global state advances toward termination (`DC=0`, excluded explicitly).  
+- Both components decrease when active, ensuring overall termination. Constants were chosen to ensure strict descent in state transitions.
+

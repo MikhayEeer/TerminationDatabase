@@ -1,0 +1,46 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(remaining_list_length - 1)
+
+### Explanation:
+The program creates a linked list of fixed length `n` (where `n ≥ 1`) and then searches for the value `0` in the list. The loop in the `search` function terminates because:
+1. The list is finite and acyclic (length `n`).
+2. In each iteration, the current pointer `curr` advances to `curr->next`.
+3. The loop condition breaks when either:
+   - `curr->value == 0` (search succeeds), or
+   - `curr->next == NULL` (end of list is reached).
+
+**Ranking Function Justification**:  
+The expression `(remaining_list_length - 1)` serves as a linear ranking function:
+- **Initial value**: `n - 1` (at the head node, with `n` nodes total).
+- **Decreases by 1** in each iteration (as `curr` moves to the next node, reducing the remaining nodes by 1).
+- **Bounded below by 0** (when `curr` reaches the last node, `remaining_list_length = 1` → rank = 0, and the loop exits).
+
+This measure is well-founded and decreases monotonically, proving termination. The early exit upon finding `0` does not affect the ranking function's validity, as termination is still guaranteed within `≤ n-1` iterations.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (remaining_nodes)
+
+### Explanation:
+The program creates a linked list of fixed length `n` (where `n ≥ 1` is non-deterministic but fixed per execution) and then searches for the value `0` in the list. The loop in the `search` function terminates because:
+1. The list is finite and acyclic, with exactly `n` nodes.
+2. Each iteration advances `curr` to `curr->next`, reducing the number of remaining nodes after the current node (denoted as `remaining_nodes`) by 1.
+3. The loop exits when either `curr->next` is `NULL` (end of list) or `curr->value == 0`, ensuring at most `n-1` iterations.
+
+**Ranking Function Justification:**  
+The value `remaining_nodes` (number of nodes strictly after the current node) serves as a linear ranking function:
+- **Initial value:** `n-1` (at head node).
+- **Decreases by 1** each iteration as `curr` moves forward.
+- **Bounded below by 0** (loop exits when `remaining_nodes = 0`).
+
+Although `remaining_nodes` is not an explicit program variable, it is a well-defined measure of the distance to the end of the list. This linear ranking function proves termination.
+

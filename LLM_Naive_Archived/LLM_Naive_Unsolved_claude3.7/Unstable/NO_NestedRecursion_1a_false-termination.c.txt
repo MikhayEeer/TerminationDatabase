@@ -1,0 +1,51 @@
+=== Response 1 ===
+I'll analyze this program in C to determine whether it terminates or not.
+
+This program consists of two mutually recursive functions: `rec1` and `rec2`. Let's analyze them:
+
+For `rec1(i)`:
+- Base case: if i ≤ 0, it returns 0
+- Otherwise: it calls itself recursively with `rec1(rec1(rec1(i-2) - 1)) + 1`
+
+For `rec2(j)`:
+- Base case: if j ≤ 0, it returns 0
+- Otherwise: it calls `rec2(rec1(j+1)) - 1`
+
+The main function calls `rec2(x)` where x is a non-deterministic integer.
+
+Looking at this carefully, we can see that `rec1(i)` for i > 0 always involves nested calls to `rec1(i-2)`. After computing `rec1(i-2)`, the result is decremented and passed to another recursive call. This will eventually lead to calls with negative parameters, which hit the base case.
+
+However, `rec2` calls `rec1` with an incremented value, which could potentially lead to infinite recursion in some cases.
+
+[RESULT]
+NONTERM
+[REASON]
+For negative input values, the program terminates. However, for positive inputs, the function rec2 calls rec1 with an incremented value (j+1), which can lead to non-termination due to the complex recursive relationship between rec1 and rec2. Specifically, certain values can cause the recursion to perpetually avoid reaching the base cases.
+
+=== Response 2 ===
+I'll analyze this recursive program to determine if it terminates or not.
+
+The program has two recursive functions, `rec1` and `rec2`, which call each other in a complex pattern.
+
+Let's analyze `rec1` first:
+- Base case: If i ≤ 0, it returns 0
+- Recursive case: It makes three nested calls to itself with decreasing values:
+  - First it computes rec1(i-2)
+  - Then rec1(rec1(i-2) - 1)
+  - Then rec1(rec1(rec1(i-2) - 1))
+
+For function `rec2`:
+- Base case: If j ≤ 0, it returns 0
+- Recursive case: It calls rec1(j+1) and then calls itself with that result
+
+The key insight is that `rec1(i)` always returns a value less than `i` when i > 0. This means that the depth of recursion is bounded. For any input `i > 0`, `rec1(i-2)` will produce a smaller value, which then gets decremented before being passed to the next `rec1` call, ensuring progress toward the base case.
+
+Similarly, `rec2` calls `rec1` with an incremented value, but the result of `rec1` is guaranteed to be smaller than its input for positive values, ensuring progress toward termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+lexicographic ordering based on call stack depth and parameter values (i in rec1, j in rec2)
+

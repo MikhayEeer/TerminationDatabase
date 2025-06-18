@@ -1,0 +1,49 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+- y  
+q 
+
+[EXPLANATION]
+The program is terminating as proved by a multi-phase ranking function.
+- Phase 1: While \( y < 0 \), the ranking function is \( f_1 = -y \). This decreases by at least 1 in each iteration since \( y \) increases by 1, and eventually becomes non-negative.
+- Phase 2: When \( y \geq 0 \), the ranking function is \( f_2 = q \). In this phase, \( y \) is non-negative and grows linearly, and since \( q \) decrements by a non-negative amount (current \( y \)) each iteration, it will eventually become non-positive, causing termination.
+
+The transition between phases occurs when \( y \) becomes non-negative. Each phase's ranking function decreases in every iteration of its domain, ensuring eventual termination for all inputs. 
+
+Example validation:
+- Initial: \( q = 1, y = -2 \)
+  Phase 1: \( f_1 = -(-2) = 2 \)
+  After: \( q = 1 - (-2) = 3, y = -1 \); \( f_1 = -(-1) = 1 \) (decrease)
+- Iteration 2: \( q = 3 - (-1) = 4, y = 0 \) (enter Phase 2); \( f_2 = 4 \)
+- Iteration 3: \( q = 4 - 0 = 4, y = 1 \); \( f_2 = 4 \) (no decrease, but Phase 1 ranking already completed)
+- Iteration 4: \( q = 4 - 1 = 3, y = 2 \); \( f_2 = 3 \) (decrease)  
+... eventually \( q \leq 0 \). 
+
+Note: In Phase 2 when \( y = 0 \), \( q \) remains unchanged for one iteration, but the ranking function \( q \) for Phase 2 starts after Phase 1 completes. The subsequent iterations in Phase 2 reduce \( q \) strictly.
+
+=== Response 2 ===
+After analyzing the provided program, the termination behavior is determined as follows:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1.0 * y^1
+1.0 * q^1 + 0.5 * y^2 - 0.5 * y^1
+
+### Explanation:
+1. **Termination Reason**: The program terminates for all integer inputs of `q` and `y`. The loop condition `q > 0` eventually becomes false due to:
+   - **Phase 1 (y < 0)**: `y` increases by 1 each iteration until it becomes non-negative. The ranking function `-y` decreases by 1 per iteration (as `y` becomes less negative), proving termination for this phase.
+   - **Phase 2 (y ≥ 0)**: `q` decreases by `y` (which increases by 1 each iteration). The ranking function `q + y(y-1)/2` decreases by `y` per iteration (non-negative and eventually causes `q` to become non-positive).
+
+2. **Ranking Functions**:
+   - **First Phase (`y < 0`)**: `-y` (linear function, decreases by 1 per step).
+   - **Second Phase (`y ≥ 0`)**: `q + y(y-1)/2` (quadratic function, decreases by `y` per step, bounded below by 0 in the loop).
+
+The multi-phase ranking function transitions from Phase 1 to Phase 2 when `y` becomes non-negative, and both phases ensure bounded decrease toward termination.
+

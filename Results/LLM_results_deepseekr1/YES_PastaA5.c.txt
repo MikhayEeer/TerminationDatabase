@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + -1.0 *  y^1 + -1.0 * 1
+
+**Explanation:**  
+The loop condition is `x >= y + 1`. Within the loop, `y` is incremented by 1 in each iteration, while `x` remains unchanged. The ranking function is `r = x - y - 1`.  
+- **Termination Argument:**  
+  - Upon loop entry, `x >= y + 1` holds, so `r >= 0`.  
+  - Each iteration sets `y := y + 1`, decreasing `r` by exactly 1 (since `x - (y+1) - 1 = (x - y - 1) - 1`).  
+  - `r` is bounded below by 0 (as the loop exits when `x < y + 1`, i.e., `r < 0`).  
+  - Since `r` decreases by 1 each iteration and starts nonnegative, it must eventually become negative, causing termination.  
+This linear ranking function proves termination for all integer inputs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * y^1
+
+### Explanation:
+The program terminates because the loop condition `x >= y + 1` (equivalent to `x - y >= 1`) ensures that the difference `x - y` decreases by exactly 1 in each iteration due to the assignment `y = y + 1`. 
+
+- **Ranking Function**: `x - y`
+  - At loop entry: `x - y >= 1` (nonnegative).
+  - After update: `y' = y + 1` → new value is `(x - y) - 1`.
+  - The function decreases strictly (by 1) and is bounded below (since it starts at a finite integer and decreases until `x - y < 1`, breaking the loop).
+
+This linear ranking function proves termination for all integer values of `x` and `y`.
+

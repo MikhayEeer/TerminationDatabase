@@ -1,0 +1,50 @@
+=== Response 1 ===
+I'll analyze the termination of this program.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * dist(curr, NULL)
+
+Where dist(curr, NULL) represents the number of steps needed to reach NULL from the current position in the linked list.
+
+The program terminates for the following reasons:
+1. The init_list function creates a finite linked list of length n (where n >= 1).
+2. In the search function, the while loop advances curr through the list with curr = curr->next at each iteration.
+3. Since the list is finite and each iteration moves one step closer to the end of the list (where next is NULL), the loop must eventually terminate.
+4. Each iteration decreases the distance from curr to NULL by exactly 1, making this a linear ranking function.
+
+The search terminates either when curr->next == NULL (we reach the end of the list) or when curr->value == m (we find the target value). Since at least one of these conditions must be met after at most n iterations, the program always terminates.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program creates a linked list of length `n` and then searches for a value `m` (which is 0) in the list.
+
+Let's focus on the `search` function, which contains a loop:
+```c
+void search(struct list* head, int m) {
+  struct list* curr = head;
+  while(curr->next != NULL && curr->value != m) {
+    curr = curr->next;
+  }
+}
+```
+
+In each iteration, we move to the next node (curr = curr->next). The loop terminates when either:
+1. We reach the end of the list (curr->next == NULL), or
+2. We find the value we're looking for (curr->value == m)
+
+For a finite list (which we have since n is finite), we will eventually reach the end of the list if we don't find the value m. Since we initialize the list with n nodes (where n is a positive integer due to the check n < 1), and each iteration of the search moves one node closer to the end of the list, the search will terminate in at most n iterations.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * dist(curr, NULL)
+
+Where dist(curr, NULL) represents the distance (number of nodes) from the current node to the end of the list. This value decreases by exactly 1 in each iteration, providing a valid ranking function that proves termination.
+

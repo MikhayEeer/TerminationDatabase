@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Outer: 1.0 * x + 1.0
+Inner: 1.0 * x - 1.0 * y
+
+Explanation:
+- **Termination Reason**: The outer loop runs while `x >= 0`. In each iteration, `x` is decremented by `1`, ensuring it eventually becomes negative. The inner loop (while `y < x`) always terminates because `y` increments from `1` to `x` in at most `x - 1` steps.
+- **Outer Ranking Function**: `x + 1`. This linear function decreases by exactly `1` in each outer iteration (from initial `x >= 0`), reaches `0` (when `x = -1`), and is bounded below by `0`.
+- **Inner Ranking Function**: `x - y`. This linear function decreases by `1` in each inner iteration (from initial `y = 1`, `x >= 2`), reaches `0` (when `y` catches up to `x`), and is bounded below by `0`. `x` remains constant during the inner loop.
+
+The nested structure ensures both loops terminate: the outer function bounds the total iterations, while the inner function bounds iterations within each outer step.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * 1
+max(0, 1.0 * x^1 - 1.0 * y^1)
+
+**Explanation:**  
+The program terminates because:
+- The outer loop variable `x` starts as a nonnegative integer (due to the loop condition `x >= 0`) and decreases by 1 in each iteration until it becomes negative.
+- The inner loop always terminates for any fixed `x` since `y` starts at 1 and increments until `y >= x`, which takes at most `x - 1` steps.
+
+The **multi-phase ranking function** proves termination:
+1. **First component:** `x + 1` (linear in `x`).  
+   - Decreases in the outer loop when `x` is decremented (after inner loop completion).  
+   - Bounded below by 0 (when `x = -1`, loop exits).  
+2. **Second component:** `max(0, x - y)` (piecewise linear in `x` and `y`).  
+   - Decreases in the inner loop when `y` is incremented (since `x - y` reduces by 1 per step).  
+   - Resets to `max(0, (x - 1) - 1)` after inner loop completion and outer loop update.  
+   - Lexicographic order ensures strict decrease: either the second component decreases (inner loop), or the first decreases while the second resets (outer loop).  
+
+This ranking function is nonnegative and decreases in every execution step, proving termination.
+

@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * q^1 + 1.0 * p^1
+
+**Explanation:**  
+The program terminates because in each iteration where `q != p`, either `q` or `p` is decremented by 1, reducing the sum `q + p` by exactly 1. The loop condition `(q > 0 && p > 0)` ensures both variables start as positive integers. The sum `q + p` serves as a linear ranking function:  
+- It is **bounded below** (minimum value 2 at loop entry).  
+- It **strictly decreases** by 1 in every iteration that completes (i.e., when `q != p`).  
+- When `q == p`, the loop breaks immediately, preventing further iterations.  
+
+Since `q + p` decreases monotonically and is integer-valued, it must eventually drop below the initial minimum (or trigger the break condition), proving termination. The ranking function is linear with coefficients 1 for both variables.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * q^1
+1.0 * p^1
+
+The program terminates as verified by a multi-phase ranking function. The lexicographic ranking function (q, p) decreases in each iteration:
+- When q < p, q decreases while p remains constant, reducing the first component.
+- When p < q, p decreases while q remains constant, reducing the second component when the first is unchanged.
+The break condition (q == p) exits without further iterations, ensuring termination. This approach is necessary because the program does not admit a single linear ranking function due to the symmetric decrement behavior and break condition, as established in the referenced literature.
+

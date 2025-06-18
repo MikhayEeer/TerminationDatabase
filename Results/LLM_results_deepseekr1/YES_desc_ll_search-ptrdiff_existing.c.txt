@@ -1,0 +1,52 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*(int*)ptr) + (-1.0) * m
+
+**Explanation of Termination and Ranking Function:**
+
+The program terminates for the following reasons:
+1. The `init_list` loop builds a linked list of exactly `n` nodes. It terminates because `n` is fixed and the loop variable `j` increases from 0 to `n-1`.
+2. The `search` loop traverses the linked list until it finds a node with value `m`. Since:
+   - The list contains all integers from `n-1` down to `0` (guaranteed by `init_list`).
+   - The value `m` satisfies `1 ≤ m < n` (precondition check in `main`), so it exists in the list.
+   - Each iteration moves `ptr` to the next node via valid pointer arithmetic within the list structure, ensuring traversal towards the target.
+
+**Ranking Function for `search` Loop:**
+- The expression **`(*(int*)ptr) - m`** serves as a linear ranking function:
+  - **Structure**: Represents the difference between the current node's value (`*(int*)ptr`) and the target `m`.
+  - **Behavior**: 
+    - Initial value is `n-1 - m` (≥0, since `m < n`).
+    - Decreases by exactly 1 per iteration (as node values are contiguous integers in descending order).
+    - Reaches `0` when the desired node is found, ensuring loop termination.
+- **Operational Details**: At each loop head:
+  - Current node's value is `≥ m` (since list ends at 0 and `m ≥ 1`), ensuring non-negativity.
+  - After `ptr` advances, `*(int*)ptr` decreases by 1, lowering the ranking function value until it hits `0`.
+
+The constant `skip` and deterministic linking ensure safe pointer operations during traversal. Thus, the ranking function provides a decreasing measure bounded below by 0, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*(int*)ptr) - 1.0 * m
+
+**Explanation:**  
+The program builds a singly-linked list with `n` nodes containing values `[0, n-1]` in decreasing order (head has value `n-1`, tail has `0`). The `search` function traverses this list starting from the head until it finds a node with value `m` (where `1 ≤ m ≤ n-1`).  
+
+**Termination Argument:**  
+- The list is finite and acyclic (built by `init_list` with `next` pointers pointing to previously created nodes).  
+- Values decrease by exactly 1 at each step (node values: `n-1, n-2, ..., 0`).  
+- The loop condition `*(int*)ptr != m` fails when the current node's value equals `m`, which is guaranteed to occur since `m` is in the list.  
+- The ranking function `(*(int*)ptr) - m`:  
+  - Is **non-negative** initially (head value `n-1 ≥ m` and decreases monotonically).  
+  - **Decreases by 1** each iteration (as `ptr` moves to the next node, reducing the value by 1).  
+  - Reaches `0` when `m` is found, proving termination.  
+
+This linear ranking function suffices as the value difference decreases deterministically.
+

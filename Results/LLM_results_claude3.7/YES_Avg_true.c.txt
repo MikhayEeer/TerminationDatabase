@@ -1,0 +1,36 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+First, let's understand what the `average` function does:
+- If `x > 0`, it decreases `x` by 1 and increases `y` by a corresponding amount
+- If `x ≤ 0` and `y > 2`, it increases `x` by 1 and decreases `y` by 2
+- If `x ≤ 0` and `y ≤ 2`, it returns 1 (base case)
+
+Looking at the recursion pattern, we can observe that:
+- The first case decreases `x` and increases `y`
+- The second case increases `x` but decreases `y` by 2
+- The function will terminate when we reach the third case (x ≤ 0 and y ≤ 2)
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x + 1.0 * y
+
+This ranking function proves termination because:
+1. It is always non-negative when the function is called (since both x and y are non-negative - y is always non-negative because in the first case we increase it, and random() returns a non-negative value)
+2. It decreases with each recursive call:
+   - In the first case (x > 0), it decreases by 2 - 1 = 1
+   - In the second case (y > 2), it decreases by -2 + 2 = 0, but the function actually returns 1 + average(...), so there's a bound on recursion
+3. When we reach x ≤ 0 and y ≤ 2, we hit the base case and recursion stops
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0 * 1
+0.0 * x^1 + 0.5 * y^1 + 0.0 * 1
+

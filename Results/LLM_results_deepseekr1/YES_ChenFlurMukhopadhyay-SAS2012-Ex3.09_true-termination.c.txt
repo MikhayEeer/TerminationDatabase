@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0
+log(z) - log(x)
+
+**Explanation:**  
+The program terminates and can be verified using a two-phase ranking function:
+1. **Phase 1 (first iteration):** The ranking function is the constant `1.0`. This phase runs at most once (either breaking immediately or transitioning to Phase 2).
+2. **Phase 2 (subsequent iterations):** The ranking function is `log(z) - log(x)`. In this phase, `y` is fixed to `z`, and each iteration requires `x` to at least double (to avoid breaking). This causes `log(z) - log(x)` to decrease by at least `log(2) > 0` per iteration, while remaining bounded below (as `x < z` by the loop condition). The lexicographic order ensures termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+(y != z) ? 1 : 0
+(y == z) ? floor(log2(z / x)) : 0
+
+**Explanation:**  
+The program terminates because the loop can execute at most a bounded number of times. The ranking function uses a nested (lexicographic) structure:
+- **First component:** `(y != z) ? 1 : 0` distinguishes between two phases:
+  - **Phase 1 (initial):** `y != z` (value 1). At most one iteration occurs here. If the loop continues, it transitions to Phase 2 by setting `y = z`.
+  - **Phase 2:** `y == z` (value 0). Here, `x` must satisfy `0 < x < z` (from the loop condition), ensuring `z/x > 1`.
+- **Second component:** `(y == z) ? floor(log2(z / x)) : 0` is active only in Phase 2. Since `x` at least doubles each iteration (due to the condition `x > 2 * old_x` when not breaking), `z/x` halves or more, causing `floor(log2(z/x))` to decrease by at least 1 each iteration. This component is bounded below by 0.
+
+The lexicographic order ensures:
+- Transitioning from Phase 1 (rank `(1, 0)`) to Phase 2 (rank `(0, k)`) decreases the rank since `1 > 0`.
+- In Phase 2, the second component decreases strictly until termination.
+

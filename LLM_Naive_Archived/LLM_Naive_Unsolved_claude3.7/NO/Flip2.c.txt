@@ -1,0 +1,54 @@
+=== Response 1 ===
+I'll analyze the given program to determine if it terminates or not.
+
+The program has a while loop that runs as long as both `i > 0` and `j > 0`. Let's examine the loop body:
+
+1. If `i < j`: Swap values of i and j (so the larger value is in i)
+2. Else if `i > j`: Set j equal to i (both become the larger value)
+3. Else (when `i == j`): Decrement i by 1
+
+After analyzing the loop behavior:
+- When i < j, the swap makes i ≥ j
+- When i > j, setting j = i makes i = j
+- When i = j, i is decremented, making i < j
+
+This creates a cyclic pattern: 
+- We either end up with equal values or with i < j
+- If values are equal, i decreases, then in the next iteration, we swap
+- The critical point is that the maximum of i and j never increases
+- When i = j, the value definitely decreases, ensuring progress
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(i, j) when i ≠ j
+2*i when i = j
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+Let's understand the loop behavior:
+1. We start with arbitrary values for i and j.
+2. The loop continues while both i > 0 and j > 0.
+3. Inside the loop:
+   - If i < j, we swap i and j
+   - If i > j, we set j = i
+   - If i = j, we decrement i by 1
+
+Looking at these cases:
+- After the first two cases (i < j or i > j), we end up with i = j
+- When i = j, we decrement i, making i < j
+- In the next iteration, we'll swap i and j, then i = j again, and the cycle continues
+- Each time we pass through this cycle, our values are strictly decreasing
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 + 1.0 * j^1
+
+The function i + j decreases in every complete cycle of the loop. When i = j, after decrementation and then swapping, both values become smaller than they were initially, guaranteeing eventual termination when one of them becomes non-positive.
+

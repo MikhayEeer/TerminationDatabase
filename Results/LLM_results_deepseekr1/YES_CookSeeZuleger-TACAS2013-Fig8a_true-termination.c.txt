@@ -1,0 +1,19 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+-1.0 * x^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates for all integer inputs of `x`. The ranking function is defined piecewise:
+- For `x >= 0`, the ranking function is `x` (expressed as `1.0 * x^1 + 0.0 * 1`).
+- For `x < 0`, the ranking function is `-x` (expressed as `-1.0 * x^1 + 0.0 * 1`).  
+
+This piecewise linear ranking function decreases by at least 1 in each iteration (since `|x|` decreases by 1 until reaching 0) and is bounded below by 0, proving termination. The sign of `x` remains invariant during execution (non-negative inputs stay non-negative, negative inputs stay negative), ensuring the correct piece is applied throughout.
+

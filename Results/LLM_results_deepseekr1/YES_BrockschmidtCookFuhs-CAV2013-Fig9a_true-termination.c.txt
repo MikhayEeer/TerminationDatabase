@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * n - 1.0 * i
+1.0 * i - 1.0 * j + 1.0
+
+### Explanation:
+The program terminates for all inputs where `k >= 1` (as enforced by the initial condition). The termination is proven using a **nested (lexicographic) ranking function** with two components:
+
+1. **Outer loop ranking function**: `n - i`  
+   - Decreases by at least 1 in each outer iteration (since `i` increments by 1).  
+   - Bounded below by 0 (loop exits when `i >= n`).  
+
+2. **Inner loop ranking function**: `i - j + 1`  
+   - Decreases by at least `k` (where `k >= 1`) in each inner iteration (since `j` increments by `k`).  
+   - Remains non-negative during loop execution (as `j <= i` implies `i - j + 1 >= 1`).  
+   - When this component drops to ≤ 0, the inner loop exits.  
+
+The lexicographic order ensures termination:  
+- During inner loop execution, the first component remains constant while the second decreases.  
+- At the end of each outer iteration, the first component decreases (as `i` increases), and the second component is reset to `i + 1` (when `j = 0`), maintaining the ranking.  
+
+This holds for all integer values of `n`, `i`, `j`, and `k` (with `k >= 1`), including cases where `n` is negative (outer loop skipped entirely).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+outer: n - i
+inner: i - j
+
+### Explanation:
+- **Outer Loop Termination**: The outer loop runs while `i < n`. The variable `i` starts at 0 and increments by 1 in each iteration until `i` reaches `n`. The ranking function `n - i` decreases by exactly 1 per outer iteration and remains non-negative (since `i < n` implies `n - i > 0`). When `n - i` becomes 0, the loop exits.
+- **Inner Loop Termination**: The inner loop runs while `j <= i`. At the start of each inner loop, `j` is set to 0. The ranking function `i - j` decreases by at least `k` (where `k >= 1`) per inner iteration and remains non-negative (since `j <= i` implies `i - j >= 0`). When `i - j` becomes negative (after `j` exceeds `i`), the inner loop exits.
+- **Nested Structure**: The program uses nested loops. The inner loop terminates independently in each outer iteration, and the outer loop terminates after `n` iterations. The ranking functions are linear and nested, proving overall termination.
+

@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop doesn't terminate when x = 0 and y = 0. In this case, both variables remain 0 after each iteration (x = 0-0 = 0, y = 0+0 = 0), so the condition x < 5 is always true and the loop continues forever.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The program is non-terminating when initialized with x=0 and y=0. In this case, at each iteration, x remains 0 (x = 0-0 = 0) and y remains 0 (y = 0+0 = 0), so the condition x < 5 stays true forever.
+

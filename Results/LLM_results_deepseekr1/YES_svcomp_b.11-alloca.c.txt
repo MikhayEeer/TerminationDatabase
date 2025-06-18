@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+The program terminates because the loop condition depends on the sum `x_ref + y_ref`, which decreases by exactly 1 in every iteration, regardless of the branch taken:
+- If `x_ref > y_ref`, `x_ref` decreases by 1 → sum decreases by 1.
+- If `x_ref == y_ref`, `x_ref` decreases by 1 → sum decreases by 1.
+- If `x_ref < y_ref`, `y_ref` decreases by 1 → sum decreases by 1.
+
+The sum starts at some initial value `S` (where `S > 0` is required to enter the loop) and decreases `S` times until it becomes ≤ 0, causing termination. Thus, the linear ranking function `x + y` suffices, mapping to a non-negative integer at loop entry and decreasing by at least 1 per iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+### Explanation:
+The program terminates because the loop condition `*x_ref + *y_ref > 0` ensures the sum of the two variables is positive upon entry. In each iteration:
+- If `*x_ref > *y_ref`, `*x_ref` decreases by 1.
+- If `*x_ref == *y_ref`, `*x_ref` decreases by 1.
+- If `*x_ref < *y_ref`, `*y_ref` decreases by 1.
+
+Thus, **the sum `*x_ref + *y_ref` decreases by exactly 1 in every iteration**. This makes it a valid linear ranking function. The loop runs at most `x + y` times (initial sum) since:
+- The sum starts at a positive integer value `S` (if initially non-positive, the loop skips).
+- After `S` iterations, the sum becomes `≤ 0`, terminating the loop.
+
+The ranking function `r = x + y` is linear, decreases by 1 each iteration, and is bounded below by termination (when `r ≤ 0`). The pointer variables `*x_ref` and `*y_ref` correspond to the input parameters `x` and `y` in the ranking function.
+

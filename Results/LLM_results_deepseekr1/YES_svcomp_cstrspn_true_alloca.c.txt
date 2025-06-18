@@ -1,0 +1,54 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+// For the inner loop: distance to s2's null terminator
+(s2_end - s) where s2_end is the address of '\0' in s2
+// For the outer loop: distance to s1's null terminator
+(s1_end - sc1) where s1_end is the address of '\0' in s1
+
+### Explanation:
+The program implements the `cstrspn` function, which computes the length of the initial segment of `s1` consisting only of characters from `s2`. Both strings are guaranteed null-terminated due to initialization in `main`:
+- `nondetString1[length1-1] = '\0'` ensures `s1` has a null terminator at or before index `length1-1`.
+- `nondetString2[length2-1] = '\0'` ensures `s2` has a null terminator at or before index `length2-1`.
+
+**Termination Reasoning**:
+1. **Outer Loop** (`sc1` over `s1`):
+   - Iterates until `*sc1 == '\0'`.
+   - `sc1` increments by `1` per iteration.
+   - Since `s1` is null-terminated, `sc1` will eventually reach the terminator (within `length1` steps).
+
+2. **Inner Loop** (`s` over `s2`):
+   - For each `sc1`, iterates until `*s == '\0'` or `*s == c`.
+   - `s` increments by `1` per iteration.
+   - Since `s2` is null-terminated, `s` will eventually reach the terminator (within `length2` steps).
+
+**Ranking Functions**:
+- **Nested ranking functions** are used due to the nested loop structure.
+- **Inner Loop Measure**: `s2_end - s` (distance to `s2`'s null terminator). This decreases by ≥1 each iteration and is bounded below by 0.
+- **Outer Loop Measure**: `s1_end - sc1` (distance to `s1`'s null terminator). This decreases by 1 each outer iteration when the inner loop exits, and is bounded below by 0.
+
+The null terminator addresses (`s1_end`, `s2_end`) are fixed during the function call, ensuring the measures are well-defined and decrease strictly, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+(length1 - 1) - (sc1 - s1)
+(length2 - 1) - (s - s2)
+
+### Explanation:
+The program terminates because both loops in `cstrspn` are guaranteed to terminate due to the null-terminated strings. 
+
+- **Outer loop** (`sc1` iteration):  
+  The ranking function `(length1 - 1) - (sc1 - s1)` represents the remaining characters in `s1` before the null terminator. It decreases by 1 each iteration as `sc1` increments, and is bounded below by 0.
+
+- **Inner loop** (`s` iteration):  
+  The ranking function `(length2 - 1) - (s - s2)` represents the remaining characters in `s2` before the null terminator. It decreases by 1 each iteration as `s` increments (until matching `c` or hitting null), and is bounded below by 0.
+
+The **multi-phase** ranking function uses lexicographic order: the inner loop's ranking function decreases while the outer loop's remains constant; when the inner loop finishes, the outer loop's ranking function decreases on the next iteration. The null terminators ensure both functions are well-defined and decrease monotonically.
+

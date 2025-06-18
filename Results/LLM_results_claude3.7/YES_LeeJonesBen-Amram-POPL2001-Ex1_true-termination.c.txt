@@ -1,0 +1,42 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The main function calls `rev` function, which in turn calls `r1`. Let's focus on the `r1` function since it contains a recursive call.
+
+In `r1`, there are two parameters: `ls` and `a`. Each recursive call decreases `ls` by 1 and increases `a`. The base case is when `ls` equals 0.
+
+The program will terminate if `ls` eventually reaches 0. Since `ls` starts as a non-negative value (from the condition `if (ls >= 0)` in `main`) and decreases by exactly 1 in each recursive call, it will eventually reach 0 after at most `ls` recursive calls.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * ls^1 + 0.0 * a^1 + 0.0 * 1
+
+The ranking function is simply `ls`, which starts at a non-negative value and decreases by 1 with each iteration until it reaches 0, at which point the recursion terminates.
+
+=== Response 2 ===
+I'll analyze this program for termination:
+
+The main program calls `rev(ls)` with `ls >= 0`, which then calls `r1(ls, 0)`. The function `r1` is recursive, and we need to determine if it always terminates.
+
+Looking at `r1(int ls, int a)`:
+- Base case: When `ls == 0`, the function returns `a` and terminates
+- Recursive case: When `ls != 0`, the function calls `r1(ls-1, ls+1+a)`
+
+In each recursive call:
+- `ls` decreases by 1
+- `a` increases, but doesn't affect the termination
+
+Since `ls` starts at a non-negative value and decreases by exactly 1 in each recursive call until it reaches 0, the recursion will always terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * ls^1
+
+The ranking function is simply the value of `ls`, which starts non-negative and decreases by exactly 1 in each recursive call until it reaches 0, at which point the recursion terminates.
+

@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+ls
+
+**Explanation:**  
+The program terminates for all inputs because the recursion in `r1` is depth-bounded by the initial non-negative value of `ls`. In each recursive call to `r1`, the parameter `ls` decreases by 1. Since `ls` starts as a non-negative integer (due to the `ls >= 0` check in `main`), it eventually reaches 0, ending the recursion. The ranking function `ls` (the first parameter of `r1`) decreases linearly with each recursive call and is bounded below by 0. When `ls` becomes 0, no further recursive calls occur, ensuring termination. The variable `a` does not affect termination and is omitted from the ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * ls^1 + 0.0 * a^1
+
+**Explanation:**  
+The program terminates for all nonnegative inputs of `ls` (as ensured by the condition `ls >= 0` in `main`). The recursive function `r1` decreases the first argument `ls` by 1 in each recursive call until `ls` becomes 0. The second argument `a` is irrelevant for termination. A linear ranking function `f(ls, a) = ls` suffices, as it decreases with each recursion (since `ls` is nonnegative and integer-valued) and is bounded below by 0. The recursion depth is exactly `ls`, ensuring termination.
+

@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - x
+
+**Explanation:**  
+The loop runs only when `x` is in the range (0, 100). The ranking function `f(x) = 100 - x` is a linear function that decreases by at least 11 in each iteration where the loop continues without breaking. Specifically:
+- At the start of each iteration, `f(x)` is positive (since `0 < x < 100`).
+- If the non-deterministic assignment sets a new `x` such that `x >= 2 * old_x + 10` (avoiding immediate break), then the new `x` satisfies `x > old_x` (because `2 * old_x + 10 > old_x` for `old_x > 0`). Thus, `f(x) = 100 - x` decreases (since `x` increases).
+- The minimum decrease is 11 (e.g., when `old_x = 1`, new `x >= 12`, so `f` drops from 99 to at most 88).
+- The function is integer-valued and bounded below (minimum value 1 when `x = 99`), ensuring termination within a bounded number of iterations (at most 2 iterations in practice).
+
+This linear ranking function proves termination for all possible non-deterministic choices.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - x
+
+The program terminates because the loop can execute at most a bounded number of iterations. The loop condition requires `x` to be in the range (0, 100). In each iteration, if the non-deterministically assigned new value of `x` is at least `2*old_x + 10`, the loop may continue, but this forces `x` to grow exponentially (e.g., `x` at least doubles plus an offset). However, due to the upper bound of 100, the sequence of values can only increase a limited number of times (at most 3 times) before either:
+1. The new `x` violates the loop condition (`x <= 0` or `x >= 100`), causing termination.
+2. The break condition `x < 2*old_x + 10` is triggered, exiting the loop.
+
+A linear ranking function `100 - x` suffices:
+- It is defined when the loop condition holds (`0 < x < 100`), ensuring `100 - x > 0`.
+- On each iteration that does not break (i.e., where `x` is updated to a value `x' >= 2*old_x + 10` and remains in (0,100)), the function decreases by at least `old_x + 10 >= 11` (since `old_x >= 1`), as:
+  ```
+  100 - old_x - (100 - x') = x' - old_x >= (2*old_x + 10) - old_x = old_x + 10 >= 11
+  ```
+- The function is bounded below by 0 and decreases by a discrete amount in such iterations, ensuring termination. If the break condition is met or the loop condition fails, termination occurs immediately.
+

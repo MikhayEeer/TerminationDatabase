@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y^1
+
+**Explanation:**  
+The loop condition depends solely on `*y_ref` (denoted as `y` for simplicity). The loop runs while `y > 0`, and in each iteration, `y` is decremented by exactly 1 (`y = y - 1`). Since `y` starts as a positive integer and decreases by 1 each iteration, it will eventually become non-positive (≤0), causing the loop to terminate. The ranking function `y` is linear, non-negative within the loop (since `y ≥ 1` at loop entry), and decreases by at least 1 in each iteration. The variables `x` and `r` do not affect termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y_val^1
+
+Explanation: The termination of the loop is guaranteed by the strictly decreasing linear ranking function based on the loop-controlled variable `*y_ref` (here denoted as `y_val`). In each iteration, `y_val` decreases by 1 while remaining non-negative. The loop runs exactly `y_val` times initially (if `y_val > 0`), ensuring eventual termination when `y_val` becomes <= 0. The ranking function maps the state to a value in a well-founded set (non-negative integers) and decreases with each iteration:
+
+- **Loop Condition**: `y_val > 0` implies initial rank ≥ 1.
+- **Decrease**: Effect of loop body: `y_val := y_val - 1`, so rank decreases by 1.
+- **Termination**: Rank reaches 0 (loop exits).
+
+The expression `1.0 * y_val^1` captures this linear relationship. Other variables (`x_val`, `r_val`) remain unchanged and do not affect termination.
+

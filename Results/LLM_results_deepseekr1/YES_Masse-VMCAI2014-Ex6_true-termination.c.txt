@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0
+1.0 * x^1
+
+**Explanation:**  
+The program terminates for all integer inputs. A multi-phase ranking function proves termination:  
+1. **First phase (when y ≥ 0):** The ranking function is \( y + 1 \). In each iteration, \( y \) decreases by at least 1 (due to `y = y - 1`), so \( y + 1 \) decreases by exactly 1. This phase ends when \( y \) becomes negative.  
+2. **Second phase (when y < 0):** The ranking function is \( x \). Since \( y \) is negative and fixed (no further updates), \( x \) decreases by at least \( |y| \geq 1 \) in each iteration (due to `x = x + y`). This continues until \( x < 0 \), terminating the loop.  
+
+The lexicographic combination of these phases ensures the program always terminates. The ranking functions are linear and valid in their respective phases.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * y^1 + 1.0 * 1
+1.0 * x^1 + 1.0 * 1
+
+**Explanation:**  
+The program terminates for all integer inputs. A multi-phase ranking function is used:  
+- **Phase 1 (when `y >= 0`):** Ranking function is `y + 1`. This decreases by at least 1 in each iteration as `y` is decremented until it becomes negative.  
+- **Phase 2 (when `y < 0`):** Ranking function is `x + 1`. This decreases by at least 1 in each iteration (since `y` is negative, `x = x + y` reduces `x` by at least `|y| >= 1`).  
+
+The switch from Phase 1 to Phase 2 occurs when `y` becomes negative, and the lexicographic order ensures termination. Both ranking functions are linear and bounded below by 0 during loop execution.
+

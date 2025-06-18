@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + -1.0 * y^1  
+
+### Explanation:  
+The loop condition is `x > y`. In each iteration, `y` is incremented by 1 while `x` remains unchanged. The difference `x - y` starts as a positive integer (when the loop is entered) and decreases by exactly 1 per iteration. When `x - y` becomes ≤ 0, the loop terminates. Thus, `x - y` serves as a valid linear ranking function, proving termination. The variable `c` does not affect termination and is ignored.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+### Explanation:
+- **Termination Reasoning**: The loop condition checks if `x > y`. Each iteration increases `y` by 1 while `x` remains constant. The difference `x - y` decreases by exactly 1 per iteration. Since `x - y` is a positive integer when entering the loop and decreases strictly until it becomes non-positive (causing the loop to exit), the loop always terminates after a finite number of steps.
+- **Ranking Function**: The function `f(x, y) = x - y` is a linear ranking function. It:
+  - Starts as a positive integer when `x > y` (loop entry condition).
+  - Decreases by 1 in each iteration: After `y` increments to `y + 1`, the new value is `x - (y + 1) = (x - y) - 1`.
+  - When `x - y <= 0`, the loop terminates.
+- **Behavior**: If initially `x <= y`, the loop is skipped (termination is immediate). Otherwise, the loop runs exactly `max(0, x_init - y_init)` iterations.
+

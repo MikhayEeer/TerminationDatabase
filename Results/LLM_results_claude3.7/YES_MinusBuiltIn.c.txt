@@ -1,0 +1,38 @@
+=== Response 1 ===
+I'll analyze the program to determine if it terminates or not.
+
+Looking at the loop condition `x > y` and the loop body:
+```c
+while (x > y) {
+    y = x+1;
+    res = res+1;
+}
+```
+
+After the first iteration (if entered), `y` becomes `x+1`, which makes `x > y` false since `x` is not modified inside the loop. This means the loop will execute at most once.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * 1
+
+The program terminates because after at most one iteration of the loop, the condition `x > y` becomes false due to setting `y = x+1`. A simple constant ranking function of 1 is sufficient, as the loop executes at most once.
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates or not.
+
+This program has a while loop that runs as long as `x > y`. Inside the loop, `y` is set to `x+1`, which means that after the first iteration, `y` will always be greater than `x`, and the loop condition `x > y` becomes false.
+
+Therefore, the loop can execute at most once, and the program always terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * 1
+
+The ranking function is simply the constant 1, because the loop can execute at most once. After the first execution (if it happens at all), the loop condition becomes false.
+

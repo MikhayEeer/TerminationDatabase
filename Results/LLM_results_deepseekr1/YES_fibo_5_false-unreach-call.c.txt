@@ -1,0 +1,40 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+Explanation: The program termination relies on the termination of the recursive `fibo` function. For the recursive function `fibo(int n)`, the argument `n` decreases with each recursive call (either to `n-1` or `n-2`). Since `n` starts at 5 and strictly decreases in each call until reaching the base cases (`n < 1` or `n == 1`), the recursion is bounded. A linear ranking function `f(n) = n` suffices, as:
+- It decreases with every recursive call: when `n > 1`, both `f(n-1) = n-1 < n` and `f(n-2) = n-2 < n`.
+- It is bounded below: when `n <= 1`, the base cases are triggered without further recursion.
+
+The main function calls `fibo(5)`, which terminates due to this ranking function, then proceeds to the error call (which terminates the program). All code paths lead to termination.
+
+=== Response 2 ===
+The program consists of a main function that calls a recursive Fibonacci function `fibo(5)`, which computes the 5th Fibonacci number. The function `fibo` is defined recursively with base cases for `n < 1` (return 0) and `n == 1` (return 1). For `n >= 2`, it recursively calls `fibo(n-1)` and `fibo(n-2)`. The recursion depth is finite since each call reduces the parameter `n` until it reaches a base case (0 or 1). 
+
+Specifically, for `n = 5`:
+- `fibo(5)` calls `fibo(4)` and `fibo(3)`.
+- `fibo(4)` calls `fibo(3)` and `fibo(2)`.
+- `fibo(3)` calls `fibo(2)` and `fibo(1)` (which returns 1).
+- `fibo(2)` calls `fibo(1)` (returns 1) and `fibo(0)` (returns 0).
+- Thus, `fibo(5)` evaluates to `5`, triggering the `__VERIFIER_error()` call, which terminates the program abnormally. 
+
+Since the recursion always terminates (due to bounded depth) and the program has no loops, the entire program terminates. 
+
+**Termination Proof via Ranking Function:**  
+The termination of the recursive `fibo` function is proven using a ranking function based on its parameter `n`. Each recursive call decreases `n` (e.g., to `n-1` and `n-2`), ensuring progress toward the base cases. The ranking function is linear, with `n` as the decreasing measure.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+**Explanation of Ranking Function:**  
+- **Type:** `linear` because the ranking function is a linear expression over the recursive parameter `n`.
+- **Expression:** `1.0 * n` — This represents the value of parameter `n` in the `fibo` function. For each recursive call, `n` strictly decreases (e.g., in `fibo(n-1)`, `n` becomes `n-1` < original `n`). Eventually, `n` reaches a base case (0 or 1), proving termination. This measure decreases monotonically in every recursion step.
+

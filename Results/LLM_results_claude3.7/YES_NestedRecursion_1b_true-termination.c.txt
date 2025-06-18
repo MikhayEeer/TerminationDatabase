@@ -1,0 +1,62 @@
+=== Response 1 ===
+Looking at this recursive program, I'll analyze its termination properties:
+
+First, I need to understand the behavior of both recursive functions:
+
+1. For `rec1(i)`:
+   - Base case: if i ≤ 0, return 0
+   - Recursive case: rec1(rec1(rec1(i-2) - 1)) + 1
+
+2. For `rec2(j)`:
+   - Base case: if j ≤ 0, return 0
+   - Recursive case: rec2(rec1(j-1)) - 1
+
+The termination of this program depends on whether these recursive calls eventually reach their base cases.
+
+For `rec1(i)`, when i ≤ 0, it returns 0. For i > 0, it calls itself with a value that decreases in each recursive step (i-2), which will eventually reach the base case.
+
+Furthermore, `rec1(i-2)` will eventually return a value ≤ 0 after enough recursive calls, causing `rec1(rec1(i-2) - 1)` to terminate as well.
+
+For `rec2(j)`, it calls itself with `rec1(j-1)`, which will be a non-negative integer that gets smaller with each recursive call, eventually reaching the base case.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+f(i) = i (for rec1)
+g(j) = j (for rec2)
+
+=== Response 2 ===
+I'll analyze the termination of the given program.
+
+First, I need to understand the recursive functions and their behavior:
+
+1. `rec1(i)` calls itself recursively with a complex pattern when i > 0
+2. `rec2(j)` calls itself recursively with rec1(j-1) when j > 0
+
+Let's analyze `rec1(i)` first:
+- Base case: if i ≤ 0, returns 0
+- For i > 0, it calls `rec1(rec1(rec1(i-2) - 1)) + 1`
+
+For any i > 0, the argument to the outermost call is i-2, which is strictly decreasing. This means eventually, rec1 will reach the base case if called with a value that's strictly decreasing.
+
+The recursive calls in `rec1` are:
+- rec1(i-2) will eventually produce a non-negative integer
+- rec1(rec1(i-2) - 1) will call rec1 with a value that's at least -1
+- If the argument is -1 or less, the base case returns 0
+- The function always terminates with a finite number of recursive calls
+
+For `rec2(j)`:
+- Base case: if j ≤ 0, returns 0
+- For j > 0, it calls rec2(rec1(j-1)) - 1
+- Since rec1(j-1) always terminates and produces a non-negative integer, rec2 will also always terminate
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+λj.max(0,j) for rec2
+λi.max(0,i) for rec1
+

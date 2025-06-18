@@ -1,0 +1,44 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+The critical part of this program is the `while (x >= z)` loop in the `test_fun` function. Looking at the loop body, we have `z = z + y` which increases `z` by `y` in each iteration. The loop continues as long as `x >= z`.
+
+First, let's check if there's potential for non-termination:
+- If `y <= 0`, the function returns immediately, both before the loop and inside the loop.
+- If `y > 0`, then `z` increases by `y` in each iteration, eventually making `z > x`, which will terminate the loop.
+
+Since `z` increases by a positive amount `y` in each iteration when `y > 0`, and the loop exits when `z > x`, the loop must terminate in a finite number of steps.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - z + 1
+
+This ranking function works because:
+1. It's initially non-negative when the loop begins (since we only enter the loop when x ≥ z)
+2. It decreases by y in each iteration (because z increases by y, and y > 0 inside the loop)
+3. When it becomes non-positive, the loop terminates (when z > x)
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates.
+
+Let's examine the main components:
+- The program calls `test_fun` with three non-deterministic integers
+- In `test_fun`, there's an initial check: if `y <= 0`, it immediately returns `z`
+- If `y > 0`, it enters a loop that continues as long as `x >= z`
+- Inside the loop, it checks again if `y <= 0` and returns `z` if true
+- Otherwise, it increases `z` by `y` in each iteration
+
+Since `y > 0` inside the loop (or else it would return), `z` increases by a positive value in each iteration. Eventually, `z` will exceed `x`, causing the loop to terminate. The function then returns the final value of `z`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * z + 1.0
+
+This linear ranking function works because in each iteration, `z` increases by `y` which is positive, making the expression `x - z` decrease by at least `y` in each iteration. Since `y > 0`, this function strictly decreases with each loop iteration and is bounded below by zero (the loop exits when `x < z`).
+

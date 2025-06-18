@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+max(M - i, N - j)
+
+The program terminates because in each iteration of the loop, both i and j are incremented by 1. The loop condition (i<M || j<N) will eventually become false since both i and j are increasing monotonically toward (or beyond) M and N respectively. The ranking function max(M - i, N - j) captures the "distance" to termination, as it represents the maximum number of iterations needed to satisfy the loop condition.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates and provide a ranking function if applicable.
+
+The key part is the loop:
+```c
+while (i<M || j<N) {
+    i = i + 1;
+    j = j + 1;
+    c = c + 1;
+}
+```
+
+In each iteration, both `i` and `j` increase by 1. The loop continues as long as either `i < M` or `j < N`. 
+
+Let's analyze:
+- Initially, `i` and `j` are set to non-deterministic values
+- The loop terminates when both `i ≥ M` and `j ≥ N`
+- Since both `i` and `j` increase by exactly 1 in each iteration, the loop will eventually terminate when both variables reach or exceed their respective thresholds
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+max(M - i, N - j)
+
+This ranking function represents the number of iterations needed for both conditions to become false. In each iteration, the value of this function decreases by exactly 1, and the function is always non-negative before the loop terminates, making it a valid linear ranking function.
+

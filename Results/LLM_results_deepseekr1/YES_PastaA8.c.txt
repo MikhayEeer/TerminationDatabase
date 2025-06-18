@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+**Explanation:**  
+The loop condition is `x > y`. In each iteration:
+- `x` is incremented by 1: `x = x + 1`
+- `y` is incremented by 2: `y = y + 2`  
+This reduces the value of the expression `(x - y)` by exactly 1 per iteration. Initially, if `x > y`, `(x - y)` is a positive integer. Since it decreases by 1 each time until becoming non-positive (violating the loop condition), termination is guaranteed. The ranking function `x - y` is linear, decreases by at least 1 per iteration, and remains bounded above starting from a positive value. No overflow is considered, as termination analysis assumes mathematical integers.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + -1.0 * y^1
+
+### Explanation:
+The program terminates because the loop condition `x > y` is eventually falsified. The ranking function `x - y` decreases by 1 in each iteration:
+- **Initial state**: `x - y > 0` (since the loop runs)
+- **Update**: `x' = x + 1`, `y' = y + 2` → `x' - y' = (x - y) - 1`
+- **Termination**: When `x - y` becomes ≤ 0, the loop exits. Since `x - y` starts at a finite positive integer (due to integer types) and decreases by exactly 1 per iteration, it must reach ≤ 0 in a finite number of steps. The ranking function is linear and bounded below by 0 in the loop context.
+

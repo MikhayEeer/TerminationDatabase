@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0
+0.0 * x + 1.0 * y + 0.0
+
+**Explanation:**  
+The program terminates for all initial values of `x` and `y`. The termination is proven using a nested (lexicographic) ranking function \( \langle f_1, f_2 \rangle \) where:
+- \( f_1(x, y) = x \)
+- \( f_2(x, y) = y \)
+
+**Behavioral Justification:**  
+- The loop condition requires \( x \geq 0 \).  
+- In each iteration:  
+  - If \( y > 0 \), \( y \) decreases by 1 (\( y' = y - 1 \)), and \( x \) remains unchanged. The tuple \( \langle x, y \rangle \) decreases lexicographically because \( x \) stays the same and \( y \) decreases.  
+  - If \( y = 0 \), \( y \) becomes \(-1\) after decrement, triggering a reset: \( x \) decreases by 1 (\( x' = x - 1 \)) and \( y \) is set non-deterministically to some integer \( z \). If \( z < 0 \), the loop breaks immediately. If \( z \geq 0 \), the new state is \( \langle x-1, z \rangle \), which is lexicographically smaller than \( \langle x, 0 \rangle \) since \( x-1 < x \).  
+- After the first iteration, \( y \) is always non-negative in subsequent loop entries due to the reset mechanism.  
+- The lexicographic order on \( \mathbb{N}_0 \times \mathbb{N}_0 \) (where \( \mathbb{N}_0 \) is the set of non-negative integers) is well-founded, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+0.0 * 1 + 1.0 * x^1 + 0.0 * y^1
+0.0 * 1 + 0.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The program terminates because the lexicographic ranking function \( \langle x, y \rangle \) decreases in every loop iteration. At the start of each iteration, \( x \geq 0 \) holds.  
+- **Case 1:** After `y = y - 1`, if \( y \geq 0 \), the state transitions to \( (x, y-1) \). The second component decreases while the first remains unchanged.  
+- **Case 2:** If \( y < 0 \) after decrement, \( x \) is decremented to \( x-1 \) and \( y \) is reset non-deterministically. If the new \( y \geq 0 \), the state becomes \( (x-1, y_{\text{new}}) \), decreasing the first component. If \( y_{\text{new}} < 0 \), the loop breaks immediately.  
+The nested ranking functions \( f_1(x,y) = x \) (outer) and \( f_2(x,y) = y \) (inner) ensure termination, as \( x \) is bounded below by 0 and decreases finitely often, while \( y \) decreases when \( x \) is stable.
+

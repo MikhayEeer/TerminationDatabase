@@ -1,0 +1,14 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates and provide appropriate justification.
+
+[RESULT]
+NONTERM
+[REASON]
+For inputs x=-1, y=1, z=-1: After the first iteration, x=-2, z=-2, y=2. After the second iteration, x=-4, z=-4, y=3. Each iteration, x becomes more negative, z gets more negative, and y increases, causing an infinite loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+If x < 0, y = 1, and z = -1 initially, then in each iteration: x decreases by 1 (getting more negative), z becomes -2, and y increases by 1. Since x keeps decreasing, it will never become non-negative, causing the loop to run forever.
+

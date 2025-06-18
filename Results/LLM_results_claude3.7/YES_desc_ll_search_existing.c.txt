@@ -1,0 +1,52 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - curr->value
+
+The program is terminating because:
+
+1. In the `init_list` function, we create a linked list where each node's value is equal to its position (0, 1, 2, ..., n-1). The list is created in reverse order, with the head having value n-1 and the tail having value 0.
+
+2. In the `search` function, we start from the head and traverse the list until we find a node with value equal to m.
+
+3. The program ensures that m is between 1 and n-1 (inclusive) with the checks in the main function (`if (m < 1 || m >= n) return 0`).
+
+4. Since we know m is at least 1 and less than n, and the linked list contains all values from 0 to n-1, we are guaranteed to find a node with value m during traversal.
+
+5. The ranking function "n - curr->value" decreases with each iteration of the while loop because we traverse the list from higher values to lower values, and we're guaranteed to eventually reach a node with value m, causing the loop to terminate.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program initializes a linked list with values from 0 to n-1, then searches for a value m in the list. Let's examine whether this program always terminates.
+
+Looking at the search function:
+```c
+void search(struct list* head, int m) {
+  struct list* curr = head;
+  while(curr->value != m) {
+    curr = curr->next;
+  }
+}
+```
+
+This search loop will terminate only if the value m exists in the list. The list contains values from 0 to n-1 (inserted in reverse order). In the main function, we have two conditions:
+- n < 1: Program returns early
+- m < 1 || m >= n: Program returns early
+
+This means the search will only be performed if n ≥ 1 and 1 ≤ m < n.
+
+Since the list contains values from 0 to n-1 and we're searching for m where 1 ≤ m < n, the value m will always be present in the list. Therefore, the search will eventually find m and terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * distance(curr, m_node)
+
+Where distance(curr, m_node) represents the number of nodes that need to be traversed from the current node to reach the node containing the value m.
+

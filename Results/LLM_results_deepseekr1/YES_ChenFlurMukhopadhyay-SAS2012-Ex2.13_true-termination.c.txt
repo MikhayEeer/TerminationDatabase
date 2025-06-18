@@ -1,0 +1,30 @@
+=== Response 1 ===
+After analyzing the provided program, the loop condition is `x - y > 0`. The loop body updates `x` to `y - x` and increments `y` by 1. The program is terminating because the value of `x - y` decreases by 1 every two iterations when `x < -1`, and for other cases, the loop exits within one iteration. However, no single linear ranking function suffices due to the non-linear behavior in the loop updates. A multi-phase ranking function is required to capture the termination proof.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1.0 * x + 0.0 * y + 0.0
+1.0 * x + -1.0 * y + 0.0
+
+**Explanation:**  
+- **Phase 1:** The first ranking function `-x` is used when `x < -1`. It decreases in the first iteration because `-x > -(y - x)` (i.e., `-x > -y + x`), which simplifies to `2x < y`, a condition that holds in the relevant states.  
+- **Phase 2:** The second ranking function `x - y` is used when `x >= -1`. It ensures termination within one iteration, as the loop condition fails after the update.  
+The lexicographic combination of these phases guarantees termination: the first component decreases when `x < -1`, and the second component handles the remaining cases, ensuring progress toward loop exit.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * y
+-1.0 * x
+
+Explanation: The program terminates due to a lexicographic ranking function. The first component \(x - y\) decreases in every iteration where the loop condition \(x - y > 0\) holds. Specifically:
+- If after updating the state, \((x_{\text{new}} - y_{\text{new}}) < (x - y)\), the first component decreases strictly.
+- Otherwise, \((x_{\text{new}} - y_{\text{new}}) = (x - y)\) implies the second component \(-x\) strictly decreases.
+Since both \((x - y)\) and \(-x\) are integers, and the lexicographic order ensures a strict decrease in every iteration, termination is guaranteed. Examples confirm that the loop terminates within at most \(2(x_0 - y_0)\) iterations.
+

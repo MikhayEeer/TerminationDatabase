@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+This program is non-terminating when both inputs (*y1 and *y2) are 0. In this case, the condition *y1 != *y2 in the while loop evaluates to false (since 0 = 0), so the loop terminates immediately. However, if one input is 0 and the other is positive, then the loop will never terminate. For example, if *y1 = 0 and *y2 = 5, then in each iteration *y2 = *y2 - *y1 = 5 - 0 = 5, which means the condition *y1 != *y2 will always remain true.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates and provide a ranking function if it does.
+
+The key part to analyze is the `gcd` function, which implements Euclid's algorithm for calculating the greatest common divisor of two non-negative integers.
+
+[RESULT]
+NONTERM
+
+[REASON]
+The program is non-terminating when either *y1 or *y2 is initially zero (but not both). For example, if *y1 = 0 and *y2 > 0, then the loop condition (*y1 != *y2) remains true, but in the "else" branch, *y2 is updated to *y2 - *y1 = *y2 - 0 = *y2, so the values never change and the loop continues indefinitely.
+

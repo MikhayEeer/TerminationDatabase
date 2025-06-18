@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a[3]^1
+
+**Explanation:**  
+The loop condition checks if `a[3] >= 0`. In each iteration, `a[3]` is decremented by 1 (`a[3] = a[3] - 1`). Regardless of the initial value of `a[3]` (which may be arbitrary due to uninitialized memory but treated as non-deterministic):  
+- If `a[3] < 0` initially, the loop skips.  
+- If `a[3] >= 0`, it decreases by 1 each iteration until it becomes negative, ensuring termination.  
+
+The ranking function `a[3]` is linear and valid because:  
+1. At loop entry, `a[3] >= 0` implies the value is non-negative.  
+2. Each iteration strictly decreases `a[3]` by 1.  
+3. The loop exits when `a[3] < 0`, guaranteeing the ranking function decreases until the loop condition fails.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * a[3]^1
+
+**Explanation:**  
+The loop condition checks if `a[3] >= 0`. In each iteration, `a[3]` is decremented by 1 (`a[3] = a[3] - 1`). Since `a[3]` starts at some arbitrary non-negative integer (due to the loop condition) and decreases by exactly 1 per iteration, it will eventually become negative, causing the loop to terminate. The ranking function `a[3]` is linear and decreases monotonically, proving termination. The initial value of `a[3]` (if negative) skips the loop entirely, which is safe.
+

@@ -1,0 +1,21 @@
+=== Response 1 ===
+The program terminates for all inputs. The termination is proven using a linear ranking function. The loop condition requires that both `*x_ref > 0` and `*y_ref > 0`. Inside the loop, `*x_ref` is updated as `*x_ref = *x_ref - *y_ref`, which decreases the value of `*x_ref` by at least 1 in each iteration (since `*y_ref ≥ 1` when the loop condition holds). The value of `*x_ref` is bounded below by 0 (the loop exits when `*x_ref ≤ 0`), making it a valid ranking function. The ranking function is linear in `*x_ref`, with no change in `*y_ref`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x_ref + 0.0
+
+**Explanation:**  
+The program always terminates. The loop in function `quot` runs only if both `*x_ref > 0` and `*y_ref > 0`. Within the loop, `*x_ref` is updated as `*x_ref = *x_ref - *y_ref`, which decreases `*x_ref` by at least 1 (since `*y_ref` is a positive integer) in each iteration. The value of `*x_ref` is bounded below by 0 (the loop exits when `*x_ref <= 0`). Thus, a linear ranking function `r = *x_ref` suffices, as it decreases monotonically and is bounded below. The ranking function is expressed in terms of the value pointed to by `x_ref` (denoted as `x_ref` for simplicity in the output format).
+

@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program may replace the null terminator character if `old` is '\0', leading to unbounded pointer advancement beyond the allocated buffer. Subsequent memory accesses are undefined and may result in non-termination if non-null bytes persist indefinitely in unallocated memory.
+
+**Explanation:**
+- The string `nondetString1` is allocated with size `length1` and explicitly null-terminated at index `length1-1`.
+- In `cstrreplace`, if `old` is the null terminator ('\0'), the replacement occurs at the terminator position:
+  ```c
+  if (*p == old) {  // If old is '\0', this matches the terminator
+    *p = new;       // Replaces terminator with a non-null character (if new != '\0')
+    numReplaced++;
+  }
+  p++;  // Advances past the original terminator position
+  ```
+- After replacement, the loop continues because `*p` (now pointing to `s + length1`) is no longer '\0'. This accesses memory beyond the allocated buffer (undefined behavior).
+- Since the memory beyond the buffer is non-deterministic and may contain non-null values indefinitely, the loop may not terminate. This violates termination guarantees for all possible non-deterministic inputs.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length1 - 1) - (p - s)
+
+**Explanation:**  
+The loop in `cstrreplace` iterates over the string until a null terminator (`'\0'`) is encountered. The string is guaranteed to have a null terminator at position `s + length1 - 1` due to initialization in `main`. The pointer `p` starts at `s` and increments by 1 each iteration. The expression `(length1 - 1) - (p - s)` represents the remaining characters until the end of the allocated buffer:  
+- Initially, `p = s`, so the value is `length1 - 1`.  
+- Each iteration increases `p` by 1, decreasing the value by 1.  
+- The loop exits when `p` reaches a null terminator (at or before `s + length1 - 1`), ensuring the value is non-negative and strictly decreases, proving termination.  
+
+This linear ranking function uses `
+

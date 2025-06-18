@@ -1,0 +1,48 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*bound_ref)^1 + (-1.0) * (*i)^1
+
+**Explanation:**  
+The program always terminates because the loop in `iterate()` runs a finite number of times regardless of the input value `bound`:
+- If `bound <= 0`, the loop condition `*i < *bound_ref` fails immediately (no iterations).
+- If `bound > 0`, the loop runs exactly `bound` times:  
+  - `*i` starts at `0` and increments by `1` each iteration.  
+  - The loop exits when `*i` reaches `*bound_ref` (i.e., after `bound` iterations).  
+
+**Ranking Function Justification:**  
+The expression `*bound_ref - *i` serves as a valid linear ranking function:  
+1. **Non-negativity:** When the loop condition holds (`*i < *bound_ref`), `*bound_ref - *i >= 1`.  
+2. **Strict Decrease:** Each iteration increments `*i` by `1`, decreasing the value of `*bound_ref - *i` by exactly `1`.  
+3. **Well-foundedness:** The value is bounded below by `0` (loop exits when `*bound_ref - *i = 0`).  
+
+Thus, the ranking function `1.0 * (*bound_ref) - 1.0 * (*i)` proves termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * bound_ref^1 + -1.0 * i^1
+
+The program terminates:
+- The function `iterate` is called with an integer `bound` (possibly negative).
+- Inside `iterate`, the loop runs only if `*i < *bound_ref` (with `*i` initialized to 0).
+- If `bound <= 0`, the loop condition `0 < bound` fails immediately → loop runs 0 times.
+- If `bound > 0`, the loop runs exactly `bound` times (`*i` iterates from 0 to `bound-1`).
+- In all cases, the loop terminates after a finite number of steps.
+
+Ranking function explanation:
+- We treat `bound_ref` and `i` as proxies for the values they point to:
+  - `bound_ref` represents the initial bound (constant value).
+  - `i` represents the loop counter (increases by 1 per iteration).
+- Ranking function `r = *bound_ref - *i`:
+  - **Strictly decreases**: Each iteration increments `*i` by 1 → `r` decreases by 1.
+  - **Bounded below**: During loop execution, `*i < *bound_ref` → `r > 0`
+  - When `r` drops below 1 (after `< bound_ref` iterations), the loop exits.
+- This is a single linear ranking function, proving termination.
+

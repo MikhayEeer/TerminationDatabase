@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*n) + (-1.0) * (*i)
+
+Explanation: The program terminates because the outer loop has a bounded number of iterations. A linear ranking function `(*n) - (*i)` decreases by exactly 1 in every outer loop iteration. Initially, when the outer loop starts, `*i < *n` holds, so `(*n) - (*i)` is a positive integer. After each outer loop iteration, `*i` is incremented by 1 (via `(*i = *i + 1`), which reduces the ranking function by 1. The inner loop does not affect `*i` or `*n` and terminates independently (as `*j` increments from 0 to `*i + 1` in a fixed number of steps). Thus, the outer loop ranking function ensures termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested piecewise
+[RANKING FUNCTIONS]
+1.0 * *n + -1.0 * *i
+(*i >= 0) ? (1.0 * *i + 1.0) + -1.0 * *j : 0.0
+
+**Explanation:**
+
+The program consists of two nested loops. Termination is guaranteed because:
+1. **Inner loop:** For each outer iteration, `*i` is fixed. The inner loop runs at most `max(0, *i + 1)` iterations (since `*j` starts at 0 and increments until it exceeds `*i`). The piecewise ranking function `(*i >= 0) ? (*i + 1 - *j) : 0` strictly decreases with each inner iteration and is non-negative during execution.
+2. **Outer loop:** The loop iterates at most `max(0, *n - initial_*i)` times (since `*i` increments by 1 each iteration until `*i >= *n`). The ranking function `*n - *i` strictly decreases with each completion of an outer loop body (including its inner loop) and is non-negative whenever the outer loop condition passes.
+
+The **lexicographic (nested) combination** ensures termination:
+- During inner iterations, the outer rank remains constant while the inner rank decreases.
+- Upon exiting the inner loop and completing an outer iteration, the outer rank decreases when the code reaches the next iteration or exits.
+
+Here:
+- The first ranking function `1.0 * *n + -1.0 * *i` corresponds to the outer loop.
+- The second ranking function `(*i >= 0) ? (1.0 * *i + 1.0) + -1.0 * *j : 0` handles the inner loop (piecewise defined for non-negative `*i`, inactive otherwise since inner loop doesn't run). 
+
+This nested piecewise ranking function proves termination for all integer paths, ignoring integer overflow.
+

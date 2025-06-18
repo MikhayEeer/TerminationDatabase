@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * k^1 - 1.0 * j^1
+
+Explanation:  
+The ranking function `k - j` is a linear function that decreases by exactly 2 during each loop iteration. Since the loop condition requires `j <= k` (i.e., `k - j >= 0`) to enter the body:
+- Initial state: `k - j >= 0`
+- Each iteration: `k_new = k - 1`, `j_new = j + 1`, so `k_new - j_new = (k - j) - 2`
+- This strict decrease continues until `k - j < 0`, violating the loop condition. 
+The decreasing nature and boundedness below (by eventual negativity) ensure termination. The expression `1.0 * k^1 - 1.0 * j^1` captures this metric precisely. Note that the `i <= 100` condition contributes to termination via phase change but isn't needed in the ranking function due to consistency of the linear decrease in `k - j`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  k^1 + -1.0 *  j^1
+
+### Explanation:
+The program terminates because the expression `k - j` serves as a valid linear ranking function. At the start of each loop iteration, the condition `j <= k` ensures `k - j >= 0`. The loop body updates:
+- `i = j`
+- `j = j + 1`
+- `k = k - 1`
+
+The new state has `j' = j + 1` and `k' = k - 1`, so the new value of the ranking function is:
+```
+k' - j' = (k - 1) - (j + 1) = k - j - 2
+```
+This represents a decrease of 2 in the ranking function value at each iteration. Since `k - j` is a nonnegative integer that decreases by at least 1 (in fact, by 2) in each iteration, it must eventually become negative, causing the loop condition `j <= k` to fail. Thus, the loop terminates. The ranking function is linear and depends only on the initial values of `k` and `j` at the start of each iteration.
+

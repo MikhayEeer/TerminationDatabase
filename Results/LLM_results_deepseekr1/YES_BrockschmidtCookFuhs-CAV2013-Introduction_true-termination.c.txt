@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates because the loop condition `x > 0` ensures that `x` decreases by at least `y` (which is ≥1) in each iteration. Since `x` is initialized to a finite integer and decreases by an increasing amount (1, 2, 3,...) each iteration, it will eventually become ≤0, causing the loop to exit.  
+
+The ranking function `f(x) = x` is linear and satisfies:  
+1. **Non-negativity in loop:** When `x > 0` (loop condition), `f(x) ≥ 1` (since `x` is integer).  
+2. **Strict decrease:** Each iteration computes `x' = x - y` where `y ≥ 1`, so `f(x') = x - y ≤ x - 1 = f(x) - 1`.  
+3. **Well-foundedness:** The set of positive integers is well-founded under the usual order, guaranteeing termination.  
+
+This linear ranking function proves termination without needing multi-phase or other complex forms.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The program terminates for all inputs. A linear ranking function \( f(x, y) = x \) suffices to prove termination:  
+- **Non-negativity:** In the loop (where \( x > 0 \)), \( x \geq 1 \) (since \( x \) is integer), so \( f(x, y) \geq 1 \).  
+- **Strict decrease:** Each iteration updates \( x' = x - y \) and \( y' = y + 1 \). Since \( y \geq 1 \) in the loop, \( f(x', y') = x - y < x = f(x, y) \), and the decrease is at least 1 (as \( y \geq 1 \)).  
+- **Well-foundedness:** The set \( \{ x \in \mathbb{Z} \mid x \geq 1 \} \) is well-founded under the standard integer order.  
+
+Thus, \( x \) decreases by at least 1 in every iteration and remains bounded below by 1 in the loop, ensuring termination. The variable \( y \) is irrelevant for the ranking function.
+

@@ -1,0 +1,28 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if (z <= x): 2.0 * y^1 + (-1.0) * x^1 + (-1.0) * z^1 + 1.0 * 1
+if (z > x): 2.0 * y^1 + (-2.0) * x^1 + 0.0 * z^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates because the loop condition `x < y` is eventually falsified. The ranking function is piecewise, defined over two mutually exclusive cases based on the condition `z <= x`:  
+- When `z <= x`, the ranking function is \(2y - x - z + 1\). This decreases in each iteration because `z` increases by 1 (in the else branch), reducing the value by 1.  
+- When `z > x`, the ranking function is \(2y - 2x\). This decreases by at least 2 in each iteration because `x` increases by 1 (in the then branch), reducing the value by 2.  
+
+In both cases, the ranking function is nonnegative (since `x < y` implies \(y - x \geq 1\)) and decreases with each iteration, proving termination. The piecewise structure handles the phase transitions between the two cases.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+2.0 * y - 2.0 * x
+max(0, 1.0 * x - 1.0 * z + 1.0)
+
+**Explanation:**  
+The program terminates as proven by the nested ranking function. The first component \(2(y - x)\) decreases in the "then" branch (when \(z > x\)) since \(x\) increases, reducing the gap to \(y\). The second component \(\max(0, x - z + 1)\) decreases in the "else" branch (when \(z \leq x\)) as \(z\) increases, counting the steps needed until \(z > x\). Both components are non-negative within the loop, and the lexicographic order ensures termination. The variable \(i\) is irrelevant for termination.
+

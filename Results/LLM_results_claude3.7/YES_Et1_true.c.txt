@@ -1,0 +1,55 @@
+=== Response 1 ===
+Analyzing this program for termination:
+
+The key part is the `loop` function:
+```c
+void loop(int a, int b){
+    if (a > b) {
+        b = b + a;
+        a = a + 1;
+        loop(a,b);
+    }
+}
+```
+
+When initially called from `main`, `a` and `b` are both negative (since `random()` returns non-negative values, and they're negated). 
+
+Let's analyze what happens during execution:
+- If a > b initially, we enter the loop
+- Inside the loop: 
+  - b increases by a (which is negative, so b decreases)
+  - a increases by 1
+  - Then we recurse with these new values
+
+In each recursive call, a increases and moves toward 0, while b potentially decreases (since a is negative).
+
+Eventually, one of two things must happen:
+1. a becomes greater than or equal to 0
+2. b becomes less than a
+
+Both scenarios will terminate the recursion.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (a_0 - a) + 1.0 * (b - b_0)
+
+Where a_0 and b_0 are the initial values of a and b. This ranking function decreases with each recursive call and is bounded below, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (a - b - 1)
+
+The program terminates because the function `loop(a, b)` is called recursively only when `a > b`, and each recursive call decreases the value of `a - b`. During each iteration, `b` increases by `a` and `a` increases by 1, which means the gap between `a` and `b` is strictly decreasing:
+
+Before: a - b
+After: (a + 1) - (b + a) = a + 1 - b - a = 1 - b
+
+So in each recursive call, the value `a - b` decreases by at least 1, and will eventually become less than or equal to 0, at which point the recursion stops. The linear ranking function `a - b - 1` is strictly decreasing and becomes negative when the loop terminates.
+

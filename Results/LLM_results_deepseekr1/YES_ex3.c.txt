@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+piecewise  
+[RANKING FUNCTIONS]  
+i <= 0: 0.0  
+i > 0: 1.0 * i  
+
+### Explanation:  
+The program defines a recursive function `rec1` called by `main` with an arbitrary integer input `x`. Analysis shows:  
+- For any integer input, the recursion always terminates.  
+- Termination is proven using a piecewise ranking function based on the argument `i` of `rec1`:  
+  - When `i <= 0`, the base case is triggered immediately (no further recursion), so the rank is `0.0`.  
+  - When `i > 0`, the rank is set to `1.0 * i`. Each recursive call to `rec1(i-2)` uses an argument `i-2` that is strictly less than `i`, either:  
+    - Reducing the rank to a non-negative value less than `i` (if `i-2 > 0`), or  
+    - Triggering the base-case branch (if `i-2 <= 0`, rank becomes `0.0`).  
+- This ranking function strictly decreases (by at least 1 or drops to 0) with each recursive step and is bounded below by 0, ensuring termination.  
+
+Note: `rec2` is dead code and does not affect termination, as only `rec1` is called.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(x > 0) ? ((x + 1) / 2) : 0
+
+**Explanation:**  
+The program terminates for any integer input `x` because the recursive function `rec1` always reduces the problem size. For `x <= 0`, `rec1` returns immediately (base case). For `x > 0`, the first recursive call in `rec1` is `rec1(i-2)`, which decreases the argument by 2 in each nested call until it becomes non-positive. The inner calls `rec1(rec1(i-2) - 1)` and `rec1(rec1(rec1(i-2) - 1))` operate on values derived from the first call (either 0 or 1), leading to base cases without further deep recursion.  
+
+The ranking function is piecewise:  
+- For `x <= 0`, the measure is 0 (no recursion).  
+- For `x > 0`, the measure is `(x + 1) / 2`, which represents the ceiling of `x/2` (number of recursive steps needed to reach the base case). This measure decreases by at least 1 in each recursive step (e.g., for `x > 0`, the call to `rec1(x-2)` has measure `(x - 1)/2`, which is strictly less than `(x + 1)/2`).  
+
+Note: `rec2` is never called and does not affect termination.
+

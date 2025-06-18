@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+*y, *z, *x
+*z, *x
+
+**Explanation:**  
+The program terminates under all non-deterministic choices. The ranking function uses two nested phases:  
+1. **Phase 1 (when `*y > 1`):** Lexicographic ranking `(*y, *z, *x)`.  
+   - Branch 2 decreases `*y` (first component).  
+   - Branch 3 decreases `*z` (second component).  
+   - Branch 1 decreases `*x` (third component).  
+2. **Phase 2 (when `*y == 1`):** Lexicographic ranking `(*z, *x)`.  
+   - Branch 3 decreases `*z` (first component).  
+   - Branch 1 decreases `*x` (second component).  
+
+In every iteration, the lexicographic value strictly decreases, ensuring termination. The non-deterministic resets in Branches 2 and 3 cannot increase the lexicographic order because decreases in higher components dominate any increases in lower components.
+
+=== Response 2 ===
+
+

@@ -1,0 +1,36 @@
+=== Response 1 ===
+I'll analyze the termination of the given program.
+
+The program has a simple while loop that decrements the variable `i` by 1 in each iteration, as long as `i > 5`.
+
+Since `i` is decremented by 1 in each iteration and the loop continues only while `i > 5`, the loop will eventually terminate when `i` becomes less than or equal to 5.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i - 5.0
+
+This linear ranking function decreases by exactly 1 in each iteration (since i decreases by 1), and becomes non-positive exactly when the loop terminates (when i ≤ 5).
+
+=== Response 2 ===
+I'll analyze the termination of this program:
+
+The program contains a while loop that executes as long as `i > 5`. In each iteration, `i` is decremented by 1 with the statement `i = i-1;`.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+1.0 * i - 5.0
+
+The program terminates because:
+1. The loop only executes when `i > 5`
+2. In each iteration, `i` decreases by exactly 1
+3. Eventually, for any initial value of `i`, the value will become ≤ 5 and the loop will terminate
+4. The linear ranking function `i - 5` is positive when the loop executes and decreases by 1 in each iteration
+

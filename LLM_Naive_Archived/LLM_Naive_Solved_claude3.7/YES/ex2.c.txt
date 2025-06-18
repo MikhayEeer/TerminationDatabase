@@ -1,0 +1,44 @@
+=== Response 1 ===
+Looking at this program carefully, I'll analyze the mutual recursion between rec1 and rec2 to determine if it terminates.
+
+The function rec1(i) makes a recursive call to rec1(i+1) and then uses its result as an argument to rec2.
+The function rec2(j) makes a recursive call to rec2(j-1) and then uses its result as an argument to rec1.
+
+Let's trace this for values:
+- When rec1 is called with i ≤ 0, it returns 0 directly
+- When rec2 is called with j ≤ 0, it returns 0 directly
+- When rec1 is called with i > 0, it calls rec1(i+1), which increases the parameter
+- When rec2 is called with j > 0, it calls rec2(j-1), which decreases the parameter
+
+The key observation is that rec1 will always increase its parameter, which means it will never reach a base case if i > 0. Since the parameter keeps increasing, the recursion will never terminate.
+
+[RESULT]
+NONTERM
+[REASON]
+The function rec1(i) increases its parameter on recursive calls (rec1(i+1)), preventing it from ever reaching the base case when i > 0, causing infinite recursion.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program uses two recursive functions `rec1` and `rec2` that call each other.
+
+Let's examine the behavior:
+- `rec1(i)` calls `rec1(i+1)` if `i > 0`, then passes its result to `rec2`
+- `rec2(j)` calls `rec2(j-1)` if `j > 0`, then passes its result to `rec1`
+
+The key issue is that `rec1` increases its parameter, leading to an infinite recursion depth. Even though `rec2` decreases its parameter, the overall system doesn't converge.
+
+For example, if we start with `rec2(x)` where `x > 0`:
+- It will call `rec1(rec2(x-1))`
+- If `x-1 > 0`, it will call `rec1(rec2(x-2))`
+- Eventually we'll have `rec1(0)` which returns 0
+- Then we'll have `rec2(0)` which returns 0
+- But earlier calls like `rec1(1)` will call `rec2(rec1(2))`, which calls `rec2(rec1(3))`, etc.
+
+Since `rec1` increases its parameter with each call, the recursion never terminates for positive inputs.
+
+[RESULT]
+NONTERM
+[REASON]
+The function rec1 increases its parameter (i+1) with each recursive call, creating an infinite recursion chain when started with any positive value.
+

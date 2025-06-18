@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The loop condition is `x + y > 0`. In each iteration:
+- If `x > 0`, `x` decreases by 1.
+- Else if `y > 0`, `y` decreases by 1.  
+In both cases, the sum `x + y` decreases by exactly 1 per iteration. Since `x` and `y` are integers, the sum starts at a positive value and decreases monotonically until it becomes ≤ 0, at which point the loop terminates. The linear ranking function \( r(x, y) = x + y \) satisfies:
+1. \( r(x, y) \geq 1 \) when the loop condition holds (since \( x + y > 0 \) and integers imply \( x + y \geq 1 \)).
+2. \( r \) decreases by at least 1 in each iteration (as \( x + y \) reduces by 1).
+3. \( r \) is bounded below by 0 (loop exits when \( r \leq 0 \)).  
+Thus, termination is proven.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+### Explanation:
+The program terminates because the loop condition `x + y > 0` ensures that the loop only runs when the sum of `x` and `y` is positive. In each iteration:
+- If `x > 0`, `x` is decremented by 1, reducing `x + y` by 1.
+- Else if `y > 0`, `y` is decremented by 1, reducing `x + y` by 1.
+- If neither condition holds (both are non-positive), the loop exits immediately since `x + y <= 0`.
+
+Thus, the sum `x + y` decreases by exactly 1 in every iteration where the loop body executes. The loop runs while `x + y > 0`, so defining the ranking function as `r(x, y) = x + y`:
+- **Non-negativity**: At the start of each iteration, `x + y > 0`, so `r ≥ 1` (integer values).
+- **Decreases by at least 1**: Each iteration reduces `r` by exactly 1.
+- **Bounded below**: The loop exits when `r ≤ 0`.
+
+Therefore, `x + y` is a valid linear ranking function proving termination. After at most `x + y` iterations (if initially positive), the loop terminates. For non-positive initial sums, the loop does not execute, also ensuring termination. The ranking function is expressed in coefficients for clarity.
+

@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+100.0 * 1 + (-1.0) * i^1  
+7.0 * 1 + (-0.333333) * j^1
+
+### Explanation:
+The program consists of two sequential `for`-loops, each with a fixed number of iterations:
+1. **First loop**: `i` starts at 0 and increments by 1 until `i < 100` (100 iterations).  
+   - Ranking function: `100 - i` (decreases by 1 per iteration, starting at 100).  
+2. **Second loop**: `j` starts at 5 and increments by 3 until `j < 21` (values: 5, 8, 11, 14, 17, 20 → 6 iterations).  
+   - Ranking function: `(21 - j) / 3` (decreases by 1 per iteration, starting at ≈5.333).  
+
+The multi-phase ranking function covers both loops sequentially. The first function applies during the initial loop; after its completion, the second function applies during the second loop. Both functions are linear and decrease monotonically, proving termination. The variable `c` is irrelevant for termination analysis as it does not affect loop conditions.
+
+=== Response 2 ===
+
+

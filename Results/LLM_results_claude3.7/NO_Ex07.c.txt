@@ -1,0 +1,42 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates.
+
+The program contains a while loop with a condition `true`, indicating an infinite loop. However, we need to analyze the loop body to see if it can terminate or if it's truly non-terminating.
+
+Let's analyze the behavior inside the loop:
+- If `i > 0`, we decrement `i` by 1
+- If `i < 0`, we increment `i` by 1
+- If `i = 0`, nothing happens
+
+So if `i` starts positive, it will eventually reach 0. If `i` starts negative, it will eventually reach 0. Once `i` becomes 0, it stays 0 forever.
+
+Since the loop condition is `true`, the loop will run indefinitely, regardless of the value of `i`. Even after `i` stabilizes at 0, the loop continues to execute without termination.
+
+[RESULT]
+NONTERM
+[REASON]
+The loop condition is simply "true", so the loop runs forever. Even though the variable i eventually stabilizes at 0, there's no exit condition to terminate the loop.
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates.
+
+In this program:
+1. Variable `i` is initialized with a non-deterministic integer value
+2. There's a while loop with condition `true`, which means it will run indefinitely unless there's a break statement
+3. Inside the loop:
+   - If `i > 0`, then `i` is decremented by 1
+   - If `i < 0`, then `i` is incremented by 1
+   - If `i == 0`, nothing happens
+
+Let me analyze the possible behaviors:
+- If `i > 0` initially, it will decrease until it reaches 0
+- If `i < 0` initially, it will increase until it reaches 0
+- Once `i` reaches 0, it will stay at 0 forever
+
+Since the while loop condition is `true` and there's no break statement, the program will run forever once `i` reaches 0.
+
+[RESULT]
+NONTERM
+[REASON]
+The program contains an infinite loop with condition "while(true)" and no break statement. Once variable i reaches 0, the program will continue executing the loop without changing any values, resulting in non-termination.
+

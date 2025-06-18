@@ -1,0 +1,45 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+The main function allocates two strings of arbitrary positive lengths and ensures they're null-terminated. Then it calls the `cstrcmp` function to compare these strings.
+
+Let's analyze the `cstrcmp` function:
+- It compares two strings character by character until it finds different characters or reaches the end of one string
+- The function stops when either `*s1 == '\0'` or `*s1 != *s2`
+- After the loop, it compares the differing characters and returns
+
+Since both strings have a null terminator (guaranteed by the code setting `nondetString1[length1-1] = '\0'` and `nondetString2[length2-1] = '\0'`), the loop in `cstrcmp` will always terminate - it will stop either when it reaches the end of the first string or when it finds differing characters.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length1 - (s1 - nondetString1)
+
+The ranking function measures the remaining characters in the first string. In each loop iteration, `s1` advances by 1, so the function decreases by 1 in each iteration. Since the string is finite and null-terminated, this value will eventually reach 0 when we reach the null terminator, causing the loop to terminate.
+
+=== Response 2 ===
+I'll analyze the program to determine whether it terminates or not.
+
+The key part to analyze is the `cstrcmp` function which has a while loop. This function compares two strings character by character until it finds a difference or reaches the end of at least one string.
+
+The termination of the loop depends on two conditions:
+1. `*s1 != '\0'` - We stop when we reach the end of the first string
+2. `*s1 == *s2` - We stop when we find a difference between characters
+
+In the main function, both strings are guaranteed to have at least one character, with the last character being the null terminator `'\0'`. This ensures that both strings are properly null-terminated.
+
+Since both strings are finite in length (determined by `length1` and `length2`) and have guaranteed null terminators, the loop in `cstrcmp` will eventually terminate because either:
+- We'll reach the end of one of the strings and hit the null terminator, or
+- We'll find a character that differs between the two strings
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (remaining_chars_until_null + 1)
+
+The ranking function represents the maximum number of remaining characters until we hit the null terminator in the first string, plus 1. With each iteration of the loop, we increment the pointer s1, reducing the remaining characters until the null terminator by 1, thus strictly decreasing the ranking function.
+

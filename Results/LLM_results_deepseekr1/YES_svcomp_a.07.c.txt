@@ -1,0 +1,23 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x^1 -1.0 * y^1 -1.0 * z^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates for all integer inputs. A linear ranking function `r = 2x - y - z` suffices to prove termination. At loop entry, the condition `x > y && x > z` ensures both `x - y ≥ 1` and `x - z ≥ 1`, so `r ≥ 2`. Each iteration increments `y` and `z` by 1, decreasing `r` by exactly 2. Since `r` is integer-valued and strictly decreases (bounded below), it eventually makes the loop condition `x > y && x > z` false. The ranking function coefficients capture the linear relationship between the variables. The constant term `0.0 * 1` explicitly represents the zero constant.
+
+=== Response 2 ===
+After analyzing the program, the loop condition is `(x > y) && (x > z)`. The loop increments `y` and `z` by 1 in each iteration, which reduces the gaps `(x - y)` and `(x - z)` by 1. The loop terminates when either gap becomes non-positive, which occurs after at most `min(x - y, x - z)` iterations. Since the loop runs a bounded number of times, the program terminates.
+
+A linear ranking function suffices to prove termination. The function `2*x - y - z` decreases by exactly 2 in each iteration and is bounded below by 2 during loop execution (since `x > y` and `x > z` imply `y <= x - 1` and `z <= x - 1`, so `2*x - y - z >= 2`). This decrease and boundedness confirm termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+2.0 * x^1 + -1.0 * y^1 + -1.0 * z^1
+

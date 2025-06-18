@@ -1,0 +1,42 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it's terminating and provide a ranking function if appropriate.
+
+The main function allocates two strings of non-deterministic lengths, ensures they're null-terminated, and then calls `cstrncmp` with these strings and a non-deterministic length parameter.
+
+Looking at `cstrncmp`:
+- It returns 0 immediately if n == 0
+- Otherwise, it enters a do-while loop that:
+  - Compares characters from both strings
+  - Returns a value if characters differ
+  - Breaks if we reach the end of a string (null character)
+  - Continues while n != 0, decrementing n by 1 each iteration
+
+The loop in `cstrncmp` is guaranteed to terminate because:
+1. Each iteration decrements n by 1
+2. The loop stops when n becomes 0
+3. The loop can also stop early if a null character is encountered
+4. Both strings are guaranteed to contain a null character (set in main)
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+The ranking function is simply the value of n, which decreases by exactly 1 on each iteration of the loop and is bounded below by 0. The loop terminates when either n reaches 0 or a null terminator is encountered in the strings.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0 * 1
+
+The program is terminating because the function `cstrncmp` has a loop with a clearly decreasing variable `n`. The loop continues as long as `--n != 0`, which means `n` decreases by 1 in each iteration. Since `n` is of type `size_t` (unsigned), it will eventually reach 0 and the loop will terminate.
+
+Additionally, the loop can also terminate early if `*s1++ == 0` becomes true (when the first string ends with a null terminator), which is another valid termination condition.
+
+Since `n` strictly decreases by 1 in each iteration from its initial value to 0, the linear ranking function `n` proves termination.
+

@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+array_size - i
+array_size * (i - j) + (a[j-1] - index)
+
+The program implements insertion sort and always terminates. The outer loop has a clear ranking function (array_size - i), starting at i=1 and incrementing i until it reaches array_size. The inner loop has a more complex nested ranking function that considers both the distance from j to 0 and the comparison between a[j-1] and index. The inner loop terminates because j decreases in each iteration and will eventually reach 0, or a[j-1] will eventually be ≤ index (these elements are being sorted).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+(array_size - i)
+(j)
+
+The program implements insertion sort and is terminating. The algorithm has two nested loops:
+
+1. The outer loop iterates from i=1 to array_size-1, so the ranking function is (array_size - i) which decreases by 1 in each iteration and is bounded below by 0.
+
+2. The inner loop iterates from j=i down to 1 (when the condition becomes false), so the ranking function is simply (j) which decreases by 1 in each iteration and is bounded below by 0.
+
+Both loops have clear, strictly decreasing functions with lower bounds, ensuring termination.
+

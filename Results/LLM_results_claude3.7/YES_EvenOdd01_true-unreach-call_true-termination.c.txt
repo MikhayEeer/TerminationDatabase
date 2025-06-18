@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The program is terminating because both recursive functions `isOdd()` and `isEven()` reduce the input parameter `n` by 1 in each recursive call, and they have base cases when `n == 0` or `n == 1`. The recursion always progresses toward these base cases, and given the check `if (n < 0) { return 0; }` in the `main()` function, the initial value of `n` is guaranteed to be non-negative. Therefore, the recursion depth is finite and bounded by the initial value of `n`. 
+
+The ranking function is simply `n` because this value decreases by exactly 1 in each recursive call, and the recursion stops when `n` reaches 0 or 1.
+
+=== Response 2 ===
+I'll analyze whether this program is terminating or not.
+
+First, let's understand the program:
+1. It defines two mutually recursive functions `isOdd` and `isEven` that check if a number is odd or even.
+2. In `main`, it gets a non-deterministic integer `n`, checks if it's non-negative, and compares the result of `isOdd(n)` with `n % 2`.
+3. If `result < 0 || result == mod`, it returns 0, otherwise it calls `__VERIFIER_error()`.
+
+For termination analysis, I need to check if the recursive calls in `isOdd` and `isEven` will always terminate.
+
+Both functions have base cases (n=0 and n=1), and in each recursive call, `n` is decremented by 1. Since `n` starts non-negative (due to the check in `main`) and is consistently decreased in each recursive call, eventually it will reach one of the base cases.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+The ranking function is simply the parameter `n` in both recursive functions. It starts at a non-negative value and decreases by exactly 1 in each recursive call until it reaches a base case (0 or 1), guaranteeing termination.
+

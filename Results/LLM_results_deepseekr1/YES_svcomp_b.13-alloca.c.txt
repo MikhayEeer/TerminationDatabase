@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+max(0, x - z)
+max(0, y - z)
+
+**Explanation:**  
+The termination is proven by a multi-phase ranking function. The program has two distinct phases:  
+1. **Phase 1:** While `x > z`, the ranking function `max(0, x - z)` decreases by exactly 1 per iteration (by decrementing `x`). Variables `y` and `z` remain unchanged.  
+2. **Phase 2:** After `x <= z` (if `y > z`), the ranking function `max(0, y - z)` decreases by exactly 1 per iteration (by decrementing `y`).  
+
+The phases execute sequentially:  
+- Phase 1 runs for at most `max(0, x_init - z_init)` iterations.  
+- Phase 2 runs for at most `max(0, y_init - z_init)` iterations.  
+Overall, the loop terminates within `max(0, x_init - z_init) + max(0, y_init - z_init)` iterations. The ranking functions are nonnegative and decrease monotonically in each phase.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(*x_ref - *z_ref, 0) + max(*y_ref - *z_ref, 0)
+
+**Explanation:**  
+The loop condition `(*x_ref > *z_ref) || (*y_ref > *z_ref)` ensures the loop runs as long as at least one variable (`*x_ref` or `*y_ref`) exceeds `*z_ref`. Within the loop:
+- If `*x_ref > *z_ref`, `*x_ref` is decremented by 1.
+- Else if `*y_ref > *z_ref`, `*y_ref` is decremented by 1.  
+
+The expression `max(*x_ref - *z_ref, 0) + max(*y_ref - *z_ref, 0)` is a **piecewise linear ranking function** because:
+1. It is nonnegative (each `max` term is ≥ 0).
+2. It decreases by exactly 1 in every iteration:
+   - When `*x_ref > *z_ref`, decrementing `*x_ref` reduces the first `max` term by 1 (since `*x_ref - *z_ref` decreases by 1).
+   - When `*y_ref > *z_ref` (and `*x_ref ≤ *z_ref`), decrementing `*y_ref` reduces the second `max` term by 1.
+3. `*z_ref` remains constant, so the expression depends only on the changing variables `*x_ref` and `*y_ref`.
+4. Once both `*x_ref ≤ *z_ref` and `*y_ref ≤ *z_ref`, the expression equals 0, and the loop terminates.  
+
+This proves termination as the ranking function starts at a finite nonnegative integer and strictly decreases until 0.
+

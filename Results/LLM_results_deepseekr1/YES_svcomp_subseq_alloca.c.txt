@@ -1,0 +1,22 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * pt^1 + 1.0 * end_t
+
+**Explanation:**  
+The program terminates because the loop in `subseq` always terminates. The loop condition depends on `*ps` and `*pt` not being null, but `pt` is incremented in every iteration. Since `t` (passed as `nondetString2` from `main`) is a null-terminated string with its null terminator at a fixed address `end_t = t + length2 - 1`, `pt` advances toward `end_t` monotonically. The ranking function `end_t - pt` decreases by exactly 1 per iteration (as `pt++`), is initially non-negative, and becomes negative only after termination (ensuring boundedness). Here, `end_t` is a constant representing the address of the null terminator in `t`, making the ranking function linear in `pt`. Although `end_t` is not explicitly in scope, it is a fixed constant during loop execution.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+((address of null terminator in t) - pt)
+
+**Explanation:**
+The program termination is guaranteed by the bounded iteration in the `subseq` function. The loop runs as long as both `ps` and `pt` have not reached the end of their strings. Since `pt` is incremented in every iteration (moving monotonically toward the null terminator at the end of string `t`), and the string `t` is always null-terminated (by `nondetString2[length2-1] = '\0';` in `main`), the loop will execute at most `length2 - 1` times. The number of iterations is bounded and decreases with each step, as `pt` advances closer to the address of the null terminator. The ranking function is expressed as `((address of null terminator in t) - pt)`, which decreases by exactly 1 per iteration and remains non-negative. Even though the exact address depends on `t` and `length2` (set in `main`), this difference ensures termination.
+

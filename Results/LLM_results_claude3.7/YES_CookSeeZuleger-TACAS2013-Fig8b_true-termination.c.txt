@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+if x > M: M + 1
+if x ≤ M: M - x
+
+This program terminates because:
+1. When x > M, it gets reset to 0, and then we need at most M steps to reach M
+2. When x < M, it increments by 1 each iteration, eventually reaching M
+3. When x = M, the loop terminates
+4. The entire loop is guarded by M > 0, ensuring M is positive
+
+The piecewise ranking function captures both cases - when x > M we reset and need M+1 steps at most, and when x ≤ M we need M-x steps to reach M.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+M - x when x < M
+x - M when x > M
+
+The program terminates because:
+1. When x < M, the loop increments x by 1 in each iteration, eventually reaching M
+2. When x > M, the loop sets x to 0 and then begins incrementing, eventually reaching M
+3. When x = M, the loop terminates
+
+The piecewise ranking function measures the "distance" to termination in both cases: either the distance from x to M when counting up, or a single step when x > M (as it will be reset to 0 and then need to count up to M).
+

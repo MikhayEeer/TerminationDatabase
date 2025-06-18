@@ -1,0 +1,57 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program allocates a string of length `length1`, sets its last character to null terminator '\0', and then calls `cstrlen` to count the characters until the null terminator.
+
+Let's analyze the `cstrlen` function:
+- It takes a pointer to a string
+- It loops until it finds a null terminator ('\0')
+- It returns the length of the string
+
+In the main function:
+1. We get a non-deterministic integer `length1`
+2. If `length1` < 1, we set it to 1
+3. We allocate a string of size `length1`
+4. We set the last character (at index `length1-1`) to '\0'
+5. We call `cstrlen` on this string
+
+Since we explicitly place a null terminator at position `length1-1`, the `cstrlen` function will always terminate when it reaches this position. The function won't read past this position since it stops at the first null terminator.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (p_end - p)
+
+Where `p_end` points to the null terminator and `p` is the current position in the string. This decreases by exactly 1 in each iteration and is bounded below by 0.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates.
+
+The main function:
+1. Takes a non-deterministic integer `length1`
+2. Ensures `length1` is at least 1
+3. Allocates a string of that length
+4. Sets the last character to '\0'
+5. Calls `cstrlen` on the string and returns the result
+
+The `cstrlen` function:
+1. Takes a pointer to a string
+2. Increments a pointer until it finds a null character
+3. Returns the difference between the final pointer and the original
+
+Since we explicitly place a null terminator at `nondetString1[length1-1]`, the while loop in `cstrlen` will eventually terminate when it reaches this null character. The loop will iterate at most `length1-1` times.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (p - s_end)
+
+Where `s_end` points to the null terminator. In terms of the variables in the code, this can be expressed as:
+1.0 * (length1-1-(p-s))
+
+This ranking function decreases by exactly 1 on each loop iteration as `p` increments by 1, and the loop terminates when `p` reaches the position of the null terminator.
+

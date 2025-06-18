@@ -1,0 +1,33 @@
+=== Response 1 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The program has a while loop that continues as long as `i != j`. In each iteration, `i` is decremented by 1 and `j` is incremented by 1. 
+
+Let's analyze what happens to the difference between `i` and `j`:
+- Initially, the difference is `i - j` (whatever values are assigned by the non-deterministic input)
+- After one iteration, the difference becomes `(i-1) - (j+1) = i - j - 2`
+- After each iteration, the difference decreases by 2
+
+This means that with each iteration, `i` and `j` get closer to each other by 2 units. If the initial difference between `i` and `j` is odd, then they will never be equal (because their difference will always remain odd). In this case, the program will not terminate.
+
+[RESULT]
+NONTERM
+[REASON]
+The program does not terminate when the initial difference between i and j is odd, as their difference will always remain odd and they will never be equal.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program has a while loop that continues as long as `i != j`. Within the loop, `i` decreases by 1 and `j` increases by 1 in each iteration.
+
+Let's analyze the behavior:
+- At each iteration, the difference between `i` and `j` decreases by 2 (since `i` decreases by 1 and `j` increases by 1)
+- If initially `i > j`, the difference will keep decreasing until it becomes 0
+- If initially `i < j`, the difference will keep increasing (negatively) and can never reach 0
+
+[RESULT]
+NONTERM
+
+[REASON]
+The program does not terminate when the initial value of i is less than j. In that case, each iteration increases the gap between i and j by 2, making i and j move further apart, so the condition (i != j) will always remain true.
+

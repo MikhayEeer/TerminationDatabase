@@ -1,0 +1,50 @@
+=== Response 1 ===
+I'll analyze this program for termination:
+
+The program initializes `j = 1` and `i = 10000`, then enters a loop where `i` is decremented and `j` is incremented in each iteration. The loop condition is `*i - *j >= 1`.
+
+Let's trace the values:
+- Initially: *i = 10000, *j = 1
+- After 1st iteration: *i = 9999, *j = 2
+- After 2nd iteration: *i = 9998, *j = 3
+...
+
+With each iteration, *i decreases by 1 and *j increases by 1, so the difference (*i - *j) decreases by 2 in each iteration. Since this difference starts at 9999 and decreases by 2 each time, after a finite number of iterations, it will become less than 1, and the loop will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*i - *j)
+
+This linear ranking function is strictly decreasing with each iteration and is bounded below by 0, proving termination.
+
+=== Response 2 ===
+Let me analyze this program for termination.
+
+The program initializes `*i = 10000` and `*j = 1`, and then enters a loop with condition `*i - *j >= 1`.
+
+In each iteration:
+1. The condition checks if `*i - *j >= 1`
+2. `*i` is decremented: `(*i)--`
+3. `*j` is incremented: `(*j)++`
+
+Starting with `*i = 10000` and `*j = 1`:
+- After 1st iteration: `*i = 9999, *j = 2`, difference is 9997
+- After 2nd iteration: `*i = 9998, *j = 3`, difference is 9995
+...
+
+With each iteration, the difference between `*i` and `*j` decreases by 2. The loop will terminate when `*i - *j < 1`.
+
+Since we start with a finite difference (9999) and reduce it by 2 each time, the loop will eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i + 1.0 * j
+
+The ranking function `i + j` decreases by at least 1 in each iteration (actually by exactly 1, since i decreases by 1 and j increases by 1), and is bounded below (when the condition becomes false).
+

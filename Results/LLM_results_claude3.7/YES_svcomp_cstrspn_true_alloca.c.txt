@@ -1,0 +1,58 @@
+=== Response 1 ===
+I'll analyze the program to determine if it's terminating or not.
+
+The main function initializes two strings, `nondetString1` and `nondetString2`, with nondeterministic lengths (but guaranteed to be at least 1) and calls the `cstrspn` function with these strings as arguments.
+
+The `cstrspn` function counts the initial substring length in `s1` consisting of characters that are in the string `s2`. Let's examine the loops:
+
+1. The outer loop iterates through each character of `s1` until it finds a null terminator.
+2. The inner loop, for each character `c` in `s1`, searches for that character in `s2` until it either finds it or reaches the end of `s2`.
+3. If the inner loop doesn't find `c` in `s2`, the function returns the current position in `s1`.
+
+Since both strings are guaranteed to have null terminators (as set in the main function) and the loops are explicitly bounded by these null terminators, the program will always terminate.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+multi-phase
+
+[RANKING FUNCTIONS]
+1.0 * (length1 - (sc1 - s1) - 1)
+1.0 * (length2 - (s - s2) - 1)
+
+The outer loop terminates when we reach the null character in `s1`, so its ranking function decreases with each increment of `sc1`. 
+
+The inner loop terminates either when we find the matching character or when we reach the null character in `s2`, so its ranking function decreases with each increment of `s`.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates.
+
+The program implements the `cstrspn` function which calculates the length of the initial segment of string s1 that consists entirely of characters in string s2. It then creates two strings in `main()` and calls this function.
+
+Let's analyze the loops:
+
+1. The outer loop `for (sc1 = s1; *sc1 != '\0'; sc1++)` iterates until it reaches the null terminator of s1.
+2. The inner loop `while (*s != '\0' && *s != (char)c)` iterates until it either finds the character c in s2 or reaches the null terminator of s2.
+
+For both loops, since we are working with null-terminated strings:
+- s1 is guaranteed to have a null terminator (set in main)
+- s2 is guaranteed to have a null terminator (set in main)
+
+The outer loop advances sc1 by 1 in each iteration and terminates when it reaches the null terminator.
+The inner loop advances s by 1 in each iteration and terminates when it either finds the character or reaches the null terminator.
+
+Both loops make definite progress toward termination conditions, and those termination conditions are guaranteed to be reached because the strings are finite and null-terminated.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+(length1 - 1) - (sc1 - s1)
+
+The ranking function for the outer loop decreases by 1 in each iteration and is bounded below by 0. It represents the remaining characters in s1 to process.
+
+For the inner loop, a similar ranking function would be:
+(length2 - 1) - (s - s2)
+

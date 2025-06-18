@@ -1,0 +1,46 @@
+=== Response 1 ===
+I'll analyze this program for termination and provide a ranking function if it's terminating.
+
+Let's examine the code's control flow:
+1. The program initializes variables x, y, and n, with x set to n
+2. If x ≥ 0, it enters an outer loop that continues while x ≥ 0
+3. Inside the outer loop, y is set to 1
+4. If y < x, it enters an inner loop where y doubles until y ≥ x
+5. After the inner loop, x is decremented by 1
+6. This process repeats until x < 0
+
+For termination analysis:
+- The outer loop can only execute a finite number of times since x starts at n and decreases by 1 each iteration
+- The inner loop doubles y each iteration, which means it reaches or exceeds x in logarithmic time
+- Both loops have clear termination conditions
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+x + 1
+⌈log₂(max(x - y + 1, 0))⌉
+
+The nested ranking function shows:
+- The outer ranking function (x + 1) decreases by 1 in each iteration of the outer loop
+- The inner ranking function represents the logarithmic bound on how many times y can double before exceeding x
+- Since y doubles each iteration (y = 2*y), the inner loop executes at most ⌈log₂(x)⌉ times
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x + 1
+log2(x - y + 1)
+
+The program terminates because:
+1. The outer while loop decreases x by 1 in each iteration, and terminates when x < 0
+2. The inner while loop doubles y in each iteration until y ≥ x, which must happen in a finite number of steps since doubling grows exponentially while x is fixed during the inner loop
+3. For the outer loop, the ranking function is x + 1
+4. For the inner loop, the ranking function is logarithmic: log2(x - y + 1), which decreases with each doubling of y
+

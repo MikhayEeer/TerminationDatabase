@@ -1,0 +1,31 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+Looking at the program structure:
+1. Integer variable i is initialized with a non-deterministic value
+2. Inside the while loop (which continues as long as i != 0):
+   - If i > 5: i is incremented by 1 (i = i+1)
+   - If i < -5: i is decremented by 1 (i = i-1)
+   - Otherwise (i.e., -5 ≤ i ≤ 5 and i ≠ 0): i is set to 0
+
+[RESULT]
+NONTERM
+[REASON]
+For values i > 5, the loop will never terminate because i keeps increasing (i = i+1), moving further away from 0. Similarly, for values i < -5, the loop will never terminate because i keeps decreasing (i = i-1), also moving further away from 0.
+
+=== Response 2 ===
+I'll analyze the termination property of this program:
+
+The program has a while loop that continues as long as `i` is not 0.
+
+Inside the loop, there are three cases:
+1. If i > 5: i is incremented by 1, causing i to grow further from 0
+2. If i < -5: i is decremented by 1, causing i to grow further from 0 in the negative direction
+3. If -5 ≤ i ≤ 5 and i ≠ 0: i is set to 0, which will terminate the loop in the next iteration
+
+[RESULT]
+NONTERM
+
+[REASON]
+The program does not terminate for inputs where i > 5 or i < -5, as these values will keep increasing in magnitude (moving away from 0) after each iteration, preventing the loop condition from ever becoming false.
+

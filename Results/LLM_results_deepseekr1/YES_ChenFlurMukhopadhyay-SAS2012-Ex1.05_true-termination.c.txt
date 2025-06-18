@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The loop terminates because in each iteration, the value of `x` at the start of the loop (denoted as `old_x`) must decrease if the loop continues without breaking. Specifically:
+- If `2 * new_x > old_x`, the loop breaks immediately.
+- Otherwise, the new `x` assigned for the next iteration satisfies `new_x ≤ old_x / 2` (since `2 * new_x ≤ old_x` and `new_x` is an integer).  
+As `x` is a positive integer at the start of each iteration (due to the loop condition `x > 0`), the sequence of `x` values (across consecutive iterations) forms a strictly decreasing sequence of positive integers (e.g., `x` halves or more each iteration). This sequence must eventually drop to 1, at which point the next assignment either triggers a break (if `2 * new_x > 1`) or sets `x ≤ 0`, terminating the loop. Thus, the loop always terminates.  
+
+The ranking function `f(x) = x` is linear and valid because:
+- **Decreases in each iteration:** For any iteration that completes without breaking, the next iteration's starting `x` (call it `x'`) satisfies `x' ≤ x / 2 < x` (since `x ≥ 1`), so `f(x') < f(x)`.
+- **Bounded below:** The minimum value of `f(x)` is 1 (when `x = 1`), after which termination is guaranteed.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x^1
+
+**Explanation:**  
+The program is terminating. The loop condition requires `x > 0` to continue. Within the loop, the assignment `x = __VERIFIER_nondet_int()` allows any integer value. However, the loop body ensures that whenever the loop iterates (without breaking due to the condition `2*x > old_x`), the new value of `x` for the next iteration must satisfy `x ≤ old_x/2`. Since `old_x` is the prior value of `x` (positive at loop entry), we have:
+- **Strict decrease**: The new `x` is at most half of `old_x`, ensuring `x_next < x_prev` (because `x_prev > 0` and integer division implies `old_x/2 < old_x` when `old_x ≥ 1`).
+- **Lower bound**: The value of `x` decreases strictly in each iteration and must eventually become non-positive or trigger the break condition, as integers cannot decrease forever below 0.
+
+This strictly decreasing behavior of `x` (at each loop entry) establishes it as a valid **linear ranking function**. The break condition does not require explicit handling in the ranking, as it accelerates termination without violating the decrease property when iterations continue. The ranking function `f(x) = x` suffices, mapping loop states to a domain (natural numbers decreasing to 0) that guarantees termination.
+

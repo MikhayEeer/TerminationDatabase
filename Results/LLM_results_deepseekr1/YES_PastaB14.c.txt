@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.0 * x^1 + 1.0 * y^1 + 0.0
+
+### Explanation:
+The program terminates for all inputs. The outer loop condition `(x == y && x > 0)` is only satisfied when `x` and `y` are equal and positive. Upon entering the outer loop, the inner loop runs, decrementing both `x` and `y` by 1 in each iteration until `y` becomes 0. Since `x` and `y` start equal and are decremented together, they remain equal throughout the inner loop. After the inner loop exits, `y = 0` and `x = 0` (because `x` was initially equal to `y`), making the outer loop condition `(0 == 0 && 0 > 0)` false. Thus, the outer loop runs at most once, and the inner loop runs exactly `y` iterations (where `y` is the initial value when entering the inner loop).
+
+A **linear ranking function** `f = y` suffices to prove termination:
+- **Domain**: The ranking function is defined for all program states.
+- **Decrease**: In each iteration of the inner loop, `y` decreases by 1, so `f` decreases by 1.
+- **Bounded below**: During the inner loop, `y` is a positive integer (since the outer loop condition requires `y > 0`), and `f` decreases until `y = 0`, after which the loop exits.
+- **Termination**: The inner loop terminates because `y` is strictly decreasing and bounded below by 0. The outer loop then exits immediately after the inner loop completes.
+
+The ranking function `0.0 * x^1 + 1.0 * y^1 + 0.0` captures this behavior, as `y` is the critical variable driving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * 1
+1.0 * y
+
+### Explanation:
+The program terminates because the outer loop runs at most once, and the inner loop always terminates. The outer loop condition `(x == y && x > 0)` is satisfied only if `x` and `y` are equal and positive. Upon entering the outer loop, the inner loop runs while `y > 0`, decrementing both `x` and `y` by 1 in each iteration. Since `x` and `y` start equal and are decremented equally, they remain equal throughout the inner loop. The inner loop reduces `y` (and `x`) to 0, at which point the outer loop condition fails (since `x = y = 0` but `x > 0` is false), ensuring termination.
+
+A nested (lexicographic) ranking function is used:
+- **First component:** `1.0 * 1` (constant value 1) indicates the program is in the outer loop body. This component remains constant.
+- **Second component:** `1.0 * y` decreases by 1 in each inner loop iteration. Since `y` starts positive and decreases to 0, this component ensures the inner loop terminates.
+
+The lexicographic order ensures termination: while the first component remains 1 (indicating the outer loop body is active), the second component strictly decreases in the inner loop until `y = 0`, after which the program exits both loops.
+

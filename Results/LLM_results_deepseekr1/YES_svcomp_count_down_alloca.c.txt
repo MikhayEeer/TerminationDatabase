@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+0.0 * 1 + 1.0 * length^1 + (-1.0) * j^1
+1.0 * (arr[j])^1 + 0.0 * 1
+
+**Explanation:**  
+The program termination is proven using a lexicographic ranking function with two components:  
+1. **First component:** `length - j` (linear in `length` and `j`), encoding the remaining outer loop iterations. It decreases when `j` increases after an inner loop finishes.  
+2. **Second component:** `arr[j]` (linear in the array element at index `j`), encoding the current inner loop counter. It decreases by 1 in each inner loop step.  
+
+The lexicographic order ensures termination:  
+- Each inner loop step decreases the second component while the first remains unchanged.  
+- When the inner loop finishes (`arr[j]==0`), incrementing `j` strictly decreases the first component.  
+Both components are non-negative initially (since `j ∈ [0, length-1]` and `arr[j] ≥ 0`). The outer loop runs `length` times (finite), and each inner loop terminates due to decreasing `arr[j]`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1 * length + (-1) * j + 0
+0 * j + 1 * arr[j] + 0
+
+**Explanation:**  
+The program always terminates. A multi-phase ranking function is used to prove termination:  
+1. The first ranking function component `length - j` decreases each time the outer loop finishes processing an element and increments `j`.  
+2. The second component `arr[j]` decreases during each iteration of the inner while-loop (decrementing the current array element).  
+
+The lexicographic order ensures termination:  
+- While processing the inner loop (fixed `j`), `arr[j]` strictly decreases until 0.  
+- When moving to the next `j` in the outer loop, `length - j` strictly decreases (as `j` increases), while `arr[j]` resets to the next array value.  
+Since `length` is fixed, `length - j` is bounded, and `arr[j]` is nonnegative initially, both components eventually reach their base cases, ensuring termination.
+

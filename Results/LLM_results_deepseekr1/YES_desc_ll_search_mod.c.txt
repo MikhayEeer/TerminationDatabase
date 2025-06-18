@@ -1,0 +1,44 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (curr->value) -1.0 * m
+
+### Explanation:
+The program builds a singly linked list of `n` nodes, with values from `n-1` down to `0`. The `search` function traverses the list starting at the head until it finds a node with value `m % n` (stored in the parameter `m` during the search). Since:
+1. The list is acyclic and terminates with a `NULL` pointer.
+2. The value `m % n` must exist in the list (as it is in the range `[0, n-1]`).
+3. The list values are strictly decreasing by 1 from head to tail (e.g., head value is `n-1`, next is `n-2`, etc.).
+
+The ranking function `curr->value - m` guarantees termination:
+- **Invariant**: At each loop entry, `curr->value > m` (since traversal starts at the largest value and decreases toward `m`).
+- **Non-negative**: Initially, `curr->value` (at head) is `n-1` and `m ∈ [0, n-1]`, so `curr->value - m ≥ 0`.
+- **Strict decrease**: Each iteration moves `curr` to `curr->next`, decreasing `curr->value` by exactly 1. Thus, `curr->value - m` decreases by exactly 1 per iteration.
+- **Termination**: When `curr->value - m = 0` (i.e., `curr->value == m`), the loop exits.
+
+This linear ranking function proves termination, as it decreases by at least 1 in each iteration and is bounded below by 0.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * current_value^1 + (-1.0) * m^1
+
+**Explanation:**  
+The program initializes a linked list with `n` nodes (values `0` to `n-1` in descending order) and then searches for the node containing the value `m % n` (which is in `[0, n-1]`). The loop in `search` iterates through the list until it finds `m % n`. Since:
+- The list contains all values in `[0, n-1]`,
+- The list is strictly decreasing by 1 (`head` has value `n-1`, next node has `n-2`, etc.),
+- `current_value` starts at `n-1 > m` (since `m` is in `[0, n-1]` and the loop condition fails immediately if `current_value == m`),
+- The loop body reduces `current_value` by exactly 1 per iteration (via `curr = curr->next`),
+- The ranking function `f(current_value, m) = current_value - m` is:
+  - **Linear**: A polynomial expression in the state variables.
+  - **Nonnegative in the loop**: Upon entry, `current_value > m` ensures `f > 0`.
+  - **Decreasing**: Each iteration decreases `current_value` by 1, so `f` decreases by exactly 1.
+- When `f = 0` (`current_value == m`), the loop exits.
+
+Thus, termination is proven by this linear ranking function. The `init_list` loop terminates trivially since `j` increments boundedly from `0` to `n-1`.
+

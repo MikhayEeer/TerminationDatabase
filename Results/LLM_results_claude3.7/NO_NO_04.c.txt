@@ -1,0 +1,48 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+Looking at the program structure, we have 5 nested loops. Let me analyze them inside-out:
+
+In the innermost loop:
+```c
+while (m >= 0) {
+    m = m-0;
+}
+```
+This loop is non-terminating because `m` is never decremented. The assignment `m = m-0` keeps `m` unchanged, so the condition `m >= 0` will remain true forever if `m` is initially non-negative (which it is, given how m is defined).
+
+[RESULT]
+NONTERM
+[REASON]
+The innermost loop "while (m >= 0) { m = m-0; }" is non-terminating because the statement "m = m-0" doesn't change the value of m, causing the loop condition to remain true indefinitely.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program has nested loops with the following structure:
+1. Outer loop with counter `i` from 0 to 99
+2. Inside that, loop with counter `j` from 0 to `a-1` (where `a = i+2`)
+3. Inside that, loop with counter `k` decreasing from `i+j+3` to 0
+4. Inside that, loop with counter `l` from 0 to `b-1` (where `b = i+j+k+4`)
+5. Innermost loop with counter `m` decreasing from `i+j+k+l+1000`
+
+Let's check each loop:
+- The outer loop with `i` clearly terminates as `i` increases by 1 each iteration and stops at 100.
+- The loops with `j` and `l` clearly terminate as they increment by 1 each iteration to fixed bounds.
+- The loop with `k` decreases by 1 each iteration from a fixed value to 0, so it terminates.
+
+However, for the innermost loop with `m`, we have:
+```c
+m = i+j+k+l+1000;
+while (m >= 0) {
+    m = m-0;
+}
+```
+
+The update statement `m = m-0` means `m` stays unchanged in each iteration. Since `m` starts with a positive value and the condition is `m >= 0`, but `m` never changes, this loop will never terminate.
+
+[RESULT]
+NONTERM
+[REASON]
+The innermost loop "while (m >= 0) { m = m-0; }" never terminates because m is initialized to a positive value and never changes, so the condition m >= 0 remains always true.
+

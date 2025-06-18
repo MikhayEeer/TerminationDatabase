@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y1^1 + 1.0 * y2^1
+
+**Explanation:**  
+The program implements the Euclidean algorithm to compute the greatest common divisor (gcd) of two positive integers. The loop in the `gcd` function terminates because in each iteration, the sum of the two variables `y1 + y2` decreases by at least 1 (since one of the variables is reduced by the other, which is at least 1). This sum is bounded below (minimum value 3 at loop entry, e.g., (1,2) or (2,1)) and decreases monotonically, ensuring termination. The linear ranking function \( \text{rf}(y1, y2) = y1 + y2 \) suffices to prove termination, as its value decreases by at least 1 in every iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y1^1 + 1.0 * y2^1
+
+**Explanation:**  
+The program implements the Euclidean algorithm to compute the GCD of two positive integers. Termination is guaranteed because:  
+1. The loop condition `y1 != y2` ensures the loop runs only when the numbers are unequal.  
+2. In each iteration, either `y1` is reduced by `y2` (if `y1 > y2`) or `y2` is reduced by `y1` (if `y2 > y1`). Since both inputs are positive integers and subtraction decreases the larger number, the sum `y1 + y2` strictly decreases by at least 1 in each iteration (as the subtracted value is ≥1).  
+3. The sum `y1 + y2` is bounded below by 2 (the minimal sum before termination, e.g., `(1,1)`).  
+
+The linear ranking function `y1 + y2` decreases monotonically and proves termination.
+

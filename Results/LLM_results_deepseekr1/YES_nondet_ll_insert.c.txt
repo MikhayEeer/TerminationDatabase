@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n - [iteration_counter]
+
+Explanation: The loop in the `insert` function traverses the linked list, which has exactly `n` nodes after initialization. The ranking function is expressed using:
+- `n` (the initial list length, unchanged during insertion)
+- An auxiliary iteration counter (implicit in the proof strategy) that increments at each loop iteration.
+
+The ranking function value decreases by approximately 1 per iteration (since `n` is fixed and the iteration counter increases). The worst-case iteration count is bounded by `n`, ensuring termination. Although the iteration counter isn't an explicit program variable, it represents the number of nodes traversed, which is monotonically increasing and bounded by `n`. The loop terminates either when `curr->next` is `NULL` or when the insertion condition fails, always within `n` steps.
+
+=== Response 2 ===
+
+

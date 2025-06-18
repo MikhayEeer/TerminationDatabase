@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|*x_ref - *y_ref|
+
+The program is terminating because the absolute difference between *x_ref and *y_ref decreases in each iteration. When *x_ref > *y_ref, *y_ref is incremented, reducing the difference by 1. When *x_ref < *y_ref, *x_ref is incremented, also reducing the difference by 1. Once *x_ref equals *y_ref, the loop terminates.
+
+The ranking function is the absolute difference between the two variables, which is always non-negative and decreases by exactly 1 in each iteration, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|x - y|
+
+The program terminates because in each iteration of the loop, the absolute difference between x and y decreases by exactly 1. If x > y, then y is incremented, reducing the difference. If x < y, then x is incremented, again reducing the difference. The loop continues until x equals y, at which point the absolute difference becomes 0 and the loop terminates.
+
+The linear ranking function |x - y| starts as a non-negative integer and decreases by exactly 1 in each iteration, eventually reaching 0, which proves termination.
+

@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+Looking at the while loop condition: `i - j >= 1`
+
+Within the loop:
+- `i` is decreased by `nondetNat` (which is a non-negative integer)
+- `j` is increased by `nondetPos` (which is a positive integer, at least 1)
+
+Both operations reduce the value of `i - j` in each iteration:
+- Decreasing `i` reduces `i - j`
+- Increasing `j` reduces `i - j`
+
+Since in each iteration `i - j` decreases by at least 1 (when `nondetNat = 0` and `nondetPos = 1`), and the loop continues only while `i - j >= 1`, the program must terminate after a finite number of iterations.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i - 1.0 * j
+
+The ranking function `i - j` decreases by at least 1 in each iteration and is bounded below by the loop condition, making it a valid linear ranking function for this program.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The core loop condition is `i - j >= 1`.
+
+In each iteration:
+- `i` decreases by `nondetNat` where `nondetNat` is a non-negative integer (the absolute value of a non-deterministic integer)
+- `j` increases by `nondetPos` where `nondetPos` is a positive integer (the absolute value of a non-deterministic integer plus 1)
+
+Since `i` is decreasing and `j` is increasing, the value of `i - j` is guaranteed to decrease in each iteration. Moreover, `j` increases by at least 1 in each iteration, so `i - j` decreases by at least 1 in each iteration.
+
+Therefore, this program will eventually terminate because the loop condition `i - j >= 1` will eventually become false.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (i - j)
+
+The linear ranking function `i - j` proves termination because:
+1. It is bounded from below (by 0)
+2. It decreases by at least 1 in each iteration
+3. When it becomes less than 1, the loop terminates
+

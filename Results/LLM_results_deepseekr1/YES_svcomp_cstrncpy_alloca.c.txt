@@ -1,0 +1,55 @@
+=== Response 1 ===
+The program terminates because both loops in the `cstrncpy` function have a bounded iteration count, ensuring eventual termination.
+
+1. **Outer Loop**: 
+   - The loop runs while `n > 0`, decrementing `n` by 1 in each iteration. Since the initial `n` is at least 1 (as ensured by `main`), the outer loop runs at most `n` times and terminates when `n` becomes 0.
+
+2. **Inner Loop**: 
+   - If a null terminator is copied in the outer loop, an inner loop pads the remaining characters in the destination buffer with null bytes.
+   - This inner loop runs for exactly `n2` iterations (where `n2` is set to the current value of `n` at the break point), decrementing `n2` from its initial value to 0. Thus, the inner loop also terminates.
+
+The termination is proven using a **multi-phase ranking function**, tracking the loop counters for each phase:
+- **Phase 1 (Outer Loop)**: The value of `n` at the loop condition ensures progress, decrementing by 1 each iteration.
+- **Phase 2 (Inner Loop)**: The value of `n2` at the loop condition ensures progress, decrementing by 1 each iteration.
+
+When the program transitions from Phase 1 to Phase 2 (upon breaking early), the lexicographic order (Phase 1 followed by Phase 2) ensures a strict decrease in the ranking function.
+
+[RANKING FUNCTION TYPE]
+multi-phase
+
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0 * 1
+1.0 * n2^1 + 0.0 * 1
+
+This proves termination.
+
+[RESULT]
+TERMINATE
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * n^1 + 0.0 * 1
+1.0 * n2^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates because both loops in `cstrncpy` are guaranteed to terminate:  
+1. **Outer loop (`while (n > 0)`):**  
+   - `n` starts as a positive integer (≥1) and decreases by 1 each iteration.  
+   - Terminates when `n` becomes 0 (after at most initial `n` iterations).  
+   - Ranking function: `n` (phase 1).  
+
+2. **Inner loop (`while (n2-- != 0)`):**  
+   - Only entered if a null terminator is copied in the outer loop.  
+   - `n2` is set to the current (decremented) value of `n` (≥0) and decreases by 1 per iteration.  
+   - Terminates when `n2` reaches 0 (after exactly `n2` iterations).  
+   - Ranking function: `n2` (phase 2).  
+
+The multi-phase ranking function uses:  
+- Phase 1: `n` for the outer loop (decreases monotonically).  
+- Phase 2: `n2` for the inner loop (active only after early exit from the outer loop).  
+Lexicographic order ensures termination: transitions to phase 2 occur only when `n` decreases, and phase 2 further decreases `n2`. Constants are included for consistency with the expected format but have zero coefficients.
+

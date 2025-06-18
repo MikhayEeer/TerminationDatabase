@@ -1,0 +1,47 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * curr->value
+
+**Explanation:**  
+The program builds a linked list of length `n` (with nodes containing values from `n-1` down to `0`). The `search` function traverses the list starting from the head until it finds the node with value `0`. Since:
+1. The list is guaranteed to contain `0` (as the last node),
+2. The list is acyclic and finite (with `n` nodes),
+3. The node values decrease by exactly `1` with each `next` pointer (due to `init_list` construction),
+4. The loop condition `curr->value != 0` ensures termination when `0` is reached.
+
+The ranking function `curr->value` is:
+- **Linear** and integer-valued,
+- Strictly decreases by `1` each iteration (as `curr = curr->next` moves to a node with value one less),
+- Bounded below by `0` (loop exits when `curr->value == 0`).
+
+Thus, the loop terminates after exactly `n-1` iterations for `n ≥ 1` (and immediately for `n = 1`).
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * curr->value
+
+### Explanation:
+The program builds a singly-linked list of length `n` (where `n ≥ 1`), with nodes containing values from `n-1` down to `0`. The `search` function traverses the list starting from the head to find the node with value `0`. 
+
+**Termination Proof:**  
+The loop condition `curr->value != 0` must eventually become false because:
+1. The list is finite (length `n`) and acyclic.
+2. The value `0` is guaranteed to exist in the list (as the last node).
+3. Each iteration moves `curr` to `curr->next`, decreasing `curr->value` by exactly 1 (since nodes are arranged in descending order: `n-1, n-2, ..., 0`).
+
+**Ranking Function:**  
+`curr->value` is a valid linear ranking function because:
+- It is non-negative when entering the loop (since values start at `n-1 ≥ 0`).
+- It strictly decreases by 1 each iteration (as `curr = curr->next` moves to a node with value one less).
+- The loop exits when `curr->value = 0` (bounded below).
+
+Thus, the loop runs at most `n-1` iterations before finding `0`, ensuring termination.
+

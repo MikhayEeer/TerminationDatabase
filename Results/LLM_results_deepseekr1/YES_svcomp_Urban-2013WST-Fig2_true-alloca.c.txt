@@ -1,0 +1,51 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+11.0 * 1 + (-1.0) * (*x1)^1
+1.0 * (*x2)^1 + (-1.0) * 1
+
+### Explanation:
+The program terminates for all initial values of `*x1` and `*x2`:
+1. **Outer Loop**: Runs while `*x1 <= 10`. The ranking function `11 - *x1` decreases by 1 in each outer iteration (when `*x1` increments). It starts non-negative when the loop runs and ensures termination after at most `11 - initial_*x1` iterations (if `initial_*x1 <= 10`), or 0 iterations otherwise.
+2. **Inner Loop**: Runs while `*x2 > 1`. The ranking function `*x2 - 1` decreases from 9 to 0 in each inner iteration (when `*x2` decrements). It terminates in exactly 9 iterations per outer loop entry, independent of `*x1`.
+
+The **nested ranking function** `(11 - *x1, *x2 - 1)` uses lexicographic order:
+- During inner loop: First component remains constant, second decreases.
+- After inner loop: First component decreases (when `*x1` increments), and second resets to 9 in the next outer iteration, maintaining lexicographic decrease.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+11 - *x1
+*x2 - 1
+
+### Explanation:
+The program has two nested loops:
+1. **Outer loop**: The termination is guaranteed by the ranking function `11 - *x1`. This represents the decreasing distance to the loop exit condition:
+   - Initial condition: `*x1 <= 10` ensures the function starts as non-negative.
+   - Each outer iteration increments `*x1` by 1, decreasing `11 - *x1` by 1.
+   - When `11 - *x1` reaches 0 (i.e., `*x1 = 11`), the loop terminates.
+
+2. **Inner loop**: The termination is guaranteed by the ranking function `*x2 - 1`:
+   - At the start of each outer iteration, `*x2` is set to 10.
+   - The loop condition `*x2 > 1` ensures the function starts as `10 - 1 = 9` (non-negative).
+   - Each inner iteration decrements `*x2` by 1, decreasing the function by 1.
+   - When `*x2 - 1` reaches 0 (i.e., `*x2 = 1`), the loop terminates.
+
+The **nested** ranking function demonstrates that:
+- The inner loop ranking function decreases monotonically while active.
+- The outer loop ranking function decreases after each full execution of the inner loop.
+- Both functions are linear and bounded below by 0 in their respective loops.
+
+This proves termination for all initial values of `*x1`, as uninitialized values do not prevent termination:
+- If `*x1 > 10` initially, the outer loop skips entirely.
+- If `*x1 <= 10`, the outer loop runs a finite number of iterations (`11 - initial_value`), each with a finite inner loop (9 iterations). 
+
+The reset of `*x2` at each outer iteration does not affect termination, as the inner ranking function is reinitialized and decreases independently.
+

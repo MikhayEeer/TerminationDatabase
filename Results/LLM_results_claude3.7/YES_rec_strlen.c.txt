@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program initializes a string `nondetString1` with a non-deterministic length (at least 1), ensures it's null-terminated, and then calls the recursive function `strlen_rec` on it.
+
+Let's examine the `strlen_rec` function:
+- It checks if the current character is the null terminator ('\0')
+- If it is, it returns 0 (base case)
+- If not, it recursively calls itself with the next character in the string (p+1)
+
+Since the string is guaranteed to be null-terminated (the last character nondetString1[length1-1] = '\0'), the recursion will always reach the base case.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (distance_to_null_terminator)
+
+The ranking function represents the distance from the current position in the string to the null terminator. Each recursive call decreases this distance by exactly 1, and the function terminates when the distance becomes 0 (i.e., when we reach the null terminator).
+
+=== Response 2 ===
+I'll analyze whether this program terminates or not.
+
+First, let me understand what the program does:
+1. It declares a recursive function `strlen_rec` that counts characters in a string until it reaches '\0'
+2. The main function:
+   - Gets a nondeterministic integer length1
+   - Ensures length1 is at least 1
+   - Allocates a character array of size length1
+   - Sets the last element (at index length1-1) to '\0'
+   - Calls strlen_rec on this string
+
+The key to termination is whether the recursive calls to strlen_rec will eventually reach the base case.
+
+Since we know:
+- The string's last character (at index length1-1) is '\0'
+- Each recursive call advances the pointer by 1
+- The recursion stops when it reaches '\0'
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (length1 - 1 - i)
+
+Where i represents the current position in the string during the recursive calls to strlen_rec. The function decreases by exactly 1 with each recursive call and is bounded below by 0, guaranteeing termination when the null character is reached.
+

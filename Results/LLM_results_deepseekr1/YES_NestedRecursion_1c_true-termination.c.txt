@@ -1,0 +1,39 @@
+=== Response 1 ===
+The program terminates for all inputs. The termination is driven by the recursive function `rec2`, which decreases its argument `j` by 1 in each recursive call until `j` becomes non-positive. The function `rec1` is called within `rec2`, but only with non-positive arguments (due to the behavior of `rec2`), leading to immediate base case returns without further recursion. Thus, the recursion depth of `rec2` is linear in the initial value of `x`.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * j
+
+**Explanation:**  
+- **Termination Reason:** The argument `j` in `rec2` decreases by 1 in each recursive call (`rec2(j-1)`). Since `j` is bounded below (≤0 stops recursion), the recursion depth is finite (at most `max(x, 0)` calls).  
+- **Ranking Function:** The expression `1.0 * j` is a linear ranking function for `rec2`. It decreases by at least 1 in each recursive call (from `j` to `j-1`) and is non-negative when recursion occurs (since `rec2` recurses only when `j > 0`).  
+- **`rec1` Behavior:** When called from `rec2`, `rec1` receives only non-positive values (e.g., `0` or `-1`), triggering its base case immediately without nested recursion. Thus, `rec1` does not affect the overall termination argument.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * j^1
+
+### Explanation:
+The program terminates for all inputs because:
+1. **rec2(j)** recurses linearly: for `j > 0`, it calls `rec2(j-1)`, decreasing `j` by 1 until `j <= 0`.
+2. **rec1(i)** always terminates:
+   - For `i <= 0`, it returns immediately.
+   - For `i > 0`, it returns `1` after a finite recursion depth (e.g., `rec1(1) = 1`, `rec1(2) = 1`, etc.), as arguments decrease toward the base case.
+3. In `rec2`, `rec1` is only called with values `0` or `-1` (from `rec2`'s returns), which are base cases requiring no further recursion.
+
+**Ranking Function Justification**:
+- The recursion in `rec2` is driven by parameter `j`.
+- A linear ranking function `j` suffices:
+  - When `j > 0`, each recursive call decreases `j` by 1 (to `j-1`).
+  - The function value decreases strictly (`j-1 < j`) and is bounded below by 0.
+  - At `j <= 0`, recursion stops.
+- Thus, `1.0 * j^1` (equivalent to `j`) proves termination.
+

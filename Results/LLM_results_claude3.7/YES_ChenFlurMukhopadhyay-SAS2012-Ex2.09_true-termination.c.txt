@@ -1,0 +1,52 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The core loop is:
+```c
+while (x > 0 && x < n) {
+    x = -x + y - 5;
+    y = 2*y;
+}
+```
+
+Let's analyze how this loop behaves:
+1. The loop continues as long as 0 < x < n
+2. In each iteration, x is updated to -x + y - 5
+3. y doubles in each iteration: y = 2*y
+
+This program is terminating because y grows exponentially (doubles each iteration), and eventually the term "-x + y - 5" will grow large enough to make x either negative or exceed n, causing the loop to exit.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+max(0, n - x)
+
+The ranking function max(0, n - x) works because:
+- If x is approaching n from below, this function counts down to 0
+- The assignment x = -x + y - 5 with y doubling each iteration will eventually push x out of the range (0,n)
+- Since y grows exponentially while x grows at most linearly with y, the program must terminate in finite time
+
+=== Response 2 ===
+I'll analyze the program to determine if it terminates and provide the appropriate ranking function if it does.
+
+Looking at the loop condition: `while (x > 0 && x < n)`
+And the update statements:
+- `x = -x + y - 5`
+- `y = 2*y`
+
+The program is terminating because:
+1. The variable y grows exponentially (doubles with each iteration)
+2. The update to x becomes `-x + y - 5`, which grows in the same direction as y
+3. Eventually, either x will become negative (x ≤ 0) or x will exceed n (x ≥ n), causing the loop to terminate
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n - x
+
+The ranking function `n - x` decreases with each iteration until it becomes non-positive, which happens when x ≥ n, one of the conditions for loop termination.
+

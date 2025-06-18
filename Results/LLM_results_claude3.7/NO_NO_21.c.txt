@@ -1,0 +1,26 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program includes a while loop with the condition `i < 100`. Inside the loop, the value of `i` is increased by 1 and then immediately decreased by 1, resulting in no net change to the variable `i` after each iteration.
+
+Since `i` is initialized to 0 before the loop and remains 0 during each iteration (due to the offsetting operations), the condition `i < 100` will always be true. This means the loop will never terminate.
+
+[RESULT]
+NONTERM
+[REASON]
+The variable i is initialized to 0 and remains 0 after each loop iteration (i+1 followed by i-1 equals no change), causing the loop condition (i < 100) to always be true.
+
+=== Response 2 ===
+Analyzing this program step by step:
+
+The program has a while loop with condition `i < 100`. Inside the loop body:
+- `i` is incremented by 1
+- `i` is then decremented by 1
+
+This means after each iteration, the value of `i` remains unchanged. Since `i` is initialized to 0 before the loop, and the loop condition is `i < 100`, the loop condition will always remain true because `i` will always be 0.
+
+[RESULT]
+NONTERM
+[REASON]
+The variable i is initialized to 0 and remains 0 after each loop iteration (incremented then decremented), causing the loop condition (i < 100) to always be true.
+

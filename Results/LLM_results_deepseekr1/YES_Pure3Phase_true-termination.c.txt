@@ -1,0 +1,24 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The program allows an infinite execution path when the non-deterministic choice consistently selects the branch adding `y` to `x` after `z` becomes negative. Specifically, starting with `x=0, y=0, z=0`, each iteration sets `x=0` (if adding `y=0`), `y=0` (since `y+z=0`), and `z` decreases indefinitely. The condition `x>=0` remains true, causing non-termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * z
+1.0 * y
+1.0 * x
+
+### Explanation:
+The program terminates with a **3-phase ranking function** as indicated in the provided comment. The ranking functions are:
+1. **First phase**: `z` decreases by exactly 1 in each iteration (due to `z = z - 1`). Since `z` starts at an arbitrary integer and decreases without bound, it will eventually become negative, ending this phase.
+2. **Second phase**: After `z < 0`, `y` decreases by at least 1 in each iteration (since `y = y + z` and `z < 0` implies `y` decreases by at least `|z| ≥ 1`). `y` will eventually become negative.
+3. **Third phase**: When `z < 0` and `y < 0`, `x` decreases by at least 1 in every iteration (since both branches `x = x + y` and `x = x + z` add negative values to `x`). The loop exits when `x < 0`.
+
+Each ranking function is linear and bounded below in its respective phase, proving termination under non-deterministic branch choices. The ranking functions directly correspond to the variables `z`, `y`, and `x` without additional constants, as the decreases are inherent in the updates.
+

@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+L - 1.0 * (sc1 - s1)
+
+**Explanation:**  
+The program terminates because the outer loop in `cstrcspn` iterates over the first string (`s1`) until it encounters the null terminator. The loop progresses by incrementing `sc1` (a pointer into `s1`) in each iteration. The number of iterations is bounded by the length `L` of `s1`, which is finite (as ensured by `__VERIFIER_nondet_String`). The ranking function `L - (sc1 - s1)` decreases linearly with each iteration:  
+- `sc1 - s1` is the current index (0-based) into `s1`.  
+- `L` is the fixed length of `s1` (number of characters until the null terminator).  
+- The expression decreases from `L` to `0`, proving termination.  
+
+The inner loop (scanning `s2`) terminates independently in each outer iteration due to `s2`'s finite length and does not affect the outer loop's progress. The ranking function type is linear as it depends on a single linear expression with a constant offset.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * (address of null terminator in s1) - 1.0 * sc1
+1.0 * (address of null terminator in s2) - 1.0 * s
+
+**Explanation:**  
+The program terminates because both loops are bounded by the lengths of their respective null-terminated strings. The outer loop iterates over `s1` until it finds a character in `s2` or reaches the end. The inner loop scans `s2` for each character of `s1`. 
+
+- **Outer ranking function:** `(address of null terminator in s1) - sc1` decreases by 1 for each outer iteration (as `sc1` increments), measuring remaining characters in `s1`.  
+- **Inner ranking function:** `(address of null terminator in s2) - s` decreases by 1 for each inner iteration (as `s` increments), measuring remaining characters in `s2` during each outer iteration.  
+
+The lexicographic order ensures termination: the inner measure decreases within a fixed outer measure, and when the inner loop exits, the outer measure decreases on the next iteration (unless returning early). The string lengths are finite due to `__VERIFIER_nondet_String`'s null termination.
+

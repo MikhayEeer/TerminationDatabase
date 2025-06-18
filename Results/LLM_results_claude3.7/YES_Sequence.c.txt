@@ -1,0 +1,58 @@
+=== Response 1 ===
+Let me analyze this program for termination:
+
+The program has two sequential while loops:
+1. The first loop increments `i` from 0 until it reaches 100.
+2. The second loop increments `j` by 3 in each iteration, starting with `j = 5`.
+
+For the first loop: `i` starts at 0 and increases by 1 in each iteration. It will reach 100 after exactly 100 iterations, causing the loop to terminate.
+
+For the second loop: `j` starts at 5 and increases by 3 in each iteration. The sequence will be: 5, 8, 11, 14, 17, 20, 23. Once `j` reaches 23, the condition `j < 21` becomes false, and the loop terminates.
+
+Both loops are guaranteed to terminate, so the entire program terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - i
+⌊(21 - j)/3⌋
+
+The ranking function for the first loop is simply the distance to the bound: 100 - i.
+The ranking function for the second loop counts how many iterations remain: ⌊(21 - j)/3⌋.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+```c
+typedef enum {false,true} bool;
+extern int __VERIFIER_nondet_int(void);
+int main() {
+    int i;
+    int j;
+    i = 0;
+    j = 5;
+    while (i < 100) { i = i+1; }
+    while (j < 21) { j = j+3; }
+    return 0;
+}
+```
+
+This program has two consecutive while loops:
+1. The first loop increments `i` by 1 in each iteration until it reaches 100 (starting from 0)
+2. The second loop increments `j` by 3 in each iteration until it reaches or exceeds 21 (starting from 5)
+
+Both loops have a clear terminating condition with variables that are monotonically increasing toward the termination boundary.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+100 - i
+(21 - j + 2) / 3
+
+The first loop has the linear ranking function `100 - i` which starts at 100 and decreases by 1 in each iteration.
+The second loop has the linear ranking function `(21 - j + 2) / 3` which computes the remaining number of iterations (starting from 5, with increments of 3, it will terminate when j becomes 23, after 6 iterations).
+

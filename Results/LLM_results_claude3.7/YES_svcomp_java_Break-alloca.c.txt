@@ -1,0 +1,41 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program allocates memory on the stack for two integers `i` and `c`, initializes both to 0, and then enters a while loop.
+
+In each iteration of the loop:
+1. It checks if `*i > 10`. If true, it exits the loop.
+2. It increments both `*i` and `*c`.
+
+Starting with `*i = 0`, the loop will execute exactly 11 iterations until `*i` becomes 11, at which point the condition `*i > 10` becomes true and the loop terminates.
+
+Since the loop has a clear exit condition that will be reached after a finite number of steps, this program is terminating.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+11 - *i
+
+The ranking function shows that the distance to termination decreases by exactly 1 in each iteration, starting at 11 when `*i = 0` and reaching 0 when `*i = 11`, at which point the loop terminates.
+
+=== Response 2 ===
+Looking at this C program:
+
+1. We have two integer pointers `i` and `c` allocated on the stack using `alloca`.
+2. Both `i` and `c` are initialized to 0.
+3. In the while loop, we increment both `*i` and `*c` in each iteration.
+4. The loop terminates when `*i > 10`, which means when `*i` reaches 11.
+
+Since `*i` starts at 0 and increments by 1 in each iteration, it will eventually reach 11 after exactly 11 iterations. At that point, the condition `*i > 10` becomes true, and the loop breaks.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+11 - *i
+
+This linear ranking function starts at 11 when `*i` is 0, and decreases by 1 in each iteration as `*i` increases by 1. The function reaches 0 when `*i` is 11, at which point the loop terminates.
+

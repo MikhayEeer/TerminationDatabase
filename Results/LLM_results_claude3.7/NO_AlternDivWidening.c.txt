@@ -1,0 +1,59 @@
+=== Response 1 ===
+I'll analyze this program for termination:
+
+The program has a main loop that continues until `i` becomes 0. In each iteration:
+- If `i < -w`, we decrement `i` and then multiply it by -1 (making it positive)
+- If `i > w`, we increment `i` and then multiply it by -1 (making it negative)
+- Otherwise, we set `i` to 0, causing the loop to terminate
+- At the end of each iteration, `w` is incremented by 1
+
+Let's examine the possible behaviors:
+
+1. If `i` is initially 0, the loop doesn't execute.
+2. If `-w ≤ i ≤ w` initially, `i` becomes 0 in the first iteration, terminating the loop.
+3. If `i > w`, it becomes -(i+1) after the first iteration (negative).
+4. If `i < -w`, it becomes -(i-1) after the first iteration (positive).
+
+With `w` increasing in each iteration, eventually any value of `i` will fall within the range [-w, w], at which point it becomes 0 and the loop terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+i when i > 0
+-i when i < 0
+
+The program terminates because in each iteration where `i` doesn't become 0, its absolute value either decreases or it moves closer to the expanding range [-w, w] where it will be set to 0.
+
+=== Response 2 ===
+I'll analyze the program's termination behavior and determine whether it terminates or not.
+
+The program has a loop that continues while `i != 0`. Let's analyze the loop body:
+
+1. If `i < -w` (where w starts at 5 and increases):
+   - `i = i-1` (i decreases by 1)
+   - `i = i*(-1)` (i becomes positive)
+
+2. If `i > w`:
+   - `i = i+1` (i increases by 1)
+   - `i = i*(-1)` (i becomes negative)
+
+3. Otherwise (when -w ≤ i ≤ w and i ≠ 0):
+   - `i = 0` (which will terminate the loop)
+
+The key insight is that when |i| > w:
+- If i is negative, it becomes positive and smaller in absolute value
+- If i is positive, it becomes negative and larger in absolute value
+
+Furthermore, w increases by 1 in each iteration, so the range [-w, w] grows. Eventually, either i will fall within the range [-w, w] (leading to i = 0), or the transformations will continue to decrease |i| until it falls in the range.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(0, |i|)
+
+The ranking function captures that the absolute value of i either decreases or becomes 0 in each iteration that doesn't immediately terminate. When |i| > w, the operations reduce |i|, and when |i| ≤ w (but i ≠ 0), i becomes 0 directly.
+

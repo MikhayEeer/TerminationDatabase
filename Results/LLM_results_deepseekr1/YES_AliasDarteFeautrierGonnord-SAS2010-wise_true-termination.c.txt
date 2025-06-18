@@ -1,0 +1,36 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * y - 2.0
+1.0 * y - 1.0 * x - 2.0
+
+### Explanation:
+The program terminates because the absolute difference `|x - y|` decreases by 1 in each loop iteration until it becomes ≤ 2. Specifically:
+- When `x < y`, `x` is incremented, reducing `y - x` by 1.
+- When `x ≥ y`, `y` is incremented, reducing `x - y` by 1.
+The ranking function is piecewise linear, defined as:
+- `x - y - 2` for the region `x ≥ y`
+- `y - x - 2` for the region `x < y`
+This function starts positive (since `|x - y| > 2` in the loop) and decreases by exactly 1 per iteration until it becomes non-positive, at which point the loop exits.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+1.0 * y^1 + (-1.0) * x^1 - 2.0 * 1  
+1.0 * x^1 + (-1.0) * y^1 - 2.0 * 1
+
+### Explanation:
+The program terminates because the loop condition `|x - y| > 2` ensures that the absolute difference between `x` and `y` is at least 3 initially. In each iteration, either `x` or `y` is incremented by 1 depending on which is smaller, reducing the absolute difference by exactly 1. This continues until `|x - y| ≤ 2`, which breaks the loop. 
+
+The **piecewise ranking function** consists of two linear components:
+- **When `x < y`**: Use `y - x - 2`. This decreases by 1 per iteration (since `x` increases by 1).
+- **When `x ≥ y`**: Use `x - y - 2`. This decreases by 1 per iteration (since `y` increases by 1).
+
+Both functions are initially at least 1 (since `|x - y| ≥ 3` upon loop entry), strictly decrease by 1 each iteration, and reach 0 when `|x - y| = 2` (loop exit condition), proving termination.
+

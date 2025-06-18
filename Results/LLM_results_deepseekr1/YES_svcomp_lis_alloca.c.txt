@@ -1,0 +1,47 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (N - i)
+1.0 * ((N-1)*N/2 - ( (i-1)*i/2 + j ))
+1.0 * (N - i)
+
+**Explanation:**  
+The program consists of three sequential loops, each terminating within a bounded number of iterations based on the fixed `array_size` (denoted as `N`). The ranking functions are:
+1. **First loop (initialization):** `N - i` decreases from `N` to `0` as `i` iterates from `0` to `N-1`.
+2. **Nested loops (LIS computation):** The expression `(N-1)*N/2 - ((i-1)*i/2 + j)` represents the remaining iterations in the nested loops. It decreases by at least 1 per iteration, starting from `(N-1)*N/2` down to `0`.
+3. **Third loop (finding max):** `N - i` decreases from `N` to `0` as `i` iterates from `0` to `N-1`.
+
+The multi-phase ranking function transitions sequentially through these phases, ensuring termination. The quadratic term in the nested loop phase arises from the triangular number of iterations, which is inherent to the algorithm.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+-1.0 * i^1 + 1.0 * (N-1)^1
+1.0 * i^1 + -1.0 * j^1 + 0.0
+
+### Explanation:
+The program computes the Longest Increasing Subsequence (LIS) length for an uninitialized array but **terminates** because all loops are bounded by the fixed non-deterministic array size `N` (set in `main`). 
+
+**Key insights for termination:**
+1. **First loop (initialization):** Fixed bounds (runs `N` times), proven by linear ranking function: `N - i`.
+2. **Third loop (max-finding):** Fixed bounds (runs `N` times), proven by linear ranking function: `N - i`.
+3. **Double loop (core computation):** 
+   - Bounds: Outer loop runs `N-1` times (`i` from 1 to `N-1`). For each `i`, inner loop runs `i` times (`j` from 0 to `i-1`). Total iterations: `(N-1)*N/2` (quadratic but bounded by `N`).
+   - Non-deterministic array values (`a[i] > a[j]`) affect assignments but **not loop counters** (`i` and `j` increment independently). Hence, the loops always terminate.
+
+**Ranking function justification:**
+- **Nested ranking function for the double loop** is `(N-1-i, i-j)`:
+  - **Outer component (`-1.0*i + 1.0*(N-1)`):** Decreases from `N-2` to `0` as `i` increases from 1 to `N-1`. When `i` increments, it shows progress in the outer loop.
+  - **Inner component (`1.0*i - 1.0*j`):** For each fixed `i`, this decreases from `i` (when `j=0`) to `0` (when `j=i-1`), proving inner termination.
+- **Lexicographic order:** Tuples compare component-wise. Decreases in either:
+  - Outer: When `i` increases (`N-1-i` decreases by 1), even if `j` resets.
+  - Inner: When `j` increases (`i-j` decreases by 1), while outer `i` is fixed.
+
+**Other loops:** The first and third loops use separate linear ranking functions (`N - i`), but the double loop is the critical part requiring nested ranking. Output focuses on it per standard practice. Constants in expressions account for fixed `N`.
+

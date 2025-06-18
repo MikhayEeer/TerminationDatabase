@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1 + (-2.0) * z^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates because the loop condition `(x > z && y > z)` ensures that both `x` and `y` start above `z`. In each iteration, both `x` and `y` are decremented by 1, reducing the value of the expression `x + y - 2*z` by exactly 2. This expression is a linear ranking function with the following properties:  
+- **Initial value:** When the loop starts, `x ≥ z+1` and `y ≥ z+1`, so `x + y - 2*z ≥ 2`.  
+- **Decrease per iteration:** Each assignment `x = x - 1; y = y - 1` reduces the expression by 2.  
+- **Bounded below:** The expression decreases by a fixed positive integer step (2) and is bounded below (since integer values cannot decrease indefinitely).  
+Thus, the loop must terminate after a finite number of iterations. The ranking function `x + y - 2*z` covers all states where the loop executes, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + (-1.0) * z^1
+
+**Explanation:**  
+The loop condition `(x > z && y > z)` ensures that both `x` and `y` are greater than `z` at the start of each iteration. The loop body decrements both `x` and `y` by 1. The ranking function `x - z` satisfies:  
+- **Non-negativity in loop:** When the loop condition holds, `x > z` implies `x - z ≥ 1 > 0`.  
+- **Strict decrease:** After one iteration, `x` becomes `x - 1`, so the new value of the ranking function is `(x - 1) - z = (x - z) - 1`, decreasing by exactly 1.  
+Since `x - z` decreases by at least 1 in each iteration and is bounded below (by 0 when the loop condition fails), the loop must terminate. The ranking function type is linear as it uses a linear combination of the program variables.
+

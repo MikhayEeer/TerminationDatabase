@@ -1,0 +1,52 @@
+=== Response 1 ===
+I'll analyze the program termination and provide a ranking function if applicable.
+
+The main function calls `cstrspn` on two non-deterministic strings. So, let's focus on the `cstrspn` function to determine termination.
+
+Looking at the `cstrspn` function, it has two nested loops:
+1. The outer loop iterates over characters in `s1` until it hits a null terminator
+2. The inner loop iterates over characters in `s2` until it hits a null terminator or finds a matching character
+
+Both loops advance one character at a time with no way to go back. Since strings are finite and null-terminated (enforced by the `__VERIFIER_nondet_String` function which always creates null-terminated strings), both loops will eventually terminate.
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+len(s1) - (sc1 - s1)  // For the outer loop
+len(s2) - (s - s2)    // For the inner loop
+
+Where len(s) represents the length of string s (position of the null terminator). 
+
+The outer loop decreases the distance to the end of string s1 with each iteration.
+The inner loop decreases the distance to the end of string s2 or to the matching character with each iteration.
+
+=== Response 2 ===
+I'll analyze the given program to determine if it terminates or not.
+
+The main function calls `cstrspn` with two strings obtained from `__VERIFIER_nondet_String()`. Let's focus on the `cstrspn` function, which computes the length of the initial segment of `s1` consisting entirely of characters in `s2`.
+
+In this function:
+1. We iterate through `s1` character by character until we reach the null terminator.
+2. For each character in `s1`, we search for it in `s2`.
+3. If the character is not found in `s2`, we return the current position in `s1`.
+4. If all characters in `s1` are found in `s2`, we return the length of `s1`.
+
+The function has two nested loops:
+- The outer loop iterates through each character in `s1` until the null terminator.
+- The inner loop iterates through each character in `s2` until it finds a matching character or reaches the null terminator.
+
+Since both `s1` and `s2` are null-terminated strings (guaranteed by `__VERIFIER_nondet_String()`), both loops will eventually terminate. The outer loop terminates when it reaches the end of `s1`, and the inner loop terminates when it reaches the end of `s2` or finds a matching character.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|s1| - (sc1 - s1)
+
+Where |s1| represents the length of the string s1. The ranking function decreases by 1 in each iteration of the outer loop as sc1 advances through s1, and the function terminates when sc1 points to the null terminator of s1.
+

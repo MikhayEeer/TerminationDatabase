@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+1.0 * n^1
+
+**Explanation:**  
+The program uses recursion without loops. Both recursive functions (`hanoi` and `applyHanoi`) decrease the parameter `n` by 1 in each recursive call until reaching their base cases (`n == 1` for `hanoi`, `n == 0` for `applyHanoi`). Since `n` is bounded (1 ≤ n ≤ 31) and strictly decreases in each call, the recursion depth is finite. Thus, the program terminates.  
+
+A linear ranking function `n` suffices for each function:  
+- For `hanoi(n)`: The value of `n` decreases toward 1.  
+- For `applyHanoi(n, ...)`: The value of `n` decreases toward 0.  
+
+The ranking functions are expressed as `1.0 * n^1` for both, indicating a linear dependency on `n`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+**Explanation:**  
+The program uses recursion on the parameter `n` in both `hanoi` and `applyHanoi` functions. Since `n` is bounded (1 ≤ n ≤ 31) and strictly decreases by 1 in each recursive call until reaching the base case (n=0 or n=1), the recursion depth is finite. A linear ranking function `n` suffices, as it decreases with each recursive step and is bounded below by the base cases. The initial check `n < 1 || n > 31` ensures `n` is within a finite range, guaranteeing termination.
+

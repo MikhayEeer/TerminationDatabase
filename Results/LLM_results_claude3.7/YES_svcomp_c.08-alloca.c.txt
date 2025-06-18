@@ -1,0 +1,46 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program has two nested loops: an outer loop that iterates while `*i_ref >= 0`, and an inner loop that iterates while `*j_ref <= *i_ref - 1`.
+
+For the inner loop:
+- `*j_ref` starts at 0
+- In each iteration, `*j_ref` is incremented by 1
+- The loop terminates when `*j_ref > *i_ref - 1`
+- Since `*i_ref` is constant within this loop, this is a simple counting loop which always terminates
+
+For the outer loop:
+- `*i_ref` starts at some input value
+- In each iteration, `*i_ref` is decremented by 1
+- The loop terminates when `*i_ref < 0`
+- As long as `*i_ref` starts at a finite value, this loop will always terminate
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * i_ref^1 + 1.0 * 1
+1.0 * (i_ref^1 - j_ref^1)
+
+The above ranking function shows:
+1. For the outer loop: i_ref + 1 (which decreases with each iteration and is bounded below by 1)
+2. For the inner loop: (i_ref - j_ref) (which decreases with each iteration and is bounded below by 0)
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x + 1 where x = *i_ref
+y, n - y where y = *j_ref and n = *i_ref
+
+The program is terminating. It has a nested loop structure where:
+
+1) The outer loop decreases *i_ref by 1 at each iteration and continues as long as *i_ref >= 0. So it will terminate after at most i+1 iterations (where i is the initial value).
+
+2) The inner loop increases *j_ref and continues until *j_ref > *i_ref - 1, which will happen after at most *i_ref iterations for each value of *i_ref.
+
+This can be proven with a nested ranking function where the outer measure is *i_ref + 1 and the inner measure is *i_ref - *j_ref.
+

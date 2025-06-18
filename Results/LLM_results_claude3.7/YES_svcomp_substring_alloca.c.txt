@@ -1,0 +1,51 @@
+=== Response 1 ===
+I need to analyze the termination of this program, which implements a substring search function.
+
+Let's examine the `substring` function:
+
+1. The first loop `while (*ps != '\0')` iterates through each character of string `s` until it reaches the null terminator.
+2. Inside this loop, there's another loop `while (*pt != '\0' && *pt == *ps2)` that checks if string `t` matches at the current position in `s`.
+
+For the program to terminate:
+- Both loops must eventually exit.
+- The first loop exits when we reach the end of string `s`, which is guaranteed because `s` is null-terminated.
+- The second loop exits either when we reach the end of string `t` or when we find a mismatch between characters in `s` and `t`.
+
+The main function allocates two strings and ensures they are null-terminated, so the termination conditions are met.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+length1 - (ps - s)
+length2 - (pt - t)
+
+The outer function measures progress as we move through string s (decreasing the remaining characters).
+The inner function measures progress through string t during each comparison (decreasing the remaining characters to check).
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program contains a `substring` function that checks if the string `t` is a substring of string `s`. Let's analyze its termination:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+strlen(s)
+strlen(t) - strlen(pt)
+
+The program terminates because:
+
+1. The outer loop iterates through each character of string `s` until reaching the null terminator. With each iteration, `ps` advances by 1, so this loop will always terminate in at most strlen(s) steps.
+
+2. The inner loop compares characters of `t` and a portion of `s` starting at the current `ps` position. This loop either:
+   - Terminates when it finds a mismatch between characters
+   - Terminates when it reaches the end of `t` (when `*pt == '\0'`)
+
+Each iteration of the inner loop advances `pt` forward, so it will terminate in at most strlen(t) steps.
+
+The nested ranking function shows that for each iteration of the outer loop, we reduce the length of the remaining string s, and for each iteration of the inner loop, we reduce the length of the remaining string t being compared.
+

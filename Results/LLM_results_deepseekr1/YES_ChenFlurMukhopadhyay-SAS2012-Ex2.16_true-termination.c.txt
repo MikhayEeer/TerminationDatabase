@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+(x - (y + 1)) != 0 ? 1 : 0
+x
+
+**Explanation:**  
+The program terminates for all inputs. A two-phase ranking function proves termination:  
+1. **Phase 1 (first iteration):** The first component `(x - (y + 1)) != 0 ? 1 : 0` evaluates to `1` if the state is initial (where `x` is not equal to `y + 1`), and decreases to `0` after the first iteration.  
+2. **Phase 2 (subsequent iterations):** The second component `x` decreases by at least 1 in each iteration (since `x` becomes the previous `y`, which is decreasing).  
+
+In lexicographic order:  
+- Phase 1 transitions from `1` to `0` (strict decrease).  
+- Phase 2 shows `x` strictly decreasing until the loop condition fails.  
+
+This accounts for all cases, including when `x` is initially non-positive (loop not entered) or when `y` is negative (phase 2 ends quickly). The non-linear condition `(x - (y + 1)) != 0` handles the phase distinction arithmetically.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+(x != y + 1) ? 1 : 0
+y
+
+### Explanation:
+The program terminates for all integer inputs. A multi-phase ranking function is used to prove termination:
+- **Component 1**: `(x != y + 1) ? 1 : 0`  
+  This component is 1 when the state does not satisfy the invariant `x = y + 1` (typically the first iteration), and 0 otherwise.
+- **Component 2**: `y`  
+  This component decreases by 1 in each subsequent iteration when the invariant holds.
+
+**Termination Argument**:
+1. **Phase 1 (Component 1 = 1)**: Occurs when `x != y + 1` (e.g., the first iteration). After one iteration, the state transitions to `(x', y') = (y, y - 1)`, which satisfies `x' = y' + 1`, moving to Phase 2. The lexicographic order decreases as `(1, y) > (0, y - 1)` since the first component drops to 0.
+2. **Phase 2 (Component 1 = 0)**: The invariant `x = y + 1` holds. The component `y` decreases by 1 each iteration and is bounded below by 0 (since the loop condition `x > 0` implies `y >= 0`). When `y` becomes 0, the next state `(x', y') = (0, -1)` fails the loop condition `x > 0`, terminating the loop.
+
+The lexicographic combination of these components ensures the ranking function decreases with each iteration, proving termination.
+

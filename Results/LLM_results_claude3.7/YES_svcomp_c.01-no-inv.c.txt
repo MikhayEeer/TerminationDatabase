@@ -1,0 +1,61 @@
+=== Response 1 ===
+To analyze the termination of this program, I'll examine both loops.
+
+The program has two nested loops:
+1. The outer loop runs while `x >= 0`
+2. The inner loop runs while `x > y`
+
+For the inner loop:
+- `y` starts at 1
+- `y` doubles in each iteration (y = 2*y)
+- `x` doesn't change in the inner loop
+
+Since `y` grows exponentially (1, 2, 4, 8, 16, ...), it will eventually exceed any finite value of `x`, causing the inner loop to terminate.
+
+For the outer loop:
+- After each iteration of the outer loop, `x` decreases by 1
+- Since the loop condition is `x >= 0`, it will eventually terminate when `x < 0`
+- Each iteration of the outer loop has a finite number of inner loop iterations
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x + 1
+⌈log₂(x+1)⌉ - ⌈log₂(y)⌉
+
+The nested ranking function shows:
+- The outer function `x + 1` decreases with each iteration of the outer loop
+- The inner function `⌈log₂(x+1)⌉ - ⌈log₂(y)⌉` decreases with each iteration of the inner loop until it becomes non-positive, causing the inner loop to exit
+
+=== Response 2 ===
+I'll analyze the program for termination.
+
+First, let me examine the nested loops:
+
+The outer loop runs while `x >= 0` and decrements `x` by 1 in each iteration.
+The inner loop runs while `x > y`, where at the beginning of each outer loop iteration, `y` is set to 1.
+In the inner loop, `y` doubles in each iteration (y = 2*y).
+
+For the inner loop:
+- Starting with y = 1
+- y becomes 2, 4, 8, 16, 32, ... (doubles each time)
+- This exponential growth ensures that eventually y will exceed any finite value of x
+- Therefore, the inner loop always terminates for any finite value of x
+
+For the outer loop:
+- x decreases by 1 in each iteration
+- Eventually, x becomes negative, and the loop terminates
+- The decrement happens regardless of what happens in the inner loop
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x + 1.0
+log2(max(x+1, 1)) - log2(y)
+
+The outer function shows that x is decreasing toward -1, and the inner function shows that the logarithmic difference between x and y is decreasing (as y doubles, the logarithmic gap closes exponentially fast).
+

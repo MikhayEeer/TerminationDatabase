@@ -1,0 +1,12 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `i <= 2147483647` (where 2147483647 is INT_MAX for 32-bit integers) is always true for all possible values of `i` in the signed 32-bit range. Incrementing `i` when it is INT_MAX causes integer overflow (undefined behavior in C, but typically wraps to INT_MIN in two's complement), creating a cycle from INT_MIN to INT_MAX that never exits the loop.
+
+=== Response 2 ===
+[RESULT]
+NONTERM
+[REASON]
+The loop condition `i <= 2147483647` (where 2147483647 is INT_MAX) holds for all integers due to wrap-around behavior. When `i` reaches INT_MAX, incrementing it causes integer overflow (wrapping to INT_MIN), making the condition perpetually true regardless of the initial value. Thus, the loop never exits for any input where the initial `i` is ≤ INT_MAX, which is possible via `__VERIFIER_nondet_int()`.
+

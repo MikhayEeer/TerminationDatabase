@@ -1,0 +1,25 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 1.0 *  c^1
+
+**Explanation:**  
+The program terminates because the expression \(x + c\) serves as a valid linear ranking function. In each loop iteration:
+- The loop condition requires \(x + c \geq 0\), ensuring the ranking function is non-negative at the start of each iteration.
+- After updates \(x' = x - c\) and \(c' = c + 1\), the new value becomes \(x' + c' = (x - c) + (c + 1) = x + 1\).
+- The decrease is \((x + c) - (x + 1) = c - 1 \geq 1\) (since \(c \geq 2\) at loop entry), proving a minimum decrease of 1 per iteration.
+- The ranking function is bounded below by 0 in the loop body, and its integer-valued decreases guarantee termination.
+
+=== Response 2 ===
+The program terminates. The loop condition depends on the expression `x + c >= 0`, and in each iteration, `x` is decremented by `c` and `c` is incremented by 1. The value of `x + c` at the start of each iteration decreases by at least 1 (specifically, by `c - 1`, where `c >= 2` initially and increases, ensuring the decrement is at least 1). Since `x + c` starts non-negative and decreases by at least 1 each iteration, it will eventually become negative, causing the loop to terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * c^1
+

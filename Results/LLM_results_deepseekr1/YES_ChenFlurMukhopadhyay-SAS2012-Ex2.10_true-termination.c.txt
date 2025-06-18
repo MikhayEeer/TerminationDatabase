@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+The loop condition requires both `x > 0` and `y < 0`. In each iteration:
+- `x` is updated to `x + y` (where `y < 0`, so `x` decreases by at least `|y|`).
+- `y` is decremented by 1 (becoming more negative).
+
+Since `y` is a negative integer (`y ≤ -1`), the decrease in `x` is at least 1 per iteration. The value of `x` starts positive and decreases monotonically by at least 1 each iteration until it becomes non-positive, at which point the loop condition `x > 0` fails. Thus, the loop terminates.  
+
+A linear ranking function `f(x, y) = x` suffices:
+- **Non-negativity:** In the loop, `x > 0` (so `f ≥ 1`).
+- **Decrease:** After one iteration, `f' = x + y < x = f` (since `y < 0`), with a decrease of at least `|y| ≥ 1`.
+- **Boundedness:** `x` decreases until it becomes non-positive, terminating the loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + 0.0 *  y^1 + 0.0
+
+**Explanation:** The loop condition requires `x > 0 && y < 0`. Within the loop, `y` is decremented (becoming more negative) but remains negative if initially negative. The assignment `x = x + y` decreases `x` since `y < 0`, and due to integer constraints, `y ≤ -1`, so `x` decreases by at least 1 per iteration. As `x` is bounded below by 0 in the loop body (since the loop condition requires `x > 0`), it must eventually become non-positive. Thus, the loop terminates. The ranking function `x` decreases monotonically and is bounded below.
+

@@ -1,0 +1,35 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+k - min(i,j)
+
+**Explanation:**
+The termination is proven using the piecewise ranking function \( r = k - \min(i, j) \). At each loop head, \( r \) is nonnegative because the condition \( j \leq k \) (from the loop guard) ensures \( k \geq j \geq \min(i,j) \). During each iteration:
+- The state update is \((i, j, k) \to (j, i+1, k-1)\).
+- The ranking function decreases by at least 1: if \( i \leq j \), then \( r \) decreases from \( k - i \) to \( (k-1) - \min(j, i+1) \), which is \(\leq k - i - 1\). Similarly, if \( j < i \), it decreases from \( k - j \) to \( k - 1 - j \).
+
+Since \( r \) is a nonnegative integer strictly decreasing each iteration, the loop must terminate. The use of \(\min\) makes the function piecewise-linear, fitting the piecewise ranking function category.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+max(101 - i, 101 - j)
+k
+
+**Explanation:**  
+The program terminates as the lexicographic ranking function \((f_1, f_2) = (\max(101 - i, 101 - j), k)\) strictly decreases with each iteration:
+1. **First component** \(f_1 = \max(101 - i, 101 - j)\):
+   - At loop entry, \(i \leq 100\) and \(j \leq k\) (loop condition). If \(j > 100\), then \(f_1 = 101 - i \geq 1\) (since \(i \leq 100\)); if \(j \leq 100\), then \(f_1 \geq 1\).
+   - After one iteration \((i, j, k) \to (j, i+1, k-1)\), \(f_1\) either decreases or remains the same. If it remains the same, the second component decreases.
+2. **Second component** \(f_2 = k\):
+   - Decreases by 1 regardless of the iteration sequence.
+   - Used to break ties when \(f_1\) remains unchanged.
+
+The function is bounded below because \(f_1\) always exceeds 0 in the loop (ensured by \(i \leq 100\) and update patterns). The lexicographic order ensures eventual termination as at least one component decreases strictly per iteration.
+

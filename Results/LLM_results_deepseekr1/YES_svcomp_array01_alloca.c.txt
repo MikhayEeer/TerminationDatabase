@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+1.0 * N - 1.0 * i
+max(0, a[i])
+
+Explanation:
+The program uses a nested loop structure. The outer loop runs exactly N times (bounded by array size), and for each element, the inner loop runs at most `max(0, a[i])` times (handling positive values). The lexicographic ranking function ensures termination:
+- First component: `N - i` (number of remaining array elements) decreases by 1 when moving to the next element.
+- Second component: `max(0, a[i])` decreases by 1 during each inner-loop iteration while processing the current element.
+
+At each step (inner-loop decrement or outer-loop progression), the ranking tuple decreases lexicographically, proving termination. Uninitialized array values behave safely: non-positive values skip the inner loop.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * N^1 - 1.0 * i^1
+1.0 * a[i]^1
+
+### Explanation:
+The program processes an array of size `N` (≥1) with uninitialized elements. Termination is proven via a multi-phase ranking function:
+1. **Outer loop (for each element):** The expression `N - i` decreases by 1 when moving to the next element (after processing the current one). Since `i` increments from 0 to `N-1`, `N - i` starts at `N` (≥1) and decreases to 1, ensuring progress.
+2. **Inner loop (for current element):** The expression `a[i]` decreases by 1 in each iteration of the inner loop (while `a[i] > 0`). Since `a[i]` is finite and nonnegative during the inner loop, it eventually reaches 0, causing the loop to exit.
+
+The lexicographic combination of these phases guarantees termination: the inner loop completes for each element (second phase), and the outer loop advances until all elements are processed (first phase). Negative array elements skip the inner loop but still allow the outer loop to progress via the first ranking function.
+

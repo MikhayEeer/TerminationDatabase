@@ -1,0 +1,27 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+20.0 * 1 + (-1.0) * (*i)^1
+
+**Explanation:**  
+The program terminates because the loop runs a fixed number of times. The variable `*i` starts at 0 and increments by 1 in each iteration until it reaches 20, at which point the loop condition `*i < 20` fails. The ranking function `20 - *i` is linear and decreases by exactly 1 in every iteration:  
+- Initial value: `20 - 0 = 20`  
+- After each iteration: `*i` increases by 1 → ranking function decreases by 1  
+- When `*i = 19`, the value is `1`; after incrementing to `20`, the loop exits.  
+The ranking function remains non-negative throughout the loop and strictly decreases, proving termination. The `continue` statement does not affect the monotonic decrease.
+
+=== Response 2 ===
+The program always terminates. Although `*i` starts at 0 and increments each iteration, it is bounded by the loop condition `*i < 20`. After 20 iterations, `*i` becomes 20, the loop condition fails, and the program terminates.
+
+The ranking function is based on the variable `*i`, which increases monotonically towards 20. The expression `20 - *i` decreases by 1 each iteration and is bounded below by 0, proving termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * *i^1 + 20.0 * 1
+

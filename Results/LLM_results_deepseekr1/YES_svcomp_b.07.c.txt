@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x - z
+
+**Explanation:**  
+The loop terminates because in each iteration, both `x` and `y` decrease by 1 while `z` remains constant. The loop condition `(x > z) && (y > z)` ensures that as long as both variables exceed `z`, the loop continues. However, since `x` and `y` decrease synchronously, the loop will exit after at most `min(x - z, y - z)` iterations when either variable becomes less than or equal to `z`. 
+
+A linear ranking function `x - z` suffices:
+- **Non-negative in loop:** When entering the loop, `x > z` holds, so `x - z > 0`.
+- **Decreases by 1:** Each iteration decrements `x` by 1, so `x - z` decreases by exactly 1.
+- **Bounded below:** The value is bounded by 0 (when `x <= z`), ensuring termination.
+
+Although `y - z` could also serve as a ranking function, `x - z` is chosen here for simplicity. The loop exits when either `x <= z` or `y <= z`, but the ranking function's decrease guarantees termination regardless of which condition fails first.
+
+=== Response 2 ===
+The program features a `while` loop with the condition `(x > z) && (y > z)`. Within each iteration, both `x` and `y` are decremented by 1. The loop terminates when either `x <= z` or `y <= z`.
+
+### Termination Analysis:
+The loop will terminate for any integer values of `x`, `y`, and `z`. The termination is guaranteed because:
+- The loop runs only if both `x > z` and `y > z`.
+- In each iteration, `x` and `y` decrease by 1, so both values move closer to `z`.
+- The number of iterations is bounded by `min(x - z, y - z)`. Since `x - z` and `y - z` are integers, and the loop stops when at least one becomes 0 (i.e., `x <= z` or `y <= z`), the loop cannot run infinitely.
+
+### Ranking Function:
+A linear ranking function proves termination. The function `x + y - 2*z`:
+- Is linear with integer coefficients.
+- **Nonnegative in loop**: At loop entry, `x > z` and `y > z` imply `x >= z + 1` and `y >= z + 1`, so `x + y - 2*z >= 2`.
+- **Decreases by at least 1 each iteration**: Each iteration decreases `x` and `y` by 1, so the function decreases by 2 (a fixed positive integer). 
+
+The well-founded ordering of integers ensures termination, as the function starts at a finite integer `>= 2` and strictly decreases but remains bounded below (it cannot decrease indefinitely).
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x^1 + 1.0 * y^1 + (-2.0) * z^1
+

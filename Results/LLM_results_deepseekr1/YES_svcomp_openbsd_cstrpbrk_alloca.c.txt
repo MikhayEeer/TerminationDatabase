@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1.0 * s1^1 + 0.0 * scanp^1 + 0.0 * c^1 + 0.0 * sc^1 + 0.0 * 1
+-1.0 * scanp^1 + 0.0 * s1^1 + 0.0 * c^1 + 0.0 * sc^1 + 0.0 * 1
+
+### Explanation:
+The program terminates because both loops are guaranteed to complete within finite bounds:
+1. **Outer Loop**: Iterates through `s1` until it encounters the null terminator. The pointer `s1` increments by 1 per iteration, and since the string is null-terminated (via `nondetString1[length1-1] = '\0'`), the loop runs at most `length1 - 1` times.
+2. **Inner Loop**: For each character in `s1`, it scans `s2` until it finds a match or hits the null terminator. The pointer `scanp` increments by 1 per inner iteration, bounded by `length2 - 1` iterations per outer iteration.
+
+**Ranking Function Justification**:
+- **Multi-phase ranking function** is used due to nested loops.
+- **First component**: `-1.0 * s1` measures progress in the outer loop. As `s1` increases (pointer advances), the value decreases until the null terminator is reached.
+- **Second component**: `-1.0 * scanp` measures progress in the inner loop. As `scanp` increases, the value decreases until the null terminator in `s2` is found or the loop breaks early.
+- Constants are zero as the absolute addresses of null terminators are unknown, but the relative pointer advancement ensures termination. The coefficients reflect the pointer increments (1 per step), and the negative signs ensure the functions decrease appropriately. Boundedness is guaranteed by the null terminators.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+strlen(s1)   // Outer loop measure: decreases by 1 per outer iteration
+strlen(scanp) // Inner loop measure: decreases by 1 per inner iteration
+
+**Explanation:**  
+The program always terminates because:
+1. Both strings `nondetString1` and `nondetString2` are null-terminated (last character explicitly set to `'\0'`).
+2. In `cstrpbrk`:
+   - **Outer loop** iterates over `s1` until hitting `'\0'`. Since `s1` has at most `length1 - 1` non-null characters, the loop runs at most `length1` times.
+   - **Inner loop** for each character in `s1` iterates over `s2` until hitting `'\0'`. Since `s2` has at most `length2 - 1` non-null characters, it runs at most `length2` times per outer iteration.
+3. **Termination argument**:  
+   - Lexicographic ranking function `(strlen(s1), strlen(scanp))` ensures termination:
+     - `strlen(s1)` decreases by 1 in each outer iteration (as `s1` advances).
+     - `strlen(scanp)` decreases by 1 in each inner iteration (as `scanp` advances), reset to `strlen(s2)` when the inner loop restarts.
+   - Both measures are bounded below by 0 and strictly decrease in their respective loops.
+

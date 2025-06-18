@@ -1,0 +1,39 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x + 0.0 * y + 0.0
+log2(max(1, x - y + 1))
+
+The program is terminating because:
+1. The outer loop decreases x by 1 in each iteration and terminates when x < 0
+2. The inner loop increases y exponentially (doubling it each time), which will eventually exceed x for any initial value of x, causing the inner loop to terminate
+3. The condition at "if (y <= 0)" is never satisfied because y is set to 1 before entering the inner loop
+
+The nested ranking function captures this behavior with:
+- The outer component (x) decreases linearly
+- The inner component represents the logarithmic bound on the number of iterations needed for y to exceed x (since y grows exponentially)
+
+=== Response 2 ===
+I'll analyze the termination of this program.
+
+In the outer loop, we have `while (*x_ref >= 0)` and inside we have `*x_ref = *x_ref - 1`. This means x decreases by 1 in each iteration of the outer loop and will eventually become negative, causing the loop to terminate.
+
+For the inner loop `while (*x_ref > *y_ref)`, y starts at 1 and doubles each iteration. Since y grows exponentially (y = 2^k where k is the number of iterations), it will quickly exceed any finite value of x, causing the inner loop to terminate.
+
+The condition `if (*y_ref <= 0)` is unreachable since y starts at 1 and only grows from there.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+*x_ref + 1
+⌈log₂(*x_ref + 1)⌉ - ⌈log₂(*y_ref)⌉
+
+The nested ranking function captures that:
+1. The outer measure decreases by 1 each iteration of the outer loop
+2. The inner measure bounds the number of doubling operations needed for y to exceed x
+

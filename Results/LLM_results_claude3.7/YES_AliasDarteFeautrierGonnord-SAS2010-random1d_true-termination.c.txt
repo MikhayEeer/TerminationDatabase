@@ -1,0 +1,55 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+The program:
+1. Initializes variables: max (from non-deterministic input), a=0, x=1
+2. Enters a while loop if max > 0
+3. Inside the loop: 
+   - It either increments or decrements 'a' based on a non-deterministic choice
+   - Increments 'x' by 1 in each iteration
+   - Loop condition is x <= max
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+max - x + 1
+
+The program terminates because:
+1. The loop only executes if max > 0
+2. x starts at 1 and increases by exactly 1 in each iteration
+3. The loop condition x <= max ensures the loop will terminate after at most max iterations
+4. The value of 'a' doesn't affect the termination behavior since it doesn't influence the loop condition or x's progression
+
+The ranking function max - x + 1 starts positive (when x = 1 and max > 0) and decreases by exactly 1 in each iteration, reaching 0 when x = max + 1, which is precisely when the loop terminates.
+
+=== Response 2 ===
+I'll analyze whether this program terminates and provide a ranking function if it does.
+
+The key loop is:
+```c
+while (x <= max) {
+    if (__VERIFIER_nondet_int())
+        a = a + 1;
+    else
+        a = a - 1;
+    x = x + 1;
+}
+```
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+1.0 * max - 1.0 * x + 1.0
+
+This program always terminates because regardless of the non-deterministic choice inside the loop, the variable `x` increases by 1 in each iteration. The loop guard `x <= max` ensures that the loop will terminate after at most `max - x + 1` iterations (where x starts at 1). The variable `a` changes in each iteration, but it doesn't affect the termination behavior of the program.
+
+The ranking function `max - x + 1` starts at `max` and decreases by 1 in each iteration until it reaches 0, at which point the loop terminates.
+

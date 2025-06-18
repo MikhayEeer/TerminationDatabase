@@ -1,0 +1,21 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Explanation:**  
+The program involves mutual recursion between `f` and `f2`, starting with `f(4)`. Each function decrements `n` before calling the other. The recursion continues only when `n >= 3`, and `n` decreases by at least 1 in each recursive step (e.g., `f(4) → f2(3) → f(2)`). Since `n` is a non-negative integer that strictly decreases with each call, it serves as a linear ranking function. When `n < 3`, the base case is reached, and the program proceeds to the `ERROR` label (terminating via `__VERIFIER_error()`). The ranking function `n` guarantees termination by bounding the recursion depth.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 - 2.0 * 1
+
+Explanation: The program features mutual recursion between functions `f` and `f2`. Both functions decrement the integer parameter `n` by 1 before calling the other function via recursion, provided `n >= 3`. The base case occurs when `n < 3`, halting recursion. The parameter `n` strictly decreases by 1 with each recursive call and is bounded below by 2 (since recursion stops at `n < 3`). The linear ranking function `n - 2` is defined for states where `n >= 3`. At function entry, if `n >= 3`, the rank is `n - 2`. Each recursive call reduces the rank by at least 1 (since the next function call receives `n - 1`, yielding rank `(n - 1) - 2 = n - 3`, which is less than `n - 2`). The rank is non-negative for all relevant states (`n >= 2` where recursion occurs). Thus, the program terminates.
+

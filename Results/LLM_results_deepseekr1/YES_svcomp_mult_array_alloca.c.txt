@@ -1,0 +1,36 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * length^1 + (-1.0) * i^1
+1.0 * (length * fac)^1 + (-1.0) * j^1
+
+**Explanation:**  
+The program consists of two sequential loops.  
+- **First loop**: Iterates `i` from 0 to `length-1`. The expression `length - i` decreases from `length` to 1 (strictly decreasing by 1 per iteration).  
+- **Second loop**: Iterates `j` from 0 to `length * fac - 1`. The expression `length * fac - j` decreases from `length * fac` to 1 (strictly decreasing by 1 per iteration).  
+
+Since both loops have fixed bounds and execute sequentially, termination is guaranteed. The multi-phase ranking function validates termination: the first component applies during the first loop, and the second applies during the second loop. Each component is affine in the loop variables and decreases monotonically.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+-1.0 * i^1 + 1.0 * length^1
+-1.0 * j^1 + 1.0 * (length * fac) * 1
+
+**Explanation:**  
+The program consists of two sequential loops, both terminating due to fixed bounds.  
+- **First loop** (`for (i=0; i<length; i++)`):  
+  Runs exactly `length` iterations. Ranking function: `length - i` (decreases linearly from `length` to 0).  
+- **Second loop** (`for (j=0; j<length*fac; j++)`):  
+  Runs exactly `length * fac` iterations. Ranking function: `(length * fac) - j` (decreases linearly from `length * fac` to 0).  
+
+Each loop uses a **linear ranking function** expressed in the format:  
+`[coefficient] * [variable]^1` for variable terms and `[coefficient] * [constant] * 1` for constant terms.  
+No multi-phase, nested, or piecewise ranking is needed as the loops are independent and bounded.
+

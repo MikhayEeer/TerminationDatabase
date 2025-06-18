@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]  
+TERMINATE  
+
+[RANKING FUNCTION TYPE]  
+linear  
+
+[RANKING FUNCTIONS]  
+1.0 * N + (-1.0) * i  
+
+**Explanation:**  
+The program terminates because the loop runs for a fixed number of iterations, determined by the loop counter `i` and the constant `N = 10`. The loop condition `i < N` depends only on `i`, which increments by 1 in each iteration regardless of the non-deterministic choices for `r`. Thus, `i` increases from 0 to 10, causing the loop to exit after exactly 10 iterations.  
+
+The ranking function `f(i) = N - i` is linear and decreases by exactly 1 in each iteration, starting from 10 and reaching 0, proving termination. Variables `x` and `y` do not affect termination and are omitted from the ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * N^1 - 1.0 * i^1
+
+**Explanation:**  
+The program terminates because the loop runs for exactly `N` iterations (with `N` fixed to 10). The loop counter `i` starts at 0 and increments by 1 each iteration until `i >= N`. The non-deterministic updates to `x` and `y` do not affect the loop condition. A linear ranking function `f(i) = N - i` suffices:  
+- It is **nonnegative** (since `i ≤ N` in the loop).  
+- It **strictly decreases** by 1 each iteration (as `i` increases by 1).  
+- It reaches 0 when `i = N`, causing loop exit.  
+
+The ranking function uses program variables `N` (constant) and `i` (loop counter).
+

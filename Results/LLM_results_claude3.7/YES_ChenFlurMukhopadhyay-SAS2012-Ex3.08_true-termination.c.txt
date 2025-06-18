@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+Given program:
+- We have variables x, y, and z with non-deterministic initial values
+- Loop condition: x - y > 0
+- Loop body:
+  - x = -x + y
+  - y = z
+  - z = z + 1
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * max(0, x - y)
+
+The program terminates because in each iteration:
+1. If x - y > 0, then after the assignment x = -x + y, the value of x becomes -(x - y) + y = -x + y + y = -x + 2y, which makes x - y = (-x + 2y) - y = -x + y
+2. Since the initial value of x - y is positive (due to the loop condition), after one iteration it becomes negative (changing from x - y to -x + y = -(x - y))
+3. This ensures that the loop condition x - y > 0 will be false after at most one iteration, guaranteeing termination
+
+The linear ranking function max(0, x - y) decreases in each iteration and is bounded below by 0, proving termination.
+
+=== Response 2 ===
+I'll analyze this program to determine if it terminates.
+
+The program has a loop that continues as long as `x - y > 0`. In each iteration:
+1. x = -x + y
+2. y = z
+3. z = z + 1
+
+Let me analyze this:
+- The variable z increases by 1 in each iteration, so z grows linearly
+- y gets the value of z at each step, so y also increases over time
+- x becomes -x + y, which means it changes drastically each iteration
+
+Since y increases monotonically (taking on the value of the ever-increasing z), eventually y will become large enough that the condition x - y > 0 will fail, no matter what x is.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+max(x - y, 0)
+
+The ranking function shows that the difference x - y (when positive) will eventually decrease to zero or less. When x - y ≤ 0, the loop terminates. The assignment x = -x + y ensures that if x - y > 0 before an iteration, this value will decrease, as the new x - y becomes (-x + y) - z = (-x + y) - y_new < 0 when the original x - y was positive.
+

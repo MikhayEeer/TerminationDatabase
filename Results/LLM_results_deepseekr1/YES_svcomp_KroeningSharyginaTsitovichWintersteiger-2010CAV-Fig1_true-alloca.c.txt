@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+Define F(x) = 
+  if (x >= 255)
+    then 0
+  else if (x % 2 == 0)
+    then 1 + F(x+2)
+  else
+    2 + F(x+1)
+
+Explanation: The function F(x) computes the minimum number of steps needed for the loop to terminate from state x. It decreases by at least 1 with each iteration:
+- If x is even and x < 255, executing x += 2 reduces F(x) from 1 + F(x+2) to F(x+2).
+- If x is odd and x < 255, the iteration sets x -= 1 (making it even). In the next iteration, F(x) will be 1 + F(x+1), and since the current F(x) was 2 + F(x+1), comparing across iterations shows a net decrease.
+The recursion terminates because x increases towards 255 in bounded steps (even if x is initially negative). Signed integer overflow is not considered due to standard termination analysis assumptions on integer behavior.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * phi + 0.0   where phi = (x mod 2 != 0) ? 1 : 0
+256.0 - x + phi * 1.0 + 0.0
+
+**Explanation:**  
+The program always terminates because the loop condition `*x < 255` will eventually become false regardless of the initial value of `x`. The ranking function uses two components:  
+1. **Phase component (phi):** Indicates parity (1 for odd, 0 for even).  
+2. **Value component (256 - x + phi):** Measures progress toward termination.  
+
+- When `x` is even (`phi = 0`), the value component is `256 - x`. After an iteration, `x` increases by 2, so the component decreases by 2.  
+- When `x` is odd (`phi = 1`), the value component is `257 - x`. After an iteration, `x` becomes `x-1` (even), and the new state has `phi = 0` and value component `256 - (x-1) = 257 - x`, identical to the old value. The lexicographic order decreases because phase drops from 1 to 0.  
+Lexicographic ordering ensures termination: (phase decreases) OR (phase unchanged and value component decreases). The ranking functions are affine with coefficients chosen to reflect this behavior.
+

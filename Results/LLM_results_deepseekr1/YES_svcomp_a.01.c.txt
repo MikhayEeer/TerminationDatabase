@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * x^1
+1.0 * x^1 - 1.0 * y^1
+
+**Explanation:**  
+The program terminates because the outer loop runs at most `x` times (initial value), and in each iteration, the inner loop runs at most `x` times (current value). The ranking functions prove termination:
+- **Outer loop:** The expression `x` decreases by 1 in each iteration (after the inner loop completes) and is bounded below by 0.
+- **Inner loop:** The expression `x - y` decreases by 1 in each iteration (since `y` increases) and is bounded below by 0. The inner loop resets `y=0` at the start of each outer iteration, ensuring the ranking function is well-defined. The lexicographic combination of these phases guarantees termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x
+x - y
+
+### Explanation:
+- **Termination Reason**: The outer loop runs while `x > 0`, and `x` is decremented by `1` in each iteration. The inner loop runs while `y < x`, starting at `y = 0` and incrementing `y` until it reaches `x`. Since `x` decreases monotonically from its initial value (which is finite) and is bounded below by `0`, the outer loop must terminate. The inner loop always terminates within each outer iteration because `y` increases from `0` to `x` in finite steps.
+- **Nested Ranking Functions**:
+  - **Outer loop**: `x` decreases by `1` per outer iteration and is bounded below by `0`.
+  - **Inner loop**: `x - y` decreases by `1` per inner iteration (since `y` increases) and is bounded below by `0` (as `y < x`). The value of `x` remains fixed during inner loop execution, and `x - y` is reset to `x` (when `y=0`) at the start of each outer iteration. The inner ranking is bounded by the outer ranking `x`, ensuring lexicographic descent.
+

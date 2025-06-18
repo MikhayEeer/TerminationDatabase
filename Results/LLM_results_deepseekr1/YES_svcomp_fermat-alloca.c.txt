@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1000000 * (1000 - *c) + 1000 * (1000 - *b) + (1000 - *a)
+
+**Explanation:**  
+The program searches for integer solutions to \(a^3 = b^3 + c^3\) within the range \(1 \leq a, b, c \leq 1000\). It uses nested loops iterating over `c` (outer), `b` (middle), and `a` (inner). The total number of iterations is bounded by \(1000^3 = 1,000,000\), which is finite. The ranking function:
+- Computes a linear combination of the remaining "distance" to the maximum value (1000) for each variable.
+- Decreases by at least 1 in every loop iteration (verified during state transitions, including resets).
+- Is non-negative and reaches 0 when \(a = b = c = 1000\), proving termination.  
+The expression uses dereferenced pointer values (`*a`, `*b`, `*c`) and constants derived from the fixed `MAX = 1000`.
+
+=== Response 2 ===
+The program will terminate because it exhaustively checks all combinations of `a`, `b`, and `c` from 1 to 1000. The loops are structured such that `a`, `b`, and `c` are incremented in a nested fashion:
+- `a` is incremented repeatedly until it exceeds 1000, then resets to 1 and `b` is incremented.
+- When `b` exceeds 1000, it resets to 1 and `c` is incremented.
+- When `c` exceeds 1000, the loop breaks.
+
+The ranking function is linear and decreases by at least 1 in each iteration of the loop. It is defined in terms of the dereferenced pointers `*a`, `*b`, and `*c`, which represent the current values of `a`, `b`, and `c` respectively. The expression sums these values with weights that account for their nested loop structure, ensuring a strict decrease until termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1001001001 - *a - 1000 * *b - 1000000 * *c
+

@@ -1,0 +1,65 @@
+=== Response 1 ===
+I'll analyze this program for termination:
+
+```c
+int test_fun(int x, int y, int tmp) {
+    while (x > y) {
+        tmp = x;
+        x = y;
+        y = tmp;
+    }
+    return tmp;
+}
+```
+
+The loop behavior is straightforward:
+1. If initially x ≤ y, the loop doesn't execute at all
+2. If initially x > y, after one iteration:
+   - tmp becomes x
+   - x becomes y (which is smaller than original x)
+   - y becomes the original value of x (which is larger than original y)
+   
+After one iteration, we have swapped x and y. Since x was initially greater than y, now y is greater than x, making x ≤ y. This causes the loop condition (x > y) to become false, and the loop terminates.
+
+The program therefore always terminates after at most one loop iteration.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * ite(x > y, 1, 0)
+
+This ranking function evaluates to 1 if x > y (loop will execute) and 0 otherwise (loop won't execute), demonstrating that the loop executes at most once.
+
+=== Response 2 ===
+Analyzing the program:
+
+```c
+while (x > y) {
+    tmp = x;
+    x = y;
+    y = tmp;
+}
+```
+
+In this loop:
+1. If initially x ≤ y, the loop doesn't execute at all.
+2. If initially x > y, then after one iteration, we have:
+   - tmp = x (original value)
+   - x = y (original value)
+   - y = x (original value)
+
+After this iteration, x ≤ y will be true because x now has the smaller value (original y) and y has the larger value (original x). This means the loop condition becomes false after exactly one iteration.
+
+Therefore, this program always terminates, and we can prove it with a simple ranking function:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x > y)
+
+This ranking function is 1 when the loop condition is true (x > y) and 0 otherwise. Since the loop executes at most once, this simple function decreases by exactly 1 on each iteration and reaches 0 when the loop terminates.
+

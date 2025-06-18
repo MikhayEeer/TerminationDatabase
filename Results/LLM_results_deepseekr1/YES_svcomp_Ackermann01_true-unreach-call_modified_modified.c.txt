@@ -1,0 +1,46 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+67108862 * m + 1 * n
+
+### Explanation:
+The program implements the Ackermann function with bounded inputs (m ∈ [0, 3] and n ∈ [0, 23]). The Ackermann function is total for non-negative integers, and within these bounds, all recursive calls terminate. 
+
+**Termination Proof**:  
+The recursion terminates because each call reduces the problem size lexicographically:
+1. When `n == 0`, the call `ackermann(m-1, 1)` decreases `m`.
+2. When `n > 0`, the inner call `ackermann(m, n-1)` decreases `n` (same `m`), and the outer call `ackermann(m-1, ...)` then decreases `m` (with arbitrary new `n`).
+
+**Ranking Function**:  
+A linear ranking function `f(m, n) = 67108862 * m + n` suffices because:
+- It decreases on every recursive call:
+  - **Case `n > 0` (inner call)**: `f(m, n-1) = 67108862*m + (n-1) < f(m, n)`.
+  - **Case `n > 0` (outer call)**: For `ackermann(m-1, k)` where `k = ackermann(m, n-1)`, we have `f(m-1, k) = 67108862*(m-1) + k < 67108862*m + n` since `k ≤ 67108861` (max value for `m=3, n=23`) and `67108861 < 67108862`.
+  - **Case `n == 0`**: `f(m-1, 1) = 67108862*(m-1) + 1 < 67108862*m` (since `1 < 67108862`).
+- The constant `67108862` is derived from the maximum possible return value of `ackermann(3, 22) = 2²⁶ - 3 = 67108861`, ensuring `k < 67108862` for all bounded inputs.
+
+This linear ranking function proves termination for the recursion in `ackermann`, which implies the entire program terminates.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * m + 0.0 * n + 0.0
+0.0 * m + 1.0 * n + 0.0
+
+### Explanation:
+The program implements the Ackermann function with bounded inputs (`m` in [0,3] and `n` in [0,23]). The termination argument relies on the lexicographic ordering of the parameters `(m, n)` in the recursive calls of `ackermann`:
+- **Phase 1 (Primary):** The value of `m` decreases or remains the same. When `m` decreases (e.g., in `ackermann(m-1, 1)` or `ackermann(m-1, ...)`), the first component of the ranking function decreases.
+- **Phase 2 (Secondary):** When `m` remains the same (e.g., in `ackermann(m, n-1)`), the value of `n` decreases.
+
+The ranking functions are:
+- First component: `1.0 * m + 0.0 * n + 0.0` (ensures `m` decreases)
+- Second component: `0.0 * m + 1.0 * n + 0.0` (ensures `n` decreases when `m` is unchanged)
+
+Since `(m, n)` are non-negative and bounded, and each recursive call reduces the lexicographic order, the recursion terminates. The main function restricts inputs to safe bounds and has no loops, so the entire program terminates.
+

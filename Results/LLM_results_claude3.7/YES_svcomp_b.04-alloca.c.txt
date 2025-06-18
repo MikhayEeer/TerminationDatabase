@@ -1,0 +1,42 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+max(0, x - y)
+
+The program is terminating because after the first iteration (if x > y initially), the values of x and y will be swapped, making x ≤ y, which immediately causes the loop to exit. The linear ranking function max(0, x - y) decreases by at least 1 in each iteration and is bounded from below by 0, ensuring termination.
+
+The program can terminate in at most 1 iteration: either x ≤ y initially (terminates immediately) or x > y initially (terminates after one swap).
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The core of this program is the while loop in the `test_fun` function:
+```c
+while (*x_ref > *y_ref) {
+    *tmp_ref = *x_ref;
+    *x_ref = *y_ref;
+    *y_ref = *tmp_ref;
+}
+```
+
+Let's analyze what happens in this loop:
+1. If `*x_ref` is less than or equal to `*y_ref`, the loop doesn't execute at all.
+2. If `*x_ref` is greater than `*y_ref`, then:
+   - We store `*x_ref` in `*tmp_ref`
+   - We set `*x_ref` to `*y_ref`
+   - We set `*y_ref` to the old value of `*x_ref` (which is now in `*tmp_ref`)
+
+After a single iteration, `*x_ref` will be the minimum of the original `*x_ref` and `*y_ref`, and `*y_ref` will be the maximum. Since `*x_ref` ≤ `*y_ref` after the first iteration, the loop condition `*x_ref > *y_ref` will be false and the loop terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * 1
+
+The program always terminates after at most one iteration of the loop, so a constant ranking function of 1 is sufficient.
+

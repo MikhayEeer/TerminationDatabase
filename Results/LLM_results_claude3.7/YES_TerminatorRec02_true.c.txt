@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+The program is terminating because the recursive function `fact(x)` has a clear base case and a decreasing parameter. Each recursive call decreases `x` by 1 (when `x > 1`), and the recursion stops when `x <= 1`. 
+
+The ranking function is simply `x` since:
+1. It is initially bounded (we have a check that ensures x >= 0)
+2. It strictly decreases by exactly 1 in each recursive call
+3. The recursion terminates when x <= 1
+
+This is a standard recursive factorial function with a well-defined termination condition.
+
+=== Response 2 ===
+Analyzing the program:
+
+The core of this program is the recursive function `fact`, which computes the factorial of a non-negative integer. The main function calls `fact(x)` where `x` is a nondeterministic integer, but it first checks that `x` is non-negative.
+
+The function `fact` has a base case (return 1 when x ≤ 1) and a recursive case (call fact(x-1) when x > 1). In each recursive call, the parameter decreases by 1, and the recursion terminates when x ≤ 1. Since we know x is non-negative from the check in main(), the recursion will terminate after at most x steps.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+
+The ranking function is simply the parameter x itself, which decreases by exactly 1 in each recursive call until reaching the base case when x ≤ 1.
+

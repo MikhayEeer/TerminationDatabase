@@ -1,0 +1,27 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 *  x^1 + -1.0 *  y^1
+
+**Explanation:**
+The termination of the program is analyzed for the loop inside the `test_fun` function. The loop condition is `x > y`, but note that the loop is only reachable when `x > 0` (due to the initial guard `if(x <= 0) return y`). 
+
+For the loop:
+- The variable `x` remains fixed and is always positive when the loop runs.
+- In each iteration, `y` is updated as `y = y + x`, which increases `y` by at least 1 (if `x` is a positive integer), bringing `y` closer to or above `x`.
+- The loop condition `x > y` will eventually become false because `y` increases by at least `x` every iteration, bounding the number of executions.
+
+The ranking function `x - y` decreases with each iteration:
+- At loop entry, `x > y` holds (so `x - y > 0`).
+- In one iteration, `y` becomes `y + x`, so the new value of `x - y` is `x - (y + x) = -y`.
+- Since the loop condition holds for the next iteration only if `x > y + x` (i.e., `y < 0`), then `-y > 0` (ensuring positiveness). This gives a strict decrease:  
+  `(x - y_{\text{old}}) - (x - y_{\text{new}}) = x - y_{\text{old}} - (x - (-y_{\text{old}})) = x - y_{\text{old}} + y_{\text{old}} = x \geq 1`.
+
+Thus, `x - y` is a valid linear ranking function over integers, bounded below by 0 and decreasing by at least 1 each iteration. This proves termination.
+

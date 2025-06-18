@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * q^1
+
+**Explanation:**  
+The loop terminates because in each iteration, `q` decreases by at least 1. The value of `y` is fixed (never modified), and the loop body reduces `q` by:
+- `y + 1` (if `y > 0`), where `y ≥ 1` (since `y` is an integer), so reduction ≥ 2.
+- `|y| + 1` (if `y ≤ 0`), where `|y| ≥ 0`:
+  - If `y = 0`, reduction = 1.
+  - If `y < 0`, `|y| ≥ 1`, so reduction ≥ 2.
+
+Thus, `q` decreases by a minimum of 1 per iteration. The linear ranking function \( r(q) = q \) decreases by at least 1 in each iteration and is non-negative when the loop condition `q > 0` holds. Once `q ≤ 0`, the loop exits.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * q^1
+
+**Explanation:**  
+The loop terminates because `q` decreases by at least 1 in every iteration:  
+- When `y > 0`, `q` updates to `q - y - 1` (decrease of `y + 1 ≥ 1`).  
+- When `y ≤ 0`, `q` updates to `q + y - 1` (since `y` is negative or zero, `+y` is non-positive, so the net change is `y - 1 ≤ -1`).  
+The value of `q` is bounded below by the loop condition (`q > 0`), and its monotonic decrease ensures termination. The linear ranking function `q` suffices to prove termination.
+

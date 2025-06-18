@@ -1,0 +1,37 @@
+=== Response 1 ===
+The program terminates because all loops have bounded iterations. The while loop in `main` increments `n` from 1 to at most 30 (due to the condition `n < 30`), ensuring it exits after at most 29 iterations. The subsequent for loops in `foo` iterate exactly `n` and `n-1` times respectively, which are bounded since `n` is at most 30 after the while loop.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+30 - n
+
+**Explanation:**  
+The ranking function `30 - n` applies to the while loop in `main`:
+- **Initialization:** When entering the loop, `n` is at least 1, so `30 - n ≥ 1 > 0`.
+- **Decrease:** Each iteration increments `n` by 1, decreasing `30 - n` by 1.
+- **Boundedness:** The loop exits when `n ≥ 30`, making `30 - n ≤ 0`.
+
+The loops in `foo` use fixed bounds (`n` and `n-1`), so they terminate without additional ranking functions. Memory allocations and deallocations do not affect termination.
+
+=== Response 2 ===
+The program terminates because the while loop in the `main` function is bounded. The loop condition `__VERIFIER_nondet_int() && n < 30` allows non-deterministic continuation, but `n` is incremented in each iteration and bounded by `n < 30`. Thus, the loop executes at most 29 times (from `n = 1` to `n = 30`). After the loop, the subsequent operations (memory allocation, `foo` function calls, and cleanup) execute without any non-terminating loops.
+
+The ranking function for the while loop is linear, based on the bounded variable `n`:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+30 - n
+
+**Explanation:**  
+- The ranking function `30 - n` decreases by exactly 1 in each iteration (since `n++`).  
+- It remains non-negative while the loop condition holds (`n < 30` ensures `30 - n > 0`).  
+- When `30 - n` reaches 0 (i.e., `n = 30`), the loop condition `n < 30` fails, ensuring termination.  
+
+The loops in `foo` are bounded by the fixed value of `n` after the while loop and thus trivially terminate.
+

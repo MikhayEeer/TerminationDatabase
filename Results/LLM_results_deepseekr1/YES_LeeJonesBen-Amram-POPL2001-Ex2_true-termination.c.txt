@@ -1,0 +1,41 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * i^1 + 0.0 * 1
+2.0 * a^1 + 1.0 * 1
+
+**Explanation:**  
+The program terminates for all non-negative inputs of `i` and `x`. Termination is proven using a multi-phase ranking function based on the function call state:  
+- For function `f(i, x)`, the ranking function is `2*i` (expressed as `2.0 * i^1 + 0.0 * 1`).  
+- For function `g(a, b, c)`, the ranking function is `2*a + 1` (expressed as `2.0 * a^1 + 1.0 * 1`).  
+
+This measure decreases strictly with every recursive call:  
+- Transition from `f(i, x)` to `g(i-1, x, i)` reduces the measure from `2i` to `2(i-1) + 1 = 2i - 1`.  
+- Transition from `g(a, b, c)` to `f(a, b+c)` reduces the measure from `2a + 1` to `2a`.  
+Since the measure starts at `2i` (a non-negative integer) and decreases in every step, it eventually reaches a base case (`i = 0`), ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise linear
+[RANKING FUNCTIONS]
+2.0 * i + 0.0
+2.0 * a + 1.0
+
+The program termination is proved using a piecewise linear ranking function based on the current function context:
+- For function `f(int i, int x)`, the ranking function is \(2i + 0\), where \(i\) is the first parameter.
+- For function `g(int a, int b, int c)`, the ranking function is \(2a + 1\), where \(a\) is the first parameter.
+
+**Explanation:**
+- At each recursive call, the ranking measure decreases by at least 1:
+  - Transition from `f(i, ...)` to `g(i-1, ...)` (\(2i \to 2(i-1) + 1 = 2i - 1\), decrease by 1).
+  - Transition from `g(a, ...)` to `f(a, ...)` (\(2a + 1 \to 2a\), decrease by 1).
+- All parameters \(i\) and \(a\) are non-negative (ensured in `main()`), and the measure is non-negative.
+- The measure strictly decreases until the base case is reached (when \(i = 0\) in `f`), terminating the recursion. 
+
+This covers all paths in the mutual recursion between `f` and `g`.
+

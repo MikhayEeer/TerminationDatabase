@@ -1,0 +1,45 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * 1
+
+### Explanation:
+The program contains two loops, but only the second loop (L2) is relevant for termination analysis:
+1. **Loop L1** (`while (*z < *k)`): Initially, `*z = 1` and `*k = 1`, so the condition `1 < 1` is false. This loop never executes.
+2. **Loop L2** (`while (*x > 0 && *y > 0)`): 
+   - The loop condition requires both `*x > 0` and `*y > 0` (initially true).
+   - In each iteration, a non-deterministic choice leads to one of two branches:
+     - **Else branch**: `*y = *y - *d_ref`. Since `*d_ref` is either 1 or 2, `*y` becomes ≤0, making the loop condition false.
+     - **P1 branch**: `*x = *x - *d_ref` (making `*x` ≤0) and `*y` is set non-deterministically. Regardless of `*y`'s new value, `*x ≤ 0` forces the loop condition to fail.
+   - Thus, the loop runs **at most once** in all executions.
+
+A constant linear ranking function `r = 1` suffices:
+- At loop entry, `r = 1` (since the condition holds).
+- After one iteration, the loop condition becomes false, and the loop exits (effectively `r = 0`).
+- This decrease (from 1 to 0) proves termination. No other ranking functions are needed as loop L1 is unreachable after initialization.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 1.0 * y^1
+
+**Explanation:**  
+The program terminates because:
+1. The first loop (L1) is skipped since initial values are `z = 1` and `k = 1` (condition `z < k` fails).
+2. The second loop (L2) runs at most one iteration:
+   - Initial state: `x = 1`, `y = 1` (loop condition `x > 0 && y > 0` holds).
+   - In either branch:
+     - **First branch (P1):** Sets `x = x - d_ref` (becomes `0` or `-1`), breaking `x > 0`.
+     - **Second branch:** Sets `y = y - d_ref` (becomes `0` or `-1`), breaking `y > 0`.
+   - After one iteration, the loop condition fails, ensuring termination.
+
+The ranking function `r = x + y` is linear and valid:
+- At loop entry: `r = 1 + 1 = 2` (positive).
+- After any iteration, the state exits the loop (no re-entry), satisfying termination. The function decreases effectively (though no second iteration occurs).
+

@@ -1,0 +1,34 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+n
+
+### Explanation:
+The program contains a loop in the `cstrncmp` function that compares characters from two strings up to `n` characters. The loop termination is guaranteed because:
+1. The loop runs at most `n` times (where `n` is a non-negative `size_t` value after conversion from the non-deterministic input).
+2. In each iteration, either:
+   - A character mismatch is found, causing an immediate return.
+   - The null terminator in `s1` is encountered, breaking the loop.
+   - `n` is decremented until it reaches 0, exiting the loop.
+3. Even if `n` is very large, the loop will terminate after at most `n` iterations since `n` decreases by 1 in each full iteration (when the condition `--n != 0` is evaluated).
+
+The ranking function is `n` (the current value of `n` at the loop condition check), which decreases linearly by 1 in each iteration where the loop body completes without early exit. This linear ranking function proves termination as it is bounded below by 0. The main function has no loops and calls `cstrncmp` with finite inputs, ensuring overall termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Explanation:**  
+The program terminates because the loop in `cstrncmp` is guaranteed to terminate. The loop runs for at most `n` iterations, where `n` is the initial value passed to the function (a non-negative integer). The loop uses a do-while structure with the condition `--n != 0`, ensuring:  
+- The loop body executes at least once if `n > 0`.  
+- In each iteration, `n` decreases by 1 (via `--n`).  
+- The loop exits when `n` becomes `0` after decrements.  
+Early exits can occur if a character mismatch is found (`return`) or the first string's null terminator is encountered (`break`), but these do not affect termination. The ranking function `n` (current value at loop entry) decreases monotonically and is bounded below by `0`, proving termination. Memory safety is ensured as string accesses stay within bounds due to null terminators and loop constraints.
+

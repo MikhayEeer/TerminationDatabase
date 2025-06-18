@@ -1,0 +1,28 @@
+=== Response 1 ===
+
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+y
+|x|
+
+**Explanation:**  
+The program terminates for all inputs. The proof uses a lexicographic ranking function with two components:  
+1. The first component is `y`, which decreases in the following cases:  
+   - When `x > 0` and the else branch is taken (`y = y - 1`).  
+   - When `x < 0` and the else branch is taken (`y = y - 1`).  
+   Even though `y` may be reset to arbitrary values in some branches (e.g., `x > 0` and the if branch sets `y` non-deterministically), the second component ensures progress.  
+2. The second component is `|x|` (absolute value of `x`), which decreases in:  
+   - The `x > 0` branch when the if branch is taken (`x = x - 1` reduces `|x|` since `x` is positive).  
+   - The `x < 0` branch when the if branch is taken (`x = x + 1` reduces `|x|` since `x` is negative).  
+   Resetting `x` non-deterministically in the `x < 0` else branch does not prevent termination because it occurs alongside a decrease in `y` (the first component).  
+
+The lexicographic order ensures that:  
+- Any decrease in `y` (first component) guarantees progress, regardless of `|x|`.  
+- When `y` remains unchanged, a decrease in `|x|` (second component) ensures progress.  
+Since `y` is bounded below by 0 and `|x|` decreases toward 0 in their respective phases, the loop must terminate. This aligns with the analysis from the cited 2014 ESOP paper by Urban and Miné.
+

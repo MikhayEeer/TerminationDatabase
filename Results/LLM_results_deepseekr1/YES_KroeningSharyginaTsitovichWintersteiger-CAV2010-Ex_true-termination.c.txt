@@ -1,0 +1,30 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+255.0 * 1 + (-1.0) * i^1
+
+**Explanation:**  
+The program terminates as `i` starts at some integer value (possibly less than 255) and increases by at least 1 in every loop iteration until `i >= 255`, breaking the loop condition. The ranking function `r(i) = 255 - i` decreases by at least 1 in each iteration (since `i` increases by 1 or 2) and is non-negative within the loop (when `i < 255`), proving termination. This is expressed as a linear ranking function with a constant term `255.0 * 1` and a variable term `(-1.0) * i^1`.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+255.0 * 1 - 1.0 * i^1
+
+### Explanation:
+The program uses a non-deterministic integer `i` in a loop that continues while `i < 255`. Within the loop, `i` is incremented by either 1 or 2. Since the increments are strictly positive and the loop condition bounds `i` above by 255, `i` must eventually exceed or equal 255 regardless of its initial value, ensuring termination.
+
+The ranking function `f(i) = 255 - i` is linear, and:
+1. Defined and non-negative for all states where the loop condition holds (since `i < 255`).
+2. For every iteration, if the loop condition remains true after updating `i` (i.e., the new `i` is still less than 255), the function decreases by at least 1 (when `i` increases by 1 or 2, `255 - i` decreases by 1 or 2 respectively). Even if the update causes `i` to exceed 254, the loop exits, so no further decrease is needed.
+
+Thus, the ranking function proves termination.
+

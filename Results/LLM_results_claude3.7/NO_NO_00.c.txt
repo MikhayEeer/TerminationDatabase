@@ -1,0 +1,59 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+Looking at the program:
+
+```c
+typedef enum {false,true} bool;
+extern int __VERIFIER_nondet_int(void);
+
+int main() {
+    int i;
+    i = 0;
+    
+    while (i < 100) {
+        i = i+0;
+    }
+
+    return 0;
+}
+```
+
+In the loop, we have:
+- Initialization: `i = 0`
+- Condition: `i < 100`
+- Loop body: `i = i+0`
+
+The loop body simply assigns `i` to its current value plus 0, which means `i` never changes. Since `i` starts at 0 and the loop continues as long as `i < 100`, but `i` never increases, this loop will run forever.
+
+[RESULT]
+NONTERM
+[REASON]
+The variable i is initialized to 0 and remains 0 in every iteration since i=i+0 does not change its value, so the condition i<100 always stays true.
+
+=== Response 2 ===
+I need to analyze whether the given program terminates or not.
+
+Looking at the program:
+```c
+int main() {
+    int i;
+    i = 0;
+    
+    while (i < 100) {
+        i = i+0;
+    }
+
+    return 0;
+}
+```
+
+In this program, `i` is initialized to 0, and in the loop, it's updated with `i = i+0`, which doesn't change the value of `i`. 
+
+Since `i` remains constant at 0 and the loop condition `i < 100` is always true, the loop will never terminate.
+
+[RESULT]
+NONTERM
+[REASON]
+The variable i is initialized to 0 and never changes (i = i+0), so the loop condition (i < 100) remains true indefinitely.
+

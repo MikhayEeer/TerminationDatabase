@@ -1,0 +1,51 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * 1
+
+The program terminates for any integer inputs. 
+
+**Reasoning:**
+1. **Inner Loop Termination:**  
+   The inner loop decrements or increments `ytmp` (a copy of `y`) to 0, taking exactly `|y|` iterations. Since `y > 0` upon entering the outer loop, `ytmp` starts positive and decreases by 1 per iteration, ensuring termination with a linear measure: `ytmp`.
+
+2 >= 1. **Outer Loop Termination:**  
+   After the inner loop, `x` becomes `x - y` because the inner loop subtracts `y` (via `y` decrements of `x`). The outer loop condition `x >= y && y > 0` requires `y` to remain constant and positive. The assignment `x = x - y` strictly decreases `x` by at least `y >= 1` per iteration. Since `x` decreases by a minimum of 1 each iteration and is bounded below (eventually `x < y`), the loop terminates.
+
+The ranking function `1.0 * x` suffices for the outer loop. The coefficient for `y` is `0.0` because it remains fixed and doesn't contribute to the measure. The constant term `0.0` is appended for consistency with the expression format. The inner loop's termination is proven independently (via `ytmp`), but the outer loop's measure dominates.
+
+=== Response 2 ===
+The program consists of an outer loop and a nested inner loop. The outer loop condition is `x >= y && y > 0`, and the inner loop condition is `ytmp != 0`. 
+
+1. **Outer Loop Analysis**:  
+   The outer loop runs only when `y > 0` and `x >= y`. Inside the outer loop body, `ytmp` is set to `y`, and then the inner loop executes. After the inner loop completes, `x` is decremented by `y` (since the inner loop decrements `x` exactly `y` times, once for each decrement of `ytmp` from `y` to `0`). Thus, after each outer loop iteration:
+   - `x` becomes `x - y`
+   - `y` remains unchanged
+   - `res` is incremented (but does not affect termination)
+
+   The next iteration's outer loop condition becomes `(x - y) >= y` (i.e., `x >= 2y`). The outer loop runs for at most `floor(x / y)` iterations because in each iteration:
+   - `x` decreases by at least `y` (since `y >= 1`), so `x` decreases by at least `1` in integer steps.
+   - The loop terminates when `x < y`.
+   - At the start of each iteration, `x >= y` (ensured by the loop condition), and `x` is integer-valued, so the sequence of `x` values is strictly decreasing and bounded below (by `y - 1`), ensuring termination.
+
+2. **Inner Loop Analysis**:  
+   The inner loop sets `ytmp = y` (with `y > 0` from the outer loop condition). In each inner iteration:
+   - If `ytmp > 0`, it decrements `ytmp` and `x` by `1`.
+   - Since `ytmp` starts at `y > 0` and is decremented by `1` each step, it reaches `0` in exactly `y` steps, and the loop terminates (the `else` branch is unreachable as `ytmp` never becomes negative).  
+   Thus, the inner loop always terminates with `ytmp` as a linear ranking function.
+
+Given these observations, the entire program terminates. The ranking functions are **nested**:
+- **Outer loop** uses `x` (value at the start of iteration) as a linear ranking function, bounded below by the loop condition and decreasing by at least `y >= 1` each iteration.
+- **Inner loop** uses `ytmp` (current value in the inner loop) as a linear ranking function, bounded below by `0` and decreasing by `1` each iteration.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x
+1.0 * ytmp
+

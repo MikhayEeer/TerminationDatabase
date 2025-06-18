@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n
+
+**Explanation:**  
+The program always terminates because the loop in the `cmemchr` function is guaranteed to terminate. The loop iterates at most `n` times (where `n` is the third argument passed to `cmemchr`):  
+1. The loop variable `n` starts with a value ≥ 1 (enforced in `main`).  
+2. In each iteration, `n` is decremented by `--n` in the condition check.  
+3. The loop exits when `n` becomes `0`, or earlier if the target byte `c` is found (via the return statement).  
+The ranking function `n` (current value in the loop) decreases by at least 1 in each iteration and is bounded below by `0`, proving termination.  
+No other loops exist in the program, so this linear ranking function suffices.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Explanation:**  
+The program terminates because the loop in `cmemchr` is guaranteed to execute at most `n` iterations. The ranking function `n` (linear in the loop's remaining length) decreases with each iteration:  
+- Initially, `n` is at least 1 (set in `main`).  
+- In each iteration where the target byte is not found, `n` is decremented by `--n` in the loop condition.  
+- If the byte is found, the loop exits early via `return`.  
+- Since `n` starts positive and decreases by at least 1 per full iteration (or exits early), it is bounded below by 0, ensuring termination.  
+The ranking function `1.0 * n^1` captures this linear decrease.
+

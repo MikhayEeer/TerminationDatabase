@@ -1,0 +1,46 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+The program has a while loop with condition `i < j` and two branches inside:
+- When `51 < j`: increments i by 1 and decrements j by 1
+- When `j ≤ 51`: decrements i by 1 and increments j by 1
+
+Starting with i=0, j=100:
+- Initially j=100 > 51, so we enter the first branch
+- Each iteration of the first branch decreases the gap between i and j by 2
+- This continues until j=51 (when i=49)
+- Then we switch to the second branch
+- In the second branch, every iteration increases the gap between i and j by 2
+- This moves us away from the termination condition i ≥ j
+
+Once we enter the second branch, i decreases and j increases, making the condition i < j continue to hold forever, causing non-termination.
+
+[RESULT]
+NONTERM
+[REASON]
+When j reaches 51, the program switches to a branch that decreases i and increases j, making the gap between them grow indefinitely and ensuring the condition i < j is always true.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+The program has a while loop with condition `i < j`. Inside the loop:
+- If j > 51: i increases by 1, j decreases by 1
+- If j ≤ 51: i decreases by 1, j increases by 1
+
+The initial values are i = 0 and j = 100.
+
+First, with j = 100 > 51, the first branch executes repeatedly. Each iteration, the difference (j - i) decreases by 2. This continues until j = 51.
+
+At that point:
+- i will be 49 (started at 0 and increased 49 times)
+- j will be 51 (started at 100 and decreased 49 times)
+
+Then, the second branch activates. Here, i decreases and j increases, so their difference (j - i) increases by 2 each iteration. Since i was strictly less than j when we switched branches, i will never catch up to j under this condition.
+
+Therefore, the loop never terminates.
+
+[RESULT]
+NONTERM
+[REASON]
+The program starts with i=0, j=100 and enters the first branch of the loop until j=51, i=49. Then it switches to the second branch where the gap between j and i increases by 2 in each iteration, making it impossible for i to ever reach or exceed j.
+

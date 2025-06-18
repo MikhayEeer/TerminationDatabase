@@ -1,0 +1,43 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program initializes a linked list with values from n down to 0, then searches the list for the value n.
+
+Let's break down the execution flow:
+1. If n < 0, the program terminates immediately.
+2. Otherwise, `init_list(n)` creates a linked list with n+1 nodes, containing values n, n-1, ..., 1, 0.
+3. `search(head, n)` searches for the value n in the list.
+
+Since n is the first element in the linked list (as the list is created in descending order), the search loop will terminate immediately after checking the head node.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (curr->value - m)
+
+The ranking function shows that the search loop terminates because:
+1. Initially, curr->value = n and m = n, so the difference is 0, which means the loop condition is false from the start.
+2. Even if we were to search for a different value that exists in the list, the function would eventually reach it since the list is finite with n+1 elements.
+
+=== Response 2 ===
+I'll analyze the program for termination.
+
+The critical part of this program is the `search` function which contains a loop that continues until it finds a node with a specific value `m`. 
+
+Let's examine the flow:
+1. A linked list is initialized with values from n down to 0
+2. The search function looks for the value n in this list
+
+Since the value n is the first element in the list after initialization (as the init_list function adds elements in descending order), the search function will immediately find the value n and terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (n - curr->value)
+
+The ranking function shows that the difference between n and the current node's value strictly decreases at each iteration and is always non-negative until termination. In the worst case, the function traverses from the head (value n) to a node containing the target value m, which must exist in the list if the program reaches the search function.
+

@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1.0 * (N - x + 1)
+0.5 * (N - x + 1) + 0.5 * y
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+(N - x + 1) when x ≤ N
+
+The program is terminating because:
+1. The guard condition of the while loop is x ≤ N
+2. In both branches of the if statement, x increases:
+   - In the first branch, x becomes 2*x + y where x + y ≥ 0 (from the outer if condition), so x increases
+   - In the second branch, x increases by 1 directly
+3. Since x is always increasing and the loop terminates when x > N, the loop must eventually terminate
+
+The ranking function (N - x + 1) decreases with each iteration and is bounded below by 0, proving termination.
+

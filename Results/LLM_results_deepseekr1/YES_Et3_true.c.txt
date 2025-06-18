@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+1 * b + 1
+1 * a
+
+**Explanation:**  
+The program terminates for all inputs. The termination is proven using a **multi-phase ranking function** with two components:  
+1. **First phase (b ≥ 0):** The ranking function is `b + 1`. This decreases with each recursive call since `b` is decremented by 1. When `b` becomes negative, the phase transitions.  
+2. **Second phase (b < 0):** The ranking function is `a`. Since `b` is negative, `a` decreases by `|b|` in each step (as `a = a + b` updates reduce `a`).  
+
+The lexicographic combination of these phases ensures a strict decrease in every recursive call, proving termination. The initial non-negative inputs (from `random()`) guarantee the ranking functions start from finite values and decrease until the base case (`a ≤ 0`) is reached.
+
+=== Response 2 ===
+
+

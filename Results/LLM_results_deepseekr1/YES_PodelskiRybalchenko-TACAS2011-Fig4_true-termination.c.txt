@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x
+1.0 * y
+
+**Explanation:**  
+The program terminates because the loop condition `(x > 0 && y > 0)` guarantees that both `x` and `y` start as positive integers. The nested (lexicographic) ranking function `(x, y)` decreases with every iteration:  
+- In the first branch (`x = x - 1; y = __VERIFIER_nondet_int();`), `x` decreases (first component reduces), and the new `y` is arbitrary but irrelevant for lexicographic order since the first component dominates.  
+- In the second branch (`y = y - 1;`), `x` remains unchanged, but `y` decreases (second component reduces).  
+The well-founded lexicographic order on positive integers ensures termination. The ranking functions are linear, with the first component prioritized over the second.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x
+y
+
+The program terminates because the lexicographic ranking function (x, y) decreases in every loop iteration:
+- In the first branch (x = x - 1; y = nondet_int), x decreases, so the first component decreases regardless of y's new value. If y becomes non-positive, the loop exits immediately.
+- In the second branch (y = y - 1), x remains unchanged but y decreases, so the second component decreases while the first component remains constant.
+
+Since x and y start as positive integers (due to the loop condition) and decrease lexicographically in a well-founded manner (over ℕ × ℕ), the loop must terminate. The non-deterministic assignment to y in the first branch does not prevent termination because:
+1. If y is set to non-positive, termination occurs.
+2. If y is set to positive, the new state (x-1, y_new) is lexicographically smaller than (x, y_old).
+

@@ -1,0 +1,29 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1
+
+**Explanation:**  
+The program terminates under the condition `m > 0 && n > m`. The loop uses `i` starting from `n` and in each iteration:  
+- Decrements `i` by 1 when `i < m`  
+- Decrements `i` by `m` when `i >= m`  
+
+Since `m > 0`, both cases decrease `i` by at least 1 per iteration (`m >= 1`). The loop condition `i > 0` ensures `i` starts as a positive integer (`n > m > 0`) and decreases strictly in each iteration. Thus, `i` will eventually become non-positive within at most `n` steps.  
+
+The ranking function `i` is linear and valid:  
+- **Decreases:** Each iteration reduces `i` by ≥1 (since `m ≥ 1` in the subtraction).  
+- **Bounded below:** The loop exits once `i ≤ 0`, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1
+
+**Explanation:** The program terminates because the loop variable `i` decreases by at least 1 in each iteration (by `m ≥ 1` in the `else` branch or by 1 in the `if` branch) and is bounded below by 0. The linear ranking function `i` decreases monotonically from an initial positive value (since `n > m > 0`) until `i ≤ 0`, at which point the loop exits. The fixed positive decrement ensures termination.
+

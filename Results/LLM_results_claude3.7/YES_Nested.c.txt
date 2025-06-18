@@ -1,0 +1,75 @@
+=== Response 1 ===
+I'll analyze the given C program for termination.
+
+The program has two nested while loops. Let's analyze each:
+
+1. The outer loop `while (i < 10)` increments `i` by 1 in each iteration, starting from `i = 0`. This will terminate after 10 iterations.
+
+2. The inner loop `while (j < 12)` has operations that increase `j` by 1 in each iteration (`j = j-1; j = j+2;` effectively means `j = j+1`).
+
+Since `j` is initialized to 3 outside the loops, and in the inner loop `j` increases in each iteration, once `j` reaches 12 or more, the inner loop will terminate. After that, the outer loop will continue until `i` reaches 10.
+
+Let's examine the behavior:
+- Initially: `i = 0, j = 3`
+- Inner loop: `j` becomes 4, 5, 6, 7, 8, 9, 10, 11, 12 (at which point the inner loop exits)
+- Outer loop increments `i` to 1
+- The inner loop doesn't execute again because `j` is now 12
+- The outer loop continues incrementing `i` until it reaches 10
+
+Therefore, the program terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10 - i + max(0, 12 - j)
+
+=== Response 2 ===
+I'll analyze this program for termination:
+
+```c
+typedef enum {false,true} bool;
+
+extern int __VERIFIER_nondet_int(void);
+
+int main() {
+    int i;
+    int j;
+    i = 0;
+    j = 3;
+    
+    while (i < 10) {
+        while (j < 12) {
+            j = j-1;
+            j = j+2;
+        }
+        i = i+1;
+    }
+    
+    return 0;
+}
+```
+
+Let's analyze the inner loop first. For the inner loop `while (j < 12)`, after each iteration:
+- `j = j-1` then `j = j+2`
+- This means `j = j+1` overall for each iteration
+
+Since `j` increases by 1 in each iteration and the loop continues only while `j < 12`, the inner loop will terminate once `j` reaches 12.
+
+For the outer loop, `i` starts at 0 and increases by 1 after each iteration, with the loop continuing only while `i < 10`. This will clearly terminate when `i` reaches 10.
+
+However, there's an important interaction: once the inner loop terminates (when `j` reaches 12), `j` remains ≥ 12 for all subsequent iterations of the outer loop. This means the inner loop won't execute again in those iterations.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+10 - i
+12 - j
+
+This nested ranking function captures that the program terminates because:
+1. The outer iteration count is bounded by (10 - i)
+2. For each outer iteration, the inner loop is bounded by (12 - j)
+

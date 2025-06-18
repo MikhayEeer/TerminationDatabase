@@ -1,0 +1,36 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+x
+
+**Explanation:**  
+The program terminates because the recursive function `id` is called with a fixed positive input (10). The recursion depth is controlled by the parameter `x`, which decreases by 1 in each recursive call until it reaches 0 (the base case). This forms a strictly decreasing sequence:  
+- Initial call: `x = 10`  
+- Recursive chain: `x = 9` → `8` → ... → `0`  
+
+A **linear ranking function** `r(x) = x` suffices:  
+1. `x` is non-negative during execution (since it starts at 10 and decrements).  
+2. `x` decreases by exactly 1 in each recursive call.  
+3. When `x = 0`, recursion stops.  
+
+After recursion, `__VERIFIER_error()` is called (due to `result == 10`), but this external function terminates the program (e.g., via `abort()` or `exit()`), ensuring overall termination. The ranking function applies to the recursive portion, which is the only non-trivial control flow.
+
+=== Response 2 ===
+The program terminates because the recursive function `id` is called with a fixed non-negative input (10). The recursion depth is bounded by the initial value of `x`, which decreases by 1 in each recursive call until it reaches 0, ensuring termination.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**  
+- The ranking function is based on the argument `x` in the recursive function `id`.  
+- At each recursive call, `x` decreases by 1 (from 10 to 0), forming a strictly decreasing integer sequence.  
+- When `x` reaches 0, the recursion stops, proving termination.  
+- The ranking function is linear and uses only the variable `x` from the recursive context.
+

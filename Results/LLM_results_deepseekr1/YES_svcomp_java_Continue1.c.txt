@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+20.0 * 1 + (-1.0) * i^1
+
+**Explanation:**  
+The loop runs while `i < 20`. The variable `i` starts at 0 and increments by 1 in every iteration (regardless of the `continue`). The ranking function `20 - i` is:  
+- **Non-negative** in the loop (since `i < 20` implies `20 - i > 0`).  
+- **Decreases by exactly 1** each iteration (because `i` increases by 1).  
+- Reaches 0 when `i = 20`, causing loop termination.  
+The variable `c` does not affect termination and is omitted. The ranking function is linear with one phase.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+20.0 * 1 - 1.0 * i^1
+
+**Explanation:**  
+The loop terminates because the variable `i` starts at 0 and increments by 1 in each iteration until it reaches 20, at which point the condition `i < 20` fails. The ranking function `20 - i` is a linear function that:  
+- Starts at 20 (when `i=0`)  
+- Decreases by exactly 1 in every iteration (since `i` increases by 1)  
+- Remains non-negative throughout the loop (as `i` ranges from 0 to 19)  
+- Reaches 0 when `i=20`, proving termination.  
+The `continue` statement does not affect termination, as `i` is incremented unconditionally in each iteration. The variable `c` is irrelevant for termination analysis.
+

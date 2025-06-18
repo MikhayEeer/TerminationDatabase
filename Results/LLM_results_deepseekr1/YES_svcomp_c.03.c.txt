@@ -1,0 +1,35 @@
+=== Response 1 ===
+After analyzing the provided program, the loop in the `test_fun` function terminates for all integer inputs. The termination argument relies on a multi-phase ranking function that captures the two distinct behaviors within the loop:
+
+1. **Phase 1 (else branch dominance)**: When `x >= z`, the loop enters a phase where `z` is incremented. The ranking function for this phase is `x - z`, which decreases by 1 in each iteration (since `z` increases while `x` remains unchanged). This phase continues until `x < z`, forcing a switch to the next phase. The value `x - z` is non-negative in this phase (as `x >= z`), ensuring it decreases toward a lower bound.
+
+2. **Phase 2 (then branch dominance)**: When `x < z`, the loop increments `x`. The ranking function for this phase is `y - x`, which decreases by 1 in each iteration (since `x` increases while `y` remains fixed). This phase continues until either the loop condition `x < y` fails or `x` becomes `>= z` again (switching back to Phase 1). The value `y - x` is at least 1 (since `x < y` in the loop), ensuring it decreases strictly.
+
+The loop alternates between these phases, but each phase's ranking function decreases monotonically within its context. Crucially, `y - x` (from Phase 2) decreases globally over multiple phases because each full cycle (Phase 1 followed by Phase 2) ultimately reduces the gap between `x` and `y`. Since `y - x` starts as a finite non-negative integer and decreases by at least 1 in every Phase 2 iteration, the loop must terminate.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+1.0 *  x^1 + (-1.0) *  z^1  
+1.0 *  y^1 + (-1.0) *  x^1
+
+=== Response 2 ===
+After analyzing the program, the loop terminates for all possible integer inputs. The loop condition is `x < y`, and within the loop, either `x` or `z` is incremented. Although `z` may increase without directly affecting the loop condition, the key observation is that `x` will eventually reach or exceed `y` due to the following:
+
+1. **If `x < z`**: `x` is incremented by 1, reducing the difference `y - x`.
+2. **If `x >= z`**: `z` is incremented by 1. Since `x` is fixed during this phase, `z` will eventually exceed `x` after a finite number of steps (specifically, `z` becomes `x + 1`), forcing a switch to the `x < z` branch in a subsequent iteration, where `x` is then incremented.
+
+Thus, `x` increases monotonically and must eventually satisfy `x >= y`, ensuring termination. A lexicographic ranking function proves this, with components:
+- **Primary component**: `y - x` (decreases when `x` increments).
+- **Secondary component**: `x - z` (decreases when `z` increments and `x >= z`).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+lexicographic
+[RANKING FUNCTIONS]
+-1.0 *  x^1 + 1.0 *  y^1
+1.0 *  x^1 + -1.0 *  z^1
+

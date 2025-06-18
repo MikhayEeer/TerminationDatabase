@@ -1,0 +1,48 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+(x + z <= 0) ? 1 : 0
+1.0 * n - 1.0 * x
+-1.0 * x - 1.0 * y
+
+### Explanation:
+The program terminates for all inputs. A multi-phase ranking function is used to prove termination:
+
+1. **Phase 1 (x + z ≤ 0):**  
+   - The ranking function is `(x + z <= 0) ? 1 : 0`, which evaluates to `1` in this phase.  
+   - This phase runs for at most one iteration. After one iteration, either the loop exits or transitions to Phase 2 (where this component becomes `0`, indicating a decrease).
+
+2. **Phase 2 (x + z > 0):**  
+   - A lexicographic ranking function `(n - x, -(x + y))` is used:  
+     - **First component (`n - x`):** Non-negative due to the loop condition `x <= n`. It may stay the same or decrease.  
+     - **Second component (`-(x + y)`):** Used when the first component does not decrease.  
+   - In each iteration:  
+     - If `x + y > 0`, `n - x` decreases by `x + y` (strictly decreasing).  
+     - If `x + y = 0`, `n - x` remains the same, but `-(x + y)` becomes `-(2x + y + z) = -(x + z) < 0` (since `x + z > 0` in this phase), so the lexicographic order decreases.  
+
+The lexicographic combination ensures a strict decrease in each iteration, proving termination. The ranking functions are piecewise and leverage the program's behavior in distinct phases.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+-1.0 *  x^1 + -1.0 *  z^1 + 1.0 *  n^1
+-2.0 *  x^1 + -1.0 *  y^1 + -1.0 *  z^1 + 2.0 *  n^1
+
+To prove termination, a two-phase ranking function is proposed:
+
+1. The first ranking function is: \( r_1 = -x - z + n \).
+   - This function is bounded below by the well-ordering principle under the loop condition \( x \leq n \) since \( n - x \geq 0 \) and \( -z \) provides the decreasing component.
+   - In each iteration: \( r_1' - r_1 = (-(2x+y) - (z+1) + n) - (-x - z + n) = -x - y - 1 \).
+   - Given the guard \( x + y \geq 0 \), then \( -x - y \leq 0 \), so \( -x - y - 1 \leq -1 \), showing a decrease of at least 1.
+
+2. The second ranking function is \( r_2 = -2x - y - z + 2n \). This is used implicitly in the multi-phase transition when \( r_1 \) might not decrease sufficiently.
+   - This function decreases in later iterations when \( r_1 \) stabilizes, leveraging the exponential growth captured by \( 2x \) and ensuring continued decrease until termination.
+
+Together, these functions ensure a strict decrease in every iteration within the loop's state space, confirming termination. The non-linearity of the loop dynamics (due to exponential growth) is handled by the multi-phase approach with linear ranking functions.
+

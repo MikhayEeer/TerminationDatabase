@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * q^1 + 1.0 * z^1
+1.0 * q^1
+
+**Explanation:**  
+The program terminates with the provided multi-phase ranking function.  
+- **Phase 0:** The function \( f_0(q, z) = 2q + z \) decreases by at least 2 in each iteration (since \( f_0' = 2q + z - 2 \)) and is bounded below. Once \( f_0 < 0 \), the phase switches.  
+- **Phase 1:** The function \( f_1(q, z) = q \) is positive (due to loop condition \( q > 0 \)) and decreases to a negative value in one iteration (since \( q' = q + z - 1 < 0 \) when \( 2q + z < 0 \)), ensuring termination.  
+
+This confirms the program terminates, as validated by the two-phase ranking function.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+multi-phase
+[RANKING FUNCTIONS]
+2.0 * q^1 + 1.0 * z^1 + 0.0 * 1
+1.0 * q^1 + 0.0 * 1
+
+**Explanation:**  
+The program terminates with the provided 2-phase lexicographic ranking function.  
+- **Phase 0:** The function \( f_0(q, z) = 2q + z \) decreases by 2 in each iteration while \( q > 0 \) and \( f_0 \geq 0 \).  
+- **Phase 1:** When \( f_0 < 0 \), the function \( f_1(q) = q \) is used. Due to the condition \( 2q + z < 0 \) (implying \( z < -2q \)), the update \( q' = q + z - 1 \) results in \( q' < -q - 1 < 0 \), ensuring termination in the next iteration.  
+The lexicographic order \((f_0, f_1)\) decreases in every iteration, proving termination.
+

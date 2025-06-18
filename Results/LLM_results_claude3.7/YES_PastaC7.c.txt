@@ -1,0 +1,60 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates or not.
+
+In this program, we have a while loop with the condition `i <= 100 && j <= k`. 
+
+Let's track what happens in each iteration:
+- Initially, i, j, and k have arbitrary values from `__VERIFIER_nondet_int()`
+- In the loop body:
+  - i is set to j
+  - j is increased by 1 (j = i + 1 = j + 1)
+  - k is decreased by 1
+
+In each iteration:
+- j increases by 1
+- k decreases by 1
+- i becomes the old value of j
+
+This means the gap between j and k decreases by 2 in each iteration. Eventually, j will exceed k (making j <= k false), unless i exceeds 100 first.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (k - j + 1) + 0.5 * max(0, 101 - i)
+
+The ranking function captures that:
+1. The difference (k-j) decreases by 2 in each iteration
+2. If i > 100, the loop terminates regardless of j and k
+3. The function is always positive when the loop continues and decreases with each iteration
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+In the while loop:
+- The condition is `i <= 100 && j <= k`
+- Each iteration updates: 
+  - `i = j` (i becomes j)
+  - `j = i + 1` (j becomes the old j + 1)
+  - `k = k - 1` (k decreases by 1)
+
+After substituting, each iteration effectively does:
+- `i = j`
+- `j = j + 1`
+- `k = k - 1`
+
+So in each iteration:
+- j increases by 1
+- k decreases by 1
+- i takes j's old value
+
+This means the gap between j and k decreases by 2 in each iteration. Eventually, either j will exceed k (making j <= k false) or i will exceed 100 (making i <= 100 false).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (k - j + 1) + 0.5 * max(0, 101 - i)
+

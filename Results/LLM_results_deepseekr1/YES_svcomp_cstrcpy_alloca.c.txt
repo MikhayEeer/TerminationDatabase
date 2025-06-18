@@ -1,0 +1,38 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * length2 + 1.0 * s2 - 1.0 * src
+
+**Explanation:**  
+The program terminates because the loop in `cstrcpy` is guaranteed to exit after a finite number of iterations. The key observations are:
+1. The source string (`nondetString`) is explicitly null-terminated at index `length2-1`.
+2. The loop copies characters until it encounters the null terminator (`'\0'`), which must occur within at most `length2` iterations (since the null is placed at the end).
+3. The ranking function `r = length2 + s2 - src` decreases by exactly 1 per iteration (as `src` increments) and is bounded below by 0. Here:
+   - `length2` is the fixed source buffer size (from `main`),
+   - `s2` is the base address of the source string (passed to `cstrcpy`),
+   - `src` is the current source pointer (incremented each iteration).
+
+This linear ranking function proves termination regardless of non-deterministic content in `nondetString`, as the null terminator ensures eventual loop exit. The condition `length1 >= length2` in `main` ensures safe copying but does not affect loop termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+length2 - 1 - (src - nondetString)
+
+**Explanation:**  
+The program terminates because the `cstrcpy` function copies characters from `nondetString` to `nondetArea` until it encounters the null terminator (`'\0'`). The source string `nondetString` is guaranteed to have a null terminator at index `length2 - 1` (explicitly set before the copy). The loop in `cstrcpy` will execute at most `length2 - 1` iterations (since it copies the null terminator at the last position), ensuring termination. 
+
+The ranking function `length2 - 1 - (src - nondetString)` is linear and decreases by exactly 1 in each iteration:
+- `src - nondetString` is the number of characters copied so far (increases by 1 per iteration).
+- Initially, `src = nondetString`, so the value is `length2 - 1` (nonnegative since `length2 >= 1`).
+- When `src` reaches `nondetString + length2 - 1`, the value becomes 0, and the loop terminates.
+- Constants `length2` and `nondetString` remain fixed during the loop. 
+
+This proves termination for the inlined loop in the `main` function context.
+

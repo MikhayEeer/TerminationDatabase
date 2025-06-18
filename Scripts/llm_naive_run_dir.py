@@ -2,18 +2,33 @@ import os
 import sys
 import time
 import csv
+import argparse
+import re
 from datetime import datetime
 
 from openai import OpenAI
 
-secrete = "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"
-chatgpt_model = "openai/o4-mini"
-
+secrete = "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"
+gpt_4o_model_name = "openai/gpt-4o"
+gpt_o4_mini_model_name = "openai/o4-mini"
+claude_model_name = "anthropic/claude-3.7-sonnet"
+gemini_model_name = "google/gemini-2.5-pro-preview"
+deepseek_model_name = "deepseek/deepseek-r1-0528"
+llm_model_name = claude_model_name
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 
 YES_program_folder = os.path.join(os.getcwd(), "TPDB_YES")
 NO_program_folder = os.path.join(os.getcwd(), "TPDB_NO")
 MAYBE_program_folder = os.path.join(os.getcwd(), "TPDB_MAYBEs")
+
+
+# for phase judgement
+PHASE_JUDGE_Exp_folder = os.path.join(os.getcwd(), "LLM_Phase_Exp")
+PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_folder, "LLM_Phase_Results")
+NESTED_PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Nested")
+NESTED_PHASE_JUDGE_program_folder = os.path.join(PHASE_JUDGE_Exp_folder, "4-nested-terminate")
+MULTI_PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Multi")
+MULTI_PHASE_JUDGE_program_folder = os.path.join(PHASE_JUDGE_Exp_folder, "4-multi-terminate")
 
 # chat interface 
 class chat_interface:
@@ -56,7 +71,7 @@ class chat_interface:
     def ask_question_and_record(self, content):
         self.msg_list.append({"role": "user", "content": content})
         res = self.client.chat.completions.create(
-            model=chatgpt_model,
+            model=llm_model_name,
             messages=[{"role": "user", "content": content}]
         )
         answer = res.choices[0].message
@@ -67,7 +82,7 @@ class chat_interface:
         self.msg_list.append({"role": "system", "content": role_prompt})
         self.msg_list.append({"role": "user", "content": content})
         res = self.client.chat.completions.create(
-            model=chatgpt_model,
+            model=llm_model_name,
             messages=self.msg_list
         )
         answer = res.choices[0].message
@@ -79,7 +94,7 @@ class chat_interface:
         self.msg_list.append({"role": "system", "content": role_prompt})
         self.msg_list.append({"role": "user", "content": content})
         res = self.client.chat.completions.create(
-            model=chatgpt_model,
+            model=llm_model_name,
             messages=self.msg_list
         )
         answer = res.choices[0].message
@@ -107,6 +122,33 @@ class chat_interface:
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
         return answer
+
+    def ask_question_of_nested_phase_judge(self, program):
+        role_prompt = "You are an expert of program termination analysis. In the following you will be given a loop program in Boogie which is terminating." \
+        "You will judge the number of phases needed for  nested-ranking function to prove the termination of the loop program," \
+        "you should give the minimum number of phases needed for the nested ranking function to work.\n" \
+        "The definition of nested ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction"\
+        "over the program variables vec(x) and there exists a positive real number C, such that f1(x) - f1(x') >= C, fi(x) - fi(x') + f_(i-1)(x) >= C for i ∈ {2, . . . , k} and fk(x) >= C"\
+        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"\
+        "The output you provide shoude in the format strictly:  [PHASE_NUM]k\n, where k is the number of minimum phase needed, notice that if the termination can be prove by one ranking function the phase num is 1. DO NOT GENERATE EXPLANATION!!"
+
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
+        print(answer.content)
+        return answer
+    
+    def ask_question_of_multi_phase_judge(self, program):
+        role_prompt = "You are an expert of program termination analysis. In the following you will be given a loop program in Boogie which is terminating." \
+        "You will judge the number of phases needed for multi-phase function to prove the termination of the loop program," \
+        "you should give the minimum number of phases needed for the multi-phase ranking function to work\n" \
+        "The definition of multi-phase ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction" \
+        "over the program variables vec(x) and we require that there exists an index i ∈ {1, . . . , k} and a constant C such that: f_i(x) >= C and f1(x) - f1(x') >= C and for all j < i we have f_j(x) < 0" \
+        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"\
+        "The output you provide shoude in the format strictly:  [PHASE_NUM]k\n, where k is the number of minimum phase needed, notice that if the termination can be prove by one ranking function then the phase num is 1. DO NOT GENERATE EXPLANATION!!"
+
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
+        print(answer.content)
+        return answer
+    
 
 def parse_llm_result(result_str):
     rf_type_str = ""
@@ -157,6 +199,31 @@ def parse_llm_result(result_str):
         raise ValueError("ERROR: llm result parsing error")
 
     return (is_terminating, is_unknown, rf_type_str, rf_content_str)
+
+
+def extract_nested_phase_num(output_str):
+    """
+    从 GPT 的输出中提取 [PHASE_NUM]k 形式的最小 phase 数。
+    返回整数 k。如果未找到，返回 None。
+    """
+
+    # 1. 先尝试严格匹配格式：[PHASE_NUM]k
+    strict_match = re.search(r"\[PHASE_NUM\](\d+)", output_str)
+    if strict_match:
+        return int(strict_match.group(1))
+
+    # 2. 如果不严格，尝试宽松匹配 —— 找到包含 "phase", "phases", "k=", 数字前缀等
+    relaxed_match = re.search(r"(?:minimum\s*)?phase(?:s)?(?:\s*needed)?\D*(\d+)", output_str, re.IGNORECASE)
+    if relaxed_match:
+        return int(relaxed_match.group(1))
+
+    # 3. 最后 fallback，尝试找第一个孤立的整数（例如用户直接回复了 "3"）
+    loose_match = re.search(r"\b(\d+)\b", output_str)
+    if loose_match:
+        return int(loose_match.group(1))
+
+    # 无法解析，返回 None
+    return None
 
 
 def run_experiment_for_program(interface, 
@@ -258,10 +325,100 @@ def run_certain_experiments(interface):
     print(f"Termination Yes Programs : {yes_count}")
     print(f"Termination No Programs : {no_count}")
 
+def run_svmranker_nested_phase_judge(interface):
+    result_list = []
+    result_csv_file_path = os.path.join(NESTED_PHASE_JUDGE_Exp_Result_folder, "result.csv")
+    for item in os.listdir(NESTED_PHASE_JUDGE_program_folder):
+        ref_str = item.split("_")[0]
+        f = open(os.path.join(NESTED_PHASE_JUDGE_program_folder, item))
+        curr_boogie_program = f.read()
+        repeat_num = 3
+        result_num_list = []
+        start_time = time.time()
+        print(item)
+        for i in range(repeat_num):
+            answer = interface.ask_question_of_nested_phase_judge(curr_boogie_program)
+            answer_content = answer.content
+            result_phase_num = extract_nested_phase_num(answer_content)
+            result_num_list.append(result_phase_num)
+            print("parsed result phase num: " + str(result_phase_num))
+        
+        end_time = time.time()
+        processing_time = end_time - start_time
+        print("total time: " + str(round(processing_time, 2)))
+        result_list.append((item, result_num_list, round(processing_time, 2)))
+
+    f.close()
+    print(result_list)
+    csv_f = open(result_csv_file_path, "w")
+    for result_tuple in result_list:
+        csv_f.write(result_tuple[0])
+        for num in result_tuple[1]:
+            csv_f.write("," + str(num))
+        csv_f.write(",")
+        csv_f.write(str(result_tuple[2]))
+        csv_f.write("\n")
+    csv_f.close()
+
+def run_svmranker_multi_phase_judge(interface):
+    result_list = []
+    result_csv_file_path = os.path.join(MULTI_PHASE_JUDGE_Exp_Result_folder, "result.csv")
+    for item in os.listdir(MULTI_PHASE_JUDGE_program_folder):
+        ref_str = item.split("_")[0]
+        f = open(os.path.join(MULTI_PHASE_JUDGE_program_folder, item))
+        curr_boogie_program = f.read()
+        repeat_num = 3
+        result_num_list = []
+        start_time = time.time()
+        print(item)
+        for i in range(repeat_num):
+            answer = interface.ask_question_of_nested_phase_judge(curr_boogie_program)
+            answer_content = answer.content
+            result_phase_num = extract_nested_phase_num(answer_content)
+            result_num_list.append(result_phase_num)
+            print("parsed result phase num: " + str(result_phase_num))
+        
+        end_time = time.time()
+        processing_time = end_time - start_time
+        print("total time: " + str(round(processing_time, 2)))
+        result_list.append((item, result_num_list, round(processing_time, 2)))
+
+    f.close()
+    print(result_list)
+    csv_f = open(result_csv_file_path, "w")
+    for result_tuple in result_list:
+        csv_f.write(result_tuple[0])
+        for num in result_tuple[1]:
+            csv_f.write("," + str(num))
+        csv_f.write(",")
+        csv_f.write(str(result_tuple[2]))
+        csv_f.write("\n")
+    csv_f.close()
+
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
-    run_certain_experiments(interface)
+
+    parser = argparse.ArgumentParser(
+        description="Call functionalities depending on the --mode argument"
+    )
+
+    parser.add_argument(
+        "--mode",
+        choices=["NAIVE", "NESTED_PHASE", "MULTI_PHASE"],
+        required=True,
+        help="NAIVE: run llm termination naive experiment on TPDB_Certains; "
+             "NESTED_PHASE: run nested judgement on termination result of nested cases in SVMRanker"
+    )
+
+    args = parser.parse_args()
+
+    if args.mode == "NAIVE":
+        run_certain_experiments(interface)
+    elif args.mode == "NESTED_PHASE":
+        run_svmranker_nested_phase_judge(interface)
+    elif args.mode == "MULTI_PHASE":
+        run_svmranker_multi_phase_judge(interface)
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
     # "		while (z > 0) {\n"\

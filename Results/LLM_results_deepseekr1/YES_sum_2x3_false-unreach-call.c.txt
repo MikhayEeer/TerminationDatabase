@@ -1,0 +1,32 @@
+=== Response 1 ===
+[RESULT]
+NONTERM
+[REASON]
+The recursive function `sum` terminates (as argument `n` decreases to ≤0), but the program always reaches the call to `__VERIFIER_error()` (since `result == a + b` holds). The external function `__VERIFIER_error()` is assumed non-terminating in verification contexts.
+
+### Explanation:
+1. **Termination of `sum`**:  
+   The recursion in `sum` terminates because:  
+   - Base case: `n <= 0` returns immediately.  
+   - Recursive case: `n` decreases by 1 in each call (`n - 1`), eventually reaching ≤0.  
+   *Ranking function for recursion*: `n` (linear decrease).  
+
+2. **Non-termination in `main`**:  
+   After `sum` returns, the condition `result == a + b` is **always true** (since `sum(n, m) = n + m`). This triggers `__VERIFIER_error()`, which is an external function typically implemented as an infinite loop (e.g., `while(1){}`). Thus, the program enters non-terminating execution.
+
+---
+**Note**: The non-termination arises from the unavoidable call to `__VERIFIER_error()`, not from the recursion.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1
+
+**Reasoning Summary:**
+The `sum` function is recursive but terminates for all inputs. The argument `n` decreases by exactly 1 in each recursive call until it reaches 0 (or becomes negative), ensuring termination after `|n|` steps. In `main`, the call `sum(2, 3)` executes recursively exactly twice (with argument sequences: `n=2 → n=1 → n=0`), then returns. Afterward, `__VERIFIER_error()` is called due to the condition `result == a + b` being true, but this external function is assumed to terminate (as is standard in verification contexts for error-handling functions like `abort()`). Thus, the entire program terminates.
+
+The ranking function measures the recursion depth in `sum` using the parameter `n`, which decreases linearly with each call and is bounded below by 0. No other control flow (loops or recursion) exists in the program.
+

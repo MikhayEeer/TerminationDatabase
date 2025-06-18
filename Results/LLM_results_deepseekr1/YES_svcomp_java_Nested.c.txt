@@ -1,0 +1,45 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+10 - i
+11 - j
+
+### Explanation:
+The program consists of an outer loop (`i` from 0 to 9) and an inner loop (`j` initially 3, up to 11). The inner loop modifies `j` with `j -= 1` in the body and `j += 2` in the update, resulting in a net increment of `j` by 1 per iteration. The inner loop runs exactly 9 times per outer iteration (for `j = 3, 4, ..., 11`), and the outer loop runs 10 times (for `i = 0, 1, ..., 9`). 
+
+To prove termination, a **nested lexicographic ranking function** is used:
+1. **First component:** `10 - i` (outer loop counter). This decreases by 1 when the outer loop completes an iteration (after the inner loop finishes).  
+2. **Second component:** `11 - j` (inner loop counter). This decreases by 1 per inner iteration (as `j` increases by 1 effectively per iteration).  
+
+The lexicographic order ensures termination:
+- During inner loop execution, `10 - i` remains constant while `11 - j` strictly decreases (by 1 per iteration).
+- When the inner loop exits, the outer loop increments `i` and resets `j` to 3, causing `10 - i` to decrease by 1 (even though `11 - j` resets to 8).
+- The sequence of tuples `(10 - i, 11 - j)` decreases lexicographically until both loops terminate. 
+
+For example:
+- Start (`i=0`, `j=3`): Tuple = `(10, 8)`
+- After inner loop iteration: Tuple → `(10, 7)`, `(10, 6)`, ...
+- Outer loop update (`i=1`, `j` reset to 3): Tuple → `(9, 8)` (lexicographically smaller than `(10, 0)` from the last inner state).  
+The termination is guaranteed as both components are bounded below by 0.
+
+=== Response 2 ===
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+nested  
+[RANKING FUNCTIONS]  
+(9.0 - 1.0 * i, 11.0 - 1.0 * j)  
+
+### Explanation:  
+The program terminates because both loops are bounded. The outer loop runs `i` from 0 to 9 (10 iterations), and for each `i`, the inner loop runs `j` from 3 to 11 in steps of 1 (net effect per iteration) for 9 iterations. The ranking function uses a **lexicographic (nested) tuple**:  
+- **First component**: `9.0 - i` tracks the remaining outer iterations, decreasing by at least 1 per outer loop step.  
+- **Second component**: `11.0 - j` tracks the remaining iterations in the inner loop (since `j` increases by 1 net per inner iteration), decreasing by 1 per inner step.  
+
+At each step:  
+- **Inner iteration**: `i` unchanged, `j` increases → second component decreases.  
+- **After inner loop ends and outer increments**: Outer component decreases, while inner resets to a lower measure.  
+The lexicographic order ensures the tuple decreases strictly in every loop iteration, proving termination.
+

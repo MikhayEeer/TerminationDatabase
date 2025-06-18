@@ -1,0 +1,53 @@
+=== Response 1 ===
+### Analysis of Program Termination
+
+The provided program contains a loop within the `test_fun` function that modifies the values of `*y_ref` and `*z_ref` while checking a condition based on `*x_ref`, `*y_ref`, and `*z_ref`. The termination of this loop depends on the relationship between these values.
+
+**Termination Reasoning:**
+- **Initial Condition:** The loop runs only if `*x_ref > *y_ref + *z_ref`.
+- **Loop Body:** Each iteration increases `*y_ref` by 1 and `*z_ref` by 1 (thus increasing their sum by 2).
+- **Key Insight:** The value of `*x_ref` remains unchanged, while the sum `*y_ref + *z_ref` increases by 2 per iteration. The expression `(*x_ref) - (*y_ref) - (*z_ref)`:
+  - Starts at a positive integer (when entering the loop).
+  - Decreases by 2 per iteration.
+- **Termination Guarantee:** Since the expression is an integer that decreases by a fixed amount (2) each iteration and is bounded below (the loop condition breaks when the expression becomes ≤ 0), the loop must terminate after a finite number of steps.
+
+### Ranking Function
+A **linear ranking function** suffices to prove termination. The expression `(*x_ref) - (*y_ref) - (*z_ref)` directly captures the decreasing measure:
+
+- At loop entry, this value is positive.
+- It decreases strictly by 2 per iteration.
+- The loop exits when this value becomes ≤ 0.
+
+**Output:**
+```
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*x_ref)^1 + -1.0 * (*y_ref)^1 + -1.0 * (*z_ref)^1
+```
+
+**Explanation:**
+- **Format:** The ranking function is expressed as a linear combination of the values stored in the allocated memory locations at the loop head:
+  - `1.0 * (*x_ref)` (positive coefficient for `*x_ref`, unchanged in the loop).
+  - `-1.0 * (*y_ref)` (negative coefficient for `*y_ref`, increases by 1 per iteration).
+  - `-1.0 * (*z_ref)` (negative coefficient for `*z_ref`, increases by 1 per iteration).
+- **Behavior:** Each iteration increases `*y_ref` and `*z_ref`, causing the entire expression to decrease by 2. The loop exits when the value becomes non-positive, ensuring termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (*x_ref) + (-1.0) * (*y_ref) + (-1.0) * (*z_ref)
+
+**Explanation:**  
+The loop condition is `while (*x_ref > *y_ref + *z_ref)`. The ranking function is defined as the expression `(*x_ref) - (*y_ref) - (*z_ref)`, which is equivalent to `*x_ref - (*y_ref + *z_ref)`. Inside the loop:
+- `*y_ref` and `*z_ref` are incremented by 1 in each iteration.
+- Thus, the value of the ranking function decreases by exactly 2 per iteration (since `(*y_ref + 1 + *z_ref + 1) = (*y_ref + *z_ref) + 2`).  
+The ranking function is initially positive when the loop body is entered (due to the condition) and decreases towards a negative value. Since it is linear and strictly decreases by a fixed integer amount, it will eventually become non-positive, proving termination.  
+
+Note: The pointers `x_ref`, `y_ref`, `z_ref` store the relevant variables. The expression uses these because the parameter values (passed by value) are copied into the allocated memory and the pointers point to these mutable copies.
+

@@ -1,0 +1,42 @@
+=== Response 1 ===
+I'll analyze the program to determine whether it terminates or not, and provide a ranking function if it terminates.
+
+This program implements recursive integer addition and then calls it from main with non-deterministic inputs (with some constraints).
+
+First, let's analyze the `addition` function:
+- If `n == 0`, it returns `m` (base case)
+- If `n > 0`, it calls itself with `(m+1, n-1)` (n decreases by 1)
+- If `n < 0`, it calls itself with `(m-1, n+1)` (n increases by 1)
+
+In all recursive cases, the absolute value of `n` decreases by 1, which means the function will eventually reach the base case where `n == 0` and terminate.
+
+Now for the `main` function, it only executes the `addition` function when both `m` and `n` are positive (greater than 0). Since the `addition` function terminates for all inputs, the program as a whole will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+abs(n)
+
+The ranking function is simply the absolute value of `n`, which decreases by exactly 1 in each recursive call until it reaches 0, at which point the recursion terminates.
+
+=== Response 2 ===
+I'll analyze the termination of this program by examining the function `addition` which is the main recursive function.
+
+The `addition` function has three cases:
+- If `n == 0`, it returns `m` and terminates.
+- If `n > 0`, it recursively calls `addition(m+1, n-1)`.
+- If `n < 0`, it recursively calls `addition(m-1, n+1)`.
+
+In each recursive call, the absolute value of `n` decreases by 1. Since `n` can only take integer values, eventually `n` will reach 0 after a finite number of recursive calls, at which point the function will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+|n|
+
+The ranking function is the absolute value of `n`. In each recursive call, this value decreases by 1, and since `n` is an integer, it will eventually reach 0, causing the function to terminate.
+

@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+linear
+
+[RANKING FUNCTIONS]
+a - 1
+
+The program is terminating because the function `f` always decreases the value of `a` in each iteration until it becomes <= 1:
+- If `a` is even (tmp == 0), then `a = a / 2`, which at least halves the value of `a`
+- If `a` is odd (tmp == 1), then `a = a - 1`, which decreases `a` by 1
+
+Since `a` starts at some value and always decreases toward or below 1, the loop will eventually terminate. The ranking function `a - 1` shows that the distance to termination decreases with each iteration.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+a - 1
+
+The program terminates because in each iteration of the while loop, the value of 'a' either decreases by 1 (when a is odd) or is halved (when a is even). Since 'a' is an integer variable:
+- If a is odd, then a decreases by 1, getting closer to 1
+- If a is even, then a is halved, which also decreases its value
+- The loop continues until a ≤ 1
+
+The ranking function a - 1 is strictly decreasing in each iteration and is always non-negative when the loop condition holds, proving termination.
+

@@ -1,0 +1,17 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * n^1 + (-1.0) * x^1
+
+**Explanation:**  
+The loop terminates because the variable `x` must increase by at least 1 in each iteration (due to the condition `x >= tx + 1` and the updates `tx = x`), while being bounded above by the fixed value `n` (from `x <= n`). The ranking function `n - x` is a linear function that:  
+- Is non-negative when the loop condition holds (since `x <= n`),  
+- Decreases by at least 1 in each iteration (since `x` increases by at least 1).  
+Thus, the loop can execute at most `max(0, n - initial_x + 1)` times, ensuring termination. The non-deterministic updates in both branches satisfy the loop constraints but cannot prevent `x` from eventually exceeding `n`.
+
+=== Response 2 ===
+
+

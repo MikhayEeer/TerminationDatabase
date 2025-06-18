@@ -1,0 +1,50 @@
+=== Response 1 ===
+I'll analyze the termination properties of the given program.
+
+The key part of this program is the while loop in `test_fun`:
+```c
+while (x > y) {
+    x = x - 1;
+    y = y + 1;
+    c = c + 1;
+}
+```
+
+In each iteration:
+- `x` decreases by 1
+- `y` increases by 1
+- The loop condition `x > y` is checked
+
+This means that in each iteration, the difference between `x` and `y` decreases by 2. Since this difference keeps strictly decreasing and the loop only continues when `x > y`, the loop must eventually terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * (x - y)
+
+The ranking function `x - y` is strictly decreasing in each iteration (by 2) and is bounded below by 1 when the loop condition `x > y` holds. Once `x - y` becomes less than or equal to 0, the loop terminates.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The program contains a while loop in the `test_fun` function that iterates as long as `x > y`. In each iteration:
+- `x` is decreased by 1
+- `y` is increased by 1
+- `c` is increased by 1
+
+Each iteration reduces the difference between `x` and `y` by 2 (since x decreases and y increases simultaneously). This means the loop condition `x > y` will eventually become false after at most `(x-y+1)/2` iterations (if x > y initially).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x - 1.0 * y
+
+The linear ranking function `x - y` proves termination because:
+1. It is initially bounded (if x > y)
+2. It decreases by exactly 2 in each iteration
+3. The loop terminates when x ≤ y, which corresponds to the ranking function being ≤ 0
+

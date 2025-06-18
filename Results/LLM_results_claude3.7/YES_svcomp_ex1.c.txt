@@ -1,0 +1,43 @@
+=== Response 1 ===
+I'll analyze the termination of this program.
+
+The program consists of a function `test_fun` that computes x^y using a loop, and a main function that calls it with non-deterministic inputs.
+
+Looking at the loop condition and update in `test_fun`:
+- The loop continues as long as `y > 0`
+- In each iteration, `y` is decremented by 1: `y = y - 1`
+- The value of `x` remains unchanged throughout the loop
+- `r` is updated but doesn't affect the loop condition
+
+Since `y` is strictly decreasing by 1 in each iteration and the loop only continues when `y > 0`, the loop must terminate after a finite number of steps (specifically, after at most `y` iterations if `y` is initially positive).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+y
+
+The linear ranking function is simply `y`. It's positive when the loop condition is true, and decreases by exactly 1 in each iteration, which guarantees termination.
+
+=== Response 2 ===
+I'll analyze this program for termination.
+
+The main function calls `test_fun` with three non-deterministic integer values.
+
+Looking at `test_fun`, it has a while loop where:
+1. `r` is initialized to 1 before the loop
+2. The loop condition checks if `y > 0`
+3. Each iteration multiplies `r` by `x` and decrements `y` by 1
+
+Since `y` is decremented by 1 in each iteration and the loop continues only while `y > 0`, the loop will terminate after exactly `y` iterations (if `y` is positive initially) or 0 iterations (if `y` is non-positive initially).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * y
+
+The linear ranking function `y` is strictly decreasing in each iteration (by exactly 1) and is bounded from below (by 0), which guarantees termination.
+

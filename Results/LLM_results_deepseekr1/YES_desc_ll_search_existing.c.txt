@@ -1,0 +1,43 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+curr->value - m
+
+### Explanation:
+The program creates a linked list of size `n` (where `n ≥ 1`) with nodes containing values from `0` to `n-1` in descending order (head has value `n-1`, tail has `0`). The `search` function traverses the list to find a node with value `m`, where `1 ≤ m ≤ n-1`.
+
+**Termination Proof**:  
+The loop in `search` terminates because:
+1. The list is finite (size `n`) and NULL-terminated (no cycles).
+2. The value `m` is guaranteed to be in the list (since `m ∈ [1, n-1]` and the list contains all integers in `[0, n-1]`).
+3. Each iteration moves `curr` to `curr->next`, progressing toward the tail.
+4. The expression `curr->value - m`:
+   - Is **nonnegative** upon loop entry (since `curr` starts at head with value `n-1 ≥ m`).
+   - **Decreases by exactly 1** each iteration (as node values decrease consecutively: `..., k+1, k, ...`).
+   - Reaches `0` when `curr->value == m`, causing loop exit.
+
+**Ranking Function**:  
+`curr->value - m` is a **linear** ranking function that bounds the number of iterations (equal to `(n-1) - m`). It decreases monotonically and guarantees termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * curr->value - 1.0 * m
+
+### Explanation:
+- The program builds a singly-linked list with `n` nodes, containing consecutive integer values from `0` to `n-1` (in descending order: head node has value `n-1`, tail has `0`).
+- The `search` function traverses the list starting from `head` to find a node with value `m`, where `1 <= m < n` (ensured by input checks).
+- The loop in `search` iterates until finding `m`, moving `curr` to `curr->next` each iteration.
+- Since the list is acyclic and contains all integers in `[0, n-1]`, and `m` is guaranteed to be in the list, the loop will always terminate when `curr->value == m`.
+- The ranking function `curr->value - m` is:
+  - **Linear** in program variables (via pointer dereference).
+  - **Decreases** by exactly 1 in each iteration (as the linked list values decrease consecutively).
+  - **Lower-bounded** by 0 (when `curr->value == m`, the loop terminates).
+- Thus, the ranking function proves termination for the `search` loop. The program terminates for all valid inputs.
+

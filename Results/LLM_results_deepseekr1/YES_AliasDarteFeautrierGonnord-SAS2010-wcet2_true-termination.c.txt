@@ -1,0 +1,37 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+5.0 * 1 + -1.0 * i^1
+9.0 * 1 + -1.0 * j^1
+
+### Explanation:
+The program terminates because:
+1. **Outer loop**: Runs while `i < 5`. The variable `i` increases by 1 in each iteration (via `i++`), starting from any initial integer value. The expression `5 - i` decreases by 1 per outer iteration and is bounded below by 0 (when `i >= 5`).
+2. **Inner loop**: Runs only when `i > 2` and `j <= 9`. The variable `j` starts at 0 (reset per outer iteration) and increases by 1 until `j = 10`, making the inner loop run exactly 10 times per eligible outer iteration. The expression `9 - j` decreases by 1 per inner iteration and is bounded below by 0 (when `j = 9`).
+
+The **nested ranking functions**:
+- **Outer ranking function**: `5 - i` (linear, decreases at outer loop exit).
+- **Inner ranking function**: `9 - j` (linear, decreases during inner loop execution).
+
+This nested structure proves termination: the inner loop terminates independently (bounded iterations), and the outer loop's ranking function ensures eventual exit. Initial values of `i` and `j` (even non-deterministic) do not affect termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+-1.0 * i^1 + 5.0
+-1.0 * j^1 + 10.0
+
+The program terminates for all inputs. The outer loop uses the ranking function \(5 - i\), which decreases by exactly 1 per iteration of the outer loop (since \(i\) increments) and remains non-negative as long as the outer loop condition \(i < 5\) holds. The inner loop uses the ranking function \(10 - j\), which decreases by 1 per iteration of the inner loop and remains non-negative as long as the inner loop condition \(j \leq 9\) holds. This nested ranking function structure proves termination:
+
+- The outer loop body is always entered when \(i < 5\), and \(j\) is reset to 0 at the start.
+- When \(i > 2\), the inner loop executes, terminating in at most 10 iterations (as \(j\) increases from 0 to 10). The inner ranking function ensures this.
+- After each outer loop iteration, \(i\) increases by 1, so \(5 - i\) strictly decreases until \(i \geq 5\), exiting the outer loop.
+
+No initial values of \(i\) or \(j\) (even if negative) prevent termination due to the linear increase of \(i\) and fixed bounds.
+

@@ -1,0 +1,40 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.5 *  x^1 + -0.5 *  y^1 + -0.5 * 1
+
+**Explanation:**  
+The equivalence of the program without pointers is:
+```
+x = 10000, y = 1;
+while (x - y >= 1) {
+    x = x - 1;
+    y = y + 1;
+}
+```
+The loop decrements `x` and increments `y` while maintaining the invariant that \((x - y)\) decreases by exactly 2 per iteration. The ranking function \((x - y - 1)/2\) is derived as follows:  
+- Initially: \((10000 - 1 - 1)/2 = 4999\)  
+- After iteration: \(((x-1) - (y+1) - 1)/2 = (x - y - 3)/2 = [(x - y - 1) - 2]/2\), decreasing by 1  
+This linear ranking function decreases monotonically and is nonnegative in the loop (since \(x - y \geq 1\) implies \(x - y - 1 \geq 0\)). It maps loop states to well-founded natural numbers, proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+0.5 * x^1 + -0.5 * y^1 + -0.5 * 1
+
+**Explanation:**  
+The program terminates because the loop runs for a finite number of iterations. The loop condition is `*i - *j >= 1`, where `x = *i` and `y = *j`. The initial state is `x = 10000`, `y = 1`. In each iteration:
+- `y` increases by 1 (`(*j)++`).
+- `x` decreases by 1 (`(*i)--`).
+
+The expression `x - y` decreases by 2 in each iteration (since `(x-1) - (y+1) = x - y - 2`). Initially, `x - y = 9999`. The loop continues while `x - y >= 1`, so the maximum number of iterations is `(9999 - 1) / 2 = 4999` (integer division). After 5000 iterations (including the last iteration where `x - y = 1`), the condition fails.
+
+**Ranking Function:**  
+The ranking function `r = 0.5 * x - 0.5 * y - 0.5` (or equivalently `r = (x - y - 1)/2`) is a linear function that decreases by exactly 1 in each iteration. It is nonnegative at the start of every loop iteration (since `x - y >= 1` implies `r >= 0`) and maps to a well-founded set (nonnegative integers). This proves termination.
+

@@ -1,0 +1,33 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1
+
+### Explanation:
+The program terminates for all inputs because:
+1. The loop condition is `i > 1`.
+2. `i` is initialized to `n - 1` (where `n` is any integer from `__VERIFIER_nondet_int()`).
+3. In each iteration, `i` is decremented by 1 (`i--`).
+4. Since `i` decreases by 1 in every iteration and is bounded below (the loop exits when `i <= 1`), the loop must terminate after a finite number of steps.
+
+**Ranking Function Justification**:
+- **Type**: Linear ranking function suffices since the loop variable decreases monotonically.
+- **Function**: `f(i) = i`
+  - At loop entry, `i > 1` (so `i ≥ 2` for integer values), making `f(i) ≥ 2`.
+  - After each iteration (`i--`), the new value `i' = i - 1`.
+  - If the loop continues, `i' > 1` must hold, and `f(i') = i - 1 < i = f(i)`, showing a strict decrease.
+  - The function maps to a well-founded set (natural numbers ≥ 2), proving termination.
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * i^1 -1.0 * 1
+
+Explanation: The program initializes `i` to `n-1`, where `n` is a non-deterministic integer. The loop condition `i > 1` ensures the loop runs only when `i` is at least 2. In each iteration, `i` is decremented by 1. The ranking function `f(i) = i - 1` decreases by exactly 1 with each iteration and remains non-negative (since at loop entry, `i >= 2` implies `f(i) >= 1`). This guarantees termination after at most `initial_i - 1` iterations. The ranking function type is linear, expressed as a single linear expression in `i`.
+

@@ -1,0 +1,45 @@
+=== Response 1 ===
+I'll analyze the program for termination.
+
+The program initializes a linked list of size `n` and then traverses it from the head to the tail.
+
+Let's analyze each part:
+1. The `init_list` function creates a linked list with `n` nodes, where each new node points to the previous one. The function terminates once `j` reaches `n`.
+2. The `traverse` function starts at the head and moves to the next node until it reaches a node whose `next` pointer is NULL.
+
+For the traversal, we need to check if the list always ends with a NULL pointer. Looking at `init_list`, the initial value of `tail` is NULL, and each new node points to the previous one. So, the last node in the traversal order (the first node created) will indeed have a NULL `next` pointer.
+
+Since the list has a finite length `n` and the `traverse` function moves one step at a time toward a node with a NULL next pointer, the traversal will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * dist(curr, NULL)
+
+Where `dist(curr, NULL)` represents the number of nodes between the current node and the end of the list during traversal.
+
+=== Response 2 ===
+I'll analyze this program's termination:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * distance(curr, NULL)
+
+Let me explain: The program initializes a linked list of length n (where n ≥ 1) and then traverses it. 
+
+For termination analysis:
+1. The `init_list` function creates a singly linked list with n nodes, where each node points to the previously created node, and the first node created has a NULL next pointer.
+2. The `traverse` function starts from the head and follows next pointers until reaching NULL.
+
+The termination of this program is guaranteed because:
+1. The linked list has a finite length (n nodes).
+2. The traverse function moves strictly forward in the list (curr = curr->next).
+3. The distance from the current node to NULL decreases by 1 in each iteration.
+
+A simple linear ranking function based on the distance from the current node to NULL is sufficient to prove termination.
+

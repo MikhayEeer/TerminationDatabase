@@ -1,0 +1,51 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+The program has two nested loops. Let's analyze them step by step:
+
+1. The outer loop `for (i = 0; i < 10; i++)` clearly terminates because:
+   - `i` starts at 0
+   - Increments by 1 each iteration
+   - Stops when it reaches 10
+
+2. For the inner loop `for (j = 3; j < 12; j += 2)`:
+   - `j` starts at 3
+   - Inside the loop, `j` is first decremented by 1 (`j -= 1`)
+   - Then at the end of each iteration, `j` is incremented by 2 (`j += 2`)
+   - The net effect is `j` increases by 1 each iteration
+   - The loop terminates when `j` reaches or exceeds 12
+
+Since both loops have clear termination conditions and the variables are monotonically approaching these conditions, the program terminates.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10*(12-j) + (10-i-1)
+
+This linear ranking function captures that:
+- Each iteration of the inner loop decreases the function by 1 (as j effectively increases by 1)
+- When the inner loop terminates and the outer loop iterates, the function decreases significantly
+- The function is always non-negative during program execution and eventually reaches 0
+
+=== Response 2 ===
+I'll analyze this program for termination:
+
+This program has nested loops with `i` as the outer loop counter and `j` as the inner loop counter.
+
+Looking at the outer loop: `for (i = 0; i < 10; i++)`. This loop initializes `i` to 0, continues while `i < 10`, and increments `i` by 1 in each iteration. This is a standard bounded loop that will terminate after 10 iterations.
+
+For the inner loop: `for (j = 3; j < 12; j += 2)`. The loop initializes `j` to 3, continues while `j < 12`, and within each iteration:
+- `j -= 1` decreases `j` by 1
+- Then at the end of each iteration, `j += 2` increases `j` by 2
+
+The net effect is that `j` increases by 1 in each iteration (2 - 1 = 1). Since `j` starts at 3 and increases by 1 until it reaches 12, this inner loop will execute 9 times for each iteration of the outer loop.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+10 - i + (j < 3 || j >= 12 ? 0 : (12 - j))
+

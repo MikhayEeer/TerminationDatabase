@@ -1,0 +1,26 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+x_ref
+x_ref - y_ref
+
+The program is terminating because:
+1. The outer loop terminates because `*x_ref` decreases by 1 in each iteration and the loop only continues while `*x_ref > 0`.
+2. The inner loop terminates because `*y_ref` increases by 1 in each iteration and the loop only continues while `*y_ref < *x_ref`, which means it will run at most `*x_ref` times.
+
+The nested ranking function consists of:
+- For the outer loop: `*x_ref`, which decreases in each iteration
+- For the inner loop: `*x_ref - *y_ref`, which decreases in each iteration of the inner loop
+
+=== Response 2 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+1.0 * x_ref^1 + 0.0
+1.0 * x_ref^1 - 1.0 * y_ref^1 + 0.0
+

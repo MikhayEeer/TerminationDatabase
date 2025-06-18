@@ -1,0 +1,67 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+Looking at the `cstrcmp` function, which is a string comparison function:
+
+```c
+int cstrcmp(const char *s1, const char *s2) {
+    while (*s1 == *s2++)
+        if (*s1++ == 0)
+            return (0);
+    return (*(unsigned char *)s1 - *(unsigned char *)--s2);
+}
+```
+
+The main loop `while (*s1 == *s2++)` continues as long as the characters at the current positions in both strings are equal. Inside the loop, we check if the current character in s1 is the null terminator (0), and if so, we return 0 (indicating the strings are equal).
+
+The key to termination is that both strings (nondetString1 and nondetString2) are explicitly null-terminated in the main function:
+- `nondetString1[length1-1] = '\0';`
+- `nondetString2[length2-1] = '\0';`
+
+This guarantees that at some point, either:
+1. We will reach the null terminator in both strings simultaneously (if they're equal)
+2. We will encounter differing characters before reaching the null terminators
+3. One string will reach its null terminator before the other
+
+In all cases, the loop will terminate.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+min(length1, length2) - i
+
+Where i represents the number of characters compared so far in the loop. This function decreases by exactly 1 with each iteration of the loop and is bounded below by 0, which proves termination.
+
+=== Response 2 ===
+I'll analyze this program for termination and provide a ranking function if it terminates.
+
+The main function allocates two strings and then calls the `cstrcmp` function to compare them. The termination of the program depends on the termination of the `cstrcmp` function.
+
+Let's examine the `cstrcmp` function:
+```c
+int cstrcmp(const char *s1, const char *s2) {
+    while (*s1 == *s2++) {
+        if (*s1++ == 0)
+            return (0);
+    }
+    return (*(unsigned char *)s1 - *(unsigned char *)--s2);
+}
+```
+
+The loop in `cstrcmp` continues as long as the characters at the current positions in both strings are equal. It also advances both string pointers. The loop terminates when:
+1. We encounter characters that differ, or
+2. We reach the end of both strings (detected by finding a null terminator)
+
+Since both strings are guaranteed to be null-terminated (the main function explicitly sets the last character of each string to '\0'), the loop will always terminate. The function will either exit when it finds differing characters or when it reaches the end of both strings.
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+min(length1, length2) - pos
+
+where pos is the current position in the strings (which starts at 0 and increments by 1 in each iteration). This ranking function decreases by 1 in each iteration and is always non-negative, ensuring termination.
+

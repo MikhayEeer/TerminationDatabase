@@ -1,0 +1,46 @@
+=== Response 1 ===
+The program is terminating because the loop condition depends on the sum of `x` and `y`, which eventually becomes non-positive due to the interplay between the linear decrease of `x` and the exponential growth of `y`'s magnitude with alternating signs. 
+
+Two distinct ranking functions are employed for the alternating phases determined by the sign of `y`. The ranking functions decrease lexicographically with each iteration:
+- **Lexicographic Structure:** The ranking pairs a phase index (0 for non-negative `y`, 1 for negative `y`) with a linear function of `x` and `y`.
+- **Phase Transition:** Every transition between phases decreases the lexicographic rank due to the phase index ordering (0 → 1 → 0 each time, where moves to a lower index within the lex order).
+
+### Ranking Functions by Phase:
+1. **Phase 0 (y ≥ 0):** After entering the loop when `y` is non-negative, the next iteration will always make `y` negative (since `y' = -2*y`). Within this phase, the linear function decreases due to the update:  
+   `f(x,y) = x + 2*y`  
+   **Justification:**  
+   - Call the initial state `(x, y)` → next state `(x-1, -2*y)`.  
+   - `f(x,y) - f_next = (x + 2*y) - [(x-1) + 2*(-2*y)] = x + 2*y - (x-1 - 4*y) = 6*y + 1 ≥ 1` (since `y ≥ 0` by phase condition).  
+   - Function value: `x + 2*y` is non-negative due to loop condition `x+y>0` implying `x+y ≥ 1` (integers) and `x + 2*y ≥ y ≥ 0`.
+
+2. **Phase 1 (y < 0):** After updating when `y` is negative, `y` becomes positive (since `y' = -2*y` moves to positive when `y` is negative). The linear function:  
+   `g(x,y) = x + y`  
+   **Justification:**  
+   - Call the state `(x, y)` → next state `(x-1, -2*y)`.  
+   - The phase index decreases lexicographically when transitioning to Phase 0 (since index 1 → 0 is a decrease).  
+   - Function value: `x+y` is at least 1 due to loop condition (`x+y > 0` for integers) implying `x+y ≥ 1`.
+
+Both phases ensure lexicographic decrease: Phase transitions always reduce the index or the linear component sufficiently to guarantee termination.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+multi-phase  
+[RANKING FUNCTIONS]  
+for phase (y>=0): 1.0 * x^1 + 2.0 * y^1 + 0.0  
+for phase (y<0): 1.0 * x^1 + 1.0 * y^1 + 0.0
+
+=== Response 2 ===
+After analyzing the program, it is determined that the program terminates. The loop condition `x + y > 0` is checked at the start of each iteration. Within the loop, `x` is decremented by 1 in each iteration, while `y` is multiplied by -2, causing its absolute value to grow exponentially. 
+
+The key observation is that `x` decreases by exactly 1 in every iteration, forming a strictly decreasing sequence of integers. Although `y`'s value changes non-linearly, the loop condition will eventually fail because the exponential growth of `|y|` ensures that `x + y` becomes non-positive after a finite number of steps. The integer-valued variable `x` serves as a valid ranking function because it decreases monotonically with each iteration and is bounded by the well-founded order of integers (since the loop must terminate when `x + y <= 0`).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1 + 0.0 * y^1 + 0.0
+
+This linear ranking function `f(x, y) = x` decreases by 1 in every iteration, proving termination.
+

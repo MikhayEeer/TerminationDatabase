@@ -1,0 +1,58 @@
+=== Response 1 ===
+I'll analyze this program to determine if it terminates.
+
+First, let's understand what the program does:
+1. It initializes `i` with a non-deterministic integer value
+2. It sets `w` to 5
+3. It enters a while loop that continues as long as `i` is not 0
+4. Inside the loop:
+   - If `i < -5`, it decrements `i` by 1 and then negates it (multiplies by -1)
+   - If `i > 5`, it increments `i` by 1 and then negates it (multiplies by -1)
+   - Otherwise (when -5 ≤ i ≤ 5, except i=0), it sets `i` to 0
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+|i| when -5 ≤ i ≤ 5, i ≠ 0
+2*|i| - 6 when i < -5 or i > 5
+
+The program terminates because:
+1. If -5 ≤ i ≤ 5 (except i=0), it terminates immediately in the next iteration by setting i to 0
+2. If i < -5, then i is replaced with -(i-1), which is (1-i). Since i < -5, this means 1-i > 1+5 = 6, so the magnitude decreases at least by 6 on each iteration until eventually i falls into the range [-5,5]
+3. Similarly, if i > 5, then i is replaced with -(i+1), which is -i-1. Since i > 5, this means -i-1 < -5-1 = -6, so again the magnitude decreases until i falls into the range [-5,5]
+
+Therefore, the program will always terminate regardless of the initial value of i.
+
+=== Response 2 ===
+I'll analyze the program for termination:
+
+The program contains a while loop that continues until `i` becomes 0. Let's trace the behavior of `i` in the loop:
+
+1. If `i < -w` (where w = 5): 
+   - `i` is decreased by 1, then multiplied by -1
+   - This transforms any value less than -5 to a positive value
+
+2. If `i > w` (where w = 5):
+   - `i` is increased by 1, then multiplied by -1
+   - This transforms any value greater than 5 to a negative value
+
+3. If `-w ≤ i ≤ w` and `i ≠ 0`:
+   - `i` is directly set to 0, terminating the loop
+
+This loop will terminate for any initial value of `i`:
+- If i is within range [-5, 5] and not 0, it becomes 0 in one iteration
+- If i < -5, it becomes positive and larger than 5 after one iteration
+- If i > 5, it becomes negative and less than -5 after one iteration
+- After at most 3 iterations, i becomes 0
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+piecewise
+[RANKING FUNCTIONS]
+3 if i < -5 or i > 5
+1 if -5 ≤ i ≤ 5 and i ≠ 0
+0 if i = 0
+

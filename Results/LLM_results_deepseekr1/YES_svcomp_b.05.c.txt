@@ -1,0 +1,48 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+**Explanation:**
+
+The program's loop condition `(x > 0) && (x == 2*tmp)` requires `x` to be positive and even at the start of each iteration. Within the loop:
+- `x` is decremented by 1 (making it odd), and 
+- `tmp` is reset nondeterministically. 
+
+The key observation is that after one iteration, `x` becomes odd. The next loop check fails because an odd `x` cannot equal twice any integer (even though `x > 0` may hold). Thus, the loop runs at **most once** (if the initial state enters the loop) or not at all (if skipped initially).
+
+A ranking function `r(x) = x` proves termination:
+- **Decreases:** At loop entry, `x = k ≥ 2` (since `x` must be even and positive). After the iteration, `x = k - 1`. This is a strict decrease (`k - 1 < k`), though a second iteration never occurs. 
+- **Bounded:** Values are integers, and `x ≥ 2` at loop entry ensures the ranking function starts from ≥2 and stays ≥1 after the decrement (well-founded in non-negative integers). 
+
+Since the loop executes ≤1 times and the ranking function decreases in that single iteration, the program terminates. The ranking function is linear as it depends only on a linear term in `x`.
+
+=== Response 2 ===
+The program is terminating. The loop condition `(x > 0) && (x == 2*tmp)` requires that `x` is positive and even (since `x` must equal twice an integer `tmp`). 
+
+Upon each iteration:
+1. `x` is decremented by 1, converting it to an odd integer (since even - 1 = odd).
+2. `tmp` is assigned a new non-deterministic integer.
+
+In the subsequent loop condition:
+- `x` is now odd.
+- `x == 2*tmp` requires `x` to be even, which is impossible.
+Thus, the loop condition fails after at most one iteration.
+
+A linear ranking function suffices to prove termination. The function uses `x` as the measure:
+- Initially, `x` is at least 2 (smallest even positive integer).
+- Each iteration decreases `x` by 1 (`x = x - 1`), and the new state has a lower value.
+- The ranking function decreases each iteration and remains non-negative (in the loop, `x >= 2` before decrement).
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x^1
+
+\boxed{\text{[RESULT]}\\\text{TERMINATE}\\\text{[RANKING FUNCTION TYPE]}\\\text{linear}\\\text{[RANKING FUNCTIONS]}\\1.0\ \cdot\ x^{1}}
+

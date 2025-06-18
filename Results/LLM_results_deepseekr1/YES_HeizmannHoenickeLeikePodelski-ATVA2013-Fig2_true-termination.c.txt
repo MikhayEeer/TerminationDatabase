@@ -1,0 +1,31 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+linear
+[RANKING FUNCTIONS]
+1.0 * x
+
+**Explanation:**  
+The program terminates because the value of `x` decreases by exactly 42 in each iteration while remaining non-negative. The loop condition `x >= 0` ensures termination since `x` starts at `y + 42` (where `y` is non-deterministic) and decreases deterministically:  
+- Update rule: `x_next = y` (from `x = (y + x)/2` after substituting `y = 2*y - x`).  
+- Invariant: At the start of each iteration, `x = y_prev + 42` (where `y_prev` is the previous `y`). Thus, `x_next = x - 42`.  
+The linear ranking function `r(x) = x` decreases by 42 per iteration and is bounded below by 0 (since the loop runs only when `x >= 0`). This proves termination.
+
+=== Response 2 ===
+The program is analyzed as follows:
+
+- A loop invariant is derived: at the start of each iteration, `y = x - 42`.
+- Using this invariant, the state update can be expressed solely in terms of `x`:  
+  - Next state `x' = y = x - 42`.
+- The loop condition is `x >= 0`. Since the state update `x' = x - 42` decreases `x` by 42 in each iteration and `x` starts non-negative, `x` will eventually become negative, causing the loop to terminate.
+
+Thus, the program always terminates. The ranking function for termination is linear in `x`, leveraging the loop invariant to express termination behavior simply.
+
+[RESULT]  
+TERMINATE  
+[RANKING FUNCTION TYPE]  
+linear  
+[RANKING FUNCTIONS]  
+1.0 * x
+

@@ -1,0 +1,49 @@
+=== Response 1 ===
+I'll analyze this program for termination.
+
+This program implements the GCD (Greatest Common Divisor) algorithm using the Euclidean algorithm. Here's my analysis:
+
+[RESULT]
+TERMINATE
+
+[RANKING FUNCTION TYPE]
+nested
+
+[RANKING FUNCTIONS]
+f_outer(x,y) = y
+f_inner(r,y) = r
+
+This program terminates because:
+
+1. In the outer while loop, `*y_ref` strictly decreases in each iteration after the inner loop completes.
+2. The inner loop (`while (*r >= *y_ref)`) terminates because `*r` strictly decreases by at least `*y_ref` in each iteration, where `*y_ref > 0`.
+
+The nested ranking function shows that:
+- For the inner loop, the value of `*r` is decreasing and bounded below by 0
+- For the outer loop, the value of `*y_ref` is decreasing and bounded below by 0
+
+Since both loops have a strictly decreasing measure with a lower bound, the program must terminate.
+
+=== Response 2 ===
+I need to analyze the termination of this program by focusing on the `gcd` function, since that's where the loops are.
+
+First, I'll examine the outer while loop: `while (*y_ref > 0)`. Inside this loop, we have:
+1. An inner loop that computes the remainder (`*r = *x_ref % *y_ref`)
+2. Then swapping variables: `*x_ref = *y_ref` and `*y_ref = *r`
+
+For this Euclidean GCD algorithm:
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+*y_ref
+(*x_ref - *r)
+
+The termination proof uses nested ranking functions:
+1. The outer ranking function tracks `*y_ref`, which strictly decreases in each iteration of the outer loop (since we replace it with the remainder, which is always smaller than `*y_ref`).
+2. The inner ranking function tracks `(*x_ref - *r)`, which decreases by `*y_ref` in each iteration of the inner loop.
+
+Both values are bounded below (by 0), ensuring termination of both loops.
+

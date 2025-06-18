@@ -1,0 +1,19 @@
+=== Response 1 ===
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+Outer: (int)(s1_end - sc1)  [where s1_end is first null in s1]
+Inner: (int)(s2_end - s)    [where s2_end is first null in s2]
+
+**[EXPLANATION]**
+The program is terminating due to bounded string lengths ensured by `alloca` and null termination. 
+1. **Outer Loop (sc1 pointer):** Each iteration increments `sc1` until hitting the null terminator in `s1`. The measure `(s1_end - sc1)` is strictly positive initially and decreases by at least 1 per iteration (distance to terminator decreases).
+2. **Inner Loop (s pointer):** For each outer iteration, `s` increments until finding either the current character `c` or `s2`'s null terminator. The measure `(s2_end - s)` decreases by ≥1 per inner iteration.
+
+Both measures quantify remaining bytes until termination and are natural numbers, guaranteeing termination. Actual `*_end` values exist because `main` force-null-terminates both strings.
+
+=== Response 2 ===
+
+
