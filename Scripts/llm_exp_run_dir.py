@@ -522,6 +522,8 @@ if __name__ == "__main__":
         run_svmranker_multi_phase_judge(interface)
     elif args.mode == "STRATEGY":
         run_svmranker_strategy_judge(interface)
+    elif args.mode == "TERM_TYPE":
+        run_svmranker_termtype_judge(interface)
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
     # "		while (z > 0) {\n"\
