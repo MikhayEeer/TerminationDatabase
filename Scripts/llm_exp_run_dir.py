@@ -457,6 +457,7 @@ def run_svmranker_multi_phase_judge(interface):
 def strategy_process(interface, program):
     termination_answer = interface.ask_question_of_ranking_function_type(program)
     termination_answer_content = termination_answer.content
+    
     termination_result = parse_ranking_output(termination_answer_content)
     return termination_result.status
     if termination_result.status == Literal("NONTERM"):
@@ -486,6 +487,14 @@ def strategy_process(interface, program):
 
 
 def run_svmranker_termtype_judge(interface):
+    '''
+    预计用于判定 终止类型TremType
+        如 NonTerm 或者 Term
+        Term    进一步判断 Single or Nested or Multi or Other
+        NonTerm 进一步判断 ??? TODO
+    Strategy:
+        是TermType的分析结果;
+    '''
     # TODO
     result_csv_path = os.path.join(TERMTYPE_Exp_folder, "result.csv")
     pass
