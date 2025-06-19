@@ -52,21 +52,25 @@ def categorize_rows(input_dir):
         file_path = os.path.join(input_dir, fname)
         
         with open(file_path, newline='') as csvfile:
-
+            total_time = 0
+            row_num = 0
             phase_num_vec = []
             categories_count = {
                 'fully_correct': 0,    # All three numbers equal to base
                 'safe': 0,             # No number smaller than base
                 'unsafe': 0,           # Any number less than base
-                'max_safe': 0          # At least one number >= base
+                'max_safe': 0,          # At least one number >= base
+                'max_unsafe': 0  
             }
             reader = csv.reader(csvfile)
             for row in reader:
+                row_num = row_num + 1
                 base = int(row[0])
                 phase_num_vec.append(int(base))
                 eq_count = int(row[2])
                 gt_count = int(row[3])
                 lt_count = int(row[4])
+                total_time = total_time + float(row[5])
 
                 # Fully correct: all three equal
                 if eq_count == 3:
@@ -83,8 +87,11 @@ def categorize_rows(input_dir):
                 # Max safe: at least one >= base
                 if (eq_count + gt_count) >= 1:
                     categories_count['max_safe'] += 1
+                
+                if (eq_count + gt_count) == 0:
+                    categories_count['max_unsafe'] += 1
 
-            result_list.append((fname, categories_count))
+            result_list.append((fname, categories_count, total_time/(3*row_num)))
     return result_list
 
 def do_categorize(processed_dir):
@@ -93,6 +100,7 @@ def do_categorize(processed_dir):
     for item in counts:
         print(item[0] + ": ")
         print(item[1])
+        print(item[2])
 
 
 if __name__ == "__main__":

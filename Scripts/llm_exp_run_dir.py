@@ -4,6 +4,7 @@ import time
 import csv
 import argparse
 import re
+from typing import TypedDict, Literal
 from datetime import datetime
 
 from openai import OpenAI
@@ -29,6 +30,12 @@ NESTED_PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_Result_folde
 NESTED_PHASE_JUDGE_program_folder = os.path.join(PHASE_JUDGE_Exp_folder, "4-nested-terminate")
 MULTI_PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Multi")
 MULTI_PHASE_JUDGE_program_folder = os.path.join(PHASE_JUDGE_Exp_folder, "4-multi-terminate")
+
+# for strategy choosing
+TPDB_Validation_folder = os.path.join(os.getcwd(), "TPDB_Validation")
+STRATEGY_Exp_folder = os.path.join(os.getcwd(), "LLM_Strategy_Exp")
+# for termtype choosing
+TERMTYPE_Exp_folder = os.path.join(os.getcwd(), "LLM_Termtype_Exp")
 
 # chat interface 
 class chat_interface:
@@ -123,6 +130,29 @@ class chat_interface:
         print(answer.content)
         return answer
 
+
+    def ask_question_of_ranking_function_type(self, program):
+        # Strategy TODO:
+        # ask termination or not
+        # TERM: Single/Nested/Multiphase/Other
+        # NONTERM: 
+        role_prompt = "You are an expert of program termination analysis. In the following you wiil be given a loop program in Boogie." \
+        "You should judge whether it is termination or not, if you answer is TERMINATING, then you should output:\n" \
+        "[TERM] xxxx\n where xxxx is Single/Nested/Multi/Other representing whether the termination can be proved by a single ranking function/Nested rakning function/Multi-phase ranking function or" \
+        "other ranking functions like lexico or parallel ranking function. The result of type of ranking function should be simple in a way that if a Nested ranking function is possible, then do not generate Multi." \
+        "The preference of ranking functions: Single > Nested > Multi > Other, which Single is the most preferred one.\n"\
+        "If you answer is NONTERMINATING, then you should output:\n" \
+        "[NONTERM] yyyy\n where yyyy is RECUR/MONO/OTHER representing whether the reason of the nontermination is from recurrence relation/ Monotonic growth or other situations.\n" \
+        "Definitions of nested, multi-phase ranking functions are given below: The definition of nested ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction"\
+        "over the program variables vec(x) and there exists a positive real number C, such that f1(x) - f1(x') >= C, fi(x) - fi(x') + f_(i-1)(x) >= C for i ∈ {2, . . . , k} and fk(x) >= C.\n"
+        "The definition of multi-phase ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction" \
+        "over the program variables vec(x) and we require that there exists an index i ∈ {1, . . . , k} and a constant C such that: f_i(x) >= C and f1(x) - f1(x') >= C and for all j < i we have f_j(x) < 0" \
+        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"
+
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
+        print(answer.content)
+        return answer
+
     def ask_question_of_nested_phase_judge(self, program):
         role_prompt = "You are an expert of program termination analysis. In the following you will be given a loop program in Boogie which is terminating." \
         "You will judge the number of phases needed for  nested-ranking function to prove the termination of the loop program," \
@@ -131,7 +161,7 @@ class chat_interface:
         "over the program variables vec(x) and there exists a positive real number C, such that f1(x) - f1(x') >= C, fi(x) - fi(x') + f_(i-1)(x) >= C for i ∈ {2, . . . , k} and fk(x) >= C"\
         "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"\
         "The output you provide shoude in the format strictly:  [PHASE_NUM]k\n, where k is the number of minimum phase needed, notice that if the termination can be prove by one ranking function the phase num is 1. DO NOT GENERATE EXPLANATION!!"
-
+        backloop_prompt = "If you deem the program nonterminating, just output [NONTERM] without any explanation."
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
         return answer
@@ -144,7 +174,7 @@ class chat_interface:
         "over the program variables vec(x) and we require that there exists an index i ∈ {1, . . . , k} and a constant C such that: f_i(x) >= C and f1(x) - f1(x') >= C and for all j < i we have f_j(x) < 0" \
         "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"\
         "The output you provide shoude in the format strictly:  [PHASE_NUM]k\n, where k is the number of minimum phase needed, notice that if the termination can be prove by one ranking function then the phase num is 1. DO NOT GENERATE EXPLANATION!!"
-
+        backloop_prompt = "If you deem the program nonterminating, just output [NONTERM] without any explanation."
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
         return answer
@@ -224,6 +254,29 @@ def extract_nested_phase_num(output_str):
 
     # 无法解析，返回 None
     return None
+
+
+class RankingResult(TypedDict):
+    status: Literal["TERM", "NONTERM"]
+    kind: str
+
+def parse_ranking_output(output: str) -> RankingResult:
+    """
+    Parse the answer content of ask_question_of_ranking_function_type.
+
+    Expected formats:
+      [TERM] <Single|Nested|Multi|Other>
+      [NONTERM] <RECUR|MONO|OTHER>
+    """
+    # 去除首尾空白
+    text = output.strip()
+    # 正则匹配 [TERM] 或 [NONTERM]，后面跟一个单词
+    m = re.match(r'^\[(TERM|NONTERM)\]\s*(\w+)', text, re.IGNORECASE)
+    if not m:
+        raise ValueError(f"无法解析输出: {output!r}")
+    status = m.group(1).upper()
+    kind   = m.group(2)
+    return {"status": status, "kind": kind}
 
 
 def run_experiment_for_program(interface, 
@@ -325,6 +378,17 @@ def run_certain_experiments(interface):
     print(f"Termination Yes Programs : {yes_count}")
     print(f"Termination No Programs : {no_count}")
 
+def terminating_nested_phase_judge(interface, boogie_program):
+    answer = interface.ask_question_of_nested_phase_judge(boogie_program)
+    answer_content = answer.content
+    result_phase_num = extract_nested_phase_num(answer_content)
+    return result_phase_num
+
+def terminating_multi_phase_judge(interface, boogie_program):
+    answer = interface.ask_question_of_nested_phase_judge(boogie_program)
+    answer_content = answer.content
+    result_phase_num = extract_nested_phase_num(answer_content)
+
 def run_svmranker_nested_phase_judge(interface):
     result_list = []
     result_csv_file_path = os.path.join(NESTED_PHASE_JUDGE_Exp_Result_folder, "result.csv")
@@ -337,9 +401,7 @@ def run_svmranker_nested_phase_judge(interface):
         start_time = time.time()
         print(item)
         for i in range(repeat_num):
-            answer = interface.ask_question_of_nested_phase_judge(curr_boogie_program)
-            answer_content = answer.content
-            result_phase_num = extract_nested_phase_num(answer_content)
+            result_phase_num = terminating_nested_phase_judge(interface, curr_boogie_program)
             result_num_list.append(result_phase_num)
             print("parsed result phase num: " + str(result_phase_num))
         
@@ -372,12 +434,9 @@ def run_svmranker_multi_phase_judge(interface):
         start_time = time.time()
         print(item)
         for i in range(repeat_num):
-            answer = interface.ask_question_of_nested_phase_judge(curr_boogie_program)
-            answer_content = answer.content
-            result_phase_num = extract_nested_phase_num(answer_content)
+            result_phase_num = terminating_multi_phase_judge(interface, curr_boogie_program)
             result_num_list.append(result_phase_num)
             print("parsed result phase num: " + str(result_phase_num))
-        
         end_time = time.time()
         processing_time = end_time - start_time
         print("total time: " + str(round(processing_time, 2)))
@@ -394,6 +453,48 @@ def run_svmranker_multi_phase_judge(interface):
         csv_f.write(str(result_tuple[2]))
         csv_f.write("\n")
     csv_f.close()
+
+def strategy_process(interface, program):
+    termination_answer = interface.ask_question_of_ranking_function_type(program)
+    termination_answer_content = termination_answer.content
+    termination_result = parse_ranking_output(termination_answer_content)
+    return termination_result.status
+    if termination_result.status == Literal("NONTERM"):
+        # TODO: add processing for nontermination
+        pass
+    elif termination_result.status == Literal("TERM"):
+        if termination_result.kind == "Single":
+            return ("Single", 1)
+        elif termination_result.status == "Multi":  
+            phase_num = terminating_multi_phase_judge(interface, program)
+            if phase_num < 0:
+                return ("BACKTRACK", -1)
+            else:
+                return ("Multi", phase_num)
+        elif termination_result.kind == "Nested":
+            phase_num = terminating_nested_phase_judge(interface, program)
+            if phase_num < 0:
+                return ("BACKTRACK", -1)
+            else:
+                return ("Nested", phase_num)
+        elif termination_result.kind == "Other":
+            return ("Other", 0)
+        else:
+            print("ERROR: unknown termination type, str error")
+    else:
+        print("ERROR: unknown first component")
+
+
+def run_svmranker_termtype_judge(interface):
+    # TODO
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, "result.csv")
+    pass
+
+def run_svmranker_strategy_judge(interface):
+    # TODO
+    result_csv_path = os.path.join(STRATEGY_Exp_folder, "result.csv")
+    pass
+
 
 if __name__ == "__main__":
     interface = chat_interface()
@@ -419,6 +520,8 @@ if __name__ == "__main__":
         run_svmranker_nested_phase_judge(interface)
     elif args.mode == "MULTI_PHASE":
         run_svmranker_multi_phase_judge(interface)
+    elif args.mode == "STRATEGY":
+        run_svmranker_strategy_judge(interface)
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
     # "		while (z > 0) {\n"\

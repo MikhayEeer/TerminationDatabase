@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from enum import Enum
 
 # Assume chat_interface is in the same directory or importable location
-from ..Scripts.llm_naive_run_dir import chat_interface as ChatInterface
+from ..Scripts.llm_exp_run_dir import chat_interface as ChatInterface
 import config as CFG
 
 class AnalysisResult(Enum):
