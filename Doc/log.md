@@ -24,4 +24,8 @@
     - 为2ls加入断点续传功能，并且在copy3的结果中，复制一份作为copy3-2来测试断点续传，尝试完成所有的2ls for SVComp工作
         - 2ls断点续传没有起到效果，需要有时间进行检修
         - Solve: output有误
+
+
+- 0619
+    - CPA_TPDB_Certain_.._cp2.csv 是TIMEOUT 300的结果，并且新记录了耗时
 ```
