@@ -388,6 +388,7 @@ def terminating_multi_phase_judge(interface, boogie_program):
     answer = interface.ask_question_of_nested_phase_judge(boogie_program)
     answer_content = answer.content
     result_phase_num = extract_nested_phase_num(answer_content)
+    return result_phase_num
 
 def run_svmranker_nested_phase_judge(interface):
     result_list = []
@@ -500,7 +501,7 @@ def strategy_process(interface, program):
 
 def run_svmranker_termtype_judge(interface):
     '''
-    预计用于判定 终止类型TremType
+    预计用于判定 终止类型TermType
         如 NonTerm 或者 Term
         Term    进一步判断 Single or Nested or Multi or Other
         NonTerm 进一步判断 ??? TODO
