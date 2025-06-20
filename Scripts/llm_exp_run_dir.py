@@ -18,7 +18,8 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = claude_model_name
+llm_model_name = gpt_4o_model_name
+LLM_MODEL = "gpt4o"
 
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 
@@ -521,11 +522,12 @@ def run_svmranker_termtype_judge(interface):
         是TermType的分析结果;
     '''
     os.makedirs(TERMTYPE_Exp_folder, exist_ok=True)
+    prefix = "llm_"+LLM_MODEL+"_termtype_"
     # 分Term和NonTerm，然后csv记录细分 Single Nested ...
     categories = ["TERM", "NONTERM", "ERROR"]
     for category in categories:
         os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
-    result_csv_path = os.path.join(TERMTYPE_Exp_folder, "llm_claude3.7_termtype_result.csv")
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, prefix+"result.csv")
 
     with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
@@ -554,7 +556,7 @@ def run_svmranker_termtype_judge(interface):
     print(f"[Info] Found {len(all_programs)} programs to analyze for termtype")
     print(f"[Info] Duplicates removed, nested priority maintained")
 
-    # all_programs = all_programs[:2]  # For testing, limit to first 2 programs
+    #all_programs = all_programs[:2]  # For testing, limit to first 2 programs
     
     for idx, (file_path, file_name, source_category) in enumerate(all_programs):
         print(f"[Info] Processing ({idx+1}/{len(all_programs)}) {source_category} program: {file_name}")
@@ -562,7 +564,7 @@ def run_svmranker_termtype_judge(interface):
         with open(file_path, 'r', errors='ignore') as f:
             curr_program = f.read()
 
-        repeat_num = 3
+        repeat_num = 1
         termtype_results = []
         raw_responses = []
         for i in range(repeat_num):
