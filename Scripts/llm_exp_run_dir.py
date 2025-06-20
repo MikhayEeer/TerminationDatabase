@@ -537,17 +537,22 @@ def run_svmranker_termtype_judge(interface):
     # 路径需要自己进行定义和更换；目前字面量形式写定
     # 写定为LLM_Phase_Exp下的nested和multi
     all_programs = []
+    seen_files = set()  # 用于去重，存储已经见过的文件名
+
     nested_path = os.path.join("LLM_Phase_Exp", "4-nested-terminate")
     if os.path.exists(nested_path):
         for item in os.listdir(nested_path):
             if item.endswith(('.c', '.cpp', '.bpl', '.smt2')):
                 all_programs.append((os.path.join(nested_path, item), item, 'KNOWN_NESTED'))
+                seen_files.add(item)
     multi_path = os.path.join("LLM_Phase_Exp", "4-multi-terminate")
     if os.path.exists(multi_path):
         for item in os.listdir(multi_path):
-            if item.endswith(('.c', '.cpp', '.bpl', '.smt2')):
+            if item.endswith(('.c', '.cpp', '.bpl', '.smt2')) and item not in seen_files:
                 all_programs.append((os.path.join(multi_path, item), item, 'KNOWN_MULTI'))
+                seen_files.add(item)
     print(f"[Info] Found {len(all_programs)} programs to analyze for termtype")
+    print(f"[Info] Duplicates removed, nested priority maintained")
 
     # all_programs = all_programs[:2]  # For testing, limit to first 2 programs
     
@@ -579,11 +584,6 @@ def run_svmranker_termtype_judge(interface):
             category_folder = f"NONTERM"
         else:
             category_folder = "ERROR"
-        
-        target_folder = os.path.join(TERMTYPE_Exp_folder, category_folder)
-        target_file_path = os.path.join(target_folder, file_name)
-        import shutil
-        shutil.copy2(file_path, target_file_path)
 
         with open(result_csv_path, 'a', newline='', encoding='utf-8') as csvfile:
             csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
