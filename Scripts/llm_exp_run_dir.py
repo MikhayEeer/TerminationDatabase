@@ -15,7 +15,9 @@ gpt_o4_mini_model_name = "openai/o4-mini"
 claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
+
 llm_model_name = claude_model_name
+
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 
 YES_program_folder = os.path.join(os.getcwd(), "TPDB_YES")
@@ -518,6 +520,7 @@ def run_svmranker_termtype_judge(interface):
     '''
     # TODO
     os.makedirs(TERMTYPE_Exp_folder, exist_ok=True)
+    # 分Term和NonTerm，然后csv记录细分 Single Nested ...
     categories = ["TERM_Single", "TERM_Nested", "TERM_Multi", "TERM_Other", "NONTERM_RECUR", "NONTERM_MONO", "NONTERM_OTHER", "ERROR"]
     for category in categories:
         os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
@@ -552,7 +555,7 @@ def run_svmranker_termtype_judge(interface):
         with open(file_path, 'r', errors='ignore') as f:
             curr_program = f.read()
 
-        repeat_num = 2
+        repeat_num = 3
         termtype_results = []
         raw_responses = []
         for i in range(repeat_num):
