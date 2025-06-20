@@ -9,7 +9,9 @@ from datetime import datetime
 
 from openai import OpenAI
 
-secrete = "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"
+from utils import load_api_key
+
+secrete = load_api_key()
 gpt_4o_model_name = "openai/gpt-4o"
 gpt_o4_mini_model_name = "openai/o4-mini"
 claude_model_name = "anthropic/claude-3.7-sonnet"
@@ -152,7 +154,7 @@ class chat_interface:
         "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"
 
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
-        print(answer.content)
+        print(f"[ANS] \n\t{answer.content} \n[ANS END]")
         return answer
 
     def ask_question_of_nested_phase_judge(self, program):
@@ -272,8 +274,8 @@ def parse_ranking_output(output: str) -> RankingResult:
     """
     # 去除首尾空白
     text = output.strip()
-    # 正则匹配 [TERM] 或 [NONTERM]，后面跟一个单词
-    m = re.match(r'^\[(TERM|NONTERM)\]\s*(\w+)', text, re.IGNORECASE)
+    # 正则搜索 [TERM] 或 [NONTERM]，后面跟一个单词（使用search而不是match）
+    m = re.search(r'\[(TERM|NONTERM)\]\s*(\w+)', text, re.IGNORECASE)
     if not m:
         raise ValueError(f"无法解析输出: {output!r}")
     status = m.group(1).upper()
@@ -514,17 +516,16 @@ def run_svmranker_termtype_judge(interface):
     预计用于判定 终止类型TermType
         如 NonTerm 或者 Term
         Term    进一步判断 Single or Nested or Multi or Other
-        NonTerm 进一步判断 ??? TODO
+        NonTerm 进一步判断 RECUR or MONO or OTHER
     Strategy:
         是TermType的分析结果;
     '''
-    # TODO
     os.makedirs(TERMTYPE_Exp_folder, exist_ok=True)
     # 分Term和NonTerm，然后csv记录细分 Single Nested ...
-    categories = ["TERM_Single", "TERM_Nested", "TERM_Multi", "TERM_Other", "NONTERM_RECUR", "NONTERM_MONO", "NONTERM_OTHER", "ERROR"]
+    categories = ["TERM", "NONTERM", "ERROR"]
     for category in categories:
         os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
-    result_csv_path = os.path.join(TERMTYPE_Exp_folder, "llm_termtype_result.csv")
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, "llm_claude3.7_termtype_result.csv")
 
     with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
@@ -548,6 +549,7 @@ def run_svmranker_termtype_judge(interface):
                 all_programs.append((os.path.join(multi_path, item), item, 'KNOWN_MULTI'))
     print(f"[Info] Found {len(all_programs)} programs to analyze for termtype")
 
+    # all_programs = all_programs[:2]  # For testing, limit to first 2 programs
     
     for idx, (file_path, file_name, source_category) in enumerate(all_programs):
         print(f"[Info] Processing ({idx+1}/{len(all_programs)}) {source_category} program: {file_name}")
@@ -559,21 +561,22 @@ def run_svmranker_termtype_judge(interface):
         termtype_results = []
         raw_responses = []
         for i in range(repeat_num):
-            print(f"  Round {i+1}/{repeat_num}...")
+            print(f"[INFO]  Round {i+1}/{repeat_num}...")
             termtype_result = termtype_process(interface, curr_program)
             termtype_results.append((termtype_result["status"], termtype_result["kind"]))
             raw_responses.append(termtype_result.get("raw_response", ""))
-            print(f"    Result: {termtype_result['status']} - {termtype_result['kind']}")
+            print(f"[RES]    Result: {termtype_result['status']} - {termtype_result['kind']}")
         end_time = time.time()
         processing_time = end_time - start_time
+        # processing_time = repeat_num using llm, so we can average it
         # turn list to set, get consistent
         is_consistent = len(set(termtype_results)) == 1 
 
         final_status, final_kind = termtype_results[0] if termtype_results else ("ERROR", "UNKNOWN")
         if final_status == "TERM":
-            category_folder = f"TERM_{final_kind}"
+            category_folder = f"TERM"
         elif final_status == "NONTERM":
-            category_folder = f"NONTERM_{final_kind}"
+            category_folder = f"NONTERM"
         else:
             category_folder = "ERROR"
         
@@ -596,13 +599,13 @@ def run_svmranker_termtype_judge(interface):
                 'raw_responses': str(raw_responses)
             })
         
-        print(f"  Final Result: {final_status} - {final_kind}")
-        print(f"  Saved to: {category_folder}")
-        print(f"  Consistent: {is_consistent}, Time: {processing_time:.2f}s")
+        print(f"[RES]  Final Result: {final_status} - {final_kind}")
+        print(f"[OUT]  Saved to: {category_folder}")
+        print(f"[OUT]  Consistent: {is_consistent}, Time: {processing_time:.2f}s")
         print()
 
-    print(f"\n[Info] Termtype analysis completed!")
-    print(f"Results saved to: {result_csv_path}")
+    print(f"\n[OUT] Termtype analysis completed!")
+    print(f"[OUT]Results saved to: {result_csv_path}")
 
 def run_svmranker_strategy_judge(interface):
     # TODO
@@ -613,6 +616,7 @@ def run_svmranker_strategy_judge(interface):
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
+    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE","STRATEGY", "TERM_TYPE"]
 
     parser = argparse.ArgumentParser(
         description="Call functionalities depending on the --mode argument"
@@ -620,7 +624,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--mode",
-        choices=["NAIVE", "NESTED_PHASE", "MULTI_PHASE"],
+        choices=CHOICES,
         required=True,
         help="NAIVE: run llm termination naive experiment on TPDB_Certains; "
              "NESTED_PHASE: run nested judgement on termination result of nested cases in SVMRanker"
