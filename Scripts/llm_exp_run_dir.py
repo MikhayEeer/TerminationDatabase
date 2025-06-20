@@ -524,7 +524,7 @@ def run_svmranker_termtype_judge(interface):
     categories = ["TERM_Single", "TERM_Nested", "TERM_Multi", "TERM_Other", "NONTERM_RECUR", "NONTERM_MONO", "NONTERM_OTHER", "ERROR"]
     for category in categories:
         os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
-    result_csv_path = os.path.join(TERMTYPE_Exp_folder, "result.csv")
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, "llm_termtype_result.csv")
 
     with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
@@ -547,7 +547,7 @@ def run_svmranker_termtype_judge(interface):
             if item.endswith(('.c', '.cpp', '.bpl', '.smt2')):
                 all_programs.append((os.path.join(multi_path, item), item, 'KNOWN_MULTI'))
     print(f"[Info] Found {len(all_programs)} programs to analyze for termtype")
-      
+
     
     for idx, (file_path, file_name, source_category) in enumerate(all_programs):
         print(f"[Info] Processing ({idx+1}/{len(all_programs)}) {source_category} program: {file_name}")
