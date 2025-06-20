@@ -455,6 +455,13 @@ def run_svmranker_multi_phase_judge(interface):
         csv_f.write("\n")
     csv_f.close()
 
+def termtype_process(interface, program):
+    termination_answer = interface.ask_question_of_ranking_function_type(program)
+    termination_answer_content = termination_answer.content
+    
+    termination_result = parse_ranking_output(termination_answer_content)
+    return termination_result
+        
 def strategy_process(interface, program):
     """
     分析程序的终止策略类型
