@@ -455,35 +455,47 @@ def run_svmranker_multi_phase_judge(interface):
     csv_f.close()
 
 def strategy_process(interface, program):
-    termination_answer = interface.ask_question_of_ranking_function_type(program)
-    termination_answer_content = termination_answer.content
-    
-    termination_result = parse_ranking_output(termination_answer_content)
-    return termination_result.status
-    if termination_result.status == Literal("NONTERM"):
-        # TODO: add processing for nontermination
-        pass
-    elif termination_result.status == Literal("TERM"):
-        if termination_result.kind == "Single":
-            return ("Single", 1)
-        elif termination_result.status == "Multi":  
-            phase_num = terminating_multi_phase_judge(interface, program)
-            if phase_num < 0:
-                return ("BACKTRACK", -1)
+    """
+    分析程序的终止策略类型
+    返回: (strategy_type, phase_num) 或 ("NONTERM", reason)
+    """
+    try:
+        termination_answer = interface.ask_question_of_ranking_function_type(program)
+        termination_answer_content = termination_answer.content
+        
+        termination_result = parse_ranking_output(termination_answer_content)
+        
+        if termination_result["status"] == "NONTERM":
+            # 处理非终止情况
+            return ("NONTERM", termination_result["kind"])
+            
+        elif termination_result["status"] == "TERM":
+            if termination_result["kind"] == "Single":
+                return ("Single", 1)
+            elif termination_result["kind"] == "Multi":  
+                phase_num = terminating_multi_phase_judge(interface, program)
+                if phase_num is None or phase_num < 0:
+                    return ("BACKTRACK", -1)
+                else:
+                    return ("Multi", phase_num)
+            elif termination_result["kind"] == "Nested":
+                phase_num = terminating_nested_phase_judge(interface, program)
+                if phase_num is None or phase_num < 0:
+                    return ("BACKTRACK", -1)
+                else:
+                    return ("Nested", phase_num)
+            elif termination_result["kind"] == "Other":
+                return ("Other", 0)
             else:
-                return ("Multi", phase_num)
-        elif termination_result.kind == "Nested":
-            phase_num = terminating_nested_phase_judge(interface, program)
-            if phase_num < 0:
-                return ("BACKTRACK", -1)
-            else:
-                return ("Nested", phase_num)
-        elif termination_result.kind == "Other":
-            return ("Other", 0)
+                print(f"ERROR: unknown termination type: {termination_result['kind']}")
+                return ("UNKNOWN", -1)
         else:
-            print("ERROR: unknown termination type, str error")
-    else:
-        print("ERROR: unknown first component")
+            print(f"ERROR: unknown status: {termination_result['status']}")
+            return ("ERROR", -1)
+            
+    except Exception as e:
+        print(f"Error in strategy_process: {str(e)}")
+        return ("ERROR", -1)
 
 
 def run_svmranker_termtype_judge(interface):
