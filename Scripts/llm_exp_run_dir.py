@@ -460,6 +460,7 @@ def termtype_process(interface, program):
     termination_answer_content = termination_answer.content
     
     termination_result = parse_ranking_output(termination_answer_content)
+    termination_result["raw_response"] = termination_answer_content
     return termination_result
         
 def strategy_process(interface, program):
@@ -516,8 +517,89 @@ def run_svmranker_termtype_judge(interface):
         是TermType的分析结果;
     '''
     # TODO
+    os.makedirs(TERMTYPE_Exp_folder, exist_ok=True)
+    categories = ["TERM_Single", "TERM_Nested", "TERM_Multi", "TERM_Other", "NONTERM_RECUR", "NONTERM_MONO", "NONTERM_OTHER", "ERROR"]
+    for category in categories:
+        os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
     result_csv_path = os.path.join(TERMTYPE_Exp_folder, "result.csv")
-    pass
+
+    with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
+                     'category_folder', 'processing_time', 'is_consistent', 'repeat_results', 
+                     'raw_responses']
+        csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        csv_writer.writeheader()
+    
+    # 路径需要自己进行定义和更换；目前字面量形式写定
+    # 写定为LLM_Phase_Exp下的nested和multi
+    all_programs = []
+    nested_path = os.path.join("LLM_Phase_Exp", "4-nested-terminate")
+    if os.path.exists(nested_path):
+        for item in os.listdir(nested_path):
+            if item.endswith(('.c', '.cpp', '.bpl', '.smt2')):
+                all_programs.append((os.path.join(nested_path, item), item, 'KNOWN_NESTED'))
+    multi_path = os.path.join("LLM_Phase_Exp", "4-multi-terminate")
+    if os.path.exists(multi_path):
+        for item in os.listdir(multi_path):
+            if item.endswith(('.c', '.cpp', '.bpl', '.smt2')):
+                all_programs.append((os.path.join(multi_path, item), item, 'KNOWN_MULTI'))
+    print(f"[Info] Found {len(all_programs)} programs to analyze for termtype")
+      
+    
+    for idx, (file_path, file_name, source_category) in enumerate(all_programs):
+        print(f"[Info] Processing ({idx+1}/{len(all_programs)}) {source_category} program: {file_name}")
+        start_time = time.time()
+        with open(file_path, 'r', errors='ignore') as f:
+            curr_program = f.read()
+
+        repeat_num = 2
+        termtype_results = []
+        raw_responses = []
+        for i in range(repeat_num):
+            print(f"  Round {i+1}/{repeat_num}...")
+            termtype_result = termtype_process(interface, curr_program)
+            termtype_results.append((termtype_result["status"], termtype_result["kind"]))
+            raw_responses.append(termtype_result.get("raw_response", ""))
+            print(f"    Result: {termtype_result['status']} - {termtype_result['kind']}")
+        end_time = time.time()
+        processing_time = end_time - start_time
+        # turn list to set, get consistent
+        is_consistent = len(set(termtype_results)) == 1 
+
+        final_status, final_kind = termtype_results[0] if termtype_results else ("ERROR", "UNKNOWN")
+        if final_status == "TERM":
+            category_folder = f"TERM_{final_kind}"
+        elif final_status == "NONTERM":
+            category_folder = f"NONTERM_{final_kind}"
+        else:
+            category_folder = "ERROR"
+        
+        target_folder = os.path.join(TERMTYPE_Exp_folder, category_folder)
+        target_file_path = os.path.join(target_folder, file_name)
+        import shutil
+        shutil.copy2(file_path, target_file_path)
+
+        with open(result_csv_path, 'a', newline='', encoding='utf-8') as csvfile:
+            csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            csv_writer.writerow({
+                'file_name': file_name,
+                'original_path': file_path,
+                'predicted_status': final_status,
+                'predicted_kind': final_kind,
+                'category_folder': category_folder,
+                'processing_time': round(processing_time, 2),
+                'is_consistent': is_consistent,
+                'repeat_results': str(termtype_results),
+                'raw_responses': str(raw_responses)
+            })
+        
+        print(f"  Final Result: {final_status} - {final_kind}")
+        print(f"  Saved to: {category_folder}")
+        print(f"  Consistent: {is_consistent}, Time: {processing_time:.2f}s")
+        print()
+
+    print(f"\n[Info] Termtype analysis completed!")
+    print(f"Results saved to: {result_csv_path}")
 
 def run_svmranker_strategy_judge(interface):
     # TODO
