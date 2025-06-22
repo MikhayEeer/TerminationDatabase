@@ -564,7 +564,7 @@ def run_svmranker_termtype_judge(interface):
         with open(file_path, 'r', errors='ignore') as f:
             curr_program = f.read()
 
-        repeat_num = 1
+        repeat_num = 3
         termtype_results = []
         raw_responses = []
         for i in range(repeat_num):
@@ -575,6 +575,7 @@ def run_svmranker_termtype_judge(interface):
             print(f"[RES]    Result: {termtype_result['status']} - {termtype_result['kind']}")
         end_time = time.time()
         processing_time = end_time - start_time
+        time.sleep(300)
         # processing_time = repeat_num using llm, so we can average it
         # turn list to set, get consistent
         is_consistent = len(set(termtype_results)) == 1 
