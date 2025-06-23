@@ -18,7 +18,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = claude_model_name
+llm_model_name = gpt_o4_mini_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\
@@ -578,9 +578,9 @@ def run_svmranker_termtype_judge(interface):
     prefix = "llm_termtype_"
     # 分Term和NonTerm，然后csv记录细分 Single Nested ...
     categories = ["TERM", "NONTERM", "ERROR"]
-    for category in categories:
-        os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
-    result_csv_path = os.path.join(TERMTYPE_Exp_folder, prefix+"result_" + LLM_MODEL +" .csv")
+    # for category in categories:
+    #     os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, prefix+"result_" + LLM_MODEL +".csv")
 
     with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
