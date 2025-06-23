@@ -18,7 +18,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = gpt_o4_mini_model_name
+llm_model_name = claude_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\
@@ -445,6 +445,42 @@ def run_svmranker_nested_phase_judge(interface):
         csv_f.write("\n")
     csv_f.close()
 
+def run_svmranker_nested_phase_judge_rem(interface):
+    result_list = []
+    result_csv_file_path = os.path.join(NESTED_PHASE_JUDGE_Exp_Result_folder, "rem_result_" + LLM_MODEL + ".csv")
+    for item in os.listdir(NESTED_PHASE_JUDGE_program_folder):
+        ref_str = item.split("_", 1)[0]
+        real_file_name = item.split("_", 1)[1]
+        name_without_ext, ext = os.path.splitext(real_file_name)
+        if name_without_ext.isdigit():
+            continue
+        f = open(os.path.join(NESTED_PHASE_JUDGE_program_folder, item))
+        curr_boogie_program = f.read()
+        repeat_num = 3
+        result_num_list = []
+        start_time = time.time()
+        print(item)
+        for i in range(repeat_num):
+            result_phase_num = terminating_nested_phase_judge(interface, curr_boogie_program)
+            result_num_list.append(result_phase_num)
+            print("parsed result phase num: " + str(result_phase_num))
+        
+        end_time = time.time()
+        processing_time = end_time - start_time
+        print("total time: " + str(round(processing_time, 2)))
+        result_list.append((item, result_num_list, round(processing_time, 2)))
+
+    f.close()
+    print(result_list)
+    csv_f = open(result_csv_file_path, "w")
+    for result_tuple in result_list:
+        csv_f.write(result_tuple[0])
+        for num in result_tuple[1]:
+            csv_f.write("," + str(num))
+        csv_f.write(",")
+        csv_f.write(str(result_tuple[2]))
+        csv_f.write("\n")
+    csv_f.close()
 def run_svmranker_multi_phase_judge(interface):
     result_list = []
     result_csv_file_path = os.path.join(MULTI_PHASE_JUDGE_Exp_Result_folder, "result.csv")
@@ -636,7 +672,7 @@ def run_svmranker_strategy_judge(interface):
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
-    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE","STRATEGY", "TERM_TYPE"]
+    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE","STRATEGY", "TERM_TYPE", "NESTED_PHASE_REM"]
 
     parser = argparse.ArgumentParser(
         description="Call functionalities depending on the --mode argument"
@@ -656,6 +692,8 @@ if __name__ == "__main__":
         run_certain_experiments(interface)
     elif args.mode == "NESTED_PHASE":
         run_svmranker_nested_phase_judge(interface)
+    elif args.mode == "NESTED_PHASE_REM":
+        run_svmranker_nested_phase_judge_rem(interface)
     elif args.mode == "MULTI_PHASE":
         run_svmranker_multi_phase_judge(interface)
     elif args.mode == "STRATEGY":
