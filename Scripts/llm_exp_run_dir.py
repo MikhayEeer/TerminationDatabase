@@ -10,6 +10,7 @@ from datetime import datetime
 from openai import OpenAI
 
 from utils import load_api_key
+from Scripts.UseSVMRanker import SVMRanker
 
 secrete = load_api_key()
 gpt_4o_model_name = "openai/gpt-4o"
@@ -668,11 +669,38 @@ def run_svmranker_strategy_judge(interface):
     result_csv_path = os.path.join(STRATEGY_Exp_folder, "result.csv")
     pass
 
+def run_full_analysis_pipeline(interface, program_path):
+    """
+    为给定的 Boogie 文件编排完整的分析流程。
+    1. 读取文件。
+    2. 使用 LLM 确定策略（终止性、类型、阶段数）。
+    3. 使用分析结果调用 SVMRanker 的占位符。
+    """
+    print(f"--- Starting Full Analysis Pipeline for: {program_path} ---")
+    
+    try:
+        with open(program_path, 'r', errors='ignore') as f:
+            program_content = f.read()
+    except FileNotFoundError:
+        print(f"[ERROR] File not found: {program_path}")
+        return
+
+    # 使用 strategy_process 获取终止性、类型和阶段数
+    print("[INFO] Running strategy process...")
+    strategy_type, phase_or_reason = strategy_process(interface, program_content)
+    print(f"[INFO] Strategy process result: ({strategy_type}, {phase_or_reason})")
+
+    # 准备参数并调用 SVMRanker
+    is_terminating = strategy_type != "NONTERM"
+    
+    SVMRanker(program_content, strategy_type, phase_or_reason, is_terminating)
+    
+    print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
-    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE","STRATEGY", "TERM_TYPE", "NESTED_PHASE_REM"]
+    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE","STRATEGY", "TERM_TYPE", "NESTED_PHASE_REM", "FULL_PIPELINE"]
 
     parser = argparse.ArgumentParser(
         description="Call functionalities depending on the --mode argument"
@@ -684,6 +712,12 @@ if __name__ == "__main__":
         required=True,
         help="NAIVE: run llm termination naive experiment on TPDB_Certains; "
              "NESTED_PHASE: run nested judgement on termination result of nested cases in SVMRanker"
+    )
+    parser.add_argument(
+        "--bpl",
+        type=str,
+        required=False,
+        help="Path to the input .bpl file for FULL_PIPELINE mode."
     )
 
     args = parser.parse_args()
@@ -700,6 +734,14 @@ if __name__ == "__main__":
         run_svmranker_strategy_judge(interface)
     elif args.mode == "TERM_TYPE":
         run_svmranker_termtype_judge(interface)
+    elif args.mode == "FULL_PIPELINE":
+        if not args.bpl:
+            print("Error: --file argument is required for FULL_PIPELINE mode.")
+            sys.exit(1)
+        if not args.bpl.endswith(".bpl"):
+            print("Error: --file must be a .bpl file.")
+            sys.exit(1)
+        run_full_analysis_pipeline(interface, args.bpl)
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
     # "		while (z > 0) {\n"\
