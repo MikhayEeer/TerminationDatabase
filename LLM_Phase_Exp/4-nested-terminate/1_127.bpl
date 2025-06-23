@@ -1,3 +1,12 @@
+//#rTerminationDerivable
+/*
+ * Date: 2012-06-14
+ * Author: leike@informatik.uni-freiburg.de, heizmann@informatik.uni-freiburg.de
+ *
+ * Two sucessive iterations of the program Thun.
+ * Ranking function: f(x, y) = 3x+y
+ * 
+ */
 
 procedure Thun() returns (x: int, y: int)
 {

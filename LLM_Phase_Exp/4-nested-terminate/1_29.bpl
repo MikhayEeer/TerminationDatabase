@@ -1,3 +1,9 @@
+//#rTerminationDerivable
+/*
+ * Date: 18.02.2012
+ * Author: heizmann@informatik.uni-freiburg.de
+ *
+ */
 
 procedure Copenhagen(c: int) returns (x: int)
 {

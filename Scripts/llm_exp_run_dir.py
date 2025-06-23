@@ -18,7 +18,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = gpt_4o_model_name
+llm_model_name = gpt_o4_mini_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\

@@ -1,4 +1,9 @@
-
+//#rNonTerminationDerivable
+/*
+ * Date: 2018-03-13
+ * Author: heizmann@informatik.uni-freiburg.de
+ * 
+ */
 
 procedure main() returns ()
 {

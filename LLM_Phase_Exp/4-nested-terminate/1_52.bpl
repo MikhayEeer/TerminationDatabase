@@ -1,4 +1,10 @@
-
+//#rTerminationDerivable
+/*
+ * Date: 2012-04-01
+ *
+ * Ranking function f(x, y) = x
+ *
+ */
 
 procedure Kinshasa() returns (x: int, y: int)
 {
