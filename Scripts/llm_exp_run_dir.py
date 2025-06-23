@@ -408,7 +408,7 @@ def terminating_nested_phase_judge(interface, boogie_program):
     return result_phase_num
 
 def terminating_multi_phase_judge(interface, boogie_program):
-    answer = interface.ask_question_of_nested_phase_judge(boogie_program)
+    answer = interface.ask_question_of_multi_phase_judge(boogie_program)
     answer_content = answer.content
     result_phase_num = extract_nested_phase_num(answer_content)
     return result_phase_num
@@ -669,6 +669,33 @@ def run_svmranker_strategy_judge(interface):
     result_csv_path = os.path.join(STRATEGY_Exp_folder, "result.csv")
     pass
 
+def batch_run_full_pipeline(interface, folder):
+    """
+    批量为 folder 中的所有 .bpl 文件运行完整的分析流程。
+    """
+    print("--- Starting Batch Full Analysis Pipeline ---")
+    if not os.path.exists(folder):
+        print(f"[ERROR] Validation folder not found: {folder}")
+        return
+
+    all_bpl_files = [f for f in os.listdir(folder) if f.endswith(".bpl")]
+    
+    if not all_bpl_files:
+        print(f"[INFO] No .bpl files found in {folder}")
+        return
+
+    print(f"[INFO] Found {len(all_bpl_files)} .bpl files to process.")
+
+    for i, file_name in enumerate(all_bpl_files):
+        file_path = os.path.join(folder, file_name)
+        print(f"\n--- Processing file {i+1}/{len(all_bpl_files)}: {file_name} ---")
+        try:
+            run_full_analysis_pipeline(interface, file_path)
+        except Exception as e:
+            print(f"[ERROR] An unexpected error occurred while processing {file_name}: {e}")
+    
+    print("\n--- Batch Full Analysis Pipeline Finished ---")
+
 def run_full_analysis_pipeline(interface, program_path):
     """
     为给定的 Boogie 文件编排完整的分析流程。
@@ -685,14 +712,13 @@ def run_full_analysis_pipeline(interface, program_path):
         print(f"[ERROR] File not found: {program_path}")
         return
 
-    # 使用 strategy_process 获取终止性、类型和阶段数
+    # strategy_process: get (strategy type, phase0
+    # TODO: (type, phase) can be (BACKTRACK, -1), Need to handle this case
     print("[INFO] Running strategy process...")
     strategy_type, phase_or_reason = strategy_process(interface, program_content)
     print(f"[INFO] Strategy process result: ({strategy_type}, {phase_or_reason})")
 
-    # 准备参数并调用 SVMRanker
     is_terminating = strategy_type != "NONTERM"
-    
     SVMRanker(program_content, strategy_type, phase_or_reason, is_terminating)
     
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
@@ -700,7 +726,9 @@ def run_full_analysis_pipeline(interface, program_path):
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
-    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE","STRATEGY", "TERM_TYPE", "NESTED_PHASE_REM", "FULL_PIPELINE"]
+    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE",
+               "STRATEGY", "TERM_TYPE", "NESTED_PHASE_REM", 
+               "FULL_PIPELINE", "BATCH_FULL_PIPELINE"]
 
     parser = argparse.ArgumentParser(
         description="Call functionalities depending on the --mode argument"
@@ -742,6 +770,14 @@ if __name__ == "__main__":
             print("Error: --file must be a .bpl file.")
             sys.exit(1)
         run_full_analysis_pipeline(interface, args.bpl)
+    elif args.mode == "BATCH_FULL_PIPELINE":
+        while True:
+            input_folder = input("Enter the folder path containing .bpl files: ")
+            if os.path.isdir(input_folder):
+                batch_run_full_pipeline(interface, input_folder)
+                break
+            else:
+                print(f"[ERROR] The path '{input_folder}' is not a valid directory. Please try again.")
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
     # "		while (z > 0) {\n"\
