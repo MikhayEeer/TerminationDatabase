@@ -6,6 +6,8 @@ import argparse
 import re
 from typing import TypedDict, Literal
 from datetime import datetime
+from functools import wraps
+import psutil
 
 from openai import OpenAI
 
@@ -669,6 +671,36 @@ def run_svmranker_strategy_judge(interface):
     result_csv_path = os.path.join(STRATEGY_Exp_folder, "result.csv")
     pass
 
+
+def performance_monitor(func):
+    """
+    装饰器: 用于监控函数的执行时间、CPU和内存使用情况。
+    """
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        process = psutil.Process(os.getpid())
+        
+        psutil.cpu_percent(interval=None)
+        start_time = time.time()
+
+        ## Main
+        result = func(*args, **kwargs)
+        ##
+
+        end_time = time.time()
+        cpu_usage = psutil.cpu_percent(interval=None)
+        mem_usage_mb = process.memory_info().rss / (1024 * 1024)
+
+        print("\n--- Performance Metrics ---")
+        print(f"  Function: '{func.__name__}'")
+        print(f"  Execution Time: {end_time - start_time:.4f} seconds")
+        print(f"  CPU Usage during execution: {cpu_usage}%")
+        print(f"  Memory Usage (RSS): {mem_usage_mb:.2f} MB")
+        print("---------------------------\n")
+        
+        return result
+    return wrapper
+
 def batch_run_full_pipeline(interface, folder):
     """
     批量为 folder 中的所有 .bpl 文件运行完整的分析流程。
@@ -696,6 +728,7 @@ def batch_run_full_pipeline(interface, folder):
     
     print("\n--- Batch Full Analysis Pipeline Finished ---")
 
+@performance_monitor
 def run_full_analysis_pipeline(interface, program_path):
     """
     为给定的 Boogie 文件编排完整的分析流程。
