@@ -18,8 +18,11 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = claude_model_name
-LLM_MODEL = "gpt4o"
+llm_model_name = gpt_4o_model_name
+
+LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
+            "gpt4o" if llm_model_name == gpt_4o_model_name else\
+            "o4mini"
 
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 
@@ -536,12 +539,12 @@ def run_svmranker_termtype_judge(interface):
         是TermType的分析结果;
     '''
     os.makedirs(TERMTYPE_Exp_folder, exist_ok=True)
-    prefix = "llm_"+LLM_MODEL+"_termtype_"
+    prefix = "llm_termtype_"
     # 分Term和NonTerm，然后csv记录细分 Single Nested ...
     categories = ["TERM", "NONTERM", "ERROR"]
     for category in categories:
         os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
-    result_csv_path = os.path.join(TERMTYPE_Exp_folder, prefix+"result.csv")
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, prefix+"result_" + LLM_MODEL +" .csv")
 
     with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
