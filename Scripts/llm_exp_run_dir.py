@@ -18,7 +18,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = gpt_4o_model_name
+llm_model_name = claude_model_name
 LLM_MODEL = "gpt4o"
 
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
@@ -152,7 +152,7 @@ class chat_interface:
         "over the program variables vec(x) and there exists a positive real number C, such that f1(x) - f1(x') >= C, fi(x) - fi(x') + f_(i-1)(x) >= C for i ∈ {2, . . . , k} and fk(x) >= C.\n"
         "The definition of multi-phase ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction" \
         "over the program variables vec(x) and we require that there exists an index i ∈ {1, . . . , k} and a constant C such that: f_i(x) >= C and f1(x) - f1(x') >= C and for all j < i we have f_j(x) < 0" \
-        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"
+        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n DO NOT GENERATE detailed explanation."
 
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(f"[ANS] \n\t{answer.content} \n[ANS END]")
@@ -265,22 +265,36 @@ class RankingResult(TypedDict):
     status: Literal["TERM", "NONTERM"]
     kind: str
 
+
 def parse_ranking_output(output: str) -> RankingResult:
     """
     Parse the answer content of ask_question_of_ranking_function_type.
 
-    Expected formats:
-      [TERM] <Single|Nested|Multi|Other>
-      [NONTERM] <RECUR|MONO|OTHER>
+    Expected tag variants (case‐insensitive):
+      [TERM], [TERMINATING]    → status "TERM"
+      [NONTERM], [NONTERMINATING] → status "NONTERM"
+
+    Followed by a keyword: Single|Nested|Multi|Other (for TERM)
+                             RECUR|MONO|OTHER     (for NONTERM)
     """
-    # 去除首尾空白
     text = output.strip()
-    # 正则搜索 [TERM] 或 [NONTERM]，后面跟一个单词（使用search而不是match）
-    m = re.search(r'\[(TERM|NONTERM)\]\s*(\w+)', text, re.IGNORECASE)
+    # 捕获 TERM(INATING)? 或 NONTERM(INATING)? 后面跟一个单词
+    m = re.search(
+        r'\[(TERM(?:INATING)?|NONTERM(?:INATING)?)\]\s*(\w+)',
+        text,
+        re.IGNORECASE
+    )
     if not m:
         raise ValueError(f"无法解析输出: {output!r}")
-    status = m.group(1).upper()
-    kind   = m.group(2)
+    raw_status = m.group(1).upper()
+    kind       = m.group(2)
+
+    # 统一 status
+    if raw_status.startswith("NONTERM"):
+        status = "NONTERM"
+    else:
+        status = "TERM"
+
     return {"status": status, "kind": kind}
 
 
@@ -575,7 +589,7 @@ def run_svmranker_termtype_judge(interface):
             print(f"[RES]    Result: {termtype_result['status']} - {termtype_result['kind']}")
         end_time = time.time()
         processing_time = end_time - start_time
-        time.sleep(300)
+        # time.sleep(300)
         # processing_time = repeat_num using llm, so we can average it
         # turn list to set, get consistent
         is_consistent = len(set(termtype_results)) == 1 
