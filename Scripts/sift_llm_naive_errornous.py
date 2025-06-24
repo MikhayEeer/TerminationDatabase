@@ -1,7 +1,7 @@
 import os
 import sys
 
-LLM_csv_result_file = os.path.join(os.getcwd(), "LLM_Results", "llm_results_Certain.csv")
+LLM_csv_result_file = os.path.join(os.getcwd(), "LLM_Results", "llm_results_Certain_o4mini.csv")
 LLM_Naive_unsolve_unstable_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "Unstable")
 LLM_Naive_unsolve_YES_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "YES")
 LLM_Naive_unsolve_NO_folder = os.path.join(os.getcwd(), "LLM_Naive_Unsolved", "NO")
