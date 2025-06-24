@@ -11,7 +11,7 @@ import psutil
 
 from openai import OpenAI
 
-from utils import load_api_key
+from Scripts.Utils.utils import load_api_key
 from Scripts.UseSVMRanker import SVMRanker
 
 secrete = load_api_key()
