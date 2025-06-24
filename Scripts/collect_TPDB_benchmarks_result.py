@@ -66,6 +66,12 @@ def main():
     parser.add_argument('csv_file', help='待分析的 CSV 文件路径')
     args = parser.parse_args()
 
+    # 读取 CSV 并统计基准答案
+    df = pd.read_csv(args.csv_file)
+    yes_count = df['result'].astype(str).str.upper().eq('YES').sum()
+    no_count = df['result'].astype(str).str.upper().eq('NO').sum()
+    print(f"基准答案统计: YES = {yes_count}, NO = {no_count}\n")
+
     summary = summarize_tools(args.csv_file)
     print("工具评估摘要：")
     for tool, stats in summary.items():
