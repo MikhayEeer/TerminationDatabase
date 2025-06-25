@@ -13,6 +13,7 @@ from openai import OpenAI
 
 from Scripts.Utils.utils import load_api_key
 from Scripts.UseSVMRanker import SVMRanker
+import Utils.const_prompts as PROMPTS
 
 secrete = load_api_key()
 gpt_4o_model_name = "openai/gpt-4o"
@@ -193,44 +194,7 @@ class chat_interface:
         """
         只判断程序是否终止，输出格式严格：[RESULT] TERMINATE 或 [RESULT] NONTERM
         """
-        role_prompt = (
-            '''
-            You are an expert of program termination analysis. 
-            The input is a program written in Boogie, a simple intermediate verification language. 
-            Boogie syntax example:
-
-            procedure addition(m: int, n: int)
-            {
-            if ((n==0)) { }
-            if ((n>0)) { }
-            if ((n<0)) { }
-            }
-            procedure main()
-            {
-            var m: int;
-            var n: int;
-            var result: int;
-            m := __VERIFIER_nondet_int();
-            n := __VERIFIER_nondet_int();
-            result := addition(m, n);
-            if ((result==(m+n))) { } else { __VERIFIER_error(); }
-            }
-
-            The function __VERIFIER_nondet_int() returns a nondeterministic integer.
-            Given a Boogie program, strictly judge whether it is terminating. 
-            If it is terminating, output:
-            [RESULT] TERMINATE
-            If it is non-terminating, output:
-            [RESULT] NONTERM
-            Do not provide any explanation or ranking function.
-            Example 1:
-            <Boogie code>
-            [RESULT] TERMINATE
-            Example 2:
-            <Boogie code>
-            [RESULT] NONTERM
-            '''
-        )
+        role_prompt = PROMPTS.boogie_is_terminating_prompt
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(f"[ANS] \n\t{answer.content} \n[ANS END]")
         return answer
@@ -240,40 +204,7 @@ class chat_interface:
         已知程序终止，判断是否可以用 single ranking function 证明。
         输出格式严格：[SINGLE] YES 或 [SINGLE] NO
         """
-        role_prompt = (
-            "You are an expert of program termination analysis.\n"
-            "The input is a program written in Boogie, a simple intermediate verification language.\n"
-            "Boogie syntax example:\n\n"
-            "procedure addition(m: int, n: int)\n"
-            "{\n"
-            "  if ((n==0)) { }\n"
-            "  if ((n>0)) { }\n"
-            "  if ((n<0)) { }\n"
-            "}\n"
-            "procedure main()\n"
-            "{\n"
-            "  var m: int;\n"
-            "  var n: int;\n"
-            "  var result: int;\n"
-            "  m := __VERIFIER_nondet_int();\n"
-            "  n := __VERIFIER_nondet_int();\n"
-            "  result := addition(m, n);\n"
-            "  if ((result==(m+n))) { } else { __VERIFIER_error(); }\n"
-            "}\n\n"
-            "The function __VERIFIER_nondet_int() returns a nondeterministic integer.\n"
-            "Given a Boogie program that is known to be terminating, strictly judge whether its termination can be proved by a single ranking function.\n"
-            "If it can be proved by a single ranking function, output:\n"
-            "[SINGLE] YES\n"
-            "If not, output:\n"
-            "[SINGLE] NO\n"
-            "Do not provide any explanation or ranking function.\n"
-            "Example 1:\n"
-            "<Boogie code>\n"
-            "[SINGLE] YES\n"
-            "Example 2:\n"
-            "<Boogie code>\n"
-            "[SINGLE] NO\n"
-        )
+        role_prompt = PROMPTS.boogie_single_RF_prompt
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(f"[ANS] \n\t{answer.content} \n[ANS END]")
         return answer
@@ -833,12 +764,6 @@ def batch_run_full_pipeline(interface, folder):
 
 @performance_monitor
 def run_full_analysis_pipeline(interface, program_path):
-    """
-    为给定的 Boogie 文件编排完整的分析流程。
-    1. 读取文件。
-    2. 使用 LLM 确定策略（终止性、类型、阶段数）。
-    3. 使用分析结果调用 SVMRanker 的占位符。
-    """
     print(f"--- Starting Full Analysis Pipeline for: {program_path} ---")
     try:
         with open(program_path, 'r', errors='ignore') as f:
