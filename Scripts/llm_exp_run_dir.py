@@ -14,6 +14,7 @@ from openai import OpenAI
 from Scripts.Utils.utils import load_api_key
 from Scripts.UseSVMRanker import SVMRanker
 import Utils.const_prompts as PROMPTS
+import Utils.const as CONST
 
 secrete = load_api_key()
 gpt_4o_model_name = "openai/gpt-4o"
@@ -792,28 +793,15 @@ def run_full_analysis_pipeline(interface, program_path):
     # 第二部分，知道终止性
     final_is_terminating = term_results[0]
     print(f"[INFO] Termination judgement: {final_is_terminating}")
-
     if final_is_terminating:
         # 进一步判断是否 single ranking function
         repeat_num = 1 # 目前只用一次判断，暂时不重复判断single情况
         single_results = []
-        # 保留了重复的逻辑，不影响运行
-        for _ in range(repeat_num):
-            single_answer = interface.ask_boogie_is_single_ranking_function(program_content)
-            try:
-                is_single, _, _, _ = parse_llm_result(single_answer.content)
-            except Exception as e:
-                print(f"[ERROR] Failed to parse single ranking function result: {e}")
-                return
-            single_results.append(is_single)
-        is_single_consistent = len(set(single_results)) == 1
-        if not is_single_consistent:
-            print(f"[ERROR] Inconsistent results from single ranking function judgement: {single_results}")
-            return
-        final_is_single = single_results[0]
-        print(f"[INFO] Single ranking function judgement: {final_is_single}")
+        single_answer = interface.ask_boogie_is_single_ranking_function(program_content)
+        is_single, _, _, _ = parse_llm_result(single_answer.content)
+        print(f"[INFO] Single ranking function judgement: {is_single}")
 
-        if final_is_single:
+        if is_single:
             print("[INFO] 调用 SVMRanker 4-nested")
             SVMRanker(program_content, "Single", 1, True, mode="4-nested")
         else:
@@ -822,15 +810,11 @@ def run_full_analysis_pipeline(interface, program_path):
     else:
         print("[INFO] 非终止，调用 SVMRanker 1-nested")
         SVMRanker(program_content, "NONTERM", 0, False, mode="1-nested")
-
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
-    CHOICES = ["NAIVE", "NESTED_PHASE", "MULTI_PHASE",
-               "STRATEGY", "TERM_TYPE", "NESTED_PHASE_REM", 
-               "FULL_PIPELINE", "BATCH_FULL_PIPELINE"]
 
     parser = argparse.ArgumentParser(
         description="Call functionalities depending on the --mode argument"
@@ -838,7 +822,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--mode",
-        choices=CHOICES,
+        choices=CONST.CHOICES,
         required=True,
         help="NAIVE: run llm termination naive experiment on TPDB_Certains; "
              "NESTED_PHASE: run nested judgement on termination result of nested cases in SVMRanker"
