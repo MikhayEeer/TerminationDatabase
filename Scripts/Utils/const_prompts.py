@@ -25,16 +25,20 @@ boogie_is_terminating_prompt = '''
             The function __VERIFIER_nondet_int() returns a nondeterministic integer.
             Given a Boogie program, strictly judge whether it is terminating. 
             If it is terminating, output:
-            [RESULT] TERMINATE
+            [RESULT]
+            TERMINATE
             If it is non-terminating, output:
-            [RESULT] NONTERM
+            [RESULT]
+            NONTERM
             Do not provide any explanation or ranking function.
             Example 1:
             <Boogie code>
-            [RESULT] TERMINATE
+            [RESULT]
+            TERMINATE
             Example 2:
             <Boogie code>
-            [RESULT] NONTERM
+            [RESULT]
+            NONTERM
             '''
 
 # using for ask_boogie_is_single_ranking_function
@@ -61,15 +65,19 @@ procedure main()
 
 The function __VERIFIER_nondet_int() returns a nondeterministic integer.
 Given a Boogie program that is known to be terminating, strictly judge whether its termination can be proved by a single ranking function.
-If it can be proved by a single ranking function, output:
-[SINGLE] YES
+If it can be proved by a single ranking function, output:\n
+[SINGLE]
+YES
 If not, output:
-[SINGLE] NO
+[SINGLE]
+NO
 Do not provide any explanation or ranking function.
 Example 1:
 <Boogie code>
-[SINGLE] YES
+[SINGLE]
+YES
 Example 2:
 <Boogie code>
-[SINGLE] NO
+[SINGLE]
+NO
 """

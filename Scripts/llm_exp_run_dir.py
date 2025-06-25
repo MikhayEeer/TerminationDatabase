@@ -11,8 +11,8 @@ import psutil
 
 from openai import OpenAI
 
-from Scripts.Utils.utils import load_api_key
-from Scripts.UseSVMRanker import SVMRanker
+from Utils.utils import load_api_key
+from UseSVMRanker import SVMRanker
 import Utils.const_prompts as PROMPTS
 import Utils.const as CONST
 
@@ -23,7 +23,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = gpt_o4_mini_model_name
+llm_model_name = claude_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\
@@ -163,7 +163,7 @@ class chat_interface:
         "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n DO NOT GENERATE detailed explanation."
 
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
-        print(f"[ANS] \n\t{answer.content} \n[ANS END]")
+        print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
 
     def ask_question_of_nested_phase_judge(self, program):
@@ -197,7 +197,7 @@ class chat_interface:
         """
         role_prompt = PROMPTS.boogie_is_terminating_prompt
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
-        print(f"[ANS] \n\t{answer.content} \n[ANS END]")
+        print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
 
     def ask_boogie_is_single_ranking_function(self, program):
@@ -207,7 +207,7 @@ class chat_interface:
         """
         role_prompt = PROMPTS.boogie_single_RF_prompt
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
-        print(f"[ANS] \n\t{answer.content} \n[ANS END]")
+        print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
 
 
@@ -239,6 +239,7 @@ def parse_llm_result(result_str):
             continue
         elif "[SINGLE]" in line:
             is_collecting_SingleRF = True
+            continue
 
         if is_collecting_result:
             if "TERMINATE" in line:
@@ -248,7 +249,7 @@ def parse_llm_result(result_str):
                 is_terminating = False
                 is_collecting_result = False
             elif "UNKNOWN" in line:
-                is_terminating = False
+                is_terminating = True
                 is_unknown = True
                 is_collecting_result = False
             else:
@@ -777,6 +778,7 @@ def run_full_analysis_pipeline(interface, program_path):
     # 第一部分：多次调用大模型，单纯判断是否终止(Term|NonTerm)
     repeat_num = 3
     term_results = []
+    llm_start_time = time.time()
     for _ in range(repeat_num):
         term_answer = interface.ask_boogie_is_terminating(program_content)
         try:
@@ -785,31 +787,45 @@ def run_full_analysis_pipeline(interface, program_path):
             print(f"[ERROR] Failed to parse termination result: {e}")
             return
         term_results.append(is_terminating)
-    is_consistent = len(set(term_results)) == 1
-    if not is_consistent:
-        print(f"[ERROR] Inconsistent results from termination judgement: {term_results}")
-        return
+    false_num = 0
+    true_num = 0
+    print(term_results)
+    for term_res in term_results:
+        if term_res:
+            true_num = true_num + 1
+        else:
+            false_num = false_num + 1
     
+    if true_num > false_num:
+        final_is_terminating = True
+    else:
+        final_is_terminating = False
+    print("final: " + str(final_is_terminating))
     # 第二部分，知道终止性
-    final_is_terminating = term_results[0]
     print(f"[INFO] Termination judgement: {final_is_terminating}")
+    llm_time = 0
     if final_is_terminating:
         # 进一步判断是否 single ranking function
         repeat_num = 1 # 目前只用一次判断，暂时不重复判断single情况
         single_results = []
         single_answer = interface.ask_boogie_is_single_ranking_function(program_content)
+
+        llm_end_time = time.time()
+        llm_time = llm_end_time - llm_start_time
         is_single, _, _, _ = parse_llm_result(single_answer.content)
         print(f"[INFO] Single ranking function judgement: {is_single}")
 
         if is_single:
             print("[INFO] 调用 SVMRanker 4-nested")
-            SVMRanker(program_content, "Single", 1, True, mode="4-nested")
+            SVMRanker(program_path, program_content, "Nested", 4, True, "4-nested", llm_time)
         else:
             print("[INFO] 调用 SVMRanker 4-multi")
-            SVMRanker(program_content, "Multi", 0, True, mode="4-multi")
+            SVMRanker(program_path, program_content, "Multi", 4, True, "4-multi", llm_time)
     else:
+        llm_end_time = time.time()
+        llm_time = llm_end_time - llm_end_time
         print("[INFO] 非终止，调用 SVMRanker 1-nested")
-        SVMRanker(program_content, "NONTERM", 0, False, mode="1-nested")
+        SVMRanker(program_path, program_content, "Nested", 1, False, "1-nested", llm_time)
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
 if __name__ == "__main__":
@@ -833,7 +849,10 @@ if __name__ == "__main__":
         required=False,
         help="Path to the input .bpl file for FULL_PIPELINE mode."
     )
-
+    parser.add_argument(
+        '--input_folder', '-i',
+        help='(for BATCH_PIPE) folder containing .bpl files'
+    )
     args = parser.parse_args()
 
     if args.mode == "NAIVE":
@@ -848,7 +867,7 @@ if __name__ == "__main__":
         run_svmranker_strategy_judge(interface)
     elif args.mode == "TERM_TYPE":
         run_svmranker_termtype_judge(interface)
-    elif args.mode == "FULL_PIPELINE":
+    elif args.mode == "FULL_PIPE":
         if not args.bpl:
             print("Error: --file argument is required for FULL_PIPELINE mode.")
             sys.exit(1)
@@ -856,14 +875,14 @@ if __name__ == "__main__":
             print("Error: --file must be a .bpl file.")
             sys.exit(1)
         run_full_analysis_pipeline(interface, args.bpl)
-    elif args.mode == "BATCH_FULL_PIPELINE":
-        while True:
-            input_folder = input("Enter the folder path containing .bpl files: ")
-            if os.path.isdir(input_folder):
-                batch_run_full_pipeline(interface, input_folder)
-                break
-            else:
-                print(f"[ERROR] The path '{input_folder}' is not a valid directory. Please try again.")
+    elif args.mode == "BATCH_PIPE":
+        folder = args.input_folder
+        if not folder:
+            parser.error("--input_folder is required for BATCH_PIPE mode")
+        if not os.path.isdir(folder):
+            parser.error(f"The path '{folder}' is not a valid directory")
+        batch_run_full_pipeline(interface, folder)
+        
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
     # "		while (z > 0) {\n"\

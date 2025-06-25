@@ -1,0 +1,41 @@
+=== Response 1 ===
+I'll analyze the termination of this program by examining the recursive function `A` and its potential termination issues.
+
+[RESULT]
+NONTERM
+
+[REASON]
+The program contains a non-terminating recursive call in function A. When A is called with a1 != 0, it calls itself with swapped arguments (A(a2,a1)). If both a1 and a2 are non-zero, this creates an infinite recursion as parameters will perpetually alternate between (a1,a2) and (a2,a1) without ever reaching the base case where a1 == 0.
+
+=== Response 2 ===
+I'll analyze this program to determine whether it terminates or not.
+
+Looking at function `A(int a1, int a2)`:
+- If `a1` is non-zero, it makes a recursive call `A(a2, a1)`
+- If `a1` is zero, it assigns `a2` to the global variable `g` and returns
+
+Let's trace the execution in `main()`:
+1. `g` is assigned a non-deterministic value
+2. `h` is assigned the negation of `g`
+3. The first call `A(g, h)` is made
+4. The second call `A(g, h)` is made
+5. If `g` is true after these calls, an error is triggered
+
+If `g` is 0 initially, then `h` is 1. The call `A(0, 1)` will set global `g` to 1, and returns immediately without recursion. The second call `A(0, 1)` does the same.
+
+If `g` is non-zero initially (let's say 1), then `h` is 0. The call `A(1, 0)` recurses to `A(0, 1)`, which sets global `g` to 1 and returns. Then the second call proceeds similarly.
+
+In all cases, the function `A` always terminates because:
+1. When `a1` is 0, it terminates directly
+2. When `a1` is non-zero and `a2` is 0, the next recursive call will have `a1 = 0`, terminating after one recursion
+3. If both `a1` and `a2` are non-zero, after at most two recursions, we'll reach a state with `a1 = 0`
+
+[RESULT]
+TERMINATE
+[RANKING FUNCTION TYPE]
+nested
+[RANKING FUNCTIONS]
+lexicographic (a1 > 0 ? 1 : 0, 0)
+
+This is a nested (lexicographic) ranking function where the primary measure is whether `a1` is positive (decreasing to 0 with each recursive call when positive), and the secondary measure is 0 (since we only need one level to prove termination).
+

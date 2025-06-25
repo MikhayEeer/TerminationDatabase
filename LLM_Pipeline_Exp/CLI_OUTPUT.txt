@@ -1,0 +1,8202 @@
+--- Starting Batch Full Analysis Pipeline ---
+[INFO] Found 226 .bpl files to process.
+
+--- Processing file 1/226: 43.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/43.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I'll analyze this program for termination.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I'll analyze this Boogie program for termination.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/43.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.6646 seconds
+  CPU Usage during execution: 8.0%
+  Memory Usage (RSS): 53.29 MB
+---------------------------
+
+
+--- Processing file 2/226: 149.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/149.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/149.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8903 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 3/226: 39.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/39.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/39.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8770 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 4/226: CookSeeZuleger-TACAS2013-Fig8a.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig8a.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig8a.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.6109 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 5/226: 151.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/151.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/151.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.0324 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 6/226: 131.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/131.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/131.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.2715 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 7/226: 168.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/168.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/168.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.7527 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 8/226: Bangalore_v2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Bangalore_v2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Bangalore_v2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8689 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 9/226: PastaC3.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaC3.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaC3.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.7907 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 10/226: 144.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/144.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/144.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.8856 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 11/226: 31.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/31.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/31.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 18.1749 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.48 MB
+---------------------------
+
+
+--- Processing file 12/226: Middle_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Middle_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Middle_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4992 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 13/226: 15.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/15.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/15.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 84.0224 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 14/226: b.04.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/b.04.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/b.04.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.5894 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 15/226: 78.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/78.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/78.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.3451 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 16/226: PastaA5_false-no-overflow_true-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaA5_false-no-overflow_true-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaA5_false-no-overflow_true-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.4610 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 17/226: 79.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/79.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/79.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4333 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 18/226: Cairo.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Cairo.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Cairo.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.4323 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 19/226: Sunset.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Sunset.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Sunset.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.5103 seconds
+  CPU Usage during execution: 6.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 20/226: 21.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/21.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/21.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.0485 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 21/226: NonTerminationSimple3.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/NonTerminationSimple3.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/NonTerminationSimple3.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.9382 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 22/226: 1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.2905 seconds
+  CPU Usage during execution: 4.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 23/226: 104.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/104.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/104.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.9926 seconds
+  CPU Usage during execution: 4.7%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 24/226: ChenFlurMukhopadhyay-SAS2012-Ex2.15.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.15.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.15.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.2528 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 25/226: PastaB4.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaB4.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaB4.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.4579 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 26/226: 96.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/96.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/96.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.7867 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 27/226: PastaA6_false-no-overflow_true-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaA6_false-no-overflow_true-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaA6_false-no-overflow_true-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.6781 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 28/226: 94.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/94.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/94.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.7719 seconds
+  CPU Usage during execution: 6.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 29/226: 152.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/152.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/152.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.3818 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 30/226: PastaA10.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaA10.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaA10.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.4843 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 31/226: LeikeHeizmann-WST2014-Ex5.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/LeikeHeizmann-WST2014-Ex5.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/LeikeHeizmann-WST2014-Ex5.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.0258 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 32/226: Hanoi_3vars.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Hanoi_3vars.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Hanoi_3vars.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8219 seconds
+  CPU Usage during execution: 6.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 33/226: b.03-no-inv_assume.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/b.03-no-inv_assume.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/b.03-no-inv_assume.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8828 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 34/226: 13.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/13.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/13.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.0075 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 35/226: ColonSipma-TACAS2001-Fig1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ColonSipma-TACAS2001-Fig1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ColonSipma-TACAS2001-Fig1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.0131 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 36/226: 23.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/23.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/23.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.1320 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 37/226: 115.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/115.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I need to analyze the program for termination. 
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/115.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.7342 seconds
+  CPU Usage during execution: 4.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 38/226: 4.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/4.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/4.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 18.6098 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 39/226: 48.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/48.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+Looking at the program, I'll assess whether it terminates.
+
+The program has a while loop that continues as long as `tmp != id`. Inside the loop, we have:
+1. An assumption that `tmp > maxId`
+2. An assignment `tmp := 0`
+
+Since `id` and `maxId` are never modified, and after the first iteration `tmp` becomes 0, we need to determine if the loop will terminate.
+
+For the loop to continue after the first iteration, we would need `tmp != id` to still be true after `tmp := 0`. This means `id` would need to be different from 0.
+
+However, the critical issue is that the variables `id` and `maxId` are never initialized, and we don't know their relationship. If `id` is not 0, the loop will never terminate as `tmp` will always be 0 after the first iteration, making `tmp != id` always true.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+Based on the provided Boogie program, I'll analyze whether it terminates:
+
+The program contains a while loop that continues as long as `tmp != id`.
+
+At the start of each loop iteration, there's an assume statement `assume (tmp > maxId)`. This means an iteration only continues if this condition is true.
+
+When this condition is true, the program sets `tmp := 0`. However, the values of `id` and `maxId` are not modified within the loop.
+
+Since `tmp` is set to 0 in each iteration, and `id` never changes, if `id` is initially 0, the loop will terminate. If `id` is not 0, the loop will continue as long as 0 > maxId and tmp = 0 != id.
+
+After analyzing the program, I've determined:
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I need to analyze this Boogie program to determine if it terminates.
+
+The procedure `cyclic()` contains a while loop that continues as long as `tmp != id`. Inside the loop, there's an assume statement `assume (tmp > maxId)` followed by setting `tmp := 0`.
+
+Looking at this code:
+1. The variables `id`, `maxId`, and `tmp` are initialized to unknown values.
+2. The loop continues while `tmp != id`.
+3. Inside the loop, we assume `tmp > maxId`, then set `tmp = 0`.
+
+The issue is that after setting `tmp = 0`, if `id != 0`, the loop will continue, but the condition `tmp > maxId` is no longer guaranteed. If `maxId < 0`, this condition will be satisfied in the next iteration, otherwise the next iteration will not proceed past the assume statement.
+
+If `id = 0`, the loop will terminate after one iteration where `tmp` is set to 0.
+If `id ≠ 0` and `maxId < 0`, the loop will continue indefinitely as `tmp` will be reset to 0 in each iteration and never equal `id`.
+
+Since there's a non-terminating execution path possible, I must conclude:
+
+[RESULT]
+NONTERM 
+[ANS END]
+[False, True, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/48.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 26.4686 seconds
+  CPU Usage during execution: 3.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 40/226: 161.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/161.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/161.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.5474 seconds
+  CPU Usage during execution: 4.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 41/226: 169.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/169.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/169.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.0964 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 42/226: 70.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/70.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+I'll analyze this program for termination.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/70.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.2513 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 43/226: 0.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/0.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/0.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.9510 seconds
+  CPU Usage during execution: 6.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 44/226: 35.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/35.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/35.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.4239 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 45/226: 83.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/83.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/83.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.9603 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 46/226: 109.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/109.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/109.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.7152 seconds
+  CPU Usage during execution: 7.2%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 47/226: 32.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/32.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/32.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.7047 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 48/226: 129.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/129.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/129.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.4930 seconds
+  CPU Usage during execution: 4.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 49/226: 86.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/86.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/86.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.6568 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 50/226: 68.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/68.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/68.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.5812 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 51/226: b.03_assume.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/b.03_assume.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/b.03_assume.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8917 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 52/226: WhileIncrPart_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/WhileIncrPart_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/WhileIncrPart_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.8018 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 53/226: ChenFlurMukhopadhyay-SAS2012-Ex2.14.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.14.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.14.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.3558 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 54/226: 140.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/140.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I need to analyze whether this program terminates or not.
+
+The loop condition is `x >= 0` and the loop body updates the variables as follows:
+- `oldy := y`
+- `y := 2*y - x`
+- `x := oldy`
+
+Effectively, after each iteration:
+- `y` becomes `2*y - x`
+- `x` becomes the old value of `y`
+
+When tracking the values of `x` and `y` through iterations, if the value of `x` eventually becomes negative, the program terminates.
+
+Analyzing the pattern of values and the relationship between `x` and `y`, I determine that:
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/140.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.1246 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 55/226: 11.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/11.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/11.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.6348 seconds
+  CPU Usage during execution: 4.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 56/226: 100.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/100.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/100.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.0790 seconds
+  CPU Usage during execution: 6.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 57/226: 40.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/40.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/40.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.5750 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 58/226: 59.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/59.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/59.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.1239 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 59/226: 81.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/81.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/81.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 22.6384 seconds
+  CPU Usage during execution: 3.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 60/226: 116.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/116.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/116.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.9873 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 61/226: WhileIncr_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/WhileIncr_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/WhileIncr_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.5888 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 62/226: 53.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/53.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I'll analyze this Boogie program for termination.
+
+In this program:
+- We have a loop that continues while x >= 0
+- Inside the loop:
+  - x is decreased by y
+  - y is updated to (y + 1) / 2 (integer division)
+
+Looking at the division operation (y + 1) / 2 in the context of integers:
+- If y starts with a value y ≥ 1, then y will always remain positive
+- For y > 0, the value of y will eventually become 1 and stay there due to integer division
+- With y = 1, the loop will eventually terminate as x decreases by 1 in each iteration
+
+However, if y starts at 0 or negative, the behavior becomes more complex and may not lead to termination.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+I'll analyze this Boogie program for termination:
+
+The program has a while loop that runs as long as x >= 0, with two operations:
+1. x := x - y
+2. y := (y + 1) / 2
+
+The important observation is that with integer division, when y >= 1, the assignment y := (y + 1) / 2 will eventually make y = 1 and keep it at 1 (since (1+1)/2 = 1 in integer division).
+
+When y becomes 1 and stays 1, x will decrease by 1 in each iteration, eventually becoming negative, causing the loop to terminate.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/53.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 16.3622 seconds
+  CPU Usage during execution: 3.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 63/226: 121.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/121.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/121.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.2538 seconds
+  CPU Usage during execution: 7.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 64/226: 29.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/29.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/29.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.5185 seconds
+  CPU Usage during execution: 4.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 65/226: Copenhagen.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Copenhagen.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Copenhagen.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.9255 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 66/226: 132.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/132.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/132.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.0896 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 67/226: 107.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/107.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/107.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4881 seconds
+  CPU Usage during execution: 5.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 68/226: 117.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/117.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/117.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8184 seconds
+  CPU Usage during execution: 5.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 69/226: ChenFlurMukhopadhyay-SAS2012-Ex2.08.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.08.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.08.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.1567 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 70/226: 84.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/84.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/84.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.3045 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 71/226: 67.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/67.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/67.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.9634 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 72/226: 72.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/72.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/72.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.8947 seconds
+  CPU Usage during execution: 4.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 73/226: 127.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/127.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I've analyzed the Thun procedure to determine its termination behavior.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/127.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3031 seconds
+  CPU Usage during execution: 5.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 74/226: TrueDiv_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/TrueDiv_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/TrueDiv_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.2444 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 75/226: ChenFlurMukhopadhyay-SAS2012-Ex2.01.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.01.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.01.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.1007 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 76/226: ChenFlurMukhopadhyay-SAS2012-Ex2.02.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.02.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.02.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.3566 seconds
+  CPU Usage during execution: 6.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 77/226: TwoFloatInterv.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/TwoFloatInterv.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/TwoFloatInterv.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.7084 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 78/226: 9.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/9.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/9.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.7518 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 79/226: 25.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/25.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/25.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.7571 seconds
+  CPU Usage during execution: 6.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 80/226: 97.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/97.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/97.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.5043 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 81/226: 38.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/38.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/38.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4767 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 82/226: LeikeHeizmann-TACAS2014-Ex9.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/LeikeHeizmann-TACAS2014-Ex9.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/LeikeHeizmann-TACAS2014-Ex9.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.9292 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 83/226: 136.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/136.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/136.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.2341 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 84/226: Marbie1_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Marbie1_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Marbie1_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.0122 seconds
+  CPU Usage during execution: 6.6%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 85/226: 98.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/98.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/98.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.6087 seconds
+  CPU Usage during execution: 6.7%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 86/226: 119.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/119.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I'll analyze the given Boogie program for termination.
+
+The program has a simple loop where:
+- The loop condition checks if variable `a` is greater than or equal to -1.0
+- In each iteration, the value of `a` is negated (multiplied by -1)
+
+If we trace the execution for different initial values:
+- If `a` starts as any value >= -1, the loop will execute
+- After one iteration, `a` becomes `-a`
+- For any value where `-a` is still >= -1, the loop continues
+- This creates an infinite oscillation for certain initial values
+
+For example, if `a` starts as 2:
+- Loop condition (2 >= -1) is true
+- `a` becomes -2
+- Loop condition (-2 >= -1) is false, loop terminates
+
+But if `a` starts as 0.5:
+- Loop condition (0.5 >= -1) is true
+- `a` becomes -0.5
+- Loop condition (-0.5 >= -1) is true
+- `a` becomes 0.5
+- Back to the start - this creates an infinite loop
+
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+I'll analyze this Boogie program to determine if it terminates.
+
+The program contains a single procedure `main` with:
+- A variable `a` of type real
+- A while loop with condition `a >= (0.0 - 1.0)` (equivalent to `a >= -1.0`)
+- Inside the loop, `a` is negated with `a := 0.0 - a`
+
+Let's consider what happens:
+- If initially `a < -1.0`, the loop doesn't execute at all
+- If initially `a ≥ -1.0`, the loop executes
+- After one iteration, `a` becomes `-a`
+- If `a` was positive, it becomes negative but still might be ≥ -1.0
+- If `a` was negative but ≥ -1.0, it becomes positive
+
+The program will not terminate for certain initial values of `a`. For example, if `a = 1.0` initially, then the values cycle between 1.0 and -1.0, both of which satisfy the loop condition.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+Looking at this Boogie program, I need to determine if it terminates or not.
+
+The program has a while loop: `while (a >= (0.0 - 1.0))` which is equivalent to `while (a >= -1.0)`.
+Inside the loop, the variable `a` is updated with the operation `a := 0.0 - a` which negates the value of `a`.
+
+Let's analyze:
+- If `a` starts with a value less than -1.0, the loop never executes.
+- If `a` starts with a value ≥ -1.0, the loop executes at least once.
+- After the first execution, `a` becomes negative (if `a` was positive) or positive (if `a` was negative).
+- If `a` was in the range [-1.0, 0), then after negation, `a` becomes positive, and the loop continues.
+- If `a` was ≥ 0, then after negation, `a` becomes ≤ 0, potentially causing the loop to continue based on the exact value.
+
+The key insight is that for certain initial values (specifically when a > 1.0), the program will alternate between a positive number and its negative counterpart indefinitely, never terminating.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/119.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 18.7016 seconds
+  CPU Usage during execution: 3.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 87/226: ChenFlurMukhopadhyay-SAS2012-Ex3.04.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.04.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.04.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8292 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 88/226: 50.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/50.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/50.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.7012 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 89/226: 162.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/162.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/162.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.4617 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 90/226: 66.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/66.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/66.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.9261 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 91/226: Waldkirch.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Waldkirch.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Waldkirch.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.8298 seconds
+  CPU Usage during execution: 6.9%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 92/226: 89.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/89.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/89.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.3945 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 93/226: PastaB7.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaB7.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaB7.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.0578 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 94/226: 36.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/36.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/36.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.5112 seconds
+  CPU Usage during execution: 4.5%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 95/226: 10.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/10.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/10.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.1700 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 96/226: 126.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/126.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/126.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.6614 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.67 MB
+---------------------------
+
+
+--- Processing file 97/226: 87.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/87.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/87.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.7628 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 98/226: Hanoi_2vars.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Hanoi_2vars.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Hanoi_2vars.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.5988 seconds
+  CPU Usage during execution: 7.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 99/226: Copenhagen_disj-1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Copenhagen_disj-1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Copenhagen_disj-1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.8127 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 100/226: Ex07.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Ex07.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Ex07.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0261 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 101/226: NonTerminationSimple2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/NonTerminationSimple2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/NonTerminationSimple2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4709 seconds
+  CPU Usage during execution: 5.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 102/226: PodelskiRybalchenko-TACAS2011-Fig1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PodelskiRybalchenko-TACAS2011-Fig1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PodelskiRybalchenko-TACAS2011-Fig1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.8807 seconds
+  CPU Usage during execution: 4.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 103/226: 122.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/122.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/122.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.5261 seconds
+  CPU Usage during execution: 4.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 104/226: 2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.6060 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 105/226: 57.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/57.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/57.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8932 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 106/226: AliasDarteFeautrierGonnord-SAS2010-exmini.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/AliasDarteFeautrierGonnord-SAS2010-exmini.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/AliasDarteFeautrierGonnord-SAS2010-exmini.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.3139 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 107/226: Ex01_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Ex01_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Ex01_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.8311 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 108/226: 73.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/73.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/73.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.6704 seconds
+  CPU Usage during execution: 4.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 109/226: 61.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/61.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I'll analyze this Boogie program to determine whether it terminates.
+
+The program has a while loop with condition `(y < 7 && x >= 0)`. Inside the loop:
+1. `y` is updated to `-y + 7`
+2. `x` is updated to `x - y` (using the new value of `y`)
+
+Let's analyze what happens to `y` first:
+- If initially `y < 7`, then inside the loop `y` becomes `-y + 7`
+- If `y < 0`, then `-y + 7 > 7`, making the loop condition false in the next iteration
+- If `0 ≤ y < 7`, then `0 < -y + 7 ≤ 7`, and specifically when `y = 0`, `y` becomes 7
+
+The key observation is that when `y < 0`, after one iteration `y` will be greater than 7, terminating the loop.
+When `0 ≤ y < 7`, after at most 2 iterations, `y` will be greater than or equal to 7.
+
+As for `x`, it decreases by a positive amount in each iteration (since `y > 0` after the first assignment to `y`). If `x` reaches a negative value, the loop terminates.
+
+Therefore, the loop will always terminate because:
+- Either `y` will become ≥ 7 after at most 2 iterations
+- Or `x` will eventually become negative
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I need to analyze the termination of this Boogie program by examining the loop behavior.
+
+Let's examine the loop:
+- The loop continues when `y < 7 && x >= 0`
+- Each iteration: `y := -y + 7` and `x := x - y`
+
+Looking at the y update function: `y := -y + 7`
+- If y < 7, then -y + 7 > 0
+- This ensures that y is always positive after the first iteration when subtracted from x
+
+Looking at the ranking function, x decreases by a positive amount in each iteration.
+Since x starts at some value and decreases in each iteration while being bounded below (x >= 0 is the loop condition), the loop must terminate.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I'll analyze this program for termination.
+
+The procedure `MenloPark` contains a while loop with the condition `y < 7 && x >= 0`.
+
+Inside the loop:
+1. `y` is updated to `-y + 7`
+2. `x` is updated to `x - y` (using the new value of `y`)
+
+For any initial value of `y < 7`, after the first iteration:
+- `y` becomes `-y + 7` which is always > 0 (since `-y + 7 > 7 - y > 0` when `y < 7`)
+- After the first iteration, `y` will be > 0 and < 7
+- When the loop executes again, `y` will oscillate between two values, both positive
+- Since `y` is always positive after the first iteration, `x` will strictly decrease in each iteration
+- With `x` decreasing and the loop requiring `x >= 0`, the loop must eventually terminate
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/61.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 22.9499 seconds
+  CPU Usage during execution: 3.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 110/226: 60.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/60.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+After analyzing the provided Boogie code, I need to determine if the procedure MenloPark() always terminates.
+
+In this procedure, there's a while loop that executes as long as x >= 0. In each iteration:
+- x is decreased by y
+- y is decreased by z
+- z alternates between 1 and -1 (since z starts uninitialized and is set to -z in each iteration)
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/60.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.8031 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 111/226: 2Nested_false-termination_true-valid-memsafety.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/2Nested_false-termination_true-valid-memsafety.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/2Nested_false-termination_true-valid-memsafety.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.2730 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 112/226: 155.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/155.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/155.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 15.3417 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 113/226: LeikeHeizmann-WST2014-Ex6.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/LeikeHeizmann-WST2014-Ex6.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/LeikeHeizmann-WST2014-Ex6.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.8104 seconds
+  CPU Usage during execution: 7.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 114/226: Cairo_step2-2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Cairo_step2-2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Cairo_step2-2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.1014 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 115/226: 58.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/58.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/58.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.4285 seconds
+  CPU Usage during execution: 4.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 116/226: 90.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/90.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/90.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.4289 seconds
+  CPU Usage during execution: 6.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 117/226: Urban-WST2013-Fig1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Urban-WST2013-Fig1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Urban-WST2013-Fig1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.2299 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 118/226: 30.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/30.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/30.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.1117 seconds
+  CPU Usage during execution: 4.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 119/226: PastaA7.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaA7.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaA7.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.3825 seconds
+  CPU Usage during execution: 6.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 120/226: 26.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/26.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/26.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 14.8799 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 121/226: CookSeeZuleger-TACAS2013-Fig8a-modified.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig8a-modified.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig8a-modified.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.0566 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 122/226: 148.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/148.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/148.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.6457 seconds
+  CPU Usage during execution: 6.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 123/226: PastaC7_false-no-overflow.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaC7_false-no-overflow.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaC7_false-no-overflow.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4967 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 124/226: 63.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/63.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/63.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.8407 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 125/226: LeikeHeizmann-TACAS2014-Ex1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/LeikeHeizmann-TACAS2014-Ex1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/LeikeHeizmann-TACAS2014-Ex1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.0197 seconds
+  CPU Usage during execution: 4.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 126/226: 163.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/163.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/163.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.3016 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 127/226: 42.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/42.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/42.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.0943 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 128/226: 62.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/62.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/62.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.1249 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 129/226: 46.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/46.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/46.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.5506 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 130/226: DoubleNeg_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/DoubleNeg_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/DoubleNeg_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.0840 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 131/226: PastaB11_false-no-overflow_true-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaB11_false-no-overflow_true-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaB11_false-no-overflow_true-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.5512 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 132/226: 4NestedWith3Variables-2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/4NestedWith3Variables-2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, True, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/4NestedWith3Variables-2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.7500 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 133/226: Ex02.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Ex02.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Ex02.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.7927 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 134/226: 102.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/102.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/102.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.3615 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 135/226: 150.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/150.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/150.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.9889 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 136/226: Hanoi_plus.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Hanoi_plus.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Hanoi_plus.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.7743 seconds
+  CPU Usage during execution: 7.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 137/226: 154.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/154.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/154.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.5016 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 138/226: 65.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/65.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/65.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.7188 seconds
+  CPU Usage during execution: 4.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 139/226: PastaC7.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaC7.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaC7.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.1770 seconds
+  CPU Usage during execution: 4.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 140/226: ChenFlurMukhopadhyay-SAS2012-Ex2.10.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.10.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.10.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0172 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 141/226: 167.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/167.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/167.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.5239 seconds
+  CPU Usage during execution: 4.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 142/226: 6.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/6.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/6.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 12.8394 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 143/226: ComplInterv_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ComplInterv_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ComplInterv_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.5060 seconds
+  CPU Usage during execution: 4.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 144/226: Masse-VMCAI2014-Ex6.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Masse-VMCAI2014-Ex6.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Masse-VMCAI2014-Ex6.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8796 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 145/226: Bangalore_v3.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Bangalore_v3.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Bangalore_v3.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.4747 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 146/226: a.09_assume.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/a.09_assume.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/a.09_assume.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.3624 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 147/226: 7.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/7.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I need to analyze whether this Boogie program terminates.
+
+The program has a while loop with the condition `(a >= 0 || c >= 0)` that updates four variables:
+- `a := a + b`
+- `b := b + c`
+- `c := c + d`
+- `d := d - 1`
+
+Looking at the updates, I notice:
+- `d` decreases by 1 in each iteration
+- When `d` becomes negative, `c` will eventually decrease
+- When `c` becomes negative, `b` will eventually decrease
+- When `b` becomes negative, `a` will eventually decrease
+
+Since `d` strictly decreases in each iteration, eventually both `c` and `a` will become negative, causing the loop condition to become false.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/7.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 56.5261 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 148/226: WhilePart.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/WhilePart.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, True, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/WhilePart.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3128 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 149/226: ChenFlurMukhopadhyay-SAS2012-Ex2.11.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.11.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.11.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.7792 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 150/226: 165.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/165.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/165.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.6051 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 151/226: 95.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/95.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, True, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/95.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.3888 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 152/226: 49.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/49.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/49.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.1114 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 153/226: ChenFlurMukhopadhyay-SAS2012-Ex3.02.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.02.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.02.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0581 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 154/226: 27.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/27.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/27.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 86.0581 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 155/226: 120.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/120.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/120.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.1383 seconds
+  CPU Usage during execution: 6.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 156/226: ConvLower.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ConvLower.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ConvLower.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.7195 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 157/226: Ex04_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Ex04_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Ex04_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.5134 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 158/226: a.09_assume_false-no-overflow.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/a.09_assume_false-no-overflow.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/a.09_assume_false-no-overflow.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 17.4577 seconds
+  CPU Usage during execution: 3.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 159/226: 160.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/160.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/160.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 16.0084 seconds
+  CPU Usage during execution: 3.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 160/226: 99.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/99.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/99.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3217 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 161/226: Bangalore_v4.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Bangalore_v4.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Bangalore_v4.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.0003 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 162/226: NonTermination1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/NonTermination1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/NonTermination1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0090 seconds
+  CPU Usage during execution: 6.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 163/226: 106.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/106.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/106.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3651 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 164/226: 101.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/101.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/101.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.4631 seconds
+  CPU Usage during execution: 6.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 165/226: 34.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/34.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/34.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.6826 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 166/226: 93.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/93.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/93.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.1209 seconds
+  CPU Usage during execution: 6.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 167/226: CookSeeZuleger-TACAS2013-Fig8b.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig8b.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig8b.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.4918 seconds
+  CPU Usage during execution: 4.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 168/226: 112.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/112.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I'll analyze the termination of this Boogie program.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I'll analyze the program to determine if it terminates or not.
+
+Looking at the program:
+- It has a single variable x (integer type)
+- There's a loop that continues while x >= 0
+- In each iteration, x := -2*x + 10
+
+Since x is an integer, I need to analyze the recurrence relation x := -2*x + 10 to determine if the loop eventually terminates.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I need to analyze this Boogie program to determine termination.
+
+The program has a single variable x and a loop that executes while x >= 0.
+In each iteration, x is updated to -2*x + 10.
+
+Let's examine the behavior:
+- If x starts with any value, the loop condition x >= 0 is checked
+- Inside the loop, x becomes -2*x + 10
+- For the loop to terminate, we need to eventually reach x < 0
+
+For any x >= 5, after one iteration:
+x' = -2*x + 10 <= -10 + 10 = 0, which will terminate in the next iteration
+
+For 0 ≤ x < 5:
+- If x = 0: x' = 10, then x'' = -10, which terminates
+- If x = 1: x' = 8, then x'' = -6, which terminates
+- If x = 2: x' = 6, then x'' = -2, which terminates
+- If x = 3: x' = 4, then x'' = 2, then x''' = 6, then x'''' = -2, which terminates
+- If x = 4: x' = 2, then x'' = 6, then x''' = -2, which terminates
+
+Since x is an integer, for any starting value of x, the program will eventually terminate.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/112.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 19.1245 seconds
+  CPU Usage during execution: 3.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 169/226: 158.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/158.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/158.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.0362 seconds
+  CPU Usage during execution: 4.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 170/226: 123.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/123.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/123.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.3481 seconds
+  CPU Usage during execution: 6.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 171/226: 164.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/164.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/164.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3875 seconds
+  CPU Usage during execution: 5.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 172/226: 85.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/85.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+This program creates a loop that can potentially run indefinitely, as the complex behavior of variables a and b affects q's progression.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/85.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.9792 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 173/226: PastaA4.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaA4.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaA4.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.4627 seconds
+  CPU Usage during execution: 6.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 174/226: Even_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Even_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Even_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.9991 seconds
+  CPU Usage during execution: 6.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 175/226: 75.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/75.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/75.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.3477 seconds
+  CPU Usage during execution: 6.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 176/226: 88.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/88.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/88.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8360 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 177/226: ChenFlurMukhopadhyay-SAS2012-Ex3.05.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.05.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.05.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.8906 seconds
+  CPU Usage during execution: 5.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 178/226: 113.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/113.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/113.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.6785 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 179/226: ChenFlurMukhopadhyay-SAS2012-Ex3.03.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.03.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex3.03.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.6990 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 180/226: PastaB6.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaB6.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaB6.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3088 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 181/226: 105.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/105.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/105.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.5551 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 182/226: 52.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/52.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/52.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.1668 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 183/226: PastaB1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaB1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaB1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0243 seconds
+  CPU Usage during execution: 6.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 184/226: 170.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/170.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/170.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.6029 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 185/226: 71.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/71.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/71.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 13.8416 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 186/226: 51.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/51.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/51.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 15.1633 seconds
+  CPU Usage during execution: 3.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 187/226: b.03_assume_false-no-overflow.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/b.03_assume_false-no-overflow.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, False, True]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/b.03_assume_false-no-overflow.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.2289 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 188/226: 24.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/24.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/24.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.4699 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 189/226: Bangalore-1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Bangalore-1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Bangalore-1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.0873 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 190/226: CookSeeZuleger-TACAS2013-Fig1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/CookSeeZuleger-TACAS2013-Fig1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.9451 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 191/226: 156.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/156.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/156.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.5696 seconds
+  CPU Usage during execution: 7.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 192/226: 8.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/8.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/8.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 307.0796 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 193/226: 2Nested-2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/2Nested-2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/2Nested-2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.6634 seconds
+  CPU Usage during execution: 5.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 194/226: 12.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/12.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/12.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.4542 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 195/226: 133.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/133.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/133.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4660 seconds
+  CPU Usage during execution: 5.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 196/226: Overflow_false-no-overflow_true-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Overflow_false-no-overflow_true-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, False, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Overflow_false-no-overflow_true-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.6473 seconds
+  CPU Usage during execution: 5.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 197/226: PastaA8_false-no-overflow_true-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaA8_false-no-overflow_true-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, True, False]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaA8_false-no-overflow_true-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.9027 seconds
+  CPU Usage during execution: 4.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 198/226: ChenFlurMukhopadhyay-SAS2012-Ex2.12.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.12.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.12.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.7390 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 199/226: PastaB2.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/PastaB2.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/PastaB2.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.6839 seconds
+  CPU Usage during execution: 4.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 200/226: Marbie2_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Marbie2_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Marbie2_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0997 seconds
+  CPU Usage during execution: 6.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 201/226: 55.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/55.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/55.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.3938 seconds
+  CPU Usage during execution: 5.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 202/226: 22.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/22.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/22.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.7072 seconds
+  CPU Usage during execution: 5.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 203/226: LeikeHeizmann-TACAS2014-Fig1.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/LeikeHeizmann-TACAS2014-Fig1.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/LeikeHeizmann-TACAS2014-Fig1.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.0423 seconds
+  CPU Usage during execution: 4.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 204/226: ChenFlurMukhopadhyay-SAS2012-Ex2.16.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.16.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.16.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.9463 seconds
+  CPU Usage during execution: 6.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 205/226: 153.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/153.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/153.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.9022 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 206/226: AliasDarteFeautrierGonnord-SAS2010-terminate.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/AliasDarteFeautrierGonnord-SAS2010-terminate.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[True, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/AliasDarteFeautrierGonnord-SAS2010-terminate.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.7494 seconds
+  CPU Usage during execution: 6.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 207/226: 146.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/146.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/146.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 23.0168 seconds
+  CPU Usage during execution: 4.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 208/226: WhileDecr.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/WhileDecr.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/WhileDecr.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.2939 seconds
+  CPU Usage during execution: 4.4%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 209/226: 125.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/125.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/125.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8634 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 210/226: 74.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/74.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+I'll analyze this program for termination.
+
+The program contains a loop that continues as long as `i >= 0 || j >= 0` is true. In each iteration:
+- If `i > j`, then `i` is decremented
+- Otherwise, `j` is decremented
+
+For any initial values of `i` and `j`, both variables will eventually become negative if the loop executes enough times. Once both variables are negative, the loop condition becomes false and the program terminates.
+
+A key observation is that in each iteration, either `i` or `j` is guaranteed to decrease by 1, and neither variable ever increases. This ensures that the program will eventually terminate.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I'll analyze the termination of this program.
+
+The program consists of a single while loop that continues as long as `i >= 0 OR j >= 0`. In each iteration, it decreases either `i` (when i > j) or `j` (when i ≤ j).
+
+For this loop to be non-terminating, at least one of the variables `i` or `j` would need to remain greater than or equal to 0 indefinitely. However, the program constantly decreases one of the variables in each iteration. If the loop runs long enough, both variables will eventually become negative, causing the loop condition to evaluate to false.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+I'll analyze this program for termination.
+
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/74.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 14.1362 seconds
+  CPU Usage during execution: 4.9%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 211/226: WhileTrueInc_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/WhileTrueInc_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/WhileTrueInc_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.6322 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 212/226: 147.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/147.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/147.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 29.8806 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 213/226: 166.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/166.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/166.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 11.7874 seconds
+  CPU Usage during execution: 4.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 214/226: ChenFlurMukhopadhyay-SAS2012-Ex2.13.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.13.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.13.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 9.5251 seconds
+  CPU Usage during execution: 5.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 215/226: ChenFlurMukhopadhyay-SAS2012-Ex2.07.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.07.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/ChenFlurMukhopadhyay-SAS2012-Ex2.07.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.7828 seconds
+  CPU Usage during execution: 6.1%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 216/226: 80.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/80.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/80.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 8.6053 seconds
+  CPU Usage during execution: 5.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 217/226: Cousot_false-no-overflow_false-termination.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/Cousot_false-no-overflow_false-termination.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, True, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/Cousot_false-no-overflow_false-termination.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 5.7641 seconds
+  CPU Usage during execution: 7.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 218/226: 103.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/103.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+Looking at the program, I'll analyze whether it's terminating or not.
+
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/103.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.6524 seconds
+  CPU Usage during execution: 6.0%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 219/226: 171.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/171.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/171.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.4317 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 220/226: 47.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/47.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[False, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+NO 
+[ANS END]
+[INFO] Single ranking function judgement: False
+[INFO] 调用 SVMRanker 4-multi
+
+--- Calling SVMRanker ---
+Using mode 4-multi
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/47.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.8248 seconds
+  CPU Usage during execution: 6.3%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 221/226: 157.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/157.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/157.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.0925 seconds
+  CPU Usage during execution: 6.2%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 222/226: GulavaniGulwani-CAV2008-Fig1c.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/GulavaniGulwani-CAV2008-Fig1c.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/GulavaniGulwani-CAV2008-Fig1c.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.4113 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 223/226: 108.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/108.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/108.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.8814 seconds
+  CPU Usage during execution: 5.8%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 224/226: WhileSingle.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/WhileSingle.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/WhileSingle.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 7.4949 seconds
+  CPU Usage during execution: 5.7%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 225/226: 159.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/159.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[ANS] 
+[RESULT]
+TERMINATE 
+[ANS END]
+[True, True, True]
+final: True
+[INFO] Termination judgement: True
+[ANS] 
+[SINGLE]
+YES 
+[ANS END]
+[INFO] Single ranking function judgement: True
+[INFO] 调用 SVMRanker 4-nested
+
+--- Calling SVMRanker ---
+Using mode 4-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/159.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 10.5103 seconds
+  CPU Usage during execution: 4.6%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Processing file 226/226: 82.bpl ---
+--- Starting Full Analysis Pipeline for: ./Program_Boogie_Total/82.bpl ---
+[INFO] Running pipeline...
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[ANS] 
+[RESULT]
+NONTERM 
+[ANS END]
+[False, False, False]
+final: False
+[INFO] Termination judgement: False
+[INFO] 非终止，调用 SVMRanker 1-nested
+
+--- Calling SVMRanker ---
+Using mode 1-nested
+--- SVMRanker Call Finished ---
+--- Full Analysis Pipeline Finished for: ./Program_Boogie_Total/82.bpl ---
+
+--- Performance Metrics ---
+  Function: 'run_full_analysis_pipeline'
+  Execution Time: 6.9103 seconds
+  CPU Usage during execution: 6.5%
+  Memory Usage (RSS): 53.86 MB
+---------------------------
+
+
+--- Batch Full Analysis Pipeline Finished ---
