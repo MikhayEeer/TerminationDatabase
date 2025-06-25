@@ -189,7 +189,95 @@ class chat_interface:
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
         return answer
-    
+    def ask_boogie_is_terminating(self, program):
+        """
+        只判断程序是否终止，输出格式严格：[RESULT] TERMINATE 或 [RESULT] NONTERM
+        """
+        role_prompt = (
+            '''
+            You are an expert of program termination analysis. 
+            The input is a program written in Boogie, a simple intermediate verification language. 
+            Boogie syntax example:
+
+            procedure addition(m: int, n: int)
+            {
+            if ((n==0)) { }
+            if ((n>0)) { }
+            if ((n<0)) { }
+            }
+            procedure main()
+            {
+            var m: int;
+            var n: int;
+            var result: int;
+            m := __VERIFIER_nondet_int();
+            n := __VERIFIER_nondet_int();
+            result := addition(m, n);
+            if ((result==(m+n))) { } else { __VERIFIER_error(); }
+            }
+
+            The function __VERIFIER_nondet_int() returns a nondeterministic integer.
+            Given a Boogie program, strictly judge whether it is terminating. 
+            If it is terminating, output:
+            [RESULT] TERMINATE
+            If it is non-terminating, output:
+            [RESULT] NONTERM
+            Do not provide any explanation or ranking function.
+            Example 1:
+            <Boogie code>
+            [RESULT] TERMINATE
+            Example 2:
+            <Boogie code>
+            [RESULT] NONTERM
+            '''
+        )
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
+        print(f"[ANS] \n\t{answer.content} \n[ANS END]")
+        return answer
+
+    def ask_boogie_is_single_ranking_function(self, program):
+        """
+        已知程序终止，判断是否可以用 single ranking function 证明。
+        输出格式严格：[SINGLE] YES 或 [SINGLE] NO
+        """
+        role_prompt = (
+            "You are an expert of program termination analysis.\n"
+            "The input is a program written in Boogie, a simple intermediate verification language.\n"
+            "Boogie syntax example:\n\n"
+            "procedure addition(m: int, n: int)\n"
+            "{\n"
+            "  if ((n==0)) { }\n"
+            "  if ((n>0)) { }\n"
+            "  if ((n<0)) { }\n"
+            "}\n"
+            "procedure main()\n"
+            "{\n"
+            "  var m: int;\n"
+            "  var n: int;\n"
+            "  var result: int;\n"
+            "  m := __VERIFIER_nondet_int();\n"
+            "  n := __VERIFIER_nondet_int();\n"
+            "  result := addition(m, n);\n"
+            "  if ((result==(m+n))) { } else { __VERIFIER_error(); }\n"
+            "}\n\n"
+            "The function __VERIFIER_nondet_int() returns a nondeterministic integer.\n"
+            "Given a Boogie program that is known to be terminating, strictly judge whether its termination can be proved by a single ranking function.\n"
+            "If it can be proved by a single ranking function, output:\n"
+            "[SINGLE] YES\n"
+            "If not, output:\n"
+            "[SINGLE] NO\n"
+            "Do not provide any explanation or ranking function.\n"
+            "Example 1:\n"
+            "<Boogie code>\n"
+            "[SINGLE] YES\n"
+            "Example 2:\n"
+            "<Boogie code>\n"
+            "[SINGLE] NO\n"
+        )
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
+        print(f"[ANS] \n\t{answer.content} \n[ANS END]")
+        return answer
+
 
 def parse_llm_result(result_str):
     rf_type_str = ""
@@ -200,6 +288,8 @@ def parse_llm_result(result_str):
     is_unknown = False
     is_collecting_RF_Type = False
     is_collecting_RF =  False
+    is_collecting_SingleRF = False
+    is_single = False
     parse_failed = False
     for line in result_lines:
         if  "[RESULT]" in line:
@@ -215,6 +305,8 @@ def parse_llm_result(result_str):
             is_collecting_RF_Type = False
             is_collecting_RF = True
             continue
+        elif "[SINGLE]" in line:
+            is_collecting_SingleRF = True
 
         if is_collecting_result:
             if "TERMINATE" in line:
@@ -236,9 +328,20 @@ def parse_llm_result(result_str):
         
         if is_terminating and is_collecting_RF:
             rf_content_str = rf_content_str + line.strip()
+        
+        if is_collecting_SingleRF:
+            if "YES" in line:
+                is_single = True
+            elif "NO" in line:
+                is_single = False
+            else:
+                print("[Error] : llm result parsing error")
+                parse_failed = True
     if parse_failed:
         raise ValueError("ERROR: llm result parsing error")
 
+    if is_collecting_SingleRF:
+        return (is_single, is_unknown, "Single", rf_content_str)
     return (is_terminating, is_unknown, rf_type_str, rf_content_str)
 
 
@@ -744,26 +847,53 @@ def run_full_analysis_pipeline(interface, program_path):
         print(f"[ERROR] File not found: {program_path}")
         return
 
-    # strategy_process: get (strategy type, phase0
-    # TODO: (type, phase) can be (BACKTRACK, -1), Need to handle this case
-    print("[INFO] Running strategy process...")
+    print("[INFO] Running pipeline...")
+    # 第一部分：多次调用大模型，单纯判断是否终止(Term|NonTerm)
     repeat_num = 3
     term_results = []
-    for _ in  range(repeat_num):
-        term_result = termtype_process(interface, program_content)
-        term_results.append((term_result["status"], term_result["kind"]))
+    for _ in range(repeat_num):
+        term_answer = interface.ask_boogie_is_terminating(program_content)
+        try:
+            is_terminating, is_unknown, _, _ = parse_llm_result(term_answer.content)
+        except Exception as e:
+            print(f"[ERROR] Failed to parse termination result: {e}")
+            return
+        term_results.append(is_terminating)
     is_consistent = len(set(term_results)) == 1
     if not is_consistent:
-        print(f"[ERROR] Inconsistent results from termtype process: {term_results}")
+        print(f"[ERROR] Inconsistent results from termination judgement: {term_results}")
         return
-    final_result = term_results[0]
-    print(f"[INFO] termtype process result: ({final_result})")
+    
+    # 第二部分，知道终止性
+    final_is_terminating = term_results[0]
+    print(f"[INFO] Termination judgement: {final_is_terminating}")
 
-    if final_result["status"] == "TERM":
-        if final_result["kind"].lower() == "single":
+    if final_is_terminating:
+        # 进一步判断是否 single ranking function
+        repeat_num = 1 # 目前只用一次判断，暂时不重复判断single情况
+        single_results = []
+        # 保留了重复的逻辑，不影响运行
+        for _ in range(repeat_num):
+            single_answer = interface.ask_boogie_is_single_ranking_function(program_content)
+            try:
+                is_single, _, _, _ = parse_llm_result(single_answer.content)
+            except Exception as e:
+                print(f"[ERROR] Failed to parse single ranking function result: {e}")
+                return
+            single_results.append(is_single)
+        is_single_consistent = len(set(single_results)) == 1
+        if not is_single_consistent:
+            print(f"[ERROR] Inconsistent results from single ranking function judgement: {single_results}")
+            return
+        final_is_single = single_results[0]
+        print(f"[INFO] Single ranking function judgement: {final_is_single}")
+
+        if final_is_single:
+            print("[INFO] 调用 SVMRanker 4-nested")
             SVMRanker(program_content, "Single", 1, True, mode="4-nested")
         else:
-            SVMRanker(program_content, final_result["kind"], 0, True, mode="4-multi")
+            print("[INFO] 调用 SVMRanker 4-multi")
+            SVMRanker(program_content, "Multi", 0, True, mode="4-multi")
     else:
         print("[INFO] 非终止，调用 SVMRanker 1-nested")
         SVMRanker(program_content, "NONTERM", 0, False, mode="1-nested")
