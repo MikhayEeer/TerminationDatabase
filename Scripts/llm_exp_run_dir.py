@@ -737,7 +737,6 @@ def run_full_analysis_pipeline(interface, program_path):
     3. 使用分析结果调用 SVMRanker 的占位符。
     """
     print(f"--- Starting Full Analysis Pipeline for: {program_path} ---")
-    
     try:
         with open(program_path, 'r', errors='ignore') as f:
             program_content = f.read()
@@ -748,12 +747,27 @@ def run_full_analysis_pipeline(interface, program_path):
     # strategy_process: get (strategy type, phase0
     # TODO: (type, phase) can be (BACKTRACK, -1), Need to handle this case
     print("[INFO] Running strategy process...")
-    strategy_type, phase_or_reason = strategy_process(interface, program_content)
-    print(f"[INFO] Strategy process result: ({strategy_type}, {phase_or_reason})")
+    repeat_num = 3
+    term_results = []
+    for _ in  range(repeat_num):
+        term_result = termtype_process(interface, program_content)
+        term_results.append((term_result["status"], term_result["kind"]))
+    is_consistent = len(set(term_results)) == 1
+    if not is_consistent:
+        print(f"[ERROR] Inconsistent results from termtype process: {term_results}")
+        return
+    final_result = term_results[0]
+    print(f"[INFO] termtype process result: ({final_result})")
 
-    is_terminating = strategy_type != "NONTERM"
-    SVMRanker(program_content, strategy_type, phase_or_reason, is_terminating)
-    
+    if final_result["status"] == "TERM":
+        if final_result["kind"].lower() == "single":
+            SVMRanker(program_content, "Single", 1, True, mode="4-nested")
+        else:
+            SVMRanker(program_content, final_result["kind"], 0, True, mode="4-multi")
+    else:
+        print("[INFO] 非终止，调用 SVMRanker 1-nested")
+        SVMRanker(program_content, "NONTERM", 0, False, mode="1-nested")
+
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
 if __name__ == "__main__":
