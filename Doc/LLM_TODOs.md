@@ -20,7 +20,7 @@ def strategy_process(interface, program) 函数return后面的相关策略
 - 对termtype实验结果的处理流程：
     - 获得llm_termtype_result_o4mini.csv文件，这个你应该知道
     - python3 Scripts/parse_termtype_exp_csv.py ./LLM_Termtype_Exp/benchmark_with_type_phase.csv  ./LLM_Termtype_Exp/llm_termtype_result_o4mini.csv  ./LLM_Termtype_Exp/merged_termtype_o4mini.csv （合并两部分）
-    - 将这些merged的csv文件放入Summary文件夹，调用python3 Scripts/parse_phase_csv.py ./LLM_Termtype_Exp/Summary/
+    - 将这些merged的csv文件放入Processed子文件夹，调用python3 Scripts/parse_termtype_processed.py ./LLM_Termtype_Exp/Processed/ ./LLM_Termtype_Exp/Summary/
 
 
 TODOs: 现在需要对TermType进行扩展实验，包括含有文章中例子的few_shot实验，以及将终止性判断剥离出来，提前让LLM知道程序是终止，并判断使用什么类型的秩函数进行证明。数据处理参照上面，只需要扩展prompt和实验。
