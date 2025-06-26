@@ -193,7 +193,8 @@ class chat_interface:
         return answer
     def ask_boogie_is_terminating(self, program):
         """
-        只判断程序是否终止，输出格式严格：[RESULT] TERMINATE 或 [RESULT] NONTERM
+        只判断程序是否终止，输出格式严格：
+            [RESULT]\n TERMINATE 或 [RESULT]\n NONTERM
         """
         role_prompt = PROMPTS.boogie_is_terminating_prompt
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
@@ -203,7 +204,8 @@ class chat_interface:
     def ask_boogie_is_single_ranking_function(self, program):
         """
         已知程序终止，判断是否可以用 single ranking function 证明。
-        输出格式严格：[SINGLE] YES 或 [SINGLE] NO
+        输出格式严格：
+            [SINGLE]\n YES 或 [SINGLE]\n NO
         """
         role_prompt = PROMPTS.boogie_single_RF_prompt
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
@@ -239,7 +241,7 @@ def parse_llm_result(result_str):
             continue
         elif "[SINGLE]" in line:
             is_collecting_SingleRF = True
-            continue
+            continue # continue就是为了\n
 
         if is_collecting_result:
             if "TERMINATE" in line:
