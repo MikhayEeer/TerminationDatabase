@@ -188,3 +188,150 @@ Example 2:
 [SINGLE]
 NO
 """
+
+# 已知Terminating，直接判断类型[Single/Nested/Multi/Other]
+termed_type_direct_judge_prompt = '''
+You are an expert of program termination analysis.
+The input is a program written in Boogie, a simple intermediate verification language.
+Boogie syntax example:
+
+procedure addition(m: int, n: int)
+{
+  if ((n==0)) { }
+  if ((n>0)) { }
+  if ((n<0)) { }
+}
+procedure main()
+{
+  var m: int;
+  var n: int;
+  var result: int;
+  m := __VERIFIER_nondet_int();
+  n := __VERIFIER_nondet_int();
+  result := addition(m, n);
+  if ((result==(m+n))) { } else { __VERIFIER_error(); }
+}
+
+The function __VERIFIER_nondet_int() returns a nondeterministic integer.
+You will be given a loop program in Boogie which is known to be terminating.
+Your task is to classify the program based on the simplest type of ranking function required to prove its termination.
+
+The classification must be one of {single, nested, multi, other}.
+Please adhere to the following priority order:
+single > nested > multi > other
+
+This means you should choose the simplest possible type. For example, if a single-phase function is sufficient, you must choose 'single', even if a more complex function could also work. Choose 'nested' only if 'single' is not sufficient, and so on.
+
+The output you provide should be in the format strictly:
+[RANKING_TYPE]
+<type>
+where <type> is one of {single, nested, multi, other}.
+Do not provide any explanation.
+
+Example 1:
+<Boogie code>
+[RANKING_TYPE]
+single
+
+Example 2:
+<Boogie code>
+[RANKING_TYPE]
+nested
+
+Example 3:
+<Boogie code>
+[RANKING_TYPE]
+multi
+'''
+
+# 已知Terminating，结合两个特例作为fewshot，判断类型[Single/Nested/Multi/Other]
+termed_type_fewshot_judge_prompt = '''
+You are an expert of program termination analysis.
+The input is a program written in Boogie, a simple intermediate verification language.
+Boogie syntax example:
+
+procedure addition(m: int, n: int)
+{
+  if ((n==0)) { }
+  if ((n>0)) { }
+  if ((n<0)) { }
+}
+procedure main()
+{
+  var m: int;
+  var n: int;
+  var result: int;
+  m := __VERIFIER_nondet_int();
+  n := __VERIFIER_nondet_int();
+  result := addition(m, n);
+  if ((result==(m+n))) { } else { __VERIFIER_error(); }
+}
+
+The function __VERIFIER_nondet_int() returns a nondeterministic integer.
+You will be given a loop program in Boogie which is known to be terminating.
+Your task is to classify the program based on the simplest type of ranking function required to prove its termination.
+
+**Key Insight:** The mathematical form (template) of the ranking function is crucial. A program might be impossible to prove with a `single` function, but provable with a `nested` one. Another might fail `nested` but be provable with `multi`.
+
+Therefore, your goal is to identify the **simplest sufficient** template, following the priority:
+**single > nested > multi > other**
+
+The output you provide should be in the format strictly:
+[RANKING_TYPE]
+<type>
+where <type> is one of {single, nested, multi, other}.
+Do not provide any explanation.
+
+---
+**Example 1: A simple case**
+<Boogie>
+procedure single_example() {
+  var x: int;
+  x := __VERIFIER_nondet_int();
+  assume x >= 0;
+  while (x > 0) {
+    x := x - 1;
+  }
+}
+</Boogie>
+[RANKING_TYPE]
+single
+
+---
+**Example 2: A case requiring a nested function**
+// This program cannot be proven by any single linear ranking function.
+// It requires a nested function where one variable's decrease depends on another.
+<Boogie>
+procedure nested_example() {
+  var q: int;
+  var y: int;
+  q := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  while (q > 0) {
+    q := q - y;
+    y := y + 1;
+  }
+}
+</Boogie>
+[RANKING_TYPE]
+nested
+
+---
+**Example 3: A case requiring a multi-phase function**
+// This program cannot be proven by any nested linear ranking function.
+// It requires a multi-phase function that first decreases one variable to 0, then another.
+<Boogie>
+procedure multi_example() {
+  var q: int;
+  var y: int;
+  q := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  while (q > 0 || y > 0) {
+    q := q + y - 1;
+    y := y - 1;
+  }
+}
+</Boogie>
+[RANKING_TYPE]
+multi
+'''

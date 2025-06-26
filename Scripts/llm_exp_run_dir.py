@@ -161,7 +161,8 @@ class chat_interface:
         "The definition of multi-phase ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction" \
         "over the program variables vec(x) and we require that there exists an index i ∈ {1, . . . , k} and a constant C such that: f_i(x) >= C and f1(x) - f1(x') >= C and for all j < i we have f_j(x) < 0" \
         "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n DO NOT GENERATE detailed explanation."
-
+        # Test1: 已经知道终止; 只判断类型
+        # Test2: 
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
