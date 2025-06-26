@@ -167,26 +167,14 @@ class chat_interface:
         return answer
 
     def ask_question_of_nested_phase_judge(self, program):
-        role_prompt = "You are an expert of program termination analysis. In the following you will be given a loop program in Boogie which is terminating." \
-        "You will judge the number of phases needed for  nested-ranking function to prove the termination of the loop program," \
-        "you should give the minimum number of phases needed for the nested ranking function to work.\n" \
-        "The definition of nested ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction"\
-        "over the program variables vec(x) and there exists a positive real number C, such that f1(x) - f1(x') >= C, fi(x) - fi(x') + f_(i-1)(x) >= C for i ∈ {2, . . . , k} and fk(x) >= C"\
-        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"\
-        "The output you provide shoude in the format strictly:  [PHASE_NUM]k\n, where k is the number of minimum phase needed, notice that if the termination can be prove by one ranking function the phase num is 1. DO NOT GENERATE EXPLANATION!!"
+        role_prompt = PROMPTS.nested_phase_judge_prompt
         backloop_prompt = "If you deem the program nonterminating, just output [NONTERM] without any explanation."
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
         return answer
     
     def ask_question_of_multi_phase_judge(self, program):
-        role_prompt = "You are an expert of program termination analysis. In the following you will be given a loop program in Boogie which is terminating." \
-        "You will judge the number of phases needed for multi-phase function to prove the termination of the loop program," \
-        "you should give the minimum number of phases needed for the multi-phase ranking function to work\n" \
-        "The definition of multi-phase ranking function is: <f1, f2, ..., fn> where n is the number of phases and  for each i ∈ {1, . . . , k}, fi(x) be a polynomial or an algebraic fraction" \
-        "over the program variables vec(x) and we require that there exists an index i ∈ {1, . . . , k} and a constant C such that: f_i(x) >= C and f1(x) - f1(x') >= C and for all j < i we have f_j(x) < 0" \
-        "where x is the vector of variables before the execution of loop body and x' is the vector of variables after execution of loop body.\n"\
-        "The output you provide shoude in the format strictly:  [PHASE_NUM]k\n, where k is the number of minimum phase needed, notice that if the termination can be prove by one ranking function then the phase num is 1. DO NOT GENERATE EXPLANATION!!"
+        role_prompt = PROMPTS.multi_phase_judge_prompt
         backloop_prompt = "If you deem the program nonterminating, just output [NONTERM] without any explanation."
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(answer.content)
