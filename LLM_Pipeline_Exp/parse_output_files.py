@@ -290,7 +290,7 @@ def print_statistics(csv_file: str) -> None:
 
 def plot_statistics(csv_file: str, output_dir: str = None):
     """
-    只绘制统计表格为PNG图片，不再绘制直方图。表头和表格距离更近，表格项加上单位。
+    只绘制统计表格为PNG图片，并绘制分布曲线（x轴最大30秒）。
     Args:
         csv_file: CSV文件路径
         output_dir: 输出图片目录，默认为csv同目录
@@ -315,7 +315,6 @@ def plot_statistics(csv_file: str, output_dir: str = None):
             return f"{val:.2f}{unit}"
 
         def save_table_as_img(table_df, title, filename, unit='s'):
-            # 给表格项加单位（除了count列）
             for col in table_df.columns:
                 if col not in ['terminating', 'mode', 'count']:
                     table_df[col] = table_df[col].apply(lambda x: add_unit(x, unit))
@@ -325,12 +324,34 @@ def plot_statistics(csv_file: str, output_dir: str = None):
             tbl.auto_set_font_size(False)
             tbl.set_fontsize(12)
             tbl.scale(1, 1.5)
-            # 表头和表格距离更近
             plt.subplots_adjust(top=0.82, bottom=0.18)
             plt.title(title, fontsize=14, pad=10)
             plt.tight_layout()
             plt.savefig(os.path.join(output_dir, filename))
             plt.close()
+
+        def plot_distribution_curve(series, title, filename, bins=60, xmax=30):
+            data = series.dropna()
+            data = data[data <= xmax]
+            if len(data) == 0:
+                return
+            counts, bin_edges = np.histogram(data, bins=bins, range=(0, xmax), density=True)
+            bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
+            plt.figure(figsize=(8, 5))
+            plt.plot(bin_centers, counts, marker='o', markersize=2) 
+            plt.title(title)
+            plt.xlabel('Time (s)')
+            plt.ylabel('Density')
+            plt.xlim(0, xmax)
+            plt.grid(True, linestyle='--', alpha=0.5)
+            plt.tight_layout()
+            plt.savefig(os.path.join(output_dir, filename))
+            plt.close()
+
+        import numpy as np
+        plot_distribution_curve(df['svmranker_time'], '形式化工具耗时分布曲线', 'svmranker_time_curve.png')
+        plot_distribution_curve(df['llm_run_time'], '大模型耗时分布曲线', 'llm_run_time_curve.png')
+        plot_distribution_curve(df['total_time'], '总耗时分布曲线', 'total_time_curve.png')
 
         stat_cols = ['count', 'mean', 'min', 'max']
         for col in ['svmranker_time', 'llm_run_time', 'total_time']:
