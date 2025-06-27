@@ -23,7 +23,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = claude_model_name
+llm_model_name = gpt_4o_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\
@@ -833,7 +833,7 @@ def run_full_analysis_pipeline(interface, program_path):
         SVMRanker(program_path, program_content, "Nested", 1, False, "1-nested", llm_time)
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
-def batch_run_known_term_RF_type(interface, folder, csv_file, mode):
+def batch_run_known_term_RF_type(interface, folder, csv_file, mode, _LLM):
     print("--- Starting Batch Known Termination RF Type Judgement ---")
     if not os.path.exists(folder):
         print(f"[ERROR] Validation folder not found: {folder}")
@@ -853,8 +853,6 @@ def batch_run_known_term_RF_type(interface, folder, csv_file, mode):
         print(f"[ERROR] 'file_name' column not found in {csv_file}")
         return
     print(f"[INFO] Found {len(data)} rows in {csv_file} to process.")
-    
-    _LLM = input("[INFO] Please enter the LLM model name (e.g., 'GPT-4', 'GPT-3.5'): ").strip()
     
     base_name = f'{_LLM}_{mode}'
     col_type = f'{base_name}_rf_type'
@@ -1004,8 +1002,14 @@ if __name__ == "__main__":
         folder = args.input_folder
         if not folder:
             parser.error("--input_folder is required for BATCH_PIPE mode")
-        batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp/benchmark_TERM_86.csv", "direct")
-        batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp/benchmark_TERM_86.csv", "fewshot")
+        batch_run_known_term_RF_type(interface, folder, 
+                                     "LLM_Termtype_Exp/benchmark_TERM_86.csv", 
+                                     "direct",
+                                     "gpt4o")
+        batch_run_known_term_RF_type(interface, folder, 
+                                     "LLM_Termtype_Exp/benchmark_TERM_86.csv", 
+                                     "fewshot",
+                                     "gpt4o")
 
         
     # program = "	int main() {\n"\
