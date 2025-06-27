@@ -7,8 +7,13 @@ PHASE_JUDGE_Exp_folder = os.path.join(os.getcwd(), "LLM_Phase_Exp")
 PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_folder, "LLM_Phase_Results")
 NESTED_PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Nested")
 MULTI_PHASE_JUDGE_Exp_Result_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Multi")
+# newly added
+NESTED_PHASE_JUDGE_Exp_Rem_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Nested_rem")
+
 NESTED_PHASE_JUDGE_Exp_Process_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Nested_processed")
 MULTI_PHASE_JUDGE_Exp_Process_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Multi_processed")
+# newly added
+NESTED_PHASE_JUDGE_Exp_Rem_Process_folder = os.path.join(PHASE_JUDGE_Exp_Result_folder, "Nested_rem_processed")
 
 def process_file(input_file, output_file):
     with open(input_file, newline='') as infile, open(output_file, 'w', newline='') as outfile:
@@ -105,6 +110,9 @@ def do_categorize(processed_dir):
 
 if __name__ == "__main__":
     do_process(NESTED_PHASE_JUDGE_Exp_Result_folder, NESTED_PHASE_JUDGE_Exp_Process_folder)
+    do_process(NESTED_PHASE_JUDGE_Exp_Rem_folder, NESTED_PHASE_JUDGE_Exp_Rem_Process_folder)
     do_process(MULTI_PHASE_JUDGE_Exp_Result_folder, MULTI_PHASE_JUDGE_Exp_Process_folder)
+    
     do_categorize(NESTED_PHASE_JUDGE_Exp_Process_folder)
+    do_categorize(NESTED_PHASE_JUDGE_Exp_Rem_Process_folder)
     do_categorize(MULTI_PHASE_JUDGE_Exp_Process_folder)
