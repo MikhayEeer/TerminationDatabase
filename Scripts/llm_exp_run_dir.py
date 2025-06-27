@@ -212,7 +212,7 @@ def parse_known_term_llm_result(result_str):
     assert len(result_lines) == 2, "ParseError: result_str should have exactly 2 lines."
     assert "[RANKING_TYPE]" in result_lines[0], "ParseError: result_str should start with [RANKING_TYPE]"
     res_type = result_lines[1].strip()
-    _TYPES = ["ningle", "nested", "multi", "other"]
+    _TYPES = ["single", "nested", "multi", "other"]
     assert res_type.lower() in _TYPES, f"ParseError: result_str should have a valid ranking type, got {res_type}"
     return res_type.lower()
 

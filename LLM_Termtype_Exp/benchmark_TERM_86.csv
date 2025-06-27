@@ -1,87 +1,87 @@
-file_name,terminate,category,phase_count
-ChenFlurMukhopadhyay-SAS2012-Ex2.08.bpl,YES,Nested,2
-LeikeHeizmann-TACAS2014-Ex9.bpl,YES,Nested,1
-ChenFlurMukhopadhyay-SAS2012-Ex2.10.bpl,YES,Nested,1
-PastaA8_false-no-overflow_true-termination.bpl,YES,Nested,1
-2.bpl,YES,Nested,3
-LeikeHeizmann-TACAS2014-Ex1.bpl,YES,Nested,1
-Copenhagen.bpl,YES,Nested,1
-ChenFlurMukhopadhyay-SAS2012-Ex3.03.bpl,YES,Nested,3
-PodelskiRybalchenko-TACAS2011-Fig1.bpl,YES,Nested,1
-ChenFlurMukhopadhyay-SAS2012-Ex2.07.bpl,YES,Nested,1
-b.03_assume_false-no-overflow.bpl,YES,Nested,1
-171.bpl,YES,Nested,1
-151.bpl,YES,Nested,1
-144.bpl,YES,Nested,2
-55.bpl,YES,Nested,1
-167.bpl,YES,Nested,1
-126.bpl,YES,Nested,2
-PastaC7.bpl,YES,Nested,1
-2Nested-2.bpl,YES,Nested,2
-a.09_assume.bpl,YES,Nested,1
-ChenFlurMukhopadhyay-SAS2012-Ex3.05.bpl,YES,Nested,2
-61.bpl,YES,Nested,1
-73.bpl,YES,Nested,2
-158.bpl,YES,Nested,1
-162.bpl,YES,Nested,1
-133.bpl,YES,Nested,1
-154.bpl,YES,Nested,4
-149.bpl,YES,Nested,1
-b.04.bpl,YES,Nested,1
-67.bpl,YES,Nested,2
-159.bpl,YES,Nested,1
-15.bpl,YES,Nested,3
-ChenFlurMukhopadhyay-SAS2012-Ex2.13.bpl,YES,Nested,2
-115.bpl,YES,Nested,1
-68.bpl,YES,Nested,3
-150.bpl,YES,Nested,1
-164.bpl,YES,Nested,1
-ChenFlurMukhopadhyay-SAS2012-Ex2.16.bpl,YES,Nested,2
-LeikeHeizmann-TACAS2014-Fig1.bpl,YES,Nested,2
-83.bpl,YES,Nested,1
-PastaB6.bpl,YES,Nested,1
-30.bpl,YES,Nested,1
-148.bpl,YES,Nested,1
-36.bpl,YES,Nested,1
-72.bpl,YES,Nested,2
-Waldkirch.bpl,YES,Nested,1
-PastaA6_false-no-overflow_true-termination.bpl,YES,Nested,1
-166.bpl,YES,Nested,1
-PastaA4.bpl,YES,Nested,1
-52.bpl,YES,Nested,1
-WhileDecr.bpl,YES,Nested,1
-PastaA5_false-no-overflow_true-termination.bpl,YES,Nested,1
-PastaB2.bpl,YES,Nested,1
-156.bpl,YES,Nested,2
-PastaC7_false-no-overflow.bpl,YES,Nested,1
-PastaB4.bpl,YES,Nested,1
-1.bpl,YES,Nested,1
-168.bpl,YES,Nested,1
-a.09_assume_false-no-overflow.bpl,YES,Nested,1
-163.bpl,YES,Nested,1
-152.bpl,YES,Nested,1
-57.bpl,YES,Nested,1
-132.bpl,YES,Nested,1
-b.03_assume.bpl,YES,Nested,1
-153.bpl,YES,Nested,1
-GulavaniGulwani-CAV2008-Fig1c.bpl,YES,Nested,1
-165.bpl,YES,Nested,1
-PastaB11_false-no-overflow_true-termination.bpl,YES,Nested,1
-PastaB1.bpl,YES,Nested,1
-160.bpl,YES,Nested,1
-ChenFlurMukhopadhyay-SAS2012-Ex2.01.bpl,YES,Nested,2
-ChenFlurMukhopadhyay-SAS2012-Ex3.04.bpl,YES,Nested,2
-58.bpl,YES,Nested,1
-66.bpl,YES,Nested,2
-29.bpl,YES,Nested,1
-127.bpl,YES,Nested,1
-161.bpl,YES,Nested,1
-51.bpl,YES,Nested,2
-ColonSipma-TACAS2001-Fig1.bpl,YES,Multi,2
-PastaA7.bpl,YES,Multi,1
-PastaB7.bpl,YES,Multi,1
-157.bpl,YES,Multi,2
-AliasDarteFeautrierGonnord-SAS2010-terminate.bpl,YES,Multi,2
-4NestedWith3Variables-2.bpl,YES,Multi,4
-AliasDarteFeautrierGonnord-SAS2010-exmini.bpl,YES,Multi,4
-7.bpl,YES,Multi,4
+file_name,terminate,category,phase_count,claude37_direct_rf_type,claude37_direct_avg_time,claude37_direct_consistent,claude37_direct_results,claude37_direct_times,claude37_fewshot_rf_type,claude37_fewshot_avg_time,claude37_fewshot_consistent,claude37_fewshot_results,claude37_fewshot_times
+ChenFlurMukhopadhyay-SAS2012-Ex2.08.bpl,YES,Nested,2,multi,2.07,False,"('multi', 'multi', 'nested')","('1.89', '2.62', '1.71')",nested,2.51,True,"('nested', 'nested', 'nested')","('4.44', '1.58', '1.51')"
+LeikeHeizmann-TACAS2014-Ex9.bpl,YES,Nested,1,single,1.52,False,"('single', 'multi', 'single')","('1.70', '1.29', '1.59')",single,2.69,True,"('single', 'single', 'single')","('3.87', '1.48', '2.71')"
+ChenFlurMukhopadhyay-SAS2012-Ex2.10.bpl,YES,Nested,1,single,1.95,True,"('single', 'single', 'single')","('2.36', '1.73', '1.74')",single,1.89,False,"('single', 'single', 'nested')","('2.09', '1.78', '1.80')"
+PastaA8_false-no-overflow_true-termination.bpl,YES,Nested,1,single,1.89,True,"('single', 'single', 'single')","('1.65', '2.31', '1.71')",single,1.97,True,"('single', 'single', 'single')","('2.65', '1.62', '1.64')"
+2.bpl,YES,Nested,3,nested,2.06,False,"('multi', 'nested', 'nested')","('1.75', '1.68', '2.75')",nested,1.65,True,"('nested', 'nested', 'nested')","('1.61', '1.63', '1.70')"
+LeikeHeizmann-TACAS2014-Ex1.bpl,YES,Nested,1,single,1.51,True,"('single', 'single', 'single')","('1.15', '1.74', '1.66')",single,1.67,True,"('single', 'single', 'single')","('1.59', '1.89', '1.54')"
+Copenhagen.bpl,YES,Nested,1,single,1.79,False,"('nested', 'single', 'multi')","('1.69', '1.96', '1.72')",single,2.04,False,"('multi', 'single', 'single')","('2.74', '1.49', '1.89')"
+ChenFlurMukhopadhyay-SAS2012-Ex3.03.bpl,YES,Nested,3,multi,1.66,False,"('nested', 'multi', 'multi')","('1.96', '1.49', '1.53')",nested,1.67,True,"('nested', 'nested', 'nested')","('1.74', '1.55', '1.72')"
+PodelskiRybalchenko-TACAS2011-Fig1.bpl,YES,Nested,1,single,1.81,True,"('single', 'single', 'single')","('1.99', '1.78', '1.68')",single,1.71,True,"('single', 'single', 'single')","('1.82', '1.66', '1.65')"
+ChenFlurMukhopadhyay-SAS2012-Ex2.07.bpl,YES,Nested,1,single,1.54,False,"('single', 'multi', 'single')","('1.36', '1.49', '1.76')",nested,1.55,False,"('single', 'nested', 'nested')","('1.45', '1.47', '1.72')"
+b.03_assume_false-no-overflow.bpl,YES,Nested,1,single,1.70,True,"('single', 'single', 'single')","('1.51', '1.77', '1.82')",single,1.64,True,"('single', 'single', 'single')","('1.72', '1.62', '1.58')"
+171.bpl,YES,Nested,1,multi,1.72,True,"('multi', 'multi', 'multi')","('1.78', '1.64', '1.74')",multi,1.97,False,"('other', 'multi', 'nested')","('1.50', '1.78', '2.62')"
+151.bpl,YES,Nested,1,single,1.72,False,"('multi', 'single', 'single')","('1.67', '1.85', '1.64')",multi,2.04,False,"('multi', 'single', 'nested')","('2.96', '1.68', '1.48')"
+144.bpl,YES,Nested,2,multi,1.69,False,"('single', 'multi', 'multi')","('1.68', '1.78', '1.61')",nested,2.15,True,"('nested', 'nested', 'nested')","('3.23', '1.63', '1.58')"
+55.bpl,YES,Nested,1,multi,1.60,True,"('multi', 'multi', 'multi')","('1.66', '1.49', '1.65')",nested,1.67,True,"('nested', 'nested', 'nested')","('1.55', '1.74', '1.73')"
+167.bpl,YES,Nested,1,single,2.05,True,"('single', 'single', 'single')","('1.58', '2.72', '1.86')",nested,1.64,False,"('nested', 'single', 'nested')","('1.65', '1.31', '1.98')"
+126.bpl,YES,Nested,2,nested,1.99,True,"('nested', 'nested', 'nested')","('1.84', '1.59', '2.53')",nested,2.04,True,"('nested', 'nested', 'nested')","('2.69', '1.53', '1.91')"
+PastaC7.bpl,YES,Nested,1,single,1.70,True,"('single', 'single', 'single')","('1.54', '1.98', '1.59')",single,1.87,True,"('single', 'single', 'single')","('1.52', '2.59', '1.52')"
+2Nested-2.bpl,YES,Nested,2,multi,1.88,True,"('multi', 'multi', 'multi')","('2.66', '1.30', '1.69')",nested,1.54,True,"('nested', 'nested', 'nested')","('1.49', '1.64', '1.50')"
+a.09_assume.bpl,YES,Nested,1,single,2.12,True,"('single', 'single', 'single')","('2.21', '1.79', '2.35')",single,1.74,True,"('single', 'single', 'single')","('1.47', '1.54', '2.23')"
+ChenFlurMukhopadhyay-SAS2012-Ex3.05.bpl,YES,Nested,2,single,1.53,False,"('nested', 'single', 'single')","('1.31', '1.63', '1.65')",nested,1.78,True,"('nested', 'nested', 'nested')","('1.48', '2.08', '1.79')"
+61.bpl,YES,Nested,1,single,2.88,True,"('single', 'single', 'single')","('2.90', '4.09', '1.66')",single,3.08,True,"('single', 'single', 'single')","('3.93', '2.90', '2.42')"
+73.bpl,YES,Nested,2,single,1.85,False,"('single', 'single', 'nested')","('1.66', '2.21', '1.68')",nested,1.98,False,"('nested', 'single', 'nested')","('2.36', '1.83', '1.76')"
+158.bpl,YES,Nested,1,single,1.69,True,"('single', 'single', 'single')","('1.64', '1.50', '1.93')",nested,1.69,False,"('nested', 'nested', 'single')","('1.91', '1.62', '1.55')"
+162.bpl,YES,Nested,1,multi,1.56,False,"('multi', 'multi', 'other')","('1.53', '1.26', '1.90')",single,1.64,False,"('single', 'nested', 'other')","('1.51', '1.83', '1.58')"
+133.bpl,YES,Nested,1,single,2.44,True,"('single', 'single', 'single')","('1.92', '2.94', '2.46')",single,1.80,True,"('single', 'single', 'single')","('1.95', '1.65', '1.79')"
+154.bpl,YES,Nested,4,single,1.79,False,"('single', 'nested', 'multi')","('2.11', '1.74', '1.51')",multi,1.68,False,"('single', 'multi', 'multi')","('1.71', '1.59', '1.72')"
+149.bpl,YES,Nested,1,single,1.94,True,"('single', 'single', 'single')","('1.51', '2.37', '1.94')",nested,2.18,False,"('nested', 'multi', 'nested')","('1.78', '2.92', '1.85')"
+b.04.bpl,YES,Nested,1,single,1.68,True,"('single', 'single', 'single')","('1.61', '1.77', '1.66')",single,1.95,True,"('single', 'single', 'single')","('2.66', '1.58', '1.62')"
+67.bpl,YES,Nested,2,multi,1.91,True,"('multi', 'multi', 'multi')","('2.70', '1.50', '1.54')",multi,1.71,True,"('multi', 'multi', 'multi')","('1.75', '1.87', '1.50')"
+159.bpl,YES,Nested,1,single,1.76,True,"('single', 'single', 'single')","('2.10', '1.53', '1.65')",nested,2.14,True,"('nested', 'nested', 'nested')","('1.97', '1.60', '2.85')"
+15.bpl,YES,Nested,3,nested,1.76,False,"('nested', 'nested', 'multi')","('2.09', '1.47', '1.72')",multi,1.59,False,"('nested', 'multi', 'multi')","('1.50', '1.48', '1.78')"
+ChenFlurMukhopadhyay-SAS2012-Ex2.13.bpl,YES,Nested,2,single,1.70,True,"('single', 'single', 'single')","('1.56', '1.72', '1.84')",nested,1.72,False,"('nested', 'nested', 'single')","('1.90', '1.66', '1.58')"
+115.bpl,YES,Nested,1,single,1.59,True,"('single', 'single', 'single')","('1.27', '1.85', '1.65')",single,1.61,True,"('single', 'single', 'single')","('1.67', '1.67', '1.48')"
+68.bpl,YES,Nested,3,nested,1.83,True,"('nested', 'nested', 'nested')","('1.66', '2.23', '1.58')",nested,2.05,True,"('nested', 'nested', 'nested')","('1.76', '2.51', '1.88')"
+150.bpl,YES,Nested,1,nested,1.69,False,"('single', 'nested', 'nested')","('1.73', '1.68', '1.66')",single,1.68,False,"('multi', 'single', 'single')","('1.73', '1.49', '1.81')"
+164.bpl,YES,Nested,1,single,2.19,True,"('single', 'single', 'single')","('1.81', '2.49', '2.27')",single,1.61,False,"('single', 'nested', 'single')","('1.64', '1.50', '1.68')"
+ChenFlurMukhopadhyay-SAS2012-Ex2.16.bpl,YES,Nested,2,nested,1.75,False,"('nested', 'single', 'nested')","('2.44', '1.63', '1.19')",nested,1.64,False,"('multi', 'nested', 'nested')","('1.64', '1.56', '1.71')"
+LeikeHeizmann-TACAS2014-Fig1.bpl,YES,Nested,2,multi,1.60,False,"('multi', 'multi', 'nested')","('1.70', '1.55', '1.54')",nested,1.58,True,"('nested', 'nested', 'nested')","('1.48', '1.62', '1.64')"
+83.bpl,YES,Nested,1,single,2.01,True,"('single', 'single', 'single')","('2.60', '1.77', '1.66')",single,1.87,True,"('single', 'single', 'single')","('2.32', '1.66', '1.63')"
+PastaB6.bpl,YES,Nested,1,single,2.09,True,"('single', 'single', 'single')","('1.98', '2.30', '2.00')",single,1.74,True,"('single', 'single', 'single')","('1.59', '1.75', '1.88')"
+30.bpl,YES,Nested,1,single,1.97,True,"('single', 'single', 'single')","('1.66', '2.72', '1.53')",single,1.83,True,"('single', 'single', 'single')","('2.07', '1.62', '1.81')"
+148.bpl,YES,Nested,1,multi,1.67,False,"('single', 'multi', 'multi')","('1.81', '1.76', '1.45')",other,1.93,False,"('multi', 'other', 'other')","('1.49', '1.60', '2.69')"
+36.bpl,YES,Nested,1,single,1.86,True,"('single', 'single', 'single')","('1.73', '1.67', '2.18')",single,1.61,True,"('single', 'single', 'single')","('1.96', '1.47', '1.41')"
+72.bpl,YES,Nested,2,multi,1.60,False,"('single', 'multi', 'multi')","('1.69', '1.57', '1.53')",nested,1.54,True,"('nested', 'nested', 'nested')","('1.54', '1.53', '1.54')"
+Waldkirch.bpl,YES,Nested,1,single,1.76,True,"('single', 'single', 'single')","('2.04', '1.63', '1.60')",single,1.47,True,"('single', 'single', 'single')","('1.23', '1.50', '1.67')"
+PastaA6_false-no-overflow_true-termination.bpl,YES,Nested,1,single,1.76,True,"('single', 'single', 'single')","('1.64', '2.12', '1.50')",single,1.82,True,"('single', 'single', 'single')","('1.88', '2.05', '1.52')"
+166.bpl,YES,Nested,1,nested,1.78,True,"('nested', 'nested', 'nested')","('1.68', '1.84', '1.82')",nested,1.72,False,"('nested', 'single', 'nested')","('1.70', '1.71', '1.75')"
+PastaA4.bpl,YES,Nested,1,single,1.92,True,"('single', 'single', 'single')","('1.77', '2.26', '1.73')",single,2.15,True,"('single', 'single', 'single')","('2.32', '1.47', '2.66')"
+52.bpl,YES,Nested,1,single,1.60,True,"('single', 'single', 'single')","('1.70', '1.64', '1.48')",single,2.22,True,"('single', 'single', 'single')","('1.73', '2.76', '2.17')"
+WhileDecr.bpl,YES,Nested,1,single,1.98,True,"('single', 'single', 'single')","('2.59', '1.65', '1.70')",single,1.89,True,"('single', 'single', 'single')","('2.00', '1.93', '1.73')"
+PastaA5_false-no-overflow_true-termination.bpl,YES,Nested,1,single,1.95,True,"('single', 'single', 'single')","('1.63', '1.65', '2.58')",single,1.75,True,"('single', 'single', 'single')","('1.83', '1.61', '1.81')"
+PastaB2.bpl,YES,Nested,1,single,1.55,True,"('single', 'single', 'single')","('1.47', '1.58', '1.60')",single,1.64,True,"('single', 'single', 'single')","('1.81', '1.66', '1.45')"
+156.bpl,YES,Nested,2,multi,2.20,False,"('multi', 'multi', 'single')","('2.53', '1.46', '2.61')",nested,1.51,True,"('nested', 'nested', 'nested')","('1.56', '1.16', '1.80')"
+PastaC7_false-no-overflow.bpl,YES,Nested,1,single,1.96,True,"('single', 'single', 'single')","('1.85', '1.79', '2.24')",single,1.70,False,"('nested', 'single', 'single')","('1.73', '1.64', '1.72')"
+PastaB4.bpl,YES,Nested,1,single,1.62,True,"('single', 'single', 'single')","('1.48', '1.68', '1.71')",single,1.57,True,"('single', 'single', 'single')","('1.63', '1.56', '1.53')"
+1.bpl,YES,Nested,1,single,1.74,True,"('single', 'single', 'single')","('1.67', '1.80', '1.73')",single,1.87,True,"('single', 'single', 'single')","('1.61', '2.30', '1.71')"
+168.bpl,YES,Nested,1,single,1.63,True,"('single', 'single', 'single')","('1.50', '1.72', '1.66')",single,1.74,True,"('single', 'single', 'single')","('1.45', '1.82', '1.96')"
+a.09_assume_false-no-overflow.bpl,YES,Nested,1,single,1.80,True,"('single', 'single', 'single')","('2.03', '1.50', '1.89')",single,2.15,False,"('single', 'nested', 'single')","('1.46', '1.18', '3.79')"
+163.bpl,YES,Nested,1,multi,1.71,False,"('multi', 'multi', 'other')","('1.57', '1.72', '1.85')",nested,1.52,False,"('multi', 'nested', 'nested')","('1.58', '1.67', '1.29')"
+152.bpl,YES,Nested,1,multi,1.83,False,"('multi', 'multi', 'single')","('1.64', '1.86', '1.99')",other,1.73,False,"('other', 'nested', 'other')","('1.74', '1.79', '1.64')"
+57.bpl,YES,Nested,1,single,1.74,True,"('single', 'single', 'single')","('1.84', '1.84', '1.53')",single,1.62,True,"('single', 'single', 'single')","('1.46', '1.68', '1.73')"
+132.bpl,YES,Nested,1,single,1.54,True,"('single', 'single', 'single')","('1.70', '1.72', '1.20')",single,1.72,True,"('single', 'single', 'single')","('1.75', '1.73', '1.68')"
+b.03_assume.bpl,YES,Nested,1,single,1.85,True,"('single', 'single', 'single')","('1.99', '1.87', '1.69')",nested,1.52,False,"('single', 'nested', 'nested')","('1.62', '1.24', '1.69')"
+153.bpl,YES,Nested,1,multi,1.98,False,"('single', 'multi', 'multi')","('1.62', '2.19', '2.14')",other,1.70,False,"('other', 'multi', 'other')","('1.87', '1.76', '1.48')"
+GulavaniGulwani-CAV2008-Fig1c.bpl,YES,Nested,1,single,2.35,True,"('single', 'single', 'single')","('2.56', '1.99', '2.50')",single,1.74,True,"('single', 'single', 'single')","('2.03', '1.53', '1.66')"
+165.bpl,YES,Nested,1,single,1.65,False,"('single', 'single', 'nested')","('1.66', '1.64', '1.64')",single,1.61,False,"('single', 'single', 'nested')","('1.62', '1.71', '1.50')"
+PastaB11_false-no-overflow_true-termination.bpl,YES,Nested,1,single,1.76,True,"('single', 'single', 'single')","('1.76', '1.53', '1.99')",single,1.47,True,"('single', 'single', 'single')","('1.61', '1.29', '1.50')"
+PastaB1.bpl,YES,Nested,1,single,1.77,True,"('single', 'single', 'single')","('1.71', '2.00', '1.60')",single,1.85,True,"('single', 'single', 'single')","('1.46', '1.50', '2.58')"
+160.bpl,YES,Nested,1,multi,1.77,False,"('multi', 'multi', 'single')","('2.11', '1.74', '1.47')",other,1.60,False,"('other', 'other', 'multi')","('1.58', '1.72', '1.50')"
+ChenFlurMukhopadhyay-SAS2012-Ex2.01.bpl,YES,Nested,2,multi,1.57,False,"('nested', 'multi', 'multi')","('1.56', '1.57', '1.57')",nested,1.94,True,"('nested', 'nested', 'nested')","('1.63', '1.64', '2.54')"
+ChenFlurMukhopadhyay-SAS2012-Ex3.04.bpl,YES,Nested,2,single,1.63,False,"('single', 'single', 'multi')","('1.47', '1.75', '1.66')",nested,1.83,True,"('nested', 'nested', 'nested')","('2.17', '1.66', '1.65')"
+58.bpl,YES,Nested,1,single,1.55,True,"('single', 'single', 'single')","('1.40', '1.61', '1.66')",single,1.53,True,"('single', 'single', 'single')","('1.50', '1.62', '1.48')"
+66.bpl,YES,Nested,2,multi,1.54,True,"('multi', 'multi', 'multi')","('1.78', '1.71', '1.12')",multi,1.62,False,"('multi', 'multi', 'nested')","('1.55', '1.72', '1.60')"
+29.bpl,YES,Nested,1,multi,1.45,False,"('multi', 'multi', 'nested')","('1.32', '1.41', '1.64')",single,1.62,False,"('nested', 'single', 'single')","('1.61', '1.49', '1.76')"
+127.bpl,YES,Nested,1,single,1.74,True,"('single', 'single', 'single')","('1.94', '1.66', '1.63')",single,1.66,True,"('single', 'single', 'single')","('1.65', '1.65', '1.67')"
+161.bpl,YES,Nested,1,multi,1.72,False,"('multi', 'multi', 'other')","('1.67', '1.68', '1.82')",nested,1.62,False,"('nested', 'nested', 'other')","('1.68', '1.47', '1.70')"
+51.bpl,YES,Nested,2,single,1.71,True,"('single', 'single', 'single')","('1.60', '1.73', '1.81')",single,2.25,False,"('single', 'nested', 'single')","('1.50', '2.56', '2.71')"
+ColonSipma-TACAS2001-Fig1.bpl,YES,Multi,2,single,1.71,False,"('single', 'multi', 'single')","('1.64', '1.81', '1.67')",nested,1.75,False,"('single', 'nested', 'nested')","('1.65', '1.84', '1.75')"
+PastaA7.bpl,YES,Multi,1,single,1.87,True,"('single', 'single', 'single')","('1.59', '1.73', '2.29')",single,1.78,True,"('single', 'single', 'single')","('1.70', '1.75', '1.88')"
+PastaB7.bpl,YES,Multi,1,single,1.64,True,"('single', 'single', 'single')","('1.48', '1.67', '1.78')",single,1.62,True,"('single', 'single', 'single')","('1.94', '1.59', '1.33')"
+157.bpl,YES,Multi,2,single,1.74,True,"('single', 'single', 'single')","('1.63', '1.69', '1.89')",single,1.61,False,"('multi', 'single', 'single')","('1.88', '1.31', '1.64')"
+AliasDarteFeautrierGonnord-SAS2010-terminate.bpl,YES,Multi,2,multi,2.01,False,"('multi', 'single', 'multi')","('1.77', '2.63', '1.65')",single,1.71,False,"('multi', 'single', 'single')","('1.68', '1.83', '1.61')"
+4NestedWith3Variables-2.bpl,YES,Multi,4,single,1.59,True,"('single', 'single', 'single')","('1.65', '1.65', '1.48')",nested,1.63,False,"('nested', 'nested', 'multi')","('1.53', '1.72', '1.63')"
+AliasDarteFeautrierGonnord-SAS2010-exmini.bpl,YES,Multi,4,multi,1.82,False,"('multi', 'nested', 'multi')","('1.98', '1.92', '1.54')",nested,1.60,True,"('nested', 'nested', 'nested')","('1.68', '1.58', '1.54')"
+7.bpl,YES,Multi,4,multi,1.77,True,"('multi', 'multi', 'multi')","('1.82', '1.58', '1.92')",multi,2.26,True,"('multi', 'multi', 'multi')","('3.41', '1.64', '1.73')"
