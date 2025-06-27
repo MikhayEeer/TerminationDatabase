@@ -201,6 +201,20 @@ class chat_interface:
         print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
 
+    def ask_known_term_RF_type(self, program, mode):
+        role_prompt = PROMPTS.termed_type_direct_judge_prompt if mode == "direct" else PROMPTS.termed_type_fewshot_judge_prompt
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
+        print(f"[ANS] \n{answer.content} \n[ANS END]")
+        return answer
+
+def parse_known_term_llm_result(result_str):
+    result_lines = str.split(result_str, "\n")
+    assert len(result_lines) == 2, "ParseError: result_str should have exactly 2 lines."
+    assert "[RANKING_TYPE]" in result_lines[0], "ParseError: result_str should start with [RANKING_TYPE]"
+    res_type = result_lines[1].strip()
+    _TYPES = ["ningle", "nested", "multi", "other"]
+    assert res_type.lower() in _TYPES, f"ParseError: result_str should have a valid ranking type, got {res_type}"
+    return res_type.lower()
 
 def parse_llm_result(result_str):
     rf_type_str = ""
@@ -218,7 +232,7 @@ def parse_llm_result(result_str):
         if  "[RESULT]" in line:
             is_collecting_result = True
             continue
-        elif "[RANKING FUNCTION TYPE]" in line:
+        elif "[RANKING FUNCTION TYPE]" in line: # parse 2 results;
             if is_terminating:
                 is_collecting_RF_Type = True
             else:
@@ -819,6 +833,119 @@ def run_full_analysis_pipeline(interface, program_path):
         SVMRanker(program_path, program_content, "Nested", 1, False, "1-nested", llm_time)
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
+def batch_run_known_term_RF_type(interface, folder, csv_file, mode):
+    print("--- Starting Batch Known Termination RF Type Judgement ---")
+    if not os.path.exists(folder):
+        print(f"[ERROR] Validation folder not found: {folder}")
+        return
+    if not os.path.exists(csv_file):
+        print(f"[ERROR] CSV file not found: {csv_file}")
+        return
+    try:
+        with open(csv_file, 'r', newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            data = list(reader)
+            fieldnames = reader.fieldnames
+    except Exception as e:
+        print(f"[ERROR] Failed to read CSV file {csv_file}: {e}")
+        return
+    if 'file_name' not in fieldnames:
+        print(f"[ERROR] 'file_name' column not found in {csv_file}")
+        return
+    print(f"[INFO] Found {len(data)} rows in {csv_file} to process.")
+    
+    _LLM = input("[INFO] Please enter the LLM model name (e.g., 'GPT-4', 'GPT-3.5'): ").strip()
+    
+    base_name = f'{_LLM}_{mode}'
+    col_type = f'{base_name}_rf_type'
+    col_avg_time = f'{base_name}_avg_time'
+    col_consistent = f'{base_name}_consistent'
+    col_results = f'{base_name}_results'
+    col_times = f'{base_name}_times'
+    
+    new_cols = [col_type, col_avg_time, col_consistent, col_results, col_times]
+    for col in new_cols:
+        if col not in fieldnames:
+            fieldnames.append(col)
+
+    for i, row in enumerate(data):
+        file_name = row.get('file_name')
+        if not file_name:
+            print(f"[WARN] Skipping row {i+1} due to empty file_name.")
+            continue
+        file_path = os.path.join(folder, file_name)
+        print(f"\n--- Processing file {i+1}/{len(data)}: {file_name} ---")
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', errors='ignore') as f:
+                    program_content = f.read()
+                
+                final_type, avg_time, is_consistent, results_tuple, times_tuple = known_term_run_RF_type(interface, program_content, mode)
+                
+                row[col_type] = final_type
+                row[col_avg_time] = f"{avg_time:.2f}"
+                row[col_consistent] = is_consistent
+                row[col_results] = str(results_tuple)
+                row[col_times] = str(tuple(f"{t:.2f}" for t in times_tuple))
+
+            except Exception as e:
+                print(f"[ERROR] An unexpected error occurred while processing {file_name}: {e}")
+                row[col_type] = "ERROR"
+                row[col_avg_time] = "ERROR"
+                row[col_consistent] = "ERROR"
+                row[col_results] = "ERROR"
+                row[col_times] = "ERROR"
+        else:
+            print(f"[WARN] File not found: {file_path}")
+            for col in new_cols:
+                row[col] = "FILE_NOT_FOUND"
+    
+    try:
+        with open(csv_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(data)
+        print(f"\n[SUCCESS] Finished processing and updated {csv_file}")
+    except Exception as e:
+        print(f"[ERROR] Failed to write updated data to {csv_file}: {e}")
+
+    print("\n--- Batch Known Termination RF Type Judgement Finished ---")
+
+def known_term_run_RF_type(interface, program, mode = "direct"):
+    """
+    直接判断已知终止程序的 ranking function 类型。
+    """
+    assert mode in ["direct", "fewshot"], "Mode must be either 'direct' or 'fewshot'."
+    print(f"[INFO] Running ranking function type judgement \nfor known terminating program (mode: {mode})...")
+    
+    repeat_nums = CONST.REPEAT_NUMS
+    results = []
+    times = []
+
+    for i in range(repeat_nums):
+        print(f"[INFO]  Round {i+1}/{repeat_nums}...")
+        start_time = time.time()
+        result = interface.ask_known_term_RF_type(program, mode=mode)  
+        end_time = time.time()
+        duration = end_time - start_time
+        times.append(duration)
+        rf_type = parse_known_term_llm_result(result.content)
+        results.append(rf_type)
+        print(f"[RESULT] Round {i+1} Result: {rf_type}, Time: {duration:.2f}s")
+
+    is_consistent = len(set(results)) == 1
+    average_time = sum(times) / len(times) if times else 0
+
+    final_type = "ERROR"
+    if results:
+        valid_results = [r for r in results if r != "PARSE_ERROR"]
+        if valid_results:
+            final_type = max(set(valid_results), key=valid_results.count)
+
+    print(f"[SUMMARY] Final Type: {final_type}, Avg Time: {average_time:.2f}s, Consistent: {is_consistent}")
+    
+    return final_type, average_time, is_consistent, tuple(results), tuple(times)
+
 if __name__ == "__main__":
     interface = chat_interface()
     interface.set_up_open_router_configs()
@@ -873,6 +1000,13 @@ if __name__ == "__main__":
         if not os.path.isdir(folder):
             parser.error(f"The path '{folder}' is not a valid directory")
         batch_run_full_pipeline(interface, folder)
+    elif args.mode == "BATCH_TERMED_TYPE":
+        folder = args.input_folder
+        if not folder:
+            parser.error("--input_folder is required for BATCH_PIPE mode")
+            batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp\benchmark_TERM_86.csv", "direct")
+            batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp\benchmark_TERM_86.csv", "fewshot")
+
         
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
