@@ -1004,8 +1004,8 @@ if __name__ == "__main__":
         folder = args.input_folder
         if not folder:
             parser.error("--input_folder is required for BATCH_PIPE mode")
-        batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp\benchmark_TERM_86.csv", "direct")
-        batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp\benchmark_TERM_86.csv", "fewshot")
+        batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp/benchmark_TERM_86.csv", "direct")
+        batch_run_known_term_RF_type(interface, folder, "LLM_Termtype_Exp/benchmark_TERM_86.csv", "fewshot")
 
         
     # program = "	int main() {\n"\
