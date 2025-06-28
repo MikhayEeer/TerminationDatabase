@@ -23,7 +23,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = gpt_4o_model_name
+llm_model_name = gpt_o4_mini_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\
@@ -1005,11 +1005,11 @@ if __name__ == "__main__":
         batch_run_known_term_RF_type(interface, folder, 
                                      "LLM_Termtype_Exp/benchmark_TERM_86.csv", 
                                      "direct",
-                                     "gpt4o")
+                                     "o1mini")
         batch_run_known_term_RF_type(interface, folder, 
                                      "LLM_Termtype_Exp/benchmark_TERM_86.csv", 
                                      "fewshot",
-                                     "gpt4o")
+                                     "o1mini")
 
         
     # program = "	int main() {\n"\
