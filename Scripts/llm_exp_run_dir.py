@@ -5,6 +5,7 @@ import csv
 import argparse
 import re
 from typing import TypedDict, Literal
+from collections import Counter
 from datetime import datetime
 from functools import wraps
 import psutil
@@ -12,6 +13,7 @@ import psutil
 from openai import OpenAI
 
 from Utils.utils import load_api_key
+from Utils.utils import remove_comments
 from UseSVMRanker import SVMRanker
 import Utils.const_prompts as PROMPTS
 import Utils.const as CONST
@@ -23,7 +25,7 @@ claude_model_name = "anthropic/claude-3.7-sonnet"
 gemini_model_name = "google/gemini-2.5-pro-preview"
 deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = gpt_o4_mini_model_name
+llm_model_name = claude_model_name
 
 LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
             "gpt4o" if llm_model_name == gpt_4o_model_name else\
@@ -206,7 +208,13 @@ class chat_interface:
         answer = self.ask_question_with_role_no_history_and_record(role_prompt, program)
         print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
-
+    
+    def ask_known_nonterm_type(self, program):
+        role_prompt = PROMPTS.nontermtype_judge_prompt
+        no_comment_program = remove_comments(program)
+        answer = self.ask_question_with_role_no_history_and_record(role_prompt, no_comment_program)
+        print(f"[ANS] \n{answer.content} \n[ANS END]")
+        return answer
 def parse_known_term_llm_result(result_str):
     result_lines = str.split(result_str, "\n")
     assert len(result_lines) == 2, "ParseError: result_str should have exactly 2 lines."
@@ -455,6 +463,8 @@ def terminating_multi_phase_judge(interface, boogie_program):
     answer_content = answer.content
     result_phase_num = extract_nested_phase_num(answer_content)
     return result_phase_num
+
+
 
 def run_svmranker_nested_phase_judge(interface):
     result_list = []
@@ -707,6 +717,8 @@ def run_svmranker_termtype_judge(interface):
     print(f"\n[OUT] Termtype analysis completed!")
     print(f"[OUT]Results saved to: {result_csv_path}")
 
+
+
 def run_svmranker_strategy_judge(interface):
     # TODO
     result_csv_path = os.path.join(STRATEGY_Exp_folder, "result.csv")
@@ -909,6 +921,7 @@ def batch_run_known_term_RF_type(interface, folder, csv_file, mode, _LLM):
 
     print("\n--- Batch Known Termination RF Type Judgement Finished ---")
 
+
 def known_term_run_RF_type(interface, program, mode = "direct"):
     """
     直接判断已知终止程序的 ranking function 类型。
@@ -942,6 +955,55 @@ def known_term_run_RF_type(interface, program, mode = "direct"):
 
     print(f"[SUMMARY] Final Type: {final_type}, Avg Time: {average_time:.2f}s, Consistent: {is_consistent}")
     
+    return final_type, average_time, is_consistent, tuple(results), tuple(times)
+
+
+def parse_known_nonterm_llm_result(content: str) -> str:
+    """
+    将 LLM 返回的内容解析为非终止类型，
+    期望输入形如 "[NONTERMTYPE] DIVERGENT" 等，
+    返回 DIVERGENT, RECUR, GEOMETRIC, RECUR_FUNC, OTHER 中的一个，
+    出现解析错误时返回 "PARSE_ERROR"。
+    """
+    import re
+    m = re.search(r'\[NONTERMTYPE\]\s*(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
+    if m:
+        return m.group(1).upper()
+    else:
+        return "PARSE_ERROR"
+
+def known_nonterm_run_type(interface, program):
+    """
+    直接判断已知非终止程序的 nontermination type。
+    """
+    print("[INFO] Running nontermination type judgement for known nonterminating program...")
+    
+    repeat_nums = CONST.REPEAT_NUMS
+    results = []
+    times = []
+
+    for i in range(repeat_nums):
+        print(f"[INFO]  Round {i+1}/{repeat_nums}...")
+        start_time = time.time()
+        # 调用改用的接口
+        answer = interface.ask_known_nonterm_type(program)
+        duration = time.time() - start_time
+        times.append(duration)
+
+        nonterm_type = parse_known_nonterm_llm_result(answer.content)
+        results.append(nonterm_type)
+        print(f"[RESULT] Round {i+1} Result: {nonterm_type}, Time: {duration:.2f}s")
+
+    is_consistent = len(set(results)) == 1
+    average_time = sum(times) / len(times) if times else 0.0
+
+    # 统计出现次数最多的合法结果（排除 PARSE_ERROR）
+    counter = Counter(r for r in results if r != "PARSE_ERROR")
+    final_type = counter.most_common(1)[0][0] if counter else "ERROR"
+
+    print(f"[SUMMARY] Final Type: {final_type}, Avg Time: {average_time:.2f}s, Consistent: {is_consistent}")
+    
+    # 返回：最终类型、平均耗时、是否一致、所有轮次结果、所有轮次耗时
     return final_type, average_time, is_consistent, tuple(results), tuple(times)
 
 if __name__ == "__main__":
@@ -1003,14 +1065,17 @@ if __name__ == "__main__":
         if not folder:
             parser.error("--input_folder is required for BATCH_PIPE mode")
         batch_run_known_term_RF_type(interface, folder, 
-                                     "LLM_Termtype_Exp/benchmark_TERM_86.csv", 
+                                     "LLM_Termtype_Exp/benchmark_TERM_86_rem.csv", 
                                      "direct",
                                      "o1mini")
         batch_run_known_term_RF_type(interface, folder, 
-                                     "LLM_Termtype_Exp/benchmark_TERM_86.csv", 
+                                     "LLM_Termtype_Exp/benchmark_TERM_86_rem.csv", 
                                      "fewshot",
                                      "o1mini")
-
+    elif args.mode == "NONTERM_TYPE":
+        folder = args.input_folder
+        if not folder:
+            parser.error("--input_folder is required for BATCH_PIPE mode")
         
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\

@@ -195,7 +195,6 @@ HIGH 或 MEDIUM 或 LOW
             print(f"正在分析实例 {i+1}/{len(keyword_filtered)}: {instance['instance_id']}")
             
             llm_result = self.analyze_termination_issue(instance["problem_statement"])
-            
             result_record = {
                 "instance_id": instance["instance_id"],
                 "repo": instance["repo"],

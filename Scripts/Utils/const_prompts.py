@@ -335,3 +335,55 @@ procedure multi_example() {
 [RANKING_TYPE]
 multi
 '''
+
+
+nontermtype_judge_prompt = '''
+You are an expert of program nontermination analysis. In the following, you will be given
+an C program that is nonterminating and you should do the classification based on the reason 
+of the nontermination. The nontermination categories are:
+1. DIVERGENT: the value of state changes is linear transformation and there exists a satisfiable initial
+condition that the state grows/decreases monotonely and avoiding the violation of loop condition.
+2. RECUR: the nontermination comes from a recursive set, which can be regarded as a loop in the concrete state values
+which do not violate the loop condition.
+3. GEOMETRIC: the nontermination can be proved by a geometric argument, which is the state values grows in the manner of 
+geometric series or combination of geometric series and the growing always satisfy the loop condition.
+4. RECUR_FUNC: nontermination caused by recursive call of function.
+5. OTHER: nontermination that does not fit the categories above.
+
+We give some program example of categories 1-4:
+1. 
+int x = nondet_int();
+	if (x > 0) {
+			while (x≠0) {
+			x=x-2;
+		}
+}
+2.
+int x = nondet_int();
+while (x≠0) {
+		x=-x;
+}
+3.
+int x=1;
+while(x+y≥3) {
+		x=3x-2;
+		y=2y;
+}
+4. 
+void f(x) {
+				if (x≥0 ) {g(x);}
+}
+void g(x) {
+				if (x≤0) {f(x);}
+}
+int main() {
+		int x = nondet_int();
+	f(x);
+}
+
+The outcome results should be EXACTLY in the format below: 
+[NONTERMTYPE] DIVERGENT/RECUR/GEOMETRIC/RECUR_FUNC/OTHER
+
+
+The program is:\n
+'''

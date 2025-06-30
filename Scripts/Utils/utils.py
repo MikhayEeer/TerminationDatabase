@@ -28,3 +28,89 @@ def load_api_key():
         f"3. {key_file_paths[2]}\n"
         "或设置环境变量 LLM_API_KEY"
     )
+
+
+def remove_comments(code: str) -> str:
+    """
+    Remove all C-style comments (single-line // and multi-line /* */) from the given C code string,
+    preserving string and character literals.
+    """
+    result = []
+    i = 0
+    n = len(code)
+    in_single = False
+    in_multi = False
+    in_string = False
+    in_char = False
+    while i < n:
+        ch = code[i]
+        # Check for end of single-line comment
+        if in_single:
+            if ch == '\n':
+                in_single = False
+                result.append(ch)
+            i += 1
+            continue
+        # Check for end of multi-line comment
+        if in_multi:
+            if ch == '*' and i + 1 < n and code[i + 1] == '/':
+                in_multi = False
+                i += 2
+            else:
+                i += 1
+            continue
+        # Check for string literal
+        if in_string:
+            result.append(ch)
+            if ch == '"':
+                # Count backslashes before quote
+                j = i - 1
+                backslashes = 0
+                while j >= 0 and code[j] == '\\':
+                    backslashes += 1
+                    j -= 1
+                # Only end string if odd number of backslashes
+                if backslashes % 2 == 0:
+                    in_string = False
+            i += 1
+            continue
+        # Check for char literal
+        if in_char:
+            result.append(ch)
+            if ch == "'":
+                # Similar escape check
+                j = i - 1
+                backslashes = 0
+                while j >= 0 and code[j] == '\\':
+                    backslashes += 1
+                    j -= 1
+                if backslashes % 2 == 0:
+                    in_char = False
+            i += 1
+            continue
+        # Detect start of single-line comment
+        if ch == '/' and i + 1 < n and code[i + 1] == '/':
+            in_single = True
+            i += 2
+            continue
+        # Detect start of multi-line comment
+        if ch == '/' and i + 1 < n and code[i + 1] == '*':
+            in_multi = True
+            i += 2
+            continue
+        # Detect string literal start
+        if ch == '"':
+            in_string = True
+            result.append(ch)
+            i += 1
+            continue
+        # Detect char literal start
+        if ch == "'":
+            in_char = True
+            result.append(ch)
+            i += 1
+            continue
+        # Normal character
+        result.append(ch)
+        i += 1
+    return ''.join(result)
