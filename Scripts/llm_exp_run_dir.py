@@ -213,7 +213,7 @@ class chat_interface:
         else:
             answer = self.ask_question_with_role_no_history_and_record(role_prompt,
                                                                        no_comment_program,
-                                                                       llm_model_chosen)
+                                                                       CONST.LLM_MODEL_NAMES[llm_model_chosen])
         print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
 def parse_known_term_llm_result(result_str):
@@ -232,11 +232,11 @@ def parse_known_nonterm_llm_result(content: str) -> str:
     返回 DIVERGENT, RECUR, GEOMETRIC, RECUR_FUNC, OTHER 中的一个，
     出现解析错误时返回 "PARSE_ERROR"。
     """
+    assert "NONTERMTYPE" in content, "ParseError: ans should have '[NONTERMTYPE]'"
     m = re.search(r'\[NONTERMTYPE\]\s*(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
     if m:
         return m.group(1).upper()
     else:
-        input("[Debug]...parse error here.")
         return "PARSE_ERROR"
 
 def parse_llm_result(result_str):
@@ -1002,7 +1002,6 @@ def batch_run_known_nonterm_RF_type(interface, folder, csv_file,
     
     print(f"[INFO] Found {len(data)} rows in {csv_file} to process.")
     
-    # 定义新列名
     base_name = f'{llm_model_chosen or "default"}'
     col_type = f'{base_name}_nonterm_type'
     col_avg_time = f'{base_name}_avg_time'
@@ -1010,13 +1009,17 @@ def batch_run_known_nonterm_RF_type(interface, folder, csv_file,
     col_results = f'{base_name}_results'
     col_times = f'{base_name}_times'
     
-    new_cols = [col_type, col_avg_time, col_consistent, col_results, col_times]
+    new_cols = [col_type, col_avg_time, 
+                col_consistent, col_results, 
+                col_times]
     for col in new_cols:
         if col not in fieldnames:
             fieldnames.append(col)
+            print(f"  [INFO] add column {col}")
 
+    error_cnt = 0 # 记录error数量，如果连续五个都error了，可能出了问题，停止程序
     for i, row in enumerate(data):
-        file_name = row.get('file_name')
+        file_name = row.get('filename')
         if not file_name:
             print(f"[WARN] Skipping row {i+1} due to empty file_name.")
             continue
@@ -1045,10 +1048,15 @@ def batch_run_known_nonterm_RF_type(interface, folder, csv_file,
                 row[col_consistent] = "ERROR"
                 row[col_results] = "ERROR"
                 row[col_times] = "ERROR"
+                error_cnt += 1
         else:
             print(f"[WARN] File not found: {file_path}")
             for col in new_cols:
                 row[col] = "FILE_NOT_FOUND"
+        if error_cnt >= 5 :
+            print("#"*40)
+            raise ValueError(f"Have solved {error_cnt} Errors while processing nonterm\
+                             \n with model {llm_model_chosen}, \n need manual CHECK")
     
     try:
         with open(csv_file, 'w', newline='', encoding='utf-8') as f:
@@ -1172,7 +1180,7 @@ if __name__ == "__main__":
         for llm_name in ["claude3.7", "gpt-4o", "gpt-o4-mini"]:
             batch_run_known_nonterm_RF_type(interface, 
                                             folder, 
-                                            "LLM_Nonterm_Exp/benchmark_NONTERM_86_rem.csv", 
+                                            "TPDB_NO/TPDB_Nonterm_categorization.csv", 
                                             llm_name)
 
         
