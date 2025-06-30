@@ -19,17 +19,8 @@ import Utils.const_prompts as PROMPTS
 import Utils.const as CONST
 
 secrete = load_api_key()
-gpt_4o_model_name = "openai/gpt-4o"
-gpt_o4_mini_model_name = "openai/o4-mini"
-claude_model_name = "anthropic/claude-3.7-sonnet"
-gemini_model_name = "google/gemini-2.5-pro-preview"
-deepseek_model_name = "deepseek/deepseek-r1-0528"
 
-llm_model_name = claude_model_name
-
-LLM_MODEL = "claude3.7" if llm_model_name == claude_model_name else \
-            "gpt4o" if llm_model_name == gpt_4o_model_name else\
-            "o4mini"
+LLM_MODEL_NAME = CONST.LLM_MODEL_NAMES['claude3.7']
 
 LLM_results_folder = os.path.join(os.getcwd(), "Results", "LLM_results")
 
@@ -93,7 +84,7 @@ class chat_interface:
     def ask_question_and_record(self, content):
         self.msg_list.append({"role": "user", "content": content})
         res = self.client.chat.completions.create(
-            model=llm_model_name,
+            model=LLM_MODEL_NAME,
             messages=[{"role": "user", "content": content}]
         )
         answer = res.choices[0].message
@@ -104,19 +95,22 @@ class chat_interface:
         self.msg_list.append({"role": "system", "content": role_prompt})
         self.msg_list.append({"role": "user", "content": content})
         res = self.client.chat.completions.create(
-            model=llm_model_name,
+            model=LLM_MODEL_NAME,
             messages=self.msg_list
         )
         answer = res.choices[0].message
         self.msg_list.append(answer)
         return answer
     
-    def ask_question_with_role_no_history_and_record(self, role_prompt, content):
+    def ask_question_with_role_no_history_and_record(self, 
+                                                     role_prompt, 
+                                                     content,
+                                                     llm_model_chosed=LLM_MODEL_NAME):
         self.msg_list.clear()
         self.msg_list.append({"role": "system", "content": role_prompt})
         self.msg_list.append({"role": "user", "content": content})
         res = self.client.chat.completions.create(
-            model=llm_model_name,
+            model=llm_model_chosed,
             messages=self.msg_list
         )
         answer = res.choices[0].message
@@ -209,10 +203,17 @@ class chat_interface:
         print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
     
-    def ask_known_nonterm_type(self, program):
+    def ask_known_nonterm_type(self, program, 
+                               llm_model_chosen = None):
         role_prompt = PROMPTS.nontermtype_judge_prompt
         no_comment_program = remove_comments(program)
-        answer = self.ask_question_with_role_no_history_and_record(role_prompt, no_comment_program)
+        if llm_model_chosen is None:
+            answer = self.ask_question_with_role_no_history_and_record(role_prompt,
+                                                                       no_comment_program)
+        else:
+            answer = self.ask_question_with_role_no_history_and_record(role_prompt,
+                                                                       no_comment_program,
+                                                                       llm_model_chosen)
         print(f"[ANS] \n{answer.content} \n[ANS END]")
         return answer
 def parse_known_term_llm_result(result_str):
@@ -223,6 +224,20 @@ def parse_known_term_llm_result(result_str):
     _TYPES = ["single", "nested", "multi", "other"]
     assert res_type.lower() in _TYPES, f"ParseError: result_str should have a valid ranking type, got {res_type}"
     return res_type.lower()
+
+def parse_known_nonterm_llm_result(content: str) -> str:
+    """
+    将 LLM 返回的内容解析为非终止类型，
+    期望输入形如 "[NONTERMTYPE] DIVERGENT" 等，
+    返回 DIVERGENT, RECUR, GEOMETRIC, RECUR_FUNC, OTHER 中的一个，
+    出现解析错误时返回 "PARSE_ERROR"。
+    """
+    m = re.search(r'\[NONTERMTYPE\]\s*(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
+    if m:
+        return m.group(1).upper()
+    else:
+        input("[Debug]...parse error here.")
+        return "PARSE_ERROR"
 
 def parse_llm_result(result_str):
     rf_type_str = ""
@@ -499,9 +514,10 @@ def run_svmranker_nested_phase_judge(interface):
         csv_f.write("\n")
     csv_f.close()
 
-def run_svmranker_nested_phase_judge_rem(interface):
+def run_svmranker_nested_phase_judge_rem(interface, llm_model_chosen):
     result_list = []
-    result_csv_file_path = os.path.join(NESTED_PHASE_JUDGE_Exp_Result_folder, "rem_result_" + LLM_MODEL + ".csv")
+    result_csv_file_path = os.path.join(NESTED_PHASE_JUDGE_Exp_Result_folder, 
+                                        "rem_result_" + llm_model_chosen + ".csv")
     for item in os.listdir(NESTED_PHASE_JUDGE_program_folder):
         ref_str = item.split("_", 1)[0]
         real_file_name = item.split("_", 1)[1]
@@ -619,7 +635,7 @@ def strategy_process(interface, program):
         return ("ERROR", -1)
 
 
-def run_svmranker_termtype_judge(interface):
+def run_svmranker_termtype_judge(interface, llm_model_chosen):
     '''
     预计用于判定 终止类型TermType
         如 NonTerm 或者 Term
@@ -634,7 +650,8 @@ def run_svmranker_termtype_judge(interface):
     categories = ["TERM", "NONTERM", "ERROR"]
     # for category in categories:
     #     os.makedirs(os.path.join(TERMTYPE_Exp_folder, category), exist_ok=True)
-    result_csv_path = os.path.join(TERMTYPE_Exp_folder, prefix+"result_" + LLM_MODEL +".csv")
+    result_csv_path = os.path.join(TERMTYPE_Exp_folder, 
+                                   prefix+"result_" + llm_model_chosen +".csv")
 
     with open(result_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['file_name', 'original_path', 'predicted_status', 'predicted_kind', 
@@ -845,7 +862,8 @@ def run_full_analysis_pipeline(interface, program_path):
         SVMRanker(program_path, program_content, "Nested", 1, False, "1-nested", llm_time)
     print(f"--- Full Analysis Pipeline Finished for: {program_path} ---")
 
-def batch_run_known_term_RF_type(interface, folder, csv_file, mode, _LLM):
+def batch_run_known_term_RF_type(interface, folder, csv_file, mode, 
+                                 llm_model_chosen = 'claude3.7'):
     print("--- Starting Batch Known Termination RF Type Judgement ---")
     if not os.path.exists(folder):
         print(f"[ERROR] Validation folder not found: {folder}")
@@ -866,7 +884,7 @@ def batch_run_known_term_RF_type(interface, folder, csv_file, mode, _LLM):
         return
     print(f"[INFO] Found {len(data)} rows in {csv_file} to process.")
     
-    base_name = f'{_LLM}_{mode}'
+    base_name = f'{llm_model_chosen}_{mode}'
     col_type = f'{base_name}_rf_type'
     col_avg_time = f'{base_name}_avg_time'
     col_consistent = f'{base_name}_consistent'
@@ -921,7 +939,6 @@ def batch_run_known_term_RF_type(interface, folder, csv_file, mode, _LLM):
 
     print("\n--- Batch Known Termination RF Type Judgement Finished ---")
 
-
 def known_term_run_RF_type(interface, program, mode = "direct"):
     """
     直接判断已知终止程序的 ranking function 类型。
@@ -957,22 +974,94 @@ def known_term_run_RF_type(interface, program, mode = "direct"):
     
     return final_type, average_time, is_consistent, tuple(results), tuple(times)
 
-
-def parse_known_nonterm_llm_result(content: str) -> str:
+def batch_run_known_nonterm_RF_type(interface, folder, csv_file, 
+                                    llm_model_chosen = None):
     """
-    将 LLM 返回的内容解析为非终止类型，
-    期望输入形如 "[NONTERMTYPE] DIVERGENT" 等，
-    返回 DIVERGENT, RECUR, GEOMETRIC, RECUR_FUNC, OTHER 中的一个，
-    出现解析错误时返回 "PARSE_ERROR"。
+    批量为文件夹中的非终止程序运行类型判断
     """
-    import re
-    m = re.search(r'\[NONTERMTYPE\]\s*(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
-    if m:
-        return m.group(1).upper()
-    else:
-        return "PARSE_ERROR"
+    print("--- Starting Batch Known Nontermination Type Judgement ---")
+    if not os.path.exists(folder):
+        print(f"[ERROR] Validation folder not found: {folder}")
+        return
+    if not os.path.exists(csv_file):
+        print(f"[ERROR] CSV file not found: {csv_file}")
+        return
+    
+    try:
+        with open(csv_file, 'r', newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            data = list(reader)
+            fieldnames = reader.fieldnames
+    except Exception as e:
+        print(f"[ERROR] Failed to read CSV file {csv_file}: {e}")
+        return
+    
+    if 'filename' not in fieldnames:
+        print(f"[ERROR] 'filename' column not found in {csv_file}")
+        return
+    
+    print(f"[INFO] Found {len(data)} rows in {csv_file} to process.")
+    
+    # 定义新列名
+    base_name = f'{llm_model_chosen or "default"}'
+    col_type = f'{base_name}_nonterm_type'
+    col_avg_time = f'{base_name}_avg_time'
+    col_consistent = f'{base_name}_consistent'
+    col_results = f'{base_name}_results'
+    col_times = f'{base_name}_times'
+    
+    new_cols = [col_type, col_avg_time, col_consistent, col_results, col_times]
+    for col in new_cols:
+        if col not in fieldnames:
+            fieldnames.append(col)
 
-def known_nonterm_run_type(interface, program):
+    for i, row in enumerate(data):
+        file_name = row.get('file_name')
+        if not file_name:
+            print(f"[WARN] Skipping row {i+1} due to empty file_name.")
+            continue
+        
+        file_path = os.path.join(folder, file_name)
+        print(f"\n--- Processing file {i+1}/{len(data)}: {file_name} ---")
+        
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', errors='ignore') as f:
+                    program_content = f.read()
+                
+                final_type, avg_time, is_consistent, results_tuple, times_tuple = known_nonterm_run_type(
+                    interface, program_content, llm_model_chosen)
+                
+                row[col_type] = final_type
+                row[col_avg_time] = f"{avg_time:.2f}"
+                row[col_consistent] = is_consistent
+                row[col_results] = str(results_tuple)
+                row[col_times] = str(tuple(f"{t:.2f}" for t in times_tuple))
+
+            except Exception as e:
+                print(f"[ERROR] An unexpected error occurred while processing {file_name}: {e}")
+                row[col_type] = "ERROR"
+                row[col_avg_time] = "ERROR"
+                row[col_consistent] = "ERROR"
+                row[col_results] = "ERROR"
+                row[col_times] = "ERROR"
+        else:
+            print(f"[WARN] File not found: {file_path}")
+            for col in new_cols:
+                row[col] = "FILE_NOT_FOUND"
+    
+    try:
+        with open(csv_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(data)
+        print(f"\n[SUCCESS] Finished processing and updated {csv_file}")
+    except Exception as e:
+        print(f"[ERROR] Failed to write updated data to {csv_file}: {e}")
+
+    print("\n--- Batch Known Nontermination Type Judgement Finished ---")
+
+def known_nonterm_run_type(interface, program, llm_model_chosen):
     """
     直接判断已知非终止程序的 nontermination type。
     """
@@ -985,8 +1074,9 @@ def known_nonterm_run_type(interface, program):
     for i in range(repeat_nums):
         print(f"[INFO]  Round {i+1}/{repeat_nums}...")
         start_time = time.time()
-        # 调用改用的接口
-        answer = interface.ask_known_nonterm_type(program)
+        # 调用相应的接口
+        answer = interface.ask_known_nonterm_type(program, 
+                                                  llm_model_chosen=llm_model_chosen)
         duration = time.time() - start_time
         times.append(duration)
 
@@ -1074,8 +1164,17 @@ if __name__ == "__main__":
                                      "o1mini")
     elif args.mode == "NONTERM_TYPE":
         folder = args.input_folder
+        print("NONTERM_TYPE is not supported yet...")
+    elif args.mode == "BATCH_NONTERM_TYPE":
+        folder = args.input_folder
         if not folder:
-            parser.error("--input_folder is required for BATCH_PIPE mode")
+            parser.error("--input_folder is required for BATCH_NONTERM_TYPE mode")
+        for llm_name in ["claude3.7", "gpt-4o", "gpt-o4-mini"]:
+            batch_run_known_nonterm_RF_type(interface, 
+                                            folder, 
+                                            "LLM_Nonterm_Exp/benchmark_NONTERM_86_rem.csv", 
+                                            llm_name)
+
         
     # program = "	int main() {\n"\
     # "	int x, y, z;\n"	\
