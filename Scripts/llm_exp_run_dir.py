@@ -232,10 +232,12 @@ def parse_known_nonterm_llm_result(content: str) -> str:
     返回 DIVERGENT, RECUR, GEOMETRIC, RECUR_FUNC, OTHER 中的一个，
     出现解析错误时返回 "PARSE_ERROR"。
     """
-    assert "NONTERMTYPE" in content, "ParseError: ans should have '[NONTERMTYPE]'"
-    m = re.search(r'\[NONTERMTYPE\]\s*(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
-    if m:
-        return m.group(1).upper()
+    m1 = re.search(r'\[NONTERMTYPE\]\s*(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
+    m2 = re.search(r'(DIVERGENT|RECUR|GEOMETRIC|RECUR_FUNC|OTHER)', content, re.IGNORECASE)
+    if m1:
+        return m1.group(1).upper()
+    elif m2:
+        return m2.group(1).upper()
     else:
         return "PARSE_ERROR"
 
@@ -1177,7 +1179,9 @@ if __name__ == "__main__":
         folder = args.input_folder
         if not folder:
             parser.error("--input_folder is required for BATCH_NONTERM_TYPE mode")
-        for llm_name in ["claude3.7", "gpt-4o", "gpt-o4-mini"]:
+        #MODEL_LIST = ["claude3.7", "gpt-4o", "gpt-o4-mini"]
+        MODEL_LIST = ["gpt-o4-mini"]
+        for llm_name in MODEL_LIST:
             batch_run_known_nonterm_RF_type(interface, 
                                             folder, 
                                             "TPDB_NO/TPDB_Nonterm_categorization.csv", 
