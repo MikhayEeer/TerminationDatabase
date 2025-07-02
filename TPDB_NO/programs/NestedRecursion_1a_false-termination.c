@@ -2,6 +2,9 @@
  * Date: 06/07/2015
  * Created by: Ton Chanh Le (chanhle@comp.nus.edu.sg)
  * Adapted from AProVE_numeric/ex3.c
+ * 
+ * rec1(1) = rec1(2) = 1
+ * rec2(1) infini call rec2(1)
  */
 
 extern int __VERIFIER_nondet_int();
