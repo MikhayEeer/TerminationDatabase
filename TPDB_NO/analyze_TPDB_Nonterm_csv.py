@@ -4,7 +4,7 @@ from collections import Counter
 
 def analyze_csv():
     # 读取CSV文件
-    df = pd.read_csv('TPDB_NO/TPDB_Nonterm_categorization.csv')
+    df = pd.read_csv('TPDB_Nonterm_categorization.csv')
     
     # 过滤掉category为FunctionCall和Memory的行
     # filtered_df = df[~df['category'].isin(['FunctionCall', 'Memory'])]
@@ -73,7 +73,7 @@ def analyze_csv():
         print(f"|{model_name}|{stats['DIVERGENT']}|{stats['RECUR']}|{stats['GEOMETRIC']}|{stats['OTHER']}|{stats['total']}|{stats['avg_time']}|")
     
     print("\n" + "="*50 + "\n")
-    
+    exit()
     # 打印原始category分布
     print("原始Category分布:")
     print("|Category|Count|")

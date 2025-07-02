@@ -3,7 +3,13 @@ import sys
 
 def evaluate_models(csv_path):
     df = pd.read_csv(csv_path)
-
+    # 打印df的基本信息
+    print("DataFrame基本信息:")
+    print(df.info())
+    df = df[df['is_recursion'].isin(['Loop'])]
+    print("DataFrame基本信息2:")
+    print(df.info())
+    input("debug...")
     models = {
         'claude3.7':  ('claude3.7_nonterm_type',   'claude3.7_avg_time'),
         'gpt-4o':     ('gpt-4o_nonterm_type',       'gpt-4o_avg_time'),
