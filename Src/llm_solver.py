@@ -93,4 +93,22 @@ class ChatInterface:
 
 
 class LLMResultsParser:
-    pass
+    '''
+    所有的解析逻辑统一到该类
+    都作为静态类方法，方便调用；
+    将对应的prompt，在const里面，提供对应的正则表达式
+    '''
+    @staticmethod
+    def parse_answer(answer, prompt_key):
+        if prompt_key not in PROMPTS:
+            raise ValueError(f"Invalid prompt key: {prompt_key}. Available keys: {list(PROMPTS.keys())}")
+        parse_pattern = PROMPTS[prompt_key].get('parse_pattern', None)
+        if not parse_pattern:
+            raise ValueError(f"No parse pattern defined for prompt key: {prompt_key}")
+        
+        import re
+        match = re.search(parse_pattern, answer.content)
+        if match:
+            return match.group(1).upper()
+        else:
+            raise ValueError(f"Answer does not match the expected format for prompt key: {prompt_key}")
