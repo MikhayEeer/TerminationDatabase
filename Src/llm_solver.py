@@ -1,8 +1,8 @@
 from openai import OpenAI
 
-from Utils.utils import load_api_key
-import Utils.const as CONST
-from Utils.const_prompts import PROMPTS
+from utils.utils import load_api_key
+import utils.const as CONST
+from utils.const_prompts import PROMPTS
 
 class ChatInterface:
     def __init__(self, _llm_name) -> None:

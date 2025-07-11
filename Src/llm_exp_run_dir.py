@@ -12,11 +12,11 @@ import psutil
 
 from openai import OpenAI
 
-from Utils.utils import load_api_key
-from Utils.utils import remove_comments
-from UseSVMRanker import SVMRanker
-import Utils.const_prompts as PROMPTS
-import Utils.const as CONST
+from utils.utils import load_api_key
+from utils.utils import remove_comments
+from use_svmranker import SVMRanker
+import utils.const_prompts as PROMPTS
+import utils.const as CONST
 
 secrete = load_api_key()
 
