@@ -2,9 +2,9 @@
 '''
 Run this scripts:
 ulimit -Sv $((64*1024*1024)) && \
-    python Scripts/cpa_run_dir.py \
-        -d TPDB_YES/ TPDB_NO/ \
-        -o Results/CPA_TPDB_Certain_lasso+general_cp2.csv \
+    python3 Src/benchmarks_tools/cpa_run_dir.py \
+        -d Datasets/Loopy_dataset_InvarBenchmark \
+        -o Results/CPA_loopy_lasso_1211.csv \
         -m 32
 
 test mode:
@@ -15,11 +15,16 @@ ulimit -Sv $((64*1024*1024)) && \
         -m 32
 
 Original Command:
-cpachecker --preprocess --timelimit 300 \
-    --config /opt/cpachecker/config/lassoRankerAnalysis.properties \
-    --spec /opt/cpachecker/config/specification/TerminatingStatements.spc \
-    --heap 32G --no-output-files --output-path ../CPAcheck/output/ \
+./bin/cpachecker --preprocess --timelimit 300 \
+    --config config/lassoRankerAnalysis.properties \
+    --spec config/specification/TerminatingStatements.spc \
+    --heap 32G --output Testoutputs/ \
     [file]
+./bin/cpachecker --preprocess --timelimit 300\
+    --config config/lassoRankerAnalysis.properties\
+    --spec config/specification/TerminatingStatements.spc\
+    --heap 32G --output-path Testoutputs/\
+    ../TerminationDatabase/Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/23.c
 '''
 import os
 import subprocess
@@ -27,13 +32,18 @@ import argparse
 import re
 import sys
 import shutil
+from pathlib import Path
 from datetime import datetime
 
-COMMAND = "cpachecker"
-CONFIG_GENERAL = "/opt/cpachecker/config/terminationAnalysis.properties"
-CONFIG_LASSO = "/opt/cpachecker/config/lassoRankerAnalysis.properties"
-OUTPUT_PATH = "CPA_Outputs/"
-SPEC_PATH = "/opt/cpachecker/config/specification/TerminatingStatements.spc"
+# CPAchecker is checked first via CPACHECKER_ROOT env, then relative to this file
+SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_CPACHECKER_ROOT = (SCRIPT_DIR / "../../../CPAchecker-4.2.2-unix").resolve()
+CPACHECKER_ROOT = Path(os.environ.get("CPACHECKER_ROOT", DEFAULT_CPACHECKER_ROOT)).expanduser()
+COMMAND = CPACHECKER_ROOT / "bin/cpachecker"
+CONFIG_GENERAL = CPACHECKER_ROOT / "config/terminationAnalysis.properties"
+CONFIG_LASSO = CPACHECKER_ROOT / "config/lassoRankerAnalysis.properties"
+OUTPUT_PATH = "Results/CPA_Outputs/Loopy_dataset_InvarBenchmark"
+SPEC_PATH = CPACHECKER_ROOT / "config/specification/TerminatingStatements.spc"
 TIMEOUT = 300
 
 def analyze_termination(file_path, 
@@ -57,7 +67,8 @@ def analyze_termination(file_path,
     file_name = os.path.basename(file_path)
     # Create specific output directory for this file and config
     # We append a suffix based on config to avoid overwriting if running both configs
-    config_suffix = "lasso" if "lasso" in config_type else "general"
+    config_str = str(config_type)
+    config_suffix = "lasso" if "lasso" in config_str else "general"
     specific_out_dir = os.path.join(OUTPUT_PATH, f"{file_name}_{config_suffix}_out")
     
     if os.path.exists(specific_out_dir):
@@ -68,18 +79,16 @@ def analyze_termination(file_path,
     os.makedirs(specific_out_dir, exist_ok=True)
 
     cmd = [
-        COMMAND,
+        str(COMMAND),
         "--preprocess",
         "--timelimit", str(timeout),
         "--heap", str(mem)+'G',
         "--output-path", specific_out_dir,
-        "--config", config_type,
-        "--spec", SPEC_PATH,
-        # Force export of ARG and other artifacts
-        "-setprop", "cpa.arg.export=true",
-        "-setprop", "cpa.arg.file=arg.dot",
+        "--config", config_str,
+        "--spec", str(SPEC_PATH),
         file_path
     ]
+    #print(f"Debug: \n {cmd}")
     
     ranking_function = "None"
 
@@ -102,13 +111,15 @@ def analyze_termination(file_path,
             ranking_function = rf_match.group(1).strip()
         
         # CPAchecker的输出格式不同，需要适应性地解析
-        status = "ERROR"
+        status = "FAILED"
         if "Verification result: TRUE" in output:
             status = "YES"
         elif "Verification result: UNKNOWN" in output:
             status = "MAYBE"
         elif "Verification result: FALSE" in output:
             status = "NO"
+        #print(f"Debug: \n{output}")
+        #exit(0)
         
         return status, None, ranking_function, specific_out_dir
 
@@ -139,11 +150,15 @@ def main():
             sys.exit(1)
     
     # 检查CPAchecker是否可用
+    if not COMMAND.exists():
+        print(f"Error: CPAchecker not found at {COMMAND}")
+        print("Set CPACHECKER_ROOT or install CPAchecker in the default location.")
+        sys.exit(1)
     try:
-        subprocess.run(["cpachecker", "--help"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=5)
+        subprocess.run([str(COMMAND), "--help"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=5)
     except (subprocess.SubprocessError, FileNotFoundError):
-        print("Error: CPAchecker not found or not executable")
-        print("Make sure CPAchecker is properly installed and in your PATH")
+        print(f"Error: CPAchecker not executable at {COMMAND}")
+        print("Check your CPACHECKER_ROOT or CPAchecker installation.")
         sys.exit(1)
     
     # find c programs from multiple directories

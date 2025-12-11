@@ -4,6 +4,31 @@ Agent/prompt.md
 .vscode/
 .cursor/
 .trae/
+
+# CPAChecker 实验 不保留的输出文件
+ARG.dot
+ARGRefinements.dot
+ARGSimplified.dot
+nontermination_witness.dot.gz
+nontermination_witness.graphml.gz
+coverage.info
+Report.html
+*.dot
+#CPALog.txt
+#Statistics.txt
+cfa.dot
+CPALog.txt.lck
+#terminationAnalysisResult.txt
+functionCalls.dot
+#UsedConfiguration.properties
+functionCallsUsed.dot
+VariableClassification.log
+invariantPrecs.txt
+VariableTypeMapping.txt
+Counterexample.*
+invariants.txt
+#witness.yml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
