@@ -26,12 +26,13 @@ import subprocess
 import argparse
 import re
 import sys
+import shutil
 from datetime import datetime
 
 COMMAND = "cpachecker"
 CONFIG_GENERAL = "/opt/cpachecker/config/terminationAnalysis.properties"
 CONFIG_LASSO = "/opt/cpachecker/config/lassoRankerAnalysis.properties"
-OUTPUT_PATH = "../CPAchecker/output/"
+OUTPUT_PATH = "CPA_Outputs/"
 SPEC_PATH = "/opt/cpachecker/config/specification/TerminatingStatements.spc"
 TIMEOUT = 300
 
@@ -50,46 +51,71 @@ def analyze_termination(file_path,
         tuple: A tuple containing:
             - result (str): One of "YES", "NO", "MAYBE", "ERROR", or "TIMEOUT".
             - error (str or None): Error message if an error occurred, otherwise None.
+            - ranking_function (str): Extracted ranking function or "None".
+            - output_dir (str): Path to the directory containing full output files.
     """
+    file_name = os.path.basename(file_path)
+    # Create specific output directory for this file and config
+    # We append a suffix based on config to avoid overwriting if running both configs
+    config_suffix = "lasso" if "lasso" in config_type else "general"
+    specific_out_dir = os.path.join(OUTPUT_PATH, f"{file_name}_{config_suffix}_out")
+    
+    if os.path.exists(specific_out_dir):
+        try:
+            shutil.rmtree(specific_out_dir)
+        except:
+            pass
+    os.makedirs(specific_out_dir, exist_ok=True)
+
     cmd = [
         COMMAND,
         "--preprocess",
         "--timelimit", str(timeout),
         "--heap", str(mem)+'G',
-        "--no-output-files",
-        "--output-path", OUTPUT_PATH,
+        "--output-path", specific_out_dir,
         "--config", config_type,
         "--spec", SPEC_PATH,
+        # Force export of ARG and other artifacts
+        "-setprop", "cpa.arg.export=true",
+        "-setprop", "cpa.arg.file=arg.dot",
         file_path
     ]
     
+    ranking_function = "None"
+
     try:
         # 设置超时以防止程序永久运行
         result = subprocess.run(
             cmd, 
             stdout=subprocess.PIPE, 
             stderr=subprocess.PIPE,
-            timeout=TIMEOUT,  # 给工具自身超时多留一点时间
+            timeout=timeout + 10,  # 给工具自身超时多留一点时间
             universal_newlines=True
         )
 
         # 合并stdout和stderr以便更好地分析输出
         output = result.stdout + result.stderr
         
+        # 尝试从 stdout 提取 Ranking Function
+        rf_match = re.search(r"Ranking function:\s*(.+)", output)
+        if rf_match:
+            ranking_function = rf_match.group(1).strip()
+        
         # CPAchecker的输出格式不同，需要适应性地解析
+        status = "ERROR"
         if "Verification result: TRUE" in output:
-            return "YES", None
+            status = "YES"
         elif "Verification result: UNKNOWN" in output:
-            return "MAYBE", None
+            status = "MAYBE"
         elif "Verification result: FALSE" in output:
-            return "NO", None
-        else:
-            return "ERROR", None
+            status = "NO"
+        
+        return status, None, ranking_function, specific_out_dir
 
     except subprocess.TimeoutExpired:
-        return "TIMEOUT", f"Analysis timed out after {timeout} seconds"
+        return "TIMEOUT", f"Analysis timed out after {timeout} seconds", "None", specific_out_dir
     except Exception as e:
-        return "ERROR", str(e)
+        return "ERROR", str(e), "None", specific_out_dir
 
 def main():
 
@@ -134,8 +160,9 @@ def main():
         sys.exit(0)
     print(f"Found {len(c_files)} C files to analyze")
 
+    # Updated header to include Ranking Function and Output Path
     with open(args.output, "w") as f:
-        f.write("file,result_lasso,error1,result_general,error2,cost_time_lasso,cost_time_general,path\n")
+        f.write("file,result_lasso,error1,rf_lasso,out_lasso,result_general,error2,rf_general,out_general,cost_time_lasso,cost_time_general,path\n")
     
     for i, file_path in enumerate(c_files):
         start_time = datetime.now()
@@ -143,7 +170,7 @@ def main():
         print(f"[ {i+1}:1 / {len(c_files)} ] Analyzing {file_path}...")
         
         lasso_start = datetime.now()
-        result1, error1 = analyze_termination(
+        result1, error1, rf1, out1 = analyze_termination(
             file_path, 
             CONFIG_LASSO,
             args.timeout,
@@ -154,7 +181,7 @@ def main():
         print(f"[ {i+1}:2 / {len(c_files)} ] Analyzing {file_path}...")
         
         general_start = datetime.now()
-        result2, error2 = analyze_termination(
+        result2, error2, rf2, out2 = analyze_termination(
             file_path, 
             CONFIG_GENERAL,
             args.timeout,
@@ -165,8 +192,8 @@ def main():
         time_taken = (datetime.now() - start_time).total_seconds()
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        print(f"  Lasso   Result: {result1}")
-        print(f"  General Result: {result2}\n  (took {time_taken:.2f}s)")
+        print(f"  Lasso   Result: {result1} (RF: {rf1})")
+        print(f"  General Result: {result2} (RF: {rf2})\n  (took {time_taken:.2f}s)")
         if error1 or error2:
             print(f"  Lasso   Error: {error1}")
             print(f"  General Error: {error2}")
@@ -175,7 +202,11 @@ def main():
             file_path_escaped = file_path.replace('/root/term/TerminationDatabase/', '').replace('"', '""')
             error1_escaped = "" if error1 is None else error1.replace('"', '""')
             error2_escaped = "" if error2 is None else error2.replace('"', '""')
-            f.write(f'"{basename}",{result1},"{error1_escaped}",{result2},"{error2_escaped}",{lasso_time:.2f},{general_time:.2f},"{file_path_escaped}"\n')
+            rf1_escaped = rf1.replace('"', '""')
+            rf2_escaped = rf2.replace('"', '""')
+            
+            # Write extended row
+            f.write(f'"{basename}",{result1},"{error1_escaped}","{rf1_escaped}","{out1}",{result2},"{error2_escaped}","{rf2_escaped}","{out2}",{lasso_time:.2f},{general_time:.2f},"{file_path_escaped}"\n')
 
 if __name__ == "__main__":
     main()
