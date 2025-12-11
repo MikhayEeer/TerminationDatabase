@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <key attr.name="invariant" attr.type="string" for="node" id="invariant"/>
+ <key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry">
+  <default>false</default>
+ </key>
+ <key attr.name="isSinkNode" attr.type="boolean" for="node" id="sink">
+  <default>false</default>
+ </key>
+ <key attr.name="isCycleHead" attr.type="boolean" for="node" id="cyclehead">
+  <default>false</default>
+ </key>
+ <key attr.name="sourcecodeLanguage" attr.type="string" for="graph" id="sourcecodelang"/>
+ <key attr.name="programFile" attr.type="string" for="graph" id="programfile"/>
+ <key attr.name="programHash" attr.type="string" for="graph" id="programhash"/>
+ <key attr.name="specification" attr.type="string" for="graph" id="specification"/>
+ <key attr.name="architecture" attr.type="string" for="graph" id="architecture"/>
+ <key attr.name="producer" attr.type="string" for="graph" id="producer"/>
+ <key attr.name="creationTime" attr.type="string" for="graph" id="creationtime"/>
+ <key attr.name="startline" attr.type="int" for="edge" id="startline"/>
+ <key attr.name="endline" attr.type="int" for="edge" id="endline"/>
+ <key attr.name="originFileName" attr.type="string" for="edge" id="originfile">
+  <default>Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops/for_infinite_loop_2.c</default>
+ </key>
+ <key attr.name="control" attr.type="string" for="edge" id="control"/>
+ <key attr.name="enterFunction" attr.type="string" for="edge" id="enterFunction"/>
+ <key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/>
+ <key attr.name="inputWitnessHash" attr.type="string" for="graph" id="inputwitnesshash"/>
+ <graph edgedefault="directed">
+  <data key="witness-type">violation_witness</data>
+  <data key="sourcecodelang">C</data>
+  <data key="producer">CPAchecker 4.2.2 / terminationAnalysis</data>
+  <data key="specification">CHECK( init(main()), LTL(F end) )</data>
+  <data key="programfile">Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops/for_infinite_loop_2.c</data>
+  <data key="programhash">dd3a088f75228ac77178343090203475e9eba48f145ce5437cca873cab0ce454</data>
+  <data key="architecture">32bit</data>
+  <data key="creationtime">2025-12-11T16:27:52+08:00</data>
+  <node id="A508">
+   <data key="entry">true</data>
+  </node>
+  <node id="A510_273_1"/>
+  <edge source="A508" target="A510_273_1">
+   <data key="startline">6</data>
+   <data key="endline">6</data>
+   <data key="enterFunction">main</data>
+  </edge>
+  <node id="A511">
+   <data key="cyclehead">true</data>
+   <data key="invariant">1</data>
+  </node>
+  <edge source="A510_273_1" target="A511">
+   <data key="startline">10</data>
+   <data key="endline">10</data>
+   <data key="control">condition-false</data>
+  </edge>
+  <node id="sink">
+   <data key="sink">true</data>
+  </node>
+  <edge source="A510_273_1" target="sink">
+   <data key="startline">10</data>
+   <data key="endline">10</data>
+   <data key="control">condition-true</data>
+  </edge>
+ </graph>
+</graphml>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry">
+  <default>false</default>
+ </key>
+ <key attr.name="sourcecodeLanguage" attr.type="string" for="graph" id="sourcecodelang"/>
+ <key attr.name="programFile" attr.type="string" for="graph" id="programfile"/>
+ <key attr.name="programHash" attr.type="string" for="graph" id="programhash"/>
+ <key attr.name="specification" attr.type="string" for="graph" id="specification"/>
+ <key attr.name="architecture" attr.type="string" for="graph" id="architecture"/>
+ <key attr.name="producer" attr.type="string" for="graph" id="producer"/>
+ <key attr.name="creationTime" attr.type="string" for="graph" id="creationtime"/>
+ <key attr.name="originFileName" attr.type="string" for="edge" id="originfile">
+  <default>Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops/while_infinite_loop_2.c</default>
+ </key>
+ <key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/>
+ <key attr.name="inputWitnessHash" attr.type="string" for="graph" id="inputwitnesshash"/>
+ <graph edgedefault="directed">
+  <data key="witness-type">violation_witness</data>
+  <data key="sourcecodelang">C</data>
+  <data key="producer">CPAchecker 4.2.2 / terminationAnalysis</data>
+  <data key="specification">CHECK( init(main()), LTL(F end) )</data>
+  <data key="programfile">Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops/while_infinite_loop_2.c</data>
+  <data key="programhash">3463403817aca33c6f0c249ad5e78ccb44c22dec9220df84c29d503e2b9d6872</data>
+  <data key="architecture">32bit</data>
+  <data key="creationtime">2025-12-11T16:27:49+08:00</data>
+  <node id="A301">
+   <data key="entry">true</data>
+  </node>
+ </graph>
+</graphml>
