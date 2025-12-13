@@ -1,0 +1,19 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "680cd42c-1661-31d5-86d0-180a1e502849"
+    creation_time: "2025-12-12T05:49:06+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.04_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.04_true-termination.c
+        : "0ca0b3f177593214b1119682481f457feebb203dd9fc45ee5f914bced22ca752"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content: []

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "73c5533e-dd0c-30c7-af46-46f9dac666bc"
+    creation_time: "2025-12-12T05:32:12+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Parallel_true-termination.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Parallel_true-termination.c: "e07551fd492aea89a124d35d56173ee5e10f7f7a88d18aa403ad80154e4f10ab"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Parallel_true-termination.c"
+        line: 10
+        column: 2
+        function: "main"
+      value: "3*((__int128)\\at(y, AnyPrev)) + 2 > 3*((__int128)y) + 2 || 3*((__int128)\\at(x, AnyPrev)) + 2 > 3*((__int128)x) + 2"
+      format: "ext_c_expression"

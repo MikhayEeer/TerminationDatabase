@@ -1,0 +1,37 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "9809a958-696c-3d6d-b7ec-c3db72f9c90d"
+    creation_time: "2025-12-12T01:57:44+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/121.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/121.c: "110add82c81964dc3f8f2db9bbe5f17b653152d469164b1df4a39ff577826225"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/121.c"
+        line: 13
+        column: 3
+        function: "main"
+      value: "(((((i == (9) && sn == (8))) || ((i == (2) && sn == (1)))) || (((i == (7) && sn == (6))) || ((i == (5) && sn == (4))))) || ((((i == (6) && sn == (5))) || ((i == (3) && sn == (2)))) || (((i == (1) && sn == (0))) || (((i == (4) && sn == (3))) || ((i == (8) && sn == (7)))))))"
+      format: "c_expression"
+  - invariant:
+      type: "function_contract"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/121.c"
+        line: 5
+        column: 1
+        function: "main"
+      requires: "1"
+      ensures: "(!(1) || (1))"
+      format: "acsl_expression"

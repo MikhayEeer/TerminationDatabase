@@ -1,0 +1,21 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N38 -{[!(x < n)]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46]
+:
+Termination argument consisting of:
+Ranking function f(main::x, main::__CPAchecker_TMP_0) = -3*main::x + 3*main::__CPAchecker_TMP_0 + 2
+Supporting invariants []
+Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N38 -{[!(x < n)]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46]
+:
+Termination argument consisting of:
+Ranking function f(main::x, main::n) = -1*main::x + 1*main::n
+Supporting invariants []
+

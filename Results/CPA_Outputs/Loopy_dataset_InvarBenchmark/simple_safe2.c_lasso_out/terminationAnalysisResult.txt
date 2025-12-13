@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N34]
+  incoming: [line 8:	N33 -{while}-> N34]
+  outgoing: [line 8:	N34 -{[!(x < 268435455)]}-> N36]
+  nodes:    [N34, N35, N37, N38, N39]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = -1*main::x + 268435455
+Supporting invariants []
+

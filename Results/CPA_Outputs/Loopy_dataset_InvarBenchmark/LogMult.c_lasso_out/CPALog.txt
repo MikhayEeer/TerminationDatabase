@@ -1,0 +1,35 @@
+2025-12-12 04:58:27:608	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 04:58:27:624	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 04:58:27:630	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/LogMult.c"
+
+2025-12-12 04:58:28:251	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 04:58:28:314	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 04:58:28:357	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 04:58:28:373	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 04:58:28:373	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 04:58:28:373	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 04:58:28:401	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-12 04:58:28:449	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-12 04:58:28:873	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 04:58:28:882	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-12 04:58:28:882	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 04:58:28:883	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-12 04:58:28:913	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

@@ -1,0 +1,57 @@
+2025-12-12 02:17:25:901	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 02:17:25:919	INFO	CPAchecker.run	CPAchecker 4.2.2 / terminationAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 02:17:25:925	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/99.c"
+
+2025-12-12 02:17:26:467	INFO	CoreComponentsFactory.createAlgorithm	Using Restarting Algorithm
+
+2025-12-12 02:17:26:472	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ cpa.arg.lateMerge
+ counterexample.export.exportWitness 
+
+
+2025-12-12 02:17:26:472	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 02:17:26:474	INFO	RestartAlgorithm.run	Loading analysis 1 from file /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties ...
+
+2025-12-12 02:17:26:475	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 02:17:26:480	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:NestingAlgorithm.checkConfigs	Mismatch of configuration options when loading from '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties': 'analysis.algorithm.termination' has two values 'true' and 'false'. Using 'false'.
+
+2025-12-12 02:17:26:480	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:NestingAlgorithm.checkConfigs	Mismatch of configuration options when loading from '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties': 'termination.config' has two values 'terminationAnalysis.properties' and 'terminationToSafety.properties'. Using 'terminationToSafety.properties'.
+
+2025-12-12 02:17:26:481	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s, Thread CPU-time limit of 300s
+
+2025-12-12 02:17:26:530	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant).
+
+2025-12-12 02:17:26:584	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:NestingAlgorithm.checkConfigs	Mismatch of configuration options when loading from '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties': 'termination.config' has two values 'terminationAnalysis.properties' and 'termination-composition-lassoBasedAnalysis.properties'. Using 'termination-composition-lassoBasedAnalysis.properties'.
+
+2025-12-12 02:17:26:584	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 02:17:26:633	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 02:17:26:667	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 02:17:26:704	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 02:17:26:714	INFO	RestartAlgorithm.run	Starting analysis 1 ...
+
+2025-12-12 02:17:26:719	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 02:17:26:754	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:ParallelAlgorithm.handleFutureResults	/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties finished without usable result.
+
+2025-12-12 02:17:27:056	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-12 02:17:27:057	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:ParallelAlgorithm.handleFutureResults	/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties finished successfully.
+
+2025-12-12 02:17:27:059	INFO	RestartAlgorithm.skipNextAnalysesIfRequired	Ignoring restart configuration '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-recursion.properties' because condition if-recursive did not match.
+
+2025-12-12 02:17:27:059	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 02:17:27:129	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+
+2025-12-12 02:17:27:130	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+
+2025-12-12 02:17:27:132	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:ARGCPA:BufferedWriter.ensureOpen	Warning: Could not write refinement graph to file (Stream closed)
+

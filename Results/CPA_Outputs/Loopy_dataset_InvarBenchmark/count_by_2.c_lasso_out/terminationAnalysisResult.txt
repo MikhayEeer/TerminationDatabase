@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N35]
+  incoming: [line 8:	N34 -{i = 0;}-> N35]
+  outgoing: [line 8:	N35 -{[!(i < 1000000)]}-> N38]
+  nodes:    [N35, N36, N37]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = -3*main::i + 3000002
+Supporting invariants []
+

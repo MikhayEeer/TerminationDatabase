@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "37fc8282-8776-3c62-ae0c-82d2d2f255c2"
+    creation_time: "2025-12-11T19:29:56+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/mono-crafted_6.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/mono-crafted_6.c: "b60f96e73eb0349ba59d4a95e679d550734001b8526da90a386078f6f0279b6f"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/mono-crafted_6.c"
+        line: 9
+        column: 2
+        function: "main"
+      value: "-3*((__int128)\\at(x, AnyPrev)) + 3000002 > -3*((__int128)x) + 3000002"
+      format: "ext_c_expression"

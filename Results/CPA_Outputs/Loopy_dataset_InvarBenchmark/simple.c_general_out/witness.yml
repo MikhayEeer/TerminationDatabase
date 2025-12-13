@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "ba55c656-521e-304a-9137-c5a8b165a268"
+    creation_time: "2025-12-12T01:57:22+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/simple.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/simple.c: "ff7f9cf08dbe5be66b53066caaf901681a20402f282df717eb4bc85016d01fcc"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/simple.c"
+        line: 10
+        column: 3
+        function: "main"
+      value: "-1*((__int128)\\at(x, AnyPrev)) + 1*((__int128)\\at(n, AnyPrev)) > -1*((__int128)x) + 1*((__int128)n)"
+      format: "ext_c_expression"

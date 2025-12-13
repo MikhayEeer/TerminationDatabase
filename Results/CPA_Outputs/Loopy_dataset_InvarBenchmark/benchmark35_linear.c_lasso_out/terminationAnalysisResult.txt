@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N38]
+  incoming: [line 11:	N35 -{while}-> N38]
+  outgoing: [line 11:	N38 -{[!(x >= 0)]}-> N40, line 11:	N41 -{[!(x < 10)]}-> N40]
+  nodes:    [N38, N39, N41, N42]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = -2*main::x + 21
+Supporting invariants []
+

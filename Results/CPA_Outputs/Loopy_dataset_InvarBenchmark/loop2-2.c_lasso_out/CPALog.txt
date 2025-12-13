@@ -1,0 +1,51 @@
+2025-12-11 17:19:15:581	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-11 17:19:15:598	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-11 17:19:15:604	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-floats-scientific-comp/loop2-2.c"
+
+2025-12-11 17:19:15:943	WARNING	CheckBindingVisitor.visit	Undefined function unknown_float found, first called in line 10
+
+2025-12-11 17:19:16:270	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-11 17:19:16:345	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-11 17:19:16:388	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-11 17:19:16:403	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-11 17:19:16:403	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-11 17:19:16:404	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-11 17:19:16:438	WARNING	PredicateCPA:CtoFormulaConverter.getReturnType	line 10: Return type of function unknown_float is void, but result is used as type int: x = unknown_float();
+
+2025-12-11 17:19:16:438	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_float to be a constant function.
+
+2025-12-11 17:19:16:468	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-11 17:19:16:511	WARNING	CtoFormulaConverter.getReturnType	line 10: Return type of function unknown_float is void, but result is used as type int: x = unknown_float();
+
+2025-12-11 17:19:16:512	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_float to be a constant function.
+
+2025-12-11 17:19:16:519	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-11 17:19:16:969	WARNING	LinearInequality.fromTerm	Warning: Could not extract lasso (Loop with heads [N46]
+  incoming: [line 20:	N45 -{while}-> N46]
+  outgoing: [line 36:	N64 -{[temp == 0]}-> N66]
+  nodes:    [N46, N47, N49, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65]
+). (Unknown function symbol: to_real)
+
+2025-12-11 17:19:16:969	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-11 17:19:16:980	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-11 17:19:16:980	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-11 17:19:16:981	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-11 17:19:17:018	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

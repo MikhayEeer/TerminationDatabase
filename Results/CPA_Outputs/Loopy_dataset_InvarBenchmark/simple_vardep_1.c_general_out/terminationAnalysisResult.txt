@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N595]
+  incoming: [line 11:	N594 -{while}-> N595]
+  outgoing: [line 11:	N595 -{[!(k < 268435455)]}-> N598]
+  nodes:    [N595, N596, N597, N599, N600]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = -3*main::i + 357913942
+Supporting invariants [4*main::k - 9*main::i >= 0]
+

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "56e1b749-c479-3dcd-a45a-2887dd599e9f"
+    creation_time: "2025-12-11T20:38:19+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark33_linear.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark33_linear.c: "9c1594052277a9171206732c59cb03874b70280ef9eb23bf20edbfe0911badfd"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark33_linear.c"
+        line: 12
+        column: 3
+        function: "main"
+      value: "-301*((__int128)\\at(x, AnyPrev)) + 30102 > -301*((__int128)x) + 30102"
+      format: "ext_c_expression"

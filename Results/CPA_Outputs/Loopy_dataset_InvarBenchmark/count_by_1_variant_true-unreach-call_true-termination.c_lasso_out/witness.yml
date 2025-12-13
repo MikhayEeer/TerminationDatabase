@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "e60f1efc-428d-3751-b1e8-45f95652d5e1"
+    creation_time: "2025-12-11T23:20:49+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c
+        : "88c4d7ab9dac62ae29aa35735acda4482d93ba6b67bb597a1215e242f335ee35"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c"
+        line: 8
+        column: 5
+        function: "main"
+      value: "-3*((__int128)\\at(i, AnyPrev)) + 3000001 > -3*((__int128)i) + 3000001"
+      format: "ext_c_expression"

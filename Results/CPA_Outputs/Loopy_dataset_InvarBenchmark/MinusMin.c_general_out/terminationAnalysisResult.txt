@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N624]
+  incoming: [line 20:	N623 -{while}-> N624]
+  outgoing: [line 20:	N624 -{[!(min == y)]}-> N627]
+  nodes:    [N624, N625, N626, N628, N629, N630, N631, N632, N633]
+:
+Termination argument consisting of:
+Ranking function f(main::x, main::min, main::res) = -4*main::x + 4*main::min - 3*main::res + 2
+Supporting invariants [1*main::y - 1*main::x >= 0, 4*main::y - 4*main::x - 3*main::res >= 0]
+

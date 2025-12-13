@@ -1,0 +1,249 @@
+2025-12-12 03:16:42:510	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 03:16:42:527	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 03:16:42:532	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/svcomp_fermat.c"
+
+2025-12-12 03:16:43:157	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 03:16:43:228	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 03:16:43:275	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 03:16:43:291	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 03:16:43:291	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 03:16:43:292	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 03:19:20:928	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 1*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|) + 1
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:23:953	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|) + 2
+Supporting invariants [1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:30:525	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0, 1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:32:839	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:42:756	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:44:696	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -4000*main::a + 4001*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:52:986	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:53:882	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -4*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:54:153	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0, 1*main::c > 0, 1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:19:56:232	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:02:036	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0, 1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:02:210	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:03:383	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 1201*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:04:491	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::b, main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = 4*main::b - 2*main::a - 1*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:14:742	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:22:001	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0, 1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:22:943	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, main::c, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -11*main::a + 15*main::c - 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:26:550	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:29:210	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0, 1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:35:523	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -4*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0, 1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:39:710	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -4*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:41:152	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, main::c, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 4*main::c - 1*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:41:431	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, main::c, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 5*main::c - 1*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:41:612	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, main::c, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 4*main::c - 1*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:41:759	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, main::c, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -4*main::a + 10*main::c - 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0, 1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:44:011	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:44:137	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1001*main::a + 1002*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:46:473	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0, 1*main::c > 0, 1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:48:235	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:48:883	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:49:022	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:49:253	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:50:054	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:53:064	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:20:56:644	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:00:892	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0, 1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:02:874	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:04:437	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0, 1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:07:584	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -9001*main::a + 9002*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:08:235	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0, 1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:14:232	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:16:215	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:21:677	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:22:341	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0, 1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:23:483	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0, 1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:32:292	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -503*main::a + 1004*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:32:913	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -9999*main::a + 10000*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0, 1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:35:428	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0, 1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:36:177	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:36:334	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:39:594	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::MAX > 0, 1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:42:786	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:46:408	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -3*main::a + 4*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:48:012	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 5*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0, 1*main::c > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:48:325	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::a > 0, 1*main::MAX > 0, 1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:50:564	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -1*main::a + 2*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::c > 0, 1*main::a > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+
+2025-12-12 03:21:51:957	INFO	RankingRelationBuilder.getVariable	Could not create ranking relation from Termination argument consisting of:
+Ranking function f(main::a, (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)) = -2*main::a + 3*(Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|)
+Supporting invariants [1*main::b > 0] (Cannot handle term (Integer_*_ (Integer_*_ |main::a| |main::a|) |main::a|))
+

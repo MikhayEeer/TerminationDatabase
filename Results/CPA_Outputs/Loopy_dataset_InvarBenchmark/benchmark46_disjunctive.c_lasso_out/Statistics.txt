@@ -1,0 +1,191 @@
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            61 (2% of all post computations)
+  Times abstraction was reused:    0
+  Because of function entry/exit:  0 (0%)
+  Because of loop head:            34 (56%)
+  Because of join nodes:           0 (0%)
+  Because of threshold:            0 (0%)
+  Because of target state:         27 (44%)
+  Times precision was empty:       61 (100%)
+  Times precision was {false}:     0 (0%)
+  Times result was cached:         0 (0%)
+  Times cartesian abs was used:    0 (0%)
+  Times boolean abs was used:      0 (0%)
+  Times result was 'false':        0 (0%)
+Number of strengthen sat checks:   0
+Number of coverage checks:         1415
+  BDD entailment checks:           6
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       20
+Avg ABE block size:                                10.82 (sum: 660, count: 61, min: 0, max: 20)
+Number of predicates discovered:          0
+Number of path formula cache hits:        8682 (80%)
+
+Time for post operator:                                0.144s
+  Time for path formula creation:                      0.143s
+Time for strengthen operator:                          0.042s
+Time for prec operator:                                0.006s
+  Time for abstraction:                  0.000s (Max:     0.000s, Count: 61)
+    Solving time:                        0.000s (Max:     0.000s)
+    Model enumeration time:              0.000s
+    Time for BDD construction:           0.000s (Max:     0.000s)
+Time for merge operator:                               0.010s
+Time for coverage checks:                              0.005s
+  Time for BDD entailment checks:                      0.005s
+Total time for SMT solver (w/o itp):     0.000s
+
+Number of BDD nodes:                               202
+Size of BDD node table:                            1527121
+Size of BDD cache:                                 152717
+Size of BDD node cleanup queue:                    0.00 (sum: 0, count: 83, min: 0, max: 0)
+Time for BDD node cleanup:                             0.000s
+Time for BDD garbage collection:                       0.000s (in 0 runs)
+
+Invariant Generation statistics
+-------------------------------
+
+AutomatonAnalysis (NonTerminationLabelAutomaton) statistics
+-----------------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.006s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 2551, count: 2551, min: 1, max: 1) [1 x 2551]
+Number of states with assumption transitions:      0
+
+AutomatonAnalysis (TerminatingFunctions) statistics
+---------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.006s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 2551, count: 2551, min: 1, max: 1) [1 x 2551]
+Number of states with assumption transitions:      0
+
+AutomatonAnalysis (TerminatingFunctions) statistics
+---------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.000s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 2551, count: 2551, min: 1, max: 1) [1 x 2551]
+Number of states with assumption transitions:      0
+
+Termination Algorithm statistics
+--------------------------------
+Total time :                                            6.483s
+Time for recursion analysis:                            0.000s
+
+Number of analysed loops:                               1 (100%)
+Total time for loop analysis:                           6.482s
+  Avg time per loop analysis:                           6.482s
+  Max time per loop analysis:                           6.482s
+
+Number of safety analysis runs:                        27
+  Avg safety analysis run per loop:                    27.00
+  Max safety analysis run per loop:                    27 	 for loops [N44]
+Total time for safety analysis:                         0.645s
+  Avg time per safety analysis run:                     0.023s
+  Max time per safety analysis run:                     0.089s
+
+Number of analysed lassos:                             54
+  Avg number of lassos per loop:                       54.00
+  Max number of lassos per loop:                       54 	 for loops [N44]
+  Avg number of lassos per iteration:                   2.00
+  Max number of lassos per iteration:                   2
+
+Total time for lassos analysis:                         5.818s
+  Avg time per iteration:                               0.215s
+  Max time per iteration:                               0.332s
+  Time for lassos construction:                         0.232s
+    Avg time for lasso construction per iteration:      0.008s
+    Max time for lasso construction per iteration:      0.057s
+      Time for stem and loop construction:                         0.033s
+        Avg time for stem and loop construction per iteration:      0.001s
+        Max time for stem and loop construction per iteration:      0.008s
+      Time for lassos creation:                         0.198s
+        Avg time for lassos creation per iteration:      0.007s
+        Max time for lassos creation per iteration:      0.049s
+  Total time for non-termination analysis:              1.041s
+    Avg time for non-termination analysis per lasso:    0.019s
+    Max time for non-termination analysis per lasso:    0.042s
+  Total time for termination analysis:                  4.544s
+    Avg time for termination analysis per lasso:        0.084s
+    Max time for termination analysis per lasso:        0.157s
+
+Total number of termination arguments:                 54
+  Avg termination arguments per loop:                  54.00
+  Max termination arguments per loop:                  54 	 for loops [N44]
+
+  affine:                                              54
+
+Code Coverage
+-----------------------------
+  Function coverage:      0.143
+  Visited lines:          359
+  Total lines:            366
+  Line coverage:          0.981
+  Visited conditions:     12
+  Total conditions:       12
+  Condition coverage:     1.000
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       334
+Number of CFA edges (per node):                         333 (count: 334, min: 0, max: 2, avg: 1.00)
+Number of relevant variables:                      4
+Number of functions:                               7
+Number of loops (and loop nodes):                         1 (sum: 18, min: 18, max: 18, avg: 18.00)
+Size of reached set:             151
+  Number of reached locations:   20 (6%)
+    Avg states per location:     7
+    Max states per location:     29 (at node N48)
+  Number of reached functions:   1 (14%)
+  Number of partitions:          21
+    Avg size of partitions:      7
+    Max size of partitions:      28 (with key [N48 (before line 14), Function main called from node N31, stack depth 1 [68868328], stack [main], ABS2: true])
+  Number of target states:       0
+  Size of final wait list:       3
+
+Time for analysis setup:          0.758s
+  Time for loading CPAs:          0.299s
+  Time for loading parser:        0.080s
+  Time for CFA construction:      0.291s
+    Time for parsing file(s):     0.111s
+    Time for AST to CFA:          0.096s
+    Time for CFA sanity check:    0.006s
+    Time for post-processing:     0.043s
+    Time for loop structure:      0.002s
+    Time for AST structure:       0.000s
+    Time for CFA export:          0.019s
+      Time for function pointers resolving:            0.001s
+        Function calls via function pointers:             0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.024s
+        Time for collecting variables:                 0.009s
+        Time for solving dependencies:                 0.000s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.010s
+        Time for exporting data:                       0.005s
+Time for Analysis:                6.483s
+CPU time for analysis:            9.840s
+Time for analyzing result:        0.001s
+Total time for CPAchecker:        7.241s
+Total CPU time for CPAchecker:   12.290s
+Time for statistics:              0.027s
+
+Time for Garbage Collector:       0.110s (in 7 runs)
+Garbage Collector(s) used:    PS MarkSweep, PS Scavenge
+Used heap memory:                600MB (   572 MiB) max;    304MB (   290 MiB) avg;    645MB (   615 MiB) peak
+Used non-heap memory:             70MB (    66 MiB) max;     61MB (    58 MiB) avg;     70MB (    67 MiB) peak
+Used in PS Old Gen pool:          65MB (    62 MiB) max;     45MB (    43 MiB) avg;     65MB (    62 MiB) peak
+Allocated heap memory:          2015MB (  1922 MiB) max;   2012MB (  1919 MiB) avg
+Allocated non-heap memory:        70MB (    67 MiB) max;     62MB (    59 MiB) avg
+Total process virtual memory:  46938MB ( 44764 MiB) max;  43841MB ( 41810 MiB) avg
+
+Verification result: UNKNOWN, incomplete analysis.
+More details about the verification run can be found in the directory "./Results/CPA_Outputs/Loopy_dataset_InvarBenchmark/benchmark46_disjunctive.c_lasso_out".

@@ -1,0 +1,31 @@
+2025-12-12 02:31:47:714	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 02:31:47:731	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 02:31:47:737	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/37.c"
+
+2025-12-12 02:31:48:362	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 02:31:48:428	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 02:31:48:470	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 02:31:48:485	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 02:31:48:485	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 02:31:48:486	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 02:31:48:524	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown to be a constant function.
+
+2025-12-12 02:31:48:568	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown to be a constant function.
+
+2025-12-12 02:35:42:187	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 02:35:42:306	INFO	CounterexampleToWitness.export	There is currently no version 2.1 for Violation Witnesses.
+
+2025-12-12 02:35:42:387	INFO	ARGCPA:CounterexampleToWitness.export	There is currently no version 2.1 for Violation Witnesses.
+

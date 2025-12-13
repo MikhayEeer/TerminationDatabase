@@ -1,0 +1,19 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "786c4b5c-13c4-3b9c-b141-5b2d9c87ed34"
+    creation_time: "2025-12-11T23:20:34+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c
+        : "4e08c383152118a3e7169d2900405d5001db7f684363de826dc886737cf5e311"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content: []

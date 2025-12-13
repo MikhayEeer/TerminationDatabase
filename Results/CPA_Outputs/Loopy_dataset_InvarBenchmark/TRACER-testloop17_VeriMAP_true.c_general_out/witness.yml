@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "fc44ccac-e2f4-3964-8bc8-a26aa29ee36d"
+    creation_time: "2025-12-11T23:30:35+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop17_VeriMAP_true.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop17_VeriMAP_true.c: "4ceb2ce8ebcb855dc028f6f40bc5f82afc6838aae23aaf1cb80c1c9c95a03408"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop17_VeriMAP_true.c"
+        line: 20
+        column: 3
+        function: "main"
+      value: "-1*((__int128)\\at(i, AnyPrev)) + 1*((__int128)\\at(N, AnyPrev)) > -1*((__int128)i) + 1*((__int128)N) || 0"
+      format: "ext_c_expression"

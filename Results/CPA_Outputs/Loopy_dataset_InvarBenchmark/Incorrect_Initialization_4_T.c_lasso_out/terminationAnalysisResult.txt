@@ -1,0 +1,37 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N48]
+  incoming: [line 15:	N47 -{while}-> N48]
+  outgoing: [line 15:	N48 -{[!(i < hash)]}-> N50]
+  nodes:    [N48, N49, N51, N52, N53, N54]
+:
+Termination argument consisting of:
+Ranking function f(main::rehash, main::r) = 1*main::rehash - 1*main::r
+Supporting invariants [1*main::rehash > 0]
+Loop with heads [N48]
+  incoming: [line 15:	N47 -{while}-> N48]
+  outgoing: [line 15:	N48 -{[!(i < hash)]}-> N50]
+  nodes:    [N48, N49, N51, N52, N53, N54]
+:
+Termination argument consisting of:
+Ranking function f(main::rehash, main::r) = 1*main::rehash - 131071*main::r
+Supporting invariants [1*main::rehash > 0]
+Loop with heads [N48]
+  incoming: [line 15:	N47 -{while}-> N48]
+  outgoing: [line 15:	N48 -{[!(i < hash)]}-> N50]
+  nodes:    [N48, N49, N51, N52, N53, N54]
+:
+Termination argument consisting of:
+Ranking function f(main::i, main::h) = -131072*main::i + 131073*main::h
+Supporting invariants [1*main::r - 1 >= 0, 131073*main::h - 131072*main::hash > 0]
+Loop with heads [N48]
+  incoming: [line 15:	N47 -{while}-> N48]
+  outgoing: [line 15:	N48 -{[!(i < hash)]}-> N50]
+  nodes:    [N48, N49, N51, N52, N53, N54]
+:
+Termination argument consisting of:
+Ranking function f(main::i, main::r) = -1*main::i + 65534*main::r
+Supporting invariants [1*main::r - 1 >= 0, 65534*main::r - 1*main::hash >= 0]
+

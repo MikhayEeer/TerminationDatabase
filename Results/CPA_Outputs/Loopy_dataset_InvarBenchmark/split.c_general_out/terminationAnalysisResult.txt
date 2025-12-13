@@ -1,0 +1,29 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N611]
+  incoming: [lines 12-20:	N610 -{n = 0;}-> N611]
+  outgoing: [line 12:	N611 -{[!(n < (2 * k))]}-> N614]
+  nodes:    [N611, N612, N613, N615, N616, N617, N618, N619, N620, N621, N622, N623, N624]
+:
+Termination argument consisting of:
+Ranking function f(main::k, main::b) = 1*main::k - 1*main::b
+Supporting invariants [1*main::n >= 0, 1*main::k > 0]
+Loop with heads [N611]
+  incoming: [lines 12-20:	N610 -{n = 0;}-> N611]
+  outgoing: [line 12:	N611 -{[!(n < (2 * k))]}-> N614]
+  nodes:    [N611, N612, N613, N615, N616, N617, N618, N619, N620, N621, N622, N623, N624]
+:
+Termination argument consisting of:
+Ranking function f(main::__CPAchecker_TMP_0, main::i) = 3*main::__CPAchecker_TMP_0 - 3*main::i + 2
+Supporting invariants []
+Loop with heads [N611]
+  incoming: [lines 12-20:	N610 -{n = 0;}-> N611]
+  outgoing: [line 12:	N611 -{[!(n < (2 * k))]}-> N614]
+  nodes:    [N611, N612, N613, N615, N616, N617, N618, N619, N620, N621, N622, N623, N624]
+:
+Termination argument consisting of:
+Ranking function f(main::n) = -1*main::n + 20501
+Supporting invariants [-3*main::k + 30751 > 0]
+

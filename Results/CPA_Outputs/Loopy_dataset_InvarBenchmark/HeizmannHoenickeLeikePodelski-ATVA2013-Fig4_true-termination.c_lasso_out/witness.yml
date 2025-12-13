@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "04e71c4f-6538-3315-99d8-c26e0d933c9b"
+    creation_time: "2025-12-12T05:13:55+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig4_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig4_true-termination.c
+        : "bc8ff5a5630687f302fb152c6af786cc2a5606858bbcc41dc4ab6bdc74c8948c"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig4_true-termination.c"
+        line: 12
+        column: 2
+        function: "main"
+      value: "1*((__int128)\\at(x, AnyPrev)) + 1 > 1*((__int128)x) + 1"
+      format: "ext_c_expression"

@@ -1,0 +1,246 @@
+
+Restart Algorithm statistics
+----------------------------
+Number of algorithms provided:    2
+Number of algorithms used:        2
+Last algorithm used:        /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-recursion.properties
+Total time for algorithm 2:   302.085s
+
+Parallel Algorithm statistics
+-----------------------------
+Number of algorithms used:        2
+
+
+Statistics for: /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties
+===============================================================================================================================================
+Time spent in analysis thread /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:     0.038s
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            0 (0% of all post computations)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       0
+Avg ABE block size:                                0.00 (sum: 0, count: 0, min: 0, max: 0)
+Number of predicates discovered:          0
+Number of path formula cache hits:        0 (0%)
+
+Time for post operator:                                0.009s
+  Time for path formula creation:                      0.008s
+Time for strengthen operator:                          0.000s
+Time for prec operator:                                0.001s
+Time for merge operator:                               0.000s
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+
+Invariant Generation statistics
+-------------------------------
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     0.05 (sum: 13, count: 283, min: 0, max: 2)
+Number of global variables per state:              0.00 (sum: 0, count: 283, min: 0, max: 0)
+Number of assumptions:                                    2
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+Time for transfer relation:                            0.006s
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                     282
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.001s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (TerminatingFunctions) statistics
+---------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.003s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 282, count: 282, min: 1, max: 1) [1 x 282]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            281
+Max size of waitlist:            2
+Average size of waitlist:        1
+Number of computed successors:   282
+Max successors for one state:    2
+Number of times merged:          0
+Number of times stopped:         0
+Number of times breaked:         1
+
+Total time for CPA algorithm:         0.038s (Max:     0.038s)
+  Time for choose from waitlist:      0.000s
+  Time for precision adjustment:      0.009s
+  Time for transfer relation:         0.025s
+  Time for stop operator:             0.001s
+  Time for adding to reached set:     0.001s
+
+
+Statistics for: /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties
+==============================================================================================================================================
+
+
+Other statistics
+================
+
+Parallel Algorithm statistics
+-----------------------------
+Number of algorithms used:        2
+
+
+Statistics for: /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties
+===============================================================================================================================================
+Time spent in analysis thread /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:     0.038s
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            0 (0% of all post computations)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       0
+Avg ABE block size:                                0.00 (sum: 0, count: 0, min: 0, max: 0)
+Number of predicates discovered:          0
+Number of path formula cache hits:        0 (0%)
+
+Time for post operator:                                0.009s
+  Time for path formula creation:                      0.008s
+Time for strengthen operator:                          0.000s
+Time for prec operator:                                0.001s
+Time for merge operator:                               0.000s
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+
+Invariant Generation statistics
+-------------------------------
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     0.05 (sum: 13, count: 283, min: 0, max: 2)
+Number of global variables per state:              0.00 (sum: 0, count: 283, min: 0, max: 0)
+Number of assumptions:                                    2
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+Time for transfer relation:                            0.006s
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                     282
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.001s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (TerminatingFunctions) statistics
+---------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.003s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 282, count: 282, min: 1, max: 1) [1 x 282]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            281
+Max size of waitlist:            2
+Average size of waitlist:        1
+Number of computed successors:   282
+Max successors for one state:    2
+Number of times merged:          0
+Number of times stopped:         0
+Number of times breaked:         1
+
+Total time for CPA algorithm:         0.038s (Max:     0.038s)
+  Time for choose from waitlist:      0.000s
+  Time for precision adjustment:      0.009s
+  Time for transfer relation:         0.025s
+  Time for stop operator:             0.001s
+  Time for adding to reached set:     0.001s
+
+
+Statistics for: /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties
+==============================================================================================================================================
+
+
+Other statistics
+================
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       322
+Number of CFA edges (per node):                         317 (count: 322, min: 0, max: 2, avg: 0.98)
+Number of relevant variables:                      3
+Number of functions:                               7
+Number of loops (and loop nodes):                         1 (sum: 8, min: 8, max: 8, avg: 8.00)
+Size of reached set:             1
+  Number of reached locations:   1 (0%)
+    Avg states per location:     1
+    Max states per location:     1 (at node N31)
+  Number of reached functions:   1 (14%)
+  Number of target states:       0
+  Size of final wait list:       1
+
+Time for analysis setup:          0.547s
+  Time for loading CPAs:          0.155s
+  Time for loading parser:        0.083s
+  Time for CFA construction:      0.291s
+    Time for parsing file(s):     0.106s
+    Time for AST to CFA:          0.101s
+    Time for CFA sanity check:    0.007s
+    Time for post-processing:     0.043s
+    Time for loop structure:      0.002s
+    Time for AST structure:       0.000s
+    Time for CFA export:          0.018s
+      Time for function pointers resolving:            0.002s
+        Function calls via function pointers:             0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.024s
+        Time for collecting variables:                 0.009s
+        Time for solving dependencies:                 0.000s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.010s
+        Time for exporting data:                       0.005s
+Time for Analysis:              302.085s
+CPU time for analysis:          306.120s
+Total time for CPAchecker:      302.633s
+Total CPU time for CPAchecker:  308.010s
+Time for statistics:              0.020s
+
+Time for Garbage Collector:       0.057s (in 4 runs)
+Garbage Collector(s) used:    PS MarkSweep, PS Scavenge
+Used heap memory:                262MB (   250 MiB) max;    205MB (   195 MiB) avg;    354MB (   337 MiB) peak
+Used non-heap memory:             64MB (    61 MiB) max;     62MB (    59 MiB) avg;     65MB (    62 MiB) peak
+Used in PS Old Gen pool:          53MB (    51 MiB) max;     53MB (    51 MiB) avg;     53MB (    51 MiB) peak
+Allocated heap memory:          2015MB (  1922 MiB) max;   2015MB (  1922 MiB) avg
+Allocated non-heap memory:        65MB (    62 MiB) max;     65MB (    62 MiB) avg
+Total process virtual memory:  41160MB ( 39253 MiB) max;  41075MB ( 39172 MiB) avg
+
+Verification result: UNKNOWN, incomplete analysis.
+More details about the verification run can be found in the directory "./Results/CPA_Outputs/Loopy_dataset_InvarBenchmark/MAP-singleloop2-pepm-proc.c_VeriMAP_true.c_general_out".

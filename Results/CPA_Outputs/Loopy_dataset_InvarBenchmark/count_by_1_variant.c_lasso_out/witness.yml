@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "75b6e513-ec57-3f27-9936-e2d914ae07d0"
+    creation_time: "2025-12-11T21:28:31+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-new/count_by_1_variant.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-new/count_by_1_variant.c: "e7b6d33df14abbe649be2a2f17077214f0767d274897d48677e009080b2b3fdf"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-new/count_by_1_variant.c"
+        line: 8
+        column: 5
+        function: "main"
+      value: "-3*((__int128)\\at(i, AnyPrev)) + 3000001 > -3*((__int128)i) + 3000001"
+      format: "ext_c_expression"

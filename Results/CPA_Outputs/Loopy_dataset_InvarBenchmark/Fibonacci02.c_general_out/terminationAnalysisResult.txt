@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N31]
+  incoming: [line 22:	N50 -{fibonacci(x)}-> N31]
+  outgoing: [line 22:	N30 -{Return edge from fibonacci to main: result = fibonacci(x);}-> N51]
+  nodes:    [N30, N31, N32, N34, N35, N38, N39, N41, N42, N43, N44]
+:
+Termination argument consisting of:
+Ranking function f(fibonacci::n) = 1*fibonacci::n
+Supporting invariants [1*fibonacci::n > 0]
+

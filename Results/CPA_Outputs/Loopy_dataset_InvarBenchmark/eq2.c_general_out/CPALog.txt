@@ -1,0 +1,131 @@
+2025-12-11 20:24:26:416	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-11 20:24:26:432	INFO	CPAchecker.run	CPAchecker 4.2.2 / terminationAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-11 20:24:26:438	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-invariants/eq2.c"
+
+2025-12-11 20:24:26:975	INFO	CoreComponentsFactory.createAlgorithm	Using Restarting Algorithm
+
+2025-12-11 20:24:26:979	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ cpa.arg.lateMerge
+ counterexample.export.exportWitness 
+
+
+2025-12-11 20:24:26:980	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-11 20:24:26:981	INFO	RestartAlgorithm.run	Loading analysis 1 from file /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties ...
+
+2025-12-11 20:24:26:982	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-11 20:24:26:985	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:NestingAlgorithm.checkConfigs	Mismatch of configuration options when loading from '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties': 'analysis.algorithm.termination' has two values 'true' and 'false'. Using 'false'.
+
+2025-12-11 20:24:26:985	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:NestingAlgorithm.checkConfigs	Mismatch of configuration options when loading from '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties': 'termination.config' has two values 'terminationAnalysis.properties' and 'terminationToSafety.properties'. Using 'terminationToSafety.properties'.
+
+2025-12-11 20:24:26:986	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s, Thread CPU-time limit of 300s
+
+2025-12-11 20:24:27:033	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant).
+
+2025-12-11 20:24:27:087	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:NestingAlgorithm.checkConfigs	Mismatch of configuration options when loading from '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties': 'termination.config' has two values 'terminationAnalysis.properties' and 'termination-composition-lassoBasedAnalysis.properties'. Using 'termination-composition-lassoBasedAnalysis.properties'.
+
+2025-12-11 20:24:27:088	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-11 20:24:27:135	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-11 20:24:27:170	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-11 20:24:27:207	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-11 20:24:27:218	INFO	RestartAlgorithm.run	Starting analysis 1 ...
+
+2025-12-11 20:24:27:222	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-11 20:24:27:251	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_uint to be a constant function.
+
+2025-12-11 20:24:27:252	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_uint to be a constant function.
+
+2025-12-11 20:24:27:304	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:ExpressionToFormulaVisitor.visit	Assuming external function unknown_uint to be a constant function.
+
+2025-12-11 20:24:31:556	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (or (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse2))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:32:374	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (or (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse2))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:34:229	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse4 (+ 0 2))) (let ((.cse1 (+ .cse4 (* 3 |main::__CPAchecker_TMP_1|))) (.cse2 (+ .cse4 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)))) (or (let ((.cse0 (+ .cse2 (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ .cse1 (* (- 3) |main::z|)) .cse0))) (let ((.cse3 (+ .cse2 (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse3 0) (< (+ .cse1 (* (- 3) |main::y|)) .cse3)))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:34:452	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse2 (* 3 |main::__CPAchecker_TMP_2|)) (.cse3 (* (- 3) |main::z|)) (.cse4 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (.cse5 (* (- 3) |main::z__TERMINATION_PRIMED|))) (or (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 .cse4) .cse5))) (and (>= .cse0 0) (< (+ (+ .cse1 .cse2) .cse3) .cse0)))) (let ((.cse7 (+ 0 1))) (let ((.cse6 (+ (+ .cse7 .cse4) .cse5))) (and (>= .cse6 0) (< (+ (+ .cse7 .cse2) .cse3) .cse6)))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:35:316	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse2 (* 3 |main::__CPAchecker_TMP_2|)) (.cse3 (* (- 3) |main::z|)) (.cse4 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (.cse5 (* (- 3) |main::z__TERMINATION_PRIMED|))) (or (let ((.cse1 (+ 0 1))) (let ((.cse0 (+ (+ .cse1 .cse4) .cse5))) (and (>= .cse0 0) (< (+ (+ .cse1 .cse2) .cse3) .cse0)))) (let ((.cse7 (+ 0 2))) (let ((.cse6 (+ (+ .cse7 .cse4) .cse5))) (and (>= .cse6 0) (< (+ (+ .cse7 .cse2) .cse3) .cse6)))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:35:920	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (or (let ((.cse1 (+ 0 1))) (let ((.cse0 (+ (+ .cse1 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|) (* (- 1) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 |main::__CPAchecker_TMP_2|) (* (- 1) |main::z|)) .cse0)))) (let ((.cse3 (+ 0 2))) (let ((.cse2 (+ (+ .cse3 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse3 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse2))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:36:533	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0)))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:36:726	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0)))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:37:332	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (or (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::y|)) .cse0)))) (let ((.cse3 (+ 0 1))) (let ((.cse2 (+ (+ .cse3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|) (* (- 1) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse3 |main::__CPAchecker_TMP_2|) (* (- 1) |main::z|)) .cse2))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:37:526	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (or (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse2))))) for Loop with heads [N607]
+  incoming: [line 11:	N606 -{while}-> N607]
+  outgoing: [line 11:	N611 -{[__CPAchecker_TMP_0 == 0]}-> N613]
+  nodes:    [N607, N608, N609, N610, N611, N612, N614, N615, N616, N617]
+
+
+2025-12-11 20:24:37:526	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-11 20:24:37:528	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:ParallelAlgorithm.handleFutureResults	/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties finished without usable result.
+
+2025-12-11 20:24:38:035	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:MonitoredProcess:LassoRankerLogger.warn	[MP /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/lib/native/x86_64-linux/z3 -smt2 -in SMTLIB2_COMPLIANT=true (286)] The stream was forcibly closed: stdIn
+
+2025-12-11 20:24:38:045	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-lassoBasedAnalysis.properties:MonitoredProcess:LassoRankerLogger.warn	[MP /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/lib/native/x86_64-linux/z3 -smt2 -in SMTLIB2_COMPLIANT=true (288)] The stream was forcibly closed: stdIn
+
+2025-12-11 20:28:44:585	WARNING	ForceTerminationOnShutdown$1.shutdownRequested	Shutdown requested (The CPU-time limit of 300s has elapsed.), waiting for termination.
+
+2025-12-11 20:28:44:589	INFO	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:ShutdownNotifier.shutdownIfNecessary	Analysis was terminated (The CPU-time limit of 300s has elapsed.)
+
+2025-12-11 20:28:44:589	INFO	RestartAlgorithm.skipNextAnalysesIfRequired	Ignoring restart configuration '/home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-recursion.properties' because condition if-recursive did not match.
+
+2025-12-11 20:28:44:589	WARNING	AbstractFutureState.blockingGet	Warning: Analysis interrupted
+
+2025-12-11 20:28:44:601	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:LoopInvariantsWriter.getLoopHeadInvariants	Cannot dump loop invariants because a non-abstraction state was found for a loop-head location.
+
+2025-12-11 20:28:44:614	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:LoopInvariantsWriter.getLoopHeadInvariants	Cannot dump loop invariants because a non-abstraction state was found for a loop-head location.
+
+2025-12-11 20:28:44:640	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:LoopInvariantsWriter.getLoopHeadInvariants	Cannot dump loop invariants because a non-abstraction state was found for a loop-head location.
+
+2025-12-11 20:28:44:649	WARNING	Analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/combinations-parallel-termination.properties:Parallel analysis /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/config/components/termination-composition-terminationToSafety.properties:PredicateCPA:LoopInvariantsWriter.getLoopHeadInvariants	Cannot dump loop invariants because a non-abstraction state was found for a loop-head location.
+

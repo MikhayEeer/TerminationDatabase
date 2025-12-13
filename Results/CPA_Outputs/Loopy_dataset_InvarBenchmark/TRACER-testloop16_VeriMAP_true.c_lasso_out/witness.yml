@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "39879404-2af3-35c3-acd0-85921cb69b52"
+    creation_time: "2025-12-11T23:30:38+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c: "0a540629ec4b595fff054ca96c783e032f036f4bebff8b1faa43361726cbac09"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c"
+        line: 13
+        column: 3
+        function: "main"
+      value: "-3*((__int128)\\at(x, AnyPrev)) + 5 > -3*((__int128)x) + 5 || 0 || -1*((__int128)\\at(i, AnyPrev)) + 1*((__int128)\\at(N, AnyPrev)) > -1*((__int128)i) + 1*((__int128)N)"
+      format: "ext_c_expression"

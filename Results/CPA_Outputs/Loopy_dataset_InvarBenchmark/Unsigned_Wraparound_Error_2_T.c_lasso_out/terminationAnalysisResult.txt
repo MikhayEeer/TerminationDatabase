@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N41]
+  incoming: [line 13:	N38 -{while}-> N41]
+  outgoing: [line 13:	N41 -{[!(ui < size)]}-> N43, line 13:	N44 -{[!((ui * 2) > ui)]}-> N43]
+  nodes:    [N41, N42, N44, N45]
+:
+Termination argument consisting of:
+Ranking function f(main::size, main::ui) = 1*main::size - 1*main::ui
+Supporting invariants [2*main::ui - 1 > 0]
+

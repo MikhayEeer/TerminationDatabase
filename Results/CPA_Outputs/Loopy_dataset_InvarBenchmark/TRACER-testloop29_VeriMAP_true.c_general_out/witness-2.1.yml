@@ -1,0 +1,37 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "d2242e2c-cdcd-3fe3-8e0c-05d25fef3bd7"
+    creation_time: "2025-12-11T23:51:03+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c: "a4f6d8f230fb45d84d2f7c41c48ed28015584ee09ed35b48a80227d433bf5912"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c"
+        line: 8
+        column: 3
+        function: "main"
+      value: "(((((x == (11) || (x == (32) || x == (19))) || (x == (14) || (x == (21) || x == (12)))) || ((x == (8) || (x == (20) || x == (23))) || (x == (17) || (x == (5) || x == (6))))) || (((x == (31) || (x == (15) || x == (10))) || (x == (16) || (x == (13) || x == (49)))) || ((x == (34) || (x == (27) || x == (2))) || ((x == (28) || x == (39)) || (x == (42) || x == (38)))))) || ((((x == (3) || (x == (25) || x == (7))) || (x == (26) || (x == (44) || x == (41)))) || ((x == (29) || (x == (43) || x == (9))) || (x == (24) || (x == (37) || x == (0))))) || (((x == (22) || (x == (47) || x == (33))) || (x == (40) || (x == (1) || x == (4)))) || ((x == (35) || (x == (30) || x == (48))) || ((x == (36) || x == (18)) || (x == (46) || x == (45)))))))"
+      format: "c_expression"
+  - invariant:
+      type: "function_contract"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c"
+        line: 6
+        column: 1
+        function: "main"
+      requires: "1"
+      ensures: "(!(1) || (1))"
+      format: "acsl_expression"

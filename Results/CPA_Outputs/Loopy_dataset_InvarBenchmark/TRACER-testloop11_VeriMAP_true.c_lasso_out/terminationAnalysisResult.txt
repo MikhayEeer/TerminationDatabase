@@ -1,0 +1,123 @@
+Non-termination arguments:
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Non-Termination argument consisting of: Initial state: {main::s=0, main::__CPAchecker_TMP_0=0, main::e=0} Honda state: {main::s=5, main::__CPAchecker_TMP_0=-1, main::e=2} Generalized eigenvectors: [{main::s=0, main::__CPAchecker_TMP_0=0, main::e=0}, {main::s=0, main::__CPAchecker_TMP_0=1, main::e=0}, {main::s=0, main::__CPAchecker_TMP_0=-1, main::e=0}] Lambdas: [1, 0, 1] Nus: [1, 0]
+
+
+Termination arguments:
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::e) = -3*main::e + 2
+Supporting invariants []
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::e) = -2*main::e + 1
+Supporting invariants [1*main::s > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::e) = -1*main::e + 3
+Supporting invariants [1*main::e > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::e) = -1*main::e + 2
+Supporting invariants [1*main::e > 0, 1*main::s > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::e) = -1*main::e + 3
+Supporting invariants [1*main::e > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::e) = -7*main::e + 18
+Supporting invariants [1*main::s > 0, 1*main::e > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -7*main::s + 53
+Supporting invariants [1*main::s > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -3*main::s + 17
+Supporting invariants [1*main::e > 0, 1*main::s > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -11*main::s + 54
+Supporting invariants [1*main::s > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -9*main::s + 40
+Supporting invariants []
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -4*main::s + 19
+Supporting invariants []
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -7*main::s + 34
+Supporting invariants []
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -22*main::s + 93
+Supporting invariants [1*main::s > 0]
+Loop with heads [N47]
+  incoming: [line 16:	N46 -{while}-> N47]
+  outgoing: [line 16:	N51 -{[__CPAchecker_TMP_0 == 0]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N60, N61, N62, N63, N64, N65, N66, N67, N68]
+:
+Termination argument consisting of:
+Ranking function f(main::s) = -27*main::s + 524
+Supporting invariants []
+

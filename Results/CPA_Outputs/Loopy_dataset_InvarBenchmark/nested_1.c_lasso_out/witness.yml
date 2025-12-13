@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "d229d625-2467-31c9-b13c-421c3e31832e"
+    creation_time: "2025-12-11T20:19:43+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-simple/nested_1.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-simple/nested_1.c: "8f6d80eba529919e29c8e68849981d6e24fcb20724992a35688cc59be3383cae"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-simple/nested_1.c"
+        line: 8
+        column: 2
+        function: "main"
+      value: "-9*((__int128)\\at(a, AnyPrev)) + 56 > -9*((__int128)a) + 56"
+      format: "ext_c_expression"

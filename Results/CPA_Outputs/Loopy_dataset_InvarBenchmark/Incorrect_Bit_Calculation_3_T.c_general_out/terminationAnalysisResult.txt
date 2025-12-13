@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N597]
+  incoming: [line 10:	N596 -{do}-> N597]
+  outgoing: [line 12:	N600 -{[wc == 0]}-> N601]
+  nodes:    [N597, N598, N599, N600]
+:
+Non-Termination argument consisting of: Initial state: {(_&_ (_>>_ |main::wc| 6) |main::mask|)=-1, main::mask=0, main::wc=0} Honda state: {(_&_ (_>>_ |main::wc| 6) |main::mask|)=-1, main::mask=67108863, main::wc=-1} Generalized eigenvectors: [{(_&_ (_>>_ |main::wc| 6) |main::mask|)=0, main::mask=0, main::wc=0}, {(_&_ (_>>_ |main::wc| 6) |main::mask|)=0, main::mask=0, main::wc=0}, {(_&_ (_>>_ |main::wc| 6) |main::mask|)=0, main::mask=0, main::wc=0}] Lambdas: [1, 0, 0] Nus: [0, 0]
+
+
+Termination arguments:

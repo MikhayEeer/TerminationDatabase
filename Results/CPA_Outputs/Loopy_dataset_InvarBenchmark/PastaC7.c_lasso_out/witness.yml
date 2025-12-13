@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "b94ab95a-118e-3814-a16f-69801ad2272c"
+    creation_time: "2025-12-12T04:52:42+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/PastaC7.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/PastaC7.c: "7bf9dd1ad395ec106edde9e484ebeca79ba0eb6218775a8c18ca3b26e0ddcfeb"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/PastaC7.c"
+        line: 17
+        column: 5
+        function: "main"
+      value: "3*((__int128)\\at(k, AnyPrev)) - 3*((__int128)\\at(j, AnyPrev)) + 4 > 3*((__int128)k) - 3*((__int128)j) + 4"
+      format: "ext_c_expression"

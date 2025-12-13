@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "9173aad7-7429-3bdc-a248-7a64652d097a"
+    creation_time: "2025-12-12T03:37:30+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ColonSipma-TACAS2001-Fig1_true-termination.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ColonSipma-TACAS2001-Fig1_true-termination.c: "7d367ddd82d2fca081c7b340b0233e1e01cd7c290105f509e27c645518606ee5"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ColonSipma-TACAS2001-Fig1_true-termination.c"
+        line: 13
+        column: 2
+        function: "main"
+      value: "1*((__int128)\\at(k, AnyPrev)) - 1*((__int128)\\at(j, AnyPrev)) - 1*((__int128)\\at(i, AnyPrev)) + 101 > 1*((__int128)k) - 1*((__int128)j) - 1*((__int128)i) + 101"
+      format: "ext_c_expression"

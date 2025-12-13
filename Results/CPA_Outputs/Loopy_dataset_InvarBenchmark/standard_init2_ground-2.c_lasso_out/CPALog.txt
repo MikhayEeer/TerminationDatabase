@@ -1,0 +1,63 @@
+2025-12-12 13:39:05:887	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 13:39:05:903	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 13:39:05:909	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/standard_init2_ground-2.c"
+
+2025-12-12 13:39:06:538	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 13:39:06:602	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 13:39:06:645	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 13:39:06:660	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 13:39:06:660	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 13:39:06:661	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 13:39:06:692	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-12 13:39:06:698	WARNING	PredicateCPA:AssignmentHandler.generatePartialAssignmentsForArrayType	line 11: Ignoring assignment to array type (signed int)[__CPAchecker_TMP_0] with variable length
+
+2025-12-12 13:39:06:701	WARNING	PredicateCPA:AssignmentHandler.generatePartialAssignmentsForArrayType	none: Ignoring assignment to array type (signed int)[__CPAchecker_TMP_0] with variable length
+
+2025-12-12 13:39:06:822	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-12 13:39:06:825	WARNING	AssignmentHandler.generatePartialAssignmentsForArrayType	line 11: Ignoring assignment to array type (signed int)[__CPAchecker_TMP_0] with variable length
+
+2025-12-12 13:39:06:943	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N53]
+  incoming: [lines 24-29:	N52 -{x = 0;}-> N53]
+  outgoing: [line 24:	N53 -{[!(x < N)]}-> N56]
+  nodes:    [N53, N54, N55]
+). (Unknown sort in equality)
+
+2025-12-12 13:39:06:944	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 13:39:06:999	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N40]
+  incoming: [line 13:	N39 -{while}-> N40]
+  outgoing: [line 13:	N40 -{[!(i < N)]}-> N42]
+  nodes:    [N40, N41, N43, N44]
+). (Unknown sort in equality)
+
+2025-12-12 13:39:06:999	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 13:39:07:060	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N46]
+  incoming: [line 18:	N45 -{while}-> N46]
+  outgoing: [line 18:	N46 -{[!(i < N)]}-> N48]
+  nodes:    [N46, N47, N49, N50]
+). (Unknown sort in equality)
+
+2025-12-12 13:39:07:061	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 13:39:07:065	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-12 13:39:07:065	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 13:39:07:065	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-12 13:39:07:138	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

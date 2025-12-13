@@ -1,0 +1,27 @@
+Non-termination arguments:
+Loop with heads [N42]
+  incoming: [line 17:	N39 -{while}-> N42]
+  outgoing: [line 17:	N46 -{[__CPAchecker_TMP_0 == 0]}-> N44]
+  nodes:    [N42, N43, N45, N46, N47, N48, N49, N50, N51, N52, N53, N54, N55, N56, N57]
+:
+Non-Termination argument consisting of: Initial state: {main::c=0, main::n=0, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0} Honda state: {main::c=1, main::n=1, main::__CPAchecker_TMP_1=-1, main::__CPAchecker_TMP_0=-1} Generalized eigenvectors: [{main::c=0, main::n=0, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0}, {main::c=-1, main::n=-1, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0}, {main::c=1, main::n=1, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0}] Lambdas: [1, 1, 1] Nus: [1, 1]
+
+
+Termination arguments:
+Loop with heads [N42]
+  incoming: [line 17:	N39 -{while}-> N42]
+  outgoing: [line 17:	N46 -{[__CPAchecker_TMP_0 == 0]}-> N44]
+  nodes:    [N42, N43, N45, N46, N47, N48, N49, N50, N51, N52, N53, N54, N55, N56, N57]
+:
+Termination argument consisting of:
+Ranking function f(main::c, main::n) = -1*main::c + 1*main::n
+Supporting invariants [1*main::n > 0]
+Loop with heads [N42]
+  incoming: [line 17:	N39 -{while}-> N42]
+  outgoing: [line 17:	N46 -{[__CPAchecker_TMP_0 == 0]}-> N44]
+  nodes:    [N42, N43, N45, N46, N47, N48, N49, N50, N51, N52, N53, N54, N55, N56, N57]
+:
+Termination argument consisting of:
+Ranking function f(main::c, main::n) = -1*main::c + 1*main::n
+Supporting invariants [1*main::n > 0]
+

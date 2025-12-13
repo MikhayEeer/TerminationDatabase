@@ -1,0 +1,19 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "c2122be7-1ecc-3ec1-a4eb-2e2f957f7d2a"
+    creation_time: "2025-12-12T01:57:06+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c
+        : "56fb6b57b73d7249808c4a73a90ec3fbebeedbf205a76e9084057be7bf73e99b"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content: []

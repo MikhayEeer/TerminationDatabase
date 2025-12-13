@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N31]
+  incoming: [line 41:	N66 -{isOdd(n)}-> N31]
+  outgoing: [line 13:	N32 -{[n == 0]}-> N34, line 15:	N35 -{[n == 1]}-> N38, line 25:	N46 -{[n == 0]}-> N48, line 27:	N49 -{[n == 1]}-> N52]
+  nodes:    [N31, N32, N35, N39, N41, N45, N46, N49, N53, N55]
+:
+Termination argument consisting of:
+Ranking function f(isOdd::n) = 1*isOdd::n
+Supporting invariants []
+

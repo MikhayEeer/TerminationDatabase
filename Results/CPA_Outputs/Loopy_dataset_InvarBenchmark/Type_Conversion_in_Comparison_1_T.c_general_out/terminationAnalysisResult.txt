@@ -1,0 +1,21 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N613]
+  incoming: [lines 14-17:	N612 -{s = seqnum;}-> N613]
+  outgoing: [line 14:	N613 -{[!(i < len)]}-> N616]
+  nodes:    [N613, N614, N615, N617, N618, N619, N620, N621]
+:
+Termination argument consisting of:
+Ranking function f(main::__CPAchecker_TMP_1, main::s) = 3*main::__CPAchecker_TMP_1 - 3*main::s + 2
+Supporting invariants []
+Loop with heads [N613]
+  incoming: [lines 14-17:	N612 -{s = seqnum;}-> N613]
+  outgoing: [line 14:	N613 -{[!(i < len)]}-> N616]
+  nodes:    [N613, N614, N615, N617, N618, N619, N620, N621]
+:
+Termination argument consisting of:
+Ranking function f(main::len, main::i) = 1*main::len - 1*main::i
+Supporting invariants []
+

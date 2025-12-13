@@ -1,0 +1,29 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N39]
+  incoming: [line 14:	N36 -{while}-> N39]
+  outgoing: [line 21:	N42 -{[y < 0]}-> N56, line 17:	N44 -{[!(x >= (N + 1))]}-> N50]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N49, N51, N52, N53, N55, N58, N59, N60]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::N) = -3*main::y + 4*main::N + 2
+Supporting invariants [4*main::x - 3*main::y >= 0]
+Loop with heads [N39]
+  incoming: [line 14:	N36 -{while}-> N39]
+  outgoing: [line 21:	N42 -{[y < 0]}-> N56, line 17:	N44 -{[!(x >= (N + 1))]}-> N50]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N49, N51, N52, N53, N55, N58, N59, N60]
+:
+Termination argument consisting of:
+Ranking function f(main::x, main::N) = -5*main::x + 5*main::N + 8
+Supporting invariants []
+Loop with heads [N39]
+  incoming: [line 14:	N36 -{while}-> N39]
+  outgoing: [line 21:	N42 -{[y < 0]}-> N56, line 17:	N44 -{[!(x >= (N + 1))]}-> N50]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N49, N51, N52, N53, N55, N58, N59, N60]
+:
+Termination argument consisting of:
+Ranking function f(main::y) = 1*main::y
+Supporting invariants [1*main::N > 0]
+

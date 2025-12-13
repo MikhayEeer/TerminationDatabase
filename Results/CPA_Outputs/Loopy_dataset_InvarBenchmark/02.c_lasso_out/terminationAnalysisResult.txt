@@ -1,0 +1,35 @@
+Non-termination arguments:
+Loop with heads [N39]
+  incoming: [line 16:	N38 -{while}-> N39]
+  outgoing: [line 16:	N43 -{[__CPAchecker_TMP_0 == 0]}-> N41]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53]
+:
+Non-Termination argument consisting of: Initial state: {(_%_ |main::z| 2)=1, main::w=0, main::x=0, main::__CPAchecker_TMP_2=0, main::z=0, main::y=0, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0, main::j=0, main::i=0} Honda state: {(_%_ |main::z| 2)=1, main::w=2, main::x=1, main::__CPAchecker_TMP_2=0, main::z=1, main::y=1, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=-1, main::j=0, main::i=1} Generalized eigenvectors: [{(_%_ |main::z| 2)=0, main::w=1, main::x=0, main::__CPAchecker_TMP_2=0, main::z=-4, main::y=3, main::__CPAchecker_TMP_1=3, main::__CPAchecker_TMP_0=0, main::j=0, main::i=0}, {(_%_ |main::z| 2)=0, main::w=0, main::x=0, main::__CPAchecker_TMP_2=0, main::z=4, main::y=0, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0, main::j=0, main::i=0}, {(_%_ |main::z| 2)=0, main::w=1, main::x=1, main::__CPAchecker_TMP_2=1, main::z=4, main::y=-2, main::__CPAchecker_TMP_1=-2, main::__CPAchecker_TMP_0=0, main::j=0, main::i=0}] Lambdas: [0, 1, 1] Nus: [1, 0]
+
+
+Termination arguments:
+Loop with heads [N39]
+  incoming: [line 16:	N38 -{while}-> N39]
+  outgoing: [line 16:	N43 -{[__CPAchecker_TMP_0 == 0]}-> N41]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53]
+:
+Termination argument consisting of:
+Ranking function f(main::__CPAchecker_TMP_2, main::x) = 5*main::__CPAchecker_TMP_2 - 5*main::x + 4
+Supporting invariants []
+Loop with heads [N39]
+  incoming: [line 16:	N38 -{while}-> N39]
+  outgoing: [line 16:	N43 -{[__CPAchecker_TMP_0 == 0]}-> N41]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53]
+:
+Termination argument consisting of:
+Ranking function f(main::__CPAchecker_TMP_1, main::i, main::w) = 6*main::__CPAchecker_TMP_1 + 4*main::i - 3*main::w
+Supporting invariants [6*main::y + 4*main::i - 3*main::w - 4 >= 0]
+Loop with heads [N39]
+  incoming: [line 16:	N38 -{while}-> N39]
+  outgoing: [line 16:	N43 -{[__CPAchecker_TMP_0 == 0]}-> N41]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53]
+:
+Termination argument consisting of:
+Ranking function f(main::__CPAchecker_TMP_2, main::__CPAchecker_TMP_1, main::z, main::w) = -9*main::__CPAchecker_TMP_2 - 9*main::__CPAchecker_TMP_1 + 8*main::z - 9*main::w
+Supporting invariants [17*main::z - 15 >= 0]
+

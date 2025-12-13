@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "1e83a87d-cca5-3e86-8cbc-86a287d886ed"
+    creation_time: "2025-12-11T22:15:40+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/ex14n.v.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/ex14n.v.c: "4979072e800fc458a4a6891092427750943fae3275117777e1423d0b44a6e0dc"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/ex14n.v.c"
+        line: 12
+        column: 5
+        function: "main"
+      value: "-3*((__int128)\\at(x, AnyPrev)) + 4*((__int128)\\at(N, AnyPrev)) > -3*((__int128)x) + 4*((__int128)N)"
+      format: "ext_c_expression"

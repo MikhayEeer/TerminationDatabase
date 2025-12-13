@@ -1,0 +1,45 @@
+2025-12-12 20:27:29:803	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 20:27:29:819	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 20:27:29:826	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/arrays/dillig/safe/3.c"
+
+2025-12-12 20:27:30:495	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 20:27:30:558	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 20:27:30:601	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 20:27:30:617	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 20:27:30:617	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 20:27:30:617	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 20:27:30:806	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N44]
+  incoming: [lines 17-23:	N43 -{i = 0;}-> N44]
+  outgoing: [line 17:	N44 -{[!(i < num_to_init)]}-> N47]
+  nodes:    [N44, N45, N46]
+). (Unknown sort in equality)
+
+2025-12-12 20:27:30:806	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 20:27:30:837	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N38]
+  incoming: [lines 12-15:	N37 -{i = 0;}-> N38]
+  outgoing: [line 12:	N38 -{[!(i < num_to_init)]}-> N41]
+  nodes:    [N38, N39, N40, N42]
+). (Unknown sort in equality)
+
+2025-12-12 20:27:30:837	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 20:27:30:839	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-12 20:27:30:839	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 20:27:30:839	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-12 20:27:30:872	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

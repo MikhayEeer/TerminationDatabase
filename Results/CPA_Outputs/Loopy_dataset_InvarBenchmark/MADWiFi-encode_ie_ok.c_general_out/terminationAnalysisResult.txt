@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N638]
+  incoming: [lines 31-41:	N644 -{i = 0;}-> N638]
+  outgoing: [line 31:	N638 -{[!(i < ielen)]}-> N634, line 31:	N639 -{[!(bufsize > 2)]}-> N634]
+  nodes:    [N638, N639, N645, N646, N649]
+:
+Termination argument consisting of:
+Ranking function f(main::ielen, main::i) = 1*main::ielen - 1*main::i
+Supporting invariants [1*main::bufsize > 0]
+

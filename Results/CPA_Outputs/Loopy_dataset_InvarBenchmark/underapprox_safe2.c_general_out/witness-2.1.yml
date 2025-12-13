@@ -1,0 +1,37 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "e37305db-3f5d-3cec-8b67-e315c12b3386"
+    creation_time: "2025-12-12T01:27:49+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/underapprox_safe2.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/underapprox_safe2.c: "1e5087c5ff63a2cf2fc83134fe9532a25f3004d8e94c84ed4b31546ae5a8d69b"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/underapprox_safe2.c"
+        line: 9
+        column: 3
+        function: "main"
+      value: "((((x == (3U) && y == (8U))) || (((x == (6U) && y == (64U))) || ((x == (2U) && y == (4U))))) || ((((x == (5U) && y == (32U))) || ((x == (1U) && y == (2U)))) || (((x == (4U) && y == (16U))) || ((x == (0U) && y == (1U))))))"
+      format: "c_expression"
+  - invariant:
+      type: "function_contract"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/underapprox_safe2.c"
+        line: 5
+        column: 1
+        function: "main"
+      requires: "1"
+      ensures: "(!(1) || (1))"
+      format: "acsl_expression"

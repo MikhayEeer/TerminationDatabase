@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "6f9e2490-e02f-3c93-a104-5316a6b4aa7f"
+    creation_time: "2025-12-12T02:43:37+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Ton_Chanh_15/Benghazi_nondet_true-termination.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Ton_Chanh_15/Benghazi_nondet_true-termination.c: "b11810accf02a1e6fd025bfc22091747af91a49471afebd314ff0b641fb34aea"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Ton_Chanh_15/Benghazi_nondet_true-termination.c"
+        line: 14
+        column: 2
+        function: "main"
+      value: "-3*((__int128)\\at(d2, AnyPrev)) - 3*((__int128)\\at(d1, AnyPrev)) > -3*((__int128)d2) - 3*((__int128)d1) || -3*((__int128)\\at(d1, AnyPrev)) + 6*((__int128)\\at(x, AnyPrev)) + 2 > -3*((__int128)d1) + 6*((__int128)x) + 2 || 3*((__int128)\\at(x, AnyPrev)) + 2 > 3*((__int128)x) + 2"
+      format: "ext_c_expression"

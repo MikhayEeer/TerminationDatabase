@@ -1,0 +1,23 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N41]
+  incoming: [line 11:	N40 -{while}-> N41]
+  outgoing: [line 11:	N41 -{[!(x >= y)]}-> N43, line 11:	N44 -{[!(x <= (tx + z))]}-> N43]
+  nodes:    [N41, N42, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53]
+:
+Termination argument consisting of:
+Ranking function 2-nested ranking function:
+  f0 = 3*main::z
+  f1 = 3*main::tx + 3*main::z - 3*main::y + 2
+Supporting invariants []
+Loop with heads [N41]
+  incoming: [line 11:	N40 -{while}-> N41]
+  outgoing: [line 11:	N41 -{[!(x >= y)]}-> N43, line 11:	N44 -{[!(x <= (tx + z))]}-> N43]
+  nodes:    [N41, N42, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::z, main::tx) = -1*main::y + 1*main::z + 1*main::tx + 1
+Supporting invariants []
+

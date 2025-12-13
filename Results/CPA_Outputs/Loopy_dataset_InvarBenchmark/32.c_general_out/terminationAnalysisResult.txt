@@ -1,0 +1,45 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N622]
+  incoming: [lines 15-24:	N621 -{n = 0;}-> N622]
+  outgoing: [line 15:	N622 -{[!(n < (2 * k))]}-> N625]
+  nodes:    [N622, N623, N624, N626, N627, N628, N629, N630, N631, N632, N633, N634, N635, N636, N637, N638]
+:
+Termination argument consisting of:
+Ranking function f(main::n) = -4*main::n + 3
+Supporting invariants [-4*main::n + 5*main::b >= 0]
+Loop with heads [N622]
+  incoming: [lines 15-24:	N621 -{n = 0;}-> N622]
+  outgoing: [line 15:	N622 -{[!(n < (2 * k))]}-> N625]
+  nodes:    [N622, N623, N624, N626, N627, N628, N629, N630, N631, N632, N633, N634, N635, N636, N637, N638]
+:
+Termination argument consisting of:
+Ranking function f(main::b) = 1*main::b
+Supporting invariants [1*main::k > 0]
+Loop with heads [N622]
+  incoming: [lines 15-24:	N621 -{n = 0;}-> N622]
+  outgoing: [line 15:	N622 -{[!(n < (2 * k))]}-> N625]
+  nodes:    [N622, N623, N624, N626, N627, N628, N629, N630, N631, N632, N633, N634, N635, N636, N637, N638]
+:
+Termination argument consisting of:
+Ranking function f(main::k, main::i, main::__CPAchecker_TMP_0) = 1*main::k - 2*main::i + 2*main::__CPAchecker_TMP_0
+Supporting invariants [1*main::n > 0]
+Loop with heads [N622]
+  incoming: [lines 15-24:	N621 -{n = 0;}-> N622]
+  outgoing: [line 15:	N622 -{[!(n < (2 * k))]}-> N625]
+  nodes:    [N622, N623, N624, N626, N627, N628, N629, N630, N631, N632, N633, N634, N635, N636, N637, N638]
+:
+Termination argument consisting of:
+Ranking function f(main::i, main::b) = 1*main::i - 3*main::b
+Supporting invariants [1*main::i > 0, 1*main::k > 0]
+Loop with heads [N622]
+  incoming: [lines 15-24:	N621 -{n = 0;}-> N622]
+  outgoing: [line 15:	N622 -{[!(n < (2 * k))]}-> N625]
+  nodes:    [N622, N623, N624, N626, N627, N628, N629, N630, N631, N632, N633, N634, N635, N636, N637, N638]
+:
+Termination argument consisting of:
+Ranking function f(main::b, main::i, main::__CPAchecker_TMP_0) = 3*main::b - 4*main::i + 4*main::__CPAchecker_TMP_0
+Supporting invariants []
+

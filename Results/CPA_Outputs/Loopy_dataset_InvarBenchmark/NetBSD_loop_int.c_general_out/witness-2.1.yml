@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "7d5d27fe-97ed-3d39-a5c9-805978fee9f1"
+    creation_time: "2025-12-12T01:57:35+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/NetBSD_loop_int.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/NetBSD_loop_int.c: "26f82f663c1cedf479d5e408f127db5349b006cd64edf51430d0ac896085238e"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "function_contract"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/NetBSD_loop_int.c"
+        line: 8
+        column: 1
+        function: "main"
+      requires: "1"
+      ensures: "(!(1) || (\\result == (0)))"
+      format: "acsl_expression"

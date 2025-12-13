@@ -1,0 +1,37 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "050b0142-4c8f-305a-9a76-d2be4bf00949"
+    creation_time: "2025-12-12T07:28:15+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Signed_Overflow_Error_1_T.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Signed_Overflow_Error_1_T.c: "ebf0f14cc94582e0812d80c9692a031bd9cfa3f0cf8d955d8d08375d4eb1b1fa"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Signed_Overflow_Error_1_T.c"
+        line: 8
+        column: 5
+        function: "main"
+      value: "(((((i == (1073741824L) || i == (32768L)) || (i == (524288L) || i == (131072L))) || ((i == (8L) || i == (1024L)) || (i == (268435456L) || i == (4096L)))) || (((i == (8388608L) || i == (4L)) || (i == (1L) || i == (256L))) || ((i == (128L) || i == (16L)) || (i == (512L) || i == (8192L))))) || ((((i == (2048L) || i == (134217728L)) || (i == (2L) || i == (16384L))) || ((i == (2097152L) || i == (32L)) || (i == (536870912L) || i == (-2147483648L)))) || (((i == (1048576L) || i == (16777216L)) || (i == (65536L) || i == (33554432L))) || ((i == (64L) || i == (67108864L)) || (i == (262144L) || i == (4194304L))))))"
+      format: "c_expression"
+  - invariant:
+      type: "function_contract"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Signed_Overflow_Error_1_T.c"
+        line: 5
+        column: 1
+        function: "main"
+      requires: "1"
+      ensures: "(!(1) || (\\result == (0)))"
+      format: "acsl_expression"

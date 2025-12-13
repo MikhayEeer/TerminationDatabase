@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "4750a6e4-0c44-3614-b88b-82d48a469f17"
+    creation_time: "2025-12-12T02:57:24+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/Masse-VMCAI2014-Fig1a_true-termination.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/Masse-VMCAI2014-Fig1a_true-termination.c: "66e4d5b5dd3d0ca13535e1fc353dfcab95093449cb20ea91cae28c47283fb89f"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/Masse-VMCAI2014-Fig1a_true-termination.c"
+        line: 12
+        column: 2
+        function: "main"
+      value: "3*((__int128)\\at(a, AnyPrev)) + 2 > 3*((__int128)a) + 2 || 1*((__int128)\\at(b, AnyPrev)) + 1 > 1*((__int128)b) + 1 || 2*((__int128)\\at(b, AnyPrev)) + 3*((__int128)\\at(a, AnyPrev)) > 2*((__int128)b) + 3*((__int128)a)"
+      format: "ext_c_expression"

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "bd2b4269-c714-3278-88c7-d67513bc8e1c"
+    creation_time: "2025-12-11T20:38:18+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark13_conjunctive.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark13_conjunctive.c: "50358c9030b230d47d2f7be66986a5de854fe87d62cc8984696ae839d869a00a"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark13_conjunctive.c"
+        line: 14
+        column: 3
+        function: "main"
+      value: "-5*((__int128)\\at(i, AnyPrev)) + 2 > -5*((__int128)i) + 2"
+      format: "ext_c_expression"

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "7d55bbbe-8693-3e93-9ea3-f3345ae34039"
+    creation_time: "2025-12-12T01:52:30+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/sendmail-close-angle.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/sendmail-close-angle.c: "8acf76a12f048923df9afb7003b02eef9d0818577869efbc7f7edcccadf0a72d"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/sendmail-close-angle.c"
+        line: 23
+        column: 3
+        function: "main"
+      value: "0 || 1*((__int128)\\at(((__int128)\\at(in, AnyPrev))len, AnyPrev)) - 1*((__int128)\\at(in, AnyPrev)) > 1*((__int128)((__int128)in)len) - 1*((__int128)in)"
+      format: "ext_c_expression"

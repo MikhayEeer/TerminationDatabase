@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "36fa0746-8a79-30c7-833b-cc0d63e2e2e0"
+    creation_time: "2025-12-12T05:24:47+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Mysore_true-termination.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Mysore_true-termination.c: "a6ec5fdff2fc4b7dc4a4d8fb9f5f8d29884c73c19073beb7ab7f12b2c3164db6"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Mysore_true-termination.c"
+        line: 13
+        column: 2
+        function: "main"
+      value: "5*((__int128)\\at(c, AnyPrev)) + 4*((__int128)\\at(x, AnyPrev)) > 5*((__int128)c) + 4*((__int128)x)"
+      format: "ext_c_expression"

@@ -1,0 +1,29 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N31]
+  incoming: [line 21:	N47 -{f91(x)}-> N31]
+  outgoing: [line 21:	N30 -{Return edge from f91 to main: result = f91(x);}-> N48]
+  nodes:    [N30, N31, N32, N34, N35, N37, N38, N39, N40]
+:
+Termination argument consisting of:
+Ranking function f(f91::x) = -3*f91::x + 322
+Supporting invariants []
+Loop with heads [N31]
+  incoming: [line 21:	N47 -{f91(x)}-> N31]
+  outgoing: [line 21:	N30 -{Return edge from f91 to main: result = f91(x);}-> N48]
+  nodes:    [N30, N31, N32, N34, N35, N37, N38, N39, N40]
+:
+Termination argument consisting of:
+Ranking function f(f91::x) = 1*f91::x
+Supporting invariants []
+Loop with heads [N31]
+  incoming: [line 21:	N47 -{f91(x)}-> N31]
+  outgoing: [line 21:	N30 -{Return edge from f91 to main: result = f91(x);}-> N48]
+  nodes:    [N30, N31, N32, N34, N35, N37, N38, N39, N40]
+:
+Termination argument consisting of:
+Ranking function f(f91::x) = -123*f91::x + 13762
+Supporting invariants []
+

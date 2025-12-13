@@ -1,0 +1,85 @@
+2025-12-12 11:41:04:030	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 11:41:04:046	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 11:41:04:052	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/nested-ss1.c"
+
+2025-12-12 11:41:04:694	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 11:41:04:759	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 11:41:04:799	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 11:41:04:813	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 11:41:04:813	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 11:41:04:814	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 11:41:05:430	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N74]
+  incoming: [lines 45-51:	N73 -{i = 0;}-> N74]
+  outgoing: [line 45:	N74 -{[!(i < N)]}-> N77]
+  nodes:    [N74, N75, N76]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:05:430	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:05:548	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N37]
+  incoming: [lines 15-18:	N36 -{i = 0;}-> N37]
+  outgoing: [line 15:	N37 -{[!(i < N)]}-> N40]
+  nodes:    [N37, N38, N39, N41]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:05:548	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:05:612	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N43]
+  incoming: [lines 20-23:	N42 -{i = 0;}-> N43]
+  outgoing: [line 20:	N43 -{[!(i < N)]}-> N46]
+  nodes:    [N43, N44, N45, N47]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:05:612	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:05:685	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N50]
+  incoming: [lines 26-29:	N49 -{i = 0;}-> N50]
+  outgoing: [line 26:	N50 -{[!(i < N)]}-> N53]
+  nodes:    [N50, N51, N52, N54]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:05:685	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:05:790	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N56]
+  incoming: [lines 31-34:	N55 -{i = 0;}-> N56]
+  outgoing: [line 31:	N56 -{[!(i < N)]}-> N59]
+  nodes:    [N56, N57, N58, N60]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:05:790	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:05:949	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N67]
+  incoming: [lines 38-41:	N66 -{j = 0;}-> N67]
+  outgoing: [line 38:	N67 -{[!(j < N)]}-> N70]
+  nodes:    [N67, N68, N69, N71]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:05:949	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:06:101	WARNING	InequalityConverter.convert	Warning: Could not extract lasso (Loop with heads [N62]
+  incoming: [lines 36-43:	N61 -{i = 0;}-> N62]
+  outgoing: [line 36:	N62 -{[!(i < N)]}-> N65]
+  nodes:    [N62, N63, N64, N66, N67, N68, N69, N70, N71, N72]
+). (Unknown sort in equality)
+
+2025-12-12 11:41:06:101	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+
+2025-12-12 11:41:06:109	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-12 11:41:06:109	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 11:41:06:110	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-12 11:41:06:143	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

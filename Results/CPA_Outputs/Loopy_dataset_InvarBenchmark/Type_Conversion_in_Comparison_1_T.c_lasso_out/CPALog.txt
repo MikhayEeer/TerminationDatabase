@@ -1,0 +1,43 @@
+2025-12-12 07:38:11:713	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-12 07:38:11:730	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-12 07:38:11:736	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Type_Conversion_in_Comparison_1_T.c"
+
+2025-12-12 07:38:12:359	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-12 07:38:12:428	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-12 07:38:12:471	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-12 07:38:12:486	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-12 07:38:12:487	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-12 07:38:12:487	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-12 07:38:12:516	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_ushort to be a constant function.
+
+2025-12-12 07:38:12:520	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-12 07:38:12:566	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_ushort to be a constant function.
+
+2025-12-12 07:38:12:569	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_int to be a constant function.
+
+2025-12-12 07:38:12:984	WARNING	TerminationAlgorithm.run0	The program contains variables with unsigned type, so, the program cannot be proven terminating.
+
+2025-12-12 07:38:12:984	WARNING	TerminationAlgorithm.run0	The program contains variables with unsigned type, so, the program cannot be proven terminating.
+
+2025-12-12 07:38:12:984	WARNING	TerminationAlgorithm.run0	The program contains variables with unsigned type, so, the program cannot be proven terminating.
+
+2025-12-12 07:38:12:984	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-12 07:38:12:984	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-12 07:38:12:985	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-12 07:38:13:080	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N48]
+  incoming: [lines 27-38:	N47 -{glob2_p_off = glob2_pathbuf_off;}-> N48]
+  outgoing: [line 28:	N48 -{[!(glob2_p_off <= glob2_pathlim_off)]}-> N51]
+  nodes:    [N48, N49, N50]
+:
+Termination argument consisting of:
+Ranking function f(main::bound_off, main::glob2_p_off) = 1*main::bound_off - 1*main::glob2_p_off + 1
+Supporting invariants [1*main::bound_off - 1*main::glob2_pathlim_off >= 0]
+

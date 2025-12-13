@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "5334400b-2b46-37da-bad1-ef22b2304f96"
+    creation_time: "2025-12-12T04:40:17+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-random2d_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-random2d_true-termination.c
+        : "45c2e8fbbc4c889e92f99dcb48fd3591f37ffbb62d9b0edbf9330d0efa230167"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-random2d_true-termination.c"
+        line: 14
+        column: 2
+        function: "main"
+      value: "1*((__int128)\\at(N, AnyPrev)) - 1*((__int128)\\at(i, AnyPrev)) > 1*((__int128)N) - 1*((__int128)i)"
+      format: "ext_c_expression"

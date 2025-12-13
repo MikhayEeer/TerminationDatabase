@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "f0470e1c-3372-3931-9f59-a088c5a8ede0"
+    creation_time: "2025-12-12T02:23:21+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/109.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/109.c: "0caa91f4fc1f17d51b970a839d2fb59ddc6d4e57a6c6aee6e5cc394e749f2b53"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/109.c"
+        line: 11
+        column: 5
+        function: "main"
+      value: "-1*((__int128)\\at(k, AnyPrev)) + 1*((__int128)\\at(c, AnyPrev)) > -1*((__int128)k) + 1*((__int128)c)"
+      format: "ext_c_expression"

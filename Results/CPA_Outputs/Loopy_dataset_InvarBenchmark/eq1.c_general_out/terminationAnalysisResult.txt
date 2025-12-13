@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N612]
+  incoming: [line 11:	N611 -{while}-> N612]
+  outgoing: [line 11:	N617 -{[__CPAchecker_TMP_0 == 0]}-> N620]
+  nodes:    [N612, N613, N614, N615, N616, N617, N618, N619, N621, N622, N623, N624, N625]
+:
+Non-Termination argument consisting of: Initial state: {main::y=0, main::z=0, main::w=0, main::x=0, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0} Honda state: {main::y=0, main::z=0, main::w=0, main::x=0, main::__CPAchecker_TMP_1=-1, main::__CPAchecker_TMP_0=-1} Generalized eigenvectors: [{main::y=0, main::z=0, main::w=0, main::x=0, main::__CPAchecker_TMP_1=0, main::__CPAchecker_TMP_0=0}, {main::y=0, main::z=0, main::w=1, main::x=1, main::__CPAchecker_TMP_1=1, main::__CPAchecker_TMP_0=1}, {main::y=0, main::z=0, main::w=0, main::x=0, main::__CPAchecker_TMP_1=-1, main::__CPAchecker_TMP_0=-1}] Lambdas: [1, 0, 0] Nus: [1, 0]
+
+
+Termination arguments:

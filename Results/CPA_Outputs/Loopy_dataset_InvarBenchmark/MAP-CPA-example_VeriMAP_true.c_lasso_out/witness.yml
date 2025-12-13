@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "6f5bbbb5-69c3-3447-acef-1a7e9a3c8b85"
+    creation_time: "2025-12-11T23:51:08+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c: "765e4c0555728d6c92146ddb53745cf4b52ecebcaad3623d8e693ab06657507c"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-CPA-example_VeriMAP_true.c"
+        line: 9
+        column: 3
+        function: "main"
+      value: "-3*((__int128)\\at(a, AnyPrev)) + 62 > -3*((__int128)a) + 62"
+      format: "ext_c_expression"

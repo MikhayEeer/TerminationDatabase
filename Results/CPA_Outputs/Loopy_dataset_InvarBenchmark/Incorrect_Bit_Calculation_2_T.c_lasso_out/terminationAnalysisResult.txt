@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N40]
+  incoming: [line 12:	N37 -{while}-> N40]
+  outgoing: [line 12:	N40 -{[!((a0 & 1) == 0)]}-> N42]
+  nodes:    [N40, N41, N43, N44]
+:
+Non-Termination argument consisting of: Initial state: {(_!!_ (_<<_ |main::a1| 31) (_>>_ |main::a0| 1))=-1, (_>>_ |main::a1| 1)=-1, (_&_ |main::a0| 1)=0, main::a0=0, main::a1=0} Honda state: {(_!!_ (_<<_ |main::a1| 31) (_>>_ |main::a0| 1))=-1, (_>>_ |main::a1| 1)=-1, (_&_ |main::a0| 1)=0, main::a0=-1, main::a1=-1} Generalized eigenvectors: [{(_!!_ (_<<_ |main::a1| 31) (_>>_ |main::a0| 1))=0, (_>>_ |main::a1| 1)=0, (_&_ |main::a0| 1)=0, main::a0=0, main::a1=0}, {(_!!_ (_<<_ |main::a1| 31) (_>>_ |main::a0| 1))=0, (_>>_ |main::a1| 1)=0, (_&_ |main::a0| 1)=0, main::a0=0, main::a1=0}, {(_!!_ (_<<_ |main::a1| 31) (_>>_ |main::a0| 1))=0, (_>>_ |main::a1| 1)=0, (_&_ |main::a0| 1)=0, main::a0=0, main::a1=0}] Lambdas: [0, 0, 1] Nus: [1, 1]
+
+
+Termination arguments:

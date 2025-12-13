@@ -1,0 +1,93 @@
+2025-12-11 20:24:13:582	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
+
+2025-12-11 20:24:13:598	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-11 20:24:13:604	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-invariants/eq2.c"
+
+2025-12-11 20:24:14:233	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-11 20:24:14:298	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-11 20:24:14:340	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-11 20:24:14:355	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-11 20:24:14:355	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-11 20:24:14:356	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-11 20:24:14:384	INFO	PredicateCPA:ExpressionToFormulaVisitor.visit	Assuming external function unknown_uint to be a constant function.
+
+2025-12-11 20:24:14:434	INFO	ExpressionToFormulaVisitor.visit	Assuming external function unknown_uint to be a constant function.
+
+2025-12-11 20:24:19:123	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (or (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse2))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:20:074	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (or (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse2))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:22:174	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse4 (+ 0 2))) (let ((.cse1 (+ .cse4 (* 3 |main::__CPAchecker_TMP_1|))) (.cse2 (+ .cse4 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)))) (or (let ((.cse0 (+ .cse2 (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ .cse1 (* (- 3) |main::z|)) .cse0))) (let ((.cse3 (+ .cse2 (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse3 0) (< (+ .cse1 (* (- 3) |main::y|)) .cse3)))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:22:408	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse2 (* 3 |main::__CPAchecker_TMP_2|)) (.cse3 (* (- 3) |main::z|)) (.cse4 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (.cse5 (* (- 3) |main::z__TERMINATION_PRIMED|))) (or (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 .cse4) .cse5))) (and (>= .cse0 0) (< (+ (+ .cse1 .cse2) .cse3) .cse0)))) (let ((.cse7 (+ 0 1))) (let ((.cse6 (+ (+ .cse7 .cse4) .cse5))) (and (>= .cse6 0) (< (+ (+ .cse7 .cse2) .cse3) .cse6)))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:23:266	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse2 (* 3 |main::__CPAchecker_TMP_2|)) (.cse3 (* (- 3) |main::z|)) (.cse4 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (.cse5 (* (- 3) |main::z__TERMINATION_PRIMED|))) (or (let ((.cse1 (+ 0 1))) (let ((.cse0 (+ (+ .cse1 .cse4) .cse5))) (and (>= .cse0 0) (< (+ (+ .cse1 .cse2) .cse3) .cse0)))) (let ((.cse7 (+ 0 2))) (let ((.cse6 (+ (+ .cse7 .cse4) .cse5))) (and (>= .cse6 0) (< (+ (+ .cse7 .cse2) .cse3) .cse6)))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:23:990	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (or (let ((.cse1 (+ 0 1))) (let ((.cse0 (+ (+ .cse1 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|) (* (- 1) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 |main::__CPAchecker_TMP_2|) (* (- 1) |main::z|)) .cse0)))) (let ((.cse3 (+ 0 2))) (let ((.cse2 (+ (+ .cse3 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse3 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse2))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:24:629	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0)))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:24:853	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0)))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:25:518	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (or (let ((.cse1 (+ 0 2))) (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::y|)) .cse0)))) (let ((.cse3 (+ 0 1))) (let ((.cse2 (+ (+ .cse3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|) (* (- 1) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse3 |main::__CPAchecker_TMP_2|) (* (- 1) |main::z|)) .cse2))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:25:771	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 2))) (or (let ((.cse0 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2__TERMINATION_PRIMED|)) (* (- 3) |main::z__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_2|)) (* (- 3) |main::z|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1__TERMINATION_PRIMED|)) (* (- 3) |main::y__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* 3 |main::__CPAchecker_TMP_1|)) (* (- 3) |main::y|)) .cse2))))) for Loop with heads [N38]
+  incoming: [line 11:	N37 -{while}-> N38]
+  outgoing: [line 11:	N42 -{[__CPAchecker_TMP_0 == 0]}-> N40]
+  nodes:    [N38, N39, N41, N42, N43, N44, N45, N46, N47, N48]
+
+
+2025-12-11 20:24:25:771	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-11 20:24:25:771	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-11 20:24:25:773	WARNING	CPAchecker.analyzeResult	Analysis not completed: there are still states to be processed.
+
+2025-12-11 20:24:26:037	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

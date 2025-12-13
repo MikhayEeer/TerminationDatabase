@@ -1,0 +1,37 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "02cd9696-fc19-319c-9b74-5c915aa3cb50"
+    creation_time: "2025-12-12T01:23:11+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/const_safe1.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/const_safe1.c: "5a66c0025f93b3d2004647de0b507030099feb58aecf76dc8cea3ac8c3e74c8b"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/const_safe1.c"
+        line: 9
+        column: 3
+        function: "main"
+      value: "(((((x == (1U) && y == (0U))) || ((x == (0U) && y == (1U)))) || (((x == (0U) && y == (5U))) || (((x == (0U) && y == (10U))) || ((x == (0U) && y == (7U)))))) || ((((x == (0U) && y == (9U))) || (((x == (0U) && y == (3U))) || ((x == (0U) && y == (4U))))) || (((x == (0U) && y == (6U))) || (((x == (0U) && y == (2U))) || ((x == (0U) && y == (8U)))))))"
+      format: "c_expression"
+  - invariant:
+      type: "function_contract"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/crafted/const_safe1.c"
+        line: 5
+        column: 1
+        function: "main"
+      requires: "1"
+      ensures: "(!(1) || (1))"
+      format: "acsl_expression"

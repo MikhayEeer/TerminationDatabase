@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "85ddd4cf-1a2a-34b9-92ea-df0d5d14b34b"
+    creation_time: "2025-12-11T23:30:27+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c: "b12877f32bdc3e9498c9fd1f4dbbb7a15f71b6cc3de53064e67e34447669d660"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c"
+        line: 17
+        column: 5
+        function: "main"
+      value: "-1*((__int128)\\at(i, AnyPrev)) + 1*((__int128)\\at(n, AnyPrev)) > -1*((__int128)i) + 1*((__int128)n)"
+      format: "ext_c_expression"

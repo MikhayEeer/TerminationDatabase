@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "349c1c55-e676-3bce-9460-fdf67842b7a5"
+    creation_time: "2025-12-11T20:47:45+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark50_linear.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark50_linear.c: "0a22e8124cdf842fb8e6453713aa66f5844ee3a24bffd53d7678bc09425bb83b"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark50_linear.c"
+        line: 12
+        column: 3
+        function: "main"
+      value: "1*((__int128)\\at(xa, AnyPrev)) > 1*((__int128)xa)"
+      format: "ext_c_expression"

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "b059ec93-6170-3eec-b0ea-b50c41302ab1"
+    creation_time: "2025-12-12T07:14:57+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/aaron3_true-termination.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/aaron3_true-termination.c: "cc73b1abdc9babcce022ea5ab72d2fcf5a696052c50a1fa5f4a7b116cedb6aea"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/aaron3_true-termination.c"
+        line: 11
+        column: 2
+        function: "main"
+      value: "3*((__int128)\\at(z, AnyPrev)) > 3*((__int128)z) || 3*((__int128)\\at(tx, AnyPrev)) + 3*((__int128)\\at(z, AnyPrev)) - 3*((__int128)\\at(y, AnyPrev)) + 2 > 3*((__int128)tx) + 3*((__int128)z) - 3*((__int128)y) + 2 || -1*((__int128)\\at(y, AnyPrev)) + 1*((__int128)\\at(z, AnyPrev)) + 1*((__int128)\\at(tx, AnyPrev)) + 1 > -1*((__int128)y) + 1*((__int128)z) + 1*((__int128)tx) + 1"
+      format: "ext_c_expression"

@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N47]
+  incoming: [line 15:	N46 -{while}-> N47]
+  outgoing: [line 15:	N47 -{[!(x <= N)]}-> N49]
+  nodes:    [N47, N48, N50, N51, N52, N53, N54, N55, N56, N57]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = -536870913*main::x + 576460752303423487
+Supporting invariants [-1*main::N + 536870912 > 0]
+

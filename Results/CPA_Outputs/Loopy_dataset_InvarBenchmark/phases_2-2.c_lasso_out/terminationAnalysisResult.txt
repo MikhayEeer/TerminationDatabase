@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N39]
+  incoming: [line 12:	N36 -{while}-> N39]
+  outgoing: [line 12:	N39 -{[!(x < y)]}-> N41]
+  nodes:    [N39, N40, N42, N43, N44, N45, N46, N47, N48]
+:
+Non-Termination argument consisting of: Initial state: {(Integer_/_ |main::y| |main::x|)=2, (Integer_*_ (Integer_/_ |main::y| |main::x|) |main::x|)=1, (Integer_*_ |main::x| |main::x|)=1, main::x=0, main::y=0} Honda state: {(Integer_/_ |main::y| |main::x|)=2, (Integer_*_ (Integer_/_ |main::y| |main::x|) |main::x|)=1, (Integer_*_ |main::x| |main::x|)=1, main::x=1, main::y=2} Generalized eigenvectors: [{(Integer_/_ |main::y| |main::x|)=0, (Integer_*_ (Integer_/_ |main::y| |main::x|) |main::x|)=0, (Integer_*_ |main::x| |main::x|)=0, main::x=0, main::y=0}, {(Integer_/_ |main::y| |main::x|)=0, (Integer_*_ (Integer_/_ |main::y| |main::x|) |main::x|)=0, (Integer_*_ |main::x| |main::x|)=0, main::x=0, main::y=0}, {(Integer_/_ |main::y| |main::x|)=0, (Integer_*_ (Integer_/_ |main::y| |main::x|) |main::x|)=0, (Integer_*_ |main::x| |main::x|)=0, main::x=0, main::y=0}] Lambdas: [0, 1, 0] Nus: [1, 0]
+
+
+Termination arguments:

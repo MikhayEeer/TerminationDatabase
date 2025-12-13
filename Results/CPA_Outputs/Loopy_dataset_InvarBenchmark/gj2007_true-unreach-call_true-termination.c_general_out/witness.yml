@@ -1,0 +1,19 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "c24dbd3f-3274-377c-a801-e2efa8accaae"
+    creation_time: "2025-12-11T23:06:04+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007_true-unreach-call_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-lit/gj2007_true-unreach-call_true-termination.c
+        : "2bdb39918594b556ba5f7d1cec38ded7d50a2d642b90a12ca1c2836023baa3ce"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content: []

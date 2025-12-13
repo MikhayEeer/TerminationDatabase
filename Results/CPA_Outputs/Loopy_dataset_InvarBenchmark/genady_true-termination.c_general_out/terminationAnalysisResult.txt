@@ -1,0 +1,21 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N594]
+  incoming: [lines 7-9:	N593 -{int i = 10000;}-> N594]
+  outgoing: [line 7:	N594 -{[!((i - j) >= 1)]}-> N597]
+  nodes:    [N594, N595, N596, N598, N599, N600]
+:
+Termination argument consisting of:
+Ranking function f(main::j, main::__CPAchecker_TMP_0) = -2*main::j + 3*main::__CPAchecker_TMP_0
+Supporting invariants [1*main::j > 0]
+Loop with heads [N594]
+  incoming: [lines 7-9:	N593 -{int i = 10000;}-> N594]
+  outgoing: [line 7:	N594 -{[!((i - j) >= 1)]}-> N597]
+  nodes:    [N594, N595, N596, N598, N599, N600]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = 1*main::i
+Supporting invariants [1*main::j > 0]
+

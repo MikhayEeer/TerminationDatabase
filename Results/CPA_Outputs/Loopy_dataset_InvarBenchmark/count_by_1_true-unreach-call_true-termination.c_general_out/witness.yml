@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "64dad941-9c1f-3f01-b660-479dbb6e9ccb"
+    creation_time: "2025-12-11T23:20:43+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c
+        : "583add6d67dc5658291a0a20d641344bc6f3b8c30d3e840c6e16191f539a8ebe"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c"
+        line: 8
+        column: 5
+        function: "main"
+      value: "-3*((__int128)\\at(i, AnyPrev)) + 3000001 > -3*((__int128)i) + 3000001"
+      format: "ext_c_expression"

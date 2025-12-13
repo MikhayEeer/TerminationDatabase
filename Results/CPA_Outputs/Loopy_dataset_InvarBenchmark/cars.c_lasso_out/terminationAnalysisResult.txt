@@ -1,0 +1,21 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N62]
+  incoming: [line 41:	N59 -{while}-> N62]
+  outgoing: [line 43:	N63 -{[!((v2 + 5) >= 0)]}-> N68, line 41:	N66 -{[__CPAchecker_TMP_0 == 0]}-> N64, line 46:	N67 -{[!(v2 <= 5)]}-> N71, line 51:	N74 -{[!((((2 * x2) - x1) - x3) >= 0)]}-> N79, line 62:	N75 -{[!((((2 * x2) - x1) - x3) <= 0)]}-> N87]
+  nodes:    [N62, N63, N65, N66, N67, N70, N73, N74, N75, N76, N77, N78, N81, N82, N83, N84, N85, N86, N89, N90, N91, N92, N93]
+:
+Termination argument consisting of:
+Ranking function f(main::v2) = 3*main::v2 + 17
+Supporting invariants []
+Loop with heads [N62]
+  incoming: [line 41:	N59 -{while}-> N62]
+  outgoing: [line 43:	N63 -{[!((v2 + 5) >= 0)]}-> N68, line 41:	N66 -{[__CPAchecker_TMP_0 == 0]}-> N64, line 46:	N67 -{[!(v2 <= 5)]}-> N71, line 51:	N74 -{[!((((2 * x2) - x1) - x3) >= 0)]}-> N79, line 62:	N75 -{[!((((2 * x2) - x1) - x3) <= 0)]}-> N87]
+  nodes:    [N62, N63, N65, N66, N67, N70, N73, N74, N75, N76, N77, N78, N81, N82, N83, N84, N85, N86, N89, N90, N91, N92, N93]
+:
+Termination argument consisting of:
+Ranking function f(main::v2) = 1*main::v2 + 14
+Supporting invariants []
+

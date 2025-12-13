@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "11852567-420f-3d91-892c-c02c74d767a5"
+    creation_time: "2025-12-12T03:48:11+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.10_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.10_true-termination.c
+        : "f67915295fb7689b07f4027ae4e9b92a285174b99ec96c63874e5c720d8d7fee"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.10_true-termination.c"
+        line: 13
+        column: 5
+        function: "main"
+      value: "2*((__int128)\\at(y, AnyPrev)) + 2*((__int128)\\at(x, AnyPrev)) + 1 > 2*((__int128)y) + 2*((__int128)x) + 1"
+      format: "ext_c_expression"

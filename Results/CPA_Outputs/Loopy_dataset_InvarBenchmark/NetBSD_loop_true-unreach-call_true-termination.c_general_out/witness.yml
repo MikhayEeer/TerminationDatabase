@@ -1,0 +1,28 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "143d5a32-2378-3a32-9f5f-afb23bfbcacc"
+    creation_time: "2025-12-11T23:20:31+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "terminationAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c
+        : "d3d36355e6a2a64977fa873972dadb39f01df4bb92eb79f531931baf0c37202a"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c"
+        line: 26
+        column: 3
+        function: "main"
+      value: "2147483649*((__int128)\\at(glob2_pathlim_off, AnyPrev)) - 2147483649*((__int128)\\at(glob2_p_off, AnyPrev)) + 4294967294 > 2147483649*((__int128)glob2_pathlim_off) - 2147483649*((__int128)glob2_p_off) + 4294967294"
+      format: "ext_c_expression"

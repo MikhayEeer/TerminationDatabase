@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "9e56333b-9838-3f3f-aa4a-4f595f8e83af"
+    creation_time: "2025-12-12T00:43:26+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/cav/pldi082_unbounded.c"
+      input_file_hashes:
+        Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/cav/pldi082_unbounded.c: "bba3ddfddd905fcb721fa965131cd60555c08587554156c9dc5b202538e43e71"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/cav/pldi082_unbounded.c"
+        line: 14
+        column: 3
+        function: "main"
+      value: "-3*((__int128)\\at(y, AnyPrev)) + 4*((__int128)\\at(N, AnyPrev)) + 2 > -3*((__int128)y) + 4*((__int128)N) + 2 || -5*((__int128)\\at(x, AnyPrev)) + 5*((__int128)\\at(N, AnyPrev)) + 8 > -5*((__int128)x) + 5*((__int128)N) + 8 || 1*((__int128)\\at(y, AnyPrev)) > 1*((__int128)y)"
+      format: "ext_c_expression"

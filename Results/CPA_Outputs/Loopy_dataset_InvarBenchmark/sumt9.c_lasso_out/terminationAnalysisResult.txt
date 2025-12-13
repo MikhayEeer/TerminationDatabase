@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N48]
+  incoming: [line 13:	N45 -{while}-> N48]
+  outgoing: [line 13:	N48 -{[!(l < n)]}-> N50]
+  nodes:    [N48, N49, N51, N52, N53, N54, N56, N57, N58, N60, N61, N62, N64, N65, N66, N68, N69, N70, N72, N73, N74, N76, N77, N78, N80, N81, N82, N83, N84]
+:
+Termination argument consisting of:
+Ranking function f(SIZE, main::v6) = 1*SIZE - 10*main::v6
+Supporting invariants [1*SIZE > 0, -10*main::v6 + 19*main::l >= 0]
+

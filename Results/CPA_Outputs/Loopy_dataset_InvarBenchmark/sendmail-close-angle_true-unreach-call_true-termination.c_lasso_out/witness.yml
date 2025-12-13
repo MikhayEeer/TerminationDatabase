@@ -1,0 +1,19 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "5695e785-1a68-37dc-a044-f5fd7f3cc1c5"
+    creation_time: "2025-12-11T23:20:35+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/sendmail-close-angle_true-unreach-call_true-termination.c"
+      input_file_hashes:
+        ? Datasets/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-invgen/sendmail-close-angle_true-unreach-call_true-termination.c
+        : "73c7a9cbd42e8cc14e6701b2af2615985d72118b1e0ab6159d20c16bccaa6f19"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content: []

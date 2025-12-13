@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N31, N47]
+  incoming: [line 37:	N66 -{fibo1(x)}-> N31]
+  outgoing: [line 37:	N30 -{Return edge from fibo1 to main: result = fibo1(x);}-> N67]
+  nodes:    [N30, N31, N32, N34, N35, N38, N39, N41, N42, N43, N44, N46, N47, N48, N50, N51, N54, N55, N57, N58, N59, N60]
+:
+Termination argument consisting of:
+Ranking function f(fibo1::n) = 1*fibo1::n
+Supporting invariants [1*fibo1::n > 0]
+
