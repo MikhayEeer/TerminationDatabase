@@ -141,6 +141,11 @@ def main():
                         help=f"Timeout in seconds for each file (default: {TIMEOUT})")
     parser.add_argument("-m", "--memory", type=int, default=8,
                         help="int, Memory for cpachecker use (default: 8GB)")
+    parser.add_argument(
+        "--enable-general",
+        action="store_true",
+        help="同时运行 general 配置（默认仅运行 lasso）",
+    )
     args = parser.parse_args()
     
     # 验证所有目录是否存在
@@ -193,24 +198,34 @@ def main():
         )
         lasso_time = (datetime.now() - lasso_start).total_seconds()
         
-        print(f"[ {i+1}:2 / {len(c_files)} ] Analyzing {file_path}...")
-        
-        general_start = datetime.now()
-        result2, error2, rf2, out2 = analyze_termination(
-            file_path, 
-            CONFIG_GENERAL,
-            args.timeout,
-            args.memory
-        )
-        general_time = (datetime.now() - general_start).total_seconds()
+        # 根据命令行开关决定是否运行 general 配置，默认不跑
+        if args.enable_general:
+            print(f"[ {i+1}:2 / {len(c_files)} ] Analyzing {file_path}...")
+            general_start = datetime.now()
+            result2, error2, rf2, out2 = analyze_termination(
+                file_path, 
+                CONFIG_GENERAL,
+                args.timeout,
+                args.memory
+            )
+            general_time = (datetime.now() - general_start).total_seconds()
+        else:
+            # 占位值保持 CSV 列一致
+            result2, error2, rf2, out2 = ("", None, "None", "")
+            general_time = 0.0
         
         time_taken = (datetime.now() - start_time).total_seconds()
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         print(f"  Lasso   Result: {result1} (RF: {rf1})")
-        print(f"  General Result: {result2} (RF: {rf2})\n  (took {time_taken:.2f}s)")
-        if error1 or error2:
+        if args.enable_general:
+            print(f"  General Result: {result2} (RF: {rf2})")
+        else:
+            print("  General Result: [skipped]")
+        print(f"  (took {time_taken:.2f}s)")
+        if error1:
             print(f"  Lasso   Error: {error1}")
+        if error2:
             print(f"  General Error: {error2}")
         
         with open(args.output, "a") as f:
