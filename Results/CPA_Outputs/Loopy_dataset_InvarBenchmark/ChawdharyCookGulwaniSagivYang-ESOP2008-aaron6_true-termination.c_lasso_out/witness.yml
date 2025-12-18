@@ -1,19 +1,27 @@
 - entry_type: "invariant_set"
   metadata:
     format_version: "2.1"
-    uuid: "c61952fa-8450-3539-832b-f110dfc7c782"
-    creation_time: "2025-12-12T05:59:20+08:00"
+    uuid: "2806e3ac-ceac-30bc-951a-62b279c19070"
+    creation_time: "2025-12-17T18:14:53+08:00"
     producer:
       name: "CPAchecker"
       version: "4.2.2"
       configuration: "lassoRankerAnalysis"
     task:
       input_files:
-      - "Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c"
+      - "../EvolveTerm/data/aeval/c_bench_term/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c"
       input_file_hashes:
-        ? Datasets/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c
-        : "70bbc05acce9d66e62c228b429ec8cc0d29f9b30bb23d7f48fdc6a6e67e30fe5"
+        "../EvolveTerm/data/aeval/c_bench_term/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c": "a16c30dd0f0247c164844d2b1ccff72683e6745f7a98a5657fa586d4dc64357d"
       specification: ""
       data_model: "ILP32"
       language: "C"
-  content: []
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c"
+        line: 11
+        column: 3
+        function: "main"
+      value: "-1*((__int128)\\at(tx, AnyPrev)) + 1*((__int128)\\at(n, AnyPrev)) > -1*((__int128)tx) + 1*((__int128)n)"
+      format: "ext_c_expression"

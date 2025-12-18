@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N7]
+  incoming: [line 8:	N6 -{while}-> N7]
+  outgoing: [line 8:	N7 -{[!(x == (3 * y))]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17]
+:
+Non-Termination argument consisting of: Initial state: {main::y=0, main::x=0, main::__CPAchecker_TMP_0=0} Honda state: {main::y=0, main::x=0, main::__CPAchecker_TMP_0=0} Generalized eigenvectors: [{main::y=0, main::x=0, main::__CPAchecker_TMP_0=1}, {main::y=0, main::x=0, main::__CPAchecker_TMP_0=1}, {main::y=0, main::x=0, main::__CPAchecker_TMP_0=-2}] Lambdas: [4, 4, 4] Nus: [1, 0]
+
+
+Termination arguments:

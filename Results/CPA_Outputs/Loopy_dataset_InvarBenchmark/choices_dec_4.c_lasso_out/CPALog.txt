@@ -1,0 +1,95 @@
+2025-12-17 17:41:13:045	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 180s
+
+2025-12-17 17:41:13:061	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-17 17:41:13:066	INFO	CPAchecker.parse	Parsing CFA from file(s) "../EvolveTerm/data/aeval/c_bench_nonterm/choices_dec_4.c"
+
+2025-12-17 17:41:13:637	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-17 17:41:13:696	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-17 17:41:13:738	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-17 17:41:13:752	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-17 17:41:13:753	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-17 17:41:13:753	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-17 17:41:23:753	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:26:649	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:27:482	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:28:303	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse0)))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:29:230	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:30:069	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:30:929	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 7) |main::x__TERMINATION_PRIMED|)) (* 9 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 7) |main::x|)) (* 9 |main::__CPAchecker_TMP_8|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:32:340	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::y__TERMINATION_PRIMED|)) (* 9 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::y|)) (* 9 |main::__CPAchecker_TMP_9|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:32:762	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse4 (+ 0 0))) (let ((.cse1 (+ .cse4 (* (- 5) |main::y|))) (.cse2 (+ .cse4 (* (- 5) |main::y__TERMINATION_PRIMED|)))) (or (let ((.cse0 (+ .cse2 (* 8 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ .cse1 (* 8 |main::__CPAchecker_TMP_9|)) .cse0))) (let ((.cse3 (+ .cse2 (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse3 0) (< (+ .cse1 (* 7 |main::__CPAchecker_TMP_9|)) .cse3)))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:33:177	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::y__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::y|)) (* 7 |main::__CPAchecker_TMP_9|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:34:249	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 0))) (or (let ((.cse0 (+ (+ .cse1 (* (- 5) |main::x__TERMINATION_PRIMED|)) (* 7 |main::__CPAchecker_TMP_8__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 5) |main::x|)) (* 7 |main::__CPAchecker_TMP_8|)) .cse0))) (let ((.cse2 (+ (+ .cse1 (* (- 7) |main::y__TERMINATION_PRIMED|)) (* 9 |main::__CPAchecker_TMP_9__TERMINATION_PRIMED|)))) (and (>= .cse2 0) (< (+ (+ .cse1 (* (- 7) |main::y|)) (* 9 |main::__CPAchecker_TMP_9|)) .cse2))))) for Loop with heads [N11]
+  incoming: [line 10:	N10 -{while}-> N11]
+  outgoing: [line 10:	N11 -{[!(x > 0)]}-> N13, line 10:	N14 -{[!(w > 0)]}-> N13, line 10:	N15 -{[!(z > 0)]}-> N13, line 10:	N16 -{[!(y > 0)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31, N32, N33, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45, N46, N47, N48, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71, N72, N73, N74, N75]
+
+
+2025-12-17 17:41:34:249	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-17 17:41:34:249	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-17 17:41:34:250	WARNING	CPAchecker.analyzeResult	Analysis not completed: there are still states to be processed.
+
+2025-12-17 17:41:34:311	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

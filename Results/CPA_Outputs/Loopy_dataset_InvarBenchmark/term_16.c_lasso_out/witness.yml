@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "15757cb8-36df-3495-9cbd-9edd7fcf9434"
+    creation_time: "2025-12-17T18:08:32+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/term_16.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/term_16.c": "71a553cbde0e45d28206ecab1a159aad0ae957244df52198312ac5e6385efc19"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/term_16.c"
+        line: 9
+        column: 3
+        function: "main"
+      value: "7550*((__int128)\\at(y, AnyPrev)) - 151*((__int128)\\at(x, AnyPrev)) + 7552 > 7550*((__int128)y) - 151*((__int128)x) + 7552 || 50*((__int128)\\at(y, AnyPrev)) - 1*((__int128)\\at(x, AnyPrev)) > 50*((__int128)y) - 1*((__int128)x) || 2650*((__int128)\\at(y, AnyPrev)) - 53*((__int128)\\at(x, AnyPrev)) + 2652 > 2650*((__int128)y) - 53*((__int128)x) + 2652 || 100*((__int128)\\at(y, AnyPrev)) - 2*((__int128)\\at(x, AnyPrev)) + 1 > 100*((__int128)y) - 2*((__int128)x) + 1 || 1350*((__int128)\\at(y, AnyPrev)) - 27*((__int128)\\at(x, AnyPrev)) + 1351 > 1350*((__int128)y) - 27*((__int128)x) + 1351"
+      format: "ext_c_expression"

@@ -2,3 +2,12 @@ Non-termination arguments:
 
 
 Termination arguments:
+Loop with heads [N15]
+  incoming: [line 11:	N14 -{while}-> N15]
+  outgoing: [line 11:	N15 -{[!(x <= n)]}-> N17, line 11:	N18 -{[!(x >= (tx + 1))]}-> N17, line 11:	N19 -{[!(y >= (ty + 1))]}-> N17, line 11:	N20 -{[!(x >= ((2 * tx) + y))]}-> N17]
+  nodes:    [N15, N16, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::tx, main::n) = -1*main::tx + 1*main::n
+Supporting invariants []
+

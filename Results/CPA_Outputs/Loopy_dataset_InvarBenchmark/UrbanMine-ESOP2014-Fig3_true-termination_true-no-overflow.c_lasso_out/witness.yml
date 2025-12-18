@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "313ed4d3-4331-33c5-932e-991dfd2b2dce"
+    creation_time: "2025-12-17T18:54:39+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/UrbanMine-ESOP2014-Fig3_true-termination_true-no-overflow.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/UrbanMine-ESOP2014-Fig3_true-termination_true-no-overflow.c": "adf9e08d22d7ec95ed3e2bccaf936a59321ffa8d7d5ed63bbde04c2a454816a4"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/UrbanMine-ESOP2014-Fig3_true-termination_true-no-overflow.c"
+        line: 8
+        column: 2
+        function: "main"
+      value: "1*((__int128)\\at(x, AnyPrev)) > 1*((__int128)x) || -1*((__int128)\\at(x, AnyPrev)) > -1*((__int128)x) || -1*((__int128)\\at(x, AnyPrev)) > -1*((__int128)x) || 1*((__int128)\\at(y, AnyPrev)) > 1*((__int128)y) || 1*((__int128)\\at(x, AnyPrev)) > 1*((__int128)x)"
+      format: "ext_c_expression"

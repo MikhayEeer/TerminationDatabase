@@ -1,0 +1,51 @@
+Non-termination arguments:
+Loop with heads [N7]
+  incoming: [line 9:	N6 -{while}-> N7]
+  outgoing: [line 9:	N7 -{[!(i > 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Non-Termination argument consisting of: Initial state: {main::up=0, main::i=0} Honda state: {main::up=0, main::i=9} Generalized eigenvectors: [{main::up=0, main::i=0}, {main::up=0, main::i=0}, {main::up=0, main::i=0}] Lambdas: [0, 0, 1] Nus: [1, 0]
+
+
+Termination arguments:
+Loop with heads [N7]
+  incoming: [line 9:	N6 -{while}-> N7]
+  outgoing: [line 9:	N7 -{[!(i > 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = 1*main::i
+Supporting invariants []
+Loop with heads [N7]
+  incoming: [line 9:	N6 -{while}-> N7]
+  outgoing: [line 9:	N7 -{[!(i > 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = 1*main::i
+Supporting invariants []
+Loop with heads [N7]
+  incoming: [line 9:	N6 -{while}-> N7]
+  outgoing: [line 9:	N7 -{[!(i > 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = -4*main::i + 19
+Supporting invariants []
+Loop with heads [N7]
+  incoming: [line 9:	N6 -{while}-> N7]
+  outgoing: [line 9:	N7 -{[!(i > 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = -5*main::i + 54
+Supporting invariants [1*main::up > 0, 1*main::i > 0]
+Loop with heads [N7]
+  incoming: [line 9:	N6 -{while}-> N7]
+  outgoing: [line 9:	N7 -{[!(i > 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Termination argument consisting of:
+Ranking function f(main::up) = 1*main::up
+Supporting invariants []
+

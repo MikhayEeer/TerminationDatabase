@@ -2,28 +2,12 @@ Non-termination arguments:
 
 
 Termination arguments:
-Loop with heads [N37]
-  incoming: [line 12:	N36 -{while}-> N37]
-  outgoing: [line 12:	N37 -{[!(a >= 0)]}-> N39]
-  nodes:    [N37, N38, N40, N41, N42, N43, N44, N45]
+Loop with heads [N7]
+  incoming: [line 7:	N6 -{while}-> N7]
+  outgoing: [line 7:	N7 -{[!(a >= 0)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12, N13, N14, N15]
 :
 Termination argument consisting of:
-Ranking function f(main::b) = 1*main::b + 1
+Ranking function f(main::b) = 3*main::b + 2
 Supporting invariants []
-Loop with heads [N37]
-  incoming: [line 12:	N36 -{while}-> N37]
-  outgoing: [line 12:	N37 -{[!(a >= 0)]}-> N39]
-  nodes:    [N37, N38, N40, N41, N42, N43, N44, N45]
-:
-Termination argument consisting of:
-Ranking function f(main::a) = 3*main::a + 2
-Supporting invariants []
-Loop with heads [N37]
-  incoming: [line 12:	N36 -{while}-> N37]
-  outgoing: [line 12:	N37 -{[!(a >= 0)]}-> N39]
-  nodes:    [N37, N38, N40, N41, N42, N43, N44, N45]
-:
-Termination argument consisting of:
-Ranking function f(main::b, main::a) = 2*main::b + 3*main::a
-Supporting invariants [-1*main::b > 0]
 

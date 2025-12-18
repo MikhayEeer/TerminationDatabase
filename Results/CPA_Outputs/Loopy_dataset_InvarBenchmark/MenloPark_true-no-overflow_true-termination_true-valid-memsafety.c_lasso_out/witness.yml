@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "89ac79bd-fc3b-3526-8ce6-ae368fb17497"
+    creation_time: "2025-12-17T18:45:16+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety.c": "8eb53168d44aaa388edd212dd46ff4b266baff0741874f1b38e919d35aa0b975"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety.c"
+        line: 9
+        column: 2
+        function: "main"
+      value: "-1*((__int128)\\at(y, AnyPrev)) + 2*((__int128)\\at(x, AnyPrev)) + 2 > -1*((__int128)y) + 2*((__int128)x) + 2 || 1*((__int128)\\at(x, AnyPrev)) + 2 > 1*((__int128)x) + 2"
+      format: "ext_c_expression"

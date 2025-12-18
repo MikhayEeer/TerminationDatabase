@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N13]
+  incoming: [line 11:	N10 -{while}-> N13]
+  outgoing: [line 11:	N13 -{[!(x >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Non-Termination argument consisting of: Initial state: {(Integer_/_ |main::x| |main::y|)=3, (Integer_*_ (Integer_/_ |main::x| |main::y|) |main::y|)=0, main::x=0, main::y=0, main::__CPAchecker_TMP_0=0} Honda state: {(Integer_/_ |main::x| |main::y|)=3, (Integer_*_ (Integer_/_ |main::x| |main::y|) |main::y|)=0, main::x=3, main::y=2, main::__CPAchecker_TMP_0=0} Generalized eigenvectors: [{(Integer_/_ |main::x| |main::y|)=0, (Integer_*_ (Integer_/_ |main::x| |main::y|) |main::y|)=0, main::x=0, main::y=0, main::__CPAchecker_TMP_0=0}, {(Integer_/_ |main::x| |main::y|)=0, (Integer_*_ (Integer_/_ |main::x| |main::y|) |main::y|)=0, main::x=0, main::y=0, main::__CPAchecker_TMP_0=0}, {(Integer_/_ |main::x| |main::y|)=0, (Integer_*_ (Integer_/_ |main::x| |main::y|) |main::y|)=0, main::x=0, main::y=0, main::__CPAchecker_TMP_0=0}] Lambdas: [1, 1, 1] Nus: [1, 0]
+
+
+Termination arguments:

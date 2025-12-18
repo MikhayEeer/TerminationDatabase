@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "2afde18a-65f4-365d-95dd-0ba08d56151e"
+    creation_time: "2025-12-17T18:45:17+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow.c": "fc689e20e490687f693f2f77209d25870a03d84562f99f35caa5abde4799afe7"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow.c"
+        line: 7
+        column: 5
+        function: "main"
+      value: "1*((__int128)\\at(x, AnyPrev)) - 1*((__int128)\\at(K, AnyPrev)) > 1*((__int128)x) - 1*((__int128)K) || -1*((__int128)\\at(x, AnyPrev)) + 1*((__int128)\\at(K, AnyPrev)) > -1*((__int128)x) + 1*((__int128)K)"
+      format: "ext_c_expression"

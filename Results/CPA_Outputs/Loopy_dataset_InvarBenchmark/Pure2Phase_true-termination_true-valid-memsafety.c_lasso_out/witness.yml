@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "9a3fd958-ceb9-3728-8beb-e9fd8480f086"
+    creation_time: "2025-12-17T18:54:51+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/Pure2Phase_true-termination_true-valid-memsafety.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/Pure2Phase_true-termination_true-valid-memsafety.c": "b99d77bf46a39b170dfb28a4ea2fc142bb24ca3412d75ed27d3eaf27a77bd38e"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/Pure2Phase_true-termination_true-valid-memsafety.c"
+        line: 11
+        column: 2
+        function: "main"
+      value: "1*((__int128)\\at(y, AnyPrev)) > 1*((__int128)y) || 3*((__int128)\\at(z, AnyPrev)) + 2 > 3*((__int128)z) + 2"
+      format: "ext_c_expression"

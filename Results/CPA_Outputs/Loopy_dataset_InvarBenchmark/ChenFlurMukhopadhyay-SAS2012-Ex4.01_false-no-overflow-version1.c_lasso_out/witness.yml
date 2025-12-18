@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "eba2c854-2b70-3556-a7df-c37aaaefe012"
+    creation_time: "2025-12-17T18:45:04+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex4.01_false-no-overflow-version1.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex4.01_false-no-overflow-version1.c": "6be99145013c235b0fc51c1f1d6243ef5ef5296701575770341bcdb23c9252aa"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex4.01_false-no-overflow-version1.c"
+        line: 9
+        column: 3
+        function: "main"
+      value: "5*((__int128)\\at(z, AnyPrev)) + 5*((__int128)\\at(n, AnyPrev)) + 4 > 5*((__int128)z) + 5*((__int128)n) + 4 || 5*((__int128)\\at(y, AnyPrev)) + 5*((__int128)\\at(n, AnyPrev)) + 4 > 5*((__int128)y) + 5*((__int128)n) + 4"
+      format: "ext_c_expression"

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "3cc830a3-80d0-324f-971b-5db6225ddaa2"
+    creation_time: "2025-12-17T18:54:54+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig1_true-termination_true-no-overflow.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig1_true-termination_true-no-overflow.c": "be1d79bb5c277df99973189a639185deee4b7d661eb8017138cfc1354df0742f"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig1_true-termination_true-no-overflow.c"
+        line: 7
+        column: 5
+        function: "main"
+      value: "1*((__int128)\\at(x, AnyPrev)) > 1*((__int128)x) || 1*((__int128)\\at(y, AnyPrev)) > 1*((__int128)y) || 1*((__int128)\\at(x, AnyPrev)) > 1*((__int128)x)"
+      format: "ext_c_expression"

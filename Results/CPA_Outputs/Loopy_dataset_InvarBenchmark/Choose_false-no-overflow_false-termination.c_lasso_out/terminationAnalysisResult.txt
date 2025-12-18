@@ -1,0 +1,19 @@
+Non-termination arguments:
+Loop with heads [N5]
+  incoming: [line 5:	N4 -{while}-> N5]
+  outgoing: [line 5:	N5 -{[!(i >= 3)]}-> N7]
+  nodes:    [N5, N6, N8, N9, N10, N11, N13, N14, N15, N16]
+:
+Non-Termination argument consisting of: Initial state: {main::i=0} Honda state: {main::i=12} Generalized eigenvectors: [{main::i=3}, {main::i=0}, {main::i=0}] Lambdas: [0, 0, 0] Nus: [1, 0]
+
+
+Termination arguments:
+Loop with heads [N5]
+  incoming: [line 5:	N4 -{while}-> N5]
+  outgoing: [line 5:	N5 -{[!(i >= 3)]}-> N7]
+  nodes:    [N5, N6, N8, N9, N10, N11, N13, N14, N15, N16]
+:
+Termination argument consisting of:
+Ranking function f(main::i) = -4*main::i + 41
+Supporting invariants [1*main::i > 0]
+

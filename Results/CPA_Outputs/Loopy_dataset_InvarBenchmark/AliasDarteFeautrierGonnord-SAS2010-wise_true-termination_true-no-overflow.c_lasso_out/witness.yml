@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "01cff445-ea97-3e08-a1ba-a816104e53ef"
+    creation_time: "2025-12-17T18:55:46+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-wise_true-termination_true-no-overflow.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-wise_true-termination_true-no-overflow.c": "e95161f19dc3d7d3d103c675d0df8c0cca892998864f7abca9fad73245d79c44"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-wise_true-termination_true-no-overflow.c"
+        line: 8
+        column: 3
+        function: "main"
+      value: "-1*((__int128)\\at(x, AnyPrev)) + 1*((__int128)\\at(y, AnyPrev)) > -1*((__int128)x) + 1*((__int128)y) || -1*((__int128)\\at(y, AnyPrev)) + 1*((__int128)\\at(x, AnyPrev)) > -1*((__int128)y) + 1*((__int128)x)"
+      format: "ext_c_expression"

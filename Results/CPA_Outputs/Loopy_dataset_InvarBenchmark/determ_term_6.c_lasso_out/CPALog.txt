@@ -1,0 +1,71 @@
+2025-12-17 18:41:27:659	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 180s
+
+2025-12-17 18:41:27:676	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-17 18:41:27:681	INFO	CPAchecker.parse	Parsing CFA from file(s) "../EvolveTerm/data/aeval/c_bench_term/determ_term_6.c"
+
+2025-12-17 18:41:28:228	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-17 18:41:28:287	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-17 18:41:28:328	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-17 18:41:28:342	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-17 18:41:28:342	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-17 18:41:28:343	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-17 18:41:29:547	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 6))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:30:145	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 6))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:30:530	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 6))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:30:787	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 3))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:31:826	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 6))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:32:182	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 6))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:32:414	WARNING	TerminationAlgorithm.proveLoopTermination	Repeated ranking relation (let ((.cse1 (+ 0 6))) (let ((.cse0 (+ (+ .cse1 (* (- 7) |main::oldx__TERMINATION_PRIMED|)) (* 7 |main::x__TERMINATION_PRIMED|)))) (and (>= .cse0 0) (< (+ (+ .cse1 (* (- 7) |main::oldx|)) (* 7 |main::x|)) .cse0)))) for Loop with heads [N6]
+  incoming: [line 7:	N5 -{while}-> N6]
+  outgoing: [line 7:	N6 -{[!(((x + y) + z) != 0)]}-> N8]
+  nodes:    [N6, N7, N9, N10, N11, N12]
+
+
+2025-12-17 18:41:32:420	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+
+2025-12-17 18:41:32:420	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+
+2025-12-17 18:41:32:421	WARNING	CPAchecker.analyzeResult	Analysis incomplete: no errors found, but not everything could be checked.
+
+2025-12-17 18:41:32:510	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+

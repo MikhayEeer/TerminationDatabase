@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "cbda6323-b87a-3ba9-86c4-e11b53cd215e"
+    creation_time: "2025-12-17T18:24:26+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/Singapore_false-no-overflow.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/Singapore_false-no-overflow.c": "a71f21c022759208f830c0c508f56f329fca4ba285e8ffb418dea61e51a3ed4a"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/Singapore_false-no-overflow.c"
+        line: 10
+        column: 9
+        function: "main"
+      value: "9*((__int128)\\at(y, AnyPrev)) + 10*((__int128)\\at(x, AnyPrev)) > 9*((__int128)y) + 10*((__int128)x) || 9*((__int128)\\at(x, AnyPrev)) > 9*((__int128)x)"
+      format: "ext_c_expression"

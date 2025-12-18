@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N10]
+  incoming: [line 12:	N9 -{while}-> N10]
+  outgoing: [line 12:	N10 -{[!((b - c) >= 1)]}-> N12, line 12:	N13 -{[!(a == c)]}-> N12]
+  nodes:    [N10, N11, N13, N14, N15, N16, N17]
+:
+Non-Termination argument consisting of: Initial state: {main::c=0, main::b=0, main::a=0, main::r=0} Honda state: {main::c=0, main::b=10, main::a=0, main::r=-1} Generalized eigenvectors: [{main::c=0, main::b=0, main::a=0, main::r=-1}, {main::c=-1, main::b=0, main::a=-1, main::r=0}, {main::c=0, main::b=0, main::a=0, main::r=0}] Lambdas: [0, 1, 0] Nus: [1, 0]
+
+
+Termination arguments:

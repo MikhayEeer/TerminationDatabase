@@ -1,0 +1,21 @@
+Non-termination arguments:
+Loop with heads [N9]
+  incoming: [line 9:	N8 -{while}-> N9]
+  outgoing: [line 9:	N9 -{[!(((x + y) + z) > 0)]}-> N11]
+  nodes:    [N9, N10, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Non-Termination argument consisting of: Initial state: {main::z=0, main::y=0, main::x=0} Honda state: {main::z=2, main::y=-1, main::x=0} Generalized eigenvectors: [{main::z=4, main::y=-2, main::x=-2}, {main::z=-4, main::y=2, main::x=2}, {main::z=-1, main::y=1, main::x=1}] Lambdas: [1, 1, 1] Nus: [1, 0]
+
+
+Termination arguments:
+Loop with heads [N9]
+  incoming: [line 9:	N8 -{while}-> N9]
+  outgoing: [line 9:	N9 -{[!(((x + y) + z) > 0)]}-> N11]
+  nodes:    [N9, N10, N12, N13, N14, N15, N16, N17, N18, N19, N20]
+:
+Termination argument consisting of:
+Ranking function 2-nested ranking function:
+  f0 = -3*main::x + 3*main::z + 3*main::y
+  f1 = -1*main::x + 1*main::z + 3*main::y
+Supporting invariants []
+

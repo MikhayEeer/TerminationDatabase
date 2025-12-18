@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "5683d2c3-eb8f-331f-9443-b87b3b2e38c6"
+    creation_time: "2025-12-17T18:45:02+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/determ_term_1.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/determ_term_1.c": "fff0a4c8d0f1a6a3ef3ee38160f04237562a420d75037d19bfe929c359239e6b"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/determ_term_1.c"
+        line: 5
+        column: 3
+        function: "main"
+      value: "-1*((__int128)\\at(x, AnyPrev)) > -1*((__int128)x)"
+      format: "ext_c_expression"

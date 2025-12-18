@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N7]
+  incoming: [line 7:	N6 -{while}-> N7]
+  outgoing: [line 7:	N7 -{[!(x != K)]}-> N9]
+  nodes:    [N7, N8, N10, N11, N12]
+:
+Non-Termination argument consisting of: Initial state: {main::x=0, main::K=0} Honda state: {main::x=-1, main::K=0} Generalized eigenvectors: [{main::x=2, main::K=2}, {main::x=-1, main::K=-1}, {main::x=-1, main::K=-1}] Lambdas: [1, 1, 0] Nus: [1, 1]
+
+
+Termination arguments:

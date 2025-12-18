@@ -1,0 +1,33 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N26]
+  incoming: [line 14:	N23 -{while}-> N26]
+  outgoing: [line 14:	N26 -{[!(x >= y)]}-> N28, line 14:	N29 -{[!(x <= (tx + z))]}-> N28, line 19:	N37 -{[!(-1073741823 <= x)]}-> N39, line 19:	N40 -{[!(x <= 1073741823)]}-> N39]
+  nodes:    [N26, N27, N29, N30, N31, N32, N33, N34, N35, N36, N37, N38, N40, N42]
+:
+Termination argument consisting of:
+Ranking function f(main::y) = -3*main::y + 8589934586
+Supporting invariants [-3*main::z - 3*main::tx + 8589934585 > 0]
+Loop with heads [N26]
+  incoming: [line 14:	N23 -{while}-> N26]
+  outgoing: [line 14:	N26 -{[!(x >= y)]}-> N28, line 14:	N29 -{[!(x <= (tx + z))]}-> N28, line 19:	N37 -{[!(-1073741823 <= x)]}-> N39, line 19:	N40 -{[!(x <= 1073741823)]}-> N39]
+  nodes:    [N26, N27, N29, N30, N31, N32, N33, N34, N35, N36, N37, N38, N40, N42]
+:
+Termination argument consisting of:
+Ranking function 2-nested ranking function:
+  f0 = 3*main::z
+  f1 = 3*main::tx + 3*main::z - 3*main::y + 2
+Supporting invariants []
+Loop with heads [N26]
+  incoming: [line 14:	N23 -{while}-> N26]
+  outgoing: [line 14:	N26 -{[!(x >= y)]}-> N28, line 14:	N29 -{[!(x <= (tx + z))]}-> N28, line 19:	N37 -{[!(-1073741823 <= x)]}-> N39, line 19:	N40 -{[!(x <= 1073741823)]}-> N39]
+  nodes:    [N26, N27, N29, N30, N31, N32, N33, N34, N35, N36, N37, N38, N40, N42]
+:
+Termination argument consisting of:
+Ranking function 2-nested ranking function:
+  f0 = 1*main::z
+  f1 = 1*main::tx + 1*main::z - 1*main::y + 1
+Supporting invariants []
+

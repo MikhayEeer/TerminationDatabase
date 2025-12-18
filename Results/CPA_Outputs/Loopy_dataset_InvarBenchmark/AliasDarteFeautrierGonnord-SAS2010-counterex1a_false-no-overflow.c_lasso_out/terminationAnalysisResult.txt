@@ -1,0 +1,77 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::y) = 3*main::y + 2
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::b) = 3*main::y + 1*main::b
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::n) = -3*main::y + 3*main::n + 2
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = 1*main::x
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = 1*main::x
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = 1*main::x
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = 1*main::x
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::b) = -5*main::b + 3
+Supporting invariants []
+Loop with heads [N11]
+  incoming: [line 9:	N10 -{while}-> N11]
+  outgoing: [line 9:	N11 -{[!(x >= 0)]}-> N13, line 9:	N14 -{[!(y <= n)]}-> N13, line 9:	N15 -{[!(0 <= y)]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29, N30, N31]
+:
+Termination argument consisting of:
+Ranking function f(main::b) = -5*main::b + 3
+Supporting invariants []
+

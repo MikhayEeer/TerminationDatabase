@@ -1,0 +1,13 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N11]
+  incoming: [line 11:	N10 -{while}-> N11]
+  outgoing: [line 11:	N11 -{[!(w == ((x + y) + z))]}-> N13]
+  nodes:    [N11, N12, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23]
+:
+Termination argument consisting of:
+Ranking function f(main::c) = -1*main::c + 101
+Supporting invariants []
+

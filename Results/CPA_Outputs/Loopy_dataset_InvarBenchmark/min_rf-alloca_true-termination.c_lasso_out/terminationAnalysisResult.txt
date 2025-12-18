@@ -1,0 +1,29 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N8]
+  incoming: [line 10:	N7 -{while}-> N8]
+  outgoing: [line 10:	N8 -{[!(y > 0)]}-> N10, line 10:	N11 -{[!(x > 0)]}-> N10]
+  nodes:    [N8, N9, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27]
+:
+Termination argument consisting of:
+Ranking function f(main::x) = 1*main::x
+Supporting invariants []
+Loop with heads [N8]
+  incoming: [line 10:	N7 -{while}-> N8]
+  outgoing: [line 10:	N8 -{[!(y > 0)]}-> N10, line 10:	N11 -{[!(x > 0)]}-> N10]
+  nodes:    [N8, N9, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27]
+:
+Termination argument consisting of:
+Ranking function f(main::y) = 1*main::y
+Supporting invariants []
+Loop with heads [N8]
+  incoming: [line 10:	N7 -{while}-> N8]
+  outgoing: [line 10:	N8 -{[!(y > 0)]}-> N10, line 10:	N11 -{[!(x > 0)]}-> N10]
+  nodes:    [N8, N9, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27]
+:
+Termination argument consisting of:
+Ranking function f(main::y) = 1*main::y
+Supporting invariants []
+

@@ -1,0 +1,89 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function 2-nested ranking function:
+  f0 = -2*main::tmp2 + 1*main::b + 1*main::a + 1*main::y + 1*main::x
+  f1 = 1*main::x + 1
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function 2-nested ranking function:
+  f0 = 3*main::y + 3*main::x
+  f1 = 3*main::tmp2 - 3*main::a + 3*main::x + 4
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::b, main::a, main::tmp, main::y) = -1*main::b + 1*main::a - 1*main::tmp + 2*main::y
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::a, main::y) = -1*main::tmp2 + 1*main::a + 1*main::y + 1
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::a, main::y) = -3*main::tmp2 + 3*main::a + 3*main::y + 2
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::a, main::y) = -2*main::tmp2 + 2*main::a + 2*main::y + 1
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::b, main::tmp, main::y) = 1*main::tmp2 - 1*main::b - 1*main::tmp + 1*main::y
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::b, main::tmp, main::y) = 1*main::tmp2 - 1*main::b - 1*main::tmp + 1*main::y
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::a, main::y) = -3*main::tmp2 + 3*main::a + 3*main::y + 2
+Supporting invariants []
+Loop with heads [N13]
+  incoming: [line 11:	N12 -{while}-> N13]
+  outgoing: [line 11:	N16 -{[!(y >= 0)]}-> N15]
+  nodes:    [N13, N14, N16, N17, N18, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::tmp2, main::a, main::y) = -1*main::tmp2 + 1*main::a + 1*main::y + 1
+Supporting invariants []
+

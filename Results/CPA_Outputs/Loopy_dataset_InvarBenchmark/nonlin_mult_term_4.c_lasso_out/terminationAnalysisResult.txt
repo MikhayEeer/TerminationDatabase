@@ -1,0 +1,10 @@
+Non-termination arguments:
+Loop with heads [N15]
+  incoming: [line 13:	N12 -{while}-> N15]
+  outgoing: [line 13:	N15 -{[!(i >= j)]}-> N17]
+  nodes:    [N15, N16, N18, N19]
+:
+Non-Termination argument consisting of: Initial state: {(Integer_*_ |main::j| |main::b|)=1, (Integer_*_ |main::i| |main::d|)=1, main::d=0, main::b=0, main::j=0, main::i=0} Honda state: {(Integer_*_ |main::j| |main::b|)=1, (Integer_*_ |main::i| |main::d|)=1, main::d=0, main::b=2, main::j=1, main::i=1} Generalized eigenvectors: [{(Integer_*_ |main::j| |main::b|)=1, (Integer_*_ |main::i| |main::d|)=1, main::d=0, main::b=0, main::j=1, main::i=1}, {(Integer_*_ |main::j| |main::b|)=-1, (Integer_*_ |main::i| |main::d|)=-1, main::d=0, main::b=0, main::j=-1, main::i=-1}, {(Integer_*_ |main::j| |main::b|)=0, (Integer_*_ |main::i| |main::d|)=0, main::d=0, main::b=0, main::j=0, main::i=0}] Lambdas: [1, 0, 1] Nus: [1, 1]
+
+
+Termination arguments:

@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "f0adc45a-39d6-3cfd-becb-e91035eb3b93"
+    creation_time: "2025-12-17T18:51:39+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/Piecewise_true-no-overflow_true-termination_true-valid-memsafety.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/Piecewise_true-no-overflow_true-termination_true-valid-memsafety.c": "56c5b2ce6db430be5faebf0695a463583bc753498f0a9e4c655908da3a63efb8"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/Piecewise_true-no-overflow_true-termination_true-valid-memsafety.c"
+        line: 8
+        column: 3
+        function: "main"
+      value: "1*((__int128)\\at(i, AnyPrev)) > 1*((__int128)i) || 1*((__int128)\\at(j, AnyPrev)) > 1*((__int128)j)"
+      format: "ext_c_expression"

@@ -1,0 +1,61 @@
+Non-termination arguments:
+
+
+Termination arguments:
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::x) = 1*main::y + 1*main::x + 1073741824
+Supporting invariants [1*main::y + 1073741823 >= 0]
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::x) = 2147483651*main::y + 2147483651*main::x + 2305843018877370375
+Supporting invariants [1*main::y + 1073741825 >= 0]
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::x) = 2147483651*main::y + 2147483651*main::x + 2305843025319821335
+Supporting invariants [2147483651*main::y + 2305843023172337685 > 0]
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::x) = 536870913*main::y + 536870913*main::x + 576460759282745353
+Supporting invariants [536870913*main::y + 576460758209003528 > 0]
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::x) = 2147483651*main::y + 2147483651*main::x + 2305843040352206923
+Supporting invariants [1*main::y + 1073741835 >= 0]
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y) = 2147483651*main::y + 2147483650
+Supporting invariants []
+Loop with heads [N16]
+  incoming: [line 11:	N12 -{while}-> N16]
+  outgoing: [line 11:	N19 -{[!(y >= 0)]}-> N18]
+  nodes:    [N16, N17, N19, N20, N21, N22]
+:
+Termination argument consisting of:
+Ranking function f(main::y, main::x) = 2147483649*main::y + 2147483649*main::x + 2305843044647174188
+Supporting invariants [2147483649*main::y + 2305843042499690540 > 0]
+

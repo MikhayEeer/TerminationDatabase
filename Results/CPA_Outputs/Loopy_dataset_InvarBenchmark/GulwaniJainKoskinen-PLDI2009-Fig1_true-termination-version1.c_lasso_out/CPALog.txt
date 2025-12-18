@@ -1,0 +1,52 @@
+2025-12-17 18:18:00:439	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 180s
+
+2025-12-17 18:18:00:455	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+
+2025-12-17 18:18:00:462	INFO	CPAchecker.parse	Parsing CFA from file(s) "../EvolveTerm/data/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version1.c"
+
+2025-12-17 18:18:01:013	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+
+2025-12-17 18:18:01:072	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+
+2025-12-17 18:18:01:111	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+
+2025-12-17 18:18:01:125	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+ counterexample.checker.config
+ counterexample.checker 
+
+
+2025-12-17 18:18:01:125	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+
+2025-12-17 18:18:01:125	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+
+2025-12-17 18:20:55:868	WARNING	ForceTerminationOnShutdown$1.shutdownRequested	Shutdown requested (The CPU-time limit of 180s has elapsed.), waiting for termination.
+
+2025-12-17 18:21:05:869	WARNING	ForceTerminationOnShutdown.run	Shutdown was requested but CPAchecker is still running after 10s, forcing immediate termination now.
+
+2025-12-17 18:21:05:869	INFO	ForceTerminationOnShutdown.run	For your information: CPAchecker is currently hanging at
+ org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5NativeApi.msat_all_sat(Native Method)
+org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5NativeApi.msat_all_sat(Mathsat5NativeApi.java:145)
+org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5AbstractProver.allSat(Mathsat5AbstractProver.java:251)
+org.sosy_lab.cpachecker.util.predicates.smt.BasicProverEnvironmentView.allSat(BasicProverEnvironmentView.java:110)
+org.sosy_lab.cpachecker.cpa.predicate.PredicateAbstractionManager.computeBooleanAbstraction(PredicateAbstractionManager.java:1092)
+org.sosy_lab.cpachecker.cpa.predicate.PredicateAbstractionManager.computeAbstraction(PredicateAbstractionManager.java:868)
+org.sosy_lab.cpachecker.cpa.predicate.PredicateAbstractionManager.buildAbstraction(PredicateAbstractionManager.java:492)
+org.sosy_lab.cpachecker.cpa.predicate.PredicatePrecisionAdjustment.computeAbstraction(PredicatePrecisionAdjustment.java:189)
+org.sosy_lab.cpachecker.cpa.predicate.PredicatePrecisionAdjustment.prec(PredicatePrecisionAdjustment.java:100)
+org.sosy_lab.cpachecker.cpa.composite.CompositePrecisionAdjustment.prec(CompositePrecisionAdjustment.java:68)
+org.sosy_lab.cpachecker.cpa.termination.TerminationPrecisionAdjustment.prec(TerminationPrecisionAdjustment.java:40)
+org.sosy_lab.cpachecker.cpa.arg.ARGPrecisionAdjustment.prec(ARGPrecisionAdjustment.java:88)
+org.sosy_lab.cpachecker.cpa.arg.ARGPrecisionAdjustment.prec(ARGPrecisionAdjustment.java:58)
+org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:358)
+org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:291)
+org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:262)
+org.sosy_lab.cpachecker.core.algorithm.CEGARAlgorithm.run(CEGARAlgorithm.java:238)
+org.sosy_lab.cpachecker.core.algorithm.termination.TerminationAlgorithm.proveLoopTermination(TerminationAlgorithm.java:330)
+org.sosy_lab.cpachecker.core.algorithm.termination.TerminationAlgorithm.run0(TerminationAlgorithm.java:267)
+org.sosy_lab.cpachecker.core.algorithm.termination.TerminationAlgorithm.run(TerminationAlgorithm.java:232)
+org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:534)
+org.sosy_lab.cpachecker.core.CPAchecker.run0(CPAchecker.java:393)
+org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:302)
+org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:165) 
+
+

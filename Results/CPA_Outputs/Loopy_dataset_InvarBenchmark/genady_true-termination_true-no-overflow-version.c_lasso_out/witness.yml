@@ -1,0 +1,27 @@
+- entry_type: "invariant_set"
+  metadata:
+    format_version: "2.1"
+    uuid: "169972e7-3302-3d0b-944a-3988e9212efb"
+    creation_time: "2025-12-17T18:51:18+08:00"
+    producer:
+      name: "CPAchecker"
+      version: "4.2.2"
+      configuration: "lassoRankerAnalysis"
+    task:
+      input_files:
+      - "../EvolveTerm/data/aeval/c_bench_term/genady_true-termination_true-no-overflow-version.c"
+      input_file_hashes:
+        "../EvolveTerm/data/aeval/c_bench_term/genady_true-termination_true-no-overflow-version.c": "5614cf0b20b9fda817614d889eed9ed258a2b088663c2ffe15b7bd6bfe75b4f5"
+      specification: ""
+      data_model: "ILP32"
+      language: "C"
+  content:
+  - invariant:
+      type: "loop_transition_invariant"
+      location:
+        file_name: "../EvolveTerm/data/aeval/c_bench_term/genady_true-termination_true-no-overflow-version.c"
+        line: 5
+        column: 5
+        function: "main"
+      value: "1*((__int128)\\at(i, AnyPrev)) - 1*((__int128)\\at(j, AnyPrev)) > 1*((__int128)i) - 1*((__int128)j)"
+      format: "ext_c_expression"
