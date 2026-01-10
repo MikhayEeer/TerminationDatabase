@@ -1,0 +1,18 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var i: int;
+  var j: int;
+  j := 100;
+  i := 0;
+  while ((i < j))
+  {
+  if ((51 < j))
+  {
+    i := (i + 1);
+    j := (j - 1);  } else {
+    i := (i - 1);
+    j := (j + 1);  }
+  }
+
+}

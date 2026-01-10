@@ -25,12 +25,32 @@ from src_llm_rf_tpl.llm_strategy import run_full_pipeline_with_svm
 # 1. Initialize Interface
 interface = chat_interface()
 
+# Optional: choose provider (default: openrouter)
+# interface = chat_interface(provider="ali")  # uses src_llm_rf_tpl/llmconfig.json by default
+# Or via env:
+# export LLM_PROVIDER=ali
+# export LLM_CONFIG_PATH=/path/to/llmconfig.json
+
 # 2. Run Pipeline
 # Defaults to robust mode (Fixed Depth 4)
 run_full_pipeline_with_svm(interface, "path/to/your/program.bpl")
 
 # Or use inferred depth
 run_full_pipeline_with_svm(interface, "path/to/your/program.bpl", use_inference_depth=True)
+```
+
+## CLI
+
+Run from the repo root:
+
+```bash
+python3 src_llm_rf_tpl/run_pipeline.py path/to/your/program.bpl
+```
+
+Choose provider and config (optional):
+
+```bash
+python3 src_llm_rf_tpl/run_pipeline.py path/to/your/program.bpl --provider ali --config src_llm_rf_tpl/llmconfig.json
 ```
 
 ## Environment Setup

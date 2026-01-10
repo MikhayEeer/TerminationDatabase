@@ -1,0 +1,18 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var a: int;
+  var b: int;
+  var c: int;
+  var r: int;
+  a := __VERIFIER_nondet_int();
+  b := __VERIFIER_nondet_int();
+  c := __VERIFIER_nondet_int();
+  while ((((b - c) >= 1) && (a == c)))
+  {
+  r := __VERIFIER_nondet_int();
+  b := 10;
+  c := ((c + 1) + r);
+  a := c;  }
+
+}

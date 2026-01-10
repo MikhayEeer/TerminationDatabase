@@ -1,0 +1,20 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var i: int;
+  var range: int;
+  i := __VERIFIER_nondet_int();
+  range := 20;
+  while (((0 <= i) && (i <= range)))
+  {
+  if (!(((0 == i) && (i == range))))
+  {
+    if ((i == range))
+    {
+      i := 0;
+      range := (range - 1);    } else {
+      i := (i + 1);    }
+  }
+  }
+
+}

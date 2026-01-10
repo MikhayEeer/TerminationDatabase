@@ -1,0 +1,15 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var x: int;
+  var y: int;
+  var n: int;
+  x := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  n := __VERIFIER_nondet_int();
+  while ((((x + y) >= 0) && (x <= n)))
+  {
+  x := ((2 * x) + y);
+  y := y + 1;  }
+
+}

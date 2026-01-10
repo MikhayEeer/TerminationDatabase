@@ -1,0 +1,15 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var a: int;
+  var b: int;
+  var olda: int;
+  a := __VERIFIER_nondet_int();
+  b := __VERIFIER_nondet_int();
+  while ((a >= 7))
+  {
+  olda := a;
+  a := b;
+  b := (olda + 1);  }
+
+}

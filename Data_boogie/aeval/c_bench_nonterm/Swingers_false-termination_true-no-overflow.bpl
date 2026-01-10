@@ -1,0 +1,15 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var bob: int;
+  var samantha: int;
+  var temp: int;
+  bob := 13;
+  samantha := 17;
+  while (((bob + samantha) < 100))
+  {
+  temp := bob;
+  bob := samantha;
+  samantha := temp;  }
+
+}

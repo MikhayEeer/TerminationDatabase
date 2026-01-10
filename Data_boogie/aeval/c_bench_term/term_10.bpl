@@ -1,0 +1,29 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var K: int;
+  var x: int;
+  var y: int;
+  K := __VERIFIER_nondet_int();
+  x := __VERIFIER_nondet_int();
+  y := __VERIFIER_nondet_int();
+  while ((y != K))
+  {
+  if ((x > K))
+  {
+    x := (x - 1);  } else {
+    if ((x < K))
+    {
+      x := (x + 1);    }
+  }
+
+  if ((y > x))
+  {
+    y := (y - 1);  } else {
+    if ((y < x))
+    {
+      y := (y + 1);    }
+  }
+  }
+
+}

@@ -1,0 +1,14 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var a: int;
+  var b: int;
+  a := 1;
+  b := 2;
+  while (((a + b) < 5))
+  {
+  a := (a - b);
+  b := (a + b);
+  a := (b - a);  }
+
+}

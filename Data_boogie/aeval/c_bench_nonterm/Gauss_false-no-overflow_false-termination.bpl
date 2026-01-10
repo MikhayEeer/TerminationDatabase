@@ -1,0 +1,13 @@
+function __VERIFIER_nondet_int() returns (int);
+procedure main()
+{
+  var n: int;
+  var sum: int;
+  n := __VERIFIER_nondet_int();
+  sum := 0;
+  while ((n != 0))
+  {
+  sum := (sum + n);
+  n := (n - 1);  }
+
+}
