@@ -1,29 +1,29 @@
-2025-12-17 18:29:25:299	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 180s
+2026-01-20 19:18:07:850	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
 
-2025-12-17 18:29:25:315	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+2026-01-20 19:18:07:866	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
 
-2025-12-17 18:29:25:321	INFO	CPAchecker.parse	Parsing CFA from file(s) "../EvolveTerm/data/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version2.c"
+2026-01-20 19:18:07:872	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version2.c"
 
-2025-12-17 18:29:25:888	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+2026-01-20 19:18:08:414	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
 
-2025-12-17 18:29:25:947	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+2026-01-20 19:18:08:474	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
 
-2025-12-17 18:29:25:991	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+2026-01-20 19:18:08:515	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
 
-2025-12-17 18:29:26:006	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+2026-01-20 19:18:08:529	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
  counterexample.checker.config
  counterexample.checker 
 
 
-2025-12-17 18:29:26:007	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+2026-01-20 19:18:08:529	INFO	CPAchecker.runAlgorithm	Starting analysis ...
 
-2025-12-17 18:29:26:007	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+2026-01-20 19:18:08:530	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
 
-2025-12-17 18:32:20:751	WARNING	ForceTerminationOnShutdown$1.shutdownRequested	Shutdown requested (The CPU-time limit of 180s has elapsed.), waiting for termination.
+2026-01-20 19:23:03:527	WARNING	ForceTerminationOnShutdown$1.shutdownRequested	Shutdown requested (The CPU-time limit of 300s has elapsed.), waiting for termination.
 
-2025-12-17 18:32:30:752	WARNING	ForceTerminationOnShutdown.run	Shutdown was requested but CPAchecker is still running after 10s, forcing immediate termination now.
+2026-01-20 19:23:13:529	WARNING	ForceTerminationOnShutdown.run	Shutdown was requested but CPAchecker is still running after 10s, forcing immediate termination now.
 
-2025-12-17 18:32:30:752	INFO	ForceTerminationOnShutdown.run	For your information: CPAchecker is currently hanging at
+2026-01-20 19:23:13:529	INFO	ForceTerminationOnShutdown.run	For your information: CPAchecker is currently hanging at
  org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5NativeApi.msat_all_sat(Native Method)
 org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5NativeApi.msat_all_sat(Mathsat5NativeApi.java:145)
 org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5AbstractProver.allSat(Mathsat5AbstractProver.java:251)

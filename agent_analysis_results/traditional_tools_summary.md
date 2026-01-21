@@ -1,0 +1,61 @@
+**传统工具结果汇总**
+- 数据源: `Results/Archived/2ls_TPDB_merge.csv`, `Results/Archived/2ls_SVComp_merge_dedup.csv`
+- 2ls TPDB: rows=828
+- 2ls TPDB result_2ls_TPDB_copy1: Maybe=396，YES=248，Failed=151，TIMEOUT=33
+- 2ls TPDB result_2ls_TPDB_copy2: Maybe=396，YES=248，Failed=151，TIMEOUT=33
+- 2ls TPDB result_2ls_TPDB_copy3: Maybe=396，YES=248，Failed=151，TIMEOUT=33
+- 2ls TPDB consistency: True=828
+- 2ls SVComp: rows=2540
+- 2ls SVComp result_2ls_SVComp_copy1: Maybe=1195，Failed=897，YES=257，TIMEOUT=191
+- 2ls SVComp result_2ls_SVComp_copy3-2: Maybe=1119，Failed=819，TIMEOUT=357，YES=245
+- 2ls SVComp consistency: True=2343，False=197
+- 数据源: `Results/Archived/irank_ALL_simpleArgs.csv`, `Results/Archived/irank_ALL_complexArgs.csv`, `Results/Archived/irank_TPDB-Certain_complexArgs.csv`
+- iRankFinder ALL_simpleArgs: rows=3368
+- iRankFinder ALL_simpleArgs result: ERROR=2036，MAYBE=993，YES=339
+- iRankFinder ALL_simpleArgs execution_time: count=3368，mean=26.948，median=1.336，min=0.002，max=120.000
+- iRankFinder ALL_complexArgs: rows=3368
+- iRankFinder ALL_complexArgs result: ERROR=2471，YES=630，NO=160，MAYBE=107
+- iRankFinder ALL_complexArgs execution_time: count=3368，mean=35.803，median=1.276，min=0.002，max=120.000
+- iRankFinder TPDB-Certain_complexArgs: rows=578
+- iRankFinder TPDB-Certain_complexArgs result: ERROR=228，YES=213，NO=92，MAYBE=45
+- iRankFinder TPDB-Certain_complexArgs execution_time: count=578，mean=19.642，median=1.568，min=0.318，max=300.000
+- 数据源: `Results/TPDB_Certain_Benchmarks_Correct.csv`, `Results/Archived/CPA_TPDB_Certain_lasso+general.csv`, `Results/Archived/CPA_TPDB_Certain_lasso+general_cp2.csv`, `Results/CPA_aeval_lasso_1217.csv`, `Results/CPA_Outputs/CPA_loopy_lasso+general_1211.csv`
+- CPA TPDB_Certain(聚合): rows=578
+- CPA TPDB_Certain CPA-lasso_result: MAYBE=288，YES=177，NO=99，FAILED=7，TIMEOUT=7
+- CPA TPDB_Certain CPA-general_result: MAYBE=333，YES=164，FAILED=67，TIMEOUT=14
+- CPA TPDB_Certain CPA-lasso_time: count=578，mean=16.288，median=2.970，min=1.500，max=300.180
+- CPA TPDB_Certain CPA-general_time: count=578，mean=63.662，median=3.920，min=1.400，max=300.170
+- CPA TPDB_Certain_lasso+general: rows=578
+- CPA TPDB_Certain_lasso+general result_lasso: MAYBE=292，YES=175，NO=96，TIMEOUT=10，ERROR=5
+- CPA TPDB_Certain_lasso+general result_general: MAYBE=339，YES=160，ERROR=61，TIMEOUT=18
+- CPA TPDB_Certain_lasso+general_cp2: rows=578
+- CPA TPDB_Certain_lasso+general_cp2 result_lasso: MAYBE=288，YES=177，NO=99，ERROR=7，TIMEOUT=7
+- CPA TPDB_Certain_lasso+general_cp2 result_general: MAYBE=333，YES=164，ERROR=67，TIMEOUT=14
+- CPA aeval: rows=347
+- CPA aeval result_lasso: NO=125，MAYBE=116，YES=93，FAILED=8，TIMEOUT=5
+- CPA aeval result_general: (blank)=347
+- CPA aeval cost_time_lasso: count=347，mean=16.140，median=1.630，min=0.560，max=190.150
+- CPA aeval cost_time_general: count=347，mean=0.000，median=0.000，min=0.000，max=0.000
+- CPA Loopy(lasso+general): rows=950
+- CPA Loopy result_lasso: YES=449，MAYBE=373，NO=116，FAILED=8，TIMEOUT=4
+- CPA Loopy result_general: YES=455，MAYBE=358，NO=136，FAILED=1
+- CPA Loopy cost_time_lasso: count=950，mean=17.034，median=1.630，min=1.160，max=310.120
+- CPA Loopy cost_time_general: count=950，mean=88.533，median=2.000，min=1.250，max=303.350
+- 数据源: `Experiments/LLM_Pipeline_Exp/Pipeline_parsed_results.csv`, `Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv`
+- SVMRanker pipeline: rows=226
+- SVMRanker pipeline terminating: UNKNOWN=91，TERMINATE=78，NONTERM=51，(blank)=6
+- SVMRanker pipeline svmranker_time: count=226，mean=3.556，median=0.918，min=0.767，max=300.015
+- SVMRanker pipeline llm_run_time: count=226，mean=11.533，median=8.481，min=5.570，max=307.080
+- SVMRanker compare(pipe vs svm): rows=226
+- SVMRanker compare pipe_terminating: UNKNOWN=91，TERMINATE=78，NONTERM=51，(blank)=6
+- SVMRanker compare svmrank_terminating: TERMINATE=85，UNKNOWN=83，NONTERM=52，error=4，unknown=2
+- SVMRanker compare pipe_svmranker_time: count=226，mean=3.556，median=0.918，min=0.767，max=300.015
+- SVMRanker compare svmrank_time: count=226，mean=10.692，median=1.570，min=0.716，max=300.014
+- SVMRanker compare pipe_llm_run_time: count=226，mean=11.533，median=8.481，min=5.570，max=307.080
+- SVMRanker compare pipe_time: count=226，mean=15.089，median=9.538，min=6.465，max=607.095
+- 需确认: `Experiments/LLM_Results/TPDB_Certain_ALLResults.csv` 同时包含 LLM 结果和 2ls/irank 结果，是否纳入传统工具统计?
+- 需确认: `Results/Plots/*.png` 是否需要纳入结果索引/总结?
+- 生成文件:
+- `agent_analysis_results/traditional_tools_artifacts.csv`
+- `agent_analysis_results/traditional_tools_result_counts.csv`
+- `agent_analysis_results/traditional_tools_summary.md`

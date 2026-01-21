@@ -1,0 +1,65 @@
+tool,source_file,dataset,rows,metric_type,metric_name,metric_value
+2ls,Results/Archived/2ls_SVComp_copy1.csv,SVComp,2540,result_counts,result,Maybe=1195; Failed=897; YES=257; TIMEOUT=191
+2ls,Results/Archived/2ls_SVComp_copy1.csv,SVComp,2540,time_stats,time_taken,"count=2540,mean=25.964,median=0.550,min=0.030,max=304.740"
+2ls,Results/Archived/2ls_SVComp_copy3-2.csv,SVComp,2899,result_counts,result,Maybe=1150; Failed=1123; TIMEOUT=378; YES=248
+2ls,Results/Archived/2ls_SVComp_copy3-2.csv,SVComp,2899,time_stats,time_taken,"count=2899,mean=101.727,median=1.240,min=0.010,max=4653.880"
+2ls,Results/Archived/2ls_SVComp_merge.csv,SVComp,3369,result_counts,result_2ls_SVComp_copy1,Maybe=1195; Failed=897; (blank)=829; YES=257; TIMEOUT=191
+2ls,Results/Archived/2ls_SVComp_merge.csv,SVComp,3369,result_counts,result_2ls_SVComp_copy3-2,Maybe=1150; Failed=1123; (blank)=470; TIMEOUT=378; YES=248
+2ls,Results/Archived/2ls_SVComp_merge.csv,SVComp,3369,time_stats,time_taken_2ls_SVComp_copy1,"count=2540,mean=25.964,median=0.550,min=0.030,max=304.740"
+2ls,Results/Archived/2ls_SVComp_merge.csv,SVComp,3369,time_stats,time_taken_2ls_SVComp_copy3-2,"count=2899,mean=101.727,median=1.240,min=0.010,max=4653.880"
+2ls,Results/Archived/2ls_SVComp_merge_dedup.csv,SVComp,2540,result_counts,result_2ls_SVComp_copy1,Maybe=1195; Failed=897; YES=257; TIMEOUT=191
+2ls,Results/Archived/2ls_SVComp_merge_dedup.csv,SVComp,2540,result_counts,result_2ls_SVComp_copy3-2,Maybe=1119; Failed=819; TIMEOUT=357; YES=245
+2ls,Results/Archived/2ls_SVComp_merge_dedup.csv,SVComp,2540,time_stats,time_taken_2ls_SVComp_copy1,"count=2540,mean=25.964,median=0.550,min=0.030,max=304.740"
+2ls,Results/Archived/2ls_SVComp_merge_dedup.csv,SVComp,2540,time_stats,time_taken_2ls_SVComp_copy3-2,"count=2540,mean=88.217,median=1.190,min=0.010,max=3344.910"
+2ls,Results/Archived/2ls_TPDB_copy1.csv,TPDB,828,result_counts,result,Maybe=396; YES=248; Failed=151; TIMEOUT=33
+2ls,Results/Archived/2ls_TPDB_copy1.csv,TPDB,828,time_stats,time_taken,"count=828,mean=15.132,median=0.300,min=0.040,max=300.680"
+2ls,Results/Archived/2ls_TPDB_copy2.csv,TPDB,828,result_counts,result,Maybe=396; YES=248; Failed=151; TIMEOUT=33
+2ls,Results/Archived/2ls_TPDB_copy2.csv,TPDB,828,time_stats,time_taken,"count=828,mean=15.123,median=0.285,min=0.050,max=300.660"
+2ls,Results/Archived/2ls_TPDB_copy3.csv,TPDB,828,result_counts,result,Maybe=396; YES=248; Failed=151; TIMEOUT=33
+2ls,Results/Archived/2ls_TPDB_copy3.csv,TPDB,828,time_stats,time_taken,"count=828,mean=15.149,median=0.300,min=0.050,max=300.640"
+2ls,Results/Archived/2ls_TPDB_merge.csv,TPDB,828,result_counts,result_2ls_TPDB_copy1,Maybe=396; YES=248; Failed=151; TIMEOUT=33
+2ls,Results/Archived/2ls_TPDB_merge.csv,TPDB,828,result_counts,result_2ls_TPDB_copy2,Maybe=396; YES=248; Failed=151; TIMEOUT=33
+2ls,Results/Archived/2ls_TPDB_merge.csv,TPDB,828,result_counts,result_2ls_TPDB_copy3,Maybe=396; YES=248; Failed=151; TIMEOUT=33
+2ls,Results/Archived/2ls_TPDB_merge.csv,TPDB,828,time_stats,time_taken_2ls_TPDB_copy1,"count=828,mean=15.132,median=0.300,min=0.040,max=300.680"
+2ls,Results/Archived/2ls_TPDB_merge.csv,TPDB,828,time_stats,time_taken_2ls_TPDB_copy2,"count=828,mean=15.123,median=0.285,min=0.050,max=300.660"
+2ls,Results/Archived/2ls_TPDB_merge.csv,TPDB,828,time_stats,time_taken_2ls_TPDB_copy3,"count=828,mean=15.149,median=0.300,min=0.050,max=300.640"
+irankfinder,Results/Archived/irank_ALL_complexArgs.csv,ALL,3368,result_counts,result,ERROR=2471; YES=630; NO=160; MAYBE=107
+irankfinder,Results/Archived/irank_ALL_complexArgs.csv,ALL,3368,time_stats,execution_time,"count=3368,mean=35.803,median=1.276,min=0.002,max=120.000"
+irankfinder,Results/Archived/irank_ALL_simpleArgs.csv,ALL,3368,result_counts,result,ERROR=2036; MAYBE=993; YES=339
+irankfinder,Results/Archived/irank_ALL_simpleArgs.csv,ALL,3368,time_stats,execution_time,"count=3368,mean=26.948,median=1.336,min=0.002,max=120.000"
+irankfinder,Results/Archived/irank_TPDB-Certain_complexArgs.csv,TPDB,578,result_counts,result,ERROR=228; YES=213; NO=92; MAYBE=45
+irankfinder,Results/Archived/irank_TPDB-Certain_complexArgs.csv,TPDB,578,time_stats,execution_time,"count=578,mean=19.642,median=1.568,min=0.318,max=300.000"
+aggregate,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,result_counts,result_2ls,MAYBE=261; YES=175; FAILED=142
+aggregate,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,result_counts,irank_result,FAILED=228; YES=213; NO=92; MAYBE=45
+CPAChecker,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,result_counts,CPA-lasso_result,MAYBE=288; YES=177; NO=99; FAILED=7; TIMEOUT=7
+CPAChecker,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,result_counts,CPA-general_result,MAYBE=333; YES=164; FAILED=67; TIMEOUT=14
+aggregate,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,time_stats,2ls_time,"count=578,mean=10.979,median=0.250,min=0.040,max=300.680"
+aggregate,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,time_stats,irank_time,"count=578,mean=19.642,median=1.568,min=0.318,max=300.000"
+CPAChecker,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,time_stats,CPA-lasso_time,"count=578,mean=16.288,median=2.970,min=1.500,max=300.180"
+CPAChecker,Results/TPDB_Certain_Benchmarks_Correct.csv,TPDB_Certain,578,time_stats,CPA-general_time,"count=578,mean=63.662,median=3.920,min=1.400,max=300.170"
+CPAChecker,Results/Archived/CPA_TPDB_Certain_lasso+general.csv,TPDB_Certain,578,result_counts,result_lasso,MAYBE=292; YES=175; NO=96; TIMEOUT=10; ERROR=5
+CPAChecker,Results/Archived/CPA_TPDB_Certain_lasso+general.csv,TPDB_Certain,578,result_counts,result_general,MAYBE=339; YES=160; ERROR=61; TIMEOUT=18
+CPAChecker,Results/Archived/CPA_TPDB_Certain_lasso+general_cp2.csv,TPDB_Certain,578,result_counts,result_lasso,MAYBE=288; YES=177; NO=99; ERROR=7; TIMEOUT=7
+CPAChecker,Results/Archived/CPA_TPDB_Certain_lasso+general_cp2.csv,TPDB_Certain,578,result_counts,result_general,MAYBE=333; YES=164; ERROR=67; TIMEOUT=14
+CPAChecker,Results/CPA_aeval_lasso_1217.csv,aeval,347,result_counts,result_lasso,NO=125; MAYBE=116; YES=93; FAILED=8; TIMEOUT=5
+CPAChecker,Results/CPA_aeval_lasso_1217.csv,aeval,347,result_counts,result_general,(blank)=347
+CPAChecker,Results/CPA_aeval_lasso_1217.csv,aeval,347,time_stats,cost_time_lasso,"count=347,mean=16.140,median=1.630,min=0.560,max=190.150"
+CPAChecker,Results/CPA_aeval_lasso_1217.csv,aeval,347,time_stats,cost_time_general,"count=347,mean=0.000,median=0.000,min=0.000,max=0.000"
+CPAChecker,Results/CPA_Outputs/CPA_loopy_lasso+general_1211.csv,Loopy,950,result_counts,result_lasso,YES=449; MAYBE=373; NO=116; FAILED=8; TIMEOUT=4
+CPAChecker,Results/CPA_Outputs/CPA_loopy_lasso+general_1211.csv,Loopy,950,result_counts,result_general,YES=455; MAYBE=358; NO=136; FAILED=1
+CPAChecker,Results/CPA_Outputs/CPA_loopy_lasso+general_1211.csv,Loopy,950,time_stats,cost_time_lasso,"count=950,mean=17.034,median=1.630,min=1.160,max=310.120"
+CPAChecker,Results/CPA_Outputs/CPA_loopy_lasso+general_1211.csv,Loopy,950,time_stats,cost_time_general,"count=950,mean=88.533,median=2.000,min=1.250,max=303.350"
+CPAChecker,Results/CPA_Outputs/Loopy_CPA-Lasso_terminating.csv,Loopy,353,result_counts,verification_result,TRUE=353
+CPAChecker,Results/CPA_Outputs/Loopy_CPA-Lasso_unknown.csv,Loopy,354,result_counts,verification_result,UNKNOWN=354
+CPAChecker,Results/CPA_Outputs/Loopy_CPA-Lasso_with_invariants.csv,Loopy,154,result_counts,verification_result,TRUE=80; UNKNOWN=50; FALSE=24
+CPAChecker,Results/CPA_Outputs/Loopy_CPA-all_summary_sample_updated.csv,Loopy,1644,result_counts,verification_result,TRUE=714; UNKNOWN=694; FALSE=226; (blank)=10
+CPAChecker,Results/CPA_Outputs/Loopy_summary_sample.csv,Loopy,1644,result_counts,verification_result,TRUE=714; UNKNOWN=694; FALSE=226; (blank)=10
+SVMRanker,Experiments/LLM_Pipeline_Exp/Pipeline_parsed_results.csv,LLM_Pipeline_Exp,226,result_counts,terminating,UNKNOWN=91; TERMINATE=78; NONTERM=51; (blank)=6
+SVMRanker,Experiments/LLM_Pipeline_Exp/Pipeline_parsed_results.csv,LLM_Pipeline_Exp,226,time_stats,svmranker_time,"count=226,mean=3.556,median=0.918,min=0.767,max=300.015"
+SVMRanker,Experiments/LLM_Pipeline_Exp/Pipeline_parsed_results.csv,LLM_Pipeline_Exp,226,time_stats,llm_run_time,"count=226,mean=11.533,median=8.481,min=5.570,max=307.080"
+SVMRanker,Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv,LLM_Pipeline_Exp,226,result_counts,pipe_terminating,UNKNOWN=91; TERMINATE=78; NONTERM=51; (blank)=6
+SVMRanker,Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv,LLM_Pipeline_Exp,226,result_counts,svmrank_terminating,TERMINATE=85; UNKNOWN=83; NONTERM=52; error=4; unknown=2
+SVMRanker,Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv,LLM_Pipeline_Exp,226,time_stats,pipe_svmranker_time,"count=226,mean=3.556,median=0.918,min=0.767,max=300.015"
+SVMRanker,Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv,LLM_Pipeline_Exp,226,time_stats,svmrank_time,"count=226,mean=10.692,median=1.570,min=0.716,max=300.014"
+SVMRanker,Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv,LLM_Pipeline_Exp,226,time_stats,pipe_llm_run_time,"count=226,mean=11.533,median=8.481,min=5.570,max=307.080"
+SVMRanker,Experiments/LLM_Pipeline_Exp/Compare_pipe&svm.csv,LLM_Pipeline_Exp,226,time_stats,pipe_time,"count=226,mean=15.089,median=9.538,min=6.465,max=607.095"

@@ -185,7 +185,7 @@ Loop with heads [N77]
 :
 Termination argument consisting of:
 Ranking function f(main::__CPAchecker_TMP_1, main::c, a20) = 17*main::__CPAchecker_TMP_1 - 17*main::c + 3*a20
-Supporting invariants [1*a8 > 0, 1*a20 - 1 >= 0]
+Supporting invariants [1*a20 - 1 >= 0, 1*a8 > 0]
 Loop with heads [N77]
   incoming: [line 48:	N76 -{while}-> N77]
   outgoing: [line 48:	N77 -{[!(c < limit)]}-> N79, line 52:	N84 -{[input != 6]}-> N83]

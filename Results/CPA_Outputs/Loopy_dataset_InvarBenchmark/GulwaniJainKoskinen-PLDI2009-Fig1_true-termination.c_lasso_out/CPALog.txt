@@ -1,35 +1,35 @@
-2025-12-17 18:11:31:503	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 180s
+2026-01-20 18:50:15:386	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
 
-2025-12-17 18:11:31:520	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+2026-01-20 18:50:15:403	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
 
-2025-12-17 18:11:31:526	INFO	CPAchecker.parse	Parsing CFA from file(s) "../EvolveTerm/data/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination.c"
+2026-01-20 18:50:15:409	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination.c"
 
-2025-12-17 18:11:32:069	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+2026-01-20 18:50:15:969	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
 
-2025-12-17 18:11:32:127	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+2026-01-20 18:50:16:029	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
 
-2025-12-17 18:11:32:168	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+2026-01-20 18:50:16:070	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
 
-2025-12-17 18:11:32:183	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+2026-01-20 18:50:16:084	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
  counterexample.checker.config
  counterexample.checker 
 
 
-2025-12-17 18:11:32:183	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+2026-01-20 18:50:16:084	INFO	CPAchecker.runAlgorithm	Starting analysis ...
 
-2025-12-17 18:11:32:183	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+2026-01-20 18:50:16:085	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
 
-2025-12-17 18:11:32:763	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
+2026-01-20 18:50:16:684	WARNING	TerminationAlgorithm.proveLoopTermination	Could not synthesize a termination or non-termination argument.
 
-2025-12-17 18:14:27:949	WARNING	ForceTerminationOnShutdown$1.shutdownRequested	Shutdown requested (The CPU-time limit of 180s has elapsed.), waiting for termination.
+2026-01-20 18:55:11:312	WARNING	ForceTerminationOnShutdown$1.shutdownRequested	Shutdown requested (The CPU-time limit of 300s has elapsed.), waiting for termination.
 
-2025-12-17 18:14:27:972	INFO	MonitoredProcess:LassoRankerLogger.warn	[MP /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/lib/native/x86_64-linux/z3 -smt2 -in SMTLIB2_COMPLIANT=true (3)] Timeout while monitored process is still running, waiting 1000 ms for graceful end
+2026-01-20 18:55:11:329	INFO	MonitoredProcess:LassoRankerLogger.warn	[MP /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/lib/native/x86_64-linux/z3 -smt2 -in SMTLIB2_COMPLIANT=true (10)] Timeout while monitored process is still running, waiting 1000 ms for graceful end
 
-2025-12-17 18:14:27:991	INFO	MonitoredProcess:LassoRankerLogger.warn	[MP /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/lib/native/x86_64-linux/z3 -smt2 -in SMTLIB2_COMPLIANT=true (10)] Timeout while monitored process is still running, waiting 1000 ms for graceful end
+2026-01-20 18:55:11:353	INFO	MonitoredProcess:LassoRankerLogger.warn	[MP /home/clexma/Desktop/fox3/TermDB/CPAchecker-4.2.2-unix/lib/native/x86_64-linux/z3 -smt2 -in SMTLIB2_COMPLIANT=true (3)] Timeout while monitored process is still running, waiting 1000 ms for graceful end
 
-2025-12-17 18:14:37:949	WARNING	ForceTerminationOnShutdown.run	Shutdown was requested but CPAchecker is still running after 10s, forcing immediate termination now.
+2026-01-20 18:55:21:313	WARNING	ForceTerminationOnShutdown.run	Shutdown was requested but CPAchecker is still running after 10s, forcing immediate termination now.
 
-2025-12-17 18:14:37:950	INFO	ForceTerminationOnShutdown.run	For your information: CPAchecker is currently hanging at
+2026-01-20 18:55:21:314	INFO	ForceTerminationOnShutdown.run	For your information: CPAchecker is currently hanging at
  org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5NativeApi.msat_all_sat(Native Method)
 org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5NativeApi.msat_all_sat(Mathsat5NativeApi.java:145)
 org.sosy_lab.java_smt.solvers.mathsat5.Mathsat5AbstractProver.allSat(Mathsat5AbstractProver.java:251)

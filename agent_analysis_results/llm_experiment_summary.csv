@@ -1,0 +1,23 @@
+experiment_type,dataset,model,total_samples,expected_samples,missing_samples,stable_samples,unstable_samples,consistent_samples,match_samples,match_rate,match_samples_stable,match_rate_stable,correct_final_samples,correct_rate,fully_correct_samples,safe_samples,unsafe_samples,max_safe_samples,max_unsafe_samples,llm_yes_samples,llm_no_samples,ref_yes_samples,ref_no_samples,avg_time_per_call,avg_total_time,status_counts,kind_counts,notes
+termination,TPDB_Certain,chatgpt4o,578,,,510,68,,428,0.7405,413,0.8098,,,,,,,,371,207,429,149,2.8573,5.7146,,,
+termination,TPDB_Certain,o4mini,578,,,566,12,,554,0.9585,551,0.9735,,,,,,,,431,147,429,149,18.3749,36.7497,,,
+termination,TPDB_Certain,claude3.7,578,,,552,26,,526,0.91,513,0.9293,,,,,,,,439,139,429,149,6.8354,13.6708,,,
+termination,TPDB_Certain,deepseekr1,274,,,234,40,,227,0.8285,227,0.9701,,,,,,,,227,47,274,0,205.1704,410.3407,,,
+phase,Nested,gpt4o,79,81,2,,,,,,,,,,26,67,12,74,5,,,,,0.8966,2.6899,,,
+phase,Nested,o4mini,79,81,2,,,,,,,,,,54,68,11,75,4,,,,,23.4276,70.2828,,,
+phase,Nested,claude3.7,79,81,2,,,,,,,,,,31,61,18,70,9,,,,,2.0604,6.1813,,,
+phase,Multi,gpt4o,85,85,0,,,,,,,,,,32,74,11,80,5,,,,,1.7053,5.1158,,,
+phase,Multi,o4mini,85,85,0,,,,,,,,,,52,69,16,81,4,,,,,30.4401,91.3204,,,
+phase,Multi,claude3.7,85,85,0,,,,,,,,,,39,66,19,80,5,,,,,2.6838,8.0514,,,
+phase,Nested_rem,gpt4o,34,36,2,,,,,,,,,,18,30,4,33,1,,,,,0.8575,2.5726,,,
+phase,Nested_rem,o4mini,34,36,2,,,,,,,,,,30,32,2,34,0,,,,,18.7025,56.1074,,,
+phase,Nested_rem,claude3.7,34,36,2,,,,,,,,,,18,24,10,30,4,,,,,1.9648,5.8944,,,
+termtype,LLM_Termtype_main,o4mini,90,,0,,,65,,,,,71,0.7889,,,,,,,,,,18.9173,56.752,TERM:90,Multi:13;Nested:5;Other:10;Single:62,prefix treated as distinct samples
+termtype,LLM_Termtype_main,gpt4o,90,,0,,,42,,,,,37,0.4111,,,,,,,,,,1.1101,3.3302,NONTERM:43;TERM:47,MONO:16;Multi:3;Nested:6;OTHER:8;Other:1;RECUR:19;Single:37,prefix treated as distinct samples
+termtype,LLM_Termtype_main,claude3.7,90,,0,,,66,,,,,62,0.6889,,,,,,,,,,6.1699,18.5097,NONTERM:11;TERM:79,MONO:8;Multi:2;Nested:5;Other:5;RECUR:3;Single:67,prefix treated as distinct samples
+termtype,TERM86_direct,claude37,86,86,,,,55,,,,,76,0.8837,,,,,,,,,,1.7978,,TERM:86,Multi:19;Nested:9;Single:58,
+termtype,TERM86_direct,gpt4o,86,86,,,,72,,,,,67,0.7791,,,,,,,,,,0.9112,,TERM:86,Multi:9;Nested:4;Other:1;Single:72,
+termtype,TERM86_direct,o1mini,86,86,,,,57,,,,,71,0.8256,,,,,,,,,,58.7083,,TERM:85,Multi:10;Nested:12;Other:10;Single:53,
+termtype,TERM86_fewshot,o1mini,86,86,,,,64,,,,,70,0.814,,,,,,,,,,31.9693,,TERM:85,Multi:19;Nested:4;Other:14;Single:48,
+termtype,TERM86_fewshot,claude37,86,86,,,,52,,,,,77,0.8953,,,,,,,,,,1.7974,,TERM:86,Multi:11;Nested:27;Other:4;Single:44,
+termtype,TERM86_fewshot,gpt4o,86,86,,,,45,,,,,70,0.814,,,,,,,,,,0.9064,,TERM:86,Multi:8;Nested:26;Other:8;Single:44,

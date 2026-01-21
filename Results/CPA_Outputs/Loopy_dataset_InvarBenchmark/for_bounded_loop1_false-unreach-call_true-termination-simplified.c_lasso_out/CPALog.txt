@@ -1,27 +1,27 @@
-2025-12-17 18:08:26:241	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 180s
+2026-01-20 18:45:10:065	INFO	ResourceLimitChecker.fromConfiguration	Using the following resource limits: CPU-time limit of 300s
 
-2025-12-17 18:08:26:258	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
+2026-01-20 18:45:10:082	INFO	CPAchecker.run	CPAchecker 4.2.2 / lassoRankerAnalysis (OpenJDK 64-Bit Server VM 21.0.9) started
 
-2025-12-17 18:08:26:264	INFO	CPAchecker.parse	Parsing CFA from file(s) "../EvolveTerm/data/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.c"
+2026-01-20 18:45:10:088	INFO	CPAchecker.parse	Parsing CFA from file(s) "Datasets/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.c"
 
-2025-12-17 18:08:26:819	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
+2026-01-20 18:45:10:650	INFO	PredicateCPA:PredicateCPA.<init>	Using predicate analysis with MathSAT5 version 5.6.11 (1a1154baf0ab) (Aug  9 2024 08:45:22, gmp 6.2.0, gcc 7.5.0, 64-bit, reentrant) and JFactory 1.21.
 
-2025-12-17 18:08:26:886	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
+2026-01-20 18:45:10:713	INFO	PredicateCPA:PredicateCPARefiner.<init>	Using refinement for predicate analysis with PredicateAbstractionRefinementStrategy strategy.
 
-2025-12-17 18:08:26:930	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
+2026-01-20 18:45:10:756	WARNING	FormulaManagerView.<init>	Using unsound approximation of ints with unbounded integers and floats with rationals for encoding program semantics.
 
-2025-12-17 18:08:26:945	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
+2026-01-20 18:45:10:770	WARNING	CPAchecker.printConfigurationWarnings	The following configuration options were specified but are not used:
  counterexample.checker.config
  counterexample.checker 
 
 
-2025-12-17 18:08:26:945	INFO	CPAchecker.runAlgorithm	Starting analysis ...
+2026-01-20 18:45:10:770	INFO	CPAchecker.runAlgorithm	Starting analysis ...
 
-2025-12-17 18:08:26:946	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
+2026-01-20 18:45:10:771	INFO	TerminationAlgorithm.run0	Starting termination algorithm.
 
-2025-12-17 18:08:27:296	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
+2026-01-20 18:45:11:137	INFO	TerminationAlgorithm.run0	Termination algorithm did not find a non-terminating loop.
 
-2025-12-17 18:08:27:296	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
+2026-01-20 18:45:11:137	INFO	CPAchecker.runAlgorithm	Stopping analysis ...
 
-2025-12-17 18:08:27:363	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
+2026-01-20 18:45:11:207	WARNING	ARGCPA:ARGStatistics.exportARG0	Cannot export correctness witness in YAML format for languages other than C.
 

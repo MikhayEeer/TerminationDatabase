@@ -37,26 +37,26 @@ Number of preds handled by boolean abs:   717 (91%)
   Avg number of models for allsat:        1154.06
 Number of path formula cache hits:        1006 (44%)
 
-Time for post operator:                                0.096s
-  Time for path formula creation:                      0.094s
-Time for strengthen operator:                          0.021s
-Time for prec operator:                              173.171s
-  Time for abstraction:                173.166s (Max:    44.323s, Count: 67)
-    Boolean abstraction:               172.938s
-    Solving time:                        0.113s (Max:     0.007s)
-    Model enumeration time:            172.860s
-    Time for BDD construction:           1.164s (Max:     0.010s)
-Time for merge operator:                               0.008s
-Time for coverage checks:                              0.004s
-  Time for BDD entailment checks:                      0.004s
-Total time for SMT solver (w/o itp):   172.974s
+Time for post operator:                                0.105s
+  Time for path formula creation:                      0.104s
+Time for strengthen operator:                          0.025s
+Time for prec operator:                              293.065s
+  Time for abstraction:                293.060s (Max:   146.898s, Count: 67)
+    Boolean abstraction:               292.817s
+    Solving time:                        0.110s (Max:     0.006s)
+    Model enumeration time:            292.755s
+    Time for BDD construction:           1.478s (Max:     0.014s)
+Time for merge operator:                               0.004s
+Time for coverage checks:                              0.006s
+  Time for BDD entailment checks:                      0.006s
+Total time for SMT solver (w/o itp):   292.865s
 
-Number of BDD nodes:                               1344431
+Number of BDD nodes:                               285772
 Size of BDD node table:                            1527121
 Size of BDD cache:                                 152717
-Size of BDD node cleanup queue:                    2.38 (sum: 33055, count: 13885, min: 0, max: 25031)
-Time for BDD node cleanup:                             0.004s
-Time for BDD garbage collection:                       0.000s (in 0 runs)
+Size of BDD node cleanup queue:                    2.38 (sum: 33055, count: 13885, min: 0, max: 26004)
+Time for BDD node cleanup:                             0.007s
+Time for BDD garbage collection:                       0.013s (in 1 runs)
 
 Invariant Generation statistics
 -------------------------------
@@ -64,7 +64,7 @@ Invariant Generation statistics
 AutomatonAnalysis (NonTerminationLabelAutomaton) statistics
 -----------------------------------------------------------
 Number of states:                                  1
-Total time for successor computation:                  0.009s
+Total time for successor computation:                  0.005s
 Automaton transfers with branching:                0
 Automaton transfer successors:                     1.00 (sum: 2048, count: 2048, min: 1, max: 1) [1 x 2048]
 Number of states with assumption transitions:      0
@@ -80,27 +80,27 @@ Number of states with assumption transitions:      0
 AutomatonAnalysis (TerminatingFunctions) statistics
 ---------------------------------------------------
 Number of states:                                  1
-Total time for successor computation:                  0.000s
+Total time for successor computation:                  0.002s
 Automaton transfers with branching:                0
 Automaton transfer successors:                     1.00 (sum: 2048, count: 2048, min: 1, max: 1) [1 x 2048]
 Number of states with assumption transitions:      0
 
 Termination Algorithm statistics
 --------------------------------
-Total time :                                          174.367s
+Total time :                                          294.179s
 Time for recursion analysis:                            0.000s
 
 Number of analysed loops:                               1 (100%)
-Total time for loop analysis:                         174.367s
-  Avg time per loop analysis:                         174.367s
-  Max time per loop analysis:                         174.367s
+Total time for loop analysis:                         294.179s
+  Avg time per loop analysis:                         294.179s
+  Max time per loop analysis:                         294.179s
 
 Number of safety analysis runs:                         3
   Avg safety analysis run per loop:                     3.00
   Max safety analysis run per loop:                     3 	 for loops [N26]
-Total time for safety analysis:                       173.511s
-  Avg time per safety analysis run:                    57.837s
-  Max time per safety analysis run:                   173.411s
+Total time for safety analysis:                       293.392s
+  Avg time per safety analysis run:                    97.797s
+  Max time per safety analysis run:                   293.291s
 
 Number of analysed lassos:                              3
   Avg number of lassos per loop:                        3.00
@@ -108,24 +108,24 @@ Number of analysed lassos:                              3
   Avg number of lassos per iteration:                   1.50
   Max number of lassos per iteration:                   2
 
-Total time for lassos analysis:                         0.851s
-  Avg time per iteration:                               0.425s
-  Max time per iteration:                               0.605s
-  Time for lassos construction:                         0.081s
-    Avg time for lasso construction per iteration:      0.040s
-    Max time for lasso construction per iteration:      0.056s
+Total time for lassos analysis:                         0.783s
+  Avg time per iteration:                               0.391s
+  Max time per iteration:                               0.544s
+  Time for lassos construction:                         0.091s
+    Avg time for lasso construction per iteration:      0.045s
+    Max time for lasso construction per iteration:      0.059s
       Time for stem and loop construction:                         0.009s
         Avg time for stem and loop construction per iteration:      0.004s
         Max time for stem and loop construction per iteration:      0.007s
-      Time for lassos creation:                         0.071s
-        Avg time for lassos creation per iteration:      0.035s
-        Max time for lassos creation per iteration:      0.048s
-  Total time for non-termination analysis:              0.093s
-    Avg time for non-termination analysis per lasso:    0.031s
-    Max time for non-termination analysis per lasso:    0.041s
-  Total time for termination analysis:                  0.677s
-    Avg time for termination analysis per lasso:        0.225s
-    Max time for termination analysis per lasso:        0.291s
+      Time for lassos creation:                         0.082s
+        Avg time for lassos creation per iteration:      0.041s
+        Max time for lassos creation per iteration:      0.052s
+  Total time for non-termination analysis:              0.083s
+    Avg time for non-termination analysis per lasso:    0.027s
+    Max time for non-termination analysis per lasso:    0.044s
+  Total time for termination analysis:                  0.608s
+    Avg time for termination analysis per lasso:        0.202s
+    Max time for termination analysis per lasso:        0.252s
 
 Total number of termination arguments:                  3
   Avg termination arguments per loop:                   3.00
@@ -162,42 +162,42 @@ Size of reached set:             50
   Number of target states:       0
   Size of final wait list:       2
 
-Time for analysis setup:          0.676s
-  Time for loading CPAs:          0.274s
-  Time for loading parser:        0.080s
-  Time for CFA construction:      0.232s
-    Time for parsing file(s):     0.088s
-    Time for AST to CFA:          0.066s
-    Time for CFA sanity check:    0.008s
-    Time for post-processing:     0.041s
+Time for analysis setup:          0.680s
+  Time for loading CPAs:          0.278s
+  Time for loading parser:        0.082s
+  Time for CFA construction:      0.236s
+    Time for parsing file(s):     0.090s
+    Time for AST to CFA:          0.065s
+    Time for CFA sanity check:    0.006s
+    Time for post-processing:     0.040s
     Time for loop structure:      0.002s
     Time for AST structure:       0.000s
-    Time for CFA export:          0.017s
+    Time for CFA export:          0.016s
       Time for function pointers resolving:            0.001s
         Function calls via function pointers:             0 (count: 1, min: 0, max: 0, avg: 0.00)
         Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
         Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
         Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
-      Time for classifying variables:                  0.024s
+      Time for classifying variables:                  0.023s
         Time for collecting variables:                 0.009s
         Time for solving dependencies:                 0.000s
         Time for building hierarchy:                   0.000s
-        Time for building classification:              0.010s
+        Time for building classification:              0.009s
         Time for exporting data:                       0.005s
-Time for Analysis:              174.367s
-CPU time for analysis:          178.240s
-Total time for CPAchecker:      175.044s
-Total CPU time for CPAchecker:  180.180s
-Time for statistics:              0.072s
+Time for Analysis:              294.179s
+CPU time for analysis:          297.970s
+Total time for CPAchecker:      294.860s
+Total CPU time for CPAchecker:  299.960s
+Time for statistics:              0.076s
 
-Time for Garbage Collector:       0.074s (in 6 runs)
+Time for Garbage Collector:       0.082s (in 6 runs)
 Garbage Collector(s) used:    PS MarkSweep, PS Scavenge
-Used heap memory:                591MB (   564 MiB) max;    394MB (   375 MiB) avg;    636MB (   607 MiB) peak
-Used non-heap memory:             62MB (    59 MiB) max;     60MB (    57 MiB) avg;     63MB (    60 MiB) peak
+Used heap memory:                591MB (   563 MiB) max;    280MB (   267 MiB) avg;    636MB (   607 MiB) peak
+Used non-heap memory:             62MB (    59 MiB) max;     60MB (    58 MiB) avg;     63MB (    61 MiB) peak
 Used in PS Old Gen pool:          16MB (    16 MiB) max;     16MB (    16 MiB) avg;     62MB (    59 MiB) peak
 Allocated heap memory:          2015MB (  1922 MiB) max;   2015MB (  1922 MiB) avg
 Allocated non-heap memory:        64MB (    61 MiB) max;     63MB (    60 MiB) avg
-Total process virtual memory:  41436MB ( 39516 MiB) max;  41378MB ( 39461 MiB) avg
+Total process virtual memory:  41442MB ( 39523 MiB) max;  41407MB ( 39488 MiB) avg
 
 Verification result: UNKNOWN, incomplete analysis.
 More details about the verification run can be found in the directory "./Results/CPA_Outputs/Loopy_dataset_InvarBenchmark/aaron3_true-termination_true-valid-memsafety.c_lasso_out".
