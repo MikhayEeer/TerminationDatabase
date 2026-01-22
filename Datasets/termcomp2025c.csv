@@ -1,0 +1,830 @@
+"benchmark  filteredTable.register(0,""filter0"");","VBS  --  YES  NO  MAYBE  timeout  memout  REJECTED  error  filteredTable.register(2,""filter2"");","AProVE (KoAT + LoAT)  --  YES  NO  MAYBE  timeout  memout  REJECTED  error  filteredTable.register(3,""filter3"");","MuVal  --  YES  NO  MAYBE  timeout  memout  REJECTED  error  filteredTable.register(4,""filter4"");","~Y2024  --  YES  NO  MAYBE  timeout  memout  REJECTED  error  filteredTable.register(5,""filter5"");"
+AProVE_memory_alloca/svcomp_a.01-alloca.c,YES,YES  5.710  --0.0,YES  [err]  3.584  --0.0,YES
+AProVE_memory_alloca/svcomp_array01_alloca.c,YES,YES  11.45  --0.0,YES  [err]  3.738  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrcmp_alloca.c,YES,YES  5.263  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrcpy_alloca.c,YES,YES  34.92  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrcspn_alloca.c,MAYBE,timeout,error,MAYBE
+AProVE_memory_alloca/svcomp_openbsd_cstrlcpy_alloca.c,YES,YES  9.469  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrlen_alloca.c,YES,YES  3.486  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrncat_alloca.c,MAYBE,MAYBE  21.558  --0.0,timeout,MAYBE
+AProVE_memory_alloca/svcomp_openbsd_cstrncmp_alloca.c,YES,YES  7.288  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrncpy_alloca.c,YES,YES  13.32  --0.0,YES  [err]  2.287  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrnlen_alloca.c,YES,YES  4.797  --0.0,YES  [err]  2.323  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrpbrk_alloca.c,YES,YES  9.693  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_array02_alloca.c,YES,YES  46.93  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrspn_alloca.c,YES,YES  22.943  --0.0,error,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrstr_alloca.c,YES,YES  31.247  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_PodelskiRybalchenko-2004VMCAI-Ex2_true-alloca.c,NO,NO  3.71  --0.0,NO  [err]  3.428  --0.0,NO
+AProVE_memory_alloca/svcomp_selectionsort_alloca.c,YES,timeout,YES  [err]  5.189  --0.0,YES
+AProVE_memory_alloca/svcomp_stroeder1_alloca.c,YES,YES  5.753  --0.0,YES  [err]  2.713  --0.0,YES
+AProVE_memory_alloca/svcomp_stroeder2_alloca.c,YES,YES  12.595  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_strreplace_alloca.c,YES,YES  8.34  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_subseq_alloca.c,YES,YES  9.474  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_substring_alloca.c,YES,YES  13.758  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_TelAviv-Amir-Minimum_true-alloca.c,YES,timeout,YES  [err]  2.628  --0.0,MAYBE
+AProVE_memory_alloca/svcomp_array03_alloca.c,YES,YES  33.847  --0.0,YES  [err]  3.960  --0.0,YES
+AProVE_memory_alloca/svcomp_Toulouse-BranchesToLoop_true-alloca.c,YES,YES  3.520  --0.0,YES  [err]  3.606  --0.0,YES
+AProVE_memory_alloca/svcomp_Toulouse-MultiBranchesToLoop_true-alloca.c,YES,YES  3.974  --0.0,YES  [err]  18.153  --0.0,YES
+AProVE_memory_alloca/svcomp_twisted-alloca.c,YES,YES  2.603  --0.0,YES  [err]  11.936  --0.0,YES
+AProVE_memory_alloca/svcomp_Urban-2013WST-Fig1_false-unreach-label-termination-alloca.c,NO,NO  2.531  --0.0,NO  [err]  2.178  --0.0,NO
+AProVE_memory_alloca/svcomp_Urban-2013WST-Fig2-modified1000_true-alloca.c,YES,YES  3.189  --0.0,YES  [err]  2.366  --0.0,YES
+AProVE_memory_alloca/svcomp_Urban-2013WST-Fig2_true-alloca.c,YES,YES  2.972  --0.0,YES  [err]  2.451  --0.0,YES
+AProVE_memory_alloca/svcomp_Urban_true-alloca.c,YES,YES  7.887  --0.0,YES  [err]  36.516  --0.0,YES
+AProVE_memory_alloca/svcomp_Velroyen_false-unreach-label-termination-alloca.c,NO,NO  2.713  --0.0,NO  [err]  2.348  --0.0,NO
+AProVE_memory_unsafe/svcomp_add_last_unsafe.c,YES,MAYBE  5.924  --0.0,YES  [err]  3.3  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_bubble_sort_unsafe.c,YES,timeout,YES  [err]  2.203  --0.0,MAYBE
+AProVE_memory_alloca/svcomp_Avery-2006FLOPS-Tabel1_true-alloca.c,YES,YES  7.640  --0.0,YES  [err]  2.157  --0.0,YES
+AProVE_memory_unsafe/svcomp_bubblesort_unsafe.c,YES,timeout,YES  [err]  2.330  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_count_down_unsafe.c,YES,MAYBE  12.231  --0.0,YES  [err]  3.326  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_cstrcat_unsafe.c,MAYBE,MAYBE  4.365  --0.0,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_cstrchr_unsafe.c,MAYBE,MAYBE  2.71  --0.0,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_cstrcpy_unsafe.c,MAYBE,MAYBE  3.100  --0.0,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_cstrlen_unsafe.c,MAYBE,MAYBE  3.181  --0.0,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_cstrncat_unsafe.c,NO,MAYBE  14.468  --0.0,NO  [err]  2.236  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_cstrncpy_unsafe.c,YES,MAYBE  4.849  --0.0,YES  [err]  2.179  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_cstrpbrk_unsafe.c,MAYBE,MAYBE  2.161  --0.0,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_delete_alloca_unsafe.c,YES,YES  5.288  --0.0,timeout,MAYBE
+AProVE_memory_alloca/svcomp_aviad_true-alloca.c,YES,YES  8.671  --0.0,YES  [err]  2.150  --0.0,YES
+AProVE_memory_unsafe/svcomp_delete_unsafe.c,YES,MAYBE  3.14  --0.0,YES  [err]  1.990  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_diff_usafe.c,YES,timeout,YES  [err]  8.218  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_insertion_sort_unsafe.c,YES,MAYBE  50.325  --0.0,YES  [err]  1.872  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_insertionsort_unsafe.c,YES,MAYBE  46.776  --0.0,YES  [err]  1.896  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_java_BubbleSort_unsafe.c,YES,timeout,YES  [err]  2.907  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_knapsack_alloca_unsafe.c,YES,timeout,YES  [err]  10.837  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_knapsack_unsafe.c,YES,MAYBE  48.843  --0.0,YES  [err]  2.815  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_lis_unsafe.c,MAYBE,MAYBE  37.421  --0.0,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_mult_array_unsafe.c,YES,MAYBE  3.167  --0.0,YES  [err]  2.290  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_reverse_array_alloca_unsafe.c,MAYBE,timeout,timeout,MAYBE
+AProVE_memory_alloca/svcomp_b.01-alloca.c,YES,YES  4.307  --0.0,YES  [err]  3.593  --0.0,YES
+AProVE_memory_unsafe/svcomp_reverse_array_unsafe.c,MAYBE,timeout,timeout,MAYBE
+AProVE_memory_unsafe/svcomp_selection_sort_unsafe.c,YES,timeout,YES  [err]  3.649  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_selectionsort_unsafe.c,YES,timeout,YES  [err]  2.965  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_stroeder1_unsafe.c,YES,YES  4.242  --0.0,YES  [err]  2.92  --0.0,MAYBE
+AProVE_memory_unsafe/svcomp_stroeder2_unsafe.c,YES,MAYBE  6.638  --0.0,YES  [err]  2.670  --0.0,MAYBE
+AProVE_numeric/Avg_true.c,YES,YES  3.556  --0.0,YES  [err]  2.575  --0.0,YES
+AProVE_numeric/Binomial_true.c,YES,MAYBE  3.389  --0.0,timeout,YES
+AProVE_numeric/Et1_true.c,YES,YES  3.655  --0.0,YES  [err]  2.268  --0.0,YES
+AProVE_numeric/Et2_true.c,YES,YES  3.502  --0.0,YES  [err]  2.226  --0.0,YES
+AProVE_numeric/Et3_true.c,YES,YES  3.757  --0.0,YES  [err]  2.145  --0.0,YES
+AProVE_memory_alloca/svcomp_b.02-alloca.c,YES,YES  4.287  --0.0,YES  [err]  2.173  --0.0,YES
+AProVE_numeric/Et4_true.c,YES,YES  4.536  --0.0,YES  [err]  2.934  --0.0,YES
+AProVE_numeric/ex2.c,YES,YES  2.529  --0.0,error,YES
+AProVE_numeric/ex3.c,YES,YES  2.897  --0.0,error,YES
+AProVE_numeric/LeUserDefRec_true.c,YES,YES  3.171  --0.0,YES  [err]  1.850  --0.0,YES
+AProVE_numeric/LogRecursive_true.c,YES,timeout,YES  [err]  2.201  --0.0,MAYBE
+AProVE_numeric/Parts_true.c,MAYBE,timeout,error,MAYBE
+AProVE_numeric/rec_counter1.c,YES,YES  3.448  --0.0,error,YES
+AProVE_numeric/rec_counter3.c,YES,YES  3.188  --0.0,error,YES
+AProVE_numeric/rec_strlen.c,YES,YES  4.104  --0.0,timeout,YES
+AProVE_numeric/svcomp_a.01.c,YES,YES  3.932  --0.0,YES  [err]  2.767  --0.0,YES
+AProVE_memory_alloca/svcomp_b.03_assume-alloca.c,YES,YES  3.256  --0.0,YES  [err]  2.173  --0.0,YES
+AProVE_numeric/svcomp_a.04.c,YES,YES  2.968  --0.0,YES  [err]  2.142  --0.0,YES
+AProVE_numeric/svcomp_a.05.c,YES,YES  2.753  --0.0,YES  [err]  2.127  --0.0,YES
+AProVE_numeric/svcomp_a.06.c,YES,YES  3.420  --0.0,YES  [err]  2.108  --0.0,YES
+AProVE_numeric/svcomp_a.07.c,YES,YES  3.774  --0.0,YES  [err]  2.279  --0.0,YES
+AProVE_numeric/svcomp_a.08.c,YES,YES  2.897  --0.0,YES  [err]  2.92  --0.0,YES
+AProVE_numeric/svcomp_a.09_assume.c,YES,YES  2.690  --0.0,YES  [err]  1.934  --0.0,YES
+AProVE_numeric/svcomp_a.10.c,YES,timeout,YES  [err]  2.483  --0.0,YES
+AProVE_numeric/svcomp_Ackermann01_true-unreach-call_modified_modified.c,YES,YES  7.346  --0.0,error,YES
+AProVE_numeric/svcomp_Addition01_true-unreach-call_true-termination_modified.c,YES,YES  3.6  --0.0,YES  [err]  1.937  --0.0,YES
+AProVE_numeric/svcomp_b.01.c,YES,YES  2.531  --0.0,YES  [err]  1.980  --0.0,YES
+AProVE_memory_alloca/svcomp_b.03-no-inv_assume-alloca.c,YES,YES  3.302  --0.0,YES  [err]  2.365  --0.0,YES
+AProVE_numeric/svcomp_b.02.c,YES,YES  2.874  --0.0,YES  [err]  1.892  --0.0,YES
+AProVE_numeric/svcomp_b.03_assume.c,YES,YES  2.687  --0.0,YES  [err]  1.994  --0.0,YES
+AProVE_numeric/svcomp_b.03-no-inv_assume.c,YES,YES  2.697  --0.0,YES  [err]  2.0  --0.0,YES
+AProVE_numeric/svcomp_b.04.c,YES,YES  1.989  --0.0,YES  [err]  2.38  --0.0,YES
+AProVE_numeric/svcomp_b.05.c,YES,timeout,YES  [err]  2.12  --0.0,YES
+AProVE_numeric/svcomp_b.06.c,YES,YES  2.951  --0.0,YES  [err]  1.950  --0.0,YES
+AProVE_numeric/svcomp_b.07.c,YES,YES  2.916  --0.0,YES  [err]  1.863  --0.0,YES
+AProVE_numeric/svcomp_b.09_assume.c,YES,YES  3.224  --0.0,YES  [err]  1.930  --0.0,YES
+AProVE_numeric/svcomp_b.09-no-inv_assume.c,YES,YES  3.158  --0.0,YES  [err]  2.31  --0.0,YES
+AProVE_numeric/svcomp_b.10.c,YES,YES  3.954  --0.0,YES  [err]  2.82  --0.0,YES
+AProVE_memory_alloca/svcomp_b.04-alloca.c,YES,YES  2.384  --0.0,YES  [err]  3.297  --0.0,YES
+AProVE_numeric/svcomp_b.11.c,YES,timeout,YES  [err]  2.120  --0.0,YES
+AProVE_numeric/svcomp_b.12.c,YES,YES  3.373  --0.0,YES  [err]  2.888  --0.0,YES
+AProVE_numeric/svcomp_b.13.c,YES,YES  3.728  --0.0,YES  [err]  2.762  --0.0,YES
+AProVE_numeric/svcomp_b.14.c,YES,YES  2.691  --0.0,YES  [err]  2.81  --0.0,YES
+AProVE_numeric/svcomp_b.15.c,YES,YES  2.884  --0.0,YES  [err]  2.87  --0.0,YES
+AProVE_numeric/svcomp_b.16.c,YES,YES  3.665  --0.0,YES  [err]  2.659  --0.0,YES
+AProVE_numeric/svcomp_b.17.c,YES,YES  3.827  --0.0,YES  [err]  2.667  --0.0,YES
+AProVE_numeric/svcomp_b.18.c,YES,YES  2.517  --0.0,YES  [err]  3.715  --0.0,YES
+AProVE_numeric/svcomp_c.01_assume.c,YES,YES  3.389  --0.0,YES  [err]  2.257  --0.0,YES
+AProVE_numeric/svcomp_c.01-no-inv.c,YES,YES  3.822  --0.0,YES  [err]  2.997  --0.0,YES
+AProVE_memory_alloca/svcomp_a.04-alloca.c,YES,YES  4.264  --0.0,YES  [err]  3.670  --0.0,YES
+AProVE_memory_alloca/svcomp_b.05-alloca.c,YES,YES  3.63  --0.0,YES  [err]  2.829  --0.0,YES
+AProVE_numeric/svcomp_c.02.c,YES,YES  4.93  --0.0,YES  [err]  2.703  --0.0,YES
+AProVE_numeric/svcomp_c.03.c,YES,YES  3.965  --0.0,YES  [err]  3.10  --0.0,YES
+AProVE_numeric/svcomp_c.07.c,YES,YES  3.441  --0.0,YES  [err]  6.323  --0.0,YES
+AProVE_numeric/svcomp_c.08.c,YES,YES  4.46  --0.0,YES  [err]  2.505  --0.0,YES
+AProVE_numeric/svcomp_easySum.c,YES,YES  4.31  --0.0,YES  [err]  2.36  --0.0,YES
+AProVE_numeric/svcomp_EvenOdd01_true-unreach-call_true-termination_modified.c,YES,YES  3.211  --0.0,error,YES
+AProVE_numeric/svcomp_ex1.c,YES,YES  2.511  --0.0,YES  [err]  1.982  --0.0,YES
+AProVE_numeric/svcomp_ex2.c,YES,timeout,YES  [err]  4.299  --0.0,MAYBE
+AProVE_numeric/svcomp_ex3a.c,YES,YES  2.691  --0.0,YES  [err]  2.56  --0.0,YES
+AProVE_numeric/svcomp_ex3b.c,YES,YES  2.776  --0.0,YES  [err]  2.57  --0.0,YES
+AProVE_memory_alloca/svcomp_b.06-alloca.c,YES,YES  4.851  --0.0,YES  [err]  2.226  --0.0,YES
+AProVE_numeric/svcomp_fermat.c,YES,YES  12.862  --0.0,timeout,YES
+AProVE_numeric/svcomp_Fibonacci01_true-unreach-call_modified.c,YES,YES  4.927  --0.0,error,YES
+AProVE_numeric/svcomp_flag.c,YES,YES  2.933  --0.0,YES  [err]  3.256  --0.0,YES
+AProVE_numeric/svcomp_gcd01_true-unreach-call_true-termination_modified.c,YES,YES  3.721  --0.0,YES  [err]  3.408  --0.0,YES
+AProVE_numeric/svcomp_java_AG313.c,YES,YES  3.451  --0.0,YES  [err]  1.826  --0.0,YES
+AProVE_numeric/svcomp_java_Break.c,YES,YES  2.486  --0.0,YES  [err]  1.823  --0.0,YES
+AProVE_numeric/svcomp_java_Continue1.c,YES,YES  2.611  --0.0,YES  [err]  1.978  --0.0,YES
+AProVE_numeric/svcomp_java_LogBuiltIn.c,YES,YES  2.280  --0.0,YES  [err]  1.905  --0.0,YES
+AProVE_numeric/svcomp_java_Nested.c,YES,YES  3.860  --0.0,YES  [err]  2.846  --0.0,YES
+AProVE_numeric/svcomp_java_Sequence.c,YES,YES  2.691  --0.0,YES  [err]  1.983  --0.0,YES
+AProVE_memory_alloca/svcomp_b.07-alloca.c,YES,YES  5.601  --0.0,YES  [err]  2.212  --0.0,YES
+AProVE_numeric/svcomp_MultCommutative_true-unreach-call_true-termination_modified.c,YES,YES  3.269  --0.0,YES  [err]  2.182  --0.0,YES
+AProVE_numeric/svcomp_recHanoi02_true-unreach-call_true-termination_modified.c,YES,YES  2.781  --0.0,error,YES
+AProVE_numeric/svcomp_twisted.c,YES,YES  8.775  --0.0,YES  [err]  22.249  --0.0,YES
+AProVE_numeric/TerminatorRec02_true.c,YES,YES  2.935  --0.0,YES  [err]  2.63  --0.0,YES
+AProVE_numeric/TwoWay_true.c,YES,YES  3.534  --0.0,YES  [err]  2.71  --0.0,YES
+Di_Stefano_20/boids_true-termination.c,MAYBE,MAYBE  4.57  --0.0,error,MAYBE
+Di_Stefano_20/flock-noarray_true-termination.c,MAYBE,MAYBE  21.776  --0.0,error,MAYBE
+Di_Stefano_20/flock_true-termination.c,MAYBE,MAYBE  3.402  --0.0,error,MAYBE
+Di_Stefano_20/formation-noarray_true-termination.c,MAYBE,MAYBE  7.58  --0.0,error,MAYBE
+Di_Stefano_20/formation_true-termination.c,MAYBE,MAYBE  5.627  --0.0,error,MAYBE
+AProVE_memory_alloca/svcomp_b.09_assume-alloca.c,YES,YES  5.470  --0.0,YES  [err]  2.266  --0.0,YES
+Di_Stefano_20/majority-noarray_true-termination.c,YES,MAYBE  12.991  --0.0,YES  [err]  2.87  --0.0,YES
+Di_Stefano_20/majority_true-termination.c,MAYBE,MAYBE  5.937  --0.0,error,MAYBE
+Hensel_22/asc_ll_search_last.c,YES,YES  3.643  --0.0,timeout,YES
+Hensel_22/cyclic_ll_search_last.c,MAYBE,MAYBE  7.318  --0.0,timeout,MAYBE
+Hensel_22/desc_ll_search_existing.c,YES,YES  5.604  --0.0,timeout,YES
+Hensel_22/desc_ll_search_last.c,YES,YES  4.839  --0.0,timeout,YES
+Hensel_22/desc_ll_search_mod.c,YES,YES  5.261  --0.0,timeout,YES
+Hensel_22/desc_ll_search-ptrdiff_existing.c,YES,YES  5.512  --0.0,error,YES
+Hensel_22/desc_ll_with_offset_search.c,YES,YES  5.32  --0.0,timeout,YES
+Hensel_22/nondet_ll_delete.c,YES,YES  10.591  --0.0,error,YES
+AProVE_memory_alloca/svcomp_b.09-no-inv_assume-alloca.c,YES,YES  5.240  --0.0,YES  [err]  2.579  --0.0,YES
+Hensel_22/nondet_ll_init.c,YES,YES  4.277  --0.0,YES  [err]  2.344  --0.0,YES
+Hensel_22/nondet_ll_init_rec.c,YES,YES  3.363  --0.0,error,YES
+Hensel_22/nondet_ll_insert.c,YES,YES  5.655  --0.0,error,YES
+Hensel_22/nondet_ll_search_last_n.c,YES,YES  5.326  --0.0,timeout,YES
+Hensel_22/nondet_ll_search_last_zero.c,YES,YES  5.332  --0.0,timeout,YES
+Hensel_22/nondet_ll_search_zero.c,YES,YES  4.827  --0.0,timeout,YES
+Hensel_22/nondet_ll_skip.c,YES,YES  4.894  --0.0,error,YES
+Hensel_22/nondet_ll_traverse.c,YES,YES  4.467  --0.0,timeout,YES
+Hensel_22/nondet_ll_traverse-ptrdiff.c,YES,YES  4.874  --0.0,error,YES
+Hensel_22/nondet_ll_traverse_rec.c,YES,YES  3.791  --0.0,error,YES
+AProVE_memory_alloca/svcomp_b.10-alloca.c,YES,YES  6.364  --0.0,YES  [err]  2.171  --0.0,YES
+Stroeder_15/2Nested_true-termination.c,YES,YES  3.27  --0.0,YES  [err]  2.245  --0.0,YES
+Stroeder_15/4NestedWith3Variables_true-termination.c,YES,YES  3.853  --0.0,timeout,YES
+Stroeder_15/aaron2_true-termination.c,YES,YES  4.885  --0.0,YES  [err]  2.125  --0.0,YES
+Stroeder_15/aaron3_true-termination.c,YES,YES  9.562  --0.0,timeout,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-complex_true-termination.c,YES,YES  9.463  --0.0,YES  [err]  3.129  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-counterex1a_true-termination.c,YES,YES  4.98  --0.0,YES  [err]  43.250  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-counterex1b_true-termination.c,YES,YES  15.840  --0.0,timeout,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-cousot9_true-termination.c,YES,YES  3.363  --0.0,YES  [err]  2.822  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-exmini_true-termination.c,YES,YES  2.936  --0.0,YES  [err]  2.822  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-Fig1_true-termination.c,YES,YES  4.144  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_b.11-alloca.c,YES,timeout,YES  [err]  2.91  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-Fig2a_true-termination.c,YES,YES  14.664  --0.0,YES  [err]  2.416  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-Fig2b_true-termination.c,YES,YES  22.879  --0.0,timeout,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-loops_true-termination.c,YES,YES  3.580  --0.0,YES  [err]  2.960  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-ndecr_true-termination.c,YES,YES  2.519  --0.0,YES  [err]  2.30  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-nestedLoop_true-termination.c,YES,YES  7.817  --0.0,timeout,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-random1d_true-termination.c,YES,YES  4.835  --0.0,YES  [err]  2.216  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-random2d_true-termination.c,YES,YES  22.893  --0.0,YES  [err]  2.186  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-rsd_true-termination.c,YES,YES  22.794  --0.0,YES  [err]  3.152  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-speedFails4_true-termination.c,YES,YES  2.943  --0.0,YES  [err]  2.448  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination.c,YES,YES  3.834  --0.0,YES  [err]  2.634  --0.0,YES
+AProVE_memory_alloca/svcomp_b.12-alloca.c,YES,YES  5.474  --0.0,YES  [err]  2.965  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-speedpldi3_true-termination.c,YES,YES  4.234  --0.0,YES  [err]  2.682  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-speedpldi4_true-termination.c,YES,YES  3.296  --0.0,YES  [err]  2.133  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-terminate_true-termination.c,YES,YES  2.980  --0.0,YES  [err]  2.618  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-wcet2_true-termination.c,YES,YES  3.560  --0.0,YES  [err]  2.499  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-while2_true-termination.c,YES,YES  2.993  --0.0,YES  [err]  3.202  --0.0,YES
+Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-wise_true-termination.c,YES,YES  22.11  --0.0,YES  [err]  2.196  --0.0,YES
+Stroeder_15/AlternDiv.c,NO,NO  2.680  --0.0,NO  [err]  2.110  --0.0,NO
+Stroeder_15/AlternDivWide.c,NO,NO  2.944  --0.0,NO  [err]  2.251  --0.0,NO
+Stroeder_15/AlternDivWidening.c,NO,timeout,NO  [err]  2.587  --0.0,NO
+Stroeder_15/AlternKonv.c,NO,NO  3.8  --0.0,NO  [err]  2.94  --0.0,NO
+AProVE_memory_alloca/svcomp_b.13-alloca.c,YES,YES  7.19  --0.0,YES  [err]  16.162  --0.0,YES
+Stroeder_15/Avery-FLOPS2006-Table1_true-termination.c,YES,YES  3.353  --0.0,YES  [err]  1.974  --0.0,YES
+Stroeder_15/Bangalore_true-termination.c,YES,YES  2.782  --0.0,YES  [err]  2.67  --0.0,YES
+Stroeder_15/Ben-Amram-LMCS2010-Ex2.3_true-termination.c,YES,YES  3.368  --0.0,YES  [err]  8.104  --0.0,YES
+Stroeder_15/Benghazi_true-termination.c,YES,YES  3.267  --0.0,YES  [err]  2.399  --0.0,YES
+Stroeder_15/BradleyMannaSipma-CAV2005-Fig1-modified_false-termination.c,NO,timeout,NO  [err]  2.110  --0.0,NO
+Stroeder_15/BradleyMannaSipma-CAV2005-Fig1_true-termination.c,YES,YES  5.171  --0.0,YES  [err]  2.272  --0.0,YES
+Stroeder_15/BradleyMannaSipma-ICALP2005-Fig1_true-termination.c,YES,timeout,YES  [err]  2.845  --0.0,YES
+Stroeder_15/BrockschmidtCookFuhs-CAV2013-Fig1_true-termination.c,YES,YES  3.709  --0.0,YES  [err]  2.374  --0.0,YES
+Stroeder_15/BrockschmidtCookFuhs-CAV2013-Fig9a_true-termination.c,YES,YES  6.655  --0.0,YES  [err]  2.620  --0.0,YES
+Stroeder_15/BrockschmidtCookFuhs-CAV2013-Introduction_true-termination.c,YES,YES  2.703  --0.0,YES  [err]  2.216  --0.0,YES
+AProVE_memory_alloca/svcomp_b.14-alloca.c,YES,YES  4.160  --0.0,YES  [err]  2.146  --0.0,YES
+Stroeder_15/Cairo_true-termination.c,YES,YES  2.495  --0.0,YES  [err]  2.145  --0.0,YES
+Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron12_true-termination.c,YES,YES  38.257  --0.0,YES  [err]  30.949  --0.0,YES
+Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron1_true-termination.c,YES,YES  5.343  --0.0,YES  [err]  2.937  --0.0,YES
+Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination.c,YES,timeout,timeout,YES
+Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c,YES,YES  21.728  --0.0,YES  [err]  11.718  --0.0,YES
+Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-random1d_true-termination.c,YES,YES  4.563  --0.0,YES  [err]  2.209  --0.0,YES
+Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-random2d_true-termination.c,YES,YES  22.637  --0.0,YES  [err]  2.187  --0.0,YES
+Stroeder_15/ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination.c,NO,NO  3.108  --0.0,NO  [err]  2.63  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex1.01_true-termination.c,YES,YES  2.888  --0.0,YES  [err]  3.943  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex1.02_true-termination.c,YES,YES  2.485  --0.0,YES  [err]  2.45  --0.0,YES
+AProVE_memory_alloca/svcomp_a.05-alloca.c,YES,YES  4.329  --0.0,YES  [err]  3.677  --0.0,YES
+AProVE_memory_alloca/svcomp_b.15-alloca.c,YES,YES  4.691  --0.0,YES  [err]  2.174  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex1.03_true-termination.c,YES,YES  2.68  --0.0,YES  [err]  2.134  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex1.04_true-termination.c,YES,YES  2.378  --0.0,YES  [err]  2.132  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex1.05_true-termination.c,YES,YES  2.366  --0.0,YES  [err]  2.137  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.01_true-termination.c,YES,YES  2.931  --0.0,YES  [err]  2.209  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination.c,NO,timeout,NO  [err]  2.233  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.03_false-termination.c,NO,NO  3.204  --0.0,NO  [err]  2.140  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.04_false-termination.c,NO,NO  3.266  --0.0,NO  [err]  2.128  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.06_false-termination.c,MAYBE,timeout,timeout,MAYBE
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.07_true-termination.c,YES,YES  2.492  --0.0,YES  [err]  2.105  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.08_true-termination.c,YES,YES  2.997  --0.0,YES  [err]  2.418  --0.0,YES
+AProVE_memory_alloca/svcomp_b.16-alloca.c,YES,YES  5.539  --0.0,YES  [err]  2.448  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.09_true-termination.c,YES,YES  3.407  --0.0,YES  [err]  4.345  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.10_true-termination.c,YES,YES  2.519  --0.0,YES  [err]  1.990  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination.c,NO,NO  6.207  --0.0,timeout,MAYBE
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.12_false-termination.c,NO,NO  4.197  --0.0,NO  [err]  2.123  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.13_true-termination.c,YES,YES  3.180  --0.0,YES  [err]  2.137  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.14_false-termination.c,NO,timeout,NO  [err]  2.117  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.15_false-termination.c,NO,NO  3.379  --0.0,NO  [err]  2.19  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.16_true-termination.c,YES,YES  2.478  --0.0,YES  [err]  2.58  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.17_false-termination.c,NO,timeout,NO  [err]  2.127  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.18_true-termination.c,YES,YES  3.3  --0.0,YES  [err]  3.113  --0.0,YES
+AProVE_memory_alloca/svcomp_b.17-alloca.c,YES,YES  6.886  --0.0,YES  [err]  4.154  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.19_true-termination.c,YES,YES  2.989  --0.0,YES  [err]  2.301  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.20_true-termination.c,YES,YES  2.606  --0.0,YES  [err]  2.109  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.21_true-termination.c,YES,YES  2.977  --0.0,YES  [err]  2.327  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex2.22_true-termination.c,YES,YES  2.589  --0.0,YES  [err]  2.190  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.01_true-termination.c,YES,YES  2.438  --0.0,YES  [err]  2.125  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.02_false-termination.c,NO,NO  3.271  --0.0,NO  [err]  2.159  --0.0,NO
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.03_true-termination.c,YES,YES  3.214  --0.0,YES  [err]  6.674  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.04_true-termination.c,YES,YES  3.611  --0.0,YES  [err]  2.119  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.05_true-termination.c,YES,YES  3.595  --0.0,YES  [err]  2.337  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination.c,NO,timeout,NO  [err]  2.244  --0.0,NO
+AProVE_memory_alloca/svcomp_b.18-alloca.c,YES,YES  3.27  --0.0,timeout,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.07_true-termination.c,YES,YES  3.1  --0.0,YES  [err]  2.609  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.08_true-termination.c,YES,YES  3.288  --0.0,YES  [err]  2.143  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.09_true-termination.c,YES,YES  2.655  --0.0,YES  [err]  2.327  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex3.10_true-termination.c,YES,YES  2.794  --0.0,YES  [err]  2.118  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Ex4.01_true-termination.c,YES,YES  3.771  --0.0,YES  [err]  2.524  --0.0,YES
+Stroeder_15/ChenFlurMukhopadhyay-SAS2012-Fig1_true-termination.c,YES,YES  2.998  --0.0,YES  [err]  2.530  --0.0,YES
+Stroeder_15/Choose.c,NO,NO  4.212  --0.0,NO  [err]  2.114  --0.0,NO
+Stroeder_15/ChooseLife.c,NO,NO  2.728  --0.0,NO  [err]  2.95  --0.0,NO
+Stroeder_15/collatz.c,MAYBE,timeout,timeout,MAYBE
+Stroeder_15/ColonSipma-TACAS2001-Fig1_true-termination.c,YES,YES  2.851  --0.0,YES  [err]  2.507  --0.0,YES
+AProVE_memory_alloca/svcomp_Ben-Amram-2010LMCS-Ex2.3_true-alloca.c,YES,YES  3.954  --0.0,YES  [err]  3.224  --0.0,YES
+Stroeder_15/ComplInterv2.c,NO,NO  2.576  --0.0,NO  [err]  2.96  --0.0,NO
+Stroeder_15/ComplInterv3.c,NO,NO  2.603  --0.0,NO  [err]  2.136  --0.0,NO
+Stroeder_15/ComplInterv.c,NO,MAYBE  3.909  --0.0,NO  [err]  2.129  --0.0,MAYBE
+Stroeder_15/ComplxStruc.c,NO,MAYBE  2.863  --0.0,NO  [err]  2.523  --0.0,NO
+Stroeder_15/ConvLower.c,NO,NO  2.535  --0.0,NO  [err]  2.101  --0.0,NO
+Stroeder_15/CookSeeZuleger-TACAS2013-Fig1_true-termination.c,YES,YES  4.116  --0.0,YES  [err]  2.569  --0.0,YES
+Stroeder_15/CookSeeZuleger-TACAS2013-Fig7a_true-termination.c,YES,YES  4.630  --0.0,YES  [err]  2.769  --0.0,YES
+Stroeder_15/CookSeeZuleger-TACAS2013-Fig7b_true-termination.c,YES,YES  8.82  --0.0,timeout,YES
+Stroeder_15/CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination.c,YES,YES  2.514  --0.0,YES  [err]  2.237  --0.0,YES
+Stroeder_15/CookSeeZuleger-TACAS2013-Fig8a_true-termination.c,YES,YES  2.578  --0.0,YES  [err]  2.279  --0.0,YES
+AProVE_memory_alloca/svcomp_BradleyMannaSipma-2005CAV-Fig1-modified_false-termination.c,NO,timeout,NO  [err]  2.144  --0.0,NO
+Stroeder_15/CookSeeZuleger-TACAS2013-Fig8b_true-termination.c,YES,YES  2.383  --0.0,YES  [err]  2.277  --0.0,YES
+Stroeder_15/Copenhagen_true-termination.c,YES,YES  2.562  --0.0,YES  [err]  2.213  --0.0,YES
+Stroeder_15/Cousot.c,NO,NO  3.244  --0.0,NO  [err]  2.105  --0.0,NO
+Stroeder_15/DivMinus2.c,YES,YES  5.30  --0.0,YES  [err]  4.534  --0.0,YES
+Stroeder_15/DivMinus.c,YES,YES  3.378  --0.0,YES  [err]  2.109  --0.0,YES
+Stroeder_15/DivWithoutMinus.c,NO,timeout,NO  [err]  2.410  --0.0,NO
+Stroeder_15/DoubleNeg.c,NO,timeout,NO  [err]  2.224  --0.0,MAYBE
+Stroeder_15/easy1_true-termination.c,YES,YES  2.718  --0.0,YES  [err]  2.154  --0.0,YES
+Stroeder_15/easy2_true-termination.c,YES,YES  2.665  --0.0,YES  [err]  2.128  --0.0,YES
+Stroeder_15/Et1.c,YES,YES  3.138  --0.0,YES  [err]  2.302  --0.0,YES
+AProVE_memory_alloca/svcomp_BradleyMannaSipma-2005CAV-Fig1_true-alloca.c,MAYBE,timeout,timeout,MAYBE
+Stroeder_15/Et2.c,NO,NO  3.478  --0.0,NO  [err]  2.162  --0.0,NO
+Stroeder_15/Et4.c,NO,NO  7.306  --0.0,NO  [err]  2.128  --0.0,NO
+Stroeder_15/Even.c,NO,timeout,NO  [err]  2.92  --0.0,NO
+Stroeder_15/Ex01.c,NO,NO  2.495  --0.0,NO  [err]  2.84  --0.0,NO
+Stroeder_15/Ex02.c,NO,NO  2.542  --0.0,NO  [err]  2.77  --0.0,NO
+Stroeder_15/Ex03.c,NO,NO  2.542  --0.0,NO  [err]  2.101  --0.0,NO
+Stroeder_15/Ex04.c,NO,NO  2.362  --0.0,NO  [err]  2.35  --0.0,NO
+Stroeder_15/Ex05.c,NO,NO  2.248  --0.0,NO  [err]  2.41  --0.0,NO
+Stroeder_15/Ex06.c,NO,NO  2.605  --0.0,NO  [err]  2.125  --0.0,NO
+Stroeder_15/Ex07.c,NO,NO  2.622  --0.0,NO  [err]  2.124  --0.0,NO
+AProVE_memory_alloca/svcomp_BradleyMannaSipma-2005ICALP-Fig1_true-alloca.c,NO,timeout,NO  [err]  2.135  --0.0,NO
+Stroeder_15/Ex08.c,NO,NO  31.423  --0.0,NO  [err]  2.207  --0.0,NO
+Stroeder_15/Factorial.c,NO,timeout,NO  [err]  2.311  --0.0,MAYBE
+Stroeder_15/Fibonacci.c,NO,NO  4.949  --0.0,NO  [err]  2.232  --0.0,NO
+Stroeder_15/Flip2.c,NO,NO  3.289  --0.0,NO  [err]  2.350  --0.0,NO
+Stroeder_15/Flip.c,NO,NO  2.501  --0.0,NO  [err]  2.120  --0.0,NO
+Stroeder_15/Gauss.c,NO,timeout,NO  [err]  2.115  --0.0,NO
+Stroeder_15/gcd1_true-termination.c,YES,YES  6.828  --0.0,YES  [err]  2.190  --0.0,YES
+Stroeder_15/GCD2.c,NO,NO  3.731  --0.0,NO  [err]  2.156  --0.0,NO
+Stroeder_15/GCD3.c,YES,YES  4.5  --0.0,YES  [err]  13.994  --0.0,YES
+Stroeder_15/GCD4.c,YES,YES  3.891  --0.0,YES  [err]  2.212  --0.0,YES
+AProVE_memory_alloca/svcomp_BrockschmidtCookFuhs-2013CAV-Fig1_true-alloca.c,YES,YES  4.372  --0.0,YES  [err]  2.779  --0.0,YES
+Stroeder_15/GCD.c,NO,NO  3.693  --0.0,NO  [err]  2.96  --0.0,NO
+Stroeder_15/genady_true-termination.c,YES,YES  3.199  --0.0,YES  [err]  2.152  --0.0,YES
+Stroeder_15/GopanReps-CAV2006-Fig1a_true-termination.c.c,YES,YES  2.737  --0.0,YES  [err]  2.337  --0.0,YES
+Stroeder_15/Gothenburg_true-termination.c,YES,YES  4.293  --0.0,YES  [err]  2.700  --0.0,YES
+Stroeder_15/GulavaniGulwani-CAV2008-Fig1a_true-termination.c,YES,YES  3.309  --0.0,YES  [err]  2.538  --0.0,YES
+Stroeder_15/GulavaniGulwani-CAV2008-Fig1b_true-termination.c,YES,YES  3.304  --0.0,YES  [err]  2.118  --0.0,YES
+Stroeder_15/GulavaniGulwani-CAV2008-Fig1c_true-termination.c,YES,YES  2.487  --0.0,YES  [err]  2.95  --0.0,YES
+Stroeder_15/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination.c,YES,YES  8.722  --0.0,YES  [err]  3.43  --0.0,YES
+Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig1_true-termination.c,YES,YES  2.600  --0.0,YES  [err]  2.176  --0.0,YES
+Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig4_true-termination.c,YES,YES  2.428  --0.0,YES  [err]  1.998  --0.0,YES
+AProVE_memory_alloca/svcomp_BrockschmidtCookFuhs-2013CAV-Introduction_true-alloca.c,YES,YES  2.871  --0.0,YES  [err]  2.370  --0.0,YES
+Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig6_true-termination.c,YES,YES  2.443  --0.0,YES  [err]  2.92  --0.0,YES
+Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig8_true-termination.c,YES,YES  2.996  --0.0,YES  [err]  2.79  --0.0,YES
+Stroeder_15/HeizmannHoenickeLeikePodelski-ATVA2013-Fig9_true-termination.c,YES,YES  3.193  --0.0,YES  [err]  2.113  --0.0,YES
+Stroeder_15/IntPath.c,YES,YES  2.15  --0.0,YES  [err]  2.54  --0.0,YES
+Stroeder_15/KroeningSharyginaTsitovichWintersteiger-CAV2010-Ex_true-termination.c,YES,YES  3.319  --0.0,YES  [err]  2.107  --0.0,YES
+Stroeder_15/LarrazOliverasRodriguez-CarbonellRubio-FMCAD2013-Fig1_true-termination.c,YES,YES  9.189  --0.0,YES  [err]  5.124  --0.0,YES
+Stroeder_15/Lcm.c,NO,timeout,NO  [err]  2.142  --0.0,NO
+Stroeder_15/LeikeHeizmann-TACAS2014-Ex1_true-termination.c,YES,YES  3.269  --0.0,YES  [err]  1.996  --0.0,YES
+Stroeder_15/LeikeHeizmann-TACAS2014-Ex7_true-termination.c,YES,YES  3.4  --0.0,YES  [err]  2.206  --0.0,YES
+Stroeder_15/LeikeHeizmann-TACAS2014-Ex8_true-termination.c,YES,YES  2.744  --0.0,YES  [err]  2.153  --0.0,YES
+AProVE_memory_alloca/svcomp_a.06-alloca.c,YES,YES  5.852  --0.0,YES  [err]  2.169  --0.0,YES
+AProVE_memory_alloca/svcomp_bubblesort_alloca.c,YES,timeout,YES  [err]  2.871  --0.0,YES
+Stroeder_15/LeikeHeizmann-TACAS2014-Ex9_true-termination.c,YES,YES  2.699  --0.0,YES  [err]  2.445  --0.0,YES
+Stroeder_15/LeikeHeizmann-TACAS2014-Fig1_true-termination.c,YES,YES  2.997  --0.0,YES  [err]  2.238  --0.0,YES
+Stroeder_15/LeikeHeizmann-WST2014-Ex5_false-termination.c,NO,timeout,NO  [err]  2.201  --0.0,NO
+Stroeder_15/LeikeHeizmann-WST2014-Ex6_false-termination.c,NO,NO  2.579  --0.0,NO  [err]  2.240  --0.0,NO
+Stroeder_15/Lobnya-Boolean-Reordered_true-termination.c,YES,YES  2.420  --0.0,YES  [err]  2.289  --0.0,YES
+Stroeder_15/LogAG.c,YES,YES  4.87  --0.0,YES  [err]  2.134  --0.0,YES
+Stroeder_15/Log.c,YES,YES  2.963  --0.0,YES  [err]  2.149  --0.0,YES
+Stroeder_15/LogMult.c,YES,timeout,YES  [err]  2.255  --0.0,MAYBE
+Stroeder_15/Loop.c,NO,NO  2.396  --0.0,NO  [err]  2.3  --0.0,NO
+Stroeder_15/Madrid_false-termination.c,NO,NO  2.297  --0.0,NO  [err]  2.11  --0.0,NO
+AProVE_memory_alloca/svcomp_c.01_assume-alloca.c,YES,YES  4.299  --0.0,YES  [err]  2.987  --0.0,YES
+Stroeder_15/Marbie1.c,NO,NO  2.689  --0.0,NO  [err]  2.130  --0.0,NO
+Stroeder_15/Marbie2.c,NO,NO  2.647  --0.0,NO  [err]  2.10  --0.0,NO
+Stroeder_15/Masse-VMCAI2014-Ex6_true-termination.c,YES,YES  3.430  --0.0,YES  [err]  2.415  --0.0,YES
+Stroeder_15/Masse-VMCAI2014-Fig1a_true-termination.c,YES,YES  3.19  --0.0,YES  [err]  3.341  --0.0,YES
+Stroeder_15/Masse-VMCAI2014-Fig1b_true-termination.c,YES,timeout,YES  [err]  30.264  --0.0,MAYBE
+Stroeder_15/McCarthyIterative.c,YES,YES  3.535  --0.0,timeout,YES
+Stroeder_15/MenloPark_true-termination.c,YES,timeout,YES  [err]  6.985  --0.0,YES
+Stroeder_15/Middle.c,NO,timeout,NO  [err]  2.18  --0.0,NO
+Stroeder_15/min_rf_true-termination.c,YES,YES  17.55  --0.0,YES  [err]  3.797  --0.0,YES
+Stroeder_15/MinusBuiltIn.c,YES,YES  2.82  --0.0,YES  [err]  2.136  --0.0,YES
+AProVE_memory_alloca/svcomp_c.01-no-inv-alloca.c,YES,YES  6.401  --0.0,YES  [err]  5.556  --0.0,YES
+Stroeder_15/MinusMin.c,YES,YES  2.972  --0.0,YES  [err]  2.130  --0.0,YES
+Stroeder_15/MinusUserDefined.c,YES,YES  3.832  --0.0,YES  [err]  2.512  --0.0,YES
+Stroeder_15/MirrorInterv.c,NO,timeout,NO  [err]  2.296  --0.0,NO
+Stroeder_15/MirrorIntervSim.c,NO,NO  2.598  --0.0,NO  [err]  2.80  --0.0,NO
+Stroeder_15/Mysore_true-termination.c,YES,YES  2.695  --0.0,YES  [err]  2.126  --0.0,YES
+Stroeder_15/Narrowing.c,NO,MAYBE  9.403  --0.0,timeout,NO
+Stroeder_15/NarrowKonv.c,NO,MAYBE  8.435  --0.0,NO  [err]  2.324  --0.0,NO
+Stroeder_15/Nested.c,YES,YES  2.887  --0.0,YES  [err]  2.337  --0.0,YES
+Stroeder_15/NO_00.c,NO,NO  2.331  --0.0,NO  [err]  2.26  --0.0,NO
+Stroeder_15/NO_01.c,NO,NO  2.445  --0.0,NO  [err]  2.25  --0.0,NO
+AProVE_memory_alloca/svcomp_c.02-alloca.c,YES,YES  6.387  --0.0,YES  [err]  3.201  --0.0,YES
+Stroeder_15/NO_02.c,NO,NO  2.405  --0.0,NO  [err]  2.22  --0.0,NO
+Stroeder_15/NO_03.c,NO,NO  2.420  --0.0,NO  [err]  2.18  --0.0,NO
+Stroeder_15/NO_04.c,NO,NO  3.120  --0.0,NO  [err]  2.501  --0.0,NO
+Stroeder_15/NO_10.c,NO,NO  2.809  --0.0,NO  [err]  2.137  --0.0,NO
+Stroeder_15/NO_12.c,NO,NO  2.651  --0.0,NO  [err]  2.111  --0.0,NO
+Stroeder_15/NO_13.c,NO,MAYBE  4.311  --0.0,timeout,NO
+Stroeder_15/NO_21.c,NO,NO  2.346  --0.0,NO  [err]  1.988  --0.0,NO
+Stroeder_15/NO_22.c,NO,NO  5.322  --0.0,NO  [err]  2.118  --0.0,NO
+Stroeder_15/NO_23.c,NO,NO  2.383  --0.0,NO  [err]  2.81  --0.0,NO
+Stroeder_15/NO_24.c,NO,NO  2.905  --0.0,NO  [err]  2.108  --0.0,NO
+AProVE_memory_alloca/svcomp_c.03-alloca.c,YES,YES  7.781  --0.0,YES  [err]  2.884  --0.0,YES
+Stroeder_15/NonTermination1_false-termination.c,NO,NO  2.446  --0.0,NO  [err]  2.128  --0.0,NO
+Stroeder_15/NonTermination2_false-termination.c,NO,timeout,NO  [err]  2.223  --0.0,NO
+Stroeder_15/NonTermination4_false-termination.c,NO,NO  2.596  --0.0,NO  [err]  2.9  --0.0,NO
+Stroeder_15/NonTerminationSimple2_false-termination.c,NO,NO  2.609  --0.0,NO  [err]  2.30  --0.0,NO
+Stroeder_15/NonTerminationSimple3_false-termination.c,NO,NO  3.291  --0.0,NO  [err]  2.104  --0.0,NO
+Stroeder_15/NonTerminationSimple4_false-termination.c,NO,NO  2.611  --0.0,NO  [err]  2.121  --0.0,NO
+Stroeder_15/NonTerminationSimple5_false-termination.c,NO,NO  11.797  --0.0,NO  [err]  2.104  --0.0,NO
+Stroeder_15/NonTerminationSimple6_false-termination.c,NO,NO  2.452  --0.0,NO  [err]  2.11  --0.0,NO
+Stroeder_15/NonTerminationSimple7_false-termination.c,NO,NO  2.457  --0.0,NO  [err]  2.51  --0.0,NO
+Stroeder_15/NonTerminationSimple8_false-termination.c,NO,timeout,NO  [err]  2.88  --0.0,NO
+AProVE_memory_alloca/svcomp_c.07-alloca.c,YES,YES  7.510  --0.0,timeout,YES
+Stroeder_15/NonTerminationSimple9_false-termination.c,NO,NO  3.138  --0.0,NO  [err]  2.48  --0.0,NO
+Stroeder_15/NoriSharma-FSE2013-Fig7_true-termination.c,YES,YES  4.783  --0.0,YES  [err]  3.748  --0.0,YES
+Stroeder_15/NoriSharma-FSE2013-Fig8_true-termination.c,YES,YES  5.58  --0.0,YES  [err]  4.852  --0.0,YES
+Stroeder_15/Nyala-2lex_true-termination.c,YES,YES  3.98  --0.0,YES  [err]  2.642  --0.0,YES
+Stroeder_15/Overflow.c,YES,YES  2.299  --0.0,YES  [err]  2.18  --0.0,YES
+Stroeder_15/Parallel_true-termination.c,YES,YES  2.846  --0.0,YES  [err]  2.224  --0.0,YES
+Stroeder_15/PastaA10.c,YES,YES  2.505  --0.0,YES  [err]  2.200  --0.0,YES
+Stroeder_15/PastaA1.c,YES,YES  3.430  --0.0,YES  [err]  2.304  --0.0,YES
+Stroeder_15/PastaA4.c,YES,YES  2.313  --0.0,YES  [err]  2.103  --0.0,YES
+Stroeder_15/PastaA5.c,YES,YES  2.436  --0.0,YES  [err]  1.990  --0.0,YES
+AProVE_memory_alloca/svcomp_c.08-alloca.c,YES,YES  6.64  --0.0,YES  [err]  3.182  --0.0,YES
+Stroeder_15/PastaA6.c,YES,YES  2.742  --0.0,YES  [err]  2.123  --0.0,YES
+Stroeder_15/PastaA7.c,YES,YES  2.590  --0.0,YES  [err]  2.103  --0.0,YES
+Stroeder_15/PastaA8.c,YES,YES  2.481  --0.0,YES  [err]  2.127  --0.0,YES
+Stroeder_15/PastaA9.c,YES,YES  2.853  --0.0,YES  [err]  2.7  --0.0,YES
+Stroeder_15/PastaB11.c,YES,YES  21.939  --0.0,YES  [err]  2.105  --0.0,YES
+Stroeder_15/PastaB14.c,YES,YES  2.552  --0.0,YES  [err]  2.103  --0.0,YES
+Stroeder_15/PastaB15.c,YES,YES  2.404  --0.0,YES  [err]  2.95  --0.0,YES
+Stroeder_15/PastaB16.c,YES,YES  2.748  --0.0,YES  [err]  2.246  --0.0,YES
+Stroeder_15/PastaB17.c,YES,YES  2.845  --0.0,YES  [err]  2.485  --0.0,YES
+Stroeder_15/PastaB1.c,YES,YES  2.358  --0.0,YES  [err]  2.132  --0.0,YES
+AProVE_memory_alloca/svcomp_ChenFlurMukhopadhyay-2012SAS-Fig1_true-alloca.c,YES,YES  3.333  --0.0,timeout,YES
+Stroeder_15/PastaB2.c,YES,YES  2.554  --0.0,YES  [err]  2.20  --0.0,YES
+Stroeder_15/PastaB3.c,YES,YES  2.948  --0.0,YES  [err]  2.83  --0.0,YES
+Stroeder_15/PastaB4.c,YES,YES  2.21  --0.0,YES  [err]  2.108  --0.0,YES
+Stroeder_15/PastaB6.c,YES,YES  2.619  --0.0,YES  [err]  2.19  --0.0,YES
+Stroeder_15/PastaB7.c,YES,YES  2.619  --0.0,YES  [err]  1.998  --0.0,YES
+Stroeder_15/PastaC10.c,NO,NO  3.628  --0.0,NO  [err]  2.73  --0.0,NO
+Stroeder_15/PastaC1.c,YES,YES  3.464  --0.0,YES  [err]  2.356  --0.0,YES
+Stroeder_15/PastaC2.c,YES,YES  3.689  --0.0,YES  [err]  2.353  --0.0,YES
+Stroeder_15/PastaC3.c,YES,YES  2.850  --0.0,YES  [err]  2.600  --0.0,YES
+Stroeder_15/PastaC7.c,YES,YES  2.877  --0.0,YES  [err]  2.41  --0.0,YES
+AProVE_memory_alloca/svcomp_CookSeeZuleger-2013TACAS-Fig3_true-alloca.c,YES,YES  3.491  --0.0,YES  [err]  2.335  --0.0,YES
+Stroeder_15/PastaC9.c,YES,YES  4.406  --0.0,YES  [err]  2.454  --0.0,YES
+Stroeder_15/Piecewise_true-termination.c,YES,YES  4.774  --0.0,YES  [err]  2.250  --0.0,YES
+Stroeder_15/PlusSwap.c,YES,YES  3.636  --0.0,YES  [err]  2.308  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-LICS2004-Fig1_true-termination.c,YES,YES  3.561  --0.0,YES  [err]  2.436  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-LICS2004-Fig2-TACAS2011-Fig3_true-termination.c,YES,YES  5.266  --0.0,YES  [err]  3.169  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-TACAS2011-Fig1_true-termination.c,YES,YES  2.467  --0.0,YES  [err]  2.6  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-TACAS2011-Fig2_true-termination.c,YES,YES  3.598  --0.0,YES  [err]  2.269  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-TACAS2011-Fig4_true-termination.c,YES,YES  4.58  --0.0,YES  [err]  2.442  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-VMCAI2004-Ex1_true-termination.c,YES,YES  21.550  --0.0,YES  [err]  2.133  --0.0,YES
+Stroeder_15/PodelskiRybalchenko-VMCAI2004-Ex2_true-termination.c,YES,YES  3.7  --0.0,YES  [err]  3.731  --0.0,YES
+AProVE_memory_alloca/svcomp_CookSeeZuleger-2013TACAS-Fig7a_true-alloca.c,YES,YES  4.190  --0.0,YES  [err]  2.748  --0.0,YES
+Stroeder_15/Pure2Phase_true-termination.c,YES,YES  3.89  --0.0,YES  [err]  2.60  --0.0,YES
+Stroeder_15/Pure3Phase_true-termination.c,YES,YES  26.586  --0.0,YES  [err]  3.918  --0.0,YES
+Stroeder_15/Rotation180_false-termination.c,NO,NO  2.720  --0.0,NO  [err]  2.2  --0.0,NO
+Stroeder_15/Sequence.c,YES,YES  2.545  --0.0,YES  [err]  2.32  --0.0,YES
+Stroeder_15/Stockholm_true-termination.c,YES,YES  2.578  --0.0,YES  [err]  1.958  --0.0,YES
+Stroeder_15/Sunset.c,NO,NO  5.7  --0.0,NO  [err]  2.14  --0.0,NO
+Stroeder_15/svcomp_a.01.c,YES,YES  4.76  --0.0,YES  [err]  2.496  --0.0,YES
+Stroeder_15/svcomp_a.04.c,YES,YES  2.613  --0.0,YES  [err]  1.933  --0.0,YES
+Stroeder_15/svcomp_a.05.c,YES,YES  2.722  --0.0,YES  [err]  1.947  --0.0,YES
+Stroeder_15/svcomp_a.06.c,YES,YES  3.276  --0.0,YES  [err]  1.829  --0.0,YES
+AProVE_memory_alloca/svcomp_a.07-alloca.c,YES,YES  5.921  --0.0,YES  [err]  2.200  --0.0,YES
+AProVE_memory_alloca/svcomp_CookSeeZuleger-2013TACAS-Fig7b_true-alloca.c,YES,YES  8.23  --0.0,timeout,YES
+Stroeder_15/svcomp_a.07.c,YES,YES  3.222  --0.0,YES  [err]  1.980  --0.0,YES
+Stroeder_15/svcomp_a.08.c,YES,YES  2.834  --0.0,YES  [err]  1.878  --0.0,YES
+Stroeder_15/svcomp_a.09_assume.c,YES,YES  2.926  --0.0,YES  [err]  2.87  --0.0,YES
+Stroeder_15/svcomp_a.10.c,YES,YES  22.61  --0.0,YES  [err]  2.558  --0.0,YES
+Stroeder_15/svcomp_b.01.c,YES,YES  2.671  --0.0,YES  [err]  2.199  --0.0,YES
+Stroeder_15/svcomp_b.02.c,YES,YES  2.801  --0.0,YES  [err]  2.209  --0.0,YES
+Stroeder_15/svcomp_b.03_assume.c,YES,YES  2.810  --0.0,YES  [err]  2.213  --0.0,YES
+Stroeder_15/svcomp_b.03-no-inv_assume.c,YES,YES  2.981  --0.0,YES  [err]  2.57  --0.0,YES
+Stroeder_15/svcomp_b.04.c,YES,YES  2.115  --0.0,YES  [err]  2.169  --0.0,YES
+Stroeder_15/svcomp_b.05.c,YES,YES  21.549  --0.0,YES  [err]  1.865  --0.0,YES
+AProVE_memory_alloca/svcomp_count_down_alloca.c,YES,YES  26.507  --0.0,YES  [err]  2.843  --0.0,YES
+Stroeder_15/svcomp_b.06.c,YES,YES  3.178  --0.0,YES  [err]  2.91  --0.0,YES
+Stroeder_15/svcomp_b.07.c,YES,YES  3.388  --0.0,YES  [err]  2.140  --0.0,YES
+Stroeder_15/svcomp_b.09_assume.c,YES,YES  3.388  --0.0,YES  [err]  2.62  --0.0,YES
+Stroeder_15/svcomp_b.09-no-inv_assume.c,YES,YES  3.518  --0.0,YES  [err]  2.195  --0.0,YES
+Stroeder_15/svcomp_b.10.c,YES,YES  3.989  --0.0,YES  [err]  2.66  --0.0,YES
+Stroeder_15/svcomp_b.11.c,YES,YES  21.904  --0.0,YES  [err]  1.784  --0.0,YES
+Stroeder_15/svcomp_b.12.c,YES,YES  3.635  --0.0,YES  [err]  2.535  --0.0,YES
+Stroeder_15/svcomp_b.13.c,YES,YES  3.759  --0.0,YES  [err]  3.371  --0.0,YES
+Stroeder_15/svcomp_b.14.c,YES,YES  2.924  --0.0,YES  [err]  2.193  --0.0,YES
+Stroeder_15/svcomp_b.15.c,YES,YES  3.7  --0.0,YES  [err]  2.175  --0.0,YES
+AProVE_memory_alloca/svcomp_cstrcat_alloca.c,MAYBE,MAYBE  12.489  --0.0,timeout,MAYBE
+Stroeder_15/svcomp_b.16.c,YES,YES  3.670  --0.0,YES  [err]  2.572  --0.0,YES
+Stroeder_15/svcomp_b.17.c,YES,YES  3.809  --0.0,YES  [err]  3.202  --0.0,YES
+Stroeder_15/svcomp_b.18.c,YES,YES  2.570  --0.0,YES  [err]  3.715  --0.0,YES
+Stroeder_15/svcomp_c.01_assume.c,YES,YES  4.441  --0.0,YES  [err]  2.359  --0.0,YES
+Stroeder_15/svcomp_c.01-no-inv.c,YES,YES  4.259  --0.0,YES  [err]  2.927  --0.0,YES
+Stroeder_15/svcomp_c.02.c,YES,YES  4.223  --0.0,YES  [err]  2.947  --0.0,YES
+Stroeder_15/svcomp_c.03.c,YES,YES  3.946  --0.0,YES  [err]  2.682  --0.0,YES
+Stroeder_15/svcomp_c.07.c,YES,YES  3.704  --0.0,YES  [err]  3.225  --0.0,YES
+Stroeder_15/svcomp_c.08.c,YES,YES  4.251  --0.0,YES  [err]  2.702  --0.0,YES
+Stroeder_15/svcomp_easySum.c,YES,YES  3.993  --0.0,YES  [err]  2.130  --0.0,YES
+AProVE_memory_alloca/svcomp_cstrchr_true_alloca.c,YES,YES  3.797  --0.0,timeout,YES
+Stroeder_15/svcomp_ex1.c,YES,YES  2.648  --0.0,YES  [err]  2.106  --0.0,YES
+Stroeder_15/svcomp_ex2.c,YES,YES  24.852  --0.0,YES  [err]  4.291  --0.0,YES
+Stroeder_15/svcomp_ex3a.c,YES,YES  2.811  --0.0,YES  [err]  2.238  --0.0,YES
+Stroeder_15/svcomp_ex3b.c,YES,YES  3.28  --0.0,YES  [err]  2.133  --0.0,YES
+Stroeder_15/svcomp_fermat.c,YES,YES  12.627  --0.0,timeout,YES
+Stroeder_15/svcomp_flag.c,YES,YES  3.132  --0.0,YES  [err]  3.566  --0.0,YES
+Stroeder_15/svcomp_java_AG313.c,YES,YES  3.800  --0.0,YES  [err]  2.104  --0.0,YES
+Stroeder_15/svcomp_java_Break.c,YES,YES  2.475  --0.0,YES  [err]  2.46  --0.0,YES
+Stroeder_15/svcomp_java_Continue1.c,YES,YES  2.842  --0.0,YES  [err]  2.108  --0.0,YES
+Stroeder_15/svcomp_java_Nested.c,YES,YES  4.430  --0.0,YES  [err]  2.579  --0.0,YES
+AProVE_memory_alloca/svcomp_cstrcmp_true_alloca.c,YES,YES  5.150  --0.0,timeout,YES
+Stroeder_15/svcomp_java_Sequence.c,YES,YES  2.712  --0.0,YES  [err]  2.129  --0.0,YES
+Stroeder_15/Swingers.c,NO,NO  2.575  --0.0,NO  [err]  2.91  --0.0,NO
+Stroeder_15/TelAviv-Amir-Minimum_true-termination.c,YES,timeout,YES  [err]  2.492  --0.0,YES
+Stroeder_15/Thun_true-termination.c,YES,YES  2.909  --0.0,YES  [err]  5.849  --0.0,YES
+Stroeder_15/Toulouse-BranchesToLoop_true-termination.c,YES,YES  2.969  --0.0,YES  [err]  2.620  --0.0,YES
+Stroeder_15/Toulouse-MultiBranchesToLoop_true-termination.c,YES,YES  3.47  --0.0,YES  [err]  3.81  --0.0,YES
+Stroeder_15/TrueDiv.c,NO,NO  2.724  --0.0,NO  [err]  2.100  --0.0,NO
+Stroeder_15/TwoFloatInterv.c,NO,NO  2.794  --0.0,NO  [err]  2.205  --0.0,NO
+Stroeder_15/UpAndDown.c,NO,timeout,NO  [err]  2.386  --0.0,NO
+Stroeder_15/UpAndDownIneq.c,NO,timeout,NO  [err]  2.208  --0.0,NO
+AProVE_memory_alloca/svcomp_cstrcpy_alloca.c,YES,YES  41.206  --0.0,timeout,YES
+Stroeder_15/UrbanMine-ESOP2014-Fig3_true-termination.c,YES,YES  8.486  --0.0,YES  [err]  20.297  --0.0,YES
+Stroeder_15/Urban-WST2013-Fig1_false-termination.c,NO,NO  2.519  --0.0,NO  [err]  2.164  --0.0,NO
+Stroeder_15/Urban-WST2013-Fig2-modified1000_true-termination.c,YES,YES  3.404  --0.0,YES  [err]  2.523  --0.0,YES
+Stroeder_15/Urban-WST2013-Fig2_true-termination.c,YES,YES  3.325  --0.0,YES  [err]  2.326  --0.0,YES
+Stroeder_15/Velroyen_false-termination.c,NO,NO  2.935  --0.0,NO  [err]  2.483  --0.0,NO
+Stroeder_15/Waldkirch_true-termination.c,YES,YES  2.222  --0.0,YES  [err]  2.808  --0.0,YES
+Stroeder_15/WhileDecr.c,YES,YES  2.653  --0.0,YES  [err]  2.193  --0.0,YES
+Stroeder_15/WhileFalse_true-termination.c,YES,YES  1.979  --0.0,YES  [err]  2.2  --0.0,YES
+Stroeder_15/WhileIncr.c,NO,NO  2.542  --0.0,NO  [err]  2.110  --0.0,NO
+Stroeder_15/WhileIncrPart.c,NO,NO  2.717  --0.0,NO  [err]  2.116  --0.0,NO
+AProVE_memory_alloca/svcomp_cstrcspn_true_alloca.c,YES,YES  15.343  --0.0,timeout,YES
+Stroeder_15/WhileNested.c,NO,NO  3.136  --0.0,NO  [err]  2.128  --0.0,NO
+Stroeder_15/WhileNestedOffset.c,NO,NO  3.400  --0.0,NO  [err]  2.148  --0.0,NO
+Stroeder_15/WhilePart.c,NO,NO  2.508  --0.0,NO  [err]  2.114  --0.0,NO
+Stroeder_15/WhileSingle.c,NO,NO  3.171  --0.0,NO  [err]  3.28  --0.0,NO
+Stroeder_15/WhileTrue.c,NO,NO  3.42  --0.0,NO  [err]  2.932  --0.0,NO
+Stroeder_15/WhileTrue_false-termination.c,NO,NO  2.877  --0.0,NO  [err]  2.931  --0.0,NO
+SV-COMP_Mixed_Categories/960521-1_1_true-valid-memsafety.c,YES,MAYBE  47.807  --0.0,error,YES
+SV-COMP_Mixed_Categories/Addition01_true-unreach-call_true-termination.c,YES,YES  4.199  --0.0,YES  [err]  2.215  --0.0,YES
+SV-COMP_Mixed_Categories/afterrec_2calls_false-unreach-call.c,YES,YES  2.148  --0.0,error,YES
+SV-COMP_Mixed_Categories/BallRajamani-SPIN2000-Fig1_false-unreach-call.c,YES,MAYBE  3.915  --0.0,YES  [err]  18.462  --0.0,YES
+AProVE_memory_alloca/svcomp_cstrlen_true_alloca.c,YES,YES  3.111  --0.0,timeout,YES
+SV-COMP_Mixed_Categories/bist_cell_true-unreach-call_false-termination.cil.c,NO,MAYBE  12.334  --0.0,timeout,NO
+SV-COMP_Mixed_Categories/bubble_sort_linux_true-unreach-call.c,MAYBE,MAYBE  2.901  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cdaudio_simpl1_false-unreach-call_true-termination.cil.c,YES,timeout,YES  [err]  4.786  --0.0,YES
+SV-COMP_Mixed_Categories/cs_dekker_true-unreach-call.c,MAYBE,MAYBE  2.220  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cs_fib_longer_true-unreach-call.c,MAYBE,MAYBE  3.44  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cs_lamport_true-unreach-call.c,MAYBE,MAYBE  2.792  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cs_peterson_true-unreach-call.c,MAYBE,MAYBE  2.554  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cs_stateful_false-unreach-call.c,MAYBE,MAYBE  2.455  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cs_szymanski_true-unreach-call.c,MAYBE,MAYBE  2.613  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/cs_time_var_mutex_true-unreach-call.c,MAYBE,MAYBE  2.679  --0.0,error,MAYBE
+AProVE_memory_alloca/svcomp_cstrncat_alloca.c,MAYBE,MAYBE  20.701  --0.0,timeout,MAYBE
+SV-COMP_Mixed_Categories/data_structures_set_multi_proc_false-unreach-call_ground.c,YES,YES  23.249  --0.0,timeout,YES
+SV-COMP_Mixed_Categories/diskperf_simpl1_true-unreach-call_true-termination.cil.c,YES,timeout,YES  [err]  3.589  --0.0,YES
+SV-COMP_Mixed_Categories/dll_extends_pointer_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/dll_of_dll_true-unreach-call.c,MAYBE,MAYBE  2.69  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/elevator_spec1_product01_true-unreach-call.cil.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/email_spec0_product05_true-unreach-call.cil.c,YES,YES  26.641  --0.0,error,YES
+SV-COMP_Mixed_Categories/EvenOdd01_true-unreach-call_true-termination.c,YES,YES  3.749  --0.0,error,YES
+SV-COMP_Mixed_Categories/fibo_2calls_2_false-unreach-call.c,YES,YES  2.364  --0.0,error,YES
+SV-COMP_Mixed_Categories/fibo_5_false-unreach-call.c,YES,YES  4.716  --0.0,error,YES
+SV-COMP_Mixed_Categories/Fibonacci01_true-unreach-call.c,YES,YES  5.152  --0.0,error,YES
+AProVE_memory_alloca/svcomp_cstrncmp_true_alloca.c,YES,YES  6.303  --0.0,YES  [err]  2.315  --0.0,YES
+SV-COMP_Mixed_Categories/floppy_simpl3_false-unreach-call_true-termination.cil.c,YES,timeout,YES  [err]  3.267  --0.0,YES
+SV-COMP_Mixed_Categories/gcd01_true-unreach-call_true-termination.c,YES,YES  3.359  --0.0,YES  [err]  3.496  --0.0,YES
+SV-COMP_Mixed_Categories/id2_b2_o3_true-unreach-call.c,NO,timeout,error,NO
+SV-COMP_Mixed_Categories/id_i10_o10_false-unreach-call.c,YES,YES  2.849  --0.0,YES  [err]  2.129  --0.0,YES
+SV-COMP_Mixed_Categories/kbfiltr_simpl1_true-unreach-call_true-termination.cil.c,YES,timeout,YES  [err]  2.512  --0.0,YES
+SV-COMP_Mixed_Categories/list-ext_1_true-valid-memsafety.c,MAYBE,MAYBE  3.406  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/list_true-unreach-call.c,MAYBE,MAYBE  3.17  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/lockfree-3.0_true-valid-memsafety.c,MAYBE,MAYBE  13.387  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/McCarthy91_false-unreach-call_false-termination.c,YES,timeout,error,YES
+SV-COMP_Mixed_Categories/mem_slave_tlm.1_true-unreach-call_false-termination.cil.c,NO,timeout,timeout,NO
+AProVE_memory_alloca/svcomp_a.08-alloca.c,YES,YES  4.381  --0.0,YES  [err]  3.364  --0.0,YES
+AProVE_memory_alloca/svcomp_cstrncpy_alloca.c,YES,YES  16.121  --0.0,YES  [err]  2.425  --0.0,YES
+SV-COMP_Mixed_Categories/merge_sort_true-unreach-call.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/minepump_spec1_product01_true-unreach-call.cil.c,NO,timeout,error,NO
+SV-COMP_Mixed_Categories/pals_floodmax.3_false-unreach-call.1.ufo.BOUNDED-6.pals.c,NO,MAYBE  18.592  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_floodmax.5_false-unreach-call.1.ufo.BOUNDED-10.pals.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/pals_lcr.3_false-unreach-call.1.ufo.BOUNDED-6.pals.c,NO,MAYBE  5.533  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_lcr.8_false-unreach-call.1.ufo.BOUNDED-16.pals.c,NO,MAYBE  24.532  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_lcr-var-start-time.3_false-unreach-call.1.ufo.BOUNDED-6.pals.c,NO,MAYBE  6.960  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_lcr-var-start-time.6_false-unreach-call.1.ufo.BOUNDED-12.pals.c,NO,MAYBE  19.800  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_opt-floodmax.3_false-unreach-call.1.ufo.BOUNDED-6.pals.c,NO,MAYBE  20.349  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_opt-floodmax.5_false-unreach-call.1.ufo.BOUNDED-10.pals.c,MAYBE,timeout,error,MAYBE
+AProVE_memory_alloca/svcomp_cstrpbrk_true_alloca.c,YES,YES  10.405  --0.0,timeout,YES
+SV-COMP_Mixed_Categories/pals_STARTPALS_ActiveStandby_false-unreach-call.1.ufo.BOUNDED-10.pals.c,NO,MAYBE  21.436  --0.0,error,NO
+SV-COMP_Mixed_Categories/pals_STARTPALS_Triplicated_false-unreach-call.1.ufo.BOUNDED-10.pals.c,NO,MAYBE  14.712  --0.0,error,NO
+SV-COMP_Mixed_Categories/pc_sfifo_1_false-unreach-call_false-termination.cil.c,NO,timeout,NO  [err]  8.200  --0.0,NO
+SV-COMP_Mixed_Categories/Primes_true-unreach-call.c,NO,timeout,error,NO
+SV-COMP_Mixed_Categories/Problem01_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem02_label00_true-unreach-call.c,NO,timeout,timeout,NO
+SV-COMP_Mixed_Categories/Problem03_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem04_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem05_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem06_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+AProVE_memory_alloca/svcomp_cstrspn_true_alloca.c,YES,YES  11.823  --0.0,timeout,YES
+SV-COMP_Mixed_Categories/Problem07_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem08_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem09_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem10_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem11_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem12_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem13_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem14_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem15_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem16_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+AProVE_memory_alloca/svcomp_diff_alloca.c,YES,timeout,YES  [err]  14.695  --0.0,YES
+SV-COMP_Mixed_Categories/Problem17_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem18_label00_false-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/Problem19_label00_true-unreach-call.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/recHanoi01_true-unreach-call_true-termination.c,YES,YES  5.661  --0.0,error,YES
+SV-COMP_Mixed_Categories/rekcba_aso_false-unreach-call.1.M1.c,MAYBE,MAYBE  1.903  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/rekcba_ctm_false-unreach-call.2.c,MAYBE,MAYBE  8.13  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/rekcba_nxt_false-unreach-call.1.M1.c,MAYBE,MAYBE  1.956  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/s3_clnt_1_false-unreach-call.cil.c,YES,timeout,timeout,YES
+SV-COMP_Mixed_Categories/s3_srvr_14_false-unreach-call.cil.c,NO,MAYBE  5.254  --0.0,timeout,NO
+SV-COMP_Mixed_Categories/s3_srvr_1_false-unreach-call.cil.c,NO,MAYBE  4.615  --0.0,timeout,NO
+AProVE_memory_alloca/svcomp_easySum-alloca.c,YES,YES  20.496  --0.0,YES  [err]  2.177  --0.0,YES
+SV-COMP_Mixed_Categories/sanfoundry_02_true-unreach-call_ground.c,YES,MAYBE  15.747  --0.0,YES  [err]  2.282  --0.0,MAYBE
+SV-COMP_Mixed_Categories/simple-ext_1_true-valid-memsafety.c,MAYBE,MAYBE  7.48  --0.0,error,MAYBE
+SV-COMP_Mixed_Categories/skiplist_3lvl_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/sll_to_dll_rev_true-unreach-call.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/sorting_bubblesort_true-unreach-call_ground.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/splice_true-unreach-call.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/standard_compare_true-unreach-call_ground.c,YES,YES  6.419  --0.0,YES  [err]  2.109  --0.0,YES
+SV-COMP_Mixed_Categories/standard_copy7_true-unreach-call_ground.c,YES,YES  11.773  --0.0,YES  [err]  2.667  --0.0,YES
+SV-COMP_Mixed_Categories/standard_password_true-unreach-call_ground.c,YES,YES  6.500  --0.0,YES  [err]  2.98  --0.0,YES
+SV-COMP_Mixed_Categories/stateful_check_false-unreach-call.c,NO,NO  7.855  --0.0,NO  [err]  2.126  --0.0,NO
+AProVE_memory_alloca/svcomp_ex1-alloca.c,YES,YES  3.123  --0.0,YES  [err]  2.198  --0.0,YES
+SV-COMP_Mixed_Categories/sum_2x3_false-unreach-call.c,YES,YES  3.123  --0.0,YES  [err]  1.964  --0.0,YES
+SV-COMP_Mixed_Categories/sum_non_eq_false-unreach-call.c,NO,timeout,NO  [err]  2.54  --0.0,NO
+SV-COMP_Mixed_Categories/test-0134_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/test-0219_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/test-0234_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/test-0513_1_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/test-0521_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Mixed_Categories/test_locks_15_true-unreach-call_false-termination.c,NO,timeout,timeout,NO
+SV-COMP_Mixed_Categories/token_ring.01_false-unreach-call_false-termination.cil.c,NO,timeout,NO  [err]  55.410  --0.0,NO
+SV-COMP_Mixed_Categories/token_ring.05_false-unreach-call_false-termination.cil.c,NO,timeout,timeout,NO
+AProVE_memory_alloca/svcomp_ex2-alloca.c,YES,timeout,YES  [err]  38.572  --0.0,MAYBE
+SV-COMP_Mixed_Categories/token_ring.10_false-unreach-call_false-termination.cil.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/token_ring.15_false-unreach-call_false-termination.cil.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/transmitter.01_false-unreach-call_false-termination.cil.c,NO,timeout,NO  [err]  9.86  --0.0,NO
+SV-COMP_Mixed_Categories/transmitter.06_false-unreach-call_false-termination.cil.c,NO,timeout,timeout,NO
+SV-COMP_Mixed_Categories/transmitter.11_false-unreach-call_false-termination.cil.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/transmitter.16_false-unreach-call_false-termination.cil.c,MAYBE,timeout,timeout,MAYBE
+SV-COMP_Mixed_Categories/tree_stack_true-valid-memsafety.c,MAYBE,timeout,error,MAYBE
+SV-COMP_Termination_Category/aaron2_true-termination.c,YES,YES  4.973  --0.0,YES  [err]  2.119  --0.0,YES
+SV-COMP_Termination_Category/aaron3_true-termination.c,YES,YES  10.321  --0.0,timeout,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-counterex1a_true-termination.c,YES,MAYBE  3.364  --0.0,YES  [err]  50.411  --0.0,YES
+AProVE_memory_alloca/svcomp_ex3a-alloca.c,YES,YES  3.442  --0.0,YES  [err]  2.152  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-counterex1b_true-termination.c,YES,YES  15.957  --0.0,timeout,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-cousot9_true-termination.c,YES,YES  3.404  --0.0,YES  [err]  2.982  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-Fig1_true-termination.c,YES,MAYBE  3.397  --0.0,timeout,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-Fig2a_true-termination.c,YES,YES  13.806  --0.0,YES  [err]  2.228  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-Fig2b_true-termination.c,YES,timeout,timeout,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-ndecr_true-termination.c,YES,YES  2.532  --0.0,YES  [err]  1.990  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-nestedLoop_true-termination.c,YES,YES  7.509  --0.0,timeout,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-random1d_true-termination.c,YES,YES  4.421  --0.0,YES  [err]  2.154  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-rsd_true-termination.c,YES,timeout,YES  [err]  2.875  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination.c,YES,YES  3.334  --0.0,YES  [err]  2.350  --0.0,YES
+AProVE_memory_alloca/svcomp_ex3b-alloca.c,YES,YES  4.184  --0.0,YES  [err]  2.143  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-speedpldi3_true-termination.c,YES,YES  3.737  --0.0,YES  [err]  2.668  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-speedpldi4_true-termination.c,YES,YES  3.499  --0.0,YES  [err]  2.55  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-terminate_true-termination.c,YES,YES  2.765  --0.0,YES  [err]  2.449  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-wcet2_true-termination.c,YES,YES  3.275  --0.0,YES  [err]  2.129  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-while2_true-termination.c,YES,YES  2.985  --0.0,YES  [err]  3.277  --0.0,YES
+SV-COMP_Termination_Category/AliasDarteFeautrierGonnord-SAS2010-wise_true-termination.c,YES,timeout,YES  [err]  2.231  --0.0,YES
+SV-COMP_Termination_Category/Avery-FLOPS2006-Table1_true-termination.c,YES,YES  4.26  --0.0,YES  [err]  2.81  --0.0,YES
+SV-COMP_Termination_Category/aviad_true-termination.c,YES,YES  5.817  --0.0,YES  [err]  1.981  --0.0,YES
+SV-COMP_Termination_Category/BradleyMannaSipma-CAV2005-Fig1-modified_false-termination.c,NO,timeout,NO  [err]  2.100  --0.0,NO
+SV-COMP_Termination_Category/BradleyMannaSipma-CAV2005-Fig1_true-termination.c,YES,YES  5.16  --0.0,YES  [err]  2.249  --0.0,YES
+AProVE_memory_alloca/svcomp_fermat-alloca.c,YES,YES  22.812  --0.0,YES  [err]  53.890  --0.0,YES
+SV-COMP_Termination_Category/BradleyMannaSipma-ICALP2005-Fig1_true-termination.c,YES,timeout,YES  [err]  2.696  --0.0,YES
+SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron12_true-termination.c,YES,timeout,YES  [err]  21.605  --0.0,MAYBE
+SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron1_true-termination.c,YES,YES  5.167  --0.0,YES  [err]  3.671  --0.0,YES
+SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination.c,YES,timeout,timeout,YES
+SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination.c,YES,timeout,YES  [err]  12.556  --0.0,YES
+SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-random1d_true-termination.c,YES,YES  4.477  --0.0,YES  [err]  2.117  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.02_true-termination.c,YES,YES  2.553  --0.0,YES  [err]  6.106  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.03_true-termination.c,YES,YES  2.1  --0.0,YES  [err]  6.102  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.04_true-termination.c,YES,YES  2.454  --0.0,YES  [err]  6.101  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.05_true-termination.c,YES,YES  2.435  --0.0,YES  [err]  6.125  --0.0,YES
+AProVE_memory_alloca/svcomp_a.09_assume-alloca.c,YES,YES  3.605  --0.0,YES  [err]  4.214  --0.0,YES
+AProVE_memory_alloca/svcomp_flag-alloca.c,YES,YES  4.380  --0.0,YES  [err]  3.569  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.01_true-termination.c,YES,YES  3.48  --0.0,YES  [err]  2.189  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination.c,NO,timeout,NO  [err]  2.220  --0.0,NO
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.05_false-termination.c,NO,MAYBE  3.748  --0.0,NO  [err]  2.94  --0.0,NO
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.07_true-termination.c,YES,YES  2.488  --0.0,YES  [err]  2.61  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.08_true-termination.c,YES,YES  2.994  --0.0,YES  [err]  2.294  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.10_true-termination.c,YES,YES  2.561  --0.0,YES  [err]  1.970  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.13_true-termination.c,YES,YES  3.72  --0.0,YES  [err]  2.67  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.16_true-termination.c,YES,YES  2.470  --0.0,YES  [err]  2.6  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.17_false-termination.c,NO,timeout,NO  [err]  2.193  --0.0,NO
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.20_true-termination.c,YES,YES  2.478  --0.0,YES  [err]  2.156  --0.0,YES
+AProVE_memory_alloca/svcomp_gcd1_true-alloca.c,YES,YES  9.196  --0.0,YES  [err]  4.353  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.22_true-termination.c,YES,YES  2.460  --0.0,YES  [err]  4.112  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex3.01_true-termination.c,YES,YES  2.479  --0.0,YES  [err]  2.97  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex3.03_true-termination.c,YES,YES  3.199  --0.0,YES  [err]  5.676  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex3.04_true-termination.c,YES,YES  3.424  --0.0,YES  [err]  2.55  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex3.05_true-termination.c,YES,YES  3.474  --0.0,YES  [err]  2.382  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex3.08_true-termination.c,YES,YES  3.266  --0.0,YES  [err]  2.147  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex3.09_true-termination.c,YES,YES  2.595  --0.0,YES  [err]  6.239  --0.0,YES
+SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex4.01_true-termination.c,YES,YES  3.518  --0.0,YES  [err]  2.499  --0.0,YES
+SV-COMP_Termination_Category/CookSeeZuleger-TACAS2013-Fig1_true-termination.c,YES,YES  3.944  --0.0,YES  [err]  2.675  --0.0,YES
+SV-COMP_Termination_Category/CookSeeZuleger-TACAS2013-Fig7a_true-termination.c,YES,YES  5.1  --0.0,YES  [err]  2.576  --0.0,YES
+AProVE_memory_alloca/svcomp_genady_true-alloca.c,YES,YES  5.295  --0.0,YES  [err]  2.178  --0.0,YES
+SV-COMP_Termination_Category/CookSeeZuleger-TACAS2013-Fig7b_true-termination.c,YES,YES  8.479  --0.0,timeout,YES
+SV-COMP_Termination_Category/gcd1_true-termination.c,YES,YES  6.585  --0.0,YES  [err]  2.411  --0.0,YES
+SV-COMP_Termination_Category/genady_true-termination.c,YES,YES  3.180  --0.0,YES  [err]  2.169  --0.0,YES
+SV-COMP_Termination_Category/GopanReps-CAV2006-Fig1a_true-termination.c.c,YES,YES  2.702  --0.0,YES  [err]  2.435  --0.0,YES
+SV-COMP_Termination_Category/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination.c,YES,YES  8.752  --0.0,YES  [err]  3.114  --0.0,YES
+SV-COMP_Termination_Category/HarrisLalNoriRajamani-SAS2010-Fig1_true-termination.c,YES,YES  11.801  --0.0,YES  [err]  10.291  --0.0,YES
+SV-COMP_Termination_Category/HarrisLalNoriRajamani-SAS2010-Fig2_false-termination.c,NO,NO  14.889  --0.0,NO  [err]  2.33  --0.0,NO
+SV-COMP_Termination_Category/HarrisLalNoriRajamani-SAS2010-Fig3_true-termination.c,YES,YES  2.987  --0.0,YES  [err]  2.8  --0.0,YES
+SV-COMP_Termination_Category/HeizmannHoenickeLeikePodelski-ATVA2013-Fig2_true-termination.c,YES,MAYBE  4.731  --0.0,YES  [err]  1.986  --0.0,YES
+SV-COMP_Termination_Category/HeizmannHoenickeLeikePodelski-ATVA2013-Fig5_true-termination.c,YES,YES  2.560  --0.0,YES  [err]  1.981  --0.0,YES
+AProVE_memory_alloca/svcomp_GulwaniJainKoskinen-2009PLDI-Fig1_true-alloca.c,YES,YES  3.772  --0.0,timeout,YES
+SV-COMP_Termination_Category/HeizmannHoenickeLeikePodelski-ATVA2013-Fig6_true-termination.c,YES,YES  3.53  --0.0,YES  [err]  1.988  --0.0,YES
+SV-COMP_Termination_Category/HeizmannHoenickeLeikePodelski-ATVA2013-Fig7_true-termination.c,YES,YES  3.698  --0.0,YES  [err]  1.991  --0.0,YES
+SV-COMP_Termination_Category/HeizmannHoenickeLeikePodelski-ATVA2013-Fig8_true-termination.c,YES,YES  2.985  --0.0,YES  [err]  2.78  --0.0,YES
+SV-COMP_Termination_Category/HeizmannHoenickeLeikePodelski-ATVA2013-Fig9_true-termination.c,YES,YES  3.221  --0.0,YES  [err]  2.96  --0.0,YES
+SV-COMP_Termination_Category/HenzingerJhalaMajumdarSutre-POPL2002-LockingExample_false-termination.c,NO,NO  51.833  --0.0,NO  [err]  2.91  --0.0,NO
+SV-COMP_Termination_Category/joey_false-termination.c,NO,timeout,error,NO
+SV-COMP_Termination_Category/KroeningSharyginaTsitovichWintersteiger-CAV2010-Ex_true-termination.c,YES,YES  3.469  --0.0,YES  [err]  2.5  --0.0,YES
+SV-COMP_Termination_Category/KroeningSharyginaTsitovichWintersteiger-CAV2010-Fig1_true-termination.c,YES,timeout,YES  [err]  2.99  --0.0,YES
+SV-COMP_Termination_Category/LarrazOliverasRodriguez-CarbonellRubio-FMCAD2013-Fig1_true-termination.c,YES,YES  9.74  --0.0,YES  [err]  3.637  --0.0,YES
+SV-COMP_Termination_Category/LeeJonesBen-Amram-POPL2001-Ex1_true-termination.c,YES,YES  3.986  --0.0,YES  [err]  2.60  --0.0,YES
+AProVE_memory_alloca/svcomp_HarrisLalNoriRajamani-2010SAS-Fig1_true-alloca.c,YES,YES  2.856  --0.0,YES  [err]  5.19  --0.0,YES
+SV-COMP_Termination_Category/LeeJonesBen-Amram-POPL2001-Ex2_true-termination.c,YES,YES  4.518  --0.0,error,YES
+SV-COMP_Termination_Category/LeeJonesBen-Amram-POPL2001-Ex3_true-termination.c,YES,YES  6.635  --0.0,error,YES
+SV-COMP_Termination_Category/LeeJonesBen-Amram-POPL2001-Ex4_true-termination.c,YES,YES  4.669  --0.0,YES  [err]  2.614  --0.0,YES
+SV-COMP_Termination_Category/LeeJonesBen-Amram-POPL2001-Ex5_true-termination.c,YES,YES  3.468  --0.0,YES  [err]  2.497  --0.0,YES
+SV-COMP_Termination_Category/LeeJonesBen-Amram-POPL2001-Ex6_true-termination.c,YES,YES  4.524  --0.0,YES  [err]  2.136  --0.0,YES
+SV-COMP_Termination_Category/LeikeHeizmann-TACAS2014-Ex9_true-termination.c,YES,YES  2.746  --0.0,YES  [err]  2.444  --0.0,YES
+SV-COMP_Termination_Category/LeikeHeizmann-WST2014-Ex9_true-termination.c,YES,YES  2.554  --0.0,YES  [err]  2.165  --0.0,YES
+SV-COMP_Termination_Category/Masse-VMCAI2014-Fig1b_true-termination.c,YES,timeout,YES  [err]  35.978  --0.0,MAYBE
+SV-COMP_Termination_Category/min_rf_true-termination.c,YES,YES  16.993  --0.0,YES  [err]  3.606  --0.0,YES
+SV-COMP_Termination_Category/PodelskiRybalchenko-LICS2004-Fig2_true-termination.c,YES,YES  5.507  --0.0,YES  [err]  2.758  --0.0,YES
+AProVE_memory_alloca/svcomp_HarrisLalNoriRajamani-2010SAS-Fig2_false-unreach-label-termination-alloca.c,NO,NO  23.30  --0.0,NO  [err]  13.777  --0.0,NO
+SV-COMP_Termination_Category/PodelskiRybalchenko-TACAS2011-Fig4_true-termination.c,YES,YES  3.822  --0.0,YES  [err]  2.365  --0.0,YES
+SV-COMP_Termination_Category/PodelskiRybalchenko-VMCAI2004-Ex1_true-termination.c,YES,YES  4.560  --0.0,YES  [err]  2.156  --0.0,YES
+SV-COMP_Termination_Category/svcomp_cstrcmp_true-termination.c,YES,YES  3.10  --0.0,timeout,YES
+SV-COMP_Termination_Category/svcomp_cstrcspn_true-termination.c,YES,YES  6.582  --0.0,timeout,YES
+SV-COMP_Termination_Category/svcomp_cstrlen_true-termination.c,YES,YES  2.502  --0.0,timeout,YES
+SV-COMP_Termination_Category/svcomp_cstrncmp_true-termination.c,YES,YES  3.562  --0.0,YES  [err]  2.213  --0.0,YES
+SV-COMP_Termination_Category/svcomp_cstrpbrk_true-termination.c,YES,YES  5.387  --0.0,timeout,YES
+SV-COMP_Termination_Category/svcomp_cstrspn_true-termination.c,YES,YES  5.924  --0.0,timeout,YES
+SV-COMP_Termination_Category/svcomp_strchr_true-termination.c,YES,YES  2.583  --0.0,timeout,YES
+SV-COMP_Termination_Category/TelAviv-Amir-Minimum_true-termination.c,YES,timeout,YES  [err]  2.410  --0.0,YES
+AProVE_memory_alloca/svcomp_HarrisLalNoriRajamani-2010SAS-Fig3_true-alloca.c,YES,YES  3.233  --0.0,YES  [err]  2.52  --0.0,YES
+SV-COMP_Termination_Category/Toulouse-BranchesToLoop_true-termination.c,YES,YES  2.862  --0.0,YES  [err]  2.463  --0.0,YES
+SV-COMP_Termination_Category/Toulouse-MultiBranchesToLoop_true-termination.c,YES,YES  2.873  --0.0,YES  [err]  3.292  --0.0,YES
+SV-COMP_Termination_Category/UrbanMine-ESOP2014-Fig3_true-termination.c,YES,YES  7.682  --0.0,YES  [err]  14.117  --0.0,YES
+Ton_Chanh_15/2Nested_false-termination.c,NO,timeout,NO  [err]  1.921  --0.0,NO
+Ton_Chanh_15/Ackermann_false-termination.c,NO,timeout,error,NO
+Ton_Chanh_15/Ackermann_true-termination.c,YES,YES  7.165  --0.0,error,YES
+Ton_Chanh_15/Bangalore_false-termination.c,NO,NO  2.619  --0.0,NO  [err]  2.88  --0.0,NO
+Ton_Chanh_15/Bangalore_v2_false-termination.c,NO,NO  3.417  --0.0,NO  [err]  2.78  --0.0,NO
+Ton_Chanh_15/Bangalore_v3_false-termination.c,NO,NO  3.533  --0.0,NO  [err]  2.126  --0.0,NO
+Ton_Chanh_15/Bangalore_v4_true-termination.c,YES,YES  2.70  --0.0,YES  [err]  2.126  --0.0,YES
+AProVE_memory_alloca/svcomp_insertionsort_alloca.c,YES,YES  36.354  --0.0,YES  [err]  4.394  --0.0,YES
+Ton_Chanh_15/Benghazi_nondet_true-termination.c,YES,YES  3.278  --0.0,YES  [err]  2.555  --0.0,YES
+Ton_Chanh_15/Binary_Search_true-termination.c,NO,MAYBE  7.378  --0.0,NO  [err]  2.73  --0.0,NO
+Ton_Chanh_15/Cairo_nondet_false-termination.c,NO,timeout,NO  [err]  1.981  --0.0,NO
+Ton_Chanh_15/Cairo_step2_false-termination.c,NO,timeout,NO  [err]  2.99  --0.0,NO
+Ton_Chanh_15/Copenhagen_disj_true-termination.c,YES,YES  2.814  --0.0,YES  [err]  2.301  --0.0,YES
+Ton_Chanh_15/Gothenburg_v2_true-termination.c,YES,timeout,YES  [err]  1.827  --0.0,YES
+Ton_Chanh_15/Hanoi_2vars_false-termination.c,NO,timeout,NO  [err]  1.915  --0.0,NO
+Ton_Chanh_15/Hanoi_3vars_false-termination.c,NO,timeout,NO  [err]  2.144  --0.0,NO
+Ton_Chanh_15/Hanoi_plus_false-termination.c,NO,timeout,NO  [err]  2.149  --0.0,NO
+Ton_Chanh_15/McCarthy91_Iteration_true-termination.c,YES,YES  3.209  --0.0,YES  [err]  53.620  --0.0,YES
+AProVE_memory_alloca/svcomp_java_AG313-alloca.c,YES,YES  5.328  --0.0,YES  [err]  2.178  --0.0,YES
+Ton_Chanh_15/McCarthy91_Recursion_true-termination.c,YES,MAYBE  44.178  --0.0,error,YES
+Ton_Chanh_15/MutualRecursion_1a_false-termination.c,NO,MAYBE  3.947  --0.0,error,NO
+Ton_Chanh_15/MutualRecursion_1b_true-termination.c,YES,YES  3.279  --0.0,error,YES
+Ton_Chanh_15/Mysore_false-termination.c,NO,timeout,NO  [err]  1.866  --0.0,NO
+Ton_Chanh_15/NestedRecursion_1a_false-termination.c,NO,timeout,error,NO
+Ton_Chanh_15/NestedRecursion_1b_true-termination.c,YES,timeout,error,YES
+Ton_Chanh_15/NestedRecursion_1c_true-termination.c,YES,YES  2.631  --0.0,error,YES
+Ton_Chanh_15/NestedRecursion_1d_true-termination.c,YES,YES  3.163  --0.0,error,YES
+Ton_Chanh_15/NestedRecursion_2a_false-termination.c,NO,timeout,error,NO
+Ton_Chanh_15/NestedRecursion_2b_false-termination.c,NO,MAYBE  3.196  --0.0,error,NO
+AProVE_memory_alloca/svcomp_java_Break-alloca.c,YES,YES  2.917  --0.0,YES  [err]  2.174  --0.0,YES
+Ton_Chanh_15/NestedRecursion_2c_true-termination.c,YES,YES  3.393  --0.0,error,YES
+Ton_Chanh_15/Singapore_plus_false-termination.c,NO,timeout,NO  [err]  2.23  --0.0,NO
+Ton_Chanh_15/Singapore_true-termination.c,YES,timeout,YES  [err]  2.739  --0.0,YES
+Ton_Chanh_15/Singapore_v1_false-termination.c,NO,timeout,NO  [err]  2.133  --0.0,NO
+Ton_Chanh_15/Singapore_v2_false-termination.c,NO,timeout,NO  [err]  2.142  --0.0,NO
+Ultimate/4BitCounterPointer_true-termination.c,YES,YES  2.344  --0.0,YES  [err]  31.827  --0.0,YES
+Ultimate/Arrays01-EquivalentConstantIndices_true-termination.c,YES,YES  2.321  --0.0,YES  [err]  2.99  --0.0,YES
+Ultimate/Arrays02-EquivalentConstantIndices_false-termination.c,NO,MAYBE  2.797  --0.0,NO  [err]  2.101  --0.0,NO
+Ultimate/Arrays03-ValueRestictsIndex_true-termination.c,YES,YES  2.978  --0.0,YES  [err]  2.295  --0.0,YES
+Ultimate/Bangalore_true-termination.c,YES,YES  3.146  --0.0,YES  [err]  2.146  --0.0,YES
+AProVE_memory_alloca/svcomp_a.10-alloca.c,YES,timeout,YES  [err]  2.897  --0.0,YES
+AProVE_memory_alloca/svcomp_java_BubbleSort_alloca.c,YES,timeout,YES  [err]  3.278  --0.0,YES
+Ultimate/Cairo_true-termination.c,YES,YES  2.534  --0.0,YES  [err]  2.147  --0.0,YES
+Ultimate/Collatz_unknown-termination.c,MAYBE,timeout,timeout,MAYBE
+Ultimate/Division_false-termination.c,NO,NO  3.282  --0.0,NO  [err]  2.123  --0.0,NO
+Ultimate/Gothenburg_true-termination.c,YES,YES  4.575  --0.0,YES  [err]  2.568  --0.0,YES
+Ultimate/LexIndexValue-Array_true-termination.c,YES,YES  5.722  --0.0,YES  [err]  2.699  --0.0,MAYBE
+Ultimate/LexIndexValue-Pointer_true-termination.c,YES,MAYBE  11.230  --0.0,YES  [err]  2.967  --0.0,MAYBE
+Ultimate/Lobnya-Boolean-Reordered_true-termination.c,YES,YES  2.390  --0.0,YES  [err]  2.216  --0.0,YES
+Ultimate/Madrid_false-termination.c,NO,NO  2.289  --0.0,NO  [err]  1.977  --0.0,NO
+Ultimate/Mysore_true-termination.c,YES,YES  2.733  --0.0,YES  [err]  2.83  --0.0,YES
+Ultimate/NonTermination2_false-termination.c,NO,timeout,NO  [err]  6.736  --0.0,NO
+AProVE_memory_alloca/svcomp_java_Continue1-alloca.c,YES,YES  3.327  --0.0,YES  [err]  2.89  --0.0,YES
+Ultimate/NonTermination3_false-termination.c,NO,MAYBE  3.133  --0.0,NO  [err]  2.106  --0.0,MAYBE
+Ultimate/NonTerminationSimple2_false-termination.c,NO,NO  2.661  --0.0,NO  [err]  2.113  --0.0,NO
+Ultimate/NonTerminationSimple3_false-termination.c,NO,NO  3.162  --0.0,NO  [err]  1.993  --0.0,NO
+Ultimate/NonTerminationSimple4_false-termination.c,NO,NO  2.602  --0.0,NO  [err]  2.83  --0.0,NO
+Ultimate/NonTerminationSimple5_false-termination.c,NO,NO  11.498  --0.0,NO  [err]  1.882  --0.0,NO
+Ultimate/NonTerminationSimple6_false-termination.c,NO,NO  2.491  --0.0,NO  [err]  2.42  --0.0,NO
+Ultimate/NonTerminationSimple7_false-termination.c,NO,NO  2.462  --0.0,NO  [err]  2.72  --0.0,NO
+Ultimate/NonTerminationSimple8_false-termination.c,NO,timeout,NO  [err]  1.834  --0.0,NO
+Ultimate/NonTerminationSimple9_false-termination.c,NO,NO  3.241  --0.0,NO  [err]  2.58  --0.0,NO
+Ultimate/Nyala-2lex_true-termination.c,YES,YES  3.80  --0.0,YES  [err]  37.573  --0.0,YES
+AProVE_memory_alloca/svcomp_java_LogBuiltIn-alloca.c,YES,YES  2.908  --0.0,YES  [err]  2.140  --0.0,YES
+Ultimate/Parallel_true-termination.c,YES,YES  2.660  --0.0,YES  [err]  2.200  --0.0,YES
+Ultimate/Pure3Phase_true-termination.c,YES,timeout,YES  [err]  2.556  --0.0,YES
+Ultimate/RecursiveMultiplication_true-termination.c,YES,YES  3.666  --0.0,error,YES
+Ultimate/RecursiveNonterminating_false-termination.c,NO,NO  3.571  --0.0,NO  [err]  2.39  --0.0,NO
+Ultimate/Rotation180_false-termination.c,NO,NO  2.568  --0.0,NO  [err]  1.960  --0.0,NO
+Ultimate/Stockholm_true-termination.c,YES,YES  2.653  --0.0,YES  [err]  1.998  --0.0,YES
+Ultimate/SyntaxSupportPointer01_true-termination.c,YES,YES  2.319  --0.0,YES  [err]  2.118  --0.0,YES
+Ultimate/WhileFalse_true-termination.c,YES,YES  1.905  --0.0,YES  [err]  1.755  --0.0,YES
+Ultimate/WhileTrue_false-termination.c,NO,NO  2.223  --0.0,NO  [err]  1.905  --0.0,NO
+AProVE_memory_alloca/svcomp_java_Nested-alloca.c,YES,YES  6.28  --0.0,YES  [err]  2.676  --0.0,YES
+AProVE_memory_alloca/svcomp_java_Sequence-alloca.c,YES,YES  3.590  --0.0,YES  [err]  2.190  --0.0,YES
+AProVE_memory_alloca/svcomp_KroeningSharyginaTsitovichWintersteiger-2010CAV-Fig1_true-alloca.c,YES,timeout,YES  [err]  2.326  --0.0,YES
+AProVE_memory_alloca/svcomp_LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1_true-alloca.c,YES,YES  11.829  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_lis_alloca.c,YES,MAYBE  27.297  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_Masse_true-alloca.c,MAYBE,timeout,timeout,MAYBE
+AProVE_memory_alloca/svcomp_min_rf_true-alloca.c,YES,YES  19.493  --0.0,YES  [err]  2.748  --0.0,YES
+AProVE_memory_alloca/svcomp_add_last_alloca.c,YES,MAYBE  6.143  --0.0,YES  [err]  3.954  --0.0,MAYBE
+AProVE_memory_alloca/svcomp_mult_array_alloca.c,YES,MAYBE  16.56  --0.0,YES  [err]  2.220  --0.0,YES
+AProVE_memory_alloca/svcomp_NoriSharma-2013FSE-Fig7_true-alloca.c,YES,YES  12.628  --0.0,YES  [err]  4.317  --0.0,YES
+AProVE_memory_alloca/svcomp_NoriSharma-2013FSE-Fig8_true-alloca.c,YES,YES  9.806  --0.0,YES  [err]  2.843  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cbzero_alloca.c,YES,YES  4.223  --0.0,YES  [err]  2.351  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cmemchr_alloca.c,YES,YES  5.373  --0.0,YES  [err]  3.136  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cmemrchr_alloca.c,YES,YES  5.637  --0.0,YES  [err]  3.101  --0.0,MAYBE
+AProVE_memory_alloca/svcomp_openbsd_cmemset_alloca.c,YES,YES  4.505  --0.0,YES  [err]  2.84  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cstpcpy_alloca.c,YES,YES  33.259  --0.0,timeout,YES
+AProVE_memory_alloca/svcomp_openbsd_cstpncpy_alloca.c,YES,YES  18.938  --0.0,YES  [err]  2.240  --0.0,YES
+AProVE_memory_alloca/svcomp_openbsd_cstrcat_alloca.c,MAYBE,MAYBE  11.929  --0.0,timeout,MAYBE
+,749.00,605.00,621.00,
