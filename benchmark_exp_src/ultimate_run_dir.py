@@ -77,17 +77,38 @@ def select_base_dir(file_path: Path, directories: List[str]) -> Optional[Path]:
     return best
 
 
-def get_log_dir_for_file(file_path: Path, log_dir: Path, directories: List[str]) -> Path:
+def format_rel_dir(path: Optional[Path]) -> str:
+    if not path:
+        return ""
+    path = path.resolve()
+    candidates = []
+    for root in (Path.cwd().resolve(), REPO_ROOT.resolve()):
+        try:
+            rel = path.relative_to(root)
+            rel_str = str(rel)
+            if rel_str not in ("", "."):
+                candidates.append(rel_str)
+        except Exception:
+            continue
+    if candidates:
+        return min(candidates, key=len)
+    return path.name or str(path)
+
+
+def get_log_dir_for_file(
+    file_path: Path,
+    log_dir: Path,
+    base_dir: Optional[Path],
+    input_dir_label: str,
+) -> Path:
     file_path = file_path.resolve()
-    try:
-        rel = file_path.relative_to(REPO_ROOT.resolve())
-        return log_dir / rel.parent
-    except ValueError:
-        base = select_base_dir(file_path, directories)
-        if base:
-            rel = file_path.relative_to(base)
-            return log_dir / rel.parent
-    return log_dir
+    if base_dir:
+        try:
+            rel = file_path.relative_to(base_dir.resolve())
+            return log_dir / input_dir_label / rel.parent
+        except Exception:
+            pass
+    return log_dir / input_dir_label
 
 
 def run_ultimate(
@@ -274,7 +295,8 @@ def main() -> None:
     fieldnames = [
         "file",
         "result",
-        "error",
+        "has_error",
+        "error_detail",
         "exit_code",
         "result_source",
         "time_taken",
@@ -282,10 +304,11 @@ def main() -> None:
         "ultimate_log",
         "processed_time",
         "path",
+        "input_dir",
         "spec",
         "architecture",
         "timeout",
-        "full_output",
+        "enbale_fulloutput",
         "ultimate_root",
         "command",
     ]
@@ -303,6 +326,8 @@ def main() -> None:
         total = len(c_files)
         for idx, file_path in enumerate(c_files, start=1):
             rel_path = normalize_path(file_path)
+            base_dir = select_base_dir(file_path, args.directory)
+            input_dir = format_rel_dir(base_dir)
             if rel_path in processed:
                 print(f"[{idx}/{total}] Skipping {file_path}")
                 continue
@@ -334,7 +359,7 @@ def main() -> None:
             full_log_path = ""
             ultimate_log_path = ""
             if log_dir:
-                log_file_dir = get_log_dir_for_file(file_path, log_dir, args.directory)
+                log_file_dir = get_log_dir_for_file(file_path, log_dir, base_dir, input_dir)
                 log_file_dir.mkdir(parents=True, exist_ok=True)
                 if args.full_output and combined_output:
                     full_log_path = str(log_file_dir / f"{file_path.name}-ultimate-svtermprp.log")
@@ -357,7 +382,8 @@ def main() -> None:
                 {
                     "file": file_path.name,
                     "result": result,
-                    "error": error or "",
+                    "has_error": "1" if error else "0",
+                    "error_detail": error or "",
                     "exit_code": "" if returncode is None else str(returncode),
                     "result_source": result_source,
                     "time_taken": f"{time_taken:.2f}",
@@ -365,10 +391,11 @@ def main() -> None:
                     "ultimate_log": ultimate_log_path,
                     "processed_time": timestamp,
                     "path": rel_path,
+                    "input_dir": input_dir,
                     "spec": str(spec_path),
                     "architecture": args.architecture or "",
                     "timeout": str(args.timeout),
-                    "full_output": "1" if args.full_output else "0",
+                    "enbale_fulloutput": "1" if args.full_output else "0",
                     "ultimate_root": str(ultimate_root),
                     "command": cmd_str,
                 }
