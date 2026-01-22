@@ -5,6 +5,7 @@ ulimit -Sv $((64*1024*1024)) && \
     python3 Src/benchmarks_tools/cpa_run_dir.py \
         -d Datasets/Loopy_dataset_InvarBenchmark \
         -o Results/CPA_loopy_lasso_1211.csv \
+        --cpa-output-path Results/CPA_Outputs/Loopy_dataset_InvarBenchmark \
         -m 32
 
 test mode:
@@ -12,6 +13,8 @@ ulimit -Sv $((64*1024*1024)) && \
     python Scripts/cpa_run_dir.py \
         -d TPDB_Y2024_filtered_VBS/Di_Stefano_20 \
         -o Results/Test_CPA_TPDB_Di_lasso+general.csv \
+        --cpa-output-path Results/CPA_Outputs/TPDB_Y2024_filtered_VBS/Di_Stefano_20 \
+        --cpachecker-root /path/to/CPAchecker-4.2.2-unix \
         -m 32
 
 Original Command:
@@ -42,7 +45,8 @@ CPACHECKER_ROOT = Path(os.environ.get("CPACHECKER_ROOT", DEFAULT_CPACHECKER_ROOT
 COMMAND = CPACHECKER_ROOT / "bin/cpachecker"
 CONFIG_GENERAL = CPACHECKER_ROOT / "config/terminationAnalysis.properties"
 CONFIG_LASSO = CPACHECKER_ROOT / "config/lassoRankerAnalysis.properties"
-OUTPUT_PATH = "Results/CPA_Outputs/Loopy_dataset_InvarBenchmark"
+OUTPUT_PATH_DEFAULT = "Results/CPA_Outputs/Loopy_dataset_InvarBenchmark"
+OUTPUT_PATH = OUTPUT_PATH_DEFAULT
 SPEC_PATH = CPACHECKER_ROOT / "config/specification/TerminatingStatements.spc"
 TIMEOUT = 300
 
@@ -133,14 +137,20 @@ def main():
     parser = argparse.ArgumentParser(description="Run CPAchecker termination analysis on C files")
     parser.add_argument("-d","--directory", nargs='+',
                         default=["/root/term/TerminationDatabase/SVComp_C/"],
-                        help="Directories containing C files to analyze (can specify multiple)")
+                        help="Directories containing C files to analyze (can specify multiple) | 待分析的C文件目录（可多个）")
     parser.add_argument("--output", "-o", 
                         default="CPAchecker_Term_Res_SVCOMP.csv", 
-                        help="Output file for results (default: CPAchecker_Term_Res_SVCOMP.csv)")
+                        help="Output CSV file for results (default: CPAchecker_Term_Res_SVCOMP.csv) | 结果CSV输出路径")
+    parser.add_argument("--cpa-output-path",
+                        default=OUTPUT_PATH_DEFAULT,
+                        help=f"CPAchecker output directory root (default: {OUTPUT_PATH_DEFAULT}) | CPAchecker输出目录根路径")
     parser.add_argument("--timeout", "-t", type=int, default=TIMEOUT,
-                        help=f"Timeout in seconds for each file (default: {TIMEOUT})")
+                        help=f"Timeout in seconds for each file (default: {TIMEOUT}) | 每个文件超时秒数")
     parser.add_argument("-m", "--memory", type=int, default=8,
-                        help="int, Memory for cpachecker use (default: 8GB)")
+                        help="int, Memory for cpachecker use (default: 8GB) | CPAchecker堆内存(GB)")
+    parser.add_argument("--cpachecker-root",
+                        default=None,
+                        help="CPAchecker root directory (overrides CPACHECKER_ROOT env if set) | CPAchecker根目录(优先于环境变量)")
     parser.add_argument(
         "--enable-general",
         action="store_true",
@@ -148,6 +158,16 @@ def main():
     )
     args = parser.parse_args()
     
+    # Apply CLI overrides for CPAchecker and output paths
+    global CPACHECKER_ROOT, COMMAND, CONFIG_GENERAL, CONFIG_LASSO, SPEC_PATH, OUTPUT_PATH
+    if args.cpachecker_root:
+        CPACHECKER_ROOT = Path(args.cpachecker_root).expanduser()
+    COMMAND = CPACHECKER_ROOT / "bin/cpachecker"
+    CONFIG_GENERAL = CPACHECKER_ROOT / "config/terminationAnalysis.properties"
+    CONFIG_LASSO = CPACHECKER_ROOT / "config/lassoRankerAnalysis.properties"
+    SPEC_PATH = CPACHECKER_ROOT / "config/specification/TerminatingStatements.spc"
+    OUTPUT_PATH = args.cpa_output_path
+
     # 验证所有目录是否存在
     for directory in args.directory:
         if not os.path.isdir(directory):
@@ -179,6 +199,12 @@ def main():
         print(f"No C files found in directories: {', '.join(args.directory)}")
         sys.exit(0)
     print(f"Found {len(c_files)} C files to analyze")
+
+    # Ensure output directories exist
+    output_dir = os.path.dirname(args.output)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(OUTPUT_PATH, exist_ok=True)
 
     # Updated header to include Ranking Function and Output Path
     with open(args.output, "w") as f:
