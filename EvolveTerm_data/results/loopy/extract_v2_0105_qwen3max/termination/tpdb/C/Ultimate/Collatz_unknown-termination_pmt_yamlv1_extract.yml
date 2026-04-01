@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Collatz_unknown-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (y > 1) {\n    if (y % 2 == 0) {\n        y = y / 2;\n    } else {\n\
+    \        y = 3*y + 1;\n    }\n}"

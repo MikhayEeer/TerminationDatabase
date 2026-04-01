@@ -1,0 +1,32 @@
+source_file: term_04_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_04.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T16:18
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j > 0 && d > 0)
+    {
+      if (0 == __VERIFIER_nondet_int())
+      {
+        j--;
+      }
+      else
+      {
+        d--;
+      }
+    }
+  invariants:
+  - j >= 0
+  - d >= 0
+  explanation: The sum j + d decreases strictly in every iteration (since either j
+    or d is decremented). A single-component ranking function (j + d) is sufficient.
+  template_type: llexiext
+  template_depth: 1

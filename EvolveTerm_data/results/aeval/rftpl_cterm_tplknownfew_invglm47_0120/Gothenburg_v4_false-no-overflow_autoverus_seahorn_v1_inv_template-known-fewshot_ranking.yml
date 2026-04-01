@@ -1,0 +1,31 @@
+source_file: Gothenburg_v4_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Gothenburg_v4_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 || y >= 0) {
+      int tmp = x + a - b - 1;
+      x = y + b - a - 1;
+      y = tmp;
+      int tmp2 = a;
+      a = b;
+      b = tmp2;
+    }
+  invariants:
+  - x + a - b == y
+  - y + b - a == x
+  - a + b == a + b
+  - x >= 0 || y >= 0
+  explanation: Both x and y decrease strictly by 1 in every iteration. A single linear
+    function (e.g., x + y) suffices to prove termination.
+  template_type: lnested
+  template_depth: 1

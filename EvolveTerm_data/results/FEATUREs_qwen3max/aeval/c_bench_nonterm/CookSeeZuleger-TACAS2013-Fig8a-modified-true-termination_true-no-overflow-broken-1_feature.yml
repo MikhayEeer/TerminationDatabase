@@ -1,0 +1,15 @@
+source_path: c_bench_nonterm/CookSeeZuleger-TACAS2013-Fig8a-modified-true-termination_true-no-overflow-broken-1.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 14
+summary: 开始一个循环，当x不等于K时，根据x与K的大小关系对x进行加减N操作。

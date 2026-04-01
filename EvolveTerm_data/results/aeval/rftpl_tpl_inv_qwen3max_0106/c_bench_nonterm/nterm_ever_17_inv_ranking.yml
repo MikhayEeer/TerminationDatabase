@@ -1,0 +1,21 @@
+source_file: nterm_ever_17_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_17.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (range1 <= j && j <= range2) {\n    if (flag == 1 && i < range2) {\n\
+    \        i++;\n    } else if (i == range2) {\n        flag = -1;\n    } else if\
+    \ (flag == -1 && i > range1) {\n        i--;\n    } else if (i == range1) {\n\
+    \        flag = 1;\n    }\n    j = i;\n}"
+  invariants: []
+  explanation: The loop alternates between two phases (incrementing and decrementing
+    i), requiring a multi-phase ranking function with depth 2 to model each mode separately.
+  template_type: lmulti
+  template_depth: 2

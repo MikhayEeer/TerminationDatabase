@@ -1,0 +1,15 @@
+source_path: loop_invariants/accelerating_invariant_generation/invgen/NetBSD_loop_int.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 0
+has_break: true
+loop_condition_always_true: true
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 51
+summary: 开始一个循环，检查条件并递增变量，直到满足退出条件。

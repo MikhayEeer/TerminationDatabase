@@ -1,0 +1,24 @@
+source_file: term_16_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_16.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T16:04
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x / 50 == y) {\n  \n  int z = __VERIFIER_nondet_int();\n  x = x +\
+    \ 1 + 50*z;\n  y = y + z;\n  \n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x / 50 == y
+  explanation: The expression x - 50*y increases by 1 in every iteration, so 50*y
+    - x decreases by 1. This single monotone metric proves termination with depth
+    1.
+  template_type: llexiext
+  template_depth: 1

@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Signed_Overflow_Error_1_T.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for( i = 1 ; i <= 0xFFFFFFFF ; i <<= 1 )\n{\n    if( i == ( (long)1 << 31\
+    \ ))\n        break;\n}"

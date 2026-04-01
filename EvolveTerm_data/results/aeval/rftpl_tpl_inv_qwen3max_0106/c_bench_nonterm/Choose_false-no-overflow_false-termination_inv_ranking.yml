@@ -1,0 +1,21 @@
+source_file: Choose_false-no-overflow_false-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Choose_false-no-overflow_false-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (i >= 3) {\n    if (i > 5) {\n        i = i+3;\n    } else {\n    \
+    \    if (i > 10) {\n            i = i-2;\n        } else {\n            i = i+1;\n\
+    \        }\n    }\n}"
+  invariants:
+  - i >= 3
+  explanation: Single-loop with one variable; if termination were possible, a simple
+    linear ranking function would suffice.
+  template_type: lnested
+  template_depth: 1

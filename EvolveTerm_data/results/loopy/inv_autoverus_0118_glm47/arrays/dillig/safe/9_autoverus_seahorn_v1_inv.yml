@@ -1,0 +1,47 @@
+source_file: 9_pmt_yamlv2_extract.yml
+source_path: arrays/dillig/safe/9.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T15:04
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "/* Loop_A */  for(i=0; i<num_to_copy; i++) \n{\n    a[i] = b[i];\n}"
+  invariants:
+  - i >= 0
+  - i <= num_to_copy
+  - a[i] == b[i]
+  - For all k, 0 <= k < i => a[k] == b[k]
+  - For all k, 0 <= k < i => b[k] == b[k]
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<num_to_copy; i++)
+    {
+        {;
+    //@ assert(a[i] == b[i]);
+    }
+
+    }
+  invariants:
+  - i >= 0
+  - i <= num_to_copy
+  - a[i] == b[i]
+loops_count: -1
+loops_depth: -1
+loops_ids: 2
+loops:
+- id: 1
+  code: "/* Loop_A */  for(i=0; i<num_to_copy; i++) \n{\n    a[i] = b[i];\n}"
+- id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<num_to_copy; i++)
+    {
+        {;
+    //@ assert(a[i] == b[i]);
+    }
+
+    }

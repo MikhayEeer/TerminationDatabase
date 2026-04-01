@@ -1,0 +1,28 @@
+source_file: NO_13_false-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/NO_13_false-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:24
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i < j) {
+        if (51 < j) { i = i+1; j = j-1; }
+        else { i = i-1; j = j+1; }
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - i <= j
+  - i + j >= 0
+  - i + j <= 102
+  explanation: The difference j - i decreases monotonically in both branches until
+    the loop condition i < j becomes false.
+  template_type: lnested
+  template_depth: 1

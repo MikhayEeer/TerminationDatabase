@@ -1,0 +1,15 @@
+source_path: c_bench_term/term_26.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 16
+summary: 分析代码主要任务：通过循环在x等于y时更新x和y的值，直到两者不相等。

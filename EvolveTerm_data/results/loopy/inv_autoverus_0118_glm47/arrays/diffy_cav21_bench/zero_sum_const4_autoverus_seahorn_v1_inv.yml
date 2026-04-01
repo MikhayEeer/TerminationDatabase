@@ -1,0 +1,100 @@
+source_file: zero_sum_const4_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/zero_sum_const4.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T15:02
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    /* Loop_A */  for(i = 0; i < SIZE; i++)
+    {
+        a[i] = 1;
+    }
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - a == __SEA_alloc_init_array(a)
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - sum[0] == \old(sum[0]) + \sum(0, i, \lambda j. a[j])
+  - i >= 0
+  - i <= SIZE
+  - \forall k. (0 <= k < i ==> a[k] == \old(a[k]))
+- loop_id: 3
+  code: |-
+    /* Loop_C */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] - a[i];
+    }
+  invariants:
+  - sum[0] == \lambda(int k. 0 <= k && k < i). (\old(sum[0]) - a[k])
+  - \lambda(int k. 0 <= k && k < i). a[k] == \lambda(int k. 0 <= k && k < SIZE). a[k]
+  - \lambda(int k. i <= k && k < SIZE). a[k] == \lambda(int k. 0 <= k && k < SIZE).
+    a[k]
+  - sum[0] == \old(sum[0]) - \lambda(int k. 0 <= k && k < i). a[k]
+  - i >= 0
+  - i <= SIZE
+- loop_id: 4
+  code: |-
+    /* Loop_D */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - sum[0] == \sum(0, i, \lambda j. a[j])
+  - i >= 0
+  - i <= SIZE
+- loop_id: 5
+  code: |-
+    /* Loop_E */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] - a[i];
+    }
+  invariants:
+  - sum[0] == __sum_init_sum_0 - \sum(0, i, \lambda j. a[j])
+  - i >= 0
+  - i <= SIZE
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for(i = 0; i < SIZE; i++)
+    {
+        a[i] = 1;
+    }
+- id: 2
+  code: |-
+    /* Loop_B */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] - a[i];
+    }
+- id: 4
+  code: |-
+    /* Loop_D */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 5
+  code: |-
+    /* Loop_E */  for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] - a[i];
+    }

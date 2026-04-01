@@ -1,0 +1,21 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown())\n{\n  \n  if(unknown())\n  {\n    \n    if(unknown())\n\
+    \        \n        goto AFTERLOOP; \n\n    if(unknown())\n    {\n        out =\
+    \ 0;\n        nchar = 0;\n        goto LOOPEND;\n    }\n    else\n    {\n    \
+    \    \n        if(unknown())  goto AFTERLOOP;\n\n        nchar++;\n        if\
+    \ (nchar >= outfilelen)\n          goto AFTERLOOP;\n\n        {;\n    //@ assert(0<=out);\n\
+    \    }\n\n        {;\n    //@ assert(out<outfilelen);\n    }\n\n        out++;\n\
+    \    }\n  }\n  else\n  {\n    \n    nchar++;\n    if (nchar >= outfilelen)\n \
+    \       goto AFTERLOOP;\n\n    {;\n    //@ assert(0<=out);\n    }\n\n    {;\n\
+    \    //@ assert(out<outfilelen);\n    }\n\n    out++;\n\n    if(unknown()) goto\
+    \ AFTERLOOP;\n  }\nLOOPEND:;\n}"

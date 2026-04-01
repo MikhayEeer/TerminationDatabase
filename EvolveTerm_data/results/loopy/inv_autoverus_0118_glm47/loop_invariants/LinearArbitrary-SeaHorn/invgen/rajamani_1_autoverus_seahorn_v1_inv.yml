@@ -1,0 +1,32 @@
+source_file: rajamani_1_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/invgen/rajamani_1.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:18
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while ( unknown() ){\n  if ( unknown() ) {\n    x++; y = y+100;\n  } else\
+    \ if  ( unknown() ) {\n    if( x >= 4)\n    { x=x+1; y=y+1;}\n  } else if  ( y\
+    \ >10*w)\n    if (z>=100*x )\n    y = -y;\n  w=w+1; \n  z=z+10;\n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - w >= 0
+  - z >= 0
+  - x == __initial_x
+  - y == __initial_y
+  - w == __initial_w
+  - z == __initial_z
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while ( unknown() ){\n  if ( unknown() ) {\n    x++; y = y+100;\n  } else\
+    \ if  ( unknown() ) {\n    if( x >= 4)\n    { x=x+1; y=y+1;}\n  } else if  ( y\
+    \ >10*w)\n    if (z>=100*x )\n    y = -y;\n  w=w+1; \n  z=z+10;\n}"

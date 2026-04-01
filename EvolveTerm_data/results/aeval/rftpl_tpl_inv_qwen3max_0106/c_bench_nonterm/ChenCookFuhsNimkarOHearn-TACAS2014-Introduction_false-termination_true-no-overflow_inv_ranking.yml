@@ -1,0 +1,19 @@
+source_file: ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (i >= 0) {\n    i = __VERIFIER_nondet_int();\n}"
+  invariants:
+  - 'true'
+  explanation: Although the loop is non-terminating due to full nondeterminism, the
+    simplest SVMRanker configuration is a single-phase linear template over i.
+  template_type: lnested
+  template_depth: 1

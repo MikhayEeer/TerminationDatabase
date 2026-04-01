@@ -1,0 +1,24 @@
+source_file: aaron3_false-no-overflow.c
+source_path: aaron3_false-no-overflow.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:32
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "extern int __VERIFIER_nondet_int(void);\n\nint main() {\n  int x, y, z, tx;\n\
+    \tx = __VERIFIER_nondet_int();\n\ty = __VERIFIER_nondet_int();\n\tz = __VERIFIER_nondet_int();\n\
+    \ttx = __VERIFIER_nondet_int();\n\twhile (x >= y && x <= tx + z) {\n\t\tif (__VERIFIER_nondet_int()\
+    \ != 0) {\n\t\t\tz = z - 1;\n\t\t\ttx = x;\n\t\t\tx = __VERIFIER_nondet_int();\n\
+    \t\t} else {\n\t\t\ty = y + 1;\n\t\t}\n\t}\n\treturn 0;\n}\n"
+  invariants:
+  - tx == x
+  - z == z
+  - y == y
+  - x == x
+  - x >= y
+  - x <= tx + z

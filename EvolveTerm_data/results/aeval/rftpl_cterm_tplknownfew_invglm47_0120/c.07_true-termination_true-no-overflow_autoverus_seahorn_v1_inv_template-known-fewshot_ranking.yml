@@ -1,0 +1,33 @@
+source_file: c.07_true-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/c.07_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:53
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while ((i <= 100) && (j <= k) && (k > -2147483648)) {
+        tmp = i;
+        i = j;
+        j = tmp + 1;
+        k = k - 1;
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - k >= -2147483648
+  - tmp >= 0
+  - i <= 100
+  - j <= k + 1
+  - k <= k_initial
+  - i + j + k == i_initial + j_initial + k_initial + 1
+  explanation: Variable k decreases by 1 in every iteration, providing a simple linear
+    ranking function. No lexicographic order or multi-phase logic is required.
+  template_type: lnested
+  template_depth: 1

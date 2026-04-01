@@ -1,0 +1,28 @@
+source_file: term_12_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_12.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T15:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i + j + k >= 1) {
+        i = i - 1;
+        j = j - 1;
+        k = k + 1;
+    }
+  invariants:
+  - i + j + k >= 1
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  explanation: The sum i + j + k decreases strictly by 1 in each iteration, providing
+    a single lexicographic component sufficient for termination.
+  template_type: llexiext
+  template_depth: 1

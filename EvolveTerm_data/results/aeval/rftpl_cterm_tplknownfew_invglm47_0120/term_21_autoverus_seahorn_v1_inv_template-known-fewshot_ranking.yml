@@ -1,0 +1,26 @@
+source_file: term_21_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_21.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:19
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (z >= 0) {
+        if (z % 5 == 0) z = z - 5;
+          else z++;
+    }
+  invariants:
+  - z >= 0
+  - z % 5 == 0
+  explanation: Lexicographic order (z, -(z % 5)) handles the cyclic behavior where
+    z increases locally but decreases globally. Depth 1 is insufficient because z
+    is not monotonically decreasing.
+  template_type: lnested
+  template_depth: 2

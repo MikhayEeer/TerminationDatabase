@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/sendmail-close-angle.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (__BLAST_NONDET)\n{\n  if (buf == buflim)\n    break;\n  {;\n//@ assert(0<=buf);\n\
+    }\n\n  {;\n//@ assert(buf<bufferlen);\n}\n \n  buf++;\nout:\n  in++;\n  {;\n//@\
+    \ assert(0<=in);\n}\n\n  {;\n//@ assert(in<inlen);\n}\n\n}"

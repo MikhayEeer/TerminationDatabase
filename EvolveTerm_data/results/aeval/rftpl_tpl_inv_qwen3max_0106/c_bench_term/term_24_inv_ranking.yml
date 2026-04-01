@@ -1,0 +1,21 @@
+source_file: term_24_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/term_24.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x != y)\n{\n  x++; y++;\n  if (x > z) x = z;\n  if (y > z) y = y -\
+    \ 1;\n}"
+  invariants: []
+  explanation: A lexicographic ranking function is needed because the difference |x-y|
+    is invariant under normal increments, and progress only occurs when variables
+    hit the upper bound z. A two-component measure (e.g., distance to z and then |x-y|)
+    ensures descent.
+  template_type: lnested
+  template_depth: 2

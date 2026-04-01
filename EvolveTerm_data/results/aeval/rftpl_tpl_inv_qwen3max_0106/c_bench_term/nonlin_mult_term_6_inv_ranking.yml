@@ -1,0 +1,20 @@
+source_file: nonlin_mult_term_6_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/nonlin_mult_term_6.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (d * b > 0)\n{\n  b = -b;\n}"
+  invariants:
+  - d == \at(d, Pre)
+  - b * b == \at(b * b, Pre)
+  explanation: The loop executes at most once due to sign flip of b; a simple linear
+    ranking function suffices.
+  template_type: lnested
+  template_depth: 1

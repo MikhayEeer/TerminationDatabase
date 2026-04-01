@@ -1,0 +1,28 @@
+source_file: trex03_false-unreach-call_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/trex03_false-unreach-call_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T15:52
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while(x1>0 && x2>0 && x3>0)
+    {
+      if (__VERIFIER_nondet_int() == 0) x1=x1-d1;
+      else if (__VERIFIER_nondet_int() == 0) x2=x2-d2;
+      else x3=x3-d3;
+    }
+  invariants:
+  - x1 >= 0
+  - x2 >= 0
+  - x3 >= 0
+  explanation: Lexicographic decrease of (x1, x2, x3) where one variable decreases
+    per iteration.
+  template_type: llexiext
+  template_depth: 3

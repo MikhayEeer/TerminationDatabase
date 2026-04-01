@@ -1,0 +1,21 @@
+source_file: trex03_false-unreach-call_true-termination-simpl.c
+source_path: trex03_false-unreach-call_true-termination-simpl.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:35
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n  int x1=__VERIFIER_nondet_int();\n\
+    \  int x2=__VERIFIER_nondet_int();\n  int x3=__VERIFIER_nondet_int();\n  \n  while(x1>0\
+    \ && x2>0 && x3>0)\n  {\n    if (__VERIFIER_nondet_int() == 0) x1=x1-1;\n    else\
+    \ if (__VERIFIER_nondet_int() == 0) x2=x2-1;\n    else x3=x3-1;\n  }\n\n  return\
+    \ 0;\n}\n\n"
+  invariants:
+  - x1 >= 0
+  - x2 >= 0
+  - x3 >= 0

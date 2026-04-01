@@ -1,0 +1,12 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C/Ultimate/Cairo_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x != 0) {\n    x = x - 1;\n}"

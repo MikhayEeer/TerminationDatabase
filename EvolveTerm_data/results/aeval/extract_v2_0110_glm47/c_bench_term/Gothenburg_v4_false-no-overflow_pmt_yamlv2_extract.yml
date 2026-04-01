@@ -1,0 +1,21 @@
+source_path: c_bench_term/Gothenburg_v4_false-no-overflow.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:37
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x >= 0 || y >= 0) {
+      int tmp = x + a - b - 1;
+      x = y + b - a - 1;
+      y = tmp;
+      int tmp2 = a;
+      a = b;
+      b = tmp2;
+    }

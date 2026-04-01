@@ -1,0 +1,28 @@
+source_file: Lobnya-Boolean-Reordered_true-termination_true-valid-memsafety_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/Lobnya-Boolean-Reordered_true-termination_true-valid-memsafety.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:56
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (b != 0) {
+        b = __VERIFIER_nondet_int();
+        x = x - 1;
+        if (x >= 0) {
+            b = 1;
+        } else {
+            b = 0;
+        }
+    }
+  invariants: []
+  explanation: Variable x decreases monotonically by 1 each iteration and determines
+    when b becomes 0 to exit the loop.
+  template_type: lnested
+  template_depth: 1

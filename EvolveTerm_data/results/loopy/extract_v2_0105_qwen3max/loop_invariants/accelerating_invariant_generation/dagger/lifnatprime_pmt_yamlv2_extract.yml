@@ -1,0 +1,56 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/dagger/lifnatprime.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (Eb\
+    \ >=1)) \nreturn 0;\n\n        Eb = Eb -1;\n        Mb = Mb +1;\n    }\n    else\n\
+    \    {\n        if (unknown_int())\n        {\n            if (! (Ea >=1)) \n\
+    return 0;\n\n            Ea = Ea -1;\n            Ma = Ma +1;\n        }\n   \
+    \     else\n        {\n            if (unknown_int())\n            {\n       \
+    \         if (! (Sa>=1)) \nreturn 0;\n\n                Sa=Sa-1;\n           \
+    \     I=I+Sb+Eb+Mb;\n                Sb=0;\n                Eb=1;\n          \
+    \      Mb=0;\n\n            }\n            else\n            {\n             \
+    \   if (unknown_int())\n                {\n                    if (! (Sb>=1))\
+    \ \nreturn 0;\n\n                    I=I+Sb+Eb+Mb;\n                    Sb=0;\n\
+    \                    Eb=1;\n                    Mb=0;\n                }\n   \
+    \             else\n                {\n                    if (unknown_int())\n\
+    \                    {\n\n                        if (! (Sb>=1)) \nreturn 0;\n\
+    \n                        Sb=Sb-1;\n                        I=I+Sa+Ea+Ma;\n  \
+    \                      Sa=0;\n                        Ea=1;\n                \
+    \        Ma=0;\n\n                    }\n                    else\n          \
+    \          {\n                        if (unknown_int())\n                   \
+    \     {\n                            if (! (Sa>=1)) \nreturn 0;\n\n          \
+    \                  I=I+Sa+Ea+Ma;\n                            Sa=0;\n        \
+    \                    Ea=1;\n                            Ma=0;\n              \
+    \          }\n                        else\n                        {\n      \
+    \                      if (unknown_int())\n                            {\n   \
+    \                             if (! (Sa>=1)) \nreturn 0;\n\n                 \
+    \               Sa=Sa-1;\n                                Sb=Sb+Eb+Mb+1;\n   \
+    \                             Eb=0;\n                                Mb=0;\n \
+    \                           }\n                            else\n            \
+    \                {\n                                if (unknown_int())\n     \
+    \                           {\n                                    if (! (I>=1))\
+    \ \nreturn 0;\n\n                                    I=I-1;\n                \
+    \                    Sb=Sb+Eb+Mb+1;\n                                    Eb=0;\n\
+    \                                    Mb=0;\n                                }\n\
+    \                                else\n                                {\n   \
+    \                                 if (unknown_int())\n                       \
+    \             {\n                                        if (! (I >= 1)) \nreturn\
+    \ 0;\n\n                                        I = I -1;\n                  \
+    \                      Sa = Sa + Ea + Ma + 1;\n                              \
+    \          Ea = 0;\n                                        Ma =0;\n         \
+    \                           }\n                                    else\n    \
+    \                                {\n                                        if\
+    \ (! (Sb >= 1)) \nreturn 0;\n\n                                        Sb = Sb-1;\n\
+    \                                        Sa = Ea+Ma+1;\n                     \
+    \                   Ea = 0;\n                                        Ma = 0;\n\
+    \n                                    }\n                                }\n \
+    \                           }\n                        }\n                   \
+    \ }\n                }\n            }\n        }\n    }\n}"

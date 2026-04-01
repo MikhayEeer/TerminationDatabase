@@ -1,0 +1,30 @@
+source_file: MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:07
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0) {
+        x = x - y;
+        y = y - z;
+        z = -z;
+    }
+  invariants:
+  - x == x_init - (x_init / y) * y + (x_init % y) * (z_init * ((x_init / y) % 2))
+  - y == y_init - (x_init / y) * z_init * ((x_init / y) % 2)
+  - z == z_init * ((x_init / y + 1) % 2)
+  - x >= 0
+  - y > 0
+  explanation: Variable x strictly decreases and is bounded below by 0. The oscillations
+    of y and z do not affect the monotonic decrease of x, making a single linear ranking
+    function sufficient.
+  template_type: lnested
+  template_depth: 1

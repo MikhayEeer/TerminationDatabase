@@ -1,0 +1,15 @@
+source_path: termination/tpdb/C_Integer/Stroeder_15/Toulouse-MultiBranchesToLoop_true-termination.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 64
+summary: 初始化变量并根据条件修改x的值，然后在循环中更新y和z直到其中一个不小于100。

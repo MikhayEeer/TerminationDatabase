@@ -1,0 +1,26 @@
+source_file: loop4_merged_safe_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (1) {\n    if (i1 < n + n) {\n        j1++;\n        i1++;\n    }\n\
+    \n    if (i2 < n) {\n        j2 = j2 + 2;\n        i2++;\n    }\n}"
+  invariants:
+  - 0 <= j1 <= 2*i1
+  - 0 <= j2 <= 2*i2
+  - (i1 < 2*n) ==> (j1 == i1)
+  - (i2 < n) ==> (j2 == 2*i2)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (1) {\n    if (i1 < n + n) {\n        j1++;\n        i1++;\n    }\n\
+    \n    if (i2 < n) {\n        j2 = j2 + 2;\n        i2++;\n    }\n}"

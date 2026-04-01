@@ -1,0 +1,17 @@
+source_file: nterm_17_cex_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_17_cex.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x < n) {\n  if (m == 1) {\n    x = x + 1;\n  }\n}"
+  invariants: []
+  explanation: Single loop with linear progress in x; ranking function n - x suffices.
+  template_type: lnested
+  template_depth: 1

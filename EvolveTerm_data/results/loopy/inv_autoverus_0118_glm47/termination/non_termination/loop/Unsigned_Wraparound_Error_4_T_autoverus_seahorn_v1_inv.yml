@@ -1,0 +1,38 @@
+source_file: Unsigned_Wraparound_Error_4_T_pmt_yamlv2_extract.yml
+source_path: termination/non_termination/loop/Unsigned_Wraparound_Error_4_T.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while( n > 0 )
+    {
+        unsigned int len = n;
+        if( len > 16 )
+            len = 16;
+        n -= len;
+    }
+  invariants:
+  - n >= 0
+  - len >= 0
+  - len <= 16
+  - len <= n_initial
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while( n > 0 )
+    {
+        unsigned int len = n;
+        if( len > 16 )
+            len = 16;
+        n -= len;
+    }

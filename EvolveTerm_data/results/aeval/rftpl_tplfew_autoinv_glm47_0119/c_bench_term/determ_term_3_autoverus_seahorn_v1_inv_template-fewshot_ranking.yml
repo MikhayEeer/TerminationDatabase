@@ -1,0 +1,30 @@
+source_file: determ_term_3_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:42
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (!(x == y && y == z)) {
+        x = x + 1;
+        y = y * 2;
+        z = z - 3;
+    }
+  invariants:
+  - x >= initial_x
+  - y >= initial_y
+  - z >= initial_z
+  - x == x + 1
+  - y == y * 2
+  - z == z - 3
+  explanation: Three variables progress monotonically toward a common fixed point;
+    a lexicographic tuple of size 3 captures the convergence.
+  template_type: lnested
+  template_depth: 3

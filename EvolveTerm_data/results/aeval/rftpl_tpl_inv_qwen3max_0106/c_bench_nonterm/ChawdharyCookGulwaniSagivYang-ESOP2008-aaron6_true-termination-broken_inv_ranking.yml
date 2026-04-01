@@ -1,0 +1,25 @@
+source_file: ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination-broken_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination-broken.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x <= n && x >= 2 * tx + y && y >= ty + 1 ) {\n  if (__VERIFIER_nondet_int()\
+    \ != 0) {\n    tx = x;\n    ty = y;\n    x = __VERIFIER_nondet_int();\n    y =\
+    \ __VERIFIER_nondet_int();\n  } else {\n    tx = x;\n    x = __VERIFIER_nondet_int();\n\
+    \  }\n}"
+  invariants:
+  - x <= n
+  - x >= 2 * tx + y
+  - y >= ty + 1
+  explanation: The loop exhibits nested-like behavior where progress is governed by
+    a primary measure (related to tx and n) and a secondary measure (slack in x -
+    2*tx - y). A depth-2 nested ranking function captures this hierarchy.
+  template_type: lnested
+  template_depth: 2

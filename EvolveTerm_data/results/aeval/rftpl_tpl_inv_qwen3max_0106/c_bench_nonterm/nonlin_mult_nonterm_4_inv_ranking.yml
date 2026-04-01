@@ -1,0 +1,19 @@
+source_file: nonlin_mult_nonterm_4_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nonlin_mult_nonterm_4.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (j < 100)\n{\n  if (j < 0) j = 1;\n  else j = j*b;\n}"
+  invariants: []
+  explanation: 'The loop exhibits two phases: (1) correcting negative j to 1, and
+    (2) multiplicatively increasing j until it reaches 100. A 2-phase linear ranking
+    function can handle this sequential behavior.'
+  template_type: lmulti
+  template_depth: 2

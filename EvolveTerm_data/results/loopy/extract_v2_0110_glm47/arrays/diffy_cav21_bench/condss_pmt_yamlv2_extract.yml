@@ -1,0 +1,46 @@
+source_path: arrays/diffy_cav21_bench/condss.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T23:03
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        a[i] = 1;
+    }
+- id: 2
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        b[i] = 1;
+    }
+- id: 3
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 4
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + b[i];
+    }
+- id: 5
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        if(sum[0] == 2*N)
+        {
+            c[i] = sum[0] + a[i];
+        } else {
+            c[i] = 2*N - a[i];
+        }
+    }

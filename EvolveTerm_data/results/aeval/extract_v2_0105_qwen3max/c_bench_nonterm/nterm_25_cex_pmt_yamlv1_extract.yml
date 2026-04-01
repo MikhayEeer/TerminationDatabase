@@ -1,0 +1,14 @@
+source_path: data/aeval/c_bench_nonterm/nterm_25_cex.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int x = 0;\nint y;\n\nwhile (x != 6)\n{\n  if (__VERIFIER_nondet_int() ==\
+    \ 0) y = 1;\n  else if (__VERIFIER_nondet_int() == 0) y = 2;\n  else if (__VERIFIER_nondet_int()\
+    \ == 0) y = 4;\n  else y = 5;\n  x = x + y;\n}"

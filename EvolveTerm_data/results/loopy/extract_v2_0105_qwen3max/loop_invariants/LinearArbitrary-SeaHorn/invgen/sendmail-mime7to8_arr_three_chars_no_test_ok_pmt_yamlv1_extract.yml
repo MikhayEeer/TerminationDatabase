@@ -1,0 +1,17 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "fb = 0;\nwhile (unknown())\n{\n  \n  if (unknown())\n    break;\n\n  if (unknown())\n\
+    \    break;\n\n  {;\n//@ assert(0<=fb);\n}\n\n  {;\n//@ assert(fb<fbuflen);\n\
+    }\n\n  fb++;\n  if (fb >= fbuflen-1)\n    fb = 0;\n\n  {;\n//@ assert(0<=fb);\n\
+    }\n\n  {;\n//@ assert(fb<fbuflen);\n}\n\n  fb++;\n  if (fb >= fbuflen-1)\n   \
+    \ fb = 0;\n\n  {;\n//@ assert(0<=fb);\n}\n\n  {;\n//@ assert(fb<fbuflen);\n}\n\
+    \n  fb++;\n  if (fb >= fbuflen-1)\n    fb = 0;\n}"

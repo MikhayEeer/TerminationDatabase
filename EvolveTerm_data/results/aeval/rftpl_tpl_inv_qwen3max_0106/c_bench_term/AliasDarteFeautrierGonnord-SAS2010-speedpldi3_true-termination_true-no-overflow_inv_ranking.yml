@@ -1,0 +1,22 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-speedpldi3_true-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-speedpldi3_true-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (i < n) {\n  if (j < m) {\n    j = j + 1;\n  } else {\n    j = 0;\n\
+    \    i = i + 1;\n  }\n}"
+  invariants:
+  - 0 <= i && i <= n
+  - 0 <= j && j <= m
+  - i * m + j <= n * m
+  explanation: The loop emulates a nested loop; a 2-phase lexicographic ranking function
+    (n-i, m-j) proves termination.
+  template_type: lnested
+  template_depth: 2

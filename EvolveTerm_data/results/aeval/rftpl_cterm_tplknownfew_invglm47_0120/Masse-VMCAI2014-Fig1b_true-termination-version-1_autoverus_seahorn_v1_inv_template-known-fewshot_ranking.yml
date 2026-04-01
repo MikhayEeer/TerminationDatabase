@@ -1,0 +1,30 @@
+source_file: Masse-VMCAI2014-Fig1b_true-termination-version-1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Masse-VMCAI2014-Fig1b_true-termination-version-1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:13
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= 100) {
+        if (0 == __VERIFIER_nondet_int()) {
+            x = - 2 * x + 2;
+        } else if (0 == __VERIFIER_nondet_int()) {
+            x = - 3 * x - 2;
+        } else {
+            x = - 4 * x + 2;
+        }
+    }
+  invariants:
+  - x >= 0
+  - x <= 100
+  explanation: The loop variable x is bounded by invariants. A simple linear ranking
+    function (e.g., distance to the upper bound 100) is sufficient to prove termination.
+  template_type: lnested
+  template_depth: 1

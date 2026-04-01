@@ -1,0 +1,23 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-speedFails4_true-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-speedFails4_true-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x <= n) {\n    if (b >= 1) {\n        x = x + t;\n    } else {\n \
+    \       x = x - t;\n    }\n}"
+  invariants:
+  - x <= n
+  - b == \at(b, Pre)
+  - t == \at(t, Pre)
+  - n == \at(n, Pre)
+  explanation: Single loop with linear progress; a simple linear ranking function
+    like n - x suffices.
+  template_type: lnested
+  template_depth: 1

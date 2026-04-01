@@ -1,0 +1,30 @@
+source_file: 4NestedWith2Variables_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/4NestedWith2Variables_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T16:04
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a > 0) {
+      olda = a;
+      a = 3*olda - 4*b;
+      b = 4*olda + 3*b;
+    }
+  invariants:
+  - olda == a
+  - a == 3*olda - 4*b
+  - b == 4*olda + 3*b
+  - a > 0
+  explanation: The loop performs a rotation/scaling in the (a,b) plane. No single
+    linear expression decreases monotonically (depth 1 fails). A lexicographic ranking
+    function of depth 2 (e.g., based on the angle/quadrant and a linear bound) is
+    required to capture the cyclic progress.
+  template_type: llexiext
+  template_depth: 2

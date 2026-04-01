@@ -1,0 +1,21 @@
+source_file: CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x != K) {\n    if (x > K) {\n        x = x - 1;\n    } else {\n  \
+    \      x = x + 1;\n    }\n}"
+  invariants:
+  - K == \at(K, Pre)
+  explanation: The loop converges to K by reducing |x - K| each iteration. A single
+    linear ranking function suffices, so depth 1 with lnested (interpreted as basic
+    linear) is appropriate.
+  template_type: lnested
+  template_depth: 1

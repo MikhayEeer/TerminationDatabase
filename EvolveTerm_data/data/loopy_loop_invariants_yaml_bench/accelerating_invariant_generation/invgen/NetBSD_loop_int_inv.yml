@@ -1,0 +1,32 @@
+source_file: NetBSD_loop_int_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/NetBSD_loop_int.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "for (;;)\n  if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;\n\
+    \  else {\n    \n    glob3_dc++;\n    \n    {;\n//@ assert(0 <= glob3_dc);\n}\n\
+    {;\n//@ assert(glob3_dc < MAXPATHLEN + 1);\n}\n\n    if (__BLAST_NONDET) goto\
+    \ END;\n  }"
+  invariants:
+  - glob3_dc >= 0
+  - glob3_dc <= MAXPATHLEN
+  - glob3_pathbuf_off == buf_off
+  - glob3_pathend_off == buf_off
+  - glob3_pathlim_off == bound_off
+  - glob3_pattern_off == pattern_off
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for (;;)\n  if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;\n\
+    \  else {\n    \n    glob3_dc++;\n    \n    {;\n//@ assert(0 <= glob3_dc);\n}\n\
+    {;\n//@ assert(glob3_dc < MAXPATHLEN + 1);\n}\n\n    if (__BLAST_NONDET) goto\
+    \ END;\n  }"

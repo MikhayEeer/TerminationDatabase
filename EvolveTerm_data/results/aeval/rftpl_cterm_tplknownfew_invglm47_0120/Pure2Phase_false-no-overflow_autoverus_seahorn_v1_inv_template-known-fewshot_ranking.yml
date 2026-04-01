@@ -1,0 +1,29 @@
+source_file: Pure2Phase_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Pure2Phase_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:53
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (z >= 0) {
+        y = y - 1;
+        if (y >= 0) {
+            z = __VERIFIER_nondet_int();
+        } else {
+            z = z - 1;
+        }
+    }
+  invariants:
+  - y >= -1
+  - z >= -1
+  explanation: Requires multi-phase ranking. Phase 1 decreases y; Phase 2 decreases
+    z. Nested fails due to nondeterministic z resets.
+  template_type: lmulti
+  template_depth: 2

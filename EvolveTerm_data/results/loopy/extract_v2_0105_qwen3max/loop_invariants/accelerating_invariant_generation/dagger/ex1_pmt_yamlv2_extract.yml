@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/dagger/ex1.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int()) {\n    x = xa + 2*ya;\n    y = -2*xa + ya;\n\n    x++;\n\
+    \    if (unknown_int()) y    = y+x;\n    else y = y-x;\n\n    xa = x - 2*y;\n\
+    \    ya = 2*x + y;\n}"

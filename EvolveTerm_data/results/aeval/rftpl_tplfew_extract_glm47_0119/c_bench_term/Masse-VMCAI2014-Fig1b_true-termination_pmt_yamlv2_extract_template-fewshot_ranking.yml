@@ -1,0 +1,26 @@
+source_file: Masse-VMCAI2014-Fig1b_true-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/Masse-VMCAI2014-Fig1b_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:57
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= 100) {
+        if (__VERIFIER_nondet_int() != 0) {
+            x = -2*x + 2;
+        } else {
+            x = -3*x - 2;
+        }
+    }
+  invariants: []
+  explanation: Non-linear affine updates require a lexicographic ranking function
+    with multiple components (depth 2) to establish a well-founded decrease.
+  template_type: lnested
+  template_depth: 2

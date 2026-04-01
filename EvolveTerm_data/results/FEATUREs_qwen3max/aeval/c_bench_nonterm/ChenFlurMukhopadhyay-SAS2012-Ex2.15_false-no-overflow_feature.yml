@@ -1,0 +1,15 @@
+source_path: c_bench_nonterm/ChenFlurMukhopadhyay-SAS2012-Ex2.15_false-no-overflow.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 1
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 11
+summary: 分析代码的主要任务是执行一个依赖于x和y的循环，其中x根据y的值进行更新。

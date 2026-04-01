@@ -1,0 +1,19 @@
+source_file: nterm_16_cex_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_16_cex.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (j > d)\n{\n  j = j%10;\n}"
+  invariants: []
+  explanation: Single-phase linear ranking function suffices, assuming the loop terminates
+    (e.g., initial j >= 10 or d >= 9). The variable j decreases when j >= 10, and
+    the loop executes at most once in typical terminating cases.
+  template_type: lmulti
+  template_depth: 1

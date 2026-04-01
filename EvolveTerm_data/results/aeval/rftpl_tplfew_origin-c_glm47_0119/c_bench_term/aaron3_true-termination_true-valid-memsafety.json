@@ -1,0 +1,5 @@
+{
+  "template_type": "lnested",
+  "template_depth": 2,
+  "explanation": "The loop maintains x within bounds [y, tx+z]. Branch 1 decreases z (tightening upper bound). Branch 2 increases y (tightening lower bound). A lexicographic ranking function (e.g., z, -y) captures the convergence of these bounds."
+}

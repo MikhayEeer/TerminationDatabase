@@ -1,0 +1,27 @@
+source_file: nonlin_mod_term_3_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_mod_term_3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:57
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0)
+    {
+      x = x - y;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x == x_init - y * k
+  - y == y_init
+  explanation: Assuming y > 0 (required for termination), x strictly decreases by
+    a constant positive amount. A single linear ranking function f(x) = x is sufficient.
+  template_type: lnested
+  template_depth: 1

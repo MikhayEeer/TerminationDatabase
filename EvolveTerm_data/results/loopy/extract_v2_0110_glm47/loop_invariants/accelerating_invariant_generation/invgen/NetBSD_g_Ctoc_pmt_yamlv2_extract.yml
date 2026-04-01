@@ -1,0 +1,17 @@
+source_path: loop_invariants/accelerating_invariant_generation/invgen/NetBSD_g_Ctoc.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:40
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (1) {\n    if ( len == 0 ){ \n        goto END;\n    } else {\n   \
+    \     {;\n//@ assert( 0<= j );\n}\n {;\n//@ assert(j < BASE_SZ);\n}\n\n      \
+    \  {;\n//@ assert( 0<= i );\n}\n {;\n//@ assert(i < BASE_SZ );\n}\n\n        if\
+    \ ( __BLAST_NONDET ) {\n            i++;\n            j++;\n            goto END;\n\
+    \        }\n    }\n    i ++;\n    j ++;\n    len --;\n}"

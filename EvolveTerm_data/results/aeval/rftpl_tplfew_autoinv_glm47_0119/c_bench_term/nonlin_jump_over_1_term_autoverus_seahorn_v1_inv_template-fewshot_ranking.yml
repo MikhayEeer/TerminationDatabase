@@ -1,0 +1,25 @@
+source_file: nonlin_jump_over_1_term_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_jump_over_1_term.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:52
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y) {
+        if (x % y == 1) x++;
+          else x = x - 2;
+    }
+  invariants:
+  - x >= y
+  - x >= 0
+  - y >= 0
+  explanation: Single variable x makes progress toward bound y.
+  template_type: lnested
+  template_depth: 1

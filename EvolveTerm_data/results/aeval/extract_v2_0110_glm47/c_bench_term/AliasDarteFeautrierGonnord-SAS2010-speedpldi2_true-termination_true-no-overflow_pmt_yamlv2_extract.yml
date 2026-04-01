@@ -1,0 +1,21 @@
+source_path: c_bench_term/AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination_true-no-overflow.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:39
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (v1 > 0) {
+      if (v2 < m) {
+        v2 = v2 + 1;
+        v1 = v1 - 1;
+      } else {
+        v2 = 0;
+      }
+    }

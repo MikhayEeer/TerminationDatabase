@@ -1,0 +1,19 @@
+source_file: NonTerminationSimple9_false-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/NonTerminationSimple9_false-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x >= 0) {\n  x = x + __VERIFIER_nondet_int();\n}"
+  invariants:
+  - x >= 0
+  explanation: Single-variable loop with no nested structure; using simplest linear
+    template despite expected non-termination.
+  template_type: lnested
+  template_depth: 1

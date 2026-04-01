@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/32.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for( n = 0 ; n < 2*k ; n++ ) {\n    if((int )b == 1) {\n        i++;\n  \
+    \      b = 0;\n    } else if ((int )b == 0) {\n        j++;\n        b = 1;\n\
+    \    } \n    \n}"

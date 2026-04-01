@@ -1,0 +1,40 @@
+source_file: 4NestedWith3Variables_false-no-overflow.c
+source_path: 4NestedWith3Variables_false-no-overflow.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:34
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: |
+    extern int __VERIFIER_nondet_int(void);
+
+    int main()
+    {
+        int a, b, q, olda;
+        q = __VERIFIER_nondet_int();
+        a = __VERIFIER_nondet_int();
+        b = __VERIFIER_nondet_int();
+        while (q > 0) {
+          q = q + a - 1;
+          olda = a;
+          a = 3*olda - 4*b;
+          b = 4*olda + 3*b;
+        }
+        return 0;
+    }
+  invariants:
+  - q == q_init + a_init - 1 + a - 1
+  - a == 3*a_init - 4*b_init
+  - b == 4*a_init + 3*b_init
+  - olda == a_init
+  - a_init == a
+  - b_init == b
+  - q_init == q
+  - a >= 0
+  - b >= 0
+  - q >= 0

@@ -1,0 +1,22 @@
+source_path: c_bench_nonterm/choices_dec_4.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:28
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0 && w > 0)
+    {
+      int a = __VERIFIER_nondet_int();
+
+      if (a == 0) {x--; y++; z++; w++;}
+      else if (a == 1) {x++; y--; z++; w++;}
+      else if (a == 2) {x++; y++; z--; w++;}
+      else {x++; y++; z++; w--;}
+    }

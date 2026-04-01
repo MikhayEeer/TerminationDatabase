@@ -1,0 +1,15 @@
+source_path: arrays/dillig/safe/8.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 2
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 23
+summary: 开始执行。将数组b的元素逐个复制到数组a，然后验证每个对应位置的元素相等。

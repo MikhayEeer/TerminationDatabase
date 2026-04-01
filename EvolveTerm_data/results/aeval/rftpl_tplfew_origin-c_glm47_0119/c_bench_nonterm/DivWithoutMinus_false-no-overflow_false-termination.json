@@ -1,0 +1,5 @@
+{
+  "template_type": "lmulti",
+  "template_depth": 2,
+  "explanation": "The loop exhibits multi-phase behavior: in the 'else' branch, y decreases while x increases; in the 'if' branch, y is reset (increases). This requires a multi-phase ranking to handle the non-monotonic variable y."
+}

@@ -1,0 +1,24 @@
+source_file: nterm_17_cex_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/nterm_17_cex.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:47
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x < n) {
+        if (m == 1) {
+            x = x + 1;
+        }
+    }
+  invariants: []
+  explanation: Single variable monotone progress (x increases toward n) under the
+    assumption that the condition m==1 is eventually satisfied.
+  template_type: lnested
+  template_depth: 1

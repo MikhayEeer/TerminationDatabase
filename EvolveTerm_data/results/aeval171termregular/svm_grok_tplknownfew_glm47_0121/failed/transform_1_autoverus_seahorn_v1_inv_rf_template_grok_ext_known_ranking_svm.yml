@@ -1,0 +1,43 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/transform_1_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: transform_1_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lpiecewiseext
+  template_depth: 2
+  svm_mode: lpiecewiseext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/transform_1.c
+  input_source_stem: transform_1
+  template_predicates:
+  - x2 <= 13
+  - x2 <= -20
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/transform_1.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/transform_1.bpl
+  input_loop:
+    loop_id: 1
+    code: "while (x > 0) {\n    x = x - y;\n    y = y - z;\n    if (z == 0) z = 13;\n\
+      \        else if (z == 13) z = -20;\n          else if (z == -20) z = 7;\n \
+      \           else z = 0;\n}"
+    invariants:
+    - x >= 0
+    - y >= 0
+    - z >= -20
+    - z <= 13
+    - x >= y
+    - y >= z
+    explanation: The loop exhibits piecewise behavior because the update rules for
+      `x` and `y` depend on the conditional state of `z`. The variable `z` cycles
+      through a finite set of values (0, 13, -20, 7), defining distinct phases. A
+      depth of 2 is sufficient to capture the lexicographic ranking (x, y) within
+      each phase or to handle the cyclic dependency on `z` alongside the decreasing
+      `x` and `y`.
+    template_type: lpiecewiseext
+    template_depth: 2
+    template_predicates:
+    - x2 <= 13
+    - x2 <= -20
+source_path: data/aeval_171term_regular/transform_1.c

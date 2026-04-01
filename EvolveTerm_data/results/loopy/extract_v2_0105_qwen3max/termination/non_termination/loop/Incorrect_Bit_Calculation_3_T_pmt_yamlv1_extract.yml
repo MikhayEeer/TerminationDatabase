@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Incorrect_Bit_Calculation_3_T.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int wc = unknown_int();\nint mask = ( 1 << 26 ) - 1;\ndo{\n    \n}while(\
+    \ (wc = ( wc >> 6 ) & mask) );"

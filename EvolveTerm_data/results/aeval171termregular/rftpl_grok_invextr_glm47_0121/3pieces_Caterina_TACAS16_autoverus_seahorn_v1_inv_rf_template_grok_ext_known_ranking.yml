@@ -1,0 +1,30 @@
+source_file: 3pieces_Caterina_TACAS16_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:45
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0 && (y<=0)) {
+
+        if (x < 10) x = x +1; else x = -1;
+    }
+  invariants:
+  - x >= -1
+  - y <= 0
+  explanation: 'A depth of 2 is sufficient to capture the piecewise nature of the
+    loop: one component for the conditional logic (branching on `x < 10`) and another
+    to track the value of `x` (or a derived measure) to ensure progress towards the
+    termination condition `x == 0`.'
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - x0 < 10
+  - x0 <= 0

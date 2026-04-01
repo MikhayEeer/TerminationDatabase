@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-lit/css2003.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i,j,k;\ni = 1;\nj = 1;\nk = unknown_int();\nif (!(0 <= k && k <= 1))\
+    \ return 0;\nwhile (i < LARGE_INT) {\n    i = i + 1;\n    j = j + k;\n    k =\
+    \ k - 1;\n    {;\n//@ assert(1 <= i + k && i + k <= 2 && i >= 1);\n}\n\n}"

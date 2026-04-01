@@ -1,0 +1,20 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x < 0) {\n    x = x + z;\n    z = -2*y;\n    y = y + 1;\n}"
+  invariants: []
+  explanation: The loop's termination depends on the interplay between y (which increases)
+    and x (which is updated via z = -2y). A lexicographic ranking function of depth
+    2 is needed, likely using -y as the primary component (assuming y starts negative)
+    and a function of x as secondary.
+  template_type: lnested
+  template_depth: 2

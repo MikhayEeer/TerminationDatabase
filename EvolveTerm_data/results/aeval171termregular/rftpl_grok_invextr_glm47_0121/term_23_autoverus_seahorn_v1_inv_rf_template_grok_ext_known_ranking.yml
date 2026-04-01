@@ -1,0 +1,32 @@
+source_file: term_23_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_23.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != y && (x>=y)) {
+        x--; y = y +1;
+        if (x < y) x = x + 15;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x + y >= 0
+  - x + y == x + y
+  - x >= y || x < y
+  explanation: Depth 2 is sufficient to handle the two variables (x, y) involved in
+    the control flow and the conditional update. The piecewise template can define
+    a ranking function that decreases in the 'normal' branch (e.g., based on x or
+    x-y) and ensures well-foundedness across the jump.
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - x0 < x1

@@ -1,0 +1,25 @@
+source_file: choices_eq_2_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/choices_eq_2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:44
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != y)
+    {
+      int a = __VERIFIER_nondet_int();
+      if (a == 0) {x--; y++;} else {y--; x++;}
+    }
+  invariants: []
+  explanation: The absolute difference |x - y| decreases by 2 in every iteration,
+    providing a single monotone measure of progress toward the loop exit condition
+    x == y.
+  template_type: lnested
+  template_depth: 1

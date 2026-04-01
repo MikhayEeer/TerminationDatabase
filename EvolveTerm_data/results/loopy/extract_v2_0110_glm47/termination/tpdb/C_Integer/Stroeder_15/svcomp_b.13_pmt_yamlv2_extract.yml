@@ -1,0 +1,15 @@
+source_path: termination/tpdb/C_Integer/Stroeder_15/svcomp_b.13.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:48
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while ((x > z) || (y > z)) {\n    if (x > z) {\n        x = x - 1;\n    }\
+    \ else {\n        if (y > z) {\n            y = y - 1;\n        } else {\n   \
+    \         \n        }\n    }\n    c = c + 1;\n}"

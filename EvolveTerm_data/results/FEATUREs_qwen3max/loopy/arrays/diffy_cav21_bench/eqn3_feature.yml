@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/eqn3.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 3
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 34
+summary: 计算两个数组a和b的值，并验证b[i]是否等于3*i*i+3*i+1。

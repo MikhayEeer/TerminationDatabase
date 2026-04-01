@@ -1,0 +1,31 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-modified1_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-modified1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:56
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0) {
+        if (y > x) {
+            y = z;
+            z = __VERIFIER_nondet_int();
+            x = z + 1;
+        } else {
+            z = z - 1;
+            y = __VERIFIER_nondet_int();
+            x = y + 1;
+        }
+    }
+  invariants: []
+  explanation: Lexicographic ranking on (z, x). z decreases in the else branch. In
+    the if branch, z is reset but x becomes z+1; the pair (z, x) decreases lexicographically
+    as x is bounded by the new z.
+  template_type: lnested
+  template_depth: 2

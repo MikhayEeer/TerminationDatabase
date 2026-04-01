@@ -1,0 +1,24 @@
+source_file: for_bounded_loop1_false-unreach-call_true-termination-simplified_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:00
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    for(i=0; i<n; i++)
+    {
+      x = x-y;
+      y = __VERIFIER_nondet_int();
+      x = x+y;
+    }
+  invariants: []
+  explanation: Single variable i increases monotonically toward bound n.
+  template_type: lnested
+  template_depth: 1

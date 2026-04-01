@@ -1,0 +1,15 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i = 0;\nint j1 = 0;\nint x1 = 0;\nint j2 = c;\nint x2 = 0;\n\nwhile (\
+    \ (i < n)) {\n    \n    j1 = 5 * i + c;\n    {;\n//@ assert(j1 == j2);\n}\n\n\
+    \    x1 = x1 + j1;\n    x2 = x2 + j2;\n    {;\n//@ assert(x1 == x2);\n}\n\n  \
+    \  j2 = j2 + 5;\n    i++;\n}"

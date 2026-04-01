@@ -1,0 +1,32 @@
+source_file: transform_1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/transform_1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T16:02
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0) {
+        x = x - y;
+        y = y - z;
+        if (z == 0) z = 13;
+          else if (z == 13) z = -20;
+            else if (z == -20) z = 7;
+              else z = 0;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= -20
+  - z <= 13
+  - (z == 0 || z == 13 || z == -20 || z == 7)
+  explanation: x decreases when y > 0; y is driven by z to ensure progress. A 2-component
+    lexicographic ranking (e.g., x, y) captures the dependent monotone progress.
+  template_type: lnested
+  template_depth: 2

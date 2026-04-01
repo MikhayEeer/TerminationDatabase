@@ -1,0 +1,21 @@
+source_file: PodelskiRybalchenko-LICS2004-Fig2_true-termination-modif2_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-LICS2004-Fig2_true-termination-modif2.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y > 0) {\n    int old_x = x;\n    int old_y = y;\n    if\
+    \ (0 == __VERIFIER_nondet_int()) {\n        x = old_x - 1;\n        y = old_x;\n\
+    \    } else {\n        x = old_y - 3;\n        y = old_x + 2;\n    }\n}"
+  invariants: []
+  explanation: The loop has interdependent updates between x and y with nondeterministic
+    branches that prevent a simple linear ranking function. A nested lexicographic
+    ranking function of depth 2 is needed to capture the combined progress measure.
+  template_type: lnested
+  template_depth: 2

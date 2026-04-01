@@ -1,0 +1,31 @@
+source_file: determ_term_3_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:57
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (!(x == y && y == z)) {
+        x = x + 1;
+        y = y * 2;
+        z = z - 3;
+    }
+  invariants:
+  - x >= initial_x
+  - y >= initial_y
+  - z >= initial_z
+  - x == x + 1
+  - y == y * 2
+  - z == z - 3
+  explanation: Lexicographic ranking function (|y-x|, |z-y|) is required to handle
+    the exponential growth of y converging with x and z. Depth 1 is insufficient as
+    variables do not monotonically decrease together.
+  template_type: lnested
+  template_depth: 2

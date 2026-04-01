@@ -1,0 +1,20 @@
+source_file: nterm_03_cex_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_03_cex.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (y > 0)\n{\n  if (__VERIFIER_nondet_int() == 0)\n    y = y + 24*x +\
+    \ 7;\n  else x--;\n}"
+  invariants: []
+  explanation: Termination relies on x decreasing first (phase 1), which eventually
+    forces y to decrease (phase 2). A multi-phase ranking function with depth 2 captures
+    this behavior.
+  template_type: lmulti
+  template_depth: 2

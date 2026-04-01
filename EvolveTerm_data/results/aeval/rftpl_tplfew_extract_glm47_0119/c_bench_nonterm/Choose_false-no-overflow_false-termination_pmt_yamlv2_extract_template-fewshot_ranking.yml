@@ -1,0 +1,29 @@
+source_file: Choose_false-no-overflow_false-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/Choose_false-no-overflow_false-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:52
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i >= 3) {
+        if (i > 5) {
+            i = i+3;
+        } else {
+            if (i > 10) {
+                i = i-2;
+            } else {
+                i = i+1;
+            }
+        }
+    }
+  invariants: []
+  explanation: Single variable monotone (increasing) progress, though loop is non-terminating.
+  template_type: lnested
+  template_depth: 1

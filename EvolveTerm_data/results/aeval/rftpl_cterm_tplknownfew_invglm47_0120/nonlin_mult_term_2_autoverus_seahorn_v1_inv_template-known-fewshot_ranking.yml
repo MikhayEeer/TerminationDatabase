@@ -1,0 +1,25 @@
+source_file: nonlin_mult_term_2_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_mult_term_2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x < 10000)
+    {
+        x = x * y;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  explanation: The distance to the upper bound (10000 - x) decreases monotonically
+    as x increases. No complex dependencies or phases exist.
+  template_type: lnested
+  template_depth: 1

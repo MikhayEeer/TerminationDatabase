@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Incorrect_Update_for_Loop_Iterator_1_T.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( buffer_bytes_left < size / 2)\n{\n    size *= 2;\n    if( max_msg_size\
+    \ != -1 && size > max_msg_size )\n    {\n        size = max_msg_size;\n      \
+    \  break;\n    }\n    buffer_bytes_left = size - buffer_bytes_left;\n}"

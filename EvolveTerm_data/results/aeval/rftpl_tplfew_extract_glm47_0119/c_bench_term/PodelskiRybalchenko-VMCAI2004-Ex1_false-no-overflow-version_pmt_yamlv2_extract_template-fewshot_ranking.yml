@@ -1,0 +1,26 @@
+source_file: PodelskiRybalchenko-VMCAI2004-Ex1_false-no-overflow-version_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-VMCAI2004-Ex1_false-no-overflow-version.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:59
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (i + i1 - j - j1 >= 1) {\n    nondetNat = __VERIFIER_nondet_int();\n\
+    \    if (nondetNat < 0) {\n        nondetNat = -nondetNat;\n    }\n    i = i -\
+    \ nondetNat;\n    nondetPos = __VERIFIER_nondet_int();\n    if (nondetPos < 0)\
+    \ {\n        nondetPos = -nondetPos;\n    }\n    nondetPos = nondetPos + 1;\n\
+    \    j = j + nondetPos;\n  \n    nondetNat1 = __VERIFIER_nondet_int();\n    if\
+    \ (nondetNat1 < 0) {\n        nondetNat1 = -nondetNat1;\n    }\n    i1 = i1 -\
+    \ nondetNat1;\n    nondetPos1 = __VERIFIER_nondet_int();\n    if (nondetPos1 <\
+    \ 0) {\n        nondetPos1 = -nondetPos1;\n    }\n    nondetPos1 = nondetPos1\
+    \ + 1;\n    j1 = j1 + nondetPos1;\n}"
+  invariants: []
+  explanation: Single variable monotone toward bound (i + i1 - j - j1 decreases).
+  template_type: lnested
+  template_depth: 1

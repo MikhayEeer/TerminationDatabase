@@ -1,0 +1,102 @@
+source_file: condss2_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/condss2.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:46
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    /* Loop_A */  for(i=0; i<N; i++)
+    {
+        a[i] = 1;
+    }
+  invariants: []
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<N; i++)
+    {
+        b[i] = 1;
+    }
+  invariants:
+  - 0 <= i
+  - i <= N
+- loop_id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - sum[0] == sum[0] + a[0] + a[1] + ... + a[i-1]
+  - i >= 0
+  - i <= N
+- loop_id: 4
+  code: |-
+    /* Loop_D */  for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + b[i];
+    }
+  invariants:
+  - sum[0] == \sum_{k=0}^{i-1} b[k]
+  - i >= 0
+  - i <= N
+- loop_id: 5
+  code: |-
+    /* Loop_E */  for(i=0; i<N; i++)
+    {
+        if(sum[0] == N)
+        {
+            c[i] = sum[0] + a[i] + N;
+        } else {
+            c[i] = sum[0] + a[i];
+        }
+    }
+  invariants:
+  - sum[0] == N || sum[0] != N
+  - a[i] == a[i]
+  - i >= 0
+  - i <= N
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for(i=0; i<N; i++)
+    {
+        a[i] = 1;
+    }
+- id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<N; i++)
+    {
+        b[i] = 1;
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 4
+  code: |-
+    /* Loop_D */  for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + b[i];
+    }
+- id: 5
+  code: |-
+    /* Loop_E */  for(i=0; i<N; i++)
+    {
+        if(sum[0] == N)
+        {
+            c[i] = sum[0] + a[i] + N;
+        } else {
+            c[i] = sum[0] + a[i];
+        }
+    }

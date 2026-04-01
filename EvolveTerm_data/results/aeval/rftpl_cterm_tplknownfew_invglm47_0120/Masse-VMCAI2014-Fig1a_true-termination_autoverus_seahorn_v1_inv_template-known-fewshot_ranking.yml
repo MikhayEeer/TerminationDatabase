@@ -1,0 +1,31 @@
+source_file: Masse-VMCAI2014-Fig1a_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Masse-VMCAI2014-Fig1a_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:04
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a >= 0) {
+        a = a + b;
+        if (b >= 0) {
+            b = -b - 1;
+        } else {
+            b = -b;
+        }
+    }
+  invariants:
+  - a >= 0
+  - b >= -1
+  explanation: Variable `a` decreases in the long run while `b` oscillates. A single
+    linear function fails because `a` increases in half the iterations. Lexicographic
+    order (depth 2) captures the dependency where `a` is the primary measure and `b`
+    ensures progress.
+  template_type: lnested
+  template_depth: 2

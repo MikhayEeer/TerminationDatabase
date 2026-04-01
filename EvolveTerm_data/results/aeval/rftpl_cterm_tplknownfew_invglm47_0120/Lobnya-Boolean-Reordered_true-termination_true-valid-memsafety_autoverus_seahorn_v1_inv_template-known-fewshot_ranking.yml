@@ -1,0 +1,31 @@
+source_file: Lobnya-Boolean-Reordered_true-termination_true-valid-memsafety_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Lobnya-Boolean-Reordered_true-termination_true-valid-memsafety.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:23
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (b != 0) {
+        b = __VERIFIER_nondet_int();
+        x = x - 1;
+        if (x >= 0) {
+            b = 1;
+        } else {
+            b = 0;
+        }
+    }
+  invariants:
+  - b == 0 || b == 1
+  - x >= 0
+  - b != 0
+  explanation: Variable x strictly decreases and is bounded below by 0. No lexicographic
+    order or phase switching is required.
+  template_type: lnested
+  template_depth: 1

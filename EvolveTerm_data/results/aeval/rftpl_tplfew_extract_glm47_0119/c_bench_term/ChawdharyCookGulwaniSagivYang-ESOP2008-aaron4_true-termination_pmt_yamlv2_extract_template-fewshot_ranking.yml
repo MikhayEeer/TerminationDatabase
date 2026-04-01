@@ -1,0 +1,35 @@
+source_file: ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:01
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (((an >= i && bn >= j) || (an >= i && bn <= j) || (an <= i && bn >= j)) && k >= tk + 1) {
+        if (an >= i && bn >= j) {
+            if (__VERIFIER_nondet_int() != 0) {
+                j = j + k;
+                tk = k;
+                k = __VERIFIER_nondet_int();
+            } else {
+                i = i + 1;
+            }
+        } else {if (an >= i && bn <= j) {
+            i = i + 1;
+        } else {if (an <= i && bn >= j) {
+            j = j + k;
+            tk = k;
+            k = __VERIFIER_nondet_int();
+        }}}
+    }
+  invariants: []
+  explanation: Variables i and j progress monotonically towards bounds an and bn respectively.
+  template_type: lnested
+  template_depth: 2

@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/Lobnya-Boolean-Reordered_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (b != 0) {\n    b = unknown_int();\n    x = x - 1;\n    if (x >= 0)\
+    \ {\n        b = 1;\n    } else {\n        b = 0;\n    }\n}"

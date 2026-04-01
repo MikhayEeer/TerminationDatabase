@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/122.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "(sn = 0);\n(i = 1);\n\nwhile ((i <= size)) {\n  {\n  (i  = (i + 1));\n  (sn\
+    \  = (sn + 1));\n  }\n\n}"

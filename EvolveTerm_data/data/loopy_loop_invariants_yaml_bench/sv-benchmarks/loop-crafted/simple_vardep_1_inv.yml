@@ -1,0 +1,28 @@
+source_file: simple_vardep_1_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-crafted/simple_vardep_1.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (k < 0x0fffffff) {\n    i = i + 1;\n    j = j + 2;\n    k = k + 3;\n\
+    \n    {;\n//@ assert(k == (i + j));\n}\n\n}"
+  invariants:
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - i <= k
+  - j <= k
+  - k == i + j
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (k < 0x0fffffff) {\n    i = i + 1;\n    j = j + 2;\n    k = k + 3;\n\
+    \n    {;\n//@ assert(k == (i + j));\n}\n\n}"

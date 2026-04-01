@@ -1,0 +1,100 @@
+source_file: zero_sum_const_m4_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/zero_sum_const_m4.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:47
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        a[i] = 1;
+    }
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - a[i] == 1
+  - \forall int k; (0 <= k && k < i) ==> a[k] == 1
+  - \forall int k; (i <= k && k < SIZE) ==> a[k] == \old(a[k])
+- loop_id: 2
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - sum[0] == \sum(0, i, \lambda j. a[j])
+- loop_id: 3
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - sum[0] == \sum(0, i, \lambda(j). a[j])
+  - a == \old(a)
+  - SIZE == \old(SIZE)
+- loop_id: 4
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - sum[0] == sum_init + \sum(0, i, \lambda j. a[j])
+  - a == a_init
+  - i >= 0
+  - i <= SIZE
+- loop_id: 5
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - sum[0] == \old(sum[0]) + \sum_{j=0}^{i-1} a[j]
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        a[i] = 1;
+    }
+- id: 2
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 3
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 4
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 5
+  code: |-
+    for(i = 0; i < SIZE; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }

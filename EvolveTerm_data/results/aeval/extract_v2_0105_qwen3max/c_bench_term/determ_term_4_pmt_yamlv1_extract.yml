@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/determ_term_4.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int x = 4;\nint y = -5;\nint z = 1;\n\nwhile (x + y != z) {\n  x = x * -3;\n\
+    \  y = y + 2;\n  z = z - 36;\n}"

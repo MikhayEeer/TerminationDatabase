@@ -1,0 +1,26 @@
+source_file: NonTermination2_false-no-overflow-version_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/NonTermination2_false-no-overflow-version.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:20
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 1 && x <= 2*oldx) {
+        oldx = x;
+        x = __VERIFIER_nondet_int();
+    }
+  invariants:
+  - x >= 2*oldx || (x > 1 && x <= 2*oldx)
+  - oldx == oldx
+  - x == x
+  explanation: Single variable monotone progress; the loop terminates when x exits
+    the bounded range (1, 2*oldx].
+  template_type: lnested
+  template_depth: 1

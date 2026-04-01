@@ -1,0 +1,19 @@
+source_path: c_bench_nonterm/nterm_09_cex.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:29
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x >= y)
+    {
+      int z = __VERIFIER_nondet_int();
+      y = y + z + 1;
+      x = x + 2*z + 2;
+    }

@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/MADWiFi-encode_ie_ok.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for (i = 0; i < ielen && bufsize > 2; i++) {\n    {;\n//@ assert(0<=p);\n\
+    }\n\n    {;\n//@ assert(p+1<bufsize_0);\n}\n\n    p += 2;\n}"

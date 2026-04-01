@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/iftelse.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( i < n ) {\n    i = i + 3;\n    if(i%2)\n        j = j+3;\n    else\n\
+    \        k = k+3;\n    if(n>0)\n      {;\n//@ assert( (i/2<=j) );\n}\n\n  }"

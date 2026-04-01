@@ -1,0 +1,35 @@
+source_file: loop3_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-floats-scientific-comp/loop3.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:09
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(1)\n{\n    term = term * (x/count) ;\n    multFactor = (count>>1 %\
+    \ 2 == 0) ? 1 : -1 ;\n\n    evenExp = evenExp + multFactor*term ;\n\n    count++\
+    \ ;\n\n    term = term * (x/count) ;        \n    \n    oddExp = oddExp + multFactor*term\
+    \ ;\n    \n    count++ ;\n\n    temp = unknown_int() ;\n    if(temp == 0) break\
+    \ ;\n}"
+  invariants:
+  - term >= 0
+  - multFactor == 1 || multFactor == -1
+  - evenExp >= 0
+  - oddExp >= 0
+  - count >= 0
+  - x >= 0
+  - temp == unknown_int()
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(1)\n{\n    term = term * (x/count) ;\n    multFactor = (count>>1 %\
+    \ 2 == 0) ? 1 : -1 ;\n\n    evenExp = evenExp + multFactor*term ;\n\n    count++\
+    \ ;\n\n    term = term * (x/count) ;        \n    \n    oddExp = oddExp + multFactor*term\
+    \ ;\n    \n    count++ ;\n\n    temp = unknown_int() ;\n    if(temp == 0) break\
+    \ ;\n}"

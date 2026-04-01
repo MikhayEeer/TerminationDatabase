@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/ifcomp.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 4
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 49
+summary: 计算三个数组a、b、c的前缀累加值，并验证c[i]等于i的立方。

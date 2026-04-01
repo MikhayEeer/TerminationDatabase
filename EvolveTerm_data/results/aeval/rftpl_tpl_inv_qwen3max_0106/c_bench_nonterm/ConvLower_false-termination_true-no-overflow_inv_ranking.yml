@@ -1,0 +1,21 @@
+source_file: ConvLower_false-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/ConvLower_false-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (i > 5) {\n    if (i != 10) {\n        i = i-1;\n    }\n}"
+  invariants:
+  - i > 5
+  - i >= 6
+  explanation: A simple linear ranking function f(i) = i works because i decreases
+    by 1 in every effective loop iteration, and the loop guard ensures i ≥ 6. No nesting
+    or multiple phases are needed.
+  template_type: lnested
+  template_depth: 1

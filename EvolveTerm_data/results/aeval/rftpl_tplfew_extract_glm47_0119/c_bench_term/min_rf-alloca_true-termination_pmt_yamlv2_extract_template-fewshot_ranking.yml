@@ -1,0 +1,26 @@
+source_file: min_rf-alloca_true-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/min_rf-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:56
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y > 0 && x > 0) {
+        if (x > y) z = y;
+        else z = x;
+        if (0 == __VERIFIER_nondet_int()) {y = y + x; x = z - 1; z = y + z; }
+        else {x = y + x; y = z - 1; z = x + z; }
+    }
+  invariants: []
+  explanation: Variables x and y change in opposite directions (one increases, one
+    decreases) in each iteration. Termination requires tracking the decrease of x
+    in some phases and y in others.
+  template_type: lmulti
+  template_depth: 2

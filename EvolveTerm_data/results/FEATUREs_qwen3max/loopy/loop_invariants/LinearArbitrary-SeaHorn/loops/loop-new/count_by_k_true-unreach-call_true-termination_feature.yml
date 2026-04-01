@@ -1,0 +1,15 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/count_by_k_true-unreach-call_true-termination.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 18
+summary: 使用循环将变量 i 按步长 k 增加到 LARGE_INT*k，验证最终值是否相等。

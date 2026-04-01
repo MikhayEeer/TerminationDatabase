@@ -1,0 +1,35 @@
+source_file: benchmark15_conjunctive_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-zilu/benchmark15_conjunctive.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:12
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (mid > 0) {
+        low = low + 1;
+        high = high - 1;
+        mid = mid - 1;
+    }
+  invariants:
+  - mid >= 0
+  - low >= initial_low
+  - high <= initial_high
+  - low + high == initial_low + initial_high
+  - mid == initial_mid - (low - initial_low)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (mid > 0) {
+        low = low + 1;
+        high = high - 1;
+        mid = mid - 1;
+    }

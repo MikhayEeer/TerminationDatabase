@@ -1,0 +1,28 @@
+source_file: McCarthyIterative_true-termination_true-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/McCarthyIterative_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:00
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (c > 0) {
+        if (x > 100) {
+            x = x-10;
+            c = c-1;
+        } else {
+            x = x+11;
+            c = c+1;
+        }
+    }
+  invariants: []
+  explanation: 'Two phases: x increases while c increases, then x decreases while
+    c decreases. Requires multi-phase ranking to handle non-monotonic c.'
+  template_type: lmulti
+  template_depth: 2

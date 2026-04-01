@@ -1,0 +1,21 @@
+source_file: c.07_true-termination_true-no-overflow-broken2_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/c.07_true-termination_true-no-overflow-broken2.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while ((i <= 100) && (j <= k) && (k > -1073741824)) {\n    tmp = i;\n   \
+    \ i = j;\n    j = tmp;\n    k = i + j;\n}"
+  invariants: []
+  explanation: The loop exhibits period-2 oscillation in i and j, with k stabilizing
+    after the first iteration. Termination (when it occurs) happens within at most
+    2 iterations, requiring a 2-phase linear ranking function to model the two distinct
+    states.
+  template_type: lmulti
+  template_depth: 2

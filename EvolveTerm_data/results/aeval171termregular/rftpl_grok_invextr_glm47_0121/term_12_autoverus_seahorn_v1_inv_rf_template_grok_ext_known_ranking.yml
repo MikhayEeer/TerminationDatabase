@@ -1,0 +1,31 @@
+source_file: term_12_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_12.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:59
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i + j + k >= 1) {
+        i = i - 1;
+        j = j - 1;
+        k = k + 1;
+    }
+  invariants:
+  - i + j + k >= 1
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  explanation: 'The loop terminates because `i` and `j` strictly decrease in every
+    iteration and are bounded below by 0. A lexicographic ranking function with depth
+    2 can capture this: the first component is `i + j` (which decreases until `i`
+    and `j` reach 0), and the second component is `k` (or `-k` depending on the desired
+    order) to ensure progress in the final phase or to handle the constant sum invariant.'
+  template_type: llexiext
+  template_depth: 2

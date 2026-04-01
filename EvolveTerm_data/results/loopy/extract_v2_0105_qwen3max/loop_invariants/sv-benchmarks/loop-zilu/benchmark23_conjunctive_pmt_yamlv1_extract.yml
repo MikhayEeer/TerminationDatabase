@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark23_conjunctive.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i = unknown_int();\nint j = unknown_int();\n\nif (!(i==0 && j==0)) return\
+    \ 0;\nwhile (i<100) {\n  j+=2;\n  i++;\n}"

@@ -1,0 +1,15 @@
+source_path: loop_invariants/accelerating_invariant_generation/svcomp/trex03_true.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 27
+summary: 分析循环条件并更新变量，直到至少一个变量为零。

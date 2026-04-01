@@ -1,0 +1,33 @@
+source_file: term_26_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_26.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:00
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x == y){
+      x = x + c1 % 2;
+      y = y + c2 % 3;
+      c1++; c2++;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - c1 >= 0
+  - c2 >= 0
+  - x == y
+  - x == initial_x + (c1 - initial_c1) % 2
+  - y == initial_y + (c2 - initial_c2) % 3
+  explanation: The variables x, y, c1, c2 strictly increase. A single linear ranking
+    function f = -x (or -c1) strictly decreases. The loop condition ensures the values
+    are bounded, satisfying the well-foundedness requirement. No lexicographic or
+    multi-phase complexity is needed.
+  template_type: lnested
+  template_depth: 1

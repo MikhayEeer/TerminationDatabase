@@ -1,0 +1,36 @@
+source_file: NetBSD_g_Ctoc_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/invgen/NetBSD_g_Ctoc.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:18
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (1) {\n    if ( len == 0 ){ \n        goto END;\n    } else {\n   \
+    \     {;\n//@ assert( 0<= j );\n}\n {;\n//@ assert(j < BASE_SZ);\n}\n\n      \
+    \  {;\n//@ assert( 0<= i );\n}\n {;\n//@ assert(i < BASE_SZ );\n}\n\n        if\
+    \ ( __BLAST_NONDET ) {\n            i++;\n            j++;\n            goto END;\n\
+    \        }\n    }\n    i ++;\n    j ++;\n    len --;\n}"
+  invariants:
+  - i >= 0
+  - j >= 0
+  - len >= 0
+  - i < BASE_SZ
+  - j < BASE_SZ
+  - i + len >= 0
+  - j + len >= 0
+  - i - j == 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (1) {\n    if ( len == 0 ){ \n        goto END;\n    } else {\n   \
+    \     {;\n//@ assert( 0<= j );\n}\n {;\n//@ assert(j < BASE_SZ);\n}\n\n      \
+    \  {;\n//@ assert( 0<= i );\n}\n {;\n//@ assert(i < BASE_SZ );\n}\n\n        if\
+    \ ( __BLAST_NONDET ) {\n            i++;\n            j++;\n            goto END;\n\
+    \        }\n    }\n    i ++;\n    j ++;\n    len --;\n}"

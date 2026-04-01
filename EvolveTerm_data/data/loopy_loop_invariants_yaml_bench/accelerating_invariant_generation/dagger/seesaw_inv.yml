@@ -1,0 +1,42 @@
+source_file: seesaw_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/dagger/seesaw.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (x\
+    \ >= 9)) \nreturn 0;\n\n        x = x + 2;\n        y = y + 1;\n    }\n    else\n\
+    \    {\n        if (unknown_int())\n        {\n            if (!(x >= 7)) \nreturn\
+    \ 0;\n\n            if (!(x <= 9)) \nreturn 0;\n\n            x = x + 1;\n   \
+    \         y = y + 3;\n        }\n        else\n        {\n            if (unknown_int())\n\
+    \            {\n                if (! (x - 5 >=0)) \nreturn 0;\n\n           \
+    \     if (! (x - 7 <=0)) \nreturn 0;\n\n                x = x + 2;\n         \
+    \       y = y + 1;\n            }\n            else\n            {\n         \
+    \       if (!(x - 4 <=0)) \nreturn 0;\n\n                x = x + 1;\n        \
+    \        y = y + 2;\n            }\n        }\n    }\n}"
+  invariants:
+  - 0 <= x
+  - 0 <= y
+  - x <= 2 * y
+  - 3 * x >= y
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (x\
+    \ >= 9)) \nreturn 0;\n\n        x = x + 2;\n        y = y + 1;\n    }\n    else\n\
+    \    {\n        if (unknown_int())\n        {\n            if (!(x >= 7)) \nreturn\
+    \ 0;\n\n            if (!(x <= 9)) \nreturn 0;\n\n            x = x + 1;\n   \
+    \         y = y + 3;\n        }\n        else\n        {\n            if (unknown_int())\n\
+    \            {\n                if (! (x - 5 >=0)) \nreturn 0;\n\n           \
+    \     if (! (x - 7 <=0)) \nreturn 0;\n\n                x = x + 2;\n         \
+    \       y = y + 1;\n            }\n            else\n            {\n         \
+    \       if (!(x - 4 <=0)) \nreturn 0;\n\n                x = x + 1;\n        \
+    \        y = y + 2;\n            }\n        }\n    }\n}"

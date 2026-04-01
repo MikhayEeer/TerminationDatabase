@@ -1,0 +1,30 @@
+source_file: PodelskiRybalchenko-LICS2004-Fig2_true-termination-simpl_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-LICS2004-Fig2_true-termination-simpl.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:11
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+        int old_x = x;
+        int old_y = y;
+        x = old_y - 2;
+        y = old_x + 1;
+    }
+  invariants:
+  - x >= -2
+  - y >= -1
+  - x + y == old_x + old_y - 1
+  - old_x >= 0
+  - old_y >= 0
+  explanation: The sum x + y decreases by 1 every iteration, providing a simple linear
+    ranking function.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_nonterm/NonTerminationSimple5_false-termination_true-valid-memsafety.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x > 0) {\n    int c = __VERIFIER_nondet_int();\n    if(c == 0) x++;\n\
+    \    else x--;\n}"

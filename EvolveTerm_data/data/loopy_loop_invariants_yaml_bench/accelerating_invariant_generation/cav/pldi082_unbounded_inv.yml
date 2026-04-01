@@ -1,0 +1,26 @@
+source_file: pldi082_unbounded_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/cav/pldi082_unbounded.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (1){\n   if (x <= N)\n      y++;\n   else if(x >= N+1)\n     y--;\n\
+    \   else return 1;\n\n   if ( y < 0)\n     break;\n   x++;\n}"
+  invariants:
+  - 0 <= x
+  - 0 <= y
+  - x <= N+1 ==> y == x
+  - x > N+1 ==> y == 2*(N+1) - x
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (1){\n   if (x <= N)\n      y++;\n   else if(x >= N+1)\n     y--;\n\
+    \   else return 1;\n\n   if ( y < 0)\n     break;\n   x++;\n}"

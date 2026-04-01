@@ -1,0 +1,67 @@
+source_file: gulv_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/cav/gulv.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown_int()) {\n   if (unknown_int())\n     {x = x+1; y = y+100;}\n\
+    \   else if (unknown_int()){\n     if (x >= 4)\n       {x = x+1; y = y+1;}\n \
+    \  }\n else if (y > 10*w && z >= 100*x)\n     {y = -y;}\n   w = w+1; z = z+10;\n\
+    \  x = x; \n \n}"
+  invariants:
+  - 0 <= x
+  - 0 <= y
+  - 0 <= w
+  - 0 <= z
+  - z == 10 * w
+  - x >= 0
+  - y >= -100*w
+  - w >= 0
+  - z >= 10*w
+  - z <= 10*w + 10
+  - y >= -1000
+  - z >= 0
+  - z == 10*w
+  - x <= w
+  - y <= 100*w
+  - (x >= 4) ==> (y > 2)
+  - y >= 0
+  - y <= 100 * x + 100 * (w - x)
+  - z <= 10 * w
+  - w >= x
+  - 0 <= x * 100
+  - 10 * w <= z
+  - w <= z / 10
+  - y <= x * 100 + 2
+  - x <= 4 ==> y <= x * 100
+  - 10*w <= z
+  - y <= 100*x
+  - w <= z/10
+  - y <= 100*x + z/10
+  - \forall integer k
+  - 0 <= k < x ==> y <= 100*k + 100 || y >= -100*k - 100
+  - x < 4 ==> y <= 100*x
+  - -100 * x <= y <= 100 * x
+  - y <= 100 * x
+  - y >= -100 * x
+  - (x >= 4 && y <= 2) ==> \false
+  - y >= -10000
+  - y >= -10*w
+  - (x >= 4 && y <= 2) ==> (w == 0)
+  - x >= 4 ==> y >= 2
+  - z >= 0 && z == 10 * w
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int()) {\n   if (unknown_int())\n     {x = x+1; y = y+100;}\n\
+    \   else if (unknown_int()){\n     if (x >= 4)\n       {x = x+1; y = y+1;}\n \
+    \  }\n else if (y > 10*w && z >= 100*x)\n     {y = -y;}\n   w = w+1; z = z+10;\n\
+    \  x = x; \n \n}"

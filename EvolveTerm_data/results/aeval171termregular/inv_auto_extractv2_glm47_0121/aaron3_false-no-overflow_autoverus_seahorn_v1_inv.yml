@@ -1,0 +1,42 @@
+source_file: aaron3_false-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval_171term_regular/aaron3_false-no-overflow.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/aeval171termregular/extract_v2_glm47_0121/ --output results/aeval171termregular/inv_auto_extractv2_glm47_0121
+  -m yaml -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:35
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        if (__VERIFIER_nondet_int() != 0) {
+            z = z - 1;
+            tx = x;
+            x = __VERIFIER_nondet_int();
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= y
+  - x <= tx + z
+  - tx >= y
+  - z >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        if (__VERIFIER_nondet_int() != 0) {
+            z = z - 1;
+            tx = x;
+            x = __VERIFIER_nondet_int();
+        } else {
+            y = y + 1;
+        }
+    }

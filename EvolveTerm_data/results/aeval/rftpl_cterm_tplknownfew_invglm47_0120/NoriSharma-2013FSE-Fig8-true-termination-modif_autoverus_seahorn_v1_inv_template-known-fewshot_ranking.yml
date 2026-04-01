@@ -1,0 +1,31 @@
+source_file: NoriSharma-2013FSE-Fig8-true-termination-modif_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/NoriSharma-2013FSE-Fig8-true-termination-modif.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:15
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y) {
+        if (0 == __VERIFIER_nondet_int()) {
+            z = z - 1;
+            x = x + z;
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= y
+  - z >= 0
+  - y >= 0
+  explanation: Requires lexicographic order (x-y, -z) to handle progress in both branches.
+    Branch 2 decreases x-y; Branch 1 decreases -z. Depth 1 is insufficient as no single
+    variable decreases in all branches.
+  template_type: lnested
+  template_depth: 2

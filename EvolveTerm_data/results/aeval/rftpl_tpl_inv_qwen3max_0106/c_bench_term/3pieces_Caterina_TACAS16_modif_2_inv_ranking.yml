@@ -1,0 +1,19 @@
+source_file: 3pieces_Caterina_TACAS16_modif_2_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/3pieces_Caterina_TACAS16_modif_2.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x != 0)\n{\n  y--;\n  if (x < 10) x++; else x = y;\n}"
+  invariants: []
+  explanation: 'A lexicographic nested ranking function is needed: primary component
+    based on decreasing y, secondary on (10 - x) which decreases as x increases toward
+    10. Depth 2 captures this two-level structure.'
+  template_type: lnested
+  template_depth: 2

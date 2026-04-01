@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_nonterm/choices_div_3.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (j >= 0)\n{\n  int a = __VERIFIER_nondet_int();\n  if (a == 0) { j\
+    \ = j / 2; }\n  else if (a == 1) { j = j / 3 + 1; }\n  else j = -90;\n}"

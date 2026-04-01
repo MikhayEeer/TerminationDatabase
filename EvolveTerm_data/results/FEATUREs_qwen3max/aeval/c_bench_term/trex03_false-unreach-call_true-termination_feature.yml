@@ -1,0 +1,15 @@
+source_path: c_bench_term/trex03_false-unreach-call_true-termination.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 21
+summary: 开始一个循环，当三个变量都大于0时，随机递减其中一个变量。

@@ -1,0 +1,15 @@
+source_path: c_bench_term/term_25.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 4
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 18
+summary: 执行一个循环，根据变量c的值递减y，并更新x和z，直到w不等于x+y+z。

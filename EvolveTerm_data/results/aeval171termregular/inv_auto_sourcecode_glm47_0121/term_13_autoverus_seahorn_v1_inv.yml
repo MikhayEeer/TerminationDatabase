@@ -1,0 +1,21 @@
+source_file: term_13.c
+source_path: term_13.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:31
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "extern int __VERIFIER_nondet_int(void);\n\nint main() {\n    int i, j, k;\n\
+    \    i = __VERIFIER_nondet_int();\n    j = __VERIFIER_nondet_int();\n    k = __VERIFIER_nondet_int();\n\
+    \    while (i + j + k >= 0) {\n        if (__VERIFIER_nondet_int() == 0) i--;\
+    \ else j = j +1;\n        k = k - 2;\n    }  \n    return 0;\n}\n"
+  invariants:
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - i + j + k >= 0

@@ -1,0 +1,28 @@
+source_file: term_08_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_08.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T16:17
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0)
+    {
+      x = x + y;
+      y = y + 1;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x >= y
+  explanation: The expression x - y strictly decreases by 1 in every iteration (since
+    (x+y) - (y+1) = x - 1) and is bounded below by 0 (from invariant x >= y). This
+    requires a single component ranking function.
+  template_type: llexiext
+  template_depth: 1

@@ -1,0 +1,20 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/sanfoundry_27_ground.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: "/* Loop_A */  for(i = 0; i < SIZE; i++) \n{\n    array[i] = unknown_int();\n\
+    }"
+- id: 2
+  code: "/* Loop_B */  for (i = 0; i < SIZE; i++)\n{\n    if(i == 0) {\n        largest[0]\
+    \ = array[0];\n    } else {\n        if (largest[0] < array[i])\n            largest[0]\
+    \ = array[i];\n    }\n}"
+- id: 3
+  code: "int x;\n/* Loop_C */  for ( x = 0 ; x < SIZE ; x++ ) {\n    {;\n//@ assert(\
+    \  largest[0] >= array[ x ]  );\n}\n\n}"

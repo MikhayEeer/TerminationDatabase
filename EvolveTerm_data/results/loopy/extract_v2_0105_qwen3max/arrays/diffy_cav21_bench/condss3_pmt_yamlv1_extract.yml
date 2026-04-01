@@ -1,0 +1,21 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/condss3.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: "for(i=0; i<N; i++)\n{\n    a[i] = 1;\n}"
+- id: 2
+  code: "for(i=0; i<N; i++)\n{\n    b[i] = 1;\n}"
+- id: 3
+  code: "for(i=0; i<N; i++)\n{\n    sum[0] = sum[0] + a[i];\n}"
+- id: 4
+  code: "for(i=0; i<N; i++)\n{\n    sum[0] = sum[0] + b[i];\n}"
+- id: 5
+  code: "for(i=0; i<N; i++)\n{\n    if(N % (i+1) == 0)\n    {\n        c[i] = sum[0]\
+    \ + a[i];\n    } else {\n        c[i] = sum[0];\n    }\n}"

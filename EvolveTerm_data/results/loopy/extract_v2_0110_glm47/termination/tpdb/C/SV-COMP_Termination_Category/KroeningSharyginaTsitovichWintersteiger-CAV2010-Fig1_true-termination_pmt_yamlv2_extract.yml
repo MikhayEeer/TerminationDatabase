@@ -1,0 +1,23 @@
+source_path: termination/tpdb/C/SV-COMP_Termination_Category/KroeningSharyginaTsitovichWintersteiger-CAV2010-Fig1_true-termination.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:54
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x < 255) {
+        if (x % 2 != 0) {
+            x--;
+        } else {
+            x += 2;
+        }
+        if (debug != 0) {
+            x = 0;
+        }
+    }

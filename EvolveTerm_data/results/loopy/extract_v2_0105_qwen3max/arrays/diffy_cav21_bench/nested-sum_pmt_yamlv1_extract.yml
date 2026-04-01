@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/nested-sum.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i, j;\nint sum[1];\n\nsum[0] = 0;\n/* Loop_A */  for (i = 0; i < N; i++)\n\
+    {\n    /* Loop_B */  for (j = 0; j < i+1; j++)\n    {\n        sum[0] = sum[0]\
+    \ + 1;\n    }\n}"

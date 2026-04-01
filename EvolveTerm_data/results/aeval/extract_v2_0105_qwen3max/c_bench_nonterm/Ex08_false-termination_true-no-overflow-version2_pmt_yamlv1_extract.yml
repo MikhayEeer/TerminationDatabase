@@ -1,0 +1,19 @@
+source_path: data/aeval/c_bench_nonterm/Ex08_false-termination_true-no-overflow-version2.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "up = 0;\nleft = 0;\ncloser = 0;\n\nwhile (i > 0 && j > 0 && k > 0) {\n  \
+    \  if (i == 1) {\n        up = 1;\n    }\n    if (i == 10) {\n        up = 0;\n\
+    \    }\n    if (j == 1) {\n        left = 1;\n    }\n    if (j == 10) {\n    \
+    \    left = 0;\n    }\n    if (k == 1) {\n        closer = 1;\n    }\n    if (k\
+    \ == 10) {\n        closer = 0;\n    }\n    if (up == 1) {\n        i = i+1;\n\
+    \    } else {\n        i = i-1;\n    }\n    if (left == 1) {\n        j = j+1;\n\
+    \    } else {\n        j = j-1;\n    }\n    if (closer == 1) {\n        k = k+1;\n\
+    \    } else {\n        k = k-1;\n    }\n}"

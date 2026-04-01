@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/invgen/gulwani_cegar2.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "x = 0;\nm = 0;\nwhile( x < n ) {\n  if(__BLAST_NONDET)\n    m = x;\n    x++;\n\
+    }"

@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/form22.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(input)\n{\n  x1p = unknown_int();\n  x2p = unknown_int();\n  x3p =\
+    \ unknown_int();\n\n  if (x1p <= x2p && (x2p >= 0 || x2p - x3p <= 2))\n  {\n \
+    \   x1 = x1p;\n    x2 = x2p;\n    x3 = x3p;\n  }\n  input = unknown_int();\n}"

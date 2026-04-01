@@ -1,0 +1,31 @@
+source_file: McCarthyIterative_true-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/McCarthyIterative_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (c > 0) {
+        if (x > 100) {
+            x = x-10;
+            c = c-1;
+        } else {
+            x = x+11;
+            c = c+1;
+        }
+    }
+  invariants:
+  - x >= 0
+  - c >= 0
+  explanation: Lexicographic ranking (c, -x) is required. c is the primary measure
+    (decreases overall), while -x handles the intermediate steps where c increases.
+    Depth 1 is insufficient as c is not strictly monotonic.
+  template_type: lnested
+  template_depth: 2

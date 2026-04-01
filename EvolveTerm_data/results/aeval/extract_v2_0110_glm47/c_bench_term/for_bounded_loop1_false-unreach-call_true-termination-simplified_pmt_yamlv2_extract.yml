@@ -1,0 +1,19 @@
+source_path: c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:33
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    for(i=0; i<n; i++)
+    {
+      x = x-y;
+      y = __VERIFIER_nondet_int();
+      x = x+y;
+    }

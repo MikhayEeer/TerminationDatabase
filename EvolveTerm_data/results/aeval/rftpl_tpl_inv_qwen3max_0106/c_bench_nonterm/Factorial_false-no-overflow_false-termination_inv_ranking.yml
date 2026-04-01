@@ -1,0 +1,22 @@
+source_file: Factorial_false-no-overflow_false-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Factorial_false-no-overflow_false-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (fac != j) {\n    fac = fac * i;\n    i = i+1;\n}"
+  invariants:
+  - fac == \fact(i - 1)
+  - i >= 1
+  - fac > 0
+  explanation: The loop is a simple while loop with monotonic progress toward a fixed
+    point; a single linear ranking function (modeled via lnested with depth 1) is
+    sufficient for termination analysis.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,22 @@
+source_file: Masse-VMCAI2014-Fig1b_true-termination-version-2_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/Masse-VMCAI2014-Fig1b_true-termination-version-2.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x <= 100) {\n    if (0 == __VERIFIER_nondet_int()) {\n        x =\
+    \ - 2 * x + 2;\n    } else if (0 == __VERIFIER_nondet_int()) {\n        x = -\
+    \ 3 * x - 2;\n    } else if (0 == __VERIFIER_nondet_int()) {\n        x = - 4\
+    \ * x + 2;\n    } else {\n        x = - 5 * x - 2;\n    }\n}"
+  invariants: []
+  explanation: The loop terminates in at most two iterations due to sign-flipping
+    and expanding updates; a 2-phase linear ranking function can model the two-step
+    descent.
+  template_type: lmulti
+  template_depth: 2

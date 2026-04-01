@@ -1,0 +1,15 @@
+source_path: loop_invariants/accelerating_invariant_generation/dagger/substring1.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 35
+summary: 计算从指定起始位置到k的字符数，并断言结果不超过100。

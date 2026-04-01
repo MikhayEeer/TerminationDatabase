@@ -1,0 +1,30 @@
+source_file: 4NestedWith3Variables_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/4NestedWith3Variables_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T15:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (q > 0) {
+      q = q + a - 1;
+      olda = a;
+      a = 3*olda - 4*b;
+      b = 4*olda + 3*b;
+    }
+  invariants:
+  - q >= 0
+  - a == 3*olda - 4*b
+  - b == 4*olda + 3*b
+  - olda == a - (3*olda - 4*b)
+  explanation: The variable q decreases by (1-a) in each iteration. Assuming a > 1
+    (required for termination), q strictly decreases towards 0, requiring a single
+    component ranking function.
+  template_type: llexiext
+  template_depth: 1

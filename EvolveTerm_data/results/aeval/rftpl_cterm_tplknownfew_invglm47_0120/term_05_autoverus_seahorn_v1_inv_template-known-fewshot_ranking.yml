@@ -1,0 +1,26 @@
+source_file: term_05_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_05.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:00
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j > d)
+    {
+        j = j % 2;
+    }
+  invariants:
+  - j >= 0
+  - j == j % 2
+  - d >= 0
+  explanation: The variable j strictly decreases to a value <= d. A single linear
+    ranking function f(j) = j is sufficient to prove termination.
+  template_type: lnested
+  template_depth: 1

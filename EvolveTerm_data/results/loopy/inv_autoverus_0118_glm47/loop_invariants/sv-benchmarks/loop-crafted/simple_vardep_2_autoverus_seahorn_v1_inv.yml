@@ -1,0 +1,43 @@
+source_file: simple_vardep_2_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-crafted/simple_vardep_2.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:09
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (k < 0x0fffffff) {
+        i = i + 1;
+        j = j + 2;
+        k = k + 3;
+        {;
+    //@ assert((k == 3*i) && (j == 2*i));
+    }
+
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - k == 3*i
+  - j == 2*i
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (k < 0x0fffffff) {
+        i = i + 1;
+        j = j + 2;
+        k = k + 3;
+        {;
+    //@ assert((k == 3*i) && (j == 2*i));
+    }
+
+    }

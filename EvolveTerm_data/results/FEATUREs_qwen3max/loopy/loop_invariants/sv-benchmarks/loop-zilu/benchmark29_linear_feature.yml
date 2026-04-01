@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loop-zilu/benchmark29_linear.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 20
+summary: 开始分析代码。该代码主要任务是通过增加x的值使其不小于y，并验证最终x是否在合理范围内。

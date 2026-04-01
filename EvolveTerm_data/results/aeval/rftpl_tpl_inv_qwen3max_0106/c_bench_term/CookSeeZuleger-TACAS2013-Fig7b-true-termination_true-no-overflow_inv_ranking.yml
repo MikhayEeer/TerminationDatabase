@@ -1,0 +1,22 @@
+source_file: CookSeeZuleger-TACAS2013-Fig7b-true-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/CookSeeZuleger-TACAS2013-Fig7b-true-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y > 0 && z > 0) {\n    if (0 == __VERIFIER_nondet_int())\
+    \ {\n        x = x - 1;\n    } else if (0 == __VERIFIER_nondet_int()) {\n    \
+    \    y = y - 1;\n        z = __VERIFIER_nondet_int();\n    } else {\n        z\
+    \ = z - 1;\n        x = __VERIFIER_nondet_int();\n    }\n}"
+  invariants: []
+  explanation: Each branch decreases a different variable while possibly resetting
+    others; a 3-phase multi-phase ranking function (e.g., (y, z, x)) ensures progress
+    in one component per branch.
+  template_type: lmulti
+  template_depth: 3

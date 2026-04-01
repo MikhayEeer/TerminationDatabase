@@ -1,0 +1,15 @@
+input_file: results/aeval+Loopy/ranking_results_PmtTpl_qwen3max/aeval/c_bench_nonterm/nonlin_mod_nonterm_1_inv_ranking.yml
+source_file: nonlin_mod_nonterm_1_inv_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 1
+  svm_mode: lnested
+  status: NONTERM
+  ranking_function: <NestedTemplate.NestedTemplate object at 0x7757fe138880>
+  ranking_functions:
+  - <NestedTemplate.NestedTemplate object at 0x7757fe138880>
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/nonlin_mod_nonterm_1.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/nonlin_mod_nonterm_1.bpl

@@ -1,0 +1,26 @@
+source_file: term_29.c
+source_path: term_29.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:31
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n  int x = 0;\n\
+    \  int y = 0;\n  int z = 1;\n  int N = __VERIFIER_nondet_int();\n  \n  while (x\
+    \ < N)\n  {\n    if      (__VERIFIER_nondet_int() == 0 && z == 1) { y = 5; z =\
+    \ 0; }\n    else if (__VERIFIER_nondet_int() == 0 && z == 0) { y = -3; z = 1;\
+    \ }\n    else if (__VERIFIER_nondet_int() == 0 && z == 1) { y = 7; z = 0; }\n\
+    \    else if (__VERIFIER_nondet_int() == 0 && z == 0) { y = -2; z = 1; }\n   \
+    \ else y = 1;\n\n    x = x + y;\n  }\n}\n"
+  invariants:
+  - x >= 0
+  - y >= -3
+  - y <= 7
+  - z >= 0
+  - z <= 1
+  - N >= 0

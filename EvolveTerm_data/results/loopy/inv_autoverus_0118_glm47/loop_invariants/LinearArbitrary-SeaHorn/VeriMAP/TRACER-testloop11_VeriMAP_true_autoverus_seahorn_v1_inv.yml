@@ -1,0 +1,58 @@
+source_file: TRACER-testloop11_VeriMAP_true_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:17
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (unknown()) {
+        if (s == 2){
+          if (e ==0) e=1;
+          s = 3;
+        }
+        else if (s == 3){
+          if (e ==1) e=2;
+          s=4;
+        }
+        else if (s == 4){
+          {;
+    //@ assert(!( e == 3 ));
+    }
+
+          s=5;
+        }
+      }
+  invariants:
+  - s >= 2
+  - s <= 5
+  - e >= 0
+  - e <= 2
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (unknown()) {
+        if (s == 2){
+          if (e ==0) e=1;
+          s = 3;
+        }
+        else if (s == 3){
+          if (e ==1) e=2;
+          s=4;
+        }
+        else if (s == 4){
+          {;
+    //@ assert(!( e == 3 ));
+    }
+
+          s=5;
+        }
+      }

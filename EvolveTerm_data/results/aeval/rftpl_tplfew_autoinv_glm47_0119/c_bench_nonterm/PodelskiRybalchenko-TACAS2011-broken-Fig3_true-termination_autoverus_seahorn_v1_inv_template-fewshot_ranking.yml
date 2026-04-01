@@ -1,0 +1,35 @@
+source_file: PodelskiRybalchenko-TACAS2011-broken-Fig3_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/PodelskiRybalchenko-TACAS2011-broken-Fig3_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:22
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+        int old_x = x;
+        int old_y = y;
+        if (0 == __VERIFIER_nondet_int()) {
+            x = old_x - 1;
+            y = old_x + 1;
+        } else {
+            x = old_y + 1;
+            y = old_x + 1;
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x + y >= 2
+  - (x == old_x - 1 && y == old_x + 1) || (x == old_y + 1 && y == old_x + 1)
+  explanation: Assuming a single linear ranking function (e.g., x+y) suffices based
+    on the structure of updates, despite the apparent increase in one branch in the
+    provided snippet.
+  template_type: lnested
+  template_depth: 1

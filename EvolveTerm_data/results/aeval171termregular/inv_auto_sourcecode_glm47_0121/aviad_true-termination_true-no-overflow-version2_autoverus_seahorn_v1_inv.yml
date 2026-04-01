@@ -1,0 +1,26 @@
+source_file: aviad_true-termination_true-no-overflow-version2.c
+source_path: aviad_true-termination_true-no-overflow-version2.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:35
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: |
+    extern int __VERIFIER_nondet_int(void);
+
+    int main() {
+        int a = __VERIFIER_nondet_int();
+        while (a > 1) {
+          if (a % 2 == 0) a = a / 2;
+            else a = a + 1;
+        }
+        return 0;
+    }
+  invariants:
+  - a >= 0
+  - a >= 1

@@ -1,0 +1,26 @@
+source_file: PastaC10_false-no-overflow_false-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/PastaC10_false-no-overflow_false-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:35
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i - j >= 1) {
+        i = i - __VERIFIER_nondet_int();
+        r = __VERIFIER_nondet_int() + 1;
+        j = j + r;
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - r >= 1
+  explanation: The expression i - j decreases strictly in every iteration.
+  template_type: lnested
+  template_depth: 1

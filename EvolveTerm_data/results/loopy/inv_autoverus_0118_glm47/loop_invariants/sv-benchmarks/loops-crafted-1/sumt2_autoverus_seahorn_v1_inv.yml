@@ -1,0 +1,27 @@
+source_file: sumt2_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loops-crafted-1/sumt2.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:10
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while( l < n ) {\n      if(!(l%2))\n        i = i + 1;\n      else \n   \
+    \       j = j+1;\n    l = l+1;\n  }"
+  invariants:
+  - i + j >= 0
+  - l >= 0
+  - n >= 0
+  - i + j == l_initial - l + i_initial + j_initial
+  - l == l_initial + (i - i_initial) + (j - j_initial)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( l < n ) {\n      if(!(l%2))\n        i = i + 1;\n      else \n   \
+    \       j = j+1;\n    l = l+1;\n  }"

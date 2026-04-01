@@ -1,0 +1,15 @@
+source_path: termination/non_termination/loop/Unsigned_Wraparound_Error_1_T.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 0
+has_break: true
+loop_condition_always_true: true
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 27
+summary: 分析无符号整数循环中的回绕行为以判断程序是否终止。

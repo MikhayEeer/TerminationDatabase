@@ -1,0 +1,31 @@
+source_file: 43_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/43.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown()) {\n    {\n        if ( unknown() ) {\n            if (\
+    \ (c > n) )\n            {\n                (c  = (c + 1));\n            }\n \
+    \       } else {\n            if ( (c == n) )\n            {\n               \
+    \ (c  = 1);\n            }\n        }\n\n    }\n\n}"
+  invariants:
+  - c >= 0
+  - c <= n + 1
+  - n > 0
+  - (c > n) ==> (c == c + 1)
+  - (c == n) ==> (c == 1)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown()) {\n    {\n        if ( unknown() ) {\n            if (\
+    \ (c > n) )\n            {\n                (c  = (c + 1));\n            }\n \
+    \       } else {\n            if ( (c == n) )\n            {\n               \
+    \ (c  = 1);\n            }\n        }\n\n    }\n\n}"

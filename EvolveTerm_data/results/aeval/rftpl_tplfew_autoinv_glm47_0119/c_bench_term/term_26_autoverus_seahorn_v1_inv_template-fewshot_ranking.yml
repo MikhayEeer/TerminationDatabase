@@ -1,0 +1,31 @@
+source_file: term_26_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_26.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:44
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x == y){
+      x = x + c1 % 2;
+      y = y + c2 % 3;
+      c1++; c2++;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - c1 >= 0
+  - c2 >= 0
+  - x == y
+  - x == initial_x + (c1 - initial_c1) % 2
+  - y == initial_y + (c2 - initial_c2) % 3
+  explanation: The loop progresses via the strictly increasing variables c1 and c2.
+    A lexicographic tuple (c1, c2) provides a well-founded ranking.
+  template_type: lnested
+  template_depth: 2

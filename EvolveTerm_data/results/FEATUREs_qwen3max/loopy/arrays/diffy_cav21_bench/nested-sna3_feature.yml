@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/nested-sna3.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Nested
+loops_count: 5
+loops_depth: 2
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 42
+summary: 计算数组a的元素和，并将该和累加到数组b的每个元素中，验证最终结果是否符合预期。

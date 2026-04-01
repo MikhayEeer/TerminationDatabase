@@ -1,0 +1,32 @@
+source_file: determ_term_7_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_7.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T16:02
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a == 0) {
+        a = a + b;
+        b = b + c;
+        c = c + d;
+        d = d + e;
+        e = e + 1;
+    }
+  invariants:
+  - a == 0
+  - b == b_initial + c_initial * i
+  - c == c_initial + d_initial * i
+  - d == d_initial + e_initial * i
+  - e == e_initial + i
+  - i >= 0
+  explanation: Single monotone progress driven by the strictly increasing variable
+    e (or the tuple of variables), which eventually violates the loop condition.
+  template_type: lnested
+  template_depth: 1

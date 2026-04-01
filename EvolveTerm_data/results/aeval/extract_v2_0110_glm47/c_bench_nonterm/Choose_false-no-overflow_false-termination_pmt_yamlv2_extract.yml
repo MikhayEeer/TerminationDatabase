@@ -1,0 +1,24 @@
+source_path: c_bench_nonterm/Choose_false-no-overflow_false-termination.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:27
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (i >= 3) {
+        if (i > 5) {
+            i = i+3;
+        } else {
+            if (i > 10) {
+                i = i-2;
+            } else {
+                i = i+1;
+            }
+        }
+    }

@@ -1,0 +1,19 @@
+source_file: MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0) {\n  x = x - y;\n  y = y - z;\n  z = -z;\n}"
+  invariants: []
+  explanation: The loop exhibits 2-periodic behavior due to z flipping sign each iteration,
+    causing y to oscillate. A 2-phase linear ranking function (lmulti, depth=2) can
+    capture the alternating decrease in x over pairs of iterations.
+  template_type: lmulti
+  template_depth: 2

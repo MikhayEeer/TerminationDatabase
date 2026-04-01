@@ -1,0 +1,15 @@
+input_file: results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif_autoverus_seahorn_v1_inv_template-known-fewshot_ranking.yml
+source_file: MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif_autoverus_seahorn_v1_inv_template-known-fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 1
+  svm_mode: lnested
+  status: NONTERM
+  ranking_function: <NestedTemplate.NestedTemplate object at 0x7323dc357550>
+  ranking_functions:
+  - <NestedTemplate.NestedTemplate object at 0x7323dc357550>
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety-modif.bpl

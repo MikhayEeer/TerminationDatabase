@@ -1,0 +1,21 @@
+source_file: b.03-no-inv_assume_true-termination_true-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/b.03-no-inv_assume_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:54
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > y && y <= 2147483647 - x) {
+        y = y + x;
+    }
+  invariants: []
+  explanation: Single variable y increases monotonically toward a fixed bound.
+  template_type: lnested
+  template_depth: 1

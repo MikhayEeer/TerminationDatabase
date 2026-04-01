@@ -1,0 +1,21 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/ifcomp.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 4
+loops:
+- id: 1
+  code: "for(i=0; i<N; i++)\n{\n    if(i==0) {\n        a[0] = 6;\n    } else {\n\
+    \        a[i] = a[i-1] + 6;\n    }\n}"
+- id: 2
+  code: "for(i=0; i<N; i++)\n{\n    if(i==0) {\n        b[0] = 1;\n    } else {\n\
+    \        b[i] = b[i-1] + a[i-1];\n    }\n}"
+- id: 3
+  code: "for(i=0; i<N; i++)\n{\n    if(i==0) {\n        c[0] = 0;\n    } else {\n\
+    \        c[i] = c[i-1] + b[i-1];\n    }\n}"
+- id: 4
+  code: "for(i=0; i<N; i++)\n{\n    {;\n//@ assert(c[i] == i*i*i);\n}\n\n}"

@@ -1,0 +1,23 @@
+source_path: c_bench_term/Pure2Phase_true-termination_true-valid-memsafety.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:39
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (z >= 0) {
+        y = y - 1;
+        if (y >= 0) {
+            z = __VERIFIER_nondet_int();
+          //prevent overflow
+          if(!(z<=1073741823)) return 0;
+        } else {
+            z = z - 1;
+        }
+    }

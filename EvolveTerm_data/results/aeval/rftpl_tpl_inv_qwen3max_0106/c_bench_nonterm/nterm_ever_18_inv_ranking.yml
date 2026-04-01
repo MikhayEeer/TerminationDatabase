@@ -1,0 +1,22 @@
+source_file: nterm_ever_18_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_18.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (a >= 1) {\n    if (a % 5 == 0) a = a / 5 + 1;\n    else a = a + 2;\n\
+    }"
+  invariants:
+  - a >= 1
+  explanation: 'The loop alternates between increasing a (by 2) and decreasing it
+    (via division by 5 plus 1). A multi-phase ranking function with depth 2 captures
+    the two distinct behaviors: one phase for the incrementing steps (measured by
+    distance to next multiple of 5) and another for the decreasing step.'
+  template_type: lmulti
+  template_depth: 2

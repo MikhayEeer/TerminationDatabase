@@ -1,0 +1,47 @@
+source_file: cegar2_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cegar2.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:14
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x < N) {
+
+            input = unknown_int();
+            if( input ) {
+
+                m = x;
+            }
+
+            x = x + 1;
+
+        }
+  invariants:
+  - x >= 0
+  - x <= N
+  - m >= 0
+  - m <= x
+  - m <= N
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x < N) {
+
+            input = unknown_int();
+            if( input ) {
+
+                m = x;
+            }
+
+            x = x + 1;
+
+        }

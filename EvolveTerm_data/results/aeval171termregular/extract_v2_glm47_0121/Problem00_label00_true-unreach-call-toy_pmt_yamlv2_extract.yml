@@ -1,0 +1,17 @@
+source_path: data/aeval_171term_regular/Problem00_label00_true-unreach-call-toy.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/extract_v2_glm47_0121/
+  -p v2
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-21T15:00
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(output != 0)\n{\n    // read input\n    int input = __VERIFIER_nondet_int();\n\
+    \    if ((input != 1) && \n    (input != 2) && \n    (input != 3) && \n    (input\
+    \ != 4) && \n    (input != 5) && \n    (input != 6)) \n        return -2;\n\n\
+    \    // operate eca engine\n    output = calculate_output(input);\n}"

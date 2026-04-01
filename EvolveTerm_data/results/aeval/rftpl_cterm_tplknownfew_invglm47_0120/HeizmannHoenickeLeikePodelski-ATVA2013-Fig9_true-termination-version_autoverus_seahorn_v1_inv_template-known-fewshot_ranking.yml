@@ -1,0 +1,25 @@
+source_file: HeizmannHoenickeLeikePodelski-ATVA2013-Fig9_true-termination-version_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/HeizmannHoenickeLeikePodelski-ATVA2013-Fig9_true-termination-version.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:07
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0) {
+        x = x - 10*y + z;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  explanation: Requires lexicographic ordering to handle the dependency of x's decrease
+    on y and z. Single linear function is insufficient.
+  template_type: lnested
+  template_depth: 3

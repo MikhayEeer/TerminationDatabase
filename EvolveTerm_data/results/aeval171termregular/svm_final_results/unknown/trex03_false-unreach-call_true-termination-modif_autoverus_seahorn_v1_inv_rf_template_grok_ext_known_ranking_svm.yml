@@ -1,0 +1,40 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/trex03_false-unreach-call_true-termination-modif_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: trex03_false-unreach-call_true-termination-modif_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lpiecewiseext
+  template_depth: 1
+  svm_mode: lpiecewiseext
+  status: UNKNOWN
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/trex03_false-unreach-call_true-termination-modif.c
+  input_source_stem: trex03_false-unreach-call_true-termination-modif
+  template_predicates:
+  - x1 >= x2
+  - x2 >= x3
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/trex03_false-unreach-call_true-termination-modif.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/trex03_false-unreach-call_true-termination-modif.bpl
+  input_loop:
+    loop_id: 1
+    code: "while((!(d1 < 1 || d2 < 1 || d3 < 1)) && x1>0 && x2>0 && x3>0)\n{\n  if\
+      \ (__VERIFIER_nondet_int() == 0) x1=x1-d1;\n  else if (__VERIFIER_nondet_int()\
+      \ == 0) x2=x2-d2;\n  else x3=x3-d3;\n}"
+    invariants:
+    - d1 >= 1
+    - d2 >= 1
+    - d3 >= 1
+    - x1 >= 0
+    - x2 >= 0
+    - x3 >= 0
+    explanation: The loop decreases one of $x_1, x_2, x_3$ in each iteration, and
+      the ranking function $x_1 + x_2 + x_3$ strictly decreases regardless of which
+      branch is taken. Depth 1 suffices as no nested ordering is needed.
+    template_type: lpiecewiseext
+    template_depth: 1
+    template_predicates:
+    - x1 >= x2
+    - x2 >= x3
+source_path: data/aeval_171term_regular/trex03_false-unreach-call_true-termination-modif.c

@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/NoriSharma-2013FSE-Fig8-true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x >= y) {\n  if (z > 1) {\n    z = z - 1;\n    x = x + z;\n  } else\
+    \ {\n    y = y + 1;\n  }\n}"

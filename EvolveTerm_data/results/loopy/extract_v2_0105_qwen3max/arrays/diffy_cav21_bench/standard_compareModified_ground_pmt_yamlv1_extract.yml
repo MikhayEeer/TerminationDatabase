@@ -1,0 +1,19 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/standard_compareModified_ground.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: "for (int j = 0; j < SIZE ; j++ ) {\n    a[j] = unknown_int();\n    b[j] =\
+    \ unknown_int();\n}"
+- id: 2
+  code: "while ( i < SIZE ) {\n    if ( a[i] != b[i] ) {\n        rv[0] = 0;\n   \
+    \ }\n    c[i] = a[i];\n    i = i+1;\n}"
+- id: 3
+  code: "for ( x = 0 ; x < SIZE ; x++ ) {\n    {;\n//@ assert(  a[x] == c[x]  );\n\
+    }\n}"

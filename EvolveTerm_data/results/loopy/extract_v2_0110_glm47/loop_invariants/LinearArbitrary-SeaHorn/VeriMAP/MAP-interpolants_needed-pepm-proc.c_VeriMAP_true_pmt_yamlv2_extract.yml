@@ -1,0 +1,15 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:35
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int()) {\n    if (unknown_int()) {\n        x = x+1; \n  \
+    \      y = y+2;\n    } else if (unknown_int()) {\n        if (x >= 4) {\n    \
+    \        x = x+1; \n            y = y+3; \n        }\n    } \n}"

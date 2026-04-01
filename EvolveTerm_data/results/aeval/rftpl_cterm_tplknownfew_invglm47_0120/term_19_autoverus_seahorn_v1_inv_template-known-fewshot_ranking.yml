@@ -1,0 +1,27 @@
+source_file: term_19_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_19.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:16
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 2*y) {
+        if (x % 5 == 1) x++;
+            else x = x - 2;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x % 2 == 0
+  explanation: Variable y is constant. The loop depends only on x. A single linear
+    ranking function (e.g., x or |x - 2*y|) is sufficient to prove termination for
+    a bounded 1-dimensional state space. Depth > 1 is not required.
+  template_type: lnested
+  template_depth: 1

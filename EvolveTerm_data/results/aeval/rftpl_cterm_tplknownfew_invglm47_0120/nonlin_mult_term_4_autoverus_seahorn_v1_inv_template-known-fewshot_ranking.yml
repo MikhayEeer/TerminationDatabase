@@ -1,0 +1,27 @@
+source_file: nonlin_mult_term_4_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_mult_term_4.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:21
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i >= j)
+    {
+        i = i*d;
+        j = j*b;
+    }
+  invariants:
+  - i >= j
+  - i >= 0
+  - j >= 0
+  explanation: The ratio i/j decreases monotonically (assuming d < b). A single ranking
+    function (linear in logs) proves termination.
+  template_type: lnested
+  template_depth: 1

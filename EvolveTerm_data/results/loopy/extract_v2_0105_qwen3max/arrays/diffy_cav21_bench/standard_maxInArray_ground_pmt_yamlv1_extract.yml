@@ -1,0 +1,19 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/standard_maxInArray_ground.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: "/* Loop_A */  for (int j = 0; j < N ; j++ ) {\n    a[j] = unknown_int();\n\
+    }"
+- id: 2
+  code: "int i = 0;\n/* Loop_B */  while ( i < N ) {\n    if ( a[i] > max[0] ) {\n\
+    \        max[0] = a[i];\n    }\n    i = i + 1;\n}"
+- id: 3
+  code: "/* Loop_C */  for ( x = 0 ; x < N ; x++ ) {\n    {;\n//@ assert(  a[x] <=\
+    \ max[0] );\n}\n\n}"

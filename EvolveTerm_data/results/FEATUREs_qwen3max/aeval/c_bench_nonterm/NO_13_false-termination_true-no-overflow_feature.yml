@@ -1,0 +1,15 @@
+source_path: c_bench_nonterm/NO_13_false-termination_true-no-overflow.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 15
+summary: 通过循环递增i和递减j，直到i不小于j。

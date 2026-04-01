@@ -1,0 +1,17 @@
+source_path: c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex1.01_false-no-overflow-version3.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:34
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x < 0 && y > 0) {
+        x = -3*x - 17;
+        y = -4*y + 8;
+    }

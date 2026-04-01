@@ -1,0 +1,41 @@
+source_file: sumt8_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loops-crafted-1/sumt8.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:10
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while( l < n ) {\n      if(!(l%8))\n        v5 = v5 + 1;\n      else if(!(l%7))\n\
+    \        v1 = v1 + 1;\n      else if(!(l%6))\n        v2 = v2 + 1;\n      else\
+    \ if(!(l%5))\n        v3 = v3 + 1;\n      else if(!(l%4))\n        v4 = v4 + 1;\n\
+    \      else if(!(l%3))\n        i = i + 1;\n      else if(!(l%2)) \n         \
+    \ j = j+1;\n      else \n        k = k+1;\n    l = l+1;\n    {;\n//@ assert((i+j+k+v1+v2+v3+v4+v5)\
+    \ == l);\n}\n\n  }"
+  invariants:
+  - l >= 0
+  - n >= 0
+  - v5 >= 0
+  - v1 >= 0
+  - v2 >= 0
+  - v3 >= 0
+  - v4 >= 0
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - (i + j + k + v1 + v2 + v3 + v4 + v5) == l
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( l < n ) {\n      if(!(l%8))\n        v5 = v5 + 1;\n      else if(!(l%7))\n\
+    \        v1 = v1 + 1;\n      else if(!(l%6))\n        v2 = v2 + 1;\n      else\
+    \ if(!(l%5))\n        v3 = v3 + 1;\n      else if(!(l%4))\n        v4 = v4 + 1;\n\
+    \      else if(!(l%3))\n        i = i + 1;\n      else if(!(l%2)) \n         \
+    \ j = j+1;\n      else \n        k = k+1;\n    l = l+1;\n    {;\n//@ assert((i+j+k+v1+v2+v3+v4+v5)\
+    \ == l);\n}\n\n  }"

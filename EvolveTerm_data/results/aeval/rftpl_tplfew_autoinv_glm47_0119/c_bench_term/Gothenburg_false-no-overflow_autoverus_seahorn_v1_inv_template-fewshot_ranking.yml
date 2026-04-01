@@ -1,0 +1,25 @@
+source_file: Gothenburg_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Gothenburg_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:58
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 || y >= 0) {
+        x = x + a - b - 1;
+        y = y + b - a - 1;
+    }
+  invariants:
+  - x + y >= -2
+  - x + y <= -2
+  explanation: The loop has two phases depending on the sign of (a-b-1); x either
+    increases or decreases monotonically towards the fixed target interval.
+  template_type: lmulti
+  template_depth: 2

@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/ms3.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 2
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: false
+lines: 35
+summary: 计算数组元素的累加和并验证其不超过2倍数组长度。

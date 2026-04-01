@@ -1,0 +1,15 @@
+source_path: loop_invariants/code2inv/88.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 38
+summary: 通过循环更新变量x、y和lock，直到x等于y，最后断言lock的值为1。

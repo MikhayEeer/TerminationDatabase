@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/condnl1.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 4
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 45
+summary: 计算从1到N的整数和，并将结果赋值给数组a和c，最后验证c中每个元素等于N*(N+1)/2。

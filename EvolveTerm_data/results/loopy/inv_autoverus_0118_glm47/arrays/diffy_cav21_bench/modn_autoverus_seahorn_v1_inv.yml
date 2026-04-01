@@ -1,0 +1,66 @@
+source_file: modn_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/modn.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:40
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    /* Loop_A */  for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + 1;
+    }
+  invariants:
+  - sum[0] == old(sum[0]) + i
+  - i >= 0
+  - i <= N
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<N; i++)
+    {
+        a[i] = sum[0] % N;
+    }
+  invariants: []
+- loop_id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(a[i] == 0);
+    }
+
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - a[i] == 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + 1;
+    }
+- id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<N; i++)
+    {
+        a[i] = sum[0] % N;
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(a[i] == 0);
+    }
+
+    }

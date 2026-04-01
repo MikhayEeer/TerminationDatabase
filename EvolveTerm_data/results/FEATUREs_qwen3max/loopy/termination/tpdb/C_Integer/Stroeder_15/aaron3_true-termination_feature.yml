@@ -1,0 +1,15 @@
+source_path: termination/tpdb/C_Integer/Stroeder_15/aaron3_true-termination.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 4
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 24
+summary: 分析程序中的循环条件，判断其在整数变量变化下是否可能终止。

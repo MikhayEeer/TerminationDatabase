@@ -1,0 +1,27 @@
+source_file: 3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/3pieces_Caterina_TACAS16_modif_1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:51
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0)
+    {
+        if (x < 10) x++; else x = y;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x >= y
+  explanation: 'Two phases: Phase 1 (x < 10) increases x, Phase 2 (x >= 10) decreases
+    x. Multi-phase ranking handles the increase in Phase 1 by ensuring progress to
+    Phase 2.'
+  template_type: lmulti
+  template_depth: 2

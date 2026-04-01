@@ -1,0 +1,30 @@
+source_file: 4NestedWith3Variables_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/4NestedWith3Variables_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:01
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (q > 0) {
+      q = q + a - 1;
+      olda = a;
+      a = 3*olda - 4*b;
+      b = 4*olda + 3*b;
+    }
+  invariants:
+  - q >= 0
+  - a == 3*olda - 4*b
+  - b == 4*olda + 3*b
+  explanation: Termination relies on the exponential growth of 'a' eventually forcing
+    'q' to decrease. This dependency requires a lexicographic ranking function (e.g.,
+    relating q and a) to prove termination, which fits the nested template with depth
+    2.
+  template_type: lnested
+  template_depth: 2

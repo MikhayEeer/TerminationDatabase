@@ -1,0 +1,23 @@
+source_file: HeizmannHoenickeLeikePodelski-ATVA2013-Fig5_true-termination_true-no-overflow-broken_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/HeizmannHoenickeLeikePodelski-ATVA2013-Fig5_true-termination_true-no-overflow-broken.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:51
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0) {
+        x = x - y + 1;
+        y = (y + 1) / 2;
+    }
+  invariants: []
+  explanation: 'Two phases: Phase 1 decreases y to a minimum value (y may increase
+    x), Phase 2 decreases x to the loop bound.'
+  template_type: lmulti
+  template_depth: 2

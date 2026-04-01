@@ -1,0 +1,21 @@
+source_file: ex1_false-no-overflow_true-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/ex1_false-no-overflow_true-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (y > 0) {\n    r = r*x;\n    y = y - 1;\n}"
+  invariants:
+  - y >= 0
+  - r * \pow(x, y) == \at(r, Pre) * \pow(x, \at(y, Pre))
+  - x == \at(x, Pre)
+  explanation: The loop terminates due to y decreasing by 1 each iteration; a simple
+    linear ranking function (y) suffices.
+  template_type: lnested
+  template_depth: 1

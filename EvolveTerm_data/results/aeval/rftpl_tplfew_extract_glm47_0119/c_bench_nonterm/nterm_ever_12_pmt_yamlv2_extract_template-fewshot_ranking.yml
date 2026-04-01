@@ -1,0 +1,23 @@
+source_file: nterm_ever_12_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_12.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:48
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= 98) {
+        x = y%50 + z%50;
+        y ++;
+        z ++;
+    }
+  invariants: []
+  explanation: Variable y (and z) increases strictly and unboundedly, ensuring termination.
+  template_type: lnested
+  template_depth: 1

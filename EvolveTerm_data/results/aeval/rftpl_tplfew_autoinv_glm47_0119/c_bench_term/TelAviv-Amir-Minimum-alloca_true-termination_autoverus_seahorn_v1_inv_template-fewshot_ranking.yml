@@ -1,0 +1,38 @@
+source_file: TelAviv-Amir-Minimum-alloca_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/TelAviv-Amir-Minimum-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:54
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+        if (0 == __VERIFIER_nondet_int()) {
+            if (x < y) {
+                y = x - 1;
+            } else {
+                y = y - 1;
+            }
+            x = __VERIFIER_nondet_int();
+        } else {
+            if (x < y) {
+                x = x - 1;
+            } else {
+                x = y - 1;
+            }
+            y = __VERIFIER_nondet_int();
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  explanation: 'Two phases: Phase 1 decreases y (x may vary), Phase 2 decreases x
+    (y may vary).'
+  template_type: lmulti
+  template_depth: 2

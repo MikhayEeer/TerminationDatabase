@@ -1,0 +1,22 @@
+source_file: nterm_18_cex_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_18_cex.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (y != K) {\n    if (x > K) {\n        x = x - 1;\n    } else if (0\
+    \ == __VERIFIER_nondet_int()) {\n        x = x + 1;\n    }\n    if (y > x) {\n\
+    \        y = y - 1;\n    } else if (y < x) {\n        y = y + 1;\n    }\n}"
+  invariants: []
+  explanation: The loop exhibits nested-like behavior where y's convergence depends
+    on x being controlled relative to K. A depth-2 nested ranking function can capture
+    the outer measure on x's deviation from K and inner measure on y's deviation from
+    K or x.
+  template_type: lnested
+  template_depth: 2

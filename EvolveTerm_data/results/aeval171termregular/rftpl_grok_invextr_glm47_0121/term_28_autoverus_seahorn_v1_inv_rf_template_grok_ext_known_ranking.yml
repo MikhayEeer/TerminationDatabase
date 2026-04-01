@@ -1,0 +1,36 @@
+source_file: term_28_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_28.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:51
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > y) {
+      if (0 == __VERIFIER_nondet_int())      x = x - 1;
+      else if (0 == __VERIFIER_nondet_int()) y = y + 1;
+      else if (0 == __VERIFIER_nondet_int()) x = x - 2;
+      else if (0 == __VERIFIER_nondet_int()) y = y + 2;
+      else if (0 == __VERIFIER_nondet_int()) x = x - 3;
+      else if (0 == __VERIFIER_nondet_int()) y = y + 3;
+      else if (0 == __VERIFIER_nondet_int()) x = x - 4;
+      else if (0 == __VERIFIER_nondet_int()) y = y + 4;
+      else if (0 == __VERIFIER_nondet_int()) x = x - 5;
+      else                                   y = y + 5;
+    }
+  invariants:
+  - x >= y
+  - x >= 0
+  - y >= 0
+  explanation: The termination argument relies on the lexicographic ranking function
+    (x - y, x). The primary component x - y strictly decreases in every iteration,
+    while x acts as a secondary measure to handle the non-increasing updates to y.
+    A depth of 2 is sufficient to capture this relationship.
+  template_type: llexiext
+  template_depth: 2

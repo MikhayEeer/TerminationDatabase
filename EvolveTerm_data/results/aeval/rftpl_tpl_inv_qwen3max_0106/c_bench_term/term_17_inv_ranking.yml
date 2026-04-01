@@ -1,0 +1,19 @@
+source_file: term_17_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/term_17.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x < 49) {\n    x = y%50;\n    y ++;\n}"
+  invariants: []
+  explanation: The loop terminates due to y increasing and x being set to y%50, ensuring
+    x=49 within 50 steps. A multi-phase ranking function (lmulti) with depth 2 allows
+    capturing progress toward y ≡ 49 mod 50 using linear templates in different phases.
+  template_type: lmulti
+  template_depth: 2

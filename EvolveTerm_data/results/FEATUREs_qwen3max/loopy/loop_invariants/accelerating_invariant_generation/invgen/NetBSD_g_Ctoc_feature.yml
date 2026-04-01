@@ -1,0 +1,15 @@
+source_path: loop_invariants/accelerating_invariant_generation/invgen/NetBSD_g_Ctoc.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 0
+has_break: false
+loop_condition_always_true: true
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 55
+summary: 分析代码的主要功能是通过循环递减长度并递增索引来处理基于BASE_SZ的数组边界条件。

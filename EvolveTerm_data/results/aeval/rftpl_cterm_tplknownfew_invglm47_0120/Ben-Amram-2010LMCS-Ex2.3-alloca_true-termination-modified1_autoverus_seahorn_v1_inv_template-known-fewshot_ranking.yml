@@ -1,0 +1,34 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-modified1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-modified1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:02
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0) {
+        if (y > x) {
+            y = z;
+            z = __VERIFIER_nondet_int();
+            x = z + 1;
+        } else {
+            z = z - 1;
+            y = __VERIFIER_nondet_int();
+            x = y + 1;
+        }
+    }
+  invariants:
+  - x > 0
+  - y > 0
+  - z > 0
+  explanation: Variable z acts as the primary counter decreasing in the else-branch.
+    The if-branch acts as a reset/setup that forces execution back to the else-branch.
+    A single linear function f(z) = z is sufficient to prove termination.
+  template_type: lnested
+  template_depth: 1

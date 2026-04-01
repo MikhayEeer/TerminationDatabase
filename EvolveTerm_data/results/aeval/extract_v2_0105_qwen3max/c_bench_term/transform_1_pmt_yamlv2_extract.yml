@@ -1,0 +1,14 @@
+source_path: data/aeval/c_bench_term/transform_1.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x > 0) {\n  x = x - y;\n  y = y - z;\n  if (z == 0) z = 13;\n    else\
+    \ if (z == 13) z = -20;\n      else if (z == -20) z = 7;\n        else z = 0;\n\
+    }"

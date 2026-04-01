@@ -1,0 +1,25 @@
+source_file: nterm_ever_14_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_14.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:37
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (z >= 0) {
+        if (z > 0 && z % 5 == 0) z = z - 5;
+          else z++;
+    }
+  invariants:
+  - z >= 0
+  - z % 5 >= 0
+  explanation: 'Two phases: phase 1 decreases z by 5, phase 2 increases z until the
+    next multiple of 5.'
+  template_type: lmulti
+  template_depth: 2

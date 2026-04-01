@@ -1,0 +1,37 @@
+source_file: aaron3_true-termination_true-valid-memsafety_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/aaron3_true-termination_true-valid-memsafety.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:59
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        if (__VERIFIER_nondet_int() != 0) {
+            z = z - 1;
+            tx = x;
+            x = __VERIFIER_nondet_int();
+            if(!(-1073741823<=x && x<=1073741823)) return 0;
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= y
+  - x <= tx + z
+  - tx >= y
+  - z >= 0
+  - tx + z >= y
+  explanation: The loop termination is proven by the lexicographic ranking function
+    (tx + z - y, z). The first component represents the gap between the upper and
+    lower bounds, which decreases or stays constant. The second component `z` decreases
+    when the gap is maintained. This requires a depth of 2 to capture the lexicographic
+    relationship within the multi-phase framework.
+  template_type: lmultiext
+  template_depth: 2

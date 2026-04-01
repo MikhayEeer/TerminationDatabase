@@ -1,0 +1,15 @@
+source_path: loop_invariants/accelerating_invariant_generation/cav/07.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 31
+summary: 分析代码的主要任务是验证循环后变量j是否小于n+1，否则触发断言错误。

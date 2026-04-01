@@ -1,0 +1,26 @@
+source_file: choices_dec_3_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/choices_dec_3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:35
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0)
+    {
+      int a = __VERIFIER_nondet_int();
+      if (a == 0) {x--; y++; z++;}
+      else if (a == 1) {y--; x++; z++;}
+      else {y++; x++; z--;}
+    }
+  invariants: []
+  explanation: The sum x + y + z decreases by 1 in every iteration, providing a single
+    linear ranking function.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,73 @@
+source_file: eqn4_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/eqn4.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T15:03
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    /* Loop_A */  for(i=1; i<N; i++)
+    {
+        a[i] = a[i-1] + 8;
+    }
+  invariants:
+  - i >= 1
+  - i <= N
+  - a[i] == a[i-1] + 8
+  - a[0] == a[0]
+  - N >= 1
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for(i=1; i<N; i++)
+    {
+        b[i] = b[i-1] + a[i-1];
+    }
+  invariants:
+  - i >= 1
+  - i <= N
+  - b[i] == b[i-1] + a[i-1]
+  - a[i-1] >= 0
+  - b[i-1] >= 0
+- loop_id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(b[i] == 4*i*i + 4*i + 1);
+    }
+
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - b[i] == 4*i*i + 4*i + 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for(i=1; i<N; i++)
+    {
+        a[i] = a[i-1] + 8;
+    }
+- id: 2
+  code: |-
+    /* Loop_B */  for(i=1; i<N; i++)
+    {
+        b[i] = b[i-1] + a[i-1];
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(b[i] == 4*i*i + 4*i + 1);
+    }
+
+    }

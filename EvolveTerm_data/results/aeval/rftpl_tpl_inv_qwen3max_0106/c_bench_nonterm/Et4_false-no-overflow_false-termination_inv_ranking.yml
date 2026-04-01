@@ -1,0 +1,20 @@
+source_file: Et4_false-no-overflow_false-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Et4_false-no-overflow_false-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while ( (b - c >= 1) && (a == c)) {\n    r = __VERIFIER_nondet_int();\n \
+    \   b = 10;\n    c = c + 1 + r;\n    a = c;\n}"
+  invariants: []
+  explanation: The loop is a single loop with state primarily in variable c. Assuming
+    progress (e.g., r ≥ 0), a linear ranking function like 10 - c suffices. No nesting
+    or multi-phase behavior is present.
+  template_type: lnested
+  template_depth: 1

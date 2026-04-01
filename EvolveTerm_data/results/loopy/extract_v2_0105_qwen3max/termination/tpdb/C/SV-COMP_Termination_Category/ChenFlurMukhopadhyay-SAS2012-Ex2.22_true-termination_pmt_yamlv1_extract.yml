@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex2.22_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int x = unknown_int();\nint y = unknown_int();\nwhile (x > 0) {\n    x =\
+    \ y;\n    int old_y = y;\n    y = unknown_int();\n    if (y > -old_y) {\n    \
+    \    break;\n    }\n}"

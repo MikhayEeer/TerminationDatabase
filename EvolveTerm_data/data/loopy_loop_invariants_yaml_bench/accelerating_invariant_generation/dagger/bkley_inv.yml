@@ -1,0 +1,43 @@
+source_file: bkley_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/dagger/bkley.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (invalid\
+    \ >= 1)) \nreturn 0;\n\n        nonexclusive=nonexclusive+exclusive;\n       \
+    \ exclusive=0;\n        invalid=invalid-1;\n        unowned=unowned+1;\n    }\n\
+    \    else\n    {\n        if (unknown_int())\n        {\n            if (! (nonexclusive\
+    \ + unowned >=1)) \nreturn 0;\n\n            invalid=invalid + unowned + nonexclusive-1;\n\
+    \            exclusive=exclusive+1;\n            unowned=0;\n            nonexclusive=0;\n\
+    \        }\n        else\n        {\n            if (! (invalid >= 1)) \nreturn\
+    \ 0;\n\n            unowned=0;\n            nonexclusive=0;\n            exclusive=1;\n\
+    \            invalid=invalid+unowned+exclusive+nonexclusive-1;\n        }\n  \
+    \  }\n}"
+  invariants:
+  - exclusive >= 0
+  - unowned >= 0
+  - nonexclusive >= 0
+  - invalid >= 1 ==> invalid >= 1
+  - invalid + unowned + exclusive + nonexclusive >= 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (invalid\
+    \ >= 1)) \nreturn 0;\n\n        nonexclusive=nonexclusive+exclusive;\n       \
+    \ exclusive=0;\n        invalid=invalid-1;\n        unowned=unowned+1;\n    }\n\
+    \    else\n    {\n        if (unknown_int())\n        {\n            if (! (nonexclusive\
+    \ + unowned >=1)) \nreturn 0;\n\n            invalid=invalid + unowned + nonexclusive-1;\n\
+    \            exclusive=exclusive+1;\n            unowned=0;\n            nonexclusive=0;\n\
+    \        }\n        else\n        {\n            if (! (invalid >= 1)) \nreturn\
+    \ 0;\n\n            unowned=0;\n            nonexclusive=0;\n            exclusive=1;\n\
+    \            invalid=invalid+unowned+exclusive+nonexclusive-1;\n        }\n  \
+    \  }\n}"

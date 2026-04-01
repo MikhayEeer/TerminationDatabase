@@ -1,0 +1,27 @@
+source_file: nterm_16_cex_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_16_cex.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:38
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j > d)
+    {
+        j = j%10;
+    }
+  invariants:
+  - j >= 0
+  - j >= d
+  - j >= 0
+  - j <= 9
+  explanation: Single variable bounded by modulo operation; linear decrease or bounded
+    range ensures termination.
+  template_type: lnested
+  template_depth: 1

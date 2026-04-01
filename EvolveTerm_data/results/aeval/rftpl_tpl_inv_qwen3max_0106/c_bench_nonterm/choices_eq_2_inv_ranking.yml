@@ -1,0 +1,21 @@
+source_file: choices_eq_2_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/choices_eq_2.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x != y)\n{\n  int a = __VERIFIER_nondet_int();\n  if (a == 0) {x--;\
+    \ y++;} else {y--; x++;}\n}"
+  invariants:
+  - x + y == \at(x + y, Pre)
+  explanation: The loop has symmetric non-deterministic updates and a linear invariant.
+    A multi-phase ranking function with depth 2 can potentially handle the two cases
+    (x > y and x < y) separately, assuming cooperative non-determinism.
+  template_type: lmulti
+  template_depth: 2

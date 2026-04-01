@@ -1,0 +1,25 @@
+source_file: nonlin_mult_term_9_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_mult_term_9.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:21
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j < 10)
+    {
+       j = -2 * j * b;
+    }
+  invariants:
+  - j >= -2 * j * b
+  - j < 10
+  explanation: Single variable loop with a monotonic trend towards a fixed point or
+    bound. A single linear ranking function (Depth 1) is sufficient.
+  template_type: lnested
+  template_depth: 1

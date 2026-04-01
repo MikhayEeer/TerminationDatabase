@@ -1,0 +1,62 @@
+source_file: barthe2_merged_safe_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe2_merged_safe.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:16
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (1)
+    {
+            if ( i1 <= n) {
+                x1 = x1 + i1;
+                i1++;
+            }
+
+            if ( i2 <= n) {
+                x2 = x2 + i2;
+                i2++;
+            }
+
+            if (i1>n && i2>n) break;
+            {;
+    //@ assert(x2==x1+i1);
+    }
+
+        }
+  invariants:
+  - x1 >= 0
+  - x2 >= 0
+  - i1 >= 0
+  - i2 >= 0
+  - n >= 0
+  - x2 == x1 + i1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (1)
+    {
+            if ( i1 <= n) {
+                x1 = x1 + i1;
+                i1++;
+            }
+
+            if ( i2 <= n) {
+                x2 = x2 + i2;
+                i2++;
+            }
+
+            if (i1>n && i2>n) break;
+            {;
+    //@ assert(x2==x1+i1);
+    }
+
+        }

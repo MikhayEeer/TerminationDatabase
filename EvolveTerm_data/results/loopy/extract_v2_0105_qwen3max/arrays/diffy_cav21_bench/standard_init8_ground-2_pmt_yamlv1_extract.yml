@@ -1,0 +1,20 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/standard_init8_ground-2.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: while ( i < N ) { a[i] = 42; i = i + 1; }
+- id: 2
+  code: while ( i < N ) { a[i] = 43; i = i + 1; }
+- id: 3
+  code: while ( i < N ) { a[i] = 44; i = i + 1; }
+- id: 4
+  code: while ( i < N ) { a[i] = 45; i = i + 1; }
+- id: 5
+  code: while ( i < N ) { a[i] = 46; i = i + 1; }

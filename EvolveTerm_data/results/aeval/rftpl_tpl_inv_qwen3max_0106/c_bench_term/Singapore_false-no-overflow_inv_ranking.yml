@@ -1,0 +1,19 @@
+source_file: Singapore_false-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/Singapore_false-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0) {\n    x = x + x + y;\n    y = y - 1;\n}"
+  invariants: []
+  explanation: The loop has a single loop with coupled updates; y decreases steadily,
+    but x may increase temporarily. A lexicographic (multi-phase) ranking function
+    of depth 2 is suitable.
+  template_type: lmulti
+  template_depth: 2

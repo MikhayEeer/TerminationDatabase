@@ -1,0 +1,31 @@
+input_file: results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/term_24_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+source_file: term_24_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: llexiext
+  template_depth: 1
+  svm_mode: llexiext
+  status: TERMINATE
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_24.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_24.bpl
+  input_source_path: data/aeval_171term_regular/term_24.c
+  input_loop:
+    loop_id: 1
+    code: "while ((x <= z && y <= z)&& x != y)\n{\n  x = x +1; y = y +1;\n  if (x\
+      \ > z) x = z;\n  if (y > z) y = y - 1;\n}"
+    invariants:
+    - x >= 0
+    - y >= 0
+    - z >= 0
+    - x <= z + 1
+    - y <= z
+    - x - y >= -1
+    - x - y <= 1
+    explanation: Single combined monotone progress measure (e.g., 2*z - x - y).
+    template_type: llexiext
+    template_depth: 1
+source_path: data/aeval_171term_regular/term_24.c

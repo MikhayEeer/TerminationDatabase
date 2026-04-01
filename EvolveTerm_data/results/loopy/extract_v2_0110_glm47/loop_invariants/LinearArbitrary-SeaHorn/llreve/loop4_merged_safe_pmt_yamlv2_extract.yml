@@ -1,0 +1,24 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:35
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (1) {
+        if (i1 < n + n) {
+            j1++;
+            i1++;
+        }
+
+        if (i2 < n) {
+            j2 = j2 + 2;
+            i2++;
+        }
+    }

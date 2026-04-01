@@ -1,0 +1,23 @@
+source_file: term_15_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_15.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:02
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x / 50 == y) {\n  \n  x = x + 51;\n  y = y + 1;\n  \n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x - 50 * y == 0
+  explanation: A single linear ranking function f(x, y) = 50y - x strictly decreases
+    in every iteration (change is -1). It is bounded below by 0 within the loop body
+    context. Thus, a simple template of depth 1 is sufficient.
+  template_type: lnested
+  template_depth: 1

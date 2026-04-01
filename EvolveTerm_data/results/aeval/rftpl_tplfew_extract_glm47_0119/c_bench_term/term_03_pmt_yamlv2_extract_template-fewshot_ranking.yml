@@ -1,0 +1,24 @@
+source_file: term_03_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/term_03.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:08
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > y || y > z)
+    {
+        x = x-3;
+        y = y-2;
+        z = z-1;
+    }
+  invariants: []
+  explanation: Lexicographic decrease of (x-y, y-z) in every iteration.
+  template_type: lnested
+  template_depth: 2

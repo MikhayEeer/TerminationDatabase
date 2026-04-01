@@ -1,0 +1,15 @@
+input_file: results/aeval/rftpl_tplfew_autoinv_glm47_0119/c_bench_nonterm/NoriSharma-2013FSE-Fig8-true-termination-broken_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+source_file: NoriSharma-2013FSE-Fig8-true-termination-broken_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 2
+  svm_mode: lnested
+  status: NONTERM
+  ranking_function: <NestedTemplate.NestedTemplate object at 0x7a56444b61d0>
+  ranking_functions:
+  - <NestedTemplate.NestedTemplate object at 0x7a56444b61d0>
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/NoriSharma-2013FSE-Fig8-true-termination-broken.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/NoriSharma-2013FSE-Fig8-true-termination-broken.bpl

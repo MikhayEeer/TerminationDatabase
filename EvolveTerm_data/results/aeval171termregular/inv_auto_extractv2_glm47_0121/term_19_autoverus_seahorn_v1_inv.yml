@@ -1,0 +1,34 @@
+source_file: term_19_pmt_yamlv2_extract.yml
+source_path: data/aeval_171term_regular/term_19.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/aeval171termregular/extract_v2_glm47_0121/ --output results/aeval171termregular/inv_auto_extractv2_glm47_0121
+  -m yaml -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:28
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x != 2*y && (x > 10)) {
+
+        if (x % 5 == 1) x = x +1;
+          else x = x - 2;
+    }
+  invariants:
+  - x != 2*y
+  - x > 10
+  - x >= 0
+  - y >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x != 2*y && (x > 10)) {
+
+        if (x % 5 == 1) x = x +1;
+          else x = x - 2;
+    }

@@ -1,0 +1,26 @@
+source_file: PodelskiRybalchenko-2004VMCAI-Ex2-alloca_false-termination-modif2_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/PodelskiRybalchenko-2004VMCAI-Ex2-alloca_false-termination-modif2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:36
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 || d < 0) {
+        d = __VERIFIER_nondet_int();
+        x = 2 *x  + d;
+    }
+  invariants:
+  - d == __VERIFIER_nondet_int()
+  - x == 2 * x + d
+  - x >= 0 || d < 0
+  explanation: Two phases are needed to handle the non-monotonic updates of x based
+    on the nondeterministic choice of d.
+  template_type: lmulti
+  template_depth: 2

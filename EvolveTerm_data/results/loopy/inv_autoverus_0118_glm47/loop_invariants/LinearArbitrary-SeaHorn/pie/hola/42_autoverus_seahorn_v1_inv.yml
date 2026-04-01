@@ -1,0 +1,27 @@
+source_file: 42_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/hola/42.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:13
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(unknown1()){\n    if(flag)\n    {\n        a = x+y;\n        x++;\n\
+    \    }\n    else\n    {\n        a = x+y+1;\n        y++;\n    }\n    if(a%2==1)\n\
+    \        y++;\n    else\n        x++;      \n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - a == x + y || a == x + y + 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown1()){\n    if(flag)\n    {\n        a = x+y;\n        x++;\n\
+    \    }\n    else\n    {\n        a = x+y+1;\n        y++;\n    }\n    if(a%2==1)\n\
+    \        y++;\n    else\n        x++;      \n}"

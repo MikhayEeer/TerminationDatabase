@@ -1,0 +1,22 @@
+source_file: b.10_true-termination_true-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/b.10_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:00
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (((x >= 0 && y < 2147483647 - x) || (x < 0 && y > -2147483648 - x))\
+    \ && x + y > 0) {\n    if (x > 0) {\n        x = x - 1;\n    } else {\n      \
+    \  if (y > 0) {\n            y = y - 1;\n        } else {\n            \n    \
+    \    }\n    }\n}"
+  invariants: []
+  explanation: The sum x + y decreases by 1 in every iteration, providing a single
+    linear ranking function.
+  template_type: lnested
+  template_depth: 1

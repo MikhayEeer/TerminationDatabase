@@ -1,0 +1,35 @@
+source_file: term_27_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_27.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:53
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > y){
+        x = x + c1 / 3;
+        y = y + c2 / 2;
+        c1 = c1 + 2;
+        c2 = c2 + 3;
+    }
+  invariants:
+  - x >= y
+  - c1 >= 0
+  - c2 >= 0
+  - x == x_init + (c1 - c1_init) / 3
+  - y == y_init + (c2 - c2_init) / 2
+  - c1 == c1_init + 2 * k
+  - c2 == c2_init + 3 * k
+  - x_init >= y_init
+  - c1_init >= 0
+  - c2_init >= 0
+  explanation: The difference (x - y) decreases monotonically because y increases
+    faster than x (3/2 > 2/3). A single linear ranking function (y - x) is sufficient.
+  template_type: lnested
+  template_depth: 1

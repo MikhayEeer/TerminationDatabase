@@ -1,0 +1,25 @@
+source_file: c.07_true-termination_true-no-overflow-broken1_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/c.07_true-termination_true-no-overflow-broken1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:51
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while ((i <= 100) && (j <= k) && (k > -1073741824)) {
+        tmp = i;
+        i = j;
+        j = tmp - 1;
+    }
+  invariants: []
+  explanation: 'Variables i and j swap with a decrement. The tuple (i, j) decreases
+    lexicographically: either i decreases directly, or j decreases while i is constant,
+    leading to a decrease in i in the next step.'
+  template_type: lnested
+  template_depth: 2

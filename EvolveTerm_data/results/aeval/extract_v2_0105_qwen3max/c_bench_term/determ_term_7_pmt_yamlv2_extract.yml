@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/determ_term_7.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (a == 0) {\n    a = a + b;\n    b = b + c;\n    c = c + d;\n    d =\
+    \ d + e;\n    e = e + 1;\n}"

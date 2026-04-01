@@ -1,0 +1,30 @@
+source_file: ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination-broken_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron6_true-termination-broken.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:34
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= n && x >= 2 * tx + y && y >= ty + 1 ) {
+      if (__VERIFIER_nondet_int() != 0) {
+        tx = x;
+        ty = y;
+        x = __VERIFIER_nondet_int();
+        y = __VERIFIER_nondet_int();
+      } else {
+        tx = x;
+        x = __VERIFIER_nondet_int();
+      }
+    }
+  invariants: []
+  explanation: Variables x and y progress toward n; the constraints involve tx and
+    ty which represent previous values, creating a nested dependency structure.
+  template_type: lnested
+  template_depth: 2

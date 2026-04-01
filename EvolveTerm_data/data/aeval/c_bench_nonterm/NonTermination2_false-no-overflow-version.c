@@ -1,0 +1,11 @@
+extern int __VERIFIER_nondet_int(void);
+
+int main() {
+    int x, oldx;
+    x = __VERIFIER_nondet_int();
+    while (x > 1 && x <= 2*oldx) {
+		    oldx = x;
+		    x = __VERIFIER_nondet_int();
+    }
+    return 0;
+}

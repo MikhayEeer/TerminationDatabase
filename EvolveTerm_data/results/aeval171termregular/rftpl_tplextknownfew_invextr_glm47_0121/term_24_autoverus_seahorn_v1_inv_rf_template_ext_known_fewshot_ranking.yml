@@ -1,0 +1,31 @@
+source_file: term_24_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_24.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T15:58
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while ((x <= z && y <= z)&& x != y)
+    {
+      x = x +1; y = y +1;
+      if (x > z) x = z;
+      if (y > z) y = y - 1;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - x <= z + 1
+  - y <= z
+  - x - y >= -1
+  - x - y <= 1
+  explanation: Single combined monotone progress measure (e.g., 2*z - x - y).
+  template_type: llexiext
+  template_depth: 1

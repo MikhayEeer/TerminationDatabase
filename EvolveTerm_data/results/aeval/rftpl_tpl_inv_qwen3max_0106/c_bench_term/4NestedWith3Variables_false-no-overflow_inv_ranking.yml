@@ -1,0 +1,21 @@
+source_file: 4NestedWith3Variables_false-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/4NestedWith3Variables_false-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (q > 0) {\n  q = q + a - 1;\n  olda = a;\n  a = 3*olda - 4*b;\n  b\
+    \ = 4*olda + 3*b;\n}"
+  invariants: []
+  explanation: The loop variable q depends on a, which evolves via a linear transformation
+    with complex eigenvalues, causing non-monotonic behavior. A multi-phase linear
+    ranking function with depth 2 is suggested to handle potential phase changes in
+    the dynamics.
+  template_type: lmulti
+  template_depth: 2

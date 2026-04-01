@@ -1,0 +1,29 @@
+input_file: results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/term_13_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+source_file: term_13_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: llexiext
+  template_depth: 1
+  svm_mode: llexiext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_13.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_13.bpl
+  input_source_path: data/aeval_171term_regular/term_13.c
+  input_loop:
+    loop_id: 1
+    code: "while (i + j + k >= 0) {\n    if (__VERIFIER_nondet_int() == 0) i--; else\
+      \ j = j +1;\n    k = k - 2;\n}"
+    invariants:
+    - i >= 0
+    - j >= 0
+    - k >= 0
+    - i + j + k >= 0
+    explanation: Variable k decreases strictly in every iteration, providing single
+      monotone progress.
+    template_type: llexiext
+    template_depth: 1
+source_path: data/aeval_171term_regular/term_13.c

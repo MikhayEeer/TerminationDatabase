@@ -1,0 +1,27 @@
+source_file: Gothenburg_v2_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Gothenburg_v2_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:21
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 || y >= 0) {
+        x = x + a - b - 1;
+        y = y + b - a - 1;
+    }
+  invariants:
+  - x >= 0 || y >= 0
+  - x + y == (x + y) - 2
+  - a - b == (a - b)
+  - b - a == (b - a)
+  explanation: The sum x + y decreases by 2 every iteration and is bounded below by
+    0. A single linear function (depth 1) is sufficient.
+  template_type: lnested
+  template_depth: 1

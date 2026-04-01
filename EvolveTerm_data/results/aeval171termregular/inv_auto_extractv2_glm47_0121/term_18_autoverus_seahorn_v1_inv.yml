@@ -1,0 +1,36 @@
+source_file: term_18_pmt_yamlv2_extract.yml
+source_path: data/aeval_171term_regular/term_18.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/aeval171termregular/extract_v2_glm47_0121/ --output results/aeval171termregular/inv_auto_extractv2_glm47_0121
+  -m yaml -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:27
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x <= 97) {
+        x = y%50 + z%50;
+        y = y +1;
+        z = z +1;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - x == (y % 50) + (z % 50)
+  - y == y_initial + (z - z_initial)
+  - z == z_initial + (y - y_initial)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x <= 97) {
+        x = y%50 + z%50;
+        y = y +1;
+        z = z +1;
+    }

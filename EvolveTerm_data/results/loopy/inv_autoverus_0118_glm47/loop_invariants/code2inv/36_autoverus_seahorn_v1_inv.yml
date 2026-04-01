@@ -1,0 +1,56 @@
+source_file: 36_pmt_yamlv2_extract.yml
+source_path: loop_invariants/code2inv/36.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:22
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (unknown()) {
+        {
+            if ( unknown() ) {
+                if ( (c != 40) )
+                {
+                (c  = (c + 1));
+                }
+            } else {
+                if ( (c == 40) )
+                {
+                (c  = 1);
+                }
+            }
+
+        }
+
+    }
+  invariants:
+  - c >= 1
+  - c <= 41
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (unknown()) {
+        {
+            if ( unknown() ) {
+                if ( (c != 40) )
+                {
+                (c  = (c + 1));
+                }
+            } else {
+                if ( (c == 40) )
+                {
+                (c  = 1);
+                }
+            }
+
+        }
+
+    }

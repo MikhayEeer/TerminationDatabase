@@ -1,0 +1,15 @@
+input_file: results/aeval+Loopy/ranking_results_PmtTpl_qwen3max/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified_inv_ranking.yml
+source_file: for_bounded_loop1_false-unreach-call_true-termination-simplified_inv_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 1
+  svm_mode: lnested
+  status: TERMINATE
+  ranking_function: ' - 1.0 *  x0^1 + 1.0 *  x[3]^1 + 1.0 * 1'
+  ranking_functions:
+  - ' - 1.0 *  x0^1 + 1.0 *  x[3]^1 + 1.0 * 1'
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.bpl

@@ -1,0 +1,29 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken1_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:37
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0) {
+      if (0 == __VERIFIER_nondet_int()) {
+        y = z;
+        x = __VERIFIER_nondet_int();
+        z = x - 1;
+      } else {
+        z = z - 1;
+        x = __VERIFIER_nondet_int();
+        y = x - 1;
+      }
+    }
+  invariants: []
+  explanation: z decreases strictly in every branch and is bounded by 0.
+  template_type: lnested
+  template_depth: 1

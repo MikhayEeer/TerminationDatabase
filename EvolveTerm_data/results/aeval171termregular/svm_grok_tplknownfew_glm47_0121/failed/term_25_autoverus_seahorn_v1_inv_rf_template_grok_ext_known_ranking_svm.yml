@@ -1,0 +1,18 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/term_25_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: term_25_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lpiecewiseext
+  template_depth: 3
+  svm_mode: lpiecewiseext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/term_25.c
+  input_source_stem: term_25
+  template_predicates:
+  - x1 < 100
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_25.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_25.bpl

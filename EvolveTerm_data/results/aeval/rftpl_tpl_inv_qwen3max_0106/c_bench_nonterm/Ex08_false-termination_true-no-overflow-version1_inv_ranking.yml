@@ -1,0 +1,23 @@
+source_file: Ex08_false-termination_true-no-overflow-version1_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Ex08_false-termination_true-no-overflow-version1.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (i > 0 && j > 0) {\n    if (i == 1) {\n        up = 1;\n    }\n   \
+    \ if (i == 10) {\n        up = 0;\n    }\n    if (j == 1) {\n        left = 1;\n\
+    \    }\n    if (j == 10) {\n        left = 0;\n    }\n    if (up == 1) {\n   \
+    \     i = i+1;\n    } else {\n        i = i-1;\n    }\n    if (left == 1) {\n\
+    \        j = j+1;\n    } else {\n        j = j-1;\n    }\n}"
+  invariants: []
+  explanation: The loop involves two variables with state-dependent oscillatory behavior.
+    A multi-phase ranking function with depth 2 allows modeling potential separate
+    decreasing measures for i and j, though the loop may not actually terminate.
+  template_type: lmulti
+  template_depth: 2

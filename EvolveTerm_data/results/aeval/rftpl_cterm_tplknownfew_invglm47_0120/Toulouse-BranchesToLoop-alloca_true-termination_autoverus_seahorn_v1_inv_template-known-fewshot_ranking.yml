@@ -1,0 +1,28 @@
+source_file: Toulouse-BranchesToLoop-alloca_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Toulouse-BranchesToLoop-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y < 100 && z < 100) {
+        y = y + x;
+        z = z - x;
+    }
+  invariants:
+  - y >= 0
+  - z >= 0
+  - y + z == y_init + z_init
+  - y % x == y_init % x
+  - z % x == z_init % x
+  explanation: Variable z strictly decreases linearly. A single ranking function f(z)
+    = 100 - z is sufficient to prove termination.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,15 @@
+source_path: c_bench_nonterm/Parallel_true-no-overflow_true-termination_true-valid-memsafety-modif.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 16
+summary: 开始一个循环，当x或y大于等于0时继续，随机递减x或y直到两者都小于0。

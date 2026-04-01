@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/mono-crafted_9.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int x = 0;\nint y = 500000;\nwhile(x < 1000000) {\n    if (x < 500000) {\n\
+    \        x = x + 1;\n    } else {\n        x = x + 1;\n        y = y + 1;\n  \
+    \  }\n}"

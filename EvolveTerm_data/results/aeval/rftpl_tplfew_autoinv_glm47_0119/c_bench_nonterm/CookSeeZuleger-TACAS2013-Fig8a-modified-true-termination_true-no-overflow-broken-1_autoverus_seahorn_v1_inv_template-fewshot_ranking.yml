@@ -1,0 +1,27 @@
+source_file: CookSeeZuleger-TACAS2013-Fig8a-modified-true-termination_true-no-overflow-broken-1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/CookSeeZuleger-TACAS2013-Fig8a-modified-true-termination_true-no-overflow-broken-1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:19
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != K)
+    {
+      if (x > K) x = x - N; else x = x + N;
+    }
+  invariants:
+  - x != K
+  - x >= 0
+  - K >= 0
+  - N > 0
+  - (x - K) % N == 0
+  explanation: Single monotone measure |x - K| decreases by N each iteration.
+  template_type: lnested
+  template_depth: 1

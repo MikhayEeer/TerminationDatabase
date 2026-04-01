@@ -1,0 +1,36 @@
+source_file: determ_term_8_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_8.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:02
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a == 0) {
+        a = a + b;
+        b = b + c;
+        c = c + d;
+        d = d + e;
+        e = e + f;
+        f = f + 1;
+    }
+  invariants:
+  - a == a_0 + b_0 * k
+  - b == b_0 + c_0 * k
+  - c == c_0 + d_0 * k
+  - d == d_0 + e_0 * k
+  - e == e_0 + f_0 * k
+  - f == f_0 + k
+  - k >= 0
+  explanation: Variable f increases monotonically by 1 in every iteration. The ranking
+    function -f strictly decreases, proving termination. The complex updates to other
+    variables do not require a more complex template because they do not affect the
+    monotonicity of -f.
+  template_type: lnested
+  template_depth: 1

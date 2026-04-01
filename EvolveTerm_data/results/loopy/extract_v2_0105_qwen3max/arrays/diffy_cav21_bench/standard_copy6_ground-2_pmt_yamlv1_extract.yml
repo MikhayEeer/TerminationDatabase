@@ -1,0 +1,22 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/standard_copy6_ground-2.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: "int a;\n/* Loop_A */  for ( a = 0 ; a < N ; a++ ) {\n    a1[a] = unknown_int();\n\
+    }"
+- id: 2
+  code: "int i;\n/* Loop_B */  for ( i = 0 ; i < N ; i++ ) {\n    a2[i] = a1[i];\n\
+    }"
+- id: 3
+  code: "/* Loop_C */  for ( i = 0 ; i < N ; i++ ) {\n    a3[i] = a2[i];\n}"
+- id: 4
+  code: "/* Loop_D */  for ( i = 0 ; i < N ; i++ ) {\n    a4[i] = a3[i];\n}"
+- id: 5
+  code: "/* Loop_E */  for ( i = 0 ; i < N ; i++ ) {\n    a5[i] = a4[i];\n}"

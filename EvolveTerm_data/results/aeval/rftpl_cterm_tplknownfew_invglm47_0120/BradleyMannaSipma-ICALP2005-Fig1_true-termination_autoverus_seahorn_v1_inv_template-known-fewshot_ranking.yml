@@ -1,0 +1,31 @@
+source_file: BradleyMannaSipma-ICALP2005-Fig1_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/BradleyMannaSipma-ICALP2005-Fig1_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= N) {
+        if (__VERIFIER_nondet_int() != 0) {
+            x = 2*x + y;
+            y = y + 1;
+        } else {
+            x = x + 1;
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x <= N + y
+  - y <= N
+  explanation: A single linear ranking function (N + y - x) strictly decreases in
+    both branches. No phase switching or lexicographic ordering is required.
+  template_type: lnested
+  template_depth: 1

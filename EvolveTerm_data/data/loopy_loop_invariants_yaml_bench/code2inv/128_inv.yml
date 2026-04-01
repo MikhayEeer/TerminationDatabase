@@ -1,0 +1,23 @@
+source_file: 128_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/128.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while ((x < y)) {\n    {\n    (x  = (x + x));\n    }\n\n}"
+  invariants:
+  - x >= 1
+  - \exists integer k
+  - (k >= 0) && (x == (1 << k))
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while ((x < y)) {\n    {\n    (x  = (x + x));\n    }\n\n}"

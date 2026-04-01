@@ -1,0 +1,20 @@
+source_file: term_12.c
+source_path: term_12.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:29
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "int main() {\n    int i, j, k;\n    i = 100;\n    j = -1;\n    k = 1;\n \
+    \   while (i + j + k >= 1) {\n        i = i - 1;\n        j = j - 1;\n       \
+    \ k = k + 1;\n    }  \n    return 0;\n}\n"
+  invariants:
+  - i >= 0
+  - j >= -101
+  - k >= 1
+  - i + j + k == 100

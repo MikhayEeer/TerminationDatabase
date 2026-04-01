@@ -1,0 +1,77 @@
+input_file: results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/3pieces_Caterina_TACAS16_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+source_file: 3pieces_Caterina_TACAS16_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lmultiext
+  template_depth: 2
+  svm_mode: lmultiext
+  status: UNKNOWN
+  ranking_function: '- 0.6 *  x0^1 - 0.8 *  x1^1 + 0.8 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 2.7 * 1'
+  ranking_functions:
+  - '- 0.6 *  x0^1 - 0.8 *  x1^1 + 0.8 *  x1^2 + 0.3 *  x0^1 *  x1^1 + 2.7 * 1'
+  - '- 0.5 *  x0^1 - 1.0 *  x1^1 + 0.1 *  x0^2 + 1.0 *  x1^2 + 0.5 *  x0^1 *  x1^1
+    + 1.9 * 1'
+  - '- 0.9 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 2.6 * 1'
+  - '- 0.9 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 2.5 * 1'
+  - '- 0.9274 *  x0^1 - 0.1918 *  x1^1 + 0.1115 *  x0^2 + 0.2404 *  x1^2 + 0.0105
+    *  x0^1 *  x1^1 + 2.4595 * 1'
+  - '- 0.924 *  x0^1 - 0.185 *  x1^1 + 0.1109 *  x0^2 + 0.2106 *  x1^2 + 0.0065 *  x0^1
+    *  x1^1 + 2.4696 * 1'
+  - '- 0.906 *  x0^1 - 0.1696 *  x1^1 + 0.1087 *  x0^2 + 0.2054 *  x1^2 + 0.0037 *  x0^1
+    *  x1^1 + 2.4377 * 1'
+  - '- 0.8972 *  x0^1 - 0.1705 *  x1^1 + 0.1076 *  x0^2 + 0.2051 *  x1^2 + 0.0021
+    *  x0^1 *  x1^1 + 2.4177 * 1'
+  - '- 0.8895 *  x0^1 - 0.1849 *  x1^1 + 0.1067 *  x0^2 + 0.2371 *  x1^2 + 0.001 *  x0^1
+    *  x1^1 + 2.3798 * 1'
+  - '- 0.8176 *  x0^1 - 0.3542 *  x1^1 + 0.0987 *  x0^2 + 0.4337 *  x1^2 + 0.0005
+    *  x0^1 *  x1^1 + 2.0355 * 1'
+  - 0.0003 *  x0^1 - 0.0009 *  x1^1 + 0.0101 *  x0^2 + 0.0041 *  x1^2 - 0.0013 *  x0^1
+    *  x1^1 + 0.0004 * 1
+  - 0.0003 *  x0^1 - 0.0008 *  x1^1 + 0.0091 *  x0^2 + 0.0041 *  x1^2 - 0.0012 *  x0^1
+    *  x1^1 + 0.0003 * 1
+  - 0.0003 *  x0^1 - 0.0009 *  x1^1 + 0.0101 *  x0^2 + 0.0046 *  x1^2 - 0.0011 *  x0^1
+    *  x1^1 + 0.0004 * 1
+  - 0.0002 *  x0^1 - 0.0011 *  x1^1 + 0.0103 *  x0^2 + 0.0051 *  x1^2 - 0.0006 *  x0^1
+    *  x1^1 + 0.0005 * 1
+  - '- 0.7 *  x0^1 - 0.7 *  x1^1 + 0.1 *  x0^2 + 0.7 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 1.9 * 1'
+  - '- 0.9287 *  x0^1 - 0.2034 *  x1^1 + 0.1116 *  x0^2 + 0.2456 *  x1^2 + 0.0105
+    *  x0^1 *  x1^1 + 2.4564 * 1'
+  - '- 0.914 *  x0^1 - 0.1727 *  x1^1 + 0.1097 *  x0^2 + 0.2098 *  x1^2 + 0.0057 *  x0^1
+    *  x1^1 + 2.4518 * 1'
+  - '- 0.6912 *  x0^1 - 0.3567 *  x1^1 + 0.0847 *  x0^2 + 0.443 *  x1^2 + 0.0002 *  x0^1
+    *  x1^1 + 1.6713 * 1'
+  - '- 0.2515 *  x0^1 - 0.1039 *  x1^1 + 0.0379 *  x0^2 + 0.1901 *  x1^2 + 0.0001
+    *  x0^1 *  x1^1 + 0.1298 * 1'
+  - '- 1.0 *  x0^1'
+  - '- 1.1 *  x0^1 + 0.1 *  x0^2 + 1.1 *  x0^1 *  x1^1'
+  - '- 1.1104 *  x0^1 + 0.1329 *  x0^2 + 1.0826 *  x0^1 *  x1^1'
+  - '- 1.6204 *  x0^1 + 0.1981 *  x0^2 + 0.3357 *  x0^1 *  x1^1'
+  - '- 1.719 *  x0^1 + 0.2005 *  x0^2 + 0.0938 *  x0^1 *  x1^1'
+  - '- 1.4689 *  x0^1 + 0.1707 *  x0^2 + 0.0043 *  x0^1 *  x1^1'
+  - '- 1.4631 *  x0^1 + 0.17 *  x0^2 + 0.0028 *  x0^1 *  x1^1'
+  - '- 1.4583 *  x0^1 + 0.1694 *  x0^2 + 0.0017 *  x0^1 *  x1^1'
+  - '- 1.4552 *  x0^1 + 0.169 *  x0^2 + 0.001 *  x0^1 *  x1^1'
+  - '- 1.4067 *  x0^1 + 0.1636 *  x0^2 + 0.0005 *  x0^1 *  x1^1'
+  - '- 1.4046 *  x0^1 + 0.1633 *  x0^2'
+  - '- 1.4041 *  x0^1 + 0.1631 *  x0^2'
+  - '- 1.4036 *  x0^1 + 0.163 *  x0^2'
+  - '- 1.403 *  x0^1 + 0.1628 *  x0^2'
+  - '- 1.4025 *  x0^1 + 0.1626 *  x0^2'
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16.bpl
+  input_source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16.c
+  input_loop:
+    loop_id: 1
+    code: "while (x != 0 && (y<=0)) {\n\n    if (x < 10) x = x +1; else x = -1;\n}"
+    invariants:
+    - x >= -1
+    - y <= 0
+    explanation: Variable x increases in one phase and decreases in another, requiring
+      a multi-phase ranking.
+    template_type: lmultiext
+    template_depth: 2
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16.c

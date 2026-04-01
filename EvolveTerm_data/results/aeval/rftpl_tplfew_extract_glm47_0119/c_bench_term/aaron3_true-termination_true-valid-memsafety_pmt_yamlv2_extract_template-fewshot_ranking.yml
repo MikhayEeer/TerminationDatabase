@@ -1,0 +1,29 @@
+source_file: aaron3_true-termination_true-valid-memsafety_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/aaron3_true-termination_true-valid-memsafety.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:05
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        if (__VERIFIER_nondet_int() != 0) {
+            z = z - 1;
+            tx = x;
+            x = __VERIFIER_nondet_int();
+            if(!(-1073741823<=x && x<=1073741823)) return 0;
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants: []
+  explanation: The distance between the upper bound (tx + z) and lower bound (y) decreases
+    monotonically.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,27 @@
+source_file: nonlin_mult_term_6_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_mult_term_6.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:04
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (d * b > 0)
+    {
+        b = -b;
+    }
+  invariants:
+  - d * b >= 0
+  - b >= -b
+  - b <= -b
+  explanation: The loop executes at most once. The condition `d * b > 0` becomes false
+    immediately after `b = -b`. A single linear ranking function (e.g., constant 1
+    or bounded b) suffices.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,15 @@
+source_path: c_bench_term/GulavaniGulwani-CAV2008-Fig1a_true-termination.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 16
+summary: 开始一个循环，当x小于y时不断根据z和x的大小关系更新x或z。

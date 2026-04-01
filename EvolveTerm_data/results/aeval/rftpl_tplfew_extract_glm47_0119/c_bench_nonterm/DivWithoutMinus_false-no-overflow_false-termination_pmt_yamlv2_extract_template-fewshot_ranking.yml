@@ -1,0 +1,21 @@
+source_file: DivWithoutMinus_false-no-overflow_false-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/DivWithoutMinus_false-no-overflow_false-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:44
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (z > 0 && (y == 0 || y > 0 && x > 0))    {\n    \n    if (y == 0) {\n\
+    \        res = res + 1;\n        y = z;\n    }\n    else {\n        x = x + 1;\n\
+    \        y = y - 1;\n    }\n}"
+  invariants: []
+  explanation: 'Two phases: Phase 1 decreases y (inner loop), Phase 2 handles the
+    reset and outer progress (z).'
+  template_type: lmulti
+  template_depth: 2

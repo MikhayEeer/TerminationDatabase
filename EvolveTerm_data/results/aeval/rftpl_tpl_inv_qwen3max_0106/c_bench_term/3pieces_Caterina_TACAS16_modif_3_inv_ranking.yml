@@ -1,0 +1,21 @@
+source_file: 3pieces_Caterina_TACAS16_modif_3_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/3pieces_Caterina_TACAS16_modif_3.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x != 0)\n{\n  if (x < N) x++; else x = y;\n}"
+  invariants:
+  - y == \old(y)
+  - N == \old(N)
+  explanation: 'The loop exhibits multi-phase behavior: when x >= N, x is reset to
+    constant y; when x < N, x increments. A multi-phase ranking function with depth
+    2 can capture progress in both phases.'
+  template_type: lmulti
+  template_depth: 2

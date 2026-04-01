@@ -1,0 +1,29 @@
+source_file: count_by_k_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-new/count_by_k.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: for (i = 0; i < LARGE_INT*k; i += k) ;
+  invariants:
+  - 0 <= i
+  - i % k == 0 || i == 0
+  - i <= LARGE_INT * k
+  - 0 <= i <= LARGE_INT * k
+  - 0 <= k <= 10
+  - i >= 0
+  - i <= LARGE_INT*k
+  - 0 <= k && k <= 10
+  - 0 <= i && i <= LARGE_INT * k
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: for (i = 0; i < LARGE_INT*k; i += k) ;

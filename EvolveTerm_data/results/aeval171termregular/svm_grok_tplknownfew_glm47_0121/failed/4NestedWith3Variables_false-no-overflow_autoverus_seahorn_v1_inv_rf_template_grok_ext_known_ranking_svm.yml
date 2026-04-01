@@ -1,0 +1,34 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/4NestedWith3Variables_false-no-overflow_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: 4NestedWith3Variables_false-no-overflow_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: llexiext
+  template_depth: 2
+  svm_mode: llexiext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/4NestedWith3Variables_false-no-overflow.c
+  input_source_stem: 4NestedWith3Variables_false-no-overflow
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/4NestedWith3Variables_false-no-overflow.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/4NestedWith3Variables_false-no-overflow.bpl
+  input_loop:
+    loop_id: 1
+    code: "while (q > 0) {\n  q = q + a - 1;\n  olda = a;\n  a = 3*olda - 4*b;\n \
+      \ b = 4*olda + 3*b;\n}"
+    invariants:
+    - q >= 0
+    - a == 3*olda - 4*b
+    - b == 4*olda + 3*b
+    - olda == a - (3*olda - 4*b)
+    explanation: The loop is classified as lexicographic because the primary variable
+      `q` is the main driver for termination (guard `q > 0`), and its update depends
+      on `a`. The variables `a` and `b` undergo a linear transformation that can be
+      captured by a secondary ranking function if necessary. A depth of 2 is sufficient
+      to handle the relationship between `q` and the transformed variables `a` and
+      `b`.
+    template_type: llexiext
+    template_depth: 2
+source_path: data/aeval_171term_regular/4NestedWith3Variables_false-no-overflow.c

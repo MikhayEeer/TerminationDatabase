@@ -1,0 +1,44 @@
+source_path: arrays/diffy_cav21_bench/nested-sa1.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T23:07
+loops_count: -1
+loops_depth: -1
+loops_ids: 5
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for (i = 0; i < N; i++)
+    {
+        a[i] = 1;
+    }
+- id: 2
+  code: |-
+    /* Loop_C */  for (j = 0; j < i+1; j++)
+    {
+        sum[0] = sum[0] + a[j];
+    }
+- id: 3
+  code: |-
+    /* Loop_B */  for (i = 0; i < N; i++)
+    {
+        /* LOOP2: Placeholder for nested loop */
+    }
+- id: 4
+  code: |-
+    /* Loop_D */  for (i = 0; i < N; i++)
+    {
+        b[i] = sum[0] + a[i];
+    }
+- id: 5
+  code: |-
+    /* Loop_E */  for (i = 0; i < N; i++)
+    {
+        {;
+    //@ assert(b[i] == N*(N+1)/2 + 1);
+    }
+
+    }

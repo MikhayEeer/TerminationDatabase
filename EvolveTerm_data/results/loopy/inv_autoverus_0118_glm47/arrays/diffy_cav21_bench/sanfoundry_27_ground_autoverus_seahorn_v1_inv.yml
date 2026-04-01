@@ -1,0 +1,74 @@
+source_file: sanfoundry_27_ground_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/sanfoundry_27_ground.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:42
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "/* Loop_A */  for(i = 0; i < SIZE; i++) \n{\n    array[i] = unknown_int();\n\
+    }"
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - __SEA_assume(i >= 0 && i <= SIZE)
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for (i = 0; i < SIZE; i++)
+    {
+        if(i == 0) {
+            largest[0] = array[0];
+        } else {
+            if (largest[0] < array[i])
+                largest[0] = array[i];
+        }
+    }
+  invariants:
+  - i >= 0
+  - i <= SIZE
+  - largest[0] == max(array[0..i-1])
+  - array[0] == \old(array[0])
+  - array[i] == \old(array[i])
+  - SIZE == \old(SIZE)
+- loop_id: 3
+  code: |-
+    /* Loop_C */  for ( x = 0 ; x < SIZE ; x++ ) {
+        {;
+    //@ assert(  largest[0] >= array[ x ]  );
+    }
+
+    }
+  invariants:
+  - largest[0] >= array[x]
+  - x >= 0
+  - x <= SIZE
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: "/* Loop_A */  for(i = 0; i < SIZE; i++) \n{\n    array[i] = unknown_int();\n\
+    }"
+- id: 2
+  code: |-
+    /* Loop_B */  for (i = 0; i < SIZE; i++)
+    {
+        if(i == 0) {
+            largest[0] = array[0];
+        } else {
+            if (largest[0] < array[i])
+                largest[0] = array[i];
+        }
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for ( x = 0 ; x < SIZE ; x++ ) {
+        {;
+    //@ assert(  largest[0] >= array[ x ]  );
+    }
+
+    }

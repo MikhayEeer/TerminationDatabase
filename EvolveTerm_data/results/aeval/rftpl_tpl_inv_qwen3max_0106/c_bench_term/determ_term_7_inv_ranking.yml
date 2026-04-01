@@ -1,0 +1,20 @@
+source_file: determ_term_7_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/determ_term_7.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (a == 0) {\n    a = a + b;\n    b = b + c;\n    c = c + d;\n    d =\
+    \ d + e;\n    e = e + 1;\n}"
+  invariants: []
+  explanation: The loop has a single exit condition (a != 0) driven by a cascade of
+    updates originating from e's increment. This fits a nested ranking function template
+    with depth 1, as the dependencies are sequential rather than multi-phased.
+  template_type: lnested
+  template_depth: 1

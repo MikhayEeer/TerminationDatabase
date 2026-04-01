@@ -1,0 +1,41 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C_Integer/Stroeder_15/AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:31
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (v1 > 0) {
+        if (v2 < m) {
+            v2 = v2 + 1;
+            v1 = v1 - 1;
+        } else {
+            v2 = 0;
+        }
+    }
+  invariants:
+  - v2 >= 0
+  - v2 <= m
+  - v1 >= 0
+  - v1 + v2 >= 0
+  - v1 + v2 <= v1 + m
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (v1 > 0) {
+        if (v2 < m) {
+            v2 = v2 + 1;
+            v1 = v1 - 1;
+        } else {
+            v2 = 0;
+        }
+    }

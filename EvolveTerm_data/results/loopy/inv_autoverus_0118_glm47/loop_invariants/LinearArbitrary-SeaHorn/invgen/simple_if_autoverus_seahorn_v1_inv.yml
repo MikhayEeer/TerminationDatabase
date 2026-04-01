@@ -1,0 +1,25 @@
+source_file: simple_if_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/invgen/simple_if.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:18
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while( i < n ) {\n  if( m > 0 ) {\n    i = 2*i;\n  } else {\n    i = 3*i;\n\
+    \  }\n  \n}"
+  invariants:
+  - i >= 0
+  - n >= 0
+  - m >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( i < n ) {\n  if( m > 0 ) {\n    i = 2*i;\n  } else {\n    i = 3*i;\n\
+    \  }\n  \n}"

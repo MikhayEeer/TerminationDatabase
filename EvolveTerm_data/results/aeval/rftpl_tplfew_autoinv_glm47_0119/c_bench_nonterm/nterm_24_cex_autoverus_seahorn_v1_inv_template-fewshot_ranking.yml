@@ -1,0 +1,26 @@
+source_file: nterm_24_cex_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_24_cex.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:16
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x < z)
+    {
+      if (x == y) { x = 0; y++; z = y+1; } else x++;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= y + 1
+  explanation: 'Two phases: Phase 1 increments x; Phase 2 resets x, increments y (and
+    z), making global progress.'
+  template_type: lmulti
+  template_depth: 2

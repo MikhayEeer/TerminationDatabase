@@ -1,0 +1,24 @@
+source_file: ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (((an >= i && bn >= j) || (an >= i && bn <= j) || (an <= i && bn >=\
+    \ j)) && k >= tk + 1) {\n    if (an >= i && bn >= j) {\n        if (__VERIFIER_nondet_int()\
+    \ != 0) {\n            j = j + k;\n            tk = k;\n            k = __VERIFIER_nondet_int();\n\
+    \        } else {\n            i = i + 1;\n        }\n    } else {if (an >= i\
+    \ && bn <= j) {\n        i = i + 1;\n    } else {if (an <= i && bn >= j) {\n \
+    \       j = j + k;\n        tk = k;\n        k = __VERIFIER_nondet_int();\n  \
+    \  }}}\n}"
+  invariants: []
+  explanation: The loop progresses by either increasing i or j, requiring a lexicographic
+    ranking function over (an - i, bn - j). Depth 2 captures the two components.
+  template_type: lnested
+  template_depth: 2

@@ -1,0 +1,24 @@
+source_file: PodelskiRybalchenko-LICS2004-Fig2_true-termination-simpl_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-LICS2004-Fig2_true-termination-simpl.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:04
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+        int old_x = x;
+        int old_y = y;
+        x = old_y - 2;
+        y = old_x + 1;
+    }
+  invariants: []
+  explanation: The linear combination x + y decreases by 1 in every iteration.
+  template_type: lnested
+  template_depth: 1

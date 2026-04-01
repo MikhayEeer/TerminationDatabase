@@ -1,0 +1,33 @@
+source_file: NoriSharma-2013FSE-Fig8-true-termination-broken_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/NoriSharma-2013FSE-Fig8-true-termination-broken.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:24
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y) {
+        if (0 == __VERIFIER_nondet_int()) {
+            z = z + 1;
+            x = x + z;
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= y
+  - z >= 0
+  - x >= x_initial
+  - y >= y_initial
+  - z >= z_initial
+  explanation: 'Lexicographic tuple (x - y, -z) handles the conflicting updates: y
+    increases in the else branch (decreasing x-y), while x and z increase in the if
+    branch (increasing x-y but decreasing -z).'
+  template_type: lnested
+  template_depth: 2

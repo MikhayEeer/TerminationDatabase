@@ -1,0 +1,51 @@
+source_file: mod3_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-industry-pattern/mod3.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:10
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while(unknown_int()){
+      if(x % 3 == 1){
+        x += 2; y = 0;}
+      else{
+        if(x % 3 == 2){
+          x += 1; y = 0;}
+        else{
+          if(unknown_int()){
+            x += 4; y = 1;}
+          else{
+            x += 5; y = 1;}
+        }
+      }
+    }
+  invariants:
+  - y >= 0
+  - y <= 1
+  - x >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while(unknown_int()){
+      if(x % 3 == 1){
+        x += 2; y = 0;}
+      else{
+        if(x % 3 == 2){
+          x += 1; y = 0;}
+        else{
+          if(unknown_int()){
+            x += 4; y = 1;}
+          else{
+            x += 5; y = 1;}
+        }
+      }
+    }

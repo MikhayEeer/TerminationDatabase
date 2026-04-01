@@ -1,0 +1,18 @@
+source_path: data/aeval_171term_regular/ChenFlurMukhopadhyay-SAS2012-Ex1.01_false-no-overflow-version6.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/extract_v2_glm47_0121/
+  -p v2
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-21T14:53
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x + y > 0) {
+        x = -5*x + 18;
+        y = -6*y + 13;
+    }

@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loop-zilu/benchmark04_conjunctive.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 23
+summary: 开始一个循环，当 j 小于等于 n-1 时递增 j 并递减 k，最后断言 k 大于等于 0。

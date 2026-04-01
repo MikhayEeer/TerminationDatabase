@@ -1,0 +1,21 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken3_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken3.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y + z > 0) {\n  if (y > x) {\n    y = z;\n    x = __VERIFIER_nondet_int();\n\
+    \    z = x - 1;\n  } else {\n    z = z - 1;\n    x = __VERIFIER_nondet_int();\n\
+    \    y = x - 1;\n  }\n}"
+  invariants: []
+  explanation: The loop has two branches that update different variables, and due
+    to nondeterministic assignments to x, a multi-phase ranking function is needed
+    to capture progress in each branch separately.
+  template_type: lmulti
+  template_depth: 2

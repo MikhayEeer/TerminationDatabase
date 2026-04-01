@@ -1,0 +1,22 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken2_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken2.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x + y + z > 0) {\n  if (y > x) {\n    y = z;\n    x = __VERIFIER_nondet_int();\n\
+    \    z = x - 1;\n  } else {\n    z = z - 1;\n    x = __VERIFIER_nondet_int();\n\
+    \    y = x - 1;\n  }\n}"
+  invariants: []
+  explanation: Due to nondeterministic assignments to x, a simple linear ranking function
+    is insufficient. A nested ranking function of depth 2 can handle the interplay
+    between z and y, where z decreases deterministically in one branch and is reassigned
+    in the other, while y tracks prior values of z.
+  template_type: lnested
+  template_depth: 2

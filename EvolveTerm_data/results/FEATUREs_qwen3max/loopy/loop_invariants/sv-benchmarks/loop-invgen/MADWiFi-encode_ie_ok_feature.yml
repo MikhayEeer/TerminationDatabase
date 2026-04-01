@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loop-invgen/MADWiFi-encode_ie_ok.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 54
+summary: 开始一个循环来处理缓冲区中的数据，每次迭代增加位置指针。

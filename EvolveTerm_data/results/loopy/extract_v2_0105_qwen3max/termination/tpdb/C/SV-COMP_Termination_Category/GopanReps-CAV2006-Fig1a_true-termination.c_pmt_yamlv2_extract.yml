@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/GopanReps-CAV2006-Fig1a_true-termination.c.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (1) {\n    if (x <= 50) {\n        y++;\n    } else {\n        y--;\n\
+    \    }\n    if (y < 0) {\n        break;\n    }\n    x++;\n}"

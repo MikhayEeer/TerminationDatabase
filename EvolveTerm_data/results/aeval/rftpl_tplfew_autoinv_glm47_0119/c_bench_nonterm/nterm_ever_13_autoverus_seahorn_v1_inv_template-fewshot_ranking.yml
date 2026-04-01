@@ -1,0 +1,31 @@
+source_file: nterm_ever_13_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_13.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:36
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y%34 + z%34 + w%34 < 100) {
+        y = y + 1;
+        z = z + 2;
+        w = w + 3;
+    }
+  invariants:
+  - y >= 0
+  - z >= 0
+  - w >= 0
+  - y == y_init + i
+  - z == z_init + 2*i
+  - w == w_init + 3*i
+  - y%34 + z%34 + w%34 < 100
+  explanation: Single linear progress of the loop counter i (or the dependent expression)
+    toward the bound.
+  template_type: lnested
+  template_depth: 1

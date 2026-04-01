@@ -1,0 +1,27 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-cousot9_true-termination_true-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-cousot9_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:04
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i > 0) {
+        if (j > 0) {
+            j = j - 1;
+        } else {
+            j = N;
+            i = i - 1;
+        }
+    }
+  invariants: []
+  explanation: 'Lexicographic tuple (i, j) decreases: i decreases only when j resets,
+    and j decreases otherwise.'
+  template_type: lnested
+  template_depth: 2

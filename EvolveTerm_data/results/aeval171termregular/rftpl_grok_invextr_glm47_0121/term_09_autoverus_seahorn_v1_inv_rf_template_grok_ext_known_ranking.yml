@@ -1,0 +1,41 @@
+source_file: term_09_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_09.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:49
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y != K) {
+        if (x == y) {
+            if (x > K) {
+                x = x - 1;
+            } else {
+                x = x + 1;
+            }
+            y = x;
+        } else {
+            y = y - 1;
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - K >= 0
+  - x >= y
+  - y <= K
+  explanation: The loop has two distinct update phases (branches). The `else` branch
+    reduces `y`, while the `if` branch moves `x` towards `K`. A depth of 2 is sufficient
+    to capture the lexicographic ranking (e.g., distance to K, then y) that proves
+    termination across both branches.
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - x0 == x1
+  - x0 > x2

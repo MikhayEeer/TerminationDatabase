@@ -1,0 +1,40 @@
+source_file: gr2006_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-lit/gr2006.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:10
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (1) {
+        if (x < 50) {
+            y++;
+        } else {
+            y--;
+        }
+        if (y < 0) break;
+        x++;
+    }
+  invariants:
+  - y >= 0
+  - x >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (1) {
+        if (x < 50) {
+            y++;
+        } else {
+            y--;
+        }
+        if (y < 0) break;
+        x++;
+    }

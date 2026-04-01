@@ -1,0 +1,36 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:41
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0) {
+        if (y > x) {
+            y = z;
+            x = __VERIFIER_nondet_int();
+            z = x - 1;
+        } else {
+            z = z - 1;
+            x = __VERIFIER_nondet_int();
+            y = x - 1;
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - x == __VERIFIER_nondet_int()
+  - y == x - 1 || y == z
+  - z == x - 1 || z == z - 1
+  explanation: Lexicographic ranking (x, z) handles the non-deterministic resets and
+    dependencies (z = x - 1).
+  template_type: lnested
+  template_depth: 2

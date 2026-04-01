@@ -1,0 +1,50 @@
+source_file: loop4_merged_safe_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:16
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (1) {
+        if (i1 < n + n) {
+            j1++;
+            i1++;
+        }
+
+        if (i2 < n) {
+            j2 = j2 + 2;
+            i2++;
+        }
+    }
+  invariants:
+  - j1 >= 0
+  - i1 >= 0
+  - j2 >= 0
+  - i2 >= 0
+  - i1 <= 2*n
+  - i2 <= n
+  - j1 == i1 - i1_initial + j1_initial
+  - j2 == 2*(i2 - i2_initial) + j2_initial
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (1) {
+        if (i1 < n + n) {
+            j1++;
+            i1++;
+        }
+
+        if (i2 < n) {
+            j2 = j2 + 2;
+            i2++;
+        }
+    }

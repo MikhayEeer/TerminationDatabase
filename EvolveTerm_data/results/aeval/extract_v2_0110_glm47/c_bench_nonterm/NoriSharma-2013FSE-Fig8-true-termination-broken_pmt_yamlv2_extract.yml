@@ -1,0 +1,21 @@
+source_path: c_bench_nonterm/NoriSharma-2013FSE-Fig8-true-termination-broken.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:26
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x >= y) {
+        if (0 == __VERIFIER_nondet_int()) {
+            z = z + 1;
+            x = x + z;
+        } else {
+            y = y + 1;
+        }
+    }

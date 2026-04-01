@@ -1,0 +1,44 @@
+source_file: 07_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/hola/07.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:14
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while( i < n ) {
+            if(unknown2()) {
+                a = a+1;
+                b = b+2;
+            } else {
+                a = a+2;
+                b = b+1;
+            }
+            i = i+1;
+    }
+  invariants:
+  - a + b == init_a + init_b + 3*(i - init_i)
+  - a >= init_a + (i - init_i)
+  - b >= init_b + (i - init_i)
+  - i >= init_i
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while( i < n ) {
+            if(unknown2()) {
+                a = a+1;
+                b = b+2;
+            } else {
+                a = a+2;
+                b = b+1;
+            }
+            i = i+1;
+    }

@@ -1,0 +1,15 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/hola/21.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 37
+summary: 计算循环中根据随机条件累加不同值后的结果是否大于初始输入值。

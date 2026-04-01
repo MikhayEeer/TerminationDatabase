@@ -1,0 +1,33 @@
+source_file: Signed_Overflow_Error_1_T_pmt_yamlv2_extract.yml
+source_path: termination/non_termination/loop/Signed_Overflow_Error_1_T.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    for( i = 1 ; i <= 0xFFFFFFFF ; i <<= 1 )
+    {
+        if( i == ( (long)1 << 31 ))
+            break;
+    }
+  invariants:
+  - i >= 1
+  - i & (i - 1) == 0
+  - i <= 0x80000000
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    for( i = 1 ; i <= 0xFFFFFFFF ; i <<= 1 )
+    {
+        if( i == ( (long)1 << 31 ))
+            break;
+    }

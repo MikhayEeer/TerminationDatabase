@@ -1,0 +1,33 @@
+source_file: GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version2_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:28
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while(tmp!=id) {
+        if (tmp <= maxId) {
+            tmp = tmp + 1;
+        } else {
+            tmp = -tmp;
+        }
+    }
+  invariants:
+  - tmp == tmp
+  - id == id
+  - maxId == maxId
+  - tmp != id || (tmp <= maxId && tmp == tmp + 1) || (tmp > maxId && tmp == -tmp)
+  explanation: 'The loop exhibits distinct phases: an incrementing phase (tmp <= maxId)
+    and a resetting phase (tmp > maxId). A single linear ranking function cannot capture
+    the non-monotonic behavior (increase followed by jump), and lexicographic ordering
+    is insufficient due to the lack of globally monotonic variables. Multi-phase is
+    required to handle the conditional logic.'
+  template_type: lmulti
+  template_depth: 2

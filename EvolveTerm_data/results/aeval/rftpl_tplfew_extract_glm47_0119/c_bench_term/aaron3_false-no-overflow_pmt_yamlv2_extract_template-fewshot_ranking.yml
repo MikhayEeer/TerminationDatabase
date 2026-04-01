@@ -1,0 +1,30 @@
+source_file: aaron3_false-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/aaron3_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:10
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        if (__VERIFIER_nondet_int() != 0) {
+            z = z - 1;
+            tx = x;
+            x = __VERIFIER_nondet_int();
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants: []
+  explanation: The loop terminates via a squeezing mechanism where the lower bound
+    y increases and the upper bound component z decreases. This requires a multi-phase
+    ranking to handle the non-monotonic behavior of individual variables across different
+    branches.
+  template_type: lmulti
+  template_depth: 2

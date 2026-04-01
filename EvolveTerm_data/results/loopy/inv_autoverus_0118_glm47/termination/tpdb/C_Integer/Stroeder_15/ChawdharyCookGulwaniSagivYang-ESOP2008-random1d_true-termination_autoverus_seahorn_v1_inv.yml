@@ -1,0 +1,39 @@
+source_file: ChawdharyCookGulwaniSagivYang-ESOP2008-random1d_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C_Integer/Stroeder_15/ChawdharyCookGulwaniSagivYang-ESOP2008-random1d_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:32
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x <= max) {
+        if (unknown_int() != 0) {
+            a = a + 1;
+        } else {
+            a = a - 1;
+        }
+        x = x + 1;
+    }
+  invariants:
+  - a == a_init + (x - x_init)
+  - x >= x_init
+  - x <= max + 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x <= max) {
+        if (unknown_int() != 0) {
+            a = a + 1;
+        } else {
+            a = a - 1;
+        }
+        x = x + 1;
+    }

@@ -1,0 +1,17 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/sumt9.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( l < n ) {\n    if(!(l%9))\n      v6 = v6 + 1;\n    else if(!(l%8))\n\
+    \      v5 = v5 + 1;\n    else if(!(l%7))\n      v1 = v1 + 1;\n    else if(!(l%6))\n\
+    \      v2 = v2 + 1;\n    else if(!(l%5))\n      v3 = v3 + 1;\n    else if(!(l%4))\n\
+    \      v4 = v4 + 1;\n    else if(!(l%3))\n      i = i + 1;\n    else if(!(l%2))\
+    \ \n        j = j+1;\n    else \n      k = k+1;\n    l = l+1;\n    {;\n//@ assert((i+j+k+v1+v2+v3+v4+v5+v6)\
+    \ == l);\n}\n}"

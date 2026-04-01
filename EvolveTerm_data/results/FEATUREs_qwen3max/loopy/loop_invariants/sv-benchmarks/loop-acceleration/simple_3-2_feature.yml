@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loop-acceleration/simple_3-2.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 18
+summary: 使用循环将变量x每次增加2，直到不小于N，验证x为偶数。

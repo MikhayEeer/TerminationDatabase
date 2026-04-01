@@ -1,0 +1,18 @@
+source_path: data/aeval/c_bench_term/term_28.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x > y) {\n  if (0 == __VERIFIER_nondet_int())      x = x - 1;\n  else\
+    \ if (0 == __VERIFIER_nondet_int()) y = y + 1;\n  else if (0 == __VERIFIER_nondet_int())\
+    \ x = x - 2;\n  else if (0 == __VERIFIER_nondet_int()) y = y + 2;\n  else if (0\
+    \ == __VERIFIER_nondet_int()) x = x - 3;\n  else if (0 == __VERIFIER_nondet_int())\
+    \ y = y + 3;\n  else if (0 == __VERIFIER_nondet_int()) x = x - 4;\n  else if (0\
+    \ == __VERIFIER_nondet_int()) y = y + 4;\n  else if (0 == __VERIFIER_nondet_int())\
+    \ x = x - 5;\n  else                                   y = y + 5;\n}"

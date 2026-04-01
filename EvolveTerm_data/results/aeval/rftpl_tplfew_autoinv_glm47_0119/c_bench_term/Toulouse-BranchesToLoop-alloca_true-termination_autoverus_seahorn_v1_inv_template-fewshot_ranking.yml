@@ -1,0 +1,29 @@
+source_file: Toulouse-BranchesToLoop-alloca_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Toulouse-BranchesToLoop-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:40
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y < 100 && z < 100) {
+        y = y + x;
+        z = z - x;
+    }
+  invariants:
+  - y >= 0
+  - z >= 0
+  - y + z == y_init + z_init
+  - y % x == y_init % x
+  - z % x == z_init % x
+  explanation: Lexicographic decrease on (100 - y, z) or (100 - y, 100 - z) captures
+    the termination condition where y increases and z decreases while maintaining
+    a constant sum.
+  template_type: lnested
+  template_depth: 2

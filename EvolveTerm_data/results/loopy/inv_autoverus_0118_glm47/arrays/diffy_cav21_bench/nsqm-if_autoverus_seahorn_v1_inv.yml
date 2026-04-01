@@ -1,0 +1,88 @@
+source_file: nsqm-if_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/nsqm-if.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:53
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            b[0] = 1;
+        } else {
+            b[i] = b[i-1] + 2;
+        }
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - b[0] == 1
+  - ∀ k . (0 < k && k < i) ⇒ (b[k] == b[k-1] + 2)
+- loop_id: 2
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            a[0] = N + 1;
+        } else {
+            a[i] = a[i-1] + b[i-1] + 2;
+        }
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - a[0] == N + 1
+  - a[i] == a[i-1] + b[i-1] + 2
+  - b[i] == b[i]
+- loop_id: 3
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(a[i] == N + (i+1)*(i+1));
+    }
+
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - a[i] == N + (i+1)*(i+1)
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            b[0] = 1;
+        } else {
+            b[i] = b[i-1] + 2;
+        }
+    }
+- id: 2
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            a[0] = N + 1;
+        } else {
+            a[i] = a[i-1] + b[i-1] + 2;
+        }
+    }
+- id: 3
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(a[i] == N + (i+1)*(i+1));
+    }
+
+    }

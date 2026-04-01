@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_nonterm/NO_13_false-termination_true-no-overflow.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i;\nint j;\nj = 100;\ni = 0;\n\nwhile (i < j) {\n    if (51 < j) { i\
+    \ = i+1; j = j-1; }\n    else { i = i-1; j = j+1; }\n}"

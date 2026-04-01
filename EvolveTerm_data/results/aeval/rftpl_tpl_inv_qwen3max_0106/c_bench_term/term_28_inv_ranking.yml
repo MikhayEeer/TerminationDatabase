@@ -1,0 +1,25 @@
+source_file: term_28_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/term_28.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x > y) {\n    if (0 == __VERIFIER_nondet_int())      x = x - 1;\n\
+    \    else if (0 == __VERIFIER_nondet_int()) y = y + 1;\n    else if (0 == __VERIFIER_nondet_int())\
+    \ x = x - 2;\n    else if (0 == __VERIFIER_nondet_int()) y = y + 2;\n    else\
+    \ if (0 == __VERIFIER_nondet_int()) x = x - 3;\n    else if (0 == __VERIFIER_nondet_int())\
+    \ y = y + 3;\n    else if (0 == __VERIFIER_nondet_int()) x = x - 4;\n    else\
+    \ if (0 == __VERIFIER_nondet_int()) y = y + 4;\n    else if (0 == __VERIFIER_nondet_int())\
+    \ x = x - 5;\n    else                                   y = y + 5;\n}"
+  invariants:
+  - x > y
+  explanation: The loop uses a single ranking function f(x, y) = x - y that decreases
+    by at least 1 each iteration. No lexicographic or multi-phase reasoning is needed.
+  template_type: lnested
+  template_depth: 1

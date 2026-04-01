@@ -1,0 +1,35 @@
+source_file: term_22_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_22.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:27
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y != K) {
+        if (x > K) {
+            x = x - 1;
+        } else if (x < K) {
+            x = x + 1;
+        } else x = K + 1;
+        if (y > x) {
+            y = y - 1;
+        } else if (y < x) {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= K
+  - y >= K
+  - x <= K + 1
+  - y <= K + 1
+  explanation: Variables are bounded in [K, K+1]. Lexicographic order (x, y) or (y,
+    x) on the finite state space proves termination. Depth 2 handles the two variables.
+  template_type: lnested
+  template_depth: 2

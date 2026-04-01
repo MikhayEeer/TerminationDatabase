@@ -1,0 +1,24 @@
+source_file: 3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T16:05
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0 && (y<=0)) {
+        if (x < 10) x = x +1; else x = y;
+    }
+  invariants:
+  - x >= 0
+  - y <= 0
+  explanation: The loop exhibits multi-phase behavior where x increases (Phase 1)
+    until it reaches 10, then decreases (Phase 2) when assigned y (where y <= 0).
+  template_type: lmultiext
+  template_depth: 2

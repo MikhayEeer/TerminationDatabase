@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/svcomp/sum03_true.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "unsigned int x=0;\nwhile(1){\n  sn = sn + a;\n  x++;\n  {;\n//@ assert(sn==x*a\
+    \ || sn == 0);\n}\n\n}"

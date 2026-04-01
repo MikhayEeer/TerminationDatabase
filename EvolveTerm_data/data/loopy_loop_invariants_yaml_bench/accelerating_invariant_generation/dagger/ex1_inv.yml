@@ -1,0 +1,26 @@
+source_file: ex1_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/dagger/ex1.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown_int()) {\n    x = xa + 2*ya;\n    y = -2*xa + ya;\n\n    x++;\n\
+    \    if (unknown_int()) y    = y+x;\n    else y = y-x;\n\n    xa = x - 2*y;\n\
+    \    ya = 2*x + y;\n}"
+  invariants:
+  - xa + 2 * ya >= 0
+  - xa == 0 && ya == 0 ==> xa + 2 * ya == 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int()) {\n    x = xa + 2*ya;\n    y = -2*xa + ya;\n\n    x++;\n\
+    \    if (unknown_int()) y    = y+x;\n    else y = y-x;\n\n    xa = x - 2*y;\n\
+    \    ya = 2*x + y;\n}"

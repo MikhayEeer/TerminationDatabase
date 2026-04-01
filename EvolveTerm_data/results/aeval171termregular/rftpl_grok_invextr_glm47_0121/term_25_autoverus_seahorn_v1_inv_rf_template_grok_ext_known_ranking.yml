@@ -1,0 +1,35 @@
+source_file: term_25_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_25.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T17:09
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (w == x + y + z){
+      if (c < 100) y --;
+      c = c +1;
+      x = x + y + c;
+      z = z - y;
+    }
+  invariants:
+  - w == x + y + z
+  - c >= 0
+  - y >= 0
+  - x >= 0
+  - z >= 0
+  explanation: The loop exhibits piecewise behavior due to the conditional update
+    of `y`. A depth of 3 is selected to construct a lexicographic ranking function
+    (e.g., involving `c`, `x`, and `z`) that can prove termination across both branches,
+    ensuring that `c` increases and the tuple `(x, z)` makes progress towards a fixed
+    bound.
+  template_type: lpiecewiseext
+  template_depth: 3
+  template_predicates:
+  - x1 < 100

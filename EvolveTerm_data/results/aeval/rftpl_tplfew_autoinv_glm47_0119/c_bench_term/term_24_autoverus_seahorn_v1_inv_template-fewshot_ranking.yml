@@ -1,0 +1,30 @@
+source_file: term_24_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_24.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:52
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != y)
+    {
+        x++; y++;
+        if (x > z) x = z;
+        if (y > z) y = y - 1;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - x <= z
+  - y <= z
+  explanation: The distance between x and y decreases monotonically until they are
+    equal.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/standard_copy5_ground-1.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 7
+loops_depth: 1
+loop_condition_variables_count: 4
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 42
+summary: 将数组a1中的元素逐层复制到a2至a6，并验证a1和a6的对应元素相等。

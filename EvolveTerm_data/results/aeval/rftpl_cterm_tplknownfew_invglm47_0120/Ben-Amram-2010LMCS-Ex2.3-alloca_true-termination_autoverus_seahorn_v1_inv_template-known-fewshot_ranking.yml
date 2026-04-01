@@ -1,0 +1,39 @@
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:56
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0) {
+        if (y > x) {
+            y = z;
+            x = __VERIFIER_nondet_int();
+            z = x - 1;
+        } else {
+            z = z - 1;
+            x = __VERIFIER_nondet_int();
+            y = x - 1;
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - x == __VERIFIER_nondet_int()
+  - y == x - 1 || y == z
+  - z == x - 1 || z == z - 1
+  explanation: Variable `z` strictly decreases in the 'else' branch. In the 'if' branch,
+    `z` is updated to `x - 1`. Given the code is terminating, the non-deterministic
+    `x` must be implicitly bounded (e.g., by `z` or a constant) to ensure `z` does
+    not increase indefinitely. A single linear ranking function f(z) = z is sufficient
+    to prove termination.
+  template_type: lnested
+  template_depth: 1

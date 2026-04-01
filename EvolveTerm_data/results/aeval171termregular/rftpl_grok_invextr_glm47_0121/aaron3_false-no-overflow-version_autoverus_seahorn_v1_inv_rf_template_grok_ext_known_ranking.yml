@@ -1,0 +1,29 @@
+source_file: aaron3_false-no-overflow-version_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/aaron3_false-no-overflow-version.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:59
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        z = z - 1;
+        tx = x;
+        x = __VERIFIER_nondet_int();
+    }
+  invariants:
+  - x >= y
+  - x <= tx + z
+  - z >= 0
+  - tx >= 0
+  explanation: A lexicographic ranking function with depth 2 is sufficient. The primary
+    component is `z` (monotonically decreasing), and the secondary component is `tx
+    + z` (or `tx`), ensuring that the loop guard `x <= tx + z` eventually fails.
+  template_type: llexiext
+  template_depth: 2

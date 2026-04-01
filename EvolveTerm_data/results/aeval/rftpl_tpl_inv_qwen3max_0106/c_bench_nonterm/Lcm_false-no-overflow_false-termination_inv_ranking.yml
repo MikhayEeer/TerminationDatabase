@@ -1,0 +1,19 @@
+source_file: Lcm_false-no-overflow_false-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Lcm_false-no-overflow_false-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (am != bm) {\n    if (am > bm) {\n        bm = bm+b;\n    } else {\n\
+    \        am = am+a;\n    }\n}"
+  invariants: []
+  explanation: The loop alternates between increasing am or bm; a multi-phase ranking
+    function with depth 2 captures the two update modes.
+  template_type: lmulti
+  template_depth: 2

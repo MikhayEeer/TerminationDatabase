@@ -1,0 +1,16 @@
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-simpl1.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int newx, newy;\nwhile (x > 0 && y > 0) {\n  if (__VERIFIER_nondet_int()\
+    \ != 0) {\n    \n    newx = __VERIFIER_nondet_int();\n    if (newx >= x) break;\n\
+    \    x = newx;\n    \n    newy = __VERIFIER_nondet_int();\n    if (newy <= y)\
+    \ break;\n    y = newy;\n    \n  } else {\n    \n    newy = __VERIFIER_nondet_int();\n\
+    \    if (newy >= y) break;\n    y = newy;\n    \n  }\n}"

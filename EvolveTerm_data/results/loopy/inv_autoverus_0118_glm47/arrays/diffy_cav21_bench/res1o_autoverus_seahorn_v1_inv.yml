@@ -1,0 +1,79 @@
+source_file: res1o_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/res1o.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:59
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        a[i] = 1;
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - a == __sea_old_a
+- loop_id: 2
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - sum[0] == \sum(0, i, \lambda j. a[j])
+- loop_id: 3
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        b[i] = 1;
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - \forall int k; 0 <= k < i ==> b[k] == 1
+- loop_id: 4
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + b[i];
+    }
+  invariants:
+  - sum[0] == \old(sum[0]) + \sum_{j=0}^{i-1} b[j]
+  - i >= 0
+  - i <= N
+loops_count: -1
+loops_depth: -1
+loops_ids: 4
+loops:
+- id: 1
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        a[i] = 1;
+    }
+- id: 2
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + a[i];
+    }
+- id: 3
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        b[i] = 1;
+    }
+- id: 4
+  code: |-
+    for(i=0; i<N; i++)
+    {
+        sum[0] = sum[0] + b[i];
+    }

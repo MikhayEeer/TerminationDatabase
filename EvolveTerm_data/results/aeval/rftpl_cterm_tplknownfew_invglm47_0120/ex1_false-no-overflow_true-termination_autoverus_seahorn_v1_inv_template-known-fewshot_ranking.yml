@@ -1,0 +1,26 @@
+source_file: ex1_false-no-overflow_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/ex1_false-no-overflow_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:54
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (y > 0) {
+        r = r*x;
+        y = y - 1;
+    }
+  invariants:
+  - r == r_init * pow(x, y_init - y)
+  - y >= 0
+  - x == x_init
+  - y_init >= y
+  explanation: Single variable y strictly decreases. Simplest linear template suffices.
+  template_type: lnested
+  template_depth: 1

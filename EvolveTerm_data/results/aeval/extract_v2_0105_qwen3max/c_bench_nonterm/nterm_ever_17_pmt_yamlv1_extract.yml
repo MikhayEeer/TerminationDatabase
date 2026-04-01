@@ -1,0 +1,16 @@
+source_path: data/aeval/c_bench_nonterm/nterm_ever_17.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int flag, i, j, range1, range2;\nflag = 1;\ni = 0;\nj = 0;\nrange1 = __VERIFIER_nondet_int();\n\
+    range2 = -range1;\nif (range1 >= 0)  return 0;\n\nwhile (range1 <= j && j <= range2)\
+    \ {\n  if (flag == 1 && i < range2) {\n    i++;\n  } else if (i == range2) {\n\
+    \    flag = -1;\n  } else if (flag == -1 && i > range1) {\n    i--;\n  } else\
+    \ if (i == range1) {\n    flag = 1;\n  }\n  j = i;\n}"

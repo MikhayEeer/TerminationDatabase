@@ -1,0 +1,28 @@
+source_file: 3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/3pieces_Caterina_TACAS16_modif_1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:14
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0)
+    {
+        if (x < 10) x++; else x = y;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x >= y
+  explanation: 'The loop exhibits two distinct phases: one where x increases (bounded
+    by 10) and one where x decreases (assigned to y). A single linear function cannot
+    capture this behavior, and lexicographic order fails due to the reset of x. Multi-phase
+    ranking is required.'
+  template_type: lmulti
+  template_depth: 1

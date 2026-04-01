@@ -1,0 +1,30 @@
+source_file: choices_dec_3_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/choices_dec_3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:33
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0)
+    {
+      int a = __VERIFIER_nondet_int();
+      if (a == 0) {x--; y++; z++;}
+      else if (a == 1) {y--; x++; z++;}
+      else {y++; x++; z--;}
+    }
+  invariants:
+  - x + y >= 2
+  - z >= 1
+  explanation: 'The loop exhibits two-phase behavior: in one phase z decreases while
+    x+y increases, and in the other z increases while x+y stays constant. This requires
+    a multi-phase ranking function to capture the trade-off between z and the sum
+    x+y.'
+  template_type: lmulti
+  template_depth: 2

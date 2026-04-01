@@ -1,0 +1,24 @@
+source_file: fig3_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig3.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(x != y) {\n\n    lock = 1;\n    x = y;\n    input = unknown_int();\n\
+    \    if ( input ) {\n\n        lock = 0;\n        y = y + 1;\n    }\n}"
+  invariants:
+  - x == y ==> lock == 1
+  - lock == 0 ==> x != y
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(x != y) {\n\n    lock = 1;\n    x = y;\n    input = unknown_int();\n\
+    \    if ( input ) {\n\n        lock = 0;\n        y = y + 1;\n    }\n}"

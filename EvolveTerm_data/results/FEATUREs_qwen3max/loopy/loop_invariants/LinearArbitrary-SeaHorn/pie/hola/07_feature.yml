@@ -1,0 +1,15 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/hola/07.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 31
+summary: 计算在循环中根据未知条件对变量a和b的累加结果，验证a+b是否等于3倍的n。

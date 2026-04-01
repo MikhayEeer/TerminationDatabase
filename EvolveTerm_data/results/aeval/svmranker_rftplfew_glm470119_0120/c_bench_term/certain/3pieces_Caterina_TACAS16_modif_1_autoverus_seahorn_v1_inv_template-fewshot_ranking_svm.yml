@@ -1,0 +1,15 @@
+input_file: results/aeval/rftpl_tplfew_autoinv_glm47_0119/c_bench_term/3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+source_file: 3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lmulti
+  template_depth: 2
+  svm_mode: lmulti
+  status: NONTERM
+  ranking_function: <NestedTemplate.NestedTemplate object at 0x7f9c7f867070>
+  ranking_functions:
+  - <NestedTemplate.NestedTemplate object at 0x7f9c7f867070>
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_term/3pieces_Caterina_TACAS16_modif_1.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_term/3pieces_Caterina_TACAS16_modif_1.bpl

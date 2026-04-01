@@ -1,0 +1,27 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex1.01_false-no-overflow-version4_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex1.01_false-no-overflow-version4.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:56
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x + y > 0) {
+        x = -4*x + 18;
+        y = -6*y + 13;
+    }
+  invariants:
+  - x + y > 0
+  - x == -4*x + 18
+  - y == -6*y + 13
+  explanation: A single linear ranking function f(x,y) = x + y strictly decreases
+    under the given transition and loop condition. No lexicographic nesting or multi-phase
+    logic is required.
+  template_type: lnested
+  template_depth: 1

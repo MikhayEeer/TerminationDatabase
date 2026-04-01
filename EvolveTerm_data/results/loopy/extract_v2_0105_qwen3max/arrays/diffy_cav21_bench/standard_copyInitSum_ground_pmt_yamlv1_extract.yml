@@ -1,0 +1,21 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/standard_copyInitSum_ground.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 4
+loops:
+- id: 1
+  code: "int i = 0;\n/* Loop_A */  while ( i < N ) {\n    a[i] = 42;\n    i = i +\
+    \ 1;\n}"
+- id: 2
+  code: "/* Loop_B */  for ( i = 0 ; i < N ; i++ ) {\n    b[i] = a[i];\n}"
+- id: 3
+  code: "/* Loop_C */  for ( i = 0 ; i < N ; i++ ) {\n    b[i] = b[i] + incr[0];\n\
+    }"
+- id: 4
+  code: "int x;\n/* Loop_D */  for ( x = 0 ; x < N ; x++ ) {\n    {;\n//@ assert(\
+    \  b[x] == 42 + incr[0]  );\n}\n\n}"

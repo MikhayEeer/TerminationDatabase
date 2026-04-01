@@ -1,0 +1,30 @@
+source_file: Gothenburg_v3_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Gothenburg_v3_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:12
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 || y >= 0) {
+        x = x + a - b - 1;
+        y = y + b - a - 1;
+        int tmp = a;
+        a = b;
+        b = tmp;
+    }
+  invariants:
+  - x + y == 0
+  - a + b == old_a + old_b
+  - a - b == -(old_a - old_b)
+  explanation: 'Variables x and y oscillate/compete (x+y=0 invariant). Termination
+    requires distinct phases: one where x decreases to 0, and another where y decreases
+    to 0. Nested templates fail due to opposite monotonicity.'
+  template_type: lmulti
+  template_depth: 2

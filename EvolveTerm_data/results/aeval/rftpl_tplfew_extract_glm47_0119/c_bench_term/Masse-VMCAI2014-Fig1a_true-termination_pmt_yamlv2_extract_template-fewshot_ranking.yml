@@ -1,0 +1,28 @@
+source_file: Masse-VMCAI2014-Fig1a_true-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/Masse-VMCAI2014-Fig1a_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:01
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a >= 0) {
+        a = a + b;
+        if (b >= 0) {
+            b = -b - 1;
+        } else {
+            b = -b;
+        }
+    }
+  invariants: []
+  explanation: The variable a decreases by 1 every 2 iterations (b flips sign and
+    increases magnitude). This requires a 2-phase ranking function where the phase
+    counter cycles and a decreases.
+  template_type: lmulti
+  template_depth: 2

@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/ChooseLife.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (life < death) {\n    temp = death;\n    death = life + 1;\n    life\
+    \ = temp;\n    \n    if (choose < life || choose < death) {\n        life = choose;\n\
+    \    }\n}"

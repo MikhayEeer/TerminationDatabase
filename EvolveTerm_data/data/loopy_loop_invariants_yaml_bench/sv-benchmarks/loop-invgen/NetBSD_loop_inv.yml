@@ -1,0 +1,30 @@
+source_file: NetBSD_loop_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-invgen/NetBSD_loop.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "for (glob2_p_off = glob2_pathbuf_off;\n    glob2_p_off <= glob2_pathlim_off;\n\
+    \    glob2_p_off++) {\n  \n  {;\n//@ assert(0 <= glob2_p_off );\n}\n\n  {;\n//@\
+    \ assert(glob2_p_off < MAXPATHLEN + 1);\n}\n\n}"
+  invariants:
+  - glob2_p_off >= glob2_pathbuf_off
+  - glob2_p_off <= glob2_pathlim_off + 1
+  - glob2_pathbuf_off == 0
+  - glob2_pathlim_off == MAXPATHLEN
+  - MAXPATHLEN >= 1
+  - MAXPATHLEN <= 2147483646
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for (glob2_p_off = glob2_pathbuf_off;\n    glob2_p_off <= glob2_pathlim_off;\n\
+    \    glob2_p_off++) {\n  \n  {;\n//@ assert(0 <= glob2_p_off );\n}\n\n  {;\n//@\
+    \ assert(glob2_p_off < MAXPATHLEN + 1);\n}\n\n}"

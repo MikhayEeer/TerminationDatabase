@@ -1,0 +1,32 @@
+source_file: GulavaniGulwani-CAV2008-Fig1c_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C_Integer/Stroeder_15/GulavaniGulwani-CAV2008-Fig1c_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:34
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x < n) {
+        i = i + 1;
+        x = x + 1;
+    }
+  invariants:
+  - i >= 0
+  - x >= 0
+  - x == i + x_initial
+  - i == x - x_initial
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x < n) {
+        i = i + 1;
+        x = x + 1;
+    }

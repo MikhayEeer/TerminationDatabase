@@ -1,0 +1,71 @@
+input_file: results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+source_file: 3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lmultiext
+  template_depth: 2
+  svm_mode: lmultiext
+  status: UNKNOWN
+  ranking_function: '- 0.6 *  x0^1 - 0.8 *  x1^1 + 0.8 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 2.7 * 1'
+  ranking_functions:
+  - '- 0.6 *  x0^1 - 0.8 *  x1^1 + 0.8 *  x1^2 + 0.3 *  x0^1 *  x1^1 + 2.7 * 1'
+  - '- 0.6 *  x0^1 - 1.0 *  x1^1 + 0.1 *  x0^2 + 1.0 *  x1^2 + 0.5 *  x0^1 *  x1^1
+    + 2.0 * 1'
+  - '- 0.7 *  x0^1 - 0.7 *  x1^1 + 0.1 *  x0^2 + 0.7 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 1.9 * 1'
+  - '- 0.6 *  x0^1 - 0.6 *  x1^1 + 0.1 *  x0^2 + 0.7 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 1.6 * 1'
+  - '- 0.6 *  x0^1 - 0.6 *  x1^1 + 0.1 *  x0^2 + 0.6 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 1.6 * 1'
+  - '- 0.6 *  x0^1 - 0.6 *  x1^1 + 0.1 *  x0^2 + 0.7 *  x1^2 + 0.4 *  x0^1 *  x1^1
+    + 1.6 * 1'
+  - '- 0.5 *  x0^1 - 0.3 *  x1^1 + 0.1 *  x0^2 + 0.3 *  x1^2 + 0.2 *  x0^1 *  x1^1
+    + 1.5 * 1'
+  - '- 0.6 *  x0^1 - 0.3 *  x1^1 + 0.1 *  x0^2 + 0.4 *  x1^2 + 0.2 *  x0^1 *  x1^1
+    + 1.5 * 1'
+  - '- 0.6 *  x0^1 - 0.3 *  x1^1 + 0.1 *  x0^2 + 0.3 *  x1^2 + 0.2 *  x0^1 *  x1^1
+    + 1.5 * 1'
+  - '- 0.7 *  x0^1 + 0.1 *  x0^2 - 0.1 *  x0^1 *  x1^1 + 2.2 * 1'
+  - '- 0.7 *  x0^1 + 0.1 *  x0^2 + 0.1 *  x1^2 - 0.1 *  x0^1 *  x1^1 + 2.2 * 1'
+  - '- 0.7 *  x0^1 + 0.1 *  x0^2 - 0.1 *  x0^1 *  x1^1 + 2.3 * 1'
+  - '- 0.5 *  x0^1 - 0.1 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 1.6 * 1'
+  - '- 0.5 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.3 *  x1^2 + 1.7 * 1'
+  - '- 0.5 *  x0^1 - 0.1 *  x1^1 + 0.1 *  x0^2 + 0.1 *  x1^2 + 1.7 * 1'
+  - '- 0.5 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 1.7 * 1'
+  - '- 0.5 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 1.6 * 1'
+  - '- 0.9 *  x0^1 - 0.6 *  x1^1 + 0.1 *  x0^2 + 0.7 *  x1^2 + 0.2 *  x0^1 *  x1^1
+    + 2.5 * 1'
+  - '- 0.7 *  x0^1 - 0.7 *  x1^1 + 0.1 *  x0^2 + 0.8 *  x1^2 + 0.3 *  x0^1 *  x1^1
+    + 1.9 * 1'
+  - '- 0.6 *  x0^1 - 0.6 *  x1^1 + 0.1 *  x0^2 + 0.6 *  x1^2 + 0.4 *  x0^1 *  x1^1
+    + 1.6 * 1'
+  - '- 0.7 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 1.8 * 1'
+  - '- 0.6 *  x0^1 - 0.2 *  x1^1 + 0.1 *  x0^2 + 0.2 *  x1^2 + 1.9 * 1'
+  - '- 0.7 *  x0^1 - 0.1 *  x1^1 + 0.1 *  x0^2 + 0.1 *  x1^2 - 0.1 *  x0^1 *  x1^1
+    + 2.1 * 1'
+  - '- 1.0 *  x0^1'
+  - '- 1.4 *  x0^1 + 0.1 *  x0^2 + 1.0 *  x0^1 *  x1^1'
+  - '- 1.0 *  x0^1 + 1.0 *  x0^1 *  x1^1'
+  - '- 1.393 *  x0^1 + 0.1491 *  x0^2 + 0.992 *  x0^1 *  x1^1'
+  - '- 1.1638 *  x0^1 + 0.1541 *  x0^2 + 0.1272 *  x0^1 *  x1^1'
+  - '- 1.18 *  x0^1 + 0.163 *  x0^2 + 0.1335 *  x0^1 *  x1^1'
+  - '- 0.7594 *  x0^1 + 0.1195 *  x0^2 + 0.125 *  x0^1 *  x1^1'
+  - '- 0.9288 *  x0^1 + 0.1011 *  x0^2 - 0.0909 *  x0^1 *  x1^1'
+  - '- 0.8984 *  x0^1 + 0.0975 *  x0^2 - 0.0967 *  x0^1 *  x1^1'
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.bpl
+  input_source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.c
+  input_loop:
+    loop_id: 1
+    code: "while (x != 0 && (y<=0)) {\n    if (x < 10) x = x +1; else x = y;\n}"
+    invariants:
+    - x >= 0
+    - y <= 0
+    explanation: 'Two phases: first phase increases x to bound 10, second phase decreases
+      x to 0.'
+    template_type: lmultiext
+    template_depth: 2
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.c

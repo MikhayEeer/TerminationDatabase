@@ -1,0 +1,29 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-speedpldi2_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:46
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (v1 > 0) {
+      if (v2 < m) {
+        v2 = v2 + 1;
+        v1 = v1 - 1;
+      } else {
+        v2 = 0;
+      }
+    }
+  invariants:
+  - v2 >= 0
+  - v2 < m + 1
+  - v1 >= 0
+  explanation: v1 decreases monotonically in the main branch and is bounded by 0.
+  template_type: lnested
+  template_depth: 1

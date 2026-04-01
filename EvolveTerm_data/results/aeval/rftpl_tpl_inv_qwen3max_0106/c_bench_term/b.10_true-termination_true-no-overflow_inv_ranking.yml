@@ -1,0 +1,21 @@
+source_file: b.10_true-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/b.10_true-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (((x >= 0 && y < 2147483647 - x) || (x < 0 && y > -2147483648 - x))\
+    \ && x + y > 0) {\n    if (x > 0) {\n        x = x - 1;\n    } else {\n      \
+    \  if (y > 0) {\n            y = y - 1;\n        } else {\n            \n    \
+    \    }\n    }\n}"
+  invariants: []
+  explanation: A single linear ranking function R = x + y suffices, as it decreases
+    by 1 each iteration and is bounded below.
+  template_type: lnested
+  template_depth: 1

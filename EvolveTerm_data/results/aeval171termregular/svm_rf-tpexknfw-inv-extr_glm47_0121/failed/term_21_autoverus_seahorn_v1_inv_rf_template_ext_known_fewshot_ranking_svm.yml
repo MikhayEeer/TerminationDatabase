@@ -1,0 +1,32 @@
+input_file: results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/term_21_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+source_file: term_21_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lpiecewiseext
+  template_depth: 2
+  svm_mode: lpiecewiseext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  template_predicates:
+  - z % 5 == 0
+  - z % 5 == 4
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_21.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_21.bpl
+  input_source_path: data/aeval_171term_regular/term_21.c
+  input_loop:
+    loop_id: 1
+    code: "while (z >= 0) {\n    if (z % 5 == 0) z = z - 5;\n      else z = z +1;\n\
+      }"
+    invariants:
+    - z >= 0
+    - z % 5 >= 0
+    explanation: Lexicographic tuple (z % 5, z) decreases across all branches.
+    template_type: lpiecewiseext
+    template_depth: 2
+    template_predicates:
+    - z % 5 == 0
+    - z % 5 == 4
+source_path: data/aeval_171term_regular/term_21.c

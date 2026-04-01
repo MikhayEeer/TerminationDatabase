@@ -1,0 +1,43 @@
+source_file: ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:57
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (((an >= i && bn >= j) || (an >= i && bn <= j) || (an <= i && bn >= j)) && k >= tk + 1) {
+        if (an >= i && bn >= j) {
+            if (__VERIFIER_nondet_int() != 0) {
+                j = j + k;
+                tk = k;
+                k = __VERIFIER_nondet_int();
+            } else {
+                i = i + 1;
+            }
+        } else {if (an >= i && bn <= j) {
+            i = i + 1;
+        } else {if (an <= i && bn >= j) {
+            j = j + k;
+            tk = k;
+            k = __VERIFIER_nondet_int();
+        }}}
+    }
+  invariants:
+  - an == \old(an)
+  - bn == \old(bn)
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - tk >= 0
+  explanation: Lexicographic ranking (an-i, bn-j) proves termination. Primary decreases
+    when i increases; secondary decreases when j increases. Depth 1 is insufficient
+    because i and j decrease in different branches.
+  template_type: lnested
+  template_depth: 2

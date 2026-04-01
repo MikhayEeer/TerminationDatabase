@@ -1,0 +1,29 @@
+source_file: PodelskiRybalchenko-TACAS2011-Fig4_true-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-TACAS2011-Fig4_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:22
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+      if (__VERIFIER_nondet_int() != 0) {
+        x = x - 1;
+        y = __VERIFIER_nondet_int();
+      } else {
+        y = y - 1;
+      }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  explanation: Lexicographic ranking (x, y) handles the interleaved decrease of x
+    and y. Branch 1 decreases x (primary), Branch 2 decreases y (secondary).
+  template_type: lnested
+  template_depth: 2

@@ -1,0 +1,25 @@
+source_file: trex03_false-unreach-call_true-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/trex03_false-unreach-call_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:59
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while(x1>0 && x2>0 && x3>0)
+    {
+      if (__VERIFIER_nondet_int() == 0) x1=x1-d1;
+      else if (__VERIFIER_nondet_int() == 0) x2=x2-d2;
+      else x3=x3-d3;
+    }
+  invariants: []
+  explanation: Three variables decrease monotonically toward zero; lexicographic ordering
+    captures the joint progress.
+  template_type: lnested
+  template_depth: 3

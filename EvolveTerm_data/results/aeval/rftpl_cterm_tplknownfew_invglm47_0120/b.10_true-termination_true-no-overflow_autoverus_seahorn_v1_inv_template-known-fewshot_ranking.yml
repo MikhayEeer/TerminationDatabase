@@ -1,0 +1,24 @@
+source_file: b.10_true-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/b.10_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:05
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (((x >= 0 && y < 2147483647 - x) || (x < 0 && y > -2147483648 - x))\
+    \ && x + y > 0) {\n    if (x > 0) {\n        x = x - 1;\n    } else {\n      \
+    \  if (y > 0) {\n            y = y - 1;\n        } else {\n            \n    \
+    \    }\n    }\n}"
+  invariants:
+  - x >= 0 && y < 2147483647 - x || x < 0 && y > -2147483648 - x
+  - x + y > 0
+  explanation: The sum x + y acts as a single strictly decreasing ranking function
+    bounded by the loop condition.
+  template_type: lnested
+  template_depth: 1

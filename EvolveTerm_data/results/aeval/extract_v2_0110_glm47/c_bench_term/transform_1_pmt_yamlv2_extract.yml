@@ -1,0 +1,21 @@
+source_path: c_bench_term/transform_1.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:34
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x > 0) {
+        x = x - y;
+        y = y - z;
+        if (z == 0) z = 13;
+          else if (z == 13) z = -20;
+            else if (z == -20) z = 7;
+              else z = 0;
+    }

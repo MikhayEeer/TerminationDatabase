@@ -1,0 +1,27 @@
+source_file: nonlin_mult_term_4_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/nonlin_mult_term_4.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:56
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i >= j)
+    {
+        i = i*d;
+        j = j*b;
+    }
+  invariants:
+  - i >= j
+  - i >= 0
+  - j >= 0
+  explanation: Single measure of progress (e.g., i - j or i/j) decreases monotonically
+    toward the loop exit condition.
+  template_type: lnested
+  template_depth: 1

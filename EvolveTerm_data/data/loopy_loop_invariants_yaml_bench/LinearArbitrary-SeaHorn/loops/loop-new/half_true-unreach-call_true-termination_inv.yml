@@ -1,0 +1,35 @@
+source_file: half_true-unreach-call_true-termination_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/loops/loop-new/half_true-unreach-call_true-termination.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "for(i = 0; i < 2*k; i++) {\n    if (i % 2 == 0) {\n        n ++;\n    }\n\
+    }"
+  invariants:
+  - i >= 0
+  - 0 <= i
+  - n >= 0
+  - i % 2 == 0 ==> n == i/2
+  - i % 2 == 0 ==> n == i / 2
+  - (k <= LARGE_INT) && (k >= -LARGE_INT)
+  - (i % 2 == 0) ==> (n == (i / 2))
+  - (i % 2 == 0) ==> (n == i / 2)
+  - i % 2 == 1 ==> n == (i+1)/2
+  - (i % 2 == 0) ==> (n == i/2)
+  - n == (i+1)/2
+  - (k >= 0 ==> n <= k) && (k < 0 ==> n == 0)
+  - -LARGE_INT <= k <= LARGE_INT
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for(i = 0; i < 2*k; i++) {\n    if (i % 2 == 0) {\n        n ++;\n    }\n\
+    }"

@@ -1,0 +1,24 @@
+source_file: NarrowKonv_false-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/NarrowKonv_false-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (0 <= i && i <= range) {\n    if (!(0 == i && i == range)) {\n    \
+    \    if (i == range) {\n            i = 0;\n            range = range-1;\n   \
+    \     } else {\n            i = i+1;\n        }\n    }\n}"
+  invariants:
+  - 0 <= i
+  - i <= range
+  - range >= 0
+  explanation: 'The loop simulates nested behavior: i counts up to range, which then
+    decreases. A lexicographic ranking function with two components (e.g., (range,
+    range - i)) is needed.'
+  template_type: lnested
+  template_depth: 2

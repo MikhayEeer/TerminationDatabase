@@ -1,0 +1,40 @@
+source_file: BradleyMannaSipma-CAV2005-Fig1_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C_Integer/Stroeder_15/BradleyMannaSipma-CAV2005-Fig1_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:33
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (y1 != y2) {
+        if (y1 > y2) {
+            y1 = y1 - y2;
+        } else {
+            y2 = y2 - y1;
+        }
+    }
+  invariants:
+  - y1 >= 0
+  - y2 >= 0
+  - y1 == y1_init || y2 == y2_init
+  - y1 + y2 == y1_init + y2_init
+  - y1_init >= 0
+  - y2_init >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (y1 != y2) {
+        if (y1 > y2) {
+            y1 = y1 - y2;
+        } else {
+            y2 = y2 - y1;
+        }
+    }

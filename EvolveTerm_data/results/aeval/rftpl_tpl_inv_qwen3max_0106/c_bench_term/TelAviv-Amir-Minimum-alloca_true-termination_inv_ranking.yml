@@ -1,0 +1,25 @@
+source_file: TelAviv-Amir-Minimum-alloca_true-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/TelAviv-Amir-Minimum-alloca_true-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y > 0) {\n    if (0 == __VERIFIER_nondet_int()) {\n     \
+    \   if (x < y) {\n            y = x - 1;\n        } else {\n            y = y\
+    \ - 1;\n        }\n        x = __VERIFIER_nondet_int();\n    } else {\n      \
+    \  if (x < y) {\n            x = x - 1;\n        } else {\n            x = y -\
+    \ 1;\n        }\n        y = __VERIFIER_nondet_int();\n    }\n}"
+  invariants:
+  - x > 0
+  - y > 0
+  explanation: The loop requires a lexicographic ranking function because a single
+    linear measure is insufficient due to nondeterministic resets; however, the deterministic
+    updates ensure progress in a nested fashion, captured by a depth-2 lnested template.
+  template_type: lnested
+  template_depth: 2

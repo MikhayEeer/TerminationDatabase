@@ -1,0 +1,22 @@
+source_file: choices_dec_4_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/choices_dec_4.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y > 0 && z > 0 && w > 0)\n{\n  int a = __VERIFIER_nondet_int();\n\
+    \n  if (a == 0) {x--; y++; z++; w++;}\n  else if (a == 1) {x++; y--; z++; w++;}\n\
+    \  else if (a == 2) {x++; y++; z--; w++;}\n  else {x++; y++; z++; w--;}\n}"
+  invariants: []
+  explanation: The loop has four symmetric variables, each possibly decreasing in
+    different nondeterministic branches. A multi-phase ranking function with depth
+    2 can capture progress across different phases where different variables act as
+    the decreasing component.
+  template_type: lmulti
+  template_depth: 2

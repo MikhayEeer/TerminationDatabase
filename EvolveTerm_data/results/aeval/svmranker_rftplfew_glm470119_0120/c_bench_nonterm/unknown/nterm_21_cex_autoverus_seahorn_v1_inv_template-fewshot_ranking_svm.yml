@@ -1,0 +1,14 @@
+input_file: results/aeval/rftpl_tplfew_autoinv_glm47_0119/c_bench_nonterm/nterm_21_cex_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+source_file: nterm_21_cex_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 1
+  svm_mode: lnested
+  status: UNKNOWN
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/nterm_21_cex.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/nterm_21_cex.bpl

@@ -1,0 +1,35 @@
+source_file: choices_dec_4_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/choices_dec_4.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:37
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0 && z > 0 && w > 0)
+    {
+      int a = __VERIFIER_nondet_int();
+
+      if (a == 0) {x--; y++; z++; w++;}
+      else if (a == 1) {x++; y--; z++; w++;}
+      else if (a == 2) {x++; y++; z--; w++;}
+      else {x++; y++; z++; w--;}
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - w >= 0
+  - x + y + z + w == __VERIFIER_nondet_int()
+  explanation: The loop terminates because the vector (x, y, z, w) decreases lexicographically.
+    While individual variables may fluctuate, the tuple strictly decreases in the
+    lexicographic order as the system approaches a state where one variable becomes
+    0, satisfying the exit condition.
+  template_type: lnested
+  template_depth: 4

@@ -1,0 +1,30 @@
+source_path: c_bench_nonterm/Narrowing_false-termination_true-no-overflow.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval/ -r -p v2 --output results/aeval/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:33
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (0 <= i && i <= range) {
+        if (i == 0) {
+            up = 1;
+        }
+        if (i == range) {
+            up = 0;
+        }
+        if (up == 1) {
+            i = i+1;
+        }
+        if (up == 0) {
+            i = i-1;
+        }
+        if (i == range-2) {
+            range = range-1;
+        }
+    }

@@ -1,0 +1,24 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex2.12_false-termination_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/ChenFlurMukhopadhyay-SAS2012-Ex2.12_false-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:48
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x < 5) {
+        oldx = x;
+        x = oldx - y;
+        y = oldx + y;
+    }
+  invariants: []
+  explanation: 'Single phase termination: the distance to the target set x >= 5 decreases
+    monotonically as the norm increases.'
+  template_type: lnested
+  template_depth: 1

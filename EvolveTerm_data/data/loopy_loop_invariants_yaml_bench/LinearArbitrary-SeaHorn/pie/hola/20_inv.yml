@@ -1,0 +1,40 @@
+source_file: 20_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/20.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(j<n) {\n  if(j==i)\n  {\n     x++;\n     y--;\n  }else\n  {\n     y++;\n\
+    \     x--;\n  }\n    if(unknown1())\n        m = j;\n  j++;\n}"
+  invariants:
+  - 0 <= m <= j
+  - x + y == k + 2 * (j - m) ==> j <= m
+  - x + y + 2 * (m - j) == k ==> m <= j
+  - (j != i ==> (x + y) == k) && (j == i ==> (x + y) == k)
+  - 0 <= m
+  - j > 0 ==> m < n
+  - 0 <= j
+  - m <= j
+  - (j == 0) ==> ((x + y) == k)
+  - \forall integer p
+  - 0 <= p < j ==> ((p != i) ==> (x + y == k))
+  - (j <= i) ==> (x + y == k)
+  - (0 <= m <= j) || (m == 0 && j == 0)
+  - 0 <= m && m <= j
+  - x + y == k
+  - (x + y) == k
+  - 0 <= m < n || m == 0
+  - (j <= i) ==> (m <= j)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(j<n) {\n  if(j==i)\n  {\n     x++;\n     y--;\n  }else\n  {\n     y++;\n\
+    \     x--;\n  }\n    if(unknown1())\n        m = j;\n  j++;\n}"

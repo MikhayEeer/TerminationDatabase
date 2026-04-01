@@ -1,0 +1,36 @@
+source_file: Adding_Subtracting_Zero_1_T_pmt_yamlv2_extract.yml
+source_path: termination/non_termination/loop/Adding_Subtracting_Zero_1_T.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while( linesToRead && h > 0 )
+    {
+        if( linesToRead > h )
+            linesToRead = h;
+        h -= linesToRead;
+    }
+  invariants:
+  - linesToRead >= 0
+  - h >= 0
+  - linesToRead >= 0
+  - h >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while( linesToRead && h > 0 )
+    {
+        if( linesToRead > h )
+            linesToRead = h;
+        h -= linesToRead;
+    }

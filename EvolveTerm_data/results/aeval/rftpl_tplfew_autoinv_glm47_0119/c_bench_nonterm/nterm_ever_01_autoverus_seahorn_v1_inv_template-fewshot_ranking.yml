@@ -1,0 +1,26 @@
+source_file: nterm_ever_01_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_01.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:26
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while ((x > 0 && y > 0) || (x < 0 && y < 0))
+    {
+        y = y * -7;
+        x = x * -9;
+    }
+  invariants:
+  - x == x * (-9)^k
+  - y == y * (-7)^k
+  - (x > 0 && y > 0) || (x < 0 && y < 0)
+  explanation: Simple linear ranking template; loop exhibits exponential growth/divergence.
+  template_type: lnested
+  template_depth: 1

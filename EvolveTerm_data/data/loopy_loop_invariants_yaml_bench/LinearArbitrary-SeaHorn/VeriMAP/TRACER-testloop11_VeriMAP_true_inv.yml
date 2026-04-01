@@ -1,0 +1,30 @@
+source_file: TRACER-testloop11_VeriMAP_true_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown()) {\n    if (s == 2){\n      if (e ==0) e=1;\n      s = 3;\n\
+    \    }\n    else if (s == 3){\n      if (e ==1) e=2;\n      s=4;\n    }\n    else\
+    \ if (s == 4){\n      {;\n//@ assert(!( e == 3 ));\n}\n\n      s=5;\n    }\n}"
+  invariants:
+  - 0 <= e <= 2
+  - 2 <= s <= 5
+  - (s == 2) ==> (e == 0 || e == 1)
+  - (s == 3) ==> (e == 1 || e == 2)
+  - (s == 4) ==> (e == 2)
+  - (s == 5) ==> (e == 2)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown()) {\n    if (s == 2){\n      if (e ==0) e=1;\n      s = 3;\n\
+    \    }\n    else if (s == 3){\n      if (e ==1) e=2;\n      s=4;\n    }\n    else\
+    \ if (s == 4){\n      {;\n//@ assert(!( e == 3 ));\n}\n\n      s=5;\n    }\n}"

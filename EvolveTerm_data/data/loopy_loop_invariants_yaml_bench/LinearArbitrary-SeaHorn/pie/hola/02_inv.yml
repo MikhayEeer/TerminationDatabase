@@ -1,0 +1,39 @@
+source_file: 02_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/02.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(unknown2()) \n{\n    z+=x+y+w;\n    y++;\n    if(z%2==1) \n      x++;\n\
+    \    w+=2; \n}"
+  invariants:
+  - x <= y
+  - w >= 0
+  - w % 2 == 0
+  - z >= y
+  - w == 2 * y
+  - x >= 0
+  - y >= 0
+  - 0 <= y
+  - 0 <= x
+  - 0 <= w
+  - z == 1 + y * (y - 1) + x * (x - 1)
+  - z % 2 == 1 ==> x == y
+  - z % 2 == 0 ==> x == y - 1
+  - y <= x + w/2
+  - w == 2*y
+  - z % 2 == 1
+  - z >= 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown2()) \n{\n    z+=x+y+w;\n    y++;\n    if(z%2==1) \n      x++;\n\
+    \    w+=2; \n}"

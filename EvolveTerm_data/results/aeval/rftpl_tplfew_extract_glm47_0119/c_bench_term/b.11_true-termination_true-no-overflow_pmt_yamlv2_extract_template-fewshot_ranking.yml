@@ -1,0 +1,29 @@
+source_file: b.11_true-termination_true-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/b.11_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T19:04
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (((x >= 0 && y < 2147483647 - x) || (x < 0 && y > -2147483648 - x)) && x + y > 0) {
+        if (x > y) {
+            x = x - 1;
+        } else {
+            if (x == y) {
+                x = x - 1;
+            } else {
+                y = y - 1;
+            }
+        }
+    }
+  invariants: []
+  explanation: The loop strictly decreases max(x, y) in every iteration.
+  template_type: lnested
+  template_depth: 1

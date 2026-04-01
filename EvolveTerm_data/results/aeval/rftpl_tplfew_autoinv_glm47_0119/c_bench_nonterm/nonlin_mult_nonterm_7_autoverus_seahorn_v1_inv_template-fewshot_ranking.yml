@@ -1,0 +1,27 @@
+source_file: nonlin_mult_nonterm_7_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nonlin_mult_nonterm_7.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:20
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i*j*k > 0) {
+        i = i + 1;
+        j = j + 1;
+        k = k + 1;
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - i*j*k > 0
+  explanation: All variables increase monotonically; single linear progress is sufficient.
+  template_type: lnested
+  template_depth: 1

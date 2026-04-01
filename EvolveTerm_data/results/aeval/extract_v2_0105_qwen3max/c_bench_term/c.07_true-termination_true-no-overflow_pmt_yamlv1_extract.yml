@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/c.07_true-termination_true-no-overflow.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "c = 0;\nwhile ((i <= 100) && (j <= k) && (k > -2147483648)) {\n    tmp =\
+    \ i;\n    i = j;\n    j = tmp + 1;\n    k = k - 1;\n}"

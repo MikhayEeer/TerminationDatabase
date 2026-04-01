@@ -1,0 +1,5 @@
+{
+  "template_type": "lmulti",
+  "template_depth": 2,
+  "explanation": "The loop exhibits two distinct phases corresponding to the two branches. In the else branch, z decreases monotonically. In the if branch, z is reset based on x. A multi-phase ranking function is suitable to handle the non-monotonic behavior of z across different control paths."
+}

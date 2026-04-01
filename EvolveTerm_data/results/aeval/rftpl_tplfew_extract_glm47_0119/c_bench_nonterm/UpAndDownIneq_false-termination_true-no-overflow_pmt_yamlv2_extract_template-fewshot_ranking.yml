@@ -1,0 +1,33 @@
+source_file: UpAndDownIneq_false-termination_true-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/UpAndDownIneq_false-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:42
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (0 <= i && i <= 10) {
+        if (i >= 10) {
+            up = 0;
+        }
+        if (i <= 0) {
+            up = 1;
+        }
+        if (up >= 1) {
+            i = i+1;
+        } else {
+            i = i-1;
+        }
+    }
+  invariants: []
+  explanation: 'The loop oscillates: i increases until 10, then decreases until 0.
+    This requires two phases with distinct ranking functions (e.g., i and -i) to prove
+    termination.'
+  template_type: lmulti
+  template_depth: 2

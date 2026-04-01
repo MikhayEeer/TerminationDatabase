@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/08.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown1()){\n  if(unknown2()){ \n     x++; \n     y+=100; \n  }\n\
+    \  else if (unknown3()){ \n     if (x >= 4) { \n         x++; \n         y++;\
+    \ \n     } \n     if (x < 0){\n         y = -y;\n     }\n  }\n \n}"

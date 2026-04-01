@@ -1,0 +1,15 @@
+source_path: c_bench_nonterm/DoublePos_false-no-overflow_false-termination.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 15
+summary: 开始一个循环，当i和j的乘积大于0时，不断递增i和j。

@@ -1,0 +1,31 @@
+source_file: PodelskiRybalchenko-VMCAI2004-Ex1_false-no-overflow_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-VMCAI2004-Ex1_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:57
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i - j >= 1) {
+        nondetNat = __VERIFIER_nondet_int();
+        if (nondetNat < 0) {
+            nondetNat = -nondetNat;
+        }
+        i = i - nondetNat;
+        nondetPos = __VERIFIER_nondet_int();
+        if (nondetPos < 0) {
+            nondetPos = -nondetPos;
+        }
+        nondetPos = nondetPos + 1;
+        j = j + nondetPos;
+    }
+  invariants: []
+  explanation: The expression i - j strictly decreases toward the bound 0.
+  template_type: lnested
+  template_depth: 1

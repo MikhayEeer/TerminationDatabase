@@ -1,0 +1,28 @@
+source_file: trex03_false-unreach-call_true-termination-simpl_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/trex03_false-unreach-call_true-termination-simpl.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:59
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while(x1>0 && x2>0 && x3>0)
+    {
+      if (__VERIFIER_nondet_int() == 0) x1=x1-1;
+      else if (__VERIFIER_nondet_int() == 0) x2=x2-1;
+      else x3=x3-1;
+    }
+  invariants:
+  - x1 >= 0
+  - x2 >= 0
+  - x3 >= 0
+  explanation: The sum of all variables strictly decreases in every iteration. A single
+    linear function (depth 1) is sufficient.
+  template_type: lnested
+  template_depth: 1

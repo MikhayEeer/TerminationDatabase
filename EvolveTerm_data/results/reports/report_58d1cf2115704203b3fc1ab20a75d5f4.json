@@ -1,0 +1,5 @@
+{
+  "label": "terminating",
+  "reasoning": "The function `fib` is recursive but only called with inputs `val <= 46` due to the guard in `main`. Since `fib` decreases its argument on each recursive call and has base cases for `num < 1` and `num == 1`, all recursive calls eventually terminate.",
+  "report": "The program terminates because all recursive calls in `fib` are bounded by a finite input range and strictly decrease toward base cases."
+}

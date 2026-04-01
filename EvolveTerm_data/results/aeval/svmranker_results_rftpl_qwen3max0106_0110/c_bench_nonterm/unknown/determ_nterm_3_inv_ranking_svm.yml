@@ -1,0 +1,14 @@
+input_file: results/aeval+Loopy/ranking_results_PmtTpl_qwen3max/aeval/c_bench_nonterm/determ_nterm_3_inv_ranking.yml
+source_file: determ_nterm_3_inv_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 2
+  svm_mode: lnested
+  status: UNKNOWN
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/determ_nterm_3.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/determ_nterm_3.bpl

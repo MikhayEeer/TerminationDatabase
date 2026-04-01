@@ -1,0 +1,37 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:36
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (unknown())
+    {
+      if (buf == buflim)
+        break;
+      {;
+    //@ assert(0<=buf);
+    }
+
+      {;
+    //@ assert(buf<bufferlen);
+    }
+
+      buf++;
+    out:
+      in++;
+      {;
+    //@ assert(0<=in);
+    }
+
+      {;
+    //@ assert(in<inlen);
+    }
+
+    }

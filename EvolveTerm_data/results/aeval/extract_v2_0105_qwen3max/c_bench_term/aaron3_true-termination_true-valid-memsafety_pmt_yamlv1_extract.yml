@@ -1,0 +1,14 @@
+source_path: data/aeval/c_bench_term/aaron3_true-termination_true-valid-memsafety.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x >= y && x <= tx + z) {\n  if (__VERIFIER_nondet_int() != 0) {\n\
+    \    z = z - 1;\n    tx = x;\n    x = __VERIFIER_nondet_int();\n    if(!(-1073741823<=x\
+    \ && x<=1073741823)) return 0;\n  } else {\n    y = y + 1;\n  }\n}"

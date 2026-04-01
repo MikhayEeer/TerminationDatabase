@@ -1,0 +1,33 @@
+source_file: NonTerminationSimple8_false-termination_true-valid-memsafety-simplifed-1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/NonTerminationSimple8_false-termination_true-valid-memsafety-simplifed-1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:18
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0) {
+        if (__VERIFIER_nondet_int() != 0) {
+            x = x + 1;
+    } else {if (__VERIFIER_nondet_int() != 0) {
+            x = x + 3;
+        } else {if (__VERIFIER_nondet_int() != 0) {
+            x = x + 4;
+        } else {
+            x = -1;
+        }}}
+    }
+  invariants:
+  - x >= -1
+  - x >= 0
+  explanation: Variable x increases in most branches, but one branch sets x to -1
+    to exit. This requires a multi-phase ranking function where the increasing phase
+    is followed by a terminating decrease.
+  template_type: lmulti
+  template_depth: 2

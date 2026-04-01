@@ -1,0 +1,28 @@
+source_file: 3pieces_Caterina_TACAS16_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T15:47
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0 && (y<=0)) {
+
+        if (x < 10) x = x +1; else x = -1;
+    }
+  invariants:
+  - x >= -1
+  - y <= 0
+  explanation: 'The loop variable x increases from 1 to 10, then wraps to -1, then
+    increases to 0 to exit. A lexicographic ranking function ( (x > 0 ? 1 : 0), -x
+    ) captures this behavior. The first component decreases when x wraps from positive
+    to negative (10 -> -1). The second component decreases as x increases within the
+    positive phase. This requires a depth of 2.'
+  template_type: llexiext
+  template_depth: 2

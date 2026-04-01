@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/determ_term_5.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i, j, k;\ni = -7; j = 2; k = 8;\nwhile (i != j) {\n  i = i + j - k;\n\
+    \  j = j * 2;\n  k = k - 1;\n}"

@@ -1,0 +1,17 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C/SV-COMP_Termination_Category/ChawdharyCookGulwaniSagivYang-ESOP2008-aaron4_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (((an >= i && bn >= j) || (an >= i && bn <= j) || (an <= i && bn >=\
+    \ j)) && k >= tk + 1) {\n    if (an >= i && bn >= j) {\n        if (unknown_int())\
+    \ {\n            j = j + k;\n            tk = k;\n            k = unknown_int();\n\
+    \        } else {\n            i = i + 1;\n        }\n    } else if (an >= i &&\
+    \ bn <= j) {\n        i = i + 1;\n    } else if (an <= i && bn >= j) {\n     \
+    \   j = j + k;\n        tk = k;\n        k = unknown_int();\n    }\n}"

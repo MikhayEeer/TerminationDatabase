@@ -1,0 +1,48 @@
+source_file: 10_pmt_yamlv2_extract.yml
+source_path: arrays/dillig/safe/10.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T15:04
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "for(i=1, j=0; i<size; i+=2, j++) \n{\n    a[j] = b[i];\n}"
+  invariants:
+  - j >= 0
+  - i >= 1
+  - i == 2*j + 1
+  - j <= size/2
+  - i <= size - 1
+- loop_id: 2
+  code: |-
+    for(i=1, j=0; i<size; i+=2, j++)
+    {
+        {;
+    //@ assert(a[j] == b[2*j+1]);
+    }
+
+    }
+  invariants:
+  - i == 2*j + 1
+  - j >= 0
+  - i >= 1
+  - a[j] == b[2*j+1]
+loops_count: -1
+loops_depth: -1
+loops_ids: 2
+loops:
+- id: 1
+  code: "for(i=1, j=0; i<size; i+=2, j++) \n{\n    a[j] = b[i];\n}"
+- id: 2
+  code: |-
+    for(i=1, j=0; i<size; i+=2, j++)
+    {
+        {;
+    //@ assert(a[j] == b[2*j+1]);
+    }
+
+    }

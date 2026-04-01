@@ -1,0 +1,20 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-rsd_true-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-rsd_true-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (da >= r) {\n    if (__VERIFIER_nondet_int() != 0) {\n        da =\
+    \ da - 1;\n    } else {\n        da = db - 1;\n        db = da;\n    }\n}"
+  invariants: []
+  explanation: 'The loop has two branches: one decreases da, the other decreases db
+    (and resets da). Since db never increases and bounds da in the else branch, a
+    2-phase lexicographic ranking function over (da, db) ensures termination.'
+  template_type: lmulti
+  template_depth: 2

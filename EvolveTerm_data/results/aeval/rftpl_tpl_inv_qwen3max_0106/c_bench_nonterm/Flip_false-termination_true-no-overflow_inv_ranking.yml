@@ -1,0 +1,23 @@
+source_file: Flip_false-termination_true-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/Flip_false-termination_true-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (i != 0 && j != 0) {\n    t = i;\n    i = j;\n    j = t;\n}"
+  invariants:
+  - i + j == \at(i + j, Pre)
+  - i * j == \at(i * j, Pre)
+  explanation: The loop guard is a conjunction (i != 0 && j != 0), suggesting a multi-phase
+    ranking function where either i or j could decrease in different phases. Although
+    the given code only swaps variables, the structural pattern matches typical multi-phase
+    scenarios, so 'lmulti' with depth 2 is the appropriate configuration to attempt
+    finding a ranking function.
+  template_type: lmulti
+  template_depth: 2

@@ -1,0 +1,33 @@
+source_file: NoriSharma-2013FSE-Fig8-true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/NoriSharma-2013FSE-Fig8-true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:56
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y) {
+        if (z > 1) {
+            z = z - 1;
+            x = x + z;
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= y
+  - z >= 1
+  - y >= 0
+  - x >= 0
+  explanation: 'The loop exhibits two distinct phases: Phase 1 decreases z (while
+    x increases), and Phase 2 increases y to break the loop. A single linear function
+    cannot decrease in both branches, and the phase switch behavior (z > 1 vs z =
+    1) maps perfectly to a multi-phase ranking template.'
+  template_type: lmulti
+  template_depth: 2

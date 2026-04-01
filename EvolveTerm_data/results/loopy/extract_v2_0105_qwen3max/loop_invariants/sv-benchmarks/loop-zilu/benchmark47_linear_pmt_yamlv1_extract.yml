@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-zilu/benchmark47_linear.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x<y) {\n  if (x < 0) x = x + 7;\n  else x = x + 10;\n  if (y < 0)\
+    \ y = y - 10;\n  else y = y + 3;\n}"

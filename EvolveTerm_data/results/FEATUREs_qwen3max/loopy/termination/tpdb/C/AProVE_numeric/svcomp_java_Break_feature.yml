@@ -1,0 +1,15 @@
+source_path: termination/tpdb/C/AProVE_numeric/svcomp_java_Break.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 0
+has_break: true
+loop_condition_always_true: true
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 14
+summary: 计算从0开始递增i和c，直到i大于10时跳出循环，并返回c的值。

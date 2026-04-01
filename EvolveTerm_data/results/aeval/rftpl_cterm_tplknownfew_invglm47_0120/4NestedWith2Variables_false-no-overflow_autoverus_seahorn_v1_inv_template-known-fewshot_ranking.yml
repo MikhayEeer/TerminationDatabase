@@ -1,0 +1,27 @@
+source_file: 4NestedWith2Variables_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/4NestedWith2Variables_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:12
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a > 0) {
+      olda = a;
+      a = 3*olda - 4*b;
+      b = 4*olda + 3*b;
+    }
+  invariants:
+  - olda == a
+  - a == 3*olda - 4*b
+  - b == 4*olda + 3*b
+  explanation: Exponential growth of state variables requires non-linear ranking functions
+    (handled by lmulti) rather than linear lexicographic functions (lnested).
+  template_type: lmulti
+  template_depth: 2

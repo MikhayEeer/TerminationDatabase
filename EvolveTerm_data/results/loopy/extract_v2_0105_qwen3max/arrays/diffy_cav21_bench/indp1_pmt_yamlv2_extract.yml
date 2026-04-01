@@ -1,0 +1,18 @@
+source_path: data/Loopy_dataset_InvarBenchmark/arrays/diffy_cav21_bench/indp1.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 4
+loops:
+- id: 1
+  code: "for(i=0;i<N;i++)\n{\n    a[i]=((i+1)*(i+1));\n}"
+- id: 2
+  code: "for(i=0;i<N;i++)\n{\n    a[i]=a[i]-(i*i);\n}"
+- id: 3
+  code: "for(i=0;i<N;i++)\n{\n    a[i]=a[i]-i;\n}"
+- id: 4
+  code: "for(i=0;i<N;i++)\n{\n    {;\n//@ assert(a[i]==i+1);\n}\n\n}"

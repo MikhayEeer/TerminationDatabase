@@ -1,0 +1,14 @@
+source_path: data/aeval/c_bench_nonterm/Sunset_false-termination_true-no-overflow.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int i;\ni = __VERIFIER_nondet_int();\n\nwhile (i > 10) {\n    if (i == 25)\
+    \ {\n        i = 30;\n    }\n    if (i <= 30) {\n        i = i-1;\n    } else\
+    \ {\n        i = 20;\n    }\n}"

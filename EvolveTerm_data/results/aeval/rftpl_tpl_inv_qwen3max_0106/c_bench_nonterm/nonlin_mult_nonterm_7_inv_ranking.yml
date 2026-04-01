@@ -1,0 +1,19 @@
+source_file: nonlin_mult_nonterm_7_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nonlin_mult_nonterm_7.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (i*j*k > 0) {\n    i = i + 1;\n    j = j + 1;\n    k = k + 1;\n}"
+  invariants: []
+  explanation: 'Assuming the loop is intended to terminate (e.g., variables should
+    be decremented), a single linear ranking function suffices due to uniform variable
+    updates. Depth 1 captures this. Note: as written, the loop is non-terminating.'
+  template_type: lnested
+  template_depth: 1

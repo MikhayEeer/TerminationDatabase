@@ -1,0 +1,33 @@
+source_file: 3pieces_Caterina_TACAS16_modif_3_pmt_yamlv2_extract.yml
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_3.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/aeval171termregular/extract_v2_glm47_0121/ --output results/aeval171termregular/inv_auto_extractv2_glm47_0121
+  -m yaml -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:27
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x != 0 && (y<=0 && N>0)) {
+
+        if (x < N) x = x +1; else x = y;
+    }
+  invariants:
+  - x >= 0
+  - y <= 0
+  - N > 0
+  - x >= y
+  - x <= N || x == y
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x != 0 && (y<=0 && N>0)) {
+
+        if (x < N) x = x +1; else x = y;
+    }

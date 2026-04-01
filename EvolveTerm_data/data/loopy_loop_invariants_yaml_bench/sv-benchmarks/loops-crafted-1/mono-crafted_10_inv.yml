@@ -1,0 +1,25 @@
+source_file: mono-crafted_10_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/mono-crafted_10.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(x<y){    \n    if(x>=5000000)\n        z++;\n    x++;\n}"
+  invariants:
+  - 0 <= x <= y
+  - y == 10000000
+  - 5000000 <= z <= x + 5000000
+  - x >= 5000000 ==> z == x
+  - x < 5000000 ==> z == 5000000
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(x<y){    \n    if(x>=5000000)\n        z++;\n    x++;\n}"

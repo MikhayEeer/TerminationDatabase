@@ -1,0 +1,15 @@
+source_path: c_bench_nonterm/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-broken.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 18
+summary: 开始一个循环，检查线程ID是否在有效范围内，并递增临时变量直到等于原始ID。

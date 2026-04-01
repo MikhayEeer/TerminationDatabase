@@ -1,0 +1,28 @@
+source_file: PodelskiRybalchenko-simpl1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-simpl1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:16
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y > 0) {\n    if (__VERIFIER_nondet_int() != 0) {\n     \
+    \   \n        newx = __VERIFIER_nondet_int();\n        if (newx >= x) break;\n\
+    \        x = newx;\n        \n        newy = __VERIFIER_nondet_int();\n      \
+    \  if (newy <= y) break;\n        y = newy;\n        \n    } else {\n        \n\
+    \        newy = __VERIFIER_nondet_int();\n        if (newy >= y) break;\n    \
+    \    y = newy;\n        \n    }\n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x <= initial_x
+  - y <= initial_y
+  explanation: Lexicographic ranking function (x, y) suffices. x decreases in branch
+    1; y decreases in branch 2. Both variables are bounded below by 0.
+  template_type: lnested
+  template_depth: 2

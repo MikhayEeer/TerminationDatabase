@@ -1,0 +1,27 @@
+source_file: barthe_merged_safe_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while ( (i < n)) {\n    \n    j1 = 5 * i + c;\n    {;\n//@ assert(j1 == j2);\n\
+    }\n\n    x1 = x1 + j1;\n    x2 = x2 + j2;\n    {;\n//@ assert(x1 == x2);\n}\n\n\
+    \    j2 = j2 + 5;\n    i++;\n}"
+  invariants:
+  - j2 == 5 * i + c
+  - x1 == x2
+  - x2 == (5 * i * (i - 1)) / 2 + c * i
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while ( (i < n)) {\n    \n    j1 = 5 * i + c;\n    {;\n//@ assert(j1 == j2);\n\
+    }\n\n    x1 = x1 + j1;\n    x2 = x2 + j2;\n    {;\n//@ assert(x1 == x2);\n}\n\n\
+    \    j2 = j2 + 5;\n    i++;\n}"

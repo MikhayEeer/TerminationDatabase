@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Ton_Chanh_15/McCarthy91_Iteration_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int c, n;\nc = 1;\nn = unknown_int();\nwhile (c > 0) {\n  if (n > 100) {\n\
+    \    n = n - 10;\n    c = c - 1;\n  } else {\n    n = n + 11;\n    c = c + 1;\n\
+    \  }\n}"

@@ -1,0 +1,24 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex2.14_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/ChenFlurMukhopadhyay-SAS2012-Ex2.14_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:38
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+        x = 10*y - 2*x;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - y == __VERIFIER_old_y
+  explanation: Only x changes; y is constant. A single linear ranking function suffices.
+  template_type: lnested
+  template_depth: 1

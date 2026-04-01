@@ -1,0 +1,38 @@
+source_file: linear-inequality-inv-a_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-invariants/linear-inequality-inv-a.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (i < n) {\n    v = unknown_uchar();\n    s += v;\n    ++i;\n}"
+  invariants:
+  - 0 <= i
+  - i <= n
+  - 0 <= v
+  - v <= 255
+  - 0 <= s
+  - 0 <= i <= n
+  - 0 <= s <= 65025
+  - 0 <= v <= 255
+  - 0 <= i && i <= n
+  - 0 <= s && s <= 65025
+  - 0 <= v && v <= 255
+  - s >= i * 255 ==> s - i * 255 <= 255 * (n - i)
+  - s < i * 255 ==> 255 * i - s <= 255 * n
+  - s <= 255 * i
+  - 0 <= v && v <= s
+  - s <= i * 255
+  - s <= 65025
+  - i <= n ==> s <= i * 255
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (i < n) {\n    v = unknown_uchar();\n    s += v;\n    ++i;\n}"

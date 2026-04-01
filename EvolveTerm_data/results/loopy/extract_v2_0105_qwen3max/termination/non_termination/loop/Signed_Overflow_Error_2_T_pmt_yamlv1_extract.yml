@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Signed_Overflow_Error_2_T.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int smallest = 1;\nwhile( smallest <= needed )\n{\n    if( smallest == 0\
+    \ )\n        return 0;\n    smallest <<= 1;\n}"

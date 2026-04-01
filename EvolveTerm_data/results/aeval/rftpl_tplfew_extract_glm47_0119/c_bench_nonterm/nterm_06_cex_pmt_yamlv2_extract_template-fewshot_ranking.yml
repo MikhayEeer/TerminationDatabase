@@ -1,0 +1,28 @@
+source_file: nterm_06_cex_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/nterm_06_cex.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:45
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (z > 0)
+    {
+      x ++;
+      y --;
+      if (__VERIFIER_nondet_int() == 0)
+        z = z + 4 * x;
+      else
+        z = z + 5 * y;
+    }
+  invariants: []
+  explanation: 'Two phases: 1) y decreases to 0 while z may increase; 2) once y <=
+    0, z decreases to 0.'
+  template_type: lmulti
+  template_depth: 2

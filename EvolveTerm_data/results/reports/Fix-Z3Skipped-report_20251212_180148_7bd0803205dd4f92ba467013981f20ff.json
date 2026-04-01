@@ -1,0 +1,123 @@
+{
+  "run_id": "7bd0803205dd4f92ba467013981f20ff",
+  "original_code": "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n    int a, b, olda;\n    a = __VERIFIER_nondet_int();\n    b = __VERIFIER_nondet_int();\n    while (a > 0) {\n      olda = a;\n      a = 3*olda - 4*b;\n      b = 4*olda + 3*b;\n    }\n    return 0;\n}\n",
+  "code": "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n    int a, b, olda;\n    a = __VERIFIER_nondet_int();\n    b = __VERIFIER_nondet_int();\n    while (a > 0) {\n      olda = a;\n      a = 3*olda - 4*b;\n      b = 4*olda + 3*b;\n    }\n    return 0;\n}\n",
+  "translation": {
+    "enabled": false,
+    "translated": false,
+    "source_code": "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n    int a, b, olda;\n    a = __VERIFIER_nondet_int();\n    b = __VERIFIER_nondet_int();\n    while (a > 0) {\n      olda = a;\n      a = 3*olda - 4*b;\n      b = 4*olda + 3*b;\n    }\n    return 0;\n}\n",
+    "translated_code": null
+  },
+  "loop_extraction": {
+    "loops": [
+      "int a, b, olda;\n    a = __VERIFIER_nondet_int();\n    b = __VERIFIER_nondet_int();\n    while (a > 0) {\n      olda = a;\n      a = 3*olda - 4*b;\n      b = 4*olda + 3*b;\n    }"
+    ],
+    "method": "llm",
+    "llm_response": "int a, b, olda;\n    a = __VERIFIER_nondet_int();\n    b = __VERIFIER_nondet_int();\n    while (a > 0) {\n      olda = a;\n      a = 3*olda - 4*b;\n      b = 4*olda + 3*b;\n    }"
+  },
+  "embedding": {
+    "provider": "qwen",
+    "model": "text-embedding-v4",
+    "dimension": 64,
+    "vector": [
+      -0.12612679600715637,
+      0.013157475739717484,
+      0.10843899101018906,
+      -0.03893052041530609,
+      -0.03985537588596344,
+      0.03497099503874779,
+      0.08121363073587418,
+      0.10491298884153366,
+      -0.1810399293899536,
+      0.24901661276817322,
+      -0.026719573885202408,
+      -0.026054836809635162,
+      -0.05317903310060501,
+      -0.009226851165294647,
+      -0.0015913971001282334,
+      0.036820702254772186,
+      -0.021907450631260872,
+      -0.5206921100616455,
+      0.08693616092205048,
+      -0.09901705384254456,
+      0.020462367683649063,
+      -0.020866990089416504,
+      -0.07994195818901062,
+      0.2920222580432892,
+      -0.03158950433135033,
+      0.07959514111280441,
+      0.17398792505264282,
+      0.0433235727250576,
+      0.061733923852443695,
+      -0.04630044102668762,
+      0.01663289964199066,
+      -0.04254322871565819,
+      0.15352556109428406,
+      -0.17306306958198547,
+      0.039392948150634766,
+      0.0487859845161438,
+      -0.07658936828374863,
+      0.0358380451798439,
+      -0.023901663720607758,
+      -0.13502851128578186,
+      -0.11277423799037933,
+      -0.006184952799230814,
+      -0.030173322185873985,
+      -0.013591000810265541,
+      0.0159392599016428,
+      -0.1238146647810936,
+      0.07554890960454941,
+      -0.3225423991680145,
+      -0.15919028222560883,
+      -0.06884372979402542,
+      -0.21895889937877655,
+      0.025997033342719078,
+      0.18878556787967682,
+      0.14462384581565857,
+      -0.07265874743461609,
+      -0.048410262912511826,
+      0.09086678177118301,
+      -0.0884968489408493,
+      0.020664678886532784,
+      0.08341015875339508,
+      0.09364134073257446,
+      0.1460111290216446,
+      0.002541538793593645,
+      0.041762884706258774
+    ]
+  },
+  "neighbors": [
+    {
+      "case_id": "Ex02",
+      "score": 0.73319011926651
+    },
+    {
+      "case_id": "Fibonacci01-2",
+      "score": 0.6886823773384094
+    },
+    {
+      "case_id": "linear-inequality-inv-d",
+      "score": 0.6584687829017639
+    },
+    {
+      "case_id": "linear-inequality-inv-c",
+      "score": 0.6431910991668701
+    }
+  ],
+  "references": [],
+  "neuro_symbolic": {
+    "invariants": [
+      "a * a + b * b == \\at(a * a + b * b, LoopEntry)"
+    ],
+    "ranking_function": null,
+    "ranking_explanation": "",
+    "verification_result": "Skipped"
+  },
+  "prediction_raw": "{\n  \"chain_of_thought\": \"The loop condition is 'a > 0'. In each iteration, 'a' and 'b' are updated using a linear transformation: a_new = 3*a - 4*b, b_new = 4*a + 3*b. This transformation corresponds to multiplication by the complex number (3 + 4i), since (a + bi)*(3 + 4i) = (3a - 4b) + (4a + 3b)i. The magnitude squared of the complex number a + bi is a^2 + b^2. After transformation, the new magnitude squared is (3a - 4b)^2 + (4a + 3b)^2 = 9a^2 - 24ab + 16b^2 + 16a^2 + 24ab + 9b^2 = 25a^2 + 25b^2 = 25(a^2 + b^2). So the magnitude increases by a factor of 5 each iteration. If initially a > 0, then unless both a and b are zero (which would not satisfy a > 0), the magnitude grows without bound. However, this does not guarantee that 'a' remains positive. But consider initial values like a=1, b=0: then next a = 3*1 - 0 = 3, b = 4*1 + 0 = 4; then a = 3*3 - 4*4 = 9 - 16 = -7 < 0 → loop stops. Try a=4, b=3: a_new = 12 - 12 = 0 → stops. Try a=5, b=0: a=15, b=20 → next a = 45 - 80 = -35 → stops. Try a=2, b=1: a_new = 6 - 4 = 2, b_new = 8 + 3 = 11; next a = 6 - 44 = -38 → stops. It seems hard to find a case where a stays positive forever. But consider the reverse: suppose the loop never terminates, then a > 0 forever. From the transformation, we can derive that a_{n+1} = 3a_n - 4b_n, b_{n+1} = 4a_n + 3b_n. Solve for b_n from first equation: b_n = (3a_n - a_{n+1})/4. Plug into second: b_{n+1} = 4a_n + 3*(3a_n - a_{n+1})/4 = (16a_n + 9a_n - 3a_{n+1})/4 = (25a_n - 3a_{n+1})/4. Also, from next step: a_{n+2} = 3a_{n+1} - 4b_{n+1} = 3a_{n+1} - (25a_n - 3a_{n+1}) = 6a_{n+1} - 25a_n. So recurrence: a_{n+2} - 6a_{n+1} + 25a_n = 0. Characteristic equation: r^2 -6r +25=0 → roots r = (6 ± sqrt(36-100))/2 = 3 ± 4i. So general solution: a_n = 5^n (C1 cos(nθ) + C2 sin(nθ)) for some θ (since |3+4i|=5). Thus a_n oscillates with exponentially growing amplitude. Therefore, even if a starts positive, it will eventually become negative due to oscillation, unless C1=C2=0 (trivial case). Hence, the loop always terminates.\",\n  \"label\": \"terminating\",\n  \"reasoning\": \"The loop updates (a, b) via a linear transformation corresponding to multiplication by 3+4i in the complex plane, which increases magnitude but causes oscillation in the real part (a). The recurrence relation for a shows it follows an oscillatory pattern with exponentially growing amplitude, ensuring it eventually becomes non-positive. Thus, the loop terminates for all initial integer inputs.\",\n  \"report\": \"The loop terminates because the sequence of 'a' values follows a linear recurrence with complex characteristic roots, leading to oscillations that inevitably make 'a' non-positive.\"\n}",
+  "prediction": {
+    "chain_of_thought": "The loop condition is 'a > 0'. In each iteration, 'a' and 'b' are updated using a linear transformation: a_new = 3*a - 4*b, b_new = 4*a + 3*b. This transformation corresponds to multiplication by the complex number (3 + 4i), since (a + bi)*(3 + 4i) = (3a - 4b) + (4a + 3b)i. The magnitude squared of the complex number a + bi is a^2 + b^2. After transformation, the new magnitude squared is (3a - 4b)^2 + (4a + 3b)^2 = 9a^2 - 24ab + 16b^2 + 16a^2 + 24ab + 9b^2 = 25a^2 + 25b^2 = 25(a^2 + b^2). So the magnitude increases by a factor of 5 each iteration. If initially a > 0, then unless both a and b are zero (which would not satisfy a > 0), the magnitude grows without bound. However, this does not guarantee that 'a' remains positive. But consider initial values like a=1, b=0: then next a = 3*1 - 0 = 3, b = 4*1 + 0 = 4; then a = 3*3 - 4*4 = 9 - 16 = -7 < 0 → loop stops. Try a=4, b=3: a_new = 12 - 12 = 0 → stops. Try a=5, b=0: a=15, b=20 → next a = 45 - 80 = -35 → stops. Try a=2, b=1: a_new = 6 - 4 = 2, b_new = 8 + 3 = 11; next a = 6 - 44 = -38 → stops. It seems hard to find a case where a stays positive forever. But consider the reverse: suppose the loop never terminates, then a > 0 forever. From the transformation, we can derive that a_{n+1} = 3a_n - 4b_n, b_{n+1} = 4a_n + 3b_n. Solve for b_n from first equation: b_n = (3a_n - a_{n+1})/4. Plug into second: b_{n+1} = 4a_n + 3*(3a_n - a_{n+1})/4 = (16a_n + 9a_n - 3a_{n+1})/4 = (25a_n - 3a_{n+1})/4. Also, from next step: a_{n+2} = 3a_{n+1} - 4b_{n+1} = 3a_{n+1} - (25a_n - 3a_{n+1}) = 6a_{n+1} - 25a_n. So recurrence: a_{n+2} - 6a_{n+1} + 25a_n = 0. Characteristic equation: r^2 -6r +25=0 → roots r = (6 ± sqrt(36-100))/2 = 3 ± 4i. So general solution: a_n = 5^n (C1 cos(nθ) + C2 sin(nθ)) for some θ (since |3+4i|=5). Thus a_n oscillates with exponentially growing amplitude. Therefore, even if a starts positive, it will eventually become negative due to oscillation, unless C1=C2=0 (trivial case). Hence, the loop always terminates.",
+    "label": "terminating",
+    "reasoning": "The loop updates (a, b) via a linear transformation corresponding to multiplication by 3+4i in the complex plane, which increases magnitude but causes oscillation in the real part (a). The recurrence relation for a shows it follows an oscillatory pattern with exponentially growing amplitude, ensuring it eventually becomes non-positive. Thus, the loop terminates for all initial integer inputs.",
+    "report": "The loop terminates because the sequence of 'a' values follows a linear recurrence with complex characteristic roots, leading to oscillations that inevitably make 'a' non-positive."
+  }
+}

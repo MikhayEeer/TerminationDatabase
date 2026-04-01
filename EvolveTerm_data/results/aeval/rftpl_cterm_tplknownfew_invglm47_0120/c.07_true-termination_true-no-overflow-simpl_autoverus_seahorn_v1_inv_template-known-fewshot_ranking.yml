@@ -1,0 +1,27 @@
+source_file: c.07_true-termination_true-no-overflow-simpl_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/c.07_true-termination_true-no-overflow-simpl.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:04
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i <= 100) {
+        tmp = i;
+        i = j;
+        j = tmp + 1;
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - tmp >= 0
+  explanation: Variable i strictly increases until it exceeds the constant bound 100.
+    A single linear function (100 - i) proves termination.
+  template_type: lnested
+  template_depth: 1

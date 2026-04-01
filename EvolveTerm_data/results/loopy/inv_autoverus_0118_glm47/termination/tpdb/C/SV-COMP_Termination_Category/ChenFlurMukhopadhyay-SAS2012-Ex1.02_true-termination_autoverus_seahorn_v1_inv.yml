@@ -1,0 +1,38 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex1.02_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C/SV-COMP_Termination_Category/ChenFlurMukhopadhyay-SAS2012-Ex1.02_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (x > 0 && x < 100) {
+        int old_x = x;
+        x = unknown_int();
+        if (x < 2*old_x + 10) {
+            break;
+        }
+    }
+  invariants:
+  - old_x >= 0
+  - old_x < 100
+  - x >= 0
+  - x < 100
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x > 0 && x < 100) {
+        int old_x = x;
+        x = unknown_int();
+        if (x < 2*old_x + 10) {
+            break;
+        }
+    }

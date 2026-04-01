@@ -1,0 +1,35 @@
+source_file: PodelskiRybalchenko-VMCAI2004-Ex1_false-no-overflow-version_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-VMCAI2004-Ex1_false-no-overflow-version.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:53
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (i + i1 - j - j1 >= 1) {\n    nondetNat = __VERIFIER_nondet_int();\n\
+    \    if (nondetNat < 0) {\n        nondetNat = -nondetNat;\n    }\n    i = i -\
+    \ nondetNat;\n    nondetPos = __VERIFIER_nondet_int();\n    if (nondetPos < 0)\
+    \ {\n        nondetPos = -nondetPos;\n    }\n    nondetPos = nondetPos + 1;\n\
+    \    j = j + nondetPos;\n  \n    nondetNat1 = __VERIFIER_nondet_int();\n    if\
+    \ (nondetNat1 < 0) {\n        nondetNat1 = -nondetNat1;\n    }\n    i1 = i1 -\
+    \ nondetNat1;\n    nondetPos1 = __VERIFIER_nondet_int();\n    if (nondetPos1 <\
+    \ 0) {\n        nondetPos1 = -nondetPos1;\n    }\n    nondetPos1 = nondetPos1\
+    \ + 1;\n    j1 = j1 + nondetPos1;\n}"
+  invariants:
+  - i >= 0
+  - i1 >= 0
+  - j >= 0
+  - j1 >= 0
+  - nondetNat >= 0
+  - nondetPos >= 1
+  - nondetNat1 >= 0
+  - nondetPos1 >= 1
+  - i + i1 - j - j1 >= 1
+  explanation: The expression (i + i1 - j - j1) decreases strictly in every iteration.
+  template_type: lnested
+  template_depth: 1

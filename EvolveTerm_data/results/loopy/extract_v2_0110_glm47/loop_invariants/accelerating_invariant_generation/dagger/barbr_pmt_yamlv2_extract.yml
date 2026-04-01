@@ -1,0 +1,80 @@
+source_path: loop_invariants/accelerating_invariant_generation/dagger/barbr.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:39
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown_int())\n{\n    if (unknown_int())\n    {\n        if (!(p1\
+    \ >= 0)) \nreturn 0;\n\n        if (!(p1 <= 0)) \nreturn 0;\n\n        if (!(barber\
+    \ >= 1)) \nreturn 0;\n\n        barber = barber-1;\n        chair = chair+1;\n\
+    \        p1 = 1;\n    }\n    else\n    {\n        if (unknown_int())\n       \
+    \ {\n            if (!(p2 >= 0)) \nreturn 0;\n\n            if (!(p2 <= 0)) \n\
+    return 0;\n\n            if (!(barber >= 1)) \nreturn 0;\n\n            barber\
+    \ = barber-1;\n            chair = chair+1;\n            p2 = 1;\n        }\n\
+    \        else\n        {\n            if (unknown_int())\n            {\n    \
+    \            if (!(p2 >= 1)) \nreturn 0;\n\n                if (!(p2 <= 1)) \n\
+    return 0;\n\n                if (!(open >=1)) \nreturn 0;\n\n                open\
+    \ = open -1;\n                p2 = 0;\n            }\n            else\n     \
+    \       {\n                if (unknown_int())\n                {\n           \
+    \         if (!(p3>=0)) \nreturn 0;\n\n                    if (!(p3<=0)) \nreturn\
+    \ 0;\n\n                    if (!(barber >=1)) \nreturn 0;\n\n               \
+    \     barber = barber-1;\n                    chair = chair +1;\n            \
+    \        p3 =1;\n                }\n                else\n                {\n\
+    \                    if (unknown_int())\n                    {\n             \
+    \           if (!(p3>=1)) \nreturn 0;\n\n                        if (!(p3<=1))\
+    \ \nreturn 0;\n\n                        if (!(open >=1)) \nreturn 0;\n\n    \
+    \                    open = open -1;\n                        p3 =0;\n       \
+    \             }\n                    else\n                    {\n           \
+    \             if (unknown_int())\n                        {\n                \
+    \            if (!(p4 >=0)) \nreturn 0;\n\n                            if (!(p4\
+    \ <=0)) \nreturn 0;\n\n                            if (!(barber >=1)) \nreturn\
+    \ 0;\n\n                            barber= barber-1;\n                      \
+    \      chair = chair +1;\n                            p4 = p4+1;\n           \
+    \             }\n                        else\n                        {\n   \
+    \                         if (unknown_int())\n                            {\n\
+    \                                if (! (p4 >=1)) \nreturn 0;\n\n             \
+    \                   if (! (p4 <=1)) \nreturn 0;\n\n                          \
+    \      if (! (open >=1)) \nreturn 0;\n\n                                open =\
+    \ open - 1;\n                                p4=p4 -1;\n                     \
+    \       }\n                            else\n                            {\n \
+    \                               if (unknown_int())\n                         \
+    \       {\n                                    if (! (p5>=0)) \nreturn 0;\n\n\
+    \                                    if (! (p5<=0)) \nreturn 0;\n\n          \
+    \                          barber=barber+1;\n                                \
+    \    p5=1;\n                                }\n                              \
+    \  else\n                                {\n                                 \
+    \   if (unknown_int())\n                                    {\n              \
+    \                          if (! (p5>=1)) \nreturn 0;\n\n                    \
+    \                    if (! (p5<=1)) \nreturn 0;\n\n                          \
+    \              if (! (chair >=1)) \nreturn 0;\n\n                            \
+    \            chair= chair -1;\n                                        p5=2;\n\
+    \                                    }\n                                    else\n\
+    \                                    {\n                                     \
+    \   if (unknown_int())\n                                        {\n          \
+    \                                  if (! (p5>=2)) \nreturn 0;\n\n            \
+    \                                if (! (p5<=2)) \nreturn 0;\n\n              \
+    \                              open=open +1;\n                               \
+    \             p5=3;\n                                        }\n             \
+    \                           else\n                                        {\n\
+    \                                            if (unknown_int())\n            \
+    \                                {\n                                         \
+    \       if (! (p5 >= 3)) \nreturn 0;\n\n                                     \
+    \           if (! (p5 <= 3)) \nreturn 0;\n\n                                 \
+    \               if (! (open == 0)) \nreturn 0;\n\n                           \
+    \                     p5=0;\n                                            }\n \
+    \                                           else\n                           \
+    \                 {\n                                                if (! (p1\
+    \ >= 1)) \nreturn 0;\n\n                                                if (!\
+    \ (p1 <= 1)) \nreturn 0;\n\n                                                if\
+    \ (! (open >= 1)) \nreturn 0;\n\n                                            \
+    \    open = open-1;\n                                                p1 = 0;\n\
+    \                                            }\n                             \
+    \           }\n                                    }\n                       \
+    \         }\n                            }\n                        }\n      \
+    \              }\n                }\n            }\n        }\n    }\n}"

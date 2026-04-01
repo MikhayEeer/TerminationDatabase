@@ -1,0 +1,32 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/4NestedWith2Variables_false-no-overflow_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: 4NestedWith2Variables_false-no-overflow_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: llexiext
+  template_depth: 2
+  svm_mode: llexiext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/4NestedWith2Variables_false-no-overflow.c
+  input_source_stem: 4NestedWith2Variables_false-no-overflow
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/4NestedWith2Variables_false-no-overflow.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/4NestedWith2Variables_false-no-overflow.bpl
+  input_loop:
+    loop_id: 1
+    code: "while (a > 0) {\n  olda = a;\n  a = 3*olda - 4*b;\n  b = 4*olda + 3*b;\n\
+      }"
+    invariants:
+    - olda == a
+    - a == 3*olda - 4*b
+    - b == 4*olda + 3*b
+    - a > 0
+    explanation: A depth of 2 is used to construct a lexicographic ranking function.
+      The first component captures the cyclic progress (phase/angle) of the rotation,
+      and the second component captures the decrease in the variable $a$ within that
+      phase, ensuring the loop condition $a > 0$ eventually fails.
+    template_type: llexiext
+    template_depth: 2
+source_path: data/aeval_171term_regular/4NestedWith2Variables_false-no-overflow.c

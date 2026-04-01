@@ -1,0 +1,14 @@
+source_path: data/aeval/c_bench_nonterm/Flip2_false-termination_true-no-overflow.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (i > 0 && j > 0) {\n    if (i < j) {\n        t = i;\n        i = j;\n\
+    \        j = t;\n    } else {\n        if (i > j) {\n            j = i;\n    \
+    \    } else {\n            i = i-1;\n        }\n    }\n}"

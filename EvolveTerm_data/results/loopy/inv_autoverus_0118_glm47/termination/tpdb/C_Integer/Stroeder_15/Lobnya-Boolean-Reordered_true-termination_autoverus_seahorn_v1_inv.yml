@@ -1,0 +1,40 @@
+source_file: Lobnya-Boolean-Reordered_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C_Integer/Stroeder_15/Lobnya-Boolean-Reordered_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:32
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (b != 0) {
+        b = unknown_int();
+        x = x - 1;
+        if (x >= 0) {
+            b = 1;
+        } else {
+            b = 0;
+        }
+    }
+  invariants:
+  - x == __VERIFIER_nondet_int()
+  - b == __VERIFIER_nondet_int()
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (b != 0) {
+        b = unknown_int();
+        x = x - 1;
+        if (x >= 0) {
+            b = 1;
+        } else {
+            b = 0;
+        }
+    }

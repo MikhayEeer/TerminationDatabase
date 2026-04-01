@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/term_24.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x != y)\n{\n  x++; y++;\n  if (x > z) x = z;\n  if (y > z) y = y -\
+    \ 1;\n}"

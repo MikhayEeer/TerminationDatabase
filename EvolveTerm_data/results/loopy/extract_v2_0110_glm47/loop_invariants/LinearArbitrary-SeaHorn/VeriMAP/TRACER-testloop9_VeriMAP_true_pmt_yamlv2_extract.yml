@@ -1,0 +1,32 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop9_VeriMAP_true.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:35
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (i<10) {
+      if (x==1) {
+        x = 2;
+        y = 3;
+      } else if (x==2) {
+        x = 3;
+        y = 4;
+      } else if (x==3) {
+        x = 1;
+        y = 5;
+      } else if (x==4) {
+        x = 1;
+        y = 6;
+      } else {
+        x = 2;
+      }
+
+      i = i + 1;
+    }

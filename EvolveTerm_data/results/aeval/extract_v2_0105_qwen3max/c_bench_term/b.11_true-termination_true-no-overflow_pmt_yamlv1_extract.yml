@@ -1,0 +1,16 @@
+source_path: data/aeval/c_bench_term/b.11_true-termination_true-no-overflow.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int c;\nint x, y;\nx = __VERIFIER_nondet_int();\ny = __VERIFIER_nondet_int();\n\
+    c = 0;\nwhile (((x >= 0 && y < 2147483647 - x) || (x < 0 && y > -2147483648 -\
+    \ x)) && x + y > 0) {\n    if (x > y) {\n        x = x - 1;\n    } else {\n  \
+    \      if (x == y) {\n            x = x - 1;\n        } else {\n            y\
+    \ = y - 1;\n        }\n    }\n}"

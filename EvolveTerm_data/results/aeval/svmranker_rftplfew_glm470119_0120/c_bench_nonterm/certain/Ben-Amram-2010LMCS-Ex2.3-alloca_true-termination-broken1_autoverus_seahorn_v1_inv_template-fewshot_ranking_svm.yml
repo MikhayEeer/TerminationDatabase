@@ -1,0 +1,15 @@
+input_file: results/aeval/rftpl_tplfew_autoinv_glm47_0119/c_bench_nonterm/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken1_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+source_file: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken1_autoverus_seahorn_v1_inv_template-fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lnested
+  template_depth: 1
+  svm_mode: lnested
+  status: TERMINATE
+  ranking_function: 0.9 *  x0^1 + 0.3 * 1 + 0.3 * 1 + 0.3 * 1
+  ranking_functions:
+  - 0.9 *  x0^1 + 0.3 * 1 + 0.3 * 1 + 0.3 * 1
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken1.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination-broken1.bpl

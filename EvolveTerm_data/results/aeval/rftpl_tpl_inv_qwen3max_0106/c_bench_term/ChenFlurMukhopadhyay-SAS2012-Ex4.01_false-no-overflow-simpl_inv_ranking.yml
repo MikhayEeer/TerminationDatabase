@@ -1,0 +1,19 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex4.01_false-no-overflow-simpl_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex4.01_false-no-overflow-simpl.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x + y >= 0 && x <= n) {\n    x = 2*x + y;\n    y ++;\n}"
+  invariants: []
+  explanation: A single linear ranking function is unlikely due to non-monotonic behavior
+    of x; a 2-phase lexicographic ranking function can capture the eventual divergence
+    of x beyond n.
+  template_type: lmulti
+  template_depth: 2

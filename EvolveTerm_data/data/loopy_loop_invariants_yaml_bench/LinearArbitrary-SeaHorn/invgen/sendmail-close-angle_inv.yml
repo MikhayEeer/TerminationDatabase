@@ -1,0 +1,50 @@
+source_file: sendmail-close-angle_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while (unknown())\n{\n  if (buf == buflim)\n    break;\n  {;\n//@ assert(0<=buf);\n\
+    }\n\n  {;\n//@ assert(buf<bufferlen);\n}\n \n  buf++;\nout:\n  in++;\n  {;\n//@\
+    \ assert(0<=in);\n}\n\n  {;\n//@ assert(in<inlen);\n}\n\n}"
+  invariants:
+  - 0 <= buf
+  - buf <= bufferlen
+  - 0 <= in
+  - in <= inlen
+  - buf == in || buf == in - 1
+  - buflim == bufferlen - 2
+  - buf <= buflim + 1
+  - buf < bufferlen
+  - buf <= in
+  - (buf == buflim) ==> (in < inlen)
+  - in < inlen
+  - buf - in <= 1
+  - buf == in || buf == in + 1
+  - buf == in
+  - 0 <= buf < bufferlen
+  - 0 <= in < inlen
+  - buf <= buflim < bufferlen - 1
+  - bufferlen > 1
+  - inlen > 0
+  - bufferlen < inlen
+  - buf <= buflim
+  - buf <= in <= buf + 1
+  - 0 <= buf <= buflim
+  - 0 <= in <= inlen
+  - 0 <= buf <= bufferlen
+  - in >= buf
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown())\n{\n  if (buf == buflim)\n    break;\n  {;\n//@ assert(0<=buf);\n\
+    }\n\n  {;\n//@ assert(buf<bufferlen);\n}\n \n  buf++;\nout:\n  in++;\n  {;\n//@\
+    \ assert(0<=in);\n}\n\n  {;\n//@ assert(in<inlen);\n}\n\n}"

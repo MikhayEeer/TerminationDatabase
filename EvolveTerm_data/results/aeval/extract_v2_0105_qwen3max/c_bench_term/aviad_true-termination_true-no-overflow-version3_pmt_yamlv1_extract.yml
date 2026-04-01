@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/aviad_true-termination_true-no-overflow-version3.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int a = __VERIFIER_nondet_int();\nwhile (a > 1) {\n  if (a % 10 == 0) a =\
+    \ a / 10;\n  else a = a - 1;\n}"

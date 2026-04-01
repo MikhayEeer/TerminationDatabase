@@ -1,0 +1,37 @@
+source_file: aaron3_false-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/aaron3_false-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:48
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= y && x <= tx + z) {
+        if (__VERIFIER_nondet_int() != 0) {
+            z = z - 1;
+            tx = x;
+            x = __VERIFIER_nondet_int();
+        } else {
+            y = y + 1;
+        }
+    }
+  invariants:
+  - x >= y
+  - x <= tx + z
+  - tx >= y
+  - z >= 0
+  explanation: The loop has two distinct phases (branches) with qualitatively different
+    update rules (decreasing `z` vs increasing `y`). A depth of 2 is sufficient to
+    capture the lexicographic relationship between the bound variables (e.g., `z`
+    and `y`) and the state variables (`x` and `tx`) to prove termination.
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - x0 >= x1
+  - x2 == 0

@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/Piecewise_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (q > 0 && p > 0 && p != q) {\n    if (q < p) {\n        q = q - 1;\n\
+    \        p = unknown_int();\n    } else {if (p < q) {\n        p = p - 1;\n  \
+    \      q = unknown_int();\n    }}\n}"

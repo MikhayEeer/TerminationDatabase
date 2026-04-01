@@ -1,0 +1,31 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-rsd_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-rsd_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:14
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (da >= r) {
+        if (__VERIFIER_nondet_int() != 0) {
+            da = da - 1;
+        } else {
+            da = db - 1;
+            db = da;
+        }
+    }
+  invariants:
+  - da >= r
+  - db >= r
+  explanation: Variable da can increase in the else branch (da = db - 1) if da < db,
+    preventing a single linear or lexicographic ranking function from strictly decreasing
+    in all iterations. Multi-phase analysis is required to handle the convergence
+    of da and db before their mutual descent.
+  template_type: lmulti
+  template_depth: 2

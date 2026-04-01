@@ -1,0 +1,27 @@
+source_file: 19_pmt_yamlv2_extract.yml
+source_path: loop_invariants/accelerating_invariant_generation/cav/19.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:18
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(x<=n-1) {\n    x++;\n    if(x>=m+1) y++;\n    else if(x > m) \nreturn;\n\
+    \n    x = x;\n}"
+  invariants:
+  - x <= n
+  - y >= 0
+  - m >= 0
+  - x >= 0
+  - y <= x - m - 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(x<=n-1) {\n    x++;\n    if(x>=m+1) y++;\n    else if(x > m) \nreturn;\n\
+    \n    x = x;\n}"

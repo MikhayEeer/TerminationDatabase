@@ -1,0 +1,27 @@
+source_file: term_21_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_21.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T16:03
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (z >= 0) {
+        if (z % 5 == 0) z = z - 5;
+          else z = z +1;
+    }
+  invariants:
+  - z >= 0
+  - z % 5 >= 0
+  explanation: Lexicographic tuple (z % 5, z) decreases across all branches.
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - z % 5 == 0
+  - z % 5 == 4

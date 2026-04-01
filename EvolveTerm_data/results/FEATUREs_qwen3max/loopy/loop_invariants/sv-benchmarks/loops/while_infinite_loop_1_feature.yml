@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loops/while_infinite_loop_1.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 0
+has_break: false
+loop_condition_always_true: true
+initial_sat_condition: false
+array_operator: false
+pointer_operator: false
+lines: 20
+summary: 分析代码中的循环和断言，检查变量x的值在无限循环中的状态。

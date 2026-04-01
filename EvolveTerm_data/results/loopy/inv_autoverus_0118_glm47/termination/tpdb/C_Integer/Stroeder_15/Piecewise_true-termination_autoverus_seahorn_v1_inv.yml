@@ -1,0 +1,43 @@
+source_file: Piecewise_true-termination_pmt_yamlv2_extract.yml
+source_path: termination/tpdb/C_Integer/Stroeder_15/Piecewise_true-termination.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:32
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (q > 0 && p > 0 && p != q) {
+        if (q < p) {
+            q = q - 1;
+            p = unknown_int();
+        } else {if (p < q) {
+            p = p - 1;
+            q = unknown_int();
+        }}
+    }
+  invariants:
+  - q >= 0
+  - p >= 0
+  - q == q_init || p == p_init
+  - q <= q_init || p <= p_init
+  - (q > 0 && p > 0 && p != q) || (q == 0 || p == 0 || p == q)
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (q > 0 && p > 0 && p != q) {
+        if (q < p) {
+            q = q - 1;
+            p = unknown_int();
+        } else {if (p < q) {
+            p = p - 1;
+            q = unknown_int();
+        }}
+    }

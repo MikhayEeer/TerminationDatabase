@@ -1,0 +1,88 @@
+source_file: ifeqn3_pmt_yamlv2_extract.yml
+source_path: arrays/diffy_cav21_bench/ifeqn3.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:52
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    /* Loop_A */  for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            a[0] = 6;
+        } else {
+            a[i] = a[i-1] + 6;
+        }
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - a[0] == 6
+  - a[i] == a[i-1] + 6
+  - a[i] == 6 * (i + 1)
+- loop_id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            b[0] = 1;
+        } else {
+            b[i] = b[i-1] + a[i-1];
+        }
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - b[0] == 1
+  - b[i] == b[i-1] + a[i-1]
+- loop_id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(b[i] == 3*i*i + 3*i + 1);
+    }
+
+    }
+  invariants:
+  - i >= 0
+  - i <= N
+  - b[i] == 3*i*i + 3*i + 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 3
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            a[0] = 6;
+        } else {
+            a[i] = a[i-1] + 6;
+        }
+    }
+- id: 2
+  code: |-
+    /* Loop_B */  for(i=0; i<N; i++)
+    {
+        if(i==0) {
+            b[0] = 1;
+        } else {
+            b[i] = b[i-1] + a[i-1];
+        }
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for(i=0; i<N; i++)
+    {
+        {;
+    //@ assert(b[i] == 3*i*i + 3*i + 1);
+    }
+
+    }

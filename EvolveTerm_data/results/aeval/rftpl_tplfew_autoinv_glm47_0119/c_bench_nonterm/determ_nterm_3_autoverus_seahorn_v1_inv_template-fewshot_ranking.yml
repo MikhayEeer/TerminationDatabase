@@ -1,0 +1,29 @@
+source_file: determ_nterm_3_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/determ_nterm_3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:37
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 1) {
+        x = x + z;
+        z = y + z;
+        y = y + 2;
+    }
+  invariants:
+  - x >= 1
+  - z >= 0
+  - y >= 0
+  - x - z == y + 1
+  - y % 2 == 0
+  explanation: The linear combination x - 2z decreases by 2 in each iteration, providing
+    a single ranking function.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/standard_init1_ground-2.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 2
+loops_depth: 1
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: false
+lines: 26
+summary: 初始化一个数组并将所有元素设为42，然后验证每个元素是否等于42。

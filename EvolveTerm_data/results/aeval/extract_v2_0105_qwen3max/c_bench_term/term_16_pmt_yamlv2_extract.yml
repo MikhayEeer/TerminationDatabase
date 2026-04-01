@@ -1,0 +1,13 @@
+source_path: data/aeval/c_bench_term/term_16.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x / 50 == y) {\n    int z = __VERIFIER_nondet_int();\n    x = x +\
+    \ 1 + 50*z;\n    y = y + z;\n}"

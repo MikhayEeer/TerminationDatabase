@@ -1,0 +1,21 @@
+source_file: DivWithoutMinus_false-no-overflow_false-termination_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/DivWithoutMinus_false-no-overflow_false-termination.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (z > 0 && (y == 0 || y > 0 && x > 0))    {\n    \n    if (y == 0) {\n\
+    \        res = res + 1;\n        y = z;\n    }\n    else {\n        x = x + 1;\n\
+    \        y = y - 1;\n    }\n}"
+  invariants: []
+  explanation: 'The loop has two phases: an initial reset phase (executed at most
+    once) and a countdown phase where y decreases. A multi-phase ranking function
+    with depth 2 can handle this.'
+  template_type: lmulti
+  template_depth: 2

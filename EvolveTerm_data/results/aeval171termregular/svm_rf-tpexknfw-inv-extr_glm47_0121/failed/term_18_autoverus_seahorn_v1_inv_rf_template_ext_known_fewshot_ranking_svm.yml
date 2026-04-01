@@ -1,0 +1,31 @@
+input_file: results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/term_18_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+source_file: term_18_autoverus_seahorn_v1_inv_rf_template_ext_known_fewshot_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: llexiext
+  template_depth: 2
+  svm_mode: llexiext
+  status: ERROR
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_18.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/term_18.bpl
+  input_source_path: data/aeval_171term_regular/term_18.c
+  input_loop:
+    loop_id: 1
+    code: "while (x <= 97) {\n    x = y%50 + z%50;\n    y = y +1;\n    z = z +1;\n\
+      }"
+    invariants:
+    - x >= 0
+    - y >= 0
+    - z >= 0
+    - x == (y % 50) + (z % 50)
+    - y == y_initial + (z - z_initial)
+    - z == z_initial + (y - y_initial)
+    explanation: The progress depends on the monotonic increase of y and z (or their
+      modulo components), which form a lexicographic tuple leading to the exit condition.
+    template_type: llexiext
+    template_depth: 2
+source_path: data/aeval_171term_regular/term_18.c

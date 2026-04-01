@@ -1,0 +1,25 @@
+source_file: nterm_20_cex_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_20_cex.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:17
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i + j + a + b >= 0) {
+        if (__VERIFIER_nondet_int() == 0) i--; else j++;
+        if (__VERIFIER_nondet_int() == 0) a = a - 2; else b = b + 2;
+    }
+  invariants:
+  - i + j + a + b >= 0
+  - i + j + a + b == __SEA_initial_i + __SEA_initial_j + __SEA_initial_a + __SEA_initial_b
+  explanation: Single linear guard structure; simplest template, though loop is non-terminating
+    due to non-deterministic updates.
+  template_type: lnested
+  template_depth: 1

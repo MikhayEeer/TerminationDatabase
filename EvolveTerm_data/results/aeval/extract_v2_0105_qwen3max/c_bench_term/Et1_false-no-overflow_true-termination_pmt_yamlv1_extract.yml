@@ -1,0 +1,12 @@
+source_path: data/aeval/c_bench_term/Et1_false-no-overflow_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (a > b) {\n    b = b + a;\n    a = a + 1;\n}"

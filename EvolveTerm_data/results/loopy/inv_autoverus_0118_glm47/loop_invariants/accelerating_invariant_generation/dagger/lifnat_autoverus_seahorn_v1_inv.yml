@@ -1,0 +1,116 @@
+source_file: lifnat_pmt_yamlv2_extract.yml
+source_path: loop_invariants/accelerating_invariant_generation/dagger/lifnat.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:20
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (Eb\
+    \ >=1)) \nreturn 0;\n\n        Eb = Eb -1;\n        Mb = Mb +1;\n    }\n    else\n\
+    \    {\n        if (unknown_int())\n        {\n            if (! (Ea >=1)) \n\
+    return 0;\n\n            Ea = Ea -1;\n            Ma = Ma +1;\n        }\n   \
+    \     else\n        {\n            if (unknown_int())\n            {\n       \
+    \         if (! (Sa>=1)) \nreturn 0;\n\n                Sa=Sa-1;\n           \
+    \     I=I+Sb+Eb+Mb;\n                Sb=0;\n                Eb=1;\n          \
+    \      Mb=0;\n\n            }\n            else\n            {\n             \
+    \   if (unknown_int())\n                {\n                    if (! (Sb>=1))\
+    \ \nreturn 0;\n\n                    I=I+Sb+Eb+Mb;\n                    Sb=0;\n\
+    \                    Eb=1;\n                    Mb=0;\n                }\n   \
+    \             else\n                {\n                    if (unknown_int())\n\
+    \                    {\n\n                        if (! (Sb>=1)) \nreturn 0;\n\
+    \n                        Sb=Sb-1;\n                        I=I+Sa+Ea+Ma;\n  \
+    \                      Sa=0;\n                        Ea=1;\n                \
+    \        Ma=0;\n\n                    }\n                    else\n          \
+    \          {\n                        if (unknown_int())\n                   \
+    \     {\n                            if (! (Sa>=1)) \nreturn 0;\n\n          \
+    \                  I=I+Sa+Ea+Ma;\n                            Sa=0;\n        \
+    \                    Ea=1;\n                            Ma=0;\n              \
+    \          }\n                        else\n                        {\n      \
+    \                      if (unknown_int())\n                            {\n   \
+    \                             if (! (Sa>=1)) \nreturn 0;\n\n                 \
+    \               Sa=Sa-1;\n                                Sb=Sb+Eb+Mb+1;\n   \
+    \                             Eb=0;\n                                Mb=0;\n \
+    \                           }\n                            else\n            \
+    \                {\n                                if (unknown_int())\n     \
+    \                           {\n                                    if (! (I>=1))\
+    \ \nreturn 0;\n\n                                    I=I-1;\n                \
+    \                    Sb=Sb+Eb+Mb+1;\n                                    Eb=0;\n\
+    \                                    Mb=0;\n                                }\n\
+    \                                else\n                                {\n   \
+    \                                 if (unknown_int())\n                       \
+    \             {\n                                        if (! (I >= 1)) \nreturn\
+    \ 0;\n\n                                        I = I -1;\n                  \
+    \                      Sa = Sa + Ea + Ma + 1;\n                              \
+    \          Ea = 0;\n                                        Ma =0;\n         \
+    \                           }\n                                    else\n    \
+    \                                {\n                                        if\
+    \ (! (Sb >= 1)) \nreturn 0;\n\n                                        Sb = Sb-1;\n\
+    \                                        Sa = Ea+Ma+1;\n                     \
+    \                   Ea = 0;\n                                        Ma = 0;\n\
+    \n                                    }\n                                }\n \
+    \                           }\n                        }\n                   \
+    \ }\n                }\n            }\n        }\n    }\n}"
+  invariants:
+  - Eb >= 0
+  - Mb >= 0
+  - Ea >= 0
+  - Ma >= 0
+  - Sa >= 0
+  - Sb >= 0
+  - I >= 0
+  - Sa + Sb + Ea + Eb + Ma + Mb + I >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown_int())\n{\n    if (unknown_int())\n    {\n        if (! (Eb\
+    \ >=1)) \nreturn 0;\n\n        Eb = Eb -1;\n        Mb = Mb +1;\n    }\n    else\n\
+    \    {\n        if (unknown_int())\n        {\n            if (! (Ea >=1)) \n\
+    return 0;\n\n            Ea = Ea -1;\n            Ma = Ma +1;\n        }\n   \
+    \     else\n        {\n            if (unknown_int())\n            {\n       \
+    \         if (! (Sa>=1)) \nreturn 0;\n\n                Sa=Sa-1;\n           \
+    \     I=I+Sb+Eb+Mb;\n                Sb=0;\n                Eb=1;\n          \
+    \      Mb=0;\n\n            }\n            else\n            {\n             \
+    \   if (unknown_int())\n                {\n                    if (! (Sb>=1))\
+    \ \nreturn 0;\n\n                    I=I+Sb+Eb+Mb;\n                    Sb=0;\n\
+    \                    Eb=1;\n                    Mb=0;\n                }\n   \
+    \             else\n                {\n                    if (unknown_int())\n\
+    \                    {\n\n                        if (! (Sb>=1)) \nreturn 0;\n\
+    \n                        Sb=Sb-1;\n                        I=I+Sa+Ea+Ma;\n  \
+    \                      Sa=0;\n                        Ea=1;\n                \
+    \        Ma=0;\n\n                    }\n                    else\n          \
+    \          {\n                        if (unknown_int())\n                   \
+    \     {\n                            if (! (Sa>=1)) \nreturn 0;\n\n          \
+    \                  I=I+Sa+Ea+Ma;\n                            Sa=0;\n        \
+    \                    Ea=1;\n                            Ma=0;\n              \
+    \          }\n                        else\n                        {\n      \
+    \                      if (unknown_int())\n                            {\n   \
+    \                             if (! (Sa>=1)) \nreturn 0;\n\n                 \
+    \               Sa=Sa-1;\n                                Sb=Sb+Eb+Mb+1;\n   \
+    \                             Eb=0;\n                                Mb=0;\n \
+    \                           }\n                            else\n            \
+    \                {\n                                if (unknown_int())\n     \
+    \                           {\n                                    if (! (I>=1))\
+    \ \nreturn 0;\n\n                                    I=I-1;\n                \
+    \                    Sb=Sb+Eb+Mb+1;\n                                    Eb=0;\n\
+    \                                    Mb=0;\n                                }\n\
+    \                                else\n                                {\n   \
+    \                                 if (unknown_int())\n                       \
+    \             {\n                                        if (! (I >= 1)) \nreturn\
+    \ 0;\n\n                                        I = I -1;\n                  \
+    \                      Sa = Sa + Ea + Ma + 1;\n                              \
+    \          Ea = 0;\n                                        Ma =0;\n         \
+    \                           }\n                                    else\n    \
+    \                                {\n                                        if\
+    \ (! (Sb >= 1)) \nreturn 0;\n\n                                        Sb = Sb-1;\n\
+    \                                        Sa = Ea+Ma+1;\n                     \
+    \                   Ea = 0;\n                                        Ma = 0;\n\
+    \n                                    }\n                                }\n \
+    \                           }\n                        }\n                   \
+    \ }\n                }\n            }\n        }\n    }\n}"

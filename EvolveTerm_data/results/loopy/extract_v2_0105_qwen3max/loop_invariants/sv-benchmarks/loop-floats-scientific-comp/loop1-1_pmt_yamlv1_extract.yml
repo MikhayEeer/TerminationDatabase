@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loop-floats-scientific-comp/loop1-1.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(1)\n{\n    term = term * (x/count) ; \n    exp = exp + term ;\n   \
+    \ count++ ;\n\n    temp = unknown_int() ;\n    if(temp ==0 ) break ;\n}"

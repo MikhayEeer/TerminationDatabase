@@ -1,0 +1,38 @@
+source_file: TelAviv-Amir-Minimum-alloca_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/TelAviv-Amir-Minimum-alloca_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:17
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0 && y > 0) {
+        if (0 == __VERIFIER_nondet_int()) {
+            if (x < y) {
+                y = x - 1;
+            } else {
+                y = y - 1;
+            }
+            x = __VERIFIER_nondet_int();
+        } else {
+            if (x < y) {
+                x = x - 1;
+            } else {
+                x = y - 1;
+            }
+            y = __VERIFIER_nondet_int();
+        }
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  explanation: A single linear ranking function f(x, y) = x + y strictly decreases
+    in all branches. No lexicographic order or multi-phase logic is required.
+  template_type: lnested
+  template_depth: 1

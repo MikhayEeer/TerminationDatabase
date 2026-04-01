@@ -1,0 +1,29 @@
+source_path: termination/tpdb/C_Integer/Stroeder_15/min_rf_true-termination.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:48
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (y > 0 && x > 0) {
+      if (x>y) {
+          z = y;
+      } else {
+          z = x;
+      }
+      if (unknown_int() != 0) {
+          y = y+x;
+          x = z-1;
+          z = y+z;
+      } else {
+          x = y+x;
+          y = z-1;
+          z = x+z;
+      }
+    }

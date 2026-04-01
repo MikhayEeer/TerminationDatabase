@@ -1,0 +1,39 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: 3pieces_Caterina_TACAS16_modif_1_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lpiecewiseext
+  template_depth: 2
+  svm_mode: lpiecewiseext
+  status: TERMINATE
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.c
+  input_source_stem: 3pieces_Caterina_TACAS16_modif_1
+  template_predicates:
+  - x0 < 10
+  - x0 <= 0
+  piecewise_rf: "Region 0: not (x0 < 10) and not (x0 <= 0)\n  f(x) = 0.03125 * x0\
+    \ - 0.0625 * x1 - 0.3125\nRegion 1: not (x0 < 10) and x0 <= 0\n  f(x) = 0\nRegion\
+    \ 2: x0 < 10 and not (x0 <= 0)\n  f(x) = - 0.03125 * x0 - 0.0625 * x1 + 0.3125\n\
+    Region 3: x0 < 10 and x0 <= 0\n  f(x) = - 0.03125 * x0 - 0.03125 * x1 - 0.03125"
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.bpl
+  input_loop:
+    loop_id: 1
+    code: "while (x != 0 && (y<=0)) {\n    if (x < 10) x = x +1; else x = y;\n}"
+    invariants:
+    - x >= 0
+    - y <= 0
+    explanation: The loop requires a piecewise ranking function because the update
+      rule for `x` changes qualitatively depending on the condition `x < 10`. A depth
+      of 2 is sufficient to capture the state of `x` and `y` to prove termination
+      across the different branches.
+    template_type: lpiecewiseext
+    template_depth: 2
+    template_predicates:
+    - x0 < 10
+    - x0 <= 0
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_1.c

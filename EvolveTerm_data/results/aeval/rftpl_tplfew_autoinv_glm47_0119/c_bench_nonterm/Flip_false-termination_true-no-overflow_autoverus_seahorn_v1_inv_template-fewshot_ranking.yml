@@ -1,0 +1,27 @@
+source_file: Flip_false-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/Flip_false-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:37
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i != 0 && j != 0) {
+        t = i;
+        i = j;
+        j = t;
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - t >= 0
+  explanation: Loop is non-terminating due to variable swapping; no decrease measure
+    exists.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,15 @@
+source_path: c_bench_term/genady_true-termination_true-no-overflow.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 10
+summary: 开始执行一个循环，每次将j加1，i减1，直到i与j的差小于1。

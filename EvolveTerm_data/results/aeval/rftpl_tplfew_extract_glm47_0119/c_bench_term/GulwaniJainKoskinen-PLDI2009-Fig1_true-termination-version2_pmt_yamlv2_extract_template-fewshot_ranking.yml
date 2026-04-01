@@ -1,0 +1,27 @@
+source_file: GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version2_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/GulwaniJainKoskinen-PLDI2009-Fig1_true-termination-version2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:57
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while(tmp!=id) {
+        if (tmp <= maxId) {
+            tmp = tmp + 1;
+        } else {
+            tmp = -tmp;
+        }
+    }
+  invariants: []
+  explanation: 'Two phases: Phase 1 increases tmp until it exceeds maxId; Phase 2
+    flips the sign (reset). The loop terminates because the reset brings the state
+    closer to the target `id` or breaks the cycle, requiring multi-phase reasoning.'
+  template_type: lmulti
+  template_depth: 2

@@ -1,0 +1,21 @@
+source_file: for_bounded_loop1_false-unreach-call_true-termination-simplified_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "for(i=0; i<n; i++)\n{\n  x = x-y;\n  y = __VERIFIER_nondet_int();\n  x =\
+    \ x+y;\n}"
+  invariants:
+  - 0 <= i && i <= n
+  - x - y == \at(x - y, Pre)
+  explanation: The loop is a simple counted loop; termination is guaranteed by the
+    loop counter i increasing toward n. A linear ranking function like n - i suffices.
+  template_type: lnested
+  template_depth: 1

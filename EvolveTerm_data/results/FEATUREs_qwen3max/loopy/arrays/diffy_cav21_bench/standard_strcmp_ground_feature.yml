@@ -1,0 +1,15 @@
+source_path: arrays/diffy_cav21_bench/standard_strcmp_ground.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Multiple
+loops_count: 3
+loops_depth: 1
+loop_condition_variables_count: 3
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: true
+pointer_operator: true
+lines: 35
+summary: 分析代码的主要任务是初始化两个数组，比较它们的元素，并根据差异设置标志。

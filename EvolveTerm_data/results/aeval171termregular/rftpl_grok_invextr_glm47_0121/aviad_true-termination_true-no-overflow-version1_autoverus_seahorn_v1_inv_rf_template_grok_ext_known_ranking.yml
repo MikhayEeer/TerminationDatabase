@@ -1,0 +1,32 @@
+source_file: aviad_true-termination_true-no-overflow-version1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/aviad_true-termination_true-no-overflow-version1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T17:07
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a > 1) {
+        if (a % 2 == 0) a = a / 2;
+        else if (a % 3 == 0) a = a / 3;
+          else a = a + 1;
+    }
+  invariants:
+  - a >= 1
+  - a % 2 == 0 || a % 3 == 0 || a % 2 != 0 && a % 3 != 0
+  explanation: 'The loop exhibits piecewise behavior with distinct update rules: division
+    by 2 or 3 in some branches, and increment by 1 in others. A depth of 2 allows
+    the ranking function to capture the local increase (e.g., using a measure like
+    -a or a lexicographic pair) while ensuring the global trend towards termination
+    is proven.'
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - x0 % 2 == 0
+  - x0 % 3 == 0

@@ -1,0 +1,30 @@
+source_file: Piecewise_true-no-overflow_true-termination_true-valid-memsafety_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/Piecewise_true-no-overflow_true-termination_true-valid-memsafety.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:50
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j > 0 && i > 0 && i != j) {
+      if (j < i) {
+        j = j - 1;
+        i = __VERIFIER_nondet_int();
+      } else if (i < j) {
+        i = i - 1;
+        j = __VERIFIER_nondet_int();
+      }
+    }
+  invariants:
+  - j >= 0
+  - i >= 0
+  - i != j
+  explanation: 'Two phases of progress: one where j decreases and one where i decreases.'
+  template_type: lmulti
+  template_depth: 2

@@ -1,0 +1,22 @@
+source_file: determ_nterm_1_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/determ_nterm_1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:41
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0) {
+        x = x + y;
+        y = y + 1;
+    }
+  invariants: []
+  explanation: Single non-linear (polynomial) ranking function suffices to show termination.
+  template_type: lnested
+  template_depth: 1

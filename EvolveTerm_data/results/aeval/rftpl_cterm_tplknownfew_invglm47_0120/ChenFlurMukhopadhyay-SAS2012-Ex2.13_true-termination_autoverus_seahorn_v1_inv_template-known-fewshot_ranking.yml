@@ -1,0 +1,26 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex2.13_true-termination_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex2.13_true-termination.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:22
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x - y > 0) {
+        x = y - x;
+        y = y + 1;
+    }
+  invariants:
+  - x - y > 0
+  - y >= 0
+  explanation: The expression (x - y) strictly decreases in every iteration (from
+    positive to negative), satisfying the ranking function requirement with a single
+    linear component.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,28 @@
+source_file: term_07_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_07.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknown_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known
+pmt_ver: rf_template_ext_known
+model: glm-4.7
+time: 2026-01-21T16:00
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > 0)
+    {
+      if (y == 2) x = x - 3; else x = x + 1;
+      if (y == 2) y = 0; else y = y + 1;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - y <= 3
+  explanation: The loop has a cyclic behavior in y (0->1->2->0) and a net decrease
+    in x over each cycle. This fits the multi-phase template with depth 1, tracking
+    the decreasing x over phases.
+  template_type: lmultiext
+  template_depth: 1

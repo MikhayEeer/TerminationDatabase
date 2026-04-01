@@ -1,0 +1,33 @@
+source_path: arrays/diffy_cav21_bench/standard_copy2_ground-2.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T23:01
+loops_count: -1
+loops_depth: -1
+loops_ids: 4
+loops:
+- id: 1
+  code: |-
+    /* Loop_A */  for ( a = 0 ; a < N ; a++ ) {
+        a1[a] = unknown_int();
+    }
+- id: 2
+  code: |-
+    /* Loop_B */  for ( i = 0 ; i < N ; i++ ) {
+        a2[i] = a1[i];
+    }
+- id: 3
+  code: |-
+    /* Loop_C */  for ( i = 0 ; i < N ; i++ ) {
+        a3[i] = a2[i];
+    }
+- id: 4
+  code: |-
+    /* Loop_D */  for ( x = 0 ; x < N ; x++ ) {
+        {;
+    //@ assert(  a1[x] == a3[x]  );
+    }
+    }

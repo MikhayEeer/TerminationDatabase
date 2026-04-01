@@ -1,0 +1,12 @@
+source_path: data/aeval/c_bench_term/term_19.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (x != 2*y) {\n  if (x % 5 == 1) x++;\n    else x = x - 2;\n}"

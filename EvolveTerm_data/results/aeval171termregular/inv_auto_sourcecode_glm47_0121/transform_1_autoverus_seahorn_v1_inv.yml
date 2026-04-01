@@ -1,0 +1,23 @@
+source_file: transform_1.c
+source_path: transform_1.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:30
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n  int x, y, z;\n\
+    \  x = __VERIFIER_nondet_int();\n  y = __VERIFIER_nondet_int();\n  if (y > 1)\n\
+    {  \n  z = 0;\n  while (x > 0) {\n    x = x - y;\n    y = y - z;\n    if (z ==\
+    \ 0) z = 13;\n      else if (z == 13) z = -20;\n        else if (z == -20) z =\
+    \ 7;\n          else z = 0;\n  }\n}\n  return 0;\n}\n"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= -20
+  - z <= 13
+  - (z == 0 || z == 13 || z == -20 || z == 7)

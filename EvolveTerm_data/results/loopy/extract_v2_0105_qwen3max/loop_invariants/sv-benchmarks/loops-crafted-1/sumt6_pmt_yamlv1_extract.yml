@@ -1,0 +1,16 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/sv-benchmarks/loops-crafted-1/sumt6.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "unsigned int n=0,i=0,k=0,j=0,l=0;\nunsigned int v2=0, v3=0, v4=0;\nn = unknown_int();\n\
+    if (!(n <= SIZE)) return 0;\nwhile( l < n ) {\n\n    if(!(l%6))\n      v2 = v2\
+    \ + 1;\n    else if(!(l%5))\n      v3 = v3 + 1;\n    else if(!(l%4))\n      v4\
+    \ = v4 + 1;\n    else if(!(l%3))\n      i = i + 1;\n    else if(!(l%2)) \n   \
+    \     j = j+1;\n    else \n      k = k+1;\n  l = l+1;\n}"

@@ -1,0 +1,27 @@
+source_file: nterm_ever_11_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_11.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:35
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= 49) {
+        x = y%50;
+        y ++;
+    }
+  invariants:
+  - x >= 0
+  - x < 50
+  - y >= 0
+  - y <= 50
+  - x == (y-1) % 50
+  explanation: Single variable y increases monotonically toward bound 50.
+  template_type: lnested
+  template_depth: 1

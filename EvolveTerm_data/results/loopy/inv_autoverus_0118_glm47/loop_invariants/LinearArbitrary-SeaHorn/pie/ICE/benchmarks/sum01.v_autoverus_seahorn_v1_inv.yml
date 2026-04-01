@@ -1,0 +1,40 @@
+source_file: sum01.v_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum01.v.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:15
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    for(i=1; i<=n; i++) {
+        sn = sn + a;
+        v1 = unknown_int();
+        v2 = unknown_int();
+        v3 = unknown_int();
+
+    }
+  invariants:
+  - sn == sn_0 + (i-1)*a
+  - v1 == v1_0
+  - v2 == v2_0
+  - v3 == v3_0
+  - a == a_0
+  - n == n_0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    for(i=1; i<=n; i++) {
+        sn = sn + a;
+        v1 = unknown_int();
+        v2 = unknown_int();
+        v3 = unknown_int();
+
+    }

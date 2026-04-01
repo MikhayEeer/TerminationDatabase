@@ -1,0 +1,24 @@
+source_file: nterm_ever_01_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_01.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:46
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while ((x > 0 && y > 0) || (x < 0 && y < 0))
+    {
+        y = y * -7;
+        x = x * -9;
+    }
+  invariants: []
+  explanation: The loop terminates after at most one iteration because the sign flip
+    invalidates the condition immediately. A single component is sufficient.
+  template_type: lnested
+  template_depth: 1

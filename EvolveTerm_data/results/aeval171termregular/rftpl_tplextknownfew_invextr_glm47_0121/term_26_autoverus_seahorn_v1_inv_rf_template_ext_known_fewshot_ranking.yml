@@ -1,0 +1,28 @@
+source_file: term_26_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_26.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T15:50
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x == y){
+      x = x + c1 % 2;
+      y = y + c2 % 3;
+      c1 = c1 +1; c2 = c2 +1;
+    }
+  invariants:
+  - x == y + (c1 % 2) - (c2 % 3)
+  - c1 >= 0
+  - c2 >= 0
+  - x >= 0
+  - y >= 0
+  explanation: Single monotone progress based on increasing variables c1 and c2.
+  template_type: llexiext
+  template_depth: 1

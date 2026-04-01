@@ -1,0 +1,23 @@
+source_path: data/aeval_171term_regular/Masse-VMCAI2014-Fig1b_true-termination-version-1.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/extract_v2_glm47_0121/
+  -p v2
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-21T14:54
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (x <= 100) {
+        if (0 == __VERIFIER_nondet_int()) {
+            x = - 2 * x + 2;
+        } else if (0 == __VERIFIER_nondet_int()) {
+            x = - 3 * x - 2;
+        } else {
+            x = - 4 * x + 2;
+        }
+    }

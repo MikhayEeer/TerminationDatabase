@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loops-crafted-1/mono-crafted_12.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 19
+summary: 计算在循环中对 z 累加偶数值后验证其是否为偶数。

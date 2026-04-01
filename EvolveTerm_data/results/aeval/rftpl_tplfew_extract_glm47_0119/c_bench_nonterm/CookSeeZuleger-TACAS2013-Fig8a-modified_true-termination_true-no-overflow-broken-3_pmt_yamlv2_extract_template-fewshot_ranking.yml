@@ -1,0 +1,23 @@
+source_file: CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow-broken-3_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/CookSeeZuleger-TACAS2013-Fig8a-modified_true-termination_true-no-overflow-broken-3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:47
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != K) {
+        if (x <= K) {
+            x = x + 1;
+        }
+    }
+  invariants: []
+  explanation: Single variable monotone progress toward bound K.
+  template_type: lnested
+  template_depth: 1

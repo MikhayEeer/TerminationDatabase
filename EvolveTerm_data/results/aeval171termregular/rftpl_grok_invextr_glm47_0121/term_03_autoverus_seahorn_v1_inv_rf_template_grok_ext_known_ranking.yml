@@ -1,0 +1,31 @@
+source_file: term_03_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_03.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:53
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > y || y > z)
+    {
+      x = x-3;
+      y = y-2;
+      z = z-1;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  explanation: The loop decreases the variables x, y, and z monotonically. The condition
+    x > y || y > z checks if the sequence is strictly decreasing. A lexicographic
+    ranking function of depth 2 (e.g., (x, y)) is sufficient to show that the tuple
+    strictly decreases in each iteration, ensuring the loop eventually terminates
+    when x <= y and y <= z.
+  template_type: llexiext
+  template_depth: 2

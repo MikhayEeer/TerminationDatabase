@@ -1,0 +1,28 @@
+source_file: PodelskiRybalchenko-simpl1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/PodelskiRybalchenko-simpl1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:53
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0 && y > 0) {\n    if (__VERIFIER_nondet_int() != 0) {\n     \
+    \   \n        newx = __VERIFIER_nondet_int();\n        if (newx >= x) break;\n\
+    \        x = newx;\n        \n        newy = __VERIFIER_nondet_int();\n      \
+    \  if (newy <= y) break;\n        y = newy;\n        \n    } else {\n        \n\
+    \        newy = __VERIFIER_nondet_int();\n        if (newy >= y) break;\n    \
+    \    y = newy;\n        \n    }\n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x <= initial_x
+  - y <= initial_y
+  explanation: Lexicographic decrease on (x, -y). x decreases in the first branch;
+    y decreases in the second branch.
+  template_type: lnested
+  template_depth: 2

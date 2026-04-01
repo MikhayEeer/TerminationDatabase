@@ -1,0 +1,27 @@
+source_path: loop_invariants/sv-benchmarks/loop-industry-pattern/mod3.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:28
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while(unknown_int()){
+      if(x % 3 == 1){
+        x += 2; y = 0;}
+      else{
+        if(x % 3 == 2){
+          x += 1; y = 0;}
+        else{
+          if(unknown_int()){
+            x += 4; y = 1;}
+          else{
+            x += 5; y = 1;}
+        }
+      }
+    }

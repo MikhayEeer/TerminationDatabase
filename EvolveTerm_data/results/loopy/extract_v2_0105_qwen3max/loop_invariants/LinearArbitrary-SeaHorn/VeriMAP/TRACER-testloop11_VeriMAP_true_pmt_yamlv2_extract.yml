@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown()) {\n    if (s == 2){\n      if (e ==0) e=1;\n      s = 3;\n\
+    \    }\n    else if (s == 3){\n      if (e ==1) e=2;\n      s=4;\n    }\n    else\
+    \ if (s == 4){\n      {;\n//@ assert(!( e == 3 ));\n}\n\n      s=5;\n    }\n}"

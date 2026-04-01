@@ -1,0 +1,20 @@
+source_file: nterm_20_cex_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_20_cex.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (i + j + a + b >= 0) {\n    if (__VERIFIER_nondet_int() == 0) i--;\
+    \ else j++;\n    if (__VERIFIER_nondet_int() == 0) a = a - 2; else b = b + 2;\n\
+    }"
+  invariants: []
+  explanation: Two independent decreasing variables (i and a) suggest a multi-phase
+    ranking function with two phases to handle each source of progress.
+  template_type: lmulti
+  template_depth: 2

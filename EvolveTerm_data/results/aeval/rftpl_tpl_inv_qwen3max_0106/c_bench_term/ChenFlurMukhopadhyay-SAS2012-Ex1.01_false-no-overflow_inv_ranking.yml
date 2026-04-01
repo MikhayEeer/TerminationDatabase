@@ -1,0 +1,20 @@
+source_file: ChenFlurMukhopadhyay-SAS2012-Ex1.01_false-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/ChenFlurMukhopadhyay-SAS2012-Ex1.01_false-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x > 0) {\n  x = -2*x + 10;\n}"
+  invariants: []
+  explanation: The loop variable x does not decrease monotonically; it can increase
+    temporarily before eventual termination. A multi-phase linear ranking function
+    with depth 2 can model the initial phase (where x may fluctuate) and the final
+    phase (where x becomes large enough to exit in one step).
+  template_type: lmulti
+  template_depth: 2

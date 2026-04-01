@@ -1,0 +1,35 @@
+source_file: term_05_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_05.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_grok_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_grok_ext_known
+pmt_ver: rf_template_grok_ext_known
+model: glm-4.7
+time: 2026-01-21T16:51
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j > d && (j>d && d>1)) {
+
+      j = j % 2;
+    }
+  invariants:
+  - j >= 0
+  - d >= 0
+  - j <= j_init
+  - d == d_init
+  - j_init >= 0
+  - d_init >= 0
+  explanation: The loop has a piecewise control flow based on the value of `d`. The
+    ranking function uses a lexicographic measure where the primary component is `d
+    - 1` (ensuring progress when `d > 1` is false) and the secondary component is
+    `j` (which decreases to 0 or 1 via the modulo operation). Depth 2 is sufficient
+    to capture this conditional logic and the bounded decrease of `j`.
+  template_type: lpiecewiseext
+  template_depth: 2
+  template_predicates:
+  - x0 < 2
+  - x1 > 1

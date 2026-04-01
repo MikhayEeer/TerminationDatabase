@@ -1,0 +1,19 @@
+source_file: term_17.c
+source_path: term_17.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input data/aeval_171term_regular/ --output results/aeval171termregular/inv_auto_sourcecode_glm47_0121
+  -m code -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:34
+has_extract: false
+invariants_result:
+- loop_id: 1
+  code: "extern int __VERIFIER_nondet_int(void);\n\nint main()\n{\n  int x, y;\n \
+    \ x = 0;\n  y = 0;\n  \n  while (x < 49) {\n    x = y%50;\n    y = y +1;\n  }\n\
+    \  return 0;\n}\n"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - x == y % 50

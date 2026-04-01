@@ -1,0 +1,31 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/ICE/benchmarks/form27.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:32
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while(input)
+    {
+        x1p = unknown_int();
+        x2p = unknown_int();
+        x3p = unknown_int();
+        x4p = unknown_int();
+        x5p = unknown_int();
+
+        if (0 <= x1p && x1p <= x4p + 1 && x2p == x3p && (x2p <= -1 || x4p <= x2p + 2) && x5p == 0)
+        {
+        x1 = x1p;
+        x2 = x2p;
+        x3 = x3p;
+        x4 = x4p;
+        x5 = x5p;
+        }
+        input = unknown_int();
+    }

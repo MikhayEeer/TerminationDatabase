@@ -1,0 +1,50 @@
+source_file: 46_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/46.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(unknown2()){\n    if(w%2 == 1) {x++; w++;};\n    if(z%2==0) {y++; z++;};\n\
+    }"
+  invariants:
+  - w >= 1
+  - z >= 0
+  - x <= 1
+  - y >= 0
+  - 0 <= x <= 1
+  - 0 <= y
+  - 0 <= z
+  - 1 <= w
+  - x <= w
+  - y <= z
+  - (w % 2 == 1) ==> (x == w / 2)
+  - (z % 2 == 0) ==> (y == z / 2)
+  - x >= 0
+  - w >= 0
+  - w - x == 1
+  - z - y == 0
+  - 0 <= x
+  - 0 <= w
+  - w == x + 1
+  - z == y
+  - w % 2 == 1 ==> x == \at(x, LoopEntry) + (w - \at(w, LoopEntry)) / 2
+  - z % 2 == 0 ==> y == \at(y, LoopEntry) + (z - \at(z, LoopEntry)) / 2
+  - (w % 2 == 0) ==> (x == w / 2)
+  - z % 2 == y % 2
+  - x * 2 <= w
+  - w <= x + 1
+  - z <= y
+  - y <= x + 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown2()){\n    if(w%2 == 1) {x++; w++;};\n    if(z%2==0) {y++; z++;};\n\
+    }"

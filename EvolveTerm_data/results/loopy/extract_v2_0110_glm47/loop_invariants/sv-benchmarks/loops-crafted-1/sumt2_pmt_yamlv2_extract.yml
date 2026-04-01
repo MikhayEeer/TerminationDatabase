@@ -1,0 +1,14 @@
+source_path: loop_invariants/sv-benchmarks/loops-crafted-1/sumt2.c
+task: extract
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm extract
+  --input data/Loopy_dataset_InvarBenchmark/ -r -p v2 --output results/loopy/extract_v2_0110_glm47/
+pmt_ver: pmt_yamlv2
+model: glm-4.7
+time: 2026-01-10T22:28
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( l < n ) {\n      if(!(l%2))\n        i = i + 1;\n      else \n   \
+    \       j = j+1;\n    l = l+1;\n  }"

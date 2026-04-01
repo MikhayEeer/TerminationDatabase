@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Unsigned_Wraparound_Error_3_T.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while( newbufsize < pathlen + len + 1 )\n{\n    if( newbufsize >= 0x80000000\
+    \ )\n        newbufsize = 0xffffffff;\n    else\n        newbufsize *= 2;\n}"

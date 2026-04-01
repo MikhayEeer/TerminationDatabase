@@ -1,0 +1,38 @@
+source_file: sendmail-mime-fromqp_pmt_yamlv2_extract.yml
+source_path: loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:18
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(unknown())\n{\n  \n  if(unknown())\n  {\n    \n    if(unknown())\n\
+    \  \n  goto AFTERLOOP; \n\n    if(unknown())\n    {\n  out = 0;\n  nchar = 0;\n\
+    \  goto LOOPEND;\n    }\n    else\n    {\n      \n  if(unknown())  goto AFTERLOOP;\n\
+    \n  nchar++;\n  if (nchar >= outfilelen)\n    goto AFTERLOOP;\n\n  {;\n//@ assert(0<=out);\n\
+    }\n\n  {;\n//@ assert(out<outfilelen);\n}\n\n  out++;\n    }\n  }\n  else\n  {\n\
+    \    \n    nchar++;\n    if (nchar >= outfilelen)\n  goto AFTERLOOP;\n\n    {;\n\
+    //@ assert(0<=out);\n}\n\n    {;\n//@ assert(out<outfilelen);\n}\n\n    out++;\n\
+    \n    if(unknown()) goto AFTERLOOP;\n  }\nLOOPEND:;\n}"
+  invariants:
+  - 0 <= out
+  - out < outfilelen
+  - nchar >= 0
+  - nchar <= outfilelen
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown())\n{\n  \n  if(unknown())\n  {\n    \n    if(unknown())\n\
+    \  \n  goto AFTERLOOP; \n\n    if(unknown())\n    {\n  out = 0;\n  nchar = 0;\n\
+    \  goto LOOPEND;\n    }\n    else\n    {\n      \n  if(unknown())  goto AFTERLOOP;\n\
+    \n  nchar++;\n  if (nchar >= outfilelen)\n    goto AFTERLOOP;\n\n  {;\n//@ assert(0<=out);\n\
+    }\n\n  {;\n//@ assert(out<outfilelen);\n}\n\n  out++;\n    }\n  }\n  else\n  {\n\
+    \    \n    nchar++;\n    if (nchar >= outfilelen)\n  goto AFTERLOOP;\n\n    {;\n\
+    //@ assert(0<=out);\n}\n\n    {;\n//@ assert(out<outfilelen);\n}\n\n    out++;\n\
+    \n    if(unknown()) goto AFTERLOOP;\n  }\nLOOPEND:;\n}"

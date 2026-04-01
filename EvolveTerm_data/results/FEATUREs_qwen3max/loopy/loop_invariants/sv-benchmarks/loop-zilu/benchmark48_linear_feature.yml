@@ -1,0 +1,15 @@
+source_path: loop_invariants/sv-benchmarks/loop-zilu/benchmark48_linear.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: true
+lines: 21
+summary: 分析代码的主要任务是通过循环递增变量i和k，直到i不小于j，然后验证k是否大于j减去i。

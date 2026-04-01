@@ -1,0 +1,30 @@
+source_file: term_02_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/term_02.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T15:46
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x > y && y > z)
+    {
+      x = x-3;
+      y = y-2;
+      z = z-1;
+    }
+  invariants:
+  - x >= y + 2*(y - z)
+  - y >= z + (y - z)
+  - z >= 0
+  - x >= 0
+  - y >= 0
+  explanation: All variables decrease monotonically; a single decreasing variable
+    (e.g., x) suffices.
+  template_type: llexiext
+  template_depth: 1

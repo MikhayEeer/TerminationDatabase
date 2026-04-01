@@ -1,0 +1,32 @@
+source_file: benchmark51_polynomial_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-zilu/benchmark51_polynomial.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:12
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (unknown_bool()) {
+        if (x>50) x++;
+        if (x == 0) { x ++;
+        } else x--;
+    }
+  invariants:
+  - x >= 0
+  - x <= 51
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (unknown_bool()) {
+        if (x>50) x++;
+        if (x == 0) { x ++;
+        } else x--;
+    }

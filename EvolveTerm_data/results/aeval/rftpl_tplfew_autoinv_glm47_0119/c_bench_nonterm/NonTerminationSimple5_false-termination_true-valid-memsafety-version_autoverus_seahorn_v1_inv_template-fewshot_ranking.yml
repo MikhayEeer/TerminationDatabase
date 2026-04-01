@@ -1,0 +1,27 @@
+source_file: NonTerminationSimple5_false-termination_true-valid-memsafety-version_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/NonTerminationSimple5_false-termination_true-valid-memsafety-version.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:33
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x < 0) {
+        int c = __VERIFIER_nondet_int();
+        if (c == 0) x++;
+        else x--;
+    }
+  invariants:
+  - x == __VERIFIER_nondet_int()
+  - c == __VERIFIER_nondet_int()
+  - x < 0
+  explanation: Variable x can both increase and decrease, requiring a more complex
+    ranking strategy than simple lexicographic ordering.
+  template_type: lmulti
+  template_depth: 1

@@ -1,0 +1,23 @@
+source_file: Problem00_label00_true-unreach-call-toy_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/Problem00_label00_true-unreach-call-toy.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while(output != 0)\n{\n    // read input\n    int input = __VERIFIER_nondet_int();\n\
+    \    if ((input != 1) && (input != 2) && (input != 3) && (input != 4) && (input\
+    \ != 5) && (input != 6)) return -2;\n\n    // operate eca engine\n    output =\
+    \ calculate_output(input);\n}"
+  invariants:
+  - output != 0
+  explanation: The loop depends on a single variable 'output' for termination, suggesting
+    a single-phase linear ranking function. No nested structure or multi-variable
+    coordination is present.
+  template_type: lmulti
+  template_depth: 1

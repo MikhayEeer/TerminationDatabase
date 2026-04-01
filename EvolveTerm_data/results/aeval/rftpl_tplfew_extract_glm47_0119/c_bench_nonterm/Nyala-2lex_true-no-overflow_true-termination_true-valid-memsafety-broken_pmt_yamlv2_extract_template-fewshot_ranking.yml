@@ -1,0 +1,26 @@
+source_file: Nyala-2lex_true-no-overflow_true-termination_true-valid-memsafety-broken_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/Nyala-2lex_true-no-overflow_true-termination_true-valid-memsafety-broken.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:52
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 && y >= 0) {
+        y = y - 1;
+        if (y < 0) {
+            x = x + 1;
+            y = __VERIFIER_nondet_int();
+        }
+    }
+  invariants: []
+  explanation: 'Two phases: phase 1 decreases y; phase 2 increases x (x cannot be
+    used in a lexicographic tuple).'
+  template_type: lmulti
+  template_depth: 2

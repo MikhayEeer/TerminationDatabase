@@ -1,0 +1,15 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/tpdb/C_Integer/Stroeder_15/min_rf_true-termination.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (y > 0 && x > 0) {\n  if (x>y) {\n      z = y;\n  } else {\n      z\
+    \ = x;\n  }\n  if (unknown_int() != 0) {\n      y = y+x;\n      x = z-1;\n   \
+    \   z = y+z;\n  } else {\n      x = y+x;\n      y = z-1;\n      z = x+z;\n  }\n\
+    }"

@@ -1,0 +1,4885 @@
+directory,filename,code_snippet,invariant
+accelerating_invariant_generation\cav,05.c,"while(unknown1())
+	{
+	  x++;
+	  y++;
+	  i+=x;
+	  j+=y;
+	  if(flag)  j+=1;
+          j = j;
+	}",\false
+accelerating_invariant_generation\cav,07.c,"while(i<n) {
+    i++;
+    j++;
+  }",\false
+accelerating_invariant_generation\cav,19.c,"while(x<=n-1) {
+    x++;
+    if(x>=m+1) y++;
+    else if(x > m) 
+return;
+
+    x = x;
+  }",\false
+accelerating_invariant_generation\cav,20.c,"while(j<=n-1) {
+      if(j==i)
+      {
+         x++;
+         y--;
+      }else
+      {
+         y++;
+         x--;
+      }
+	if(unknown1())
+  		m = j;
+      j++;
+    }",\false
+accelerating_invariant_generation\cav,35.c,"while(x<=n-1) {
+    x++;
+  }",\false
+accelerating_invariant_generation\cav,37.c,"while(x<=n-1) {
+     if(unknown1()) {
+	m = x;
+     }
+     x= x+1;
+  }",\false
+accelerating_invariant_generation\cav,39.c,"for (;;)
+    if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;
+    else {
+      
+      glob3_dc++;
+      
+      if(glob3_dc <= -1 || glob3_dc >= MAXPATHLEN + 1)
+      {goto ERROR; { ERROR: {; 
+//@ assert(\false);
+}
+}}
+      if (unknown()) goto END;
+    }",\false
+accelerating_invariant_generation\cav,gulv.c,"while (unknown_int()) {
+   if (unknown_int())
+     {x = x+1; y = y+100;}
+   else if (unknown_int()){
+     if (x >= 4)
+       {x = x+1; y = y+1;}
+   }
+ else if (y > 10*w && z >= 100*x)
+     {y = -y;}
+   w = w+1; z = z+10;
+  x = x; 
+ 
+}",\false
+accelerating_invariant_generation\cav,gulv_simp.c,"while (unknown_int()) {
+   if (unknown_int())
+     {x = x+1; y = y+100;}
+   else if (unknown_int()){
+     if (x >= 4)
+       {x = x+1; y = y+1;}
+   }
+ 
+   x = x; 
+}",\false
+accelerating_invariant_generation\cav,pldi082_unbounded.c,"while (1){
+     if (x <= N)
+        y++;
+     else if(x >= N+1)
+       y--;
+     else return 1;
+
+     if ( y < 0)
+       break;
+     x++;
+  }",\false
+accelerating_invariant_generation\cav,substring1.c,"while (i < k) {
+i++;
+j++;
+}",\false
+accelerating_invariant_generation\cav,xy10.c,"while (unknown_int()){
+    x += 10;
+    y += 1;
+  }",\false
+accelerating_invariant_generation\crafted,const_safe1.c,"while (y < 10) {
+    x = 0;
+    y++;
+  }",x == 0
+accelerating_invariant_generation\crafted,diamond_safe1.c,"while (x < 99) {
+    if (y % 2 == 0) {
+      x += 2;
+    } else {
+      x++;
+    }
+  }",(x % 2) == (y % 2)
+accelerating_invariant_generation\crafted,diamond_safe2.c,"while (x < 99) {
+    
+    if (y % 2 == 0) x += 2;
+    else x++;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 2;
+
+    if (y % 2 == 0) x += 2;
+    else x += 2;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 2;
+
+    if (y % 2 == 0) x += 2;
+    else x += 2;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 4;
+
+    if (y % 2 == 0) x += 2;
+    else x += 4;
+
+    if (y % 2 == 0) x += 2;
+    else x += 2;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 4;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 4;
+  }",(x % 2) == (y % 2)
+accelerating_invariant_generation\crafted,multivar_safe1.c,"while (x < 100) {
+    x++;
+    y++;
+  }",x == y
+accelerating_invariant_generation\crafted,overflow_safe1.c,"while (x >= 10) {
+    x += 2;
+  }",!(x % 2)
+accelerating_invariant_generation\crafted,phases_safe1.c,"while (x < 0x0fffffff) {
+    if (x < 0xfff0) {
+      x++;
+    } else {
+      x += 2;
+    }
+  }",!(x % 2)
+accelerating_invariant_generation\crafted,simple_safe1.c,"while (x < 0x0fffffff) {
+    x += 2;
+  }",!(x % 2)
+accelerating_invariant_generation\crafted,simple_safe2.c,"while (x < 0x0fffffff) {
+    x++;
+  }",x >= 0x0fffffff
+accelerating_invariant_generation\crafted,simple_safe3.c,"while (x < N) {
+    x += 2;
+  }",!(x % 2)
+accelerating_invariant_generation\crafted,simple_safe4.c,"while (x > 0) {
+    x -= 2;
+  }",!(x % 2)
+accelerating_invariant_generation\crafted,underapprox_safe2.c,"while (x < 6) {
+    x++;
+    y *= 2;
+  }",x == 6
+accelerating_invariant_generation\crafted,underapprox_unsafe1.c,"while (x < 6) {
+    x++;
+    y *= 2;
+  }",y != 12
+accelerating_invariant_generation\dagger,barbr.c,"while(unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (!(p1 >= 0)) 
+return 0;
+
+			if (!(p1 <= 0)) 
+return 0;
+
+			if (!(barber >= 1)) 
+return 0;
+
+			barber = barber-1;
+			chair = chair+1;
+			p1 = 1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (!(p2 >= 0)) 
+return 0;
+
+				if (!(p2 <= 0)) 
+return 0;
+
+				if (!(barber >= 1)) 
+return 0;
+
+				barber = barber-1;
+				chair = chair+1;
+				p2 = 1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (!(p2 >= 1)) 
+return 0;
+
+					if (!(p2 <= 1)) 
+return 0;
+
+					if (!(open >=1)) 
+return 0;
+
+					open = open -1;
+					p2 = 0;
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (!(p3>=0)) 
+return 0;
+
+						if (!(p3<=0)) 
+return 0;
+
+						if (!(barber >=1)) 
+return 0;
+
+						barber = barber-1;
+						chair = chair +1;
+						p3 =1;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+							if (!(p3>=1)) 
+return 0;
+
+							if (!(p3<=1)) 
+return 0;
+
+							if (!(open >=1)) 
+return 0;
+
+							open = open -1;
+							p3 =0;
+						}
+						else
+						{
+							if (unknown_int())
+							{
+								if (!(p4 >=0)) 
+return 0;
+
+								if (!(p4 <=0)) 
+return 0;
+
+								if (!(barber >=1)) 
+return 0;
+
+								barber= barber-1;
+								chair = chair +1;
+								p4 = p4+1;
+							}
+							else
+							{
+								if (unknown_int())
+								{
+									if (! (p4 >=1)) 
+return 0;
+
+									if (! (p4 <=1)) 
+return 0;
+
+									if (! (open >=1)) 
+return 0;
+
+									open = open - 1;
+									p4=p4 -1;
+								}
+								else
+								{
+									if (unknown_int())
+									{
+										if (! (p5>=0)) 
+return 0;
+
+										if (! (p5<=0)) 
+return 0;
+
+										barber=barber+1;
+										p5=1;
+									}
+									else
+									{
+										if (unknown_int())
+										{
+											if (! (p5>=1)) 
+return 0;
+
+											if (! (p5<=1)) 
+return 0;
+
+											if (! (chair >=1)) 
+return 0;
+
+											chair= chair -1;
+											p5=2;
+										}
+										else
+										{
+											if (unknown_int())
+											{
+												if (! (p5>=2)) 
+return 0;
+
+												if (! (p5<=2)) 
+return 0;
+
+												open=open +1;
+												p5=3;
+											}
+											else
+											{
+												if (unknown_int())
+												{
+													if (! (p5 >= 3)) 
+return 0;
+
+													if (! (p5 <= 3)) 
+return 0;
+
+													if (! (open == 0)) 
+return 0;
+
+													p5=0;
+												}
+													else
+												{
+													if (! (p1 >= 1)) 
+return 0;
+
+													if (! (p1 <= 1)) 
+return 0;
+
+													if (! (open >= 1)) 
+return 0;
+
+													open = open-1;
+													p1 = 0;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}",p5 >= open
+accelerating_invariant_generation\dagger,barbrprime.c,"while(unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (!(p1 >= 0)) 
+return 0;
+
+			if (!(p1 <= 0)) 
+return 0;
+
+			if (!(barber >= 1)) 
+return 0;
+
+			barber = barber-1;
+			chair = chair+1;
+			p1 = 1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (!(p2 >= 0)) 
+return 0;
+
+				if (!(p2 <= 0)) 
+return 0;
+
+				if (!(barber >= 1)) 
+return 0;
+
+				barber = barber-1;
+				chair = chair+1;
+				p2 = 1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (!(p2 >= 1)) 
+return 0;
+
+					if (!(p2 <= 1)) 
+return 0;
+
+					if (!(open >=1)) 
+return 0;
+
+					open = open -1;
+					p2 = 0;
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (!(p3>=0)) 
+return 0;
+
+						if (!(p3<=0)) 
+return 0;
+
+						if (!(barber >=1)) 
+return 0;
+
+						barber = barber-1;
+						chair = chair +1;
+						p3 =1;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+							if (!(p3>=1)) 
+return 0;
+
+							if (!(p3<=1)) 
+return 0;
+
+							if (!(open >=1)) 
+return 0;
+
+							open = open -1;
+							p3 =0;
+						}
+						else
+						{
+							if (unknown_int())
+							{
+								if (!(p4 >=0)) 
+return 0;
+
+								if (!(p4 <=0)) 
+return 0;
+
+								if (!(barber >=1)) 
+return 0;
+
+								barber= barber-1;
+								chair = chair +1;
+								p4 = p4+1;
+							}
+							else
+							{
+								if (unknown_int())
+								{
+									if (! (p4 >=1)) 
+return 0;
+
+									if (! (p4 <=1)) 
+return 0;
+
+									if (! (open >=1)) 
+return 0;
+
+									open = open - 1;
+									p4=p4 -1;
+								}
+								else
+								{
+									if (unknown_int())
+									{
+										if (! (p5>=0)) 
+return 0;
+
+										if (! (p5<=0)) 
+return 0;
+
+										barber=barber+1;
+										p5=1;
+									}
+									else
+									{
+										if (unknown_int())
+										{
+											if (! (p5>=1)) 
+return 0;
+
+											if (! (p5<=1)) 
+return 0;
+
+											if (! (chair >=1)) 
+return 0;
+
+											chair= chair -1;
+											p5=2;
+										}
+										else
+										{
+											if (unknown_int())
+											{
+												if (! (p5>=2)) 
+return 0;
+
+												if (! (p5<=2)) 
+return 0;
+
+												open=open +1;
+												p5=3;
+											}
+											else
+											{
+												if (unknown_int())
+												{
+													if (! (p5 >= 3)) 
+return 0;
+
+													if (! (p5 <= 3)) 
+return 0;
+
+													if (! (open == 0)) 
+return 0;
+
+													p5=0;
+												}
+													else
+												{
+													if (! (p1 >= 1)) 
+return 0;
+
+													if (! (p1 <= 1)) 
+return 0;
+
+													if (! (open >= 1)) 
+return 0;
+
+													open = open-1;
+													p1 = 0;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}",p5 <= 3
+accelerating_invariant_generation\dagger,bk-nat.c,"while (unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (invalid >= 1)) 
+return 0;
+
+			nonexclusive=nonexclusive+exclusive;
+			exclusive=0;
+			invalid=invalid-1;
+			unowned=unowned+1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (nonexclusive + unowned >=1)) 
+return 0;
+
+				invalid=invalid + unowned + nonexclusive-1;
+				exclusive=exclusive+1;
+				unowned=0;
+				nonexclusive=0;
+			}
+			else
+			{
+				if (! (invalid >= 1)) 
+return 0;
+
+				unowned=0;
+				nonexclusive=0;
+				exclusive=1;
+				invalid=invalid+unowned+exclusive+nonexclusive-1;
+			}
+		}
+	}",exclusive >= 0
+accelerating_invariant_generation\dagger,bkley.c,"while (unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (invalid >= 1)) 
+return 0;
+
+			nonexclusive=nonexclusive+exclusive;
+			exclusive=0;
+			invalid=invalid-1;
+			unowned=unowned+1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (nonexclusive + unowned >=1)) 
+return 0;
+
+				invalid=invalid + unowned + nonexclusive-1;
+				exclusive=exclusive+1;
+				unowned=0;
+				nonexclusive=0;
+			}
+			else
+			{
+				if (! (invalid >= 1)) 
+return 0;
+
+				unowned=0;
+				nonexclusive=0;
+				exclusive=1;
+				invalid=invalid+unowned+exclusive+nonexclusive-1;
+			}
+		}
+	}",exclusive >= 0
+accelerating_invariant_generation\dagger,cars.c,"while (unknown_int())
+	{
+		if (! (v2 +5 >=0)) 
+return 0;
+
+		if (! (v2 <= 5)) 
+return 0;
+
+		if (unknown_int())
+		{
+			if (! (2* x2 - x1 - x3>=0)) 
+return 0;
+
+			x1 = x1+v1;
+			x3 = x3+v3;
+			x2 = x2+v2;
+			v2 = v2-1;
+			t = t+1;
+		}
+		else
+		{
+			if (! (2*x2 -x1-x3 <=0)) 
+return 0;
+
+			x1 = x1+v1;
+			x3 = x3+v3;
+			x2 = x2+v2;
+			v2 = v2+1;
+			t = t+1;
+		}
+	}",v1 <= 5
+accelerating_invariant_generation\dagger,efm.c,"while(unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (X1 >= 1)) 
+return 0;
+
+			if (! (X4 >= 1)) 
+return 0;
+
+			X1=X1-1;
+			X4=X4-1;
+			X2=X2+1;
+			X5=X5+1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (X2 >= 1)) 
+return 0;
+
+				if (! (X6 >= 1)) 
+return 0;
+
+				X2=X2-1;
+				X3=X3+1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (X4 >= 1)) 
+return 0;
+
+					if (! (X3 >= 1)) 
+return 0;
+
+					X3=X3-1;
+					X2=X2+1;
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (! (X3>=1)) 
+return 0;
+
+						X3=X3-1;
+						X1=X1+1;
+						X6=X6+X5;
+						X5=0;
+					}
+					else
+					{
+						if (! (X2 >= 1)) 
+return 0;
+
+						X2 = X2 - 1;
+						X1 = X1 + 1;
+						X4 = X4 + X6;
+						X6 = 0;
+					}
+				}
+			}
+		}
+	}",X4 + X5 + X6 -1 >= 0
+accelerating_invariant_generation\dagger,ex1.c,"while (unknown_int()) {
+	x = xa + 2*ya;
+	y = -2*xa + ya;
+
+	x++;
+	if (unknown_int()) y	= y+x;
+	else y = y-x;
+
+	xa = x - 2*y;
+	ya = 2*x + y;
+}",xa + 2*ya >= 0
+accelerating_invariant_generation\dagger,fig2.c,"while (unknown_int() ) {
+
+if (unknown_int()) {x++; y = y+2;}
+else if (unknown_int()) {
+	if (x >= 4) {x++; y = y+3; z = z+10; w = w+10;}
+}
+else if (x >= z && w > y) {x = -x; y = -y; }
+
+}",3*x >= y
+accelerating_invariant_generation\dagger,lifnat.c,"while(unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (Eb >=1)) 
+return 0;
+
+			Eb = Eb -1;
+			Mb = Mb +1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (Ea >=1)) 
+return 0;
+
+				Ea = Ea -1;
+				Ma = Ma +1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (Sa>=1)) 
+return 0;
+
+					Sa=Sa-1;
+					I=I+Sb+Eb+Mb;
+					Sb=0;
+					Eb=1;
+					Mb=0;
+
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (! (Sb>=1)) 
+return 0;
+
+						I=I+Sb+Eb+Mb;
+						Sb=0;
+						Eb=1;
+						Mb=0;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+
+							if (! (Sb>=1)) 
+return 0;
+
+							Sb=Sb-1;
+							I=I+Sa+Ea+Ma;
+							Sa=0;
+							Ea=1;
+							Ma=0;
+
+						}
+						else
+						{
+							if (unknown_int())
+							{
+								if (! (Sa>=1)) 
+return 0;
+
+								I=I+Sa+Ea+Ma;
+								Sa=0;
+								Ea=1;
+								Ma=0;
+							}
+							else
+							{
+								if (unknown_int())
+								{
+									if (! (Sa>=1)) 
+return 0;
+
+									Sa=Sa-1;
+									Sb=Sb+Eb+Mb+1;
+									Eb=0;
+									Mb=0;
+								}
+								else
+								{
+									if (unknown_int())
+									{
+										if (! (I>=1)) 
+return 0;
+
+										I=I-1;
+										Sb=Sb+Eb+Mb+1;
+										Eb=0;
+										Mb=0;
+									}
+									else
+									{
+										if (unknown_int())
+										{
+											if (! (I >= 1)) 
+return 0;
+
+											I = I -1;
+											Sa = Sa + Ea + Ma + 1;
+											Ea = 0;
+											Ma =0;
+										}
+										else
+										{
+											if (! (Sb >= 1)) 
+return 0;
+
+											Sb = Sb-1;
+											Sa = Ea+Ma+1;
+											Ea = 0;
+											Ma = 0;
+
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}",Ea + Ma <= 1
+accelerating_invariant_generation\dagger,lifnatprime.c,"while(unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (Eb >=1)) 
+return 0;
+
+			Eb = Eb -1;
+			Mb = Mb +1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (Ea >=1)) 
+return 0;
+
+				Ea = Ea -1;
+				Ma = Ma +1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (Sa>=1)) 
+return 0;
+
+					Sa=Sa-1;
+					I=I+Sb+Eb+Mb;
+					Sb=0;
+					Eb=1;
+					Mb=0;
+
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (! (Sb>=1)) 
+return 0;
+
+						I=I+Sb+Eb+Mb;
+						Sb=0;
+						Eb=1;
+						Mb=0;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+
+							if (! (Sb>=1)) 
+return 0;
+
+							Sb=Sb-1;
+							I=I+Sa+Ea+Ma;
+							Sa=0;
+							Ea=1;
+							Ma=0;
+
+						}
+						else
+						{
+							if (unknown_int())
+							{
+								if (! (Sa>=1)) 
+return 0;
+
+								I=I+Sa+Ea+Ma;
+								Sa=0;
+								Ea=1;
+								Ma=0;
+							}
+							else
+							{
+								if (unknown_int())
+								{
+									if (! (Sa>=1)) 
+return 0;
+
+									Sa=Sa-1;
+									Sb=Sb+Eb+Mb+1;
+									Eb=0;
+									Mb=0;
+								}
+								else
+								{
+									if (unknown_int())
+									{
+										if (! (I>=1)) 
+return 0;
+
+										I=I-1;
+										Sb=Sb+Eb+Mb+1;
+										Eb=0;
+										Mb=0;
+									}
+									else
+									{
+										if (unknown_int())
+										{
+											if (! (I >= 1)) 
+return 0;
+
+											I = I -1;
+											Sa = Sa + Ea + Ma + 1;
+											Ea = 0;
+											Ma =0;
+										}
+										else
+										{
+											if (! (Sb >= 1)) 
+return 0;
+
+											Sb = Sb-1;
+											Sa = Ea+Ma+1;
+											Ea = 0;
+											Ma = 0;
+
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}",Ea + Ma <= 1
+accelerating_invariant_generation\dagger,lifo.c,"while(unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (Sb >= 1)) 
+return 0;
+
+			Sb = Sb-1;
+			Sa = Ea+Ma+1;
+			Ea = 0;
+			Ma = 0;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (I >= 1)) 
+return 0;
+
+				I = I -1;
+				Sa = Sa + Ea + Ma + 1;
+				Ea = 0;
+				Ma =0;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (I>=1)) 
+return 0;
+
+					I=I-1;
+					Sb=Sb+Eb+Mb+1;
+					Eb=0;
+					Mb=0;
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (! (Sa>=1)) 
+return 0;
+
+						Sa=Sa-1;
+						Sb=Sb+Eb+Mb+1;
+						Eb=0;
+						Mb=0;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+							if (! (Sa>=1)) 
+return 0;
+
+							I=I+Sa+Ea+Ma;
+							Sa=0;
+							Ea=1;
+							Ma=0;
+						}
+						else
+						{
+							if (unknown_int())
+							{
+								if (! (Sb>=1)) 
+return 0;
+
+								Sb=Sb-1;
+								I=I+Sa+Ea+Ma;
+								Sa=0;
+								Ea=1;
+								Ma=0;
+							}
+							else
+							{
+								if (unknown_int())
+								{
+									if (! (Sb>=1)) 
+return 0;
+
+									I=I+Sb+Eb+Mb;
+									Sb=0;
+									Eb=1;
+									Mb=0;
+								}
+								else
+								{
+									if (unknown_int())
+									{
+										if (! (Sa>=1)) 
+return 0;
+
+										Sa=Sa-1;
+										I=I+Sb+Eb+Mb;
+										Sb=0;
+										Eb=1;
+										Mb=0;
+									}
+									else
+									{
+										if (unknown_int())
+										{
+											if (! (Ea >=1)) 
+return 0;
+
+											Ea = Ea -1;
+											Ma = Ma +1;
+										}
+										else
+										{
+											if (! (Eb >=1)) 
+return 0;
+
+											Eb = Eb -1;
+											Mb = Mb +1;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}",Ea + Ma <= 1
+accelerating_invariant_generation\dagger,seesaw.c,"while (unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (x >= 9)) 
+return 0;
+
+			x = x + 2;
+			y = y + 1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (!(x >= 7)) 
+return 0;
+
+				if (!(x <= 9)) 
+return 0;
+
+				x = x + 1;
+				y = y + 3;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (x - 5 >=0)) 
+return 0;
+
+					if (! (x - 7 <=0)) 
+return 0;
+
+					x = x + 2;
+					y = y + 1;
+				}
+				else
+				{
+					if (!(x - 4 <=0)) 
+return 0;
+
+					x = x + 1;
+					y = y + 2;
+				}
+			}
+		}
+	}",-x + 2*y  >= 0
+accelerating_invariant_generation\dagger,substring1.c,"while (i < k) {
+i++;
+j++;
+}",j <= 100
+accelerating_invariant_generation\dagger,swim.c,"while (unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (x6 >=1)) 
+return 0;
+
+			x1 = x1 + 1;
+			x6 = x6 - 1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (x1 >=1)) 
+return 0;
+
+				if (! (x7 >=1)) 
+return 0;
+
+				x1 = x1-1;
+				x2 = x2+1;
+				x7 = x7-1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (x2 >=1)) 
+return 0;
+
+					x2 = x2-1;
+					x3 = x3+1;
+					x6 = x6+1;
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (! (x3>=1)) 
+return 0;
+
+						if (! (x6>=1)) 
+return 0;
+
+						x3 = x3-1;
+						x4 = x4+1;
+						x6 = x6-1;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+							if (! (x4>=1)) 
+return 0;
+
+							x4 = x4-1;
+							x5 = x5+1;
+							x7 = x7+1;
+						}
+						else
+						{
+							if (! (x5>=1)) 
+return 0;
+
+							x5 = x5-1;
+							x6 = x6+1;
+						}
+					}
+				}
+			}
+		}
+	}",x2 + x3 + x4 + x7 == q
+accelerating_invariant_generation\dagger,swim1.c,"while (unknown_int())
+	{
+		if (unknown_int())
+		{
+			if (! (x6 >=1)) 
+return 0;
+
+			x1 = x1 + 1;
+			x6 = x6 - 1;
+		}
+		else
+		{
+			if (unknown_int())
+			{
+				if (! (x1 >=1)) 
+return 0;
+
+				if (! (x7 >=1)) 
+return 0;
+
+				x1 = x1-1;
+				x2 = x2+1;
+				x7 = x7-1;
+			}
+			else
+			{
+				if (unknown_int())
+				{
+					if (! (x2 >=1)) 
+return 0;
+
+					x2 = x2-1;
+					x3 = x3+1;
+					x6 = x6+1;
+				}
+				else
+				{
+					if (unknown_int())
+					{
+						if (! (x3>=1)) 
+return 0;
+
+						if (! (x6>=1)) 
+return 0;
+
+						x3 = x3-1;
+						x4 = x4+1;
+						x6 = x6-1;
+					}
+					else
+					{
+						if (unknown_int())
+						{
+							if (! (x4>=1)) 
+return 0;
+
+							x4 = x4-1;
+							x5 = x5+1;
+							x7 = x7+1;
+						}
+						else
+						{
+							if (! (x5>=1)) 
+return 0;
+
+							x5 = x5-1;
+							x6 = x6+1;
+						}
+					}
+				}
+			}
+		}
+	}",x2 + x3 + x4 + x7 == q
+accelerating_invariant_generation\invgen,bind_expands_vars2.c,"for (mc_i = 0; mc_i < n2; mc_i++) {
+    
+    {;
+//@ assert(cp1_off+mc_i < MAXDATA * 2);
+}
+
+  }",cp1_off+mc_i < MAXDATA * 2
+accelerating_invariant_generation\invgen,gulwani_cegar1.c,"while( __BLAST_NONDET ) {
+	x+=2;
+	y+=2;
+  }",x < 4
+accelerating_invariant_generation\invgen,gulwani_cegar2.c,"while( x < n ) {
+    if(__BLAST_NONDET)
+	m = x;
+	x++;
+  }",0<=m
+accelerating_invariant_generation\invgen,ken-imp.c,"while(x!=0) {
+	x--;
+	y--;
+  }",0
+accelerating_invariant_generation\invgen,MADWiFi-encode_ie_ok.c,"for (i = 0; i < ielen && bufsize > 2; i++) {
+    {;
+//@ assert(0<=p);
+}
+
+    {;
+//@ assert(p+1<bufsize_0);
+}
+
+    p += 2;
+  }",0<=p
+accelerating_invariant_generation\invgen,NetBSD_g_Ctoc.c,"int main ()
+{
+  
+  int i;
+  int j;
+  int len = BASE_SZ;
+
+  if(BASE_SZ > 0 ); else goto END;
+
+  {;
+// Invariant to be found
+}",0 <= BASE_SZ-1
+accelerating_invariant_generation\invgen,NetBSD_loop.c,"for (glob2_p_off = glob2_pathbuf_off;
+      glob2_p_off <= glob2_pathlim_off;
+      glob2_p_off++) {
+    
+    {;
+//@ assert(0 <= glob2_p_off );
+}
+ {;
+//@ assert(glob2_p_off < MAXPATHLEN + 1);
+}
+
+  }",0 <= glob2_p_off
+accelerating_invariant_generation\invgen,NetBSD_loop_int.c,"for (;;)
+    if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;
+    else {
+      
+      glob3_dc++;
+      
+      {;
+//@ assert(0 <= glob3_dc);
+}
+{;
+//@ assert(glob3_dc < MAXPATHLEN + 1);
+}
+
+      if (__BLAST_NONDET) goto END;
+    }",0 <= glob3_dc
+accelerating_invariant_generation\invgen,rajamani_1.c,"while ( __BLAST_NONDET ){
+    if ( __BLAST_NONDET ) {
+      x++; y = y+100;
+    } else if  ( __BLAST_NONDET ) {
+      if( x >= 4)
+	{ x=x+1; y=y+1;}
+    } else if  ( y >10*w)
+      if (z>=100*x )
+      y = -y;
+    w=w+1; 
+    z=z+10;
+  }",y>2
+accelerating_invariant_generation\invgen,sendmail-close-angle.c,"while (__BLAST_NONDET)
+  {
+    if (buf == buflim)
+      break;
+    {;
+//@ assert(0<=buf);
+}
+
+    {;
+//@ assert(buf<bufferlen);
+}
+ 
+    buf++;
+out:
+    in++;
+    {;
+//@ assert(0<=in);
+}
+
+    {;
+//@ assert(in<inlen);
+}
+
+  }",0<=buf
+accelerating_invariant_generation\invgen,sendmail-mime-fromqp.c,"while(__BLAST_NONDET)
+  {
+    
+    if(__BLAST_NONDET)
+    {
+      
+      if(__BLAST_NONDET)
+	
+	goto AFTERLOOP; 
+
+      if(__BLAST_NONDET)
+      {
+	out = 0;
+	nchar = 0;
+	goto LOOPEND;
+      }
+      else
+      {
+	
+	if(__BLAST_NONDET)  goto AFTERLOOP;
+
+	nchar++;
+	if (nchar >= outfilelen)
+	  goto AFTERLOOP;
+
+	{;
+//@ assert(0<=out);
+}
+
+	{;
+//@ assert(out<outfilelen);
+}
+
+	out++;
+      }
+    }
+    else
+    {
+      
+      nchar++;
+      if (nchar >= outfilelen)
+	goto AFTERLOOP;
+
+      {;
+//@ assert(0<=out);
+}
+
+      {;
+//@ assert(out<outfilelen);
+}
+
+      out++;
+
+      if(__BLAST_NONDET) goto AFTERLOOP;
+    }
+  LOOPEND:;
+  }",0<=out
+accelerating_invariant_generation\invgen,sendmail-mime7to8_arr_three_chars_no_test_ok.c,"while (__BLAST_NONDET)
+  {
+    
+    if (__BLAST_NONDET)
+      break;
+
+    if (__BLAST_NONDET)
+      break;
+
+    {;
+//@ assert(0<=fb);
+}
+
+    {;
+//@ assert(fb<fbuflen);
+}
+
+    fb++;
+    if (fb >= fbuflen-1)
+      fb = 0;
+
+    {;
+//@ assert(0<=fb);
+}
+
+    {;
+//@ assert(fb<fbuflen);
+}
+
+    fb++;
+    if (fb >= fbuflen-1)
+      fb = 0;
+
+    {;
+//@ assert(0<=fb);
+}
+
+    {;
+//@ assert(fb<fbuflen);
+}
+
+    fb++;
+    if (fb >= fbuflen-1)
+      fb = 0;
+  }",0<=fb
+accelerating_invariant_generation\invgen,simple.c,"while( x < n ){
+    x++;
+  }",x<=n
+accelerating_invariant_generation\invgen,simple_if.c,"while( i < n ) {
+    if( m > 0 ) {
+      i = 2*i;
+    } else {
+      i = 3*i;
+    }
+    
+  }",i > 0
+accelerating_invariant_generation\invgen,split.c,"for( n = 0 ; n < 2*k ; n++ ) {
+        
+    if(b) {
+      i++;
+    } else {
+      j++;
+    }
+    b = !b;
+  }",i == j
+accelerating_invariant_generation\invgen,up-nested.c,"while ( j <= n ) {
+    
+    assume( i >= 0);
+    
+    j++;
+  }",i>= 0
+accelerating_invariant_generation\svcomp,count_up_down_true.c,"while(x>0)
+  {
+    x--;
+    y++;
+  }",y==n
+accelerating_invariant_generation\svcomp,for_infinite_loop_1_true.c,"for(i=0; 1; i++)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+accelerating_invariant_generation\svcomp,for_infinite_loop_2_true.c,"for(i=0; 1; i++)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+accelerating_invariant_generation\svcomp,sum01_true.c,"for(i=1; i<=n; i++) {
+    sn = sn + a;
+  }",sn==n*a || sn == 0
+accelerating_invariant_generation\svcomp,sum03_true.c,"while(1){
+    sn = sn + a;
+    x++;
+    {;
+//@ assert(sn==x*a || sn == 0);
+}
+
+  }",sn==x*a || sn == 0
+accelerating_invariant_generation\svcomp,sum04_true.c,"for(i=1; i<=SIZE; i++) {
+    sn = sn + a;
+  }",sn==SIZE*a || sn == 0
+accelerating_invariant_generation\svcomp,terminator_02_true.c,"while(x<100 && 100<z) 
+  {
+    _Bool tmp=unknown_bool();
+    if (tmp)
+   {
+     x++;
+   }
+   else
+   {
+     x--;
+     z--;
+   }
+  }",x>=100 || z<=100
+accelerating_invariant_generation\svcomp,trex03_true.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if (c1) x1=x1-d1;
+    else if (c2) x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+  }",x1==0 || x2==0 || x3==0
+accelerating_invariant_generation\svcomp,while_infinite_loop_1_true.c,"while(1)
+  {
+    {;
+//@ assert(x==0);
+}
+    
+  }",x==0
+accelerating_invariant_generation\svcomp,while_infinite_loop_2_true.c,"while(1)
+  {
+    {;
+//@ assert(x==0);
+}
+    
+  }",x==0
+code2inv,1.c,"while ((y < 100000)) {
+    {
+    (x  = (x + y));
+    (y  = (y + 1));
+    }
+
+  }",(x >= y)
+code2inv,10.c,"while (unknown()) {
+    {
+    (x  = (x + 2));
+    (y  = (y + 2));
+    }
+
+  }",(x != 4)
+code2inv,100.c,"while ((x > 0)) {
+    {
+    (y  = (y + 1));
+    (x  = (x - 1));
+    }
+
+  }",(y == n)
+code2inv,101.c,"while ((x < n)) {
+    {
+    (x  = (x + 1));
+    }
+
+  }",(n < 0)
+code2inv,102.c,"while ((x < n)) {
+    {
+    (x  = (x + 1));
+    }
+
+  }",(x == n)
+code2inv,103.c,"while ((x < 100)) {
+    {
+    (x  = (x + 1));
+    }
+
+  }",(x == 100)
+code2inv,104.c,"while ((x < n)) {
+    {
+    (x  = (x + 1));
+    }
+
+  }",(n < 0)
+code2inv,105.c,"while ((x < n)) {
+    {
+    (x  = (x + 1));
+    }
+
+  }",(x == n)
+code2inv,107.c,"while ( k < 1) {
+        if(m < a) {
+            m = a;
+        }
+        k = k + 1;
+    }",a <= m
+code2inv,108.c,"while ( k < c) {
+        if(m < a) {
+            m = a;
+        }
+        k = k + 1;
+    }",a <=  m
+code2inv,109.c,"while ( k < c) {
+        if(m < a) {
+            m = a;
+        }
+        k = k + 1;
+    }",a <=  m
+code2inv,11.c,"while (unknown()) {
+    {
+    (x  = (x + 10));
+    (y  = (y + 10));
+    }
+
+  }",(y != 0)
+code2inv,110.c,"while ((i <= n)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == 0)
+code2inv,111.c,"while ((i <= n)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == n)
+code2inv,112.c,"while ((i <= n)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == 0)
+code2inv,113.c,"while ((i <= n)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == n)
+code2inv,114.c,"while (unknown()) {
+    {
+    (x  = (x + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == -1)
+code2inv,115.c,"while (unknown()) {
+    {
+    (x  = (x + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == x)
+code2inv,116.c,"while (unknown()) {
+    {
+    (x  = (x + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == -1)
+code2inv,117.c,"while (unknown()) {
+    {
+    (x  = (x + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == x)
+code2inv,118.c,"while ((i <= size)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == 0)
+code2inv,119.c,"while ((i <= size)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == size)
+code2inv,12.c,"while (unknown()) {
+    {
+    (x  = (x + 10));
+    (y  = (y + 10));
+    }
+
+  }",(x != 20)
+code2inv,120.c,"while ((i <= 8)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == 0)
+code2inv,121.c,"while ((i <= 8)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == 8)
+code2inv,122.c,"while ((i <= size)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == 0)
+code2inv,123.c,"while ((i <= size)) {
+    {
+    (i  = (i + 1));
+    (sn  = (sn + 1));
+    }
+
+  }",(sn == size)
+code2inv,124.c,"while ((x != 0)) {
+    {
+    (x  = (x - 1));
+    (y  = (y - 1));
+    }
+
+  }",(y == 0)
+code2inv,125.c,"while ((x != 0)) {
+    {
+    (x  = (x - 1));
+    (y  = (y - 1));
+    }
+
+  }",(i != j)
+code2inv,126.c,"while ((x != 0)) {
+    {
+    (x  = (x - 1));
+    (y  = (y - 1));
+    }
+
+  }",(y == 0)
+code2inv,127.c,"while ((x != 0)) {
+    {
+    (x  = (x - 1));
+    (y  = (y - 1));
+    }
+
+  }",(i != j)
+code2inv,128.c,"while ((x < y)) {
+    {
+    (x  = (x + x));
+    }
+
+  }",(x >= 1)
+code2inv,129.c,"while ((x < y)) {
+    {
+    (x  = (x + x));
+    }
+
+  }",(x >= 1)
+code2inv,13.c,"while (unknown()) {
+    {
+    (x  = (x + 2));
+    (y  = (y + 2));
+    }
+
+  }",(y != 0)
+code2inv,130.c,"while( x1 > 0) {
+        if(x2 > 0) {
+            if(x3 > 0) {
+                x1 = x1 - d1;
+                x2 = x2 - d2;
+                x3 = x3 - d3;
+            }
+        }
+    }",x2 >= 0
+code2inv,131.c,"while( x1 > 0) {
+        if(x2 > 0) {
+            if(x3 > 0) {
+                x1 = x1 - d1;
+                x2 = x2 - d2;
+                x3 = x3 - d3;
+            }
+        }
+    }",x3 >= 0
+code2inv,132.c,"while( unknown() ) {
+        if(c > 48) {
+            if (c < 57) {
+                j = i + i;
+                t = c - 48;
+                i = j + t;
+            }
+        }
+    }",i >= 0
+code2inv,133.c,"while ((x < n)) {
+    {
+    (x  = (x + 1));
+    }
+
+  }",(x == n)
+code2inv,14.c,"while (unknown()) {
+    {
+    (x  = (x + 2));
+    (y  = (y + 2));
+    }
+
+  }",(x != 4)
+code2inv,15.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m < n
+code2inv,16.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m >= 0
+code2inv,17.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m < n
+code2inv,18.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m >= 1
+code2inv,19.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m < n
+code2inv,2.c,"while ((y < 1000)) {
+    {
+    (x  = (x + y));
+    (y  = (y + 1));
+    }
+
+  }",(x >= y)
+code2inv,20.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m >= 0
+code2inv,21.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m < n
+code2inv,22.c,"while (x < n) {
+        if (unknown()) {
+            m = x;
+        }
+        x = x + 1;
+    }",m >= 1
+code2inv,23.c,"while ((j >= i)) {
+    {
+    (i  = (i + 2));
+    (j  = (j - 1));
+    }
+
+  }",(j == 13)
+code2inv,24.c,"while ((j >= i)) {
+    {
+    (i  = (i + 2));
+    (j  = (j - 1));
+    }
+
+  }",(j == 6)
+code2inv,25.c,"while ((x > 0)) {
+    {
+    (x  = (x - 1));
+    }
+
+  }",(x == 0)
+code2inv,28.c,"while ((x > 0)) {
+    {
+    (x  = (x - 1));
+    }
+
+  }",(n < 0)
+code2inv,29.c,"while ((x > 0)) {
+    {
+    (x  = (x - 1));
+    }
+
+  }",(x == 0)
+code2inv,3.c,"while(x < 5) {
+       x += 1;
+       if( z <= y) {
+          y = z;
+       }
+    }",z >= y
+code2inv,30.c,"while ((x > 0)) {
+    {
+    (x  = (x - 1));
+    }
+
+  }",(x == 0)
+code2inv,33.c,"while ((x > 0)) {
+    {
+    (x  = (x - 1));
+    }
+
+  }",(n < 0)
+code2inv,34.c,"while ((x > 0)) {
+    {
+    (x  = (x - 1));
+    }
+
+  }",(x == 0)
+code2inv,35.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != 40) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == 40) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c >= 0)
+code2inv,36.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != 40) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == 40) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c <= 40)
+code2inv,37.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != 40) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == 40) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c == 40)
+code2inv,38.c,"while (unknown()) {
+        if(c == n) {
+            c = 1;
+        }
+        else {
+            c = c + 1;
+        }
+    }",c >= 0
+code2inv,39.c,"while (unknown()) {
+        if(c == n) {
+            c = 1;
+        }
+        else {
+            c = c + 1;
+        }
+    }",c <= n
+code2inv,4.c,"while(x < 500) {
+       x += 1;
+       if( z <= y) {
+          y = z;
+       }
+    }",z >= y
+code2inv,40.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c >= 0)
+code2inv,41.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c <= n)
+code2inv,42.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c == n)
+code2inv,43.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(n > -1)
+code2inv,44.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c != n)
+code2inv,45.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c >= 0)
+code2inv,46.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c <= n)
+code2inv,47.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c == n)
+code2inv,48.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(n > -1)
+code2inv,49.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c != n)
+code2inv,5.c,"while(x < size) {
+       x += 1;
+       if( z <= y) {
+          y = z;
+       }
+    }",z >= y
+code2inv,50.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != 4) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == 4) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c >= 0)
+code2inv,51.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != 4) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == 4) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c <= 4)
+code2inv,52.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != 4) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == 4) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c == 4)
+code2inv,53.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c >= 0)
+code2inv,54.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c <= n)
+code2inv,55.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c == n)
+code2inv,56.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(n <= -1)
+code2inv,57.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c > n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c != n)
+code2inv,58.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c >= 0)
+code2inv,59.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c <= n)
+code2inv,6.c,"while(x < size) {
+       x += 1;
+       if( z <= y) {
+          y = z;
+       }
+    }",z >= y
+code2inv,60.c,"while (unknown()) {
+    {
+      if ( unknown() ) {
+        if ( (c != n) )
+        {
+        (c  = (c + 1));
+        }
+      } else {
+        if ( (c == n) )
+        {
+        (c  = 1);
+        }
+      }
+
+    }
+
+  }",(c == n)
+code2inv,63.c,"while (x <= 10) {
+        y = 10 - x;
+        x = x +1;
+    }",y >= 0
+code2inv,64.c,"while (x <= 10) {
+        y = 10 - x;
+        x = x +1;
+    }",y < 10
+code2inv,65.c,"while (x <= 100) {
+        y = 100 - x;
+        x = x +1;
+    }",y >= 0
+code2inv,66.c,"while (x <= 100) {
+        y = 100 - x;
+        x = x +1;
+    }",y < 100
+code2inv,67.c,"while (x <= n) {
+        y = n - x;
+        x = x +1;
+    }",y >= 0
+code2inv,68.c,"while (x <= n) {
+        y = n - x;
+        x = x +1;
+    }",y <= n
+code2inv,69.c,"while (x <= n) {
+        y = n - x;
+        x = x +1;
+    }",y >= 0
+code2inv,7.c,"while (unknown()) {
+    {
+    (x  = (x + 10));
+    (y  = (y + 10));
+    }
+
+  }",(y != 0)
+code2inv,70.c,"while (x <= n) {
+        y = n - x;
+        x = x +1;
+    }",y < n
+code2inv,71.c,"while (unknown()) {
+    if ( (c < 36) )
+    {
+    (z  = (z + 1));
+    (c  = (c + 1));
+    }
+
+  }",(z >= 0)
+code2inv,73.c,"while (unknown()) {
+    if ( (c < 36) )
+    {
+    (z  = (z + 1));
+    (c  = (c + 1));
+    }
+
+  }",(c >= 36)
+code2inv,74.c,"while (unknown()) {
+    if ( (c < 36) )
+    {
+    (z  = (z + 1));
+    (c  = (c + 1));
+    }
+
+  }",(z >= 0)
+code2inv,76.c,"while (unknown()) {
+    if ( (c < 36) )
+    {
+    (z  = (z + 1));
+    (c  = (c + 1));
+    }
+
+  }",(c >= 36)
+code2inv,77.c,"while (unknown()) {
+    if ( (i < y) )
+    {
+    (i  = (i + 1));
+    }
+
+  }",(i < x)
+code2inv,78.c,"while (unknown()) {
+    if ( (i < y) )
+    {
+    (i  = (i + 1));
+    }
+
+  }",(0 <= i)
+code2inv,79.c,"while (unknown()) {
+    if ( (i < y) )
+    {
+    (i  = (i + 1));
+    }
+
+  }",(i >= y)
+code2inv,8.c,"while (unknown()) {
+    {
+    (x  = (x + 10));
+    (y  = (y + 10));
+    }
+
+  }",(x != 20)
+code2inv,80.c,"while (unknown()) {
+    if ( (i < y) )
+    {
+    (i  = (i + 1));
+    }
+
+  }",(i < x)
+code2inv,81.c,"while (unknown()) {
+    if ( (i < y) )
+    {
+    (i  = (i + 1));
+    }
+
+  }",(0 <= i)
+code2inv,82.c,"while (unknown()) {
+    if ( (i < y) )
+    {
+    (i  = (i + 1));
+    }
+
+  }",(i >= y)
+code2inv,83.c,"while ((x < 0)) {
+    {
+    (x  = (x + y));
+    (y  = (y + 1));
+    }
+
+  }",(y > 0)
+code2inv,84.c,"while ((x < 0)) {
+    {
+    (x  = (x + y));
+    (y  = (y + 1));
+    }
+
+  }",(y > 0)
+code2inv,85.c,"while ((x < 0)) {
+    {
+    (x  = (x + y));
+    (y  = (y + 1));
+    }
+
+  }",(y > 0)
+code2inv,86.c,"while ((x < 0)) {
+    {
+    (x  = (x + y));
+    (y  = (y + 1));
+    }
+
+  }",(y > 0)
+code2inv,87.c,"while ((x != y)) {
+    {
+      if ( unknown() ) {
+        {
+        (lock  = 1);
+        (x  = y);
+        }
+      } else {
+        {
+        (lock  = 0);
+        (x  = y);
+        (y  = (y + 1));
+        }
+      }
+
+    }
+
+  }",(lock == 1)
+code2inv,88.c,"while ((x != y)) {
+    {
+      if ( unknown() ) {
+        {
+        (lock  = 1);
+        (x  = y);
+        }
+      } else {
+        {
+        (lock  = 0);
+        (x  = y);
+        (y  = (y + 1));
+        }
+      }
+
+    }
+
+  }",(lock == 1)
+code2inv,89.c,"while ((x != y)) {
+    {
+      if ( unknown() ) {
+        {
+        (lock  = 1);
+        (x  = y);
+        }
+      } else {
+        {
+        (lock  = 0);
+        (x  = y);
+        (y  = (y + 1));
+        }
+      }
+
+    }
+
+  }",(lock == 1)
+code2inv,9.c,"while (unknown()) {
+    {
+    (x  = (x + 2));
+    (y  = (y + 2));
+    }
+
+  }",(y != 0)
+code2inv,90.c,"while ((x != y)) {
+    {
+      if ( unknown() ) {
+        {
+        (lock  = 1);
+        (x  = y);
+        }
+      } else {
+        {
+        (lock  = 0);
+        (x  = y);
+        (y  = (y + 1));
+        }
+      }
+
+    }
+
+  }",(lock == 1)
+code2inv,91.c,"while(y >= 0){
+        y = y + x;
+    }",y>= 0
+code2inv,92.c,"while(y >= 0){
+        y = y + x;
+    }",y>= 0
+code2inv,93.c,"while ((i < n)) {
+    {
+    (i  = (i + 1));
+      if ( unknown() ) {
+        {
+        (x  = (x + 1));
+        (y  = (y + 2));
+        }
+      } else {
+        {
+        (x  = (x + 2));
+        (y  = (y + 1));
+        }
+      }
+
+    }
+
+  }",((3 * n) == (x + y))
+code2inv,94.c,"while ((i <= n)) {
+    {
+    (i  = (i + 1));
+    (j  = (j + i));
+    }
+
+  }",((i + (j + k)) > (2 * n))
+code2inv,95.c,"while ((i <= x)) {
+    {
+    (i  = (i + 1));
+    (j  = (j + y));
+    }
+
+  }",(i == j)
+code2inv,96.c,"while ((i <= x)) {
+    {
+    (i  = (i + 1));
+    (j  = (j + y));
+    }
+
+  }",(y != 1)
+code2inv,97.c,"while ((i <= x)) {
+    {
+    (i  = (i + 1));
+    (j  = (j + y));
+    }
+
+  }",(i == j)
+code2inv,98.c,"while ((i <= x)) {
+    {
+    (i  = (i + 1));
+    (j  = (j + y));
+    }
+
+  }",(y != 1)
+code2inv,99.c,"while ((x > 0)) {
+    {
+    (y  = (y + 1));
+    (x  = (x - 1));
+    }
+
+  }",(n == (x + y))
+LinearArbitrary-SeaHorn\invgen,bind_expands_vars2.c,"for (mc_i = 0; mc_i < n2; mc_i++) {
+    
+    {;
+//@ assert(cp1_off+mc_i < MAXDATA * 2);
+}
+
+  }",cp1_off+mc_i < MAXDATA * 2
+LinearArbitrary-SeaHorn\invgen,gulwani_cegar1.c,"while( unknown() ) {
+	x+=2;
+	y+=2;
+  }",x < 4
+LinearArbitrary-SeaHorn\invgen,gulwani_cegar2.c,"while( x < n ) {
+    if(unknown())
+	m = x;
+	x++;
+  }",0<=m
+LinearArbitrary-SeaHorn\invgen,gulwani_fig1a.c,"while( x < 0 ) {
+	x = x+y;
+	y++;
+  }",y>0
+LinearArbitrary-SeaHorn\invgen,ken-imp.c,"while(x!=0) {
+	x--;
+	y--;
+  }",\false
+LinearArbitrary-SeaHorn\invgen,MADWiFi-encode_ie_ok.c,"for (i = 0; i < ielen && bufsize > 2; i++) {
+    {;
+//@ assert(0<=p);
+}
+
+    {;
+//@ assert(p+1<bufsize_0);
+}
+
+    p += 2;
+  }",0<=p
+LinearArbitrary-SeaHorn\invgen,NetBSD_g_Ctoc.c,"int main ()
+{
+  int BASE_SZ = unknown();
+  int __BLAST_NONDET = unknown();
+  
+  int i;
+  int j;
+  int len = BASE_SZ;
+
+  if(BASE_SZ > 0 ); else goto END;
+
+  {;
+// Invariant to be found
+}",0 <= BASE_SZ-1
+LinearArbitrary-SeaHorn\invgen,NetBSD_loop.c,"for (glob2_p_off = glob2_pathbuf_off;
+      glob2_p_off <= glob2_pathlim_off;
+      glob2_p_off++) {
+    
+    {;
+//@ assert(0 <= glob2_p_off );
+}
+ {;
+//@ assert(glob2_p_off < MAXPATHLEN + 1);
+}
+
+  }",0 <= glob2_p_off
+LinearArbitrary-SeaHorn\invgen,NetBSD_loop_int.c,"for (;;)
+    if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;
+    else {
+      
+      glob3_dc++;
+      
+      {;
+//@ assert(0 <= glob3_dc);
+}
+{;
+//@ assert(glob3_dc < MAXPATHLEN + 1);
+}
+
+      if (unknown()) goto END;
+    }",0 <= glob3_dc
+LinearArbitrary-SeaHorn\invgen,rajamani_1.c,"while ( unknown() ){
+    if ( unknown() ) {
+      x++; y = y+100;
+    } else if  ( unknown() ) {
+      if( x >= 4)
+	{ x=x+1; y=y+1;}
+    } else if  ( y >10*w)
+      if (z>=100*x )
+      y = -y;
+    w=w+1; 
+    z=z+10;
+  }",y>2
+LinearArbitrary-SeaHorn\invgen,sendmail-close-angle.c,"while (unknown())
+  {
+    if (buf == buflim)
+      break;
+    {;
+//@ assert(0<=buf);
+}
+
+    {;
+//@ assert(buf<bufferlen);
+}
+ 
+    buf++;
+out:
+    in++;
+    {;
+//@ assert(0<=in);
+}
+
+    {;
+//@ assert(in<inlen);
+}
+
+  }",0<=buf
+LinearArbitrary-SeaHorn\invgen,sendmail-mime-fromqp.c,"while(unknown())
+  {
+    
+    if(unknown())
+    {
+      
+      if(unknown())
+	
+	goto AFTERLOOP; 
+
+      if(unknown())
+      {
+	out = 0;
+	nchar = 0;
+	goto LOOPEND;
+      }
+      else
+      {
+	
+	if(unknown())  goto AFTERLOOP;
+
+	nchar++;
+	if (nchar >= outfilelen)
+	  goto AFTERLOOP;
+
+	{;
+//@ assert(0<=out);
+}
+
+	{;
+//@ assert(out<outfilelen);
+}
+
+	out++;
+      }
+    }
+    else
+    {
+      
+      nchar++;
+      if (nchar >= outfilelen)
+	goto AFTERLOOP;
+
+      {;
+//@ assert(0<=out);
+}
+
+      {;
+//@ assert(out<outfilelen);
+}
+
+      out++;
+
+      if(unknown()) goto AFTERLOOP;
+    }
+  LOOPEND:;
+  }",0<=out
+LinearArbitrary-SeaHorn\invgen,sendmail-mime7to8_arr_three_chars_no_test_ok.c,"while (unknown())
+  {
+    
+    if (unknown())
+      break;
+
+    if (unknown())
+      break;
+
+    {;
+//@ assert(0<=fb);
+}
+
+    {;
+//@ assert(fb<fbuflen);
+}
+
+    fb++;
+    if (fb >= fbuflen-1)
+      fb = 0;
+
+    {;
+//@ assert(0<=fb);
+}
+
+    {;
+//@ assert(fb<fbuflen);
+}
+
+    fb++;
+    if (fb >= fbuflen-1)
+      fb = 0;
+
+    {;
+//@ assert(0<=fb);
+}
+
+    {;
+//@ assert(fb<fbuflen);
+}
+
+    fb++;
+    if (fb >= fbuflen-1)
+      fb = 0;
+  }",0<=fb
+LinearArbitrary-SeaHorn\invgen,simple.c,"while( x < n ){
+    x++;
+  }",x<=n
+LinearArbitrary-SeaHorn\invgen,simple_if.c,"while( i < n ) {
+    if( m > 0 ) {
+      i = 2*i;
+    } else {
+      i = 3*i;
+    }
+    
+  }",i > 0
+LinearArbitrary-SeaHorn\invgen,split.c,"for( n = 0 ; n < 2*k ; n++ ) {
+    
+    if(b) {
+      i++;
+    } else {
+      j++;
+    }
+    b = !b;
+  }",i == j
+LinearArbitrary-SeaHorn\invgen,up-nested.c,"while ( j <= n ) {
+    
+    j++;
+  }",i>= 0
+LinearArbitrary-SeaHorn\llreve,barthe2_merged_safe.c,"while (1)
+	{
+    	if ( i1 <= n) {
+	        x1 = x1 + i1;
+    	    i1++;
+	    }
+
+		if ( i2 <= n) {
+	        x2 = x2 + i2;
+    	    i2++;
+		}
+
+		if (i1>n && i2>n) break;
+		{;
+//@ assert(x2==x1+i1);
+}
+
+    }",x2==x1+i1
+LinearArbitrary-SeaHorn\llreve,barthe_merged_safe.c,"while ( (i < n)) {
+        
+        j1 = 5 * i + c;
+		{;
+//@ assert(j1 == j2);
+}
+
+        x1 = x1 + j1;
+        x2 = x2 + j2;
+		{;
+//@ assert(x1 == x2);
+}
+
+        j2 = j2 + 5;
+        i++;
+    }",j1 == j2
+LinearArbitrary-SeaHorn\llreve,fib_merged_safe.c,"while((n > 0)) {
+    h1 = f1 + g1;
+    f1 = g1;
+    g1 = h1;
+    n --;
+
+    h2 = f2 + g2;
+    f2 = g2;
+    g2 = h2;
+
+	{;
+//@ assert(h2==h1+f1);
+}
+
+  }",h2==h1+f1
+LinearArbitrary-SeaHorn\llreve,loop4_merged_safe.c,"while (1) {
+    if (i1 < n + n) {
+      j1++;
+      i1++;
+    }
+
+    if (i2 < n) {
+      j2 = j2 + 2;
+      i2++;
+    }
+  }",j1==j2
+LinearArbitrary-SeaHorn\loops\loop-invgen,MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c,"for (i = 0; i < ielen && bufsize > 2; i++) {
+    {;
+//@ assert(0<=p);
+}
+
+    {;
+//@ assert(p+1<bufsize_0);
+}
+
+    p += 2;
+  }",0<=p
+LinearArbitrary-SeaHorn\loops\loop-invgen,NetBSD_loop_true-unreach-call_true-termination.c,"for (glob2_p_off = glob2_pathbuf_off;
+      glob2_p_off <= glob2_pathlim_off;
+      glob2_p_off++) {
+    
+    {;
+//@ assert(0 <= glob2_p_off );
+}
+
+    {;
+//@ assert(glob2_p_off < MAXPATHLEN + 1);
+}
+
+  }",0 <= glob2_p_off
+LinearArbitrary-SeaHorn\loops\loop-invgen,sendmail-close-angle_true-unreach-call_true-termination.c,"while (unknown_int())
+  {
+    if (buf == buflim)
+      break;
+    {;
+//@ assert(0<=buf);
+}
+
+    {;
+//@ assert(buf<bufferlen);
+}
+ 
+    buf++;
+out:
+    in++;
+    {;
+//@ assert(0<=in);
+}
+
+    {;
+//@ assert(in<inlen);
+}
+
+  }",0<=buf
+LinearArbitrary-SeaHorn\loops\loop-lit,afnp2014_true-unreach-call_true-termination.c,"while (y < 1000 && unknown_int()) {
+        x = x + y;
+        y = y + 1;
+    }",x >= y
+LinearArbitrary-SeaHorn\loops\loop-lit,bhmr2007_true-unreach-call_true-termination.c,"while (i < n) {
+        if (unknown_int()) {
+            a = a + 1;
+            b = b + 2;
+        } else {
+            a = a + 2;
+            b = b + 1;
+        }
+        i = i + 1;
+    }",a + b == 3*n
+LinearArbitrary-SeaHorn\loops\loop-lit,cggmp2005_true-unreach-call_true-termination.c,"while (j >= i) {
+        i = i + 2;
+        j = -1 + j;
+    }",j == 6
+LinearArbitrary-SeaHorn\loops\loop-lit,cggmp2005_variant_true-unreach-call_true-termination.c,"while (mid > 0) {
+        lo = lo + 1;
+        hi = hi - 1;
+        mid = mid - 1;
+    }",lo == hi
+LinearArbitrary-SeaHorn\loops\loop-lit,css2003_true-unreach-call_true-termination.c,"while (i < LARGE_INT) {
+	i = i + 1;
+	j = j + k;
+	k = k - 1;
+	{;
+//@ assert(1 <= i + k && i + k <= 2 && i >= 1);
+}
+
+    }",1 <= i + k && i + k <= 2 && i >= 1
+LinearArbitrary-SeaHorn\loops\loop-lit,ddlm2013_true-unreach-call.c,"while (unknown_int()) {
+        a++;
+        b += (j - i);
+        i += 2;
+        if (i%2 == 0) {
+            j += 2;
+        } else {
+            j++;
+        }
+    }",a == b
+LinearArbitrary-SeaHorn\loops\loop-lit,gj2007b_true-unreach-call_true-termination.c,"while(x < n) {
+	if(unknown_int()) {
+	    m = x;
+	}
+	x = x + 1;
+    }",(m >= 0 || n <= 0)
+LinearArbitrary-SeaHorn\loops\loop-lit,gj2007_true-unreach-call_true-termination.c,"while(x < 100) {
+	if (x < 50) {
+	    x = x + 1;
+	} else {
+	    x = x + 1;
+	    y = y + 1;
+	}
+    }",y == 100
+LinearArbitrary-SeaHorn\loops\loop-lit,gr2006_true-unreach-call_true-termination.c,"while (1) {
+        if (x < 50) {
+            y++;
+        } else {
+            y--;
+        }
+        if (y < 0) break;
+        x++;
+    }",x == 100
+LinearArbitrary-SeaHorn\loops\loop-lit,gsv2008_true-unreach-call_true-termination.c,"while (x < 0) {
+	x = x + y;
+	y++;
+    }",y > 0
+LinearArbitrary-SeaHorn\loops\loop-lit,hhk2008_true-unreach-call_true-termination.c,"while (cnt > 0) {
+	cnt = cnt - 1;
+	res = res + 1;
+    }",res == a + b
+LinearArbitrary-SeaHorn\loops\loop-lit,jm2006_true-unreach-call_true-termination.c,"while(x != 0) {
+        x--;
+        y--;
+    }",y == 0
+LinearArbitrary-SeaHorn\loops\loop-lit,jm2006_variant_true-unreach-call_true-termination.c,"while(x != 0) {
+        x --;
+        y -= 2;
+        z ++;
+    }",y == -z
+LinearArbitrary-SeaHorn\loops\loop-new,count_by_1_true-unreach-call_true-termination.c,"for (i = 0; i < LARGE_INT; i++) ;
+    {;
+//@ assert(i == LARGE_INT);
+}",i == LARGE_INT
+LinearArbitrary-SeaHorn\loops\loop-new,count_by_1_variant_true-unreach-call_true-termination.c,"for (i = 0; i != LARGE_INT; i++) {
+	{;
+//@ assert(i <= LARGE_INT);
+}
+
+    }",i <= LARGE_INT
+LinearArbitrary-SeaHorn\loops\loop-new,count_by_2_true-unreach-call_true-termination.c,"for (i = 0; i < LARGE_INT; i += 2) ;
+    {;
+//@ assert(i == LARGE_INT);
+}",i == LARGE_INT
+LinearArbitrary-SeaHorn\loops\loop-new,count_by_k_true-unreach-call_true-termination.c,"for (i = 0; i < LARGE_INT*k; i += k) ;
+    {;
+//@ assert(i == LARGE_INT*k);
+}",i == LARGE_INT*k
+LinearArbitrary-SeaHorn\loops\loop-new,count_by_nondet_true-unreach-call_true-termination.c,"while(i < LARGE_INT) {
+        int j = unknown_int();
+        if (!(1 <= j && j < LARGE_INT)) return 0;
+        i = i + j;
+        k ++;
+    }",k <= LARGE_INT
+LinearArbitrary-SeaHorn\loops\loop-new,half_true-unreach-call_true-termination.c,"for(i = 0; i < 2*k; i++) {
+        if (i % 2 == 0) {
+            n ++;
+        }
+    }",k < 0 || n == k
+LinearArbitrary-SeaHorn\loops\loops,count_up_down_true-unreach-call_true-termination.i.annot.c,"while(x>0)
+  {
+    x--;
+    y++;
+  }",y==n
+LinearArbitrary-SeaHorn\loops\loops,for_infinite_loop_1_true-unreach-call_false-termination.i.annot.c,"for(i=0; 1; i++)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+LinearArbitrary-SeaHorn\loops\loops,for_infinite_loop_2_true-unreach-call_false-termination.i.annot.c,"for(i=0; 1; i++)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+LinearArbitrary-SeaHorn\loops\loops,sum01_true-unreach-call_true-termination.i.annot.c,"for(i=1; i<=n; i++){
+    sn = sn +(2);
+  }",sn==n*(2)|| sn == 0
+LinearArbitrary-SeaHorn\loops\loops,sum03_true-unreach-call_false-termination.i.annot.c,"while(x < 1000000){
+    sn = sn +(2);
+    x++;
+    {;
+//@ assert(sn==x*(2)|| sn == 0);
+}
+
+  }",sn==x*(2)|| sn == 0
+LinearArbitrary-SeaHorn\loops\loops,sum04_true-unreach-call_true-termination.i.annot.c,"for(i=1; i<=8; i++){
+    sn = sn +(2);
+  }",sn==8*(2)|| sn == 0
+LinearArbitrary-SeaHorn\loops\loops,terminator_02_true-unreach-call_true-termination.i.annot.c,"while(x<100 && 100<z)
+    {
+        int  tmp=unknown_bool();
+        if(tmp){
+            x++;
+        } else {
+            x--;
+            z--;
+        }
+    }",x>=100 || z<=100
+LinearArbitrary-SeaHorn\loops\loops,terminator_03_true-unreach-call_true-termination.i.annot.c,"while(x<100){
+            x=x+y;
+        }",y<=0 ||(y>0 && x>=100)
+LinearArbitrary-SeaHorn\loops\loops,trex03_true-unreach-call.i.annot.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if(c1)x1=x1-d1;
+    else if(c2)x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+  }",x1==0 || x2==0 || x3==0
+LinearArbitrary-SeaHorn\loops\loops,while_infinite_loop_1_true-unreach-call_false-termination.i.annot.c,"while(1)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+LinearArbitrary-SeaHorn\loops\loops,while_infinite_loop_2_true-unreach-call_false-termination.i.annot.c,"while(1)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+LinearArbitrary-SeaHorn\pie\hola,01.c,"while(unknown1()) {
+   int t1 = x;
+   int t2 = y;
+   x = t1+ t2;
+   y = t1 + t2;
+ }",y>=1
+LinearArbitrary-SeaHorn\pie\hola,02.c,"while(unknown2()) 
+	{
+		z+=x+y+w;
+		y++;
+		if(z%2==1) 
+		  x++;
+		w+=2; 
+	}",x==y
+LinearArbitrary-SeaHorn\pie\hola,04.c,"while( x < 0 ) {
+	x = x+y;
+	y++;
+  }",y>0
+LinearArbitrary-SeaHorn\pie\hola,05.c,"while(unknown2())
+	{
+	  x++;
+	  y++;
+	  i+=x;
+	  j+=y;
+	  if(flag)  j+=1;
+	}",j>=i
+LinearArbitrary-SeaHorn\pie\hola,07.c,"while( i < n ) {
+    		if(unknown2()) {
+      			a = a+1;
+      			b = b+2;
+    		} else {
+      			a = a+2;
+      			b = b+1;
+    		}
+    		i = i+1;
+  	}",a+b == 3*n
+LinearArbitrary-SeaHorn\pie\hola,08.c,"while(unknown1()){
+   if(unknown2()){ 
+      x++; 
+      y+=100; 
+   }
+   else if (unknown3()){ 
+      if (x >= 4) { 
+          x++; 
+          y++; 
+      } 
+      if (x < 0){
+          y = -y;
+      }
+   }
+  
+ }",x < 4 || y > 2
+LinearArbitrary-SeaHorn\pie\hola,10.c,"while(unknown2()){
+	    if(w) {
+		x++; 
+		w=!w;
+	    };
+	    if(!z) {
+		y++; 
+		z=!z;
+	    };
+	}",x==y
+LinearArbitrary-SeaHorn\pie\hola,11.c,"for (i =0; i< x ; i++){
+    j = j + 2;
+  }",j == 2*x
+LinearArbitrary-SeaHorn\pie\hola,13.c,"while(unknown1()){ 
+     if (flag)
+       j = j + 4;
+     else {
+       j = j + 2;
+       k = k + 1;
+     }
+   }",j==2*k+2
+LinearArbitrary-SeaHorn\pie\hola,14.c,"for(j = 1; j <= m ; j++){
+    if(unknown1()) 
+       a++;
+    else
+       a--; 
+  }",a>=-m && a<=m
+LinearArbitrary-SeaHorn\pie\hola,15.c,"while( j < n ) {
+    j++;
+    k--;
+  }",k>=0
+LinearArbitrary-SeaHorn\pie\hola,16.c,"while(x!=0) {
+	x--;
+	y--;
+  }",y==0
+LinearArbitrary-SeaHorn\pie\hola,18.c,"for (b=0; b < 100 ; ++b){
+      if (flag)
+         j = j +1;
+   }",j==100
+LinearArbitrary-SeaHorn\pie\hola,19.c,"while(x<n) {
+    x++;
+    if(x>m) y++;
+  }",y==n
+LinearArbitrary-SeaHorn\pie\hola,20.c,"while(j<n) {
+      if(j==i)
+      {
+         x++;
+         y--;
+      }else
+      {
+         y++;
+         x--;
+      }
+	if(unknown1())
+  		m = j;
+      j++;
+    }",(x+y)== k
+LinearArbitrary-SeaHorn\pie\hola,21.c,"while( i < n ) {
+    i++;
+    if(unknown2() % 2 == 0) 
+      v = 0;
+    else v = 1;
+    
+    if( v == 0 )
+      k += c1;
+    else 
+      k += c2;
+  }",k>n
+LinearArbitrary-SeaHorn\pie\hola,22.c,"while(unknown1())
+  {
+     if(k%3 == 0)
+       x++;
+     y++;
+     z++;
+     k = x+y+z;
+  }",x==y && y==z
+LinearArbitrary-SeaHorn\pie\hola,23.c,"for (i=0; i < n; ++i)
+      sum = sum +i;
+
+   {;
+//@ assert(sum >= 0);
+}",sum >= 0
+LinearArbitrary-SeaHorn\pie\hola,30.c,"while (i < 1000) {
+    c = c + i;
+    i = i + 1;
+  }",c>=0
+LinearArbitrary-SeaHorn\pie\hola,32.c,"for( n = 0 ; n < 2*k ; n++ ) {
+    if((int )b == 1) {
+      i++;
+      b = 0;
+    } else if ((int )b == 0) {
+      j++;
+      b = 1;
+    } 
+    
+  }",i == j
+LinearArbitrary-SeaHorn\pie\hola,37.c,"while(x<n) {
+     if(unknown2()) {
+	m = x;
+     }
+     x= x+1;
+  }",0<=m && m<n
+LinearArbitrary-SeaHorn\pie\hola,38.c,"while(i<n) {
+    i++;
+    x++;
+    if(i%2 == 0) y++;
+  }",x==2*y
+LinearArbitrary-SeaHorn\pie\hola,39.c,"for (;;)
+    if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;
+    else {
+      
+      glob3_dc++;
+      
+      {;
+//@ assert(0 <= glob3_dc);
+}
+
+      {;
+//@ assert(glob3_dc < MAXPATHLEN + 1);
+}
+
+      if (unknown()) goto END;
+    }",0 <= glob3_dc
+LinearArbitrary-SeaHorn\pie\hola,41.c,"while(i <= n) {
+     i++;
+     j+=i;
+   }",z > 2*n
+LinearArbitrary-SeaHorn\pie\hola,42.c,"while(unknown1()){
+    if(flag)
+    {
+      a = x+y;
+      x++;
+    }
+    else
+    {
+      a = x+y+1;
+      y++;
+    }
+    if(a%2==1)
+      y++;
+    else
+      x++;	  
+  }",a%2==1
+LinearArbitrary-SeaHorn\pie\hola,43.c,"while (unknown3()){
+    if (x > 0)   
+      y = y + x;
+  }",y>=t
+LinearArbitrary-SeaHorn\pie\hola,44.c,"while ( i <= k){
+    i++;
+    j= j +n;
+  }",j == i
+LinearArbitrary-SeaHorn\pie\hola,46.c,"while(unknown2()){
+	    if(w%2 == 1) {x++; w++;};
+	    if(z%2==0) {y++; z++;};
+	}",x<=1
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,afnp2014_true-unreach-call.c,"while (y < 1000 && unknown_int()) {
+	x = x + y;
+	y = y + 1;
+    }",x >= y
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,cegar2.c,"while (x < N) {
+
+		input = unknown_int();
+		if( input ) {
+
+			m = x;
+		}
+
+		x = x + 1;
+
+	}",(0 <= m) && (m < N)
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,cegar2.v.c,"while (x < N) {
+
+		input = unknown_int();
+		if( input ) {
+
+			m = x;
+		}
+
+		x = x + 1;
+		v1 = unknown_int();
+		v2 = unknown_int();
+		v3 = unknown_int();
+
+	}",(0 <= m) && (m < N)
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,cggmp2005_true-unreach-call.c,"while (j >= i) {
+	i = i + 2;
+	j = -1 + j;
+    }",j == 6
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,dec.c,"while(x > 0)
+  {
+    m = unknown_int();
+    x = x - 1;
+  }",x == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,decn.c,"while(x > 0)
+  {
+    x = x - 1;
+  }",x == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,ex14n.v.c,"while (x <= N){
+      		y=N-x;
+
+		if(y < 0 || y >= N)
+			{;
+//@ assert(0 == 1);
+}
+
+      		x++;
+		v1 = v2;
+		v2 = v3;
+		v3 = v1;
+	
+   	}",0 == 1
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,fig1.c,"while (x < 0) {
+		x = x + y;
+		y++;
+	
+	}",y > 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,fig1.v.c,"while (x < 0) {
+		x = x + y;
+		y++;
+		v1 = unknown_int();
+		v2 = unknown_int();
+		v3 = unknown_int();
+	
+	}",y > 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,fig3.c,"while(x != y) {
+
+		lock = 1;
+		x = y;
+		input = unknown_int();
+		if ( input ) {
+
+			lock = 0;
+			y = y + 1;
+		}
+	}",lock == 1
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,fig3.v.c,"while(x != y) {
+
+		lock = 1;
+		x = y;
+		input = unknown_int();
+		if ( input ) {
+
+			lock = 0;
+			y = y + 1;
+		}
+		v1 = unknown_int();
+		v2 = unknown_int();
+		v3 = unknown_int();
+	}",lock == 1
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,fig9.c,"while(y >= 0) {
+
+		y = y + x;
+	
+	}",0 == 1
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,fig9.v.c,"while(y >= 0) {
+
+		y = y + x;
+		v1 = unknown_int();
+		v2 = unknown_int();
+		v3 = unknown_int();
+	
+	}",0 == 1
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,form22.c,"while(input)
+  {
+    x1p = unknown_int();
+    x2p = unknown_int();
+    x3p = unknown_int();
+
+    if (x1p <= x2p && (x2p >= 0 || x2p - x3p <= 2))
+    {
+	x1 = x1p;
+	x2 = x2p;
+	x3 = x3p;
+    }
+    input = unknown_int();
+  }",x1 <= x2 && (x2 >= 0 || x2 - x3 <= 2)
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,form25.c,"while(input)
+  {
+    x1p = unknown_int();
+    x2p = unknown_int();
+    x3p = unknown_int();
+    x4p = unknown_int();
+
+    if (x1p <= 0 && x1p >= x4p + 1 && x2p == x3p && (x4p >= 0 || x4p <= x3p))
+    {
+	x1 = x1p;
+	x2 = x2p;
+	x3 = x3p;
+	x4 = x4p;
+    }
+    input = unknown_int();
+  }",x1 <= 0 && x1 >= x4 + 1 && x2 == x3 && (x4 >= 0 || x4 <= x3)
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,form27.c,"while(input)
+  {
+    x1p = unknown_int();
+    x2p = unknown_int();
+    x3p = unknown_int();
+    x4p = unknown_int();
+    x5p = unknown_int();
+
+    if (0 <= x1p && x1p <= x4p + 1 && x2p == x3p && (x2p <= -1 || x4p <= x2p + 2) && x5p == 0)
+    {
+	x1 = x1p;
+	x2 = x2p;
+	x3 = x3p;
+	x4 = x4p;
+	x5 = x5p;
+    }
+    input = unknown_int();
+  }",0 <= x1 && x1 <= x4 + 1 && x2 == x3 && (x2 <= -1 || x4 <= x2 + 2) && x5 == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,inc.c,"while(x < 100)
+  {
+    m = unknown_int();
+    x = x + 1;
+  }",x == 100
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,incn.c,"while(x < N)
+  {
+    x = x + 1;
+  }",x == N
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,incn.v.c,"while(x < N)
+  {
+    x = x + 1;
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+  }",N < 0 || x == N
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum01.c,"for(i=1; i<=n; i++) {
+    sn = sn + a;
+  }",sn==n*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum01.v.c,"for(i=1; i<=n; i++) {
+    sn = sn + a;
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+
+  }",sn==n*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum01_safe.c,"for(i=1; i<=n; i++) {
+    sn = sn + 1;
+  }",sn==n || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum01_safe.v.c,"for(i=1; i<=n; i++) {
+    sn = sn + 1;
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+  }",sn==n || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum03.c,"while(1){
+    sn = sn + a;
+    x++;
+    {;
+//@ assert(sn==x*a || sn == 0);
+}
+
+  }",sn==x*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum03.v.c,"while(1){
+    sn = sn + a;
+    x++;
+    {;
+//@ assert(sn==x*a || sn == 0);
+}
+
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+  }",sn==x*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum03_safe.c,"while(1){
+    sn = sn + 1;
+    x++;
+    {;
+//@ assert(sn==x*1 || sn == 0);
+}
+
+  }",sn==x*1 || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum03_safe.v.c,"while(1){
+    sn = sn + 1;
+    x++;
+    {;
+//@ assert(sn==x*1 || sn == 0);
+}
+
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+
+  }",sn==x*1 || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum04.c,"for(i=1; i<=SIZE; i++) {
+    sn = sn + a;
+  }",sn==SIZE*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum04n.c,"for(i=1; i<=SIZE; i++) {
+    sn = sn + a;
+  }",sn==SIZE*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum04n.v.c,"for(i=1; i<=SIZE; i++) {
+    sn = sn + a;
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+  }",sn==SIZE*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,sum04_safe.c,"for(i=1; i<=SIZE; i++) {
+    sn = sn + a;
+  }",sn==SIZE*a || sn == 0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,trex03.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if (c1) x1=x1-d1;
+    else if (c2) x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+  }",x1==0 || x2==0 || x3==0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,trex03.v.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if (c1) x1=x1-d1;
+    else if (c2) x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+  }",x1==0 || x2==0 || x3==0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,trex03_safe.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if (c1) x1=x1-d1;
+    else if (c2) x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+  }",x1==0 || x2==0 || x3==0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,trex03_safe.v.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if (c1) x1=x1-d1;
+    else if (c2) x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+    v1 = unknown_int();
+    v2 = unknown_int();
+    v3 = unknown_int();
+  }",x1==0 || x2==0 || x3==0
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,w1.c,"while (x < n) {
+
+		x = x + 1;
+
+	}",x == n
+LinearArbitrary-SeaHorn\pie\ICE\benchmarks,w2.c,"while ( 0 == 0 ) {
+		if ( input ) {
+
+			x = x + 1;
+			if (x >= n ) {
+				break;
+			}
+		}
+		input = unknown_int();
+	}",x == n
+LinearArbitrary-SeaHorn\sharma_splitter,cav.c,"while (flag < 1) {
+               if (x<=50)
+                       y=y+1;
+               else
+                       y=y-1;
+               
+               if (y<0) {
+                       flag=1;
+               }
+               if (flag < 1) {
+                       x=x+1;
+               }
+       }",x<=102
+LinearArbitrary-SeaHorn\sharma_splitter,ex1.c,"while(flag<1) {
+               if (y<0){
+                        flag=1;
+               }
+               if(flag<1) 
+                        x=x+1;
+               
+               if (x<50) 
+                       y=y+1;
+               else
+                       y=y-1;
+               
+       }",y==-2
+LinearArbitrary-SeaHorn\sharma_splitter,ex2.c,"while (x<100) {
+		if(x<=50)
+               		y=y+1;
+       		else
+               		y=y-1;
+       
+       		if(x<25)
+               		z=z+1;
+       		else
+               		z=z+5;
+       
+       		x=x+1;
+	}",z==400
+LinearArbitrary-SeaHorn\sharma_splitter,popl.c,"while(x<100) {
+               x=x+1;
+               if (x>50) {
+                       y=y+1;
+               }
+       }",y==100
+LinearArbitrary-SeaHorn\VeriMAP,MAP-CPA-example_VeriMAP_true.c,"while (1) {
+    if (i == 20) {
+       goto LOOPEND;
+    } else {
+       i++;
+       a++;
+    }
+
+    if (i != a) {
+      goto ERROR;
+    }
+  }",\false
+LinearArbitrary-SeaHorn\VeriMAP,MAP-disj_VeriMAP_true.c,"while( x < 100 ) {
+    if( x < 50 ) {
+      x = x+1;
+    } else {
+      x = x+1;
+      y = y+1;
+    }
+  }",\false
+LinearArbitrary-SeaHorn\VeriMAP,MAP-forward_VeriMAP_true.c,"while( i < n ){
+      if(unknown_int()) {
+         a = a+1;
+         b = b+2;
+      } else {
+         a = a+2;
+         b = b+1;
+      }
+      i = i+1;
+   }",\false
+LinearArbitrary-SeaHorn\VeriMAP,MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c,"while (unknown_int()) {
+		if (unknown_int()) {
+			x = x+1; 
+			y = y+2;
+		} else if (unknown_int()) {
+			if (x >= 4) {
+			    x = x+1; 
+			    y = y+3; 
+			}
+		} 
+	}",\false
+LinearArbitrary-SeaHorn\VeriMAP,MAP-singleloop2-pepm-proc.c_VeriMAP_true.c,"while(x < 2*n){
+	   x = x + 1;
+
+	   if ( x > n )
+		  y = y - 1;
+	   else
+		  y = y + 2;
+	}",\false
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-paper-prog_d-pepm-proc.c_VeriMAP_true.c,"while ( x < 10000) {
+		y = y + 1;
+		x = x + 1;
+	}",\false
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testabs12_VeriMAP_true.c,"while (i < 100 ){
+      count++;
+      i++;
+  }",!( (i > 100 ) || count < 0 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testabs13_VeriMAP_true.c,while (i < n){ i++; },!( i>10 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testabs15_VeriMAP_true.c,"while (i < n){
+      if (TRACER_NONDET){
+ a=a+1;
+ b=b+2;
+      }
+      else{
+ a=a+2;
+ b=b+1;
+      }
+      i++;
+    }",!( a+b != 3*n )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testabs7_VeriMAP_true.c,while (i < n){ i++; },!( i>10 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testabs8_VeriMAP_true.c,while (i < n){ i++; },!( i>10 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop10_VeriMAP_true.c,"while (new != old) {
+    lock = 1;
+    old = new;
+    if (unknown()) {
+      lock = 0;
+      new++;
+    }
+  }",!( lock==0 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop11_VeriMAP_true.c,"while (unknown()) {
+    if (s == 2){
+      if (e ==0) e=1;
+      s = 3;
+    }
+    else if (s == 3){
+      if (e ==1) e=2;
+      s=4;
+    }
+    else if (s == 4){
+      {;
+//@ assert(!( e == 3 ));
+}
+
+      s=5;
+    }
+  }",!( e == 3 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop13_VeriMAP_true.c,"while (new != old) {
+    lock = 1;
+    old = new;
+    if (unknown()) {
+      lock = 0;
+      new+=2;
+    }
+  }",!( lock==0 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop14_VeriMAP_true.c,"while (i < 10) {
+      {;
+//@ assert(!( y > 2 ));
+}
+
+      i++;
+    }",!( y > 2 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop15_VeriMAP_true.c,"while (i<N) {
+    i++;
+  }",!( i>N )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop16_VeriMAP_true.c,"while (i<N) {
+    if (x==1) {
+      x=2;
+    } else {
+      x=1;
+    }
+    i++;
+  }",!( x>2 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop17_VeriMAP_true.c,"while (i < N) {
+    if (i<1)
+      k = 1;
+    else
+      k = 0;
+    j++;
+    i++;
+  }",!( k>0 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop1_VeriMAP_true.c,"while (i<N){
+    i=i+1;
+  }",!( x >0 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop29_VeriMAP_true.c,"while(x < 100) {
+    x++;
+    if(x == 50)
+      break;
+  }",!( x != 50 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop2_VeriMAP_true.c,"while (i<N){
+    i=i+1;
+  }",!( x >2 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop4_VeriMAP_true.c,"while (x != N);
+
+  {;
+//@ assert(!( a > 1 ));
+}",!( a > 1 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop6_VeriMAP_true.c,"while (i < 10) {
+    if (NONDET > 0) {
+      x = x;
+    } else {
+      x++;
+    }
+
+    {;
+//@ assert(!( y < 0 ));
+}
+
+    i++;
+  }",!( y < 0 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop7_VeriMAP_true.c,"while ( unknown() < 10) {
+    if (x<2) {
+      x=2;
+    } else {
+      x=1;
+    }
+    if (y<1) {
+      y=0;
+    }
+  }",!( x > 2 )
+LinearArbitrary-SeaHorn\VeriMAP,TRACER-testloop9_VeriMAP_true.c,"while (i<10) {
+    if (x==1) {
+      x = 2;
+      y = 3;
+    } else if (x==2) {
+      x = 3;
+      y = 4;
+    } else if (x==3) {
+      x = 1;
+      y = 5;
+    } else if (x==4) {
+      x = 1;
+      y = 6;
+    } else {
+      x = 2;
+    }
+
+    i = i + 1;
+  }",!( y==6 )
+sv-benchmarks\loop-acceleration,const_1-1.c,"while (y < 1024) {
+    x = 0;
+    y++;
+  }",x == 0
+sv-benchmarks\loop-acceleration,diamond_1-1.c,"while (x < 99) {
+    if (y % 2 == 0) {
+      x += 2;
+    } else {
+      x++;
+    }
+  }",(x % 2) == (y % 2)
+sv-benchmarks\loop-acceleration,diamond_2-2.c,"while (x < 99) {
+    if (y % 2 == 0) x += 2;
+    else x++;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 2;
+
+    if (y % 2 == 0) x += 2;
+    else x += 2;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 2;
+
+    if (y % 2 == 0) x += 2;
+    else x += 2;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 4;
+
+    if (y % 2 == 0) x += 2;
+    else x += 4;
+
+    if (y % 2 == 0) x += 2;
+    else x += 2;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 4;
+
+    if (y % 2 == 0) x += 2;
+    else x -= 4;
+  }",(x % 2) == (y % 2)
+sv-benchmarks\loop-acceleration,multivar_1-1.c,"while (x < 1024) {
+    x++;
+    y++;
+  }",x == y
+sv-benchmarks\loop-acceleration,overflow_1-1.c,"while (x >= 10) {
+    x += 2;
+  }",!(x % 2)
+sv-benchmarks\loop-acceleration,phases_1-1.c,"while (x < 0x0fffffff) {
+    if (x < 0xfff0) {
+      x++;
+    } else {
+      x += 2;
+    }
+  }",!(x % 2)
+sv-benchmarks\loop-acceleration,phases_2-2.c,"while (x < y) {
+    if (x < y / x) {
+      x *= x;
+    } else {
+      x++;
+    }
+  }",x == y
+sv-benchmarks\loop-acceleration,simple_1-2.c,"while (x < 0x0fffffff) {
+    x += 2;
+  }",!(x % 2)
+sv-benchmarks\loop-acceleration,simple_2-1.c,"while (x < 0x0fffffff) {
+    x++;
+  }",x >= 0x0fffffff
+sv-benchmarks\loop-acceleration,simple_3-2.c,"while (x < N) {
+    x += 2;
+  }",!(x % 2)
+sv-benchmarks\loop-acceleration,simple_4-2.c,"while (x > 0) {
+    x -= 2;
+  }",!(x % 2)
+sv-benchmarks\loop-acceleration,underapprox_1-2.c,"while (x < 6) {
+    x++;
+    y *= 2;
+  }",y % 3
+sv-benchmarks\loop-acceleration,underapprox_2-2.c,"while (x < 6) {
+    x++;
+    y *= 2;
+  }",x == 6
+sv-benchmarks\loop-crafted,simple_vardep_1.c,"while (k < 0x0fffffff) {
+    i = i + 1;
+    j = j + 2;
+    k = k + 3;
+
+    {;
+//@ assert(k == (i + j));
+}
+
+  }",k == (i + j)
+sv-benchmarks\loop-crafted,simple_vardep_2.c,"while (k < 0x0fffffff) {
+    i = i + 1;
+    j = j + 2;
+    k = k + 3;
+    {;
+//@ assert((k == 3*i) && (j == 2*i));
+}
+
+  }",(k == 3*i) && (j == 2*i)
+sv-benchmarks\loop-floats-scientific-comp,loop1-1.c,"while(1)
+	{
+		term = term * (x/count) ; 
+		exp = exp + term ;
+		count++ ;
+
+		temp = unknown_int() ;
+		if(temp ==0 ) break ;
+	}",result >= exp
+sv-benchmarks\loop-floats-scientific-comp,loop2-2.c,"while(1)
+	{
+		term = term * (x/count) ;
+		multFactor = (count>>1 % 2 == 0) ? 1 : -1 ;
+
+		evenExp = evenExp + multFactor*term ;
+
+		count++ ;
+
+		term = term * (x/count) ;		
+		
+		oddExp = oddExp + multFactor*term ;
+		
+		count++ ;
+
+		temp = unknown_int() ;
+		if(temp == 0) break ;
+	}",oddExp >= evenExp
+sv-benchmarks\loop-floats-scientific-comp,loop3.c,"while(1)
+	{
+		term = term * (x/count) ;
+		multFactor = (count>>1 % 2 == 0) ? 1 : -1 ;
+
+		evenExp = evenExp + multFactor*term ;
+
+		count++ ;
+
+		term = term * (x/count) ;		
+		
+		oddExp = oddExp + multFactor*term ;
+		
+		count++ ;
+
+		temp = unknown_int() ;
+		if(temp == 0) break ;
+	}",evenExp >= oddExp
+sv-benchmarks\loop-industry-pattern,mod3.c,"while(unknown_int()){
+    if(x % 3 == 1){
+      x += 2; y = 0;}
+    else{
+      if(x % 3 == 2){
+	x += 1; y = 0;}
+      else{
+	if(unknown_int()){
+	  x += 4; y = 1;}
+	else{
+	  x += 5; y = 1;}
+      }
+    }
+  }",x % 3 == 0
+sv-benchmarks\loop-invariants,bin-suffix-5.c,"while (unknown_int()) {
+    x += 8;
+  }",(x & 5) == 5
+sv-benchmarks\loop-invariants,const.c,"while (unknown_uint()) {
+    if (s != 0) {
+      ++s;
+    }
+    if (unknown_uint()) {
+      {;
+//@ assert(s == 0);
+}
+
+    }
+  }",s == 0
+sv-benchmarks\loop-invariants,eq1.c,"while (unknown_uint()) {
+    if (unknown_uint()) {
+      ++w; ++x;
+    } else {
+      --y; --z;
+    }
+  }",w == x && y == z
+sv-benchmarks\loop-invariants,eq2.c,"while (unknown_uint()) {
+    y++;
+    z++;
+  }",y == z
+sv-benchmarks\loop-invariants,even.c,"while (unknown_int()) {
+    x += 2;
+  }",!(x % 2)
+sv-benchmarks\loop-invariants,linear-inequality-inv-a.c,"while (i < n) {
+    v = unknown_uchar();
+    s += v;
+    ++i;
+  }",\false
+sv-benchmarks\loop-invariants,mod4.c,"while (unknown_int()) {
+    x += 4;
+  }",!(x % 4)
+sv-benchmarks\loop-invariants,odd.c,"while (unknown_int()) {
+    x += 2;
+  }",x % 2
+sv-benchmarks\loop-invgen,MADWiFi-encode_ie_ok.c,"for (i = 0; i < ielen && bufsize > 2; i++) {
+    {;
+//@ assert(0<=p);
+}
+
+    {;
+//@ assert(p+1<bufsize_0);
+}
+
+    p += 2;
+  }",0<=p
+sv-benchmarks\loop-invgen,NetBSD_loop.c,"for (glob2_p_off = glob2_pathbuf_off;
+      glob2_p_off <= glob2_pathlim_off;
+      glob2_p_off++) {
+    
+    {;
+//@ assert(0 <= glob2_p_off );
+}
+
+    {;
+//@ assert(glob2_p_off < MAXPATHLEN + 1);
+}
+
+  }",0 <= glob2_p_off
+sv-benchmarks\loop-invgen,sendmail-close-angle.c,"while (unknown_int())
+  {
+    if (buf == buflim)
+      break;
+    {;
+//@ assert(0<=buf);
+}
+
+    {;
+//@ assert(buf<bufferlen);
+}
+ 
+    buf++;
+out:
+    in++;
+    {;
+//@ assert(0<=in);
+}
+
+    {;
+//@ assert(in<inlen);
+}
+
+  }",0<=buf
+sv-benchmarks\loop-lit,afnp2014.c,"while (y < 1000 && unknown_int()) {
+        x = x + y;
+        y = y + 1;
+    }",x >= y
+sv-benchmarks\loop-lit,bhmr2007.c,"while (i < n) {
+        if (unknown_int()) {
+            a = a + 1;
+            b = b + 2;
+        } else {
+            a = a + 2;
+            b = b + 1;
+        }
+        i = i + 1;
+    }",a + b == 3*n
+sv-benchmarks\loop-lit,cggmp2005.c,"while (j >= i) {
+        i = i + 2;
+        j = -1 + j;
+    }",j == 6
+sv-benchmarks\loop-lit,cggmp2005_variant.c,"while (mid > 0) {
+        lo = lo + 1;
+        hi = hi - 1;
+        mid = mid - 1;
+    }",lo == hi
+sv-benchmarks\loop-lit,css2003.c,"while (i < LARGE_INT) {
+	i = i + 1;
+	j = j + k;
+	k = k - 1;
+	{;
+//@ assert(1 <= i + k && i + k <= 2 && i >= 1);
+}
+
+    }",1 <= i + k && i + k <= 2 && i >= 1
+sv-benchmarks\loop-lit,ddlm2013.c,"while (unknown_int()) {
+        a++;
+        b += (j - i);
+        i += 2;
+        if (i%2 == 0) {
+            j += 2;
+        } else {
+            j++;
+        }
+    }",a == b
+sv-benchmarks\loop-lit,gj2007.c,"while(x < 100) {
+	if (x < 50) {
+	    x = x + 1;
+	} else {
+	    x = x + 1;
+	    y = y + 1;
+	}
+    }",y == 100
+sv-benchmarks\loop-lit,gj2007b.c,"while(x < n) {
+	if(unknown_int()) {
+	    m = x;
+	}
+	x = x + 1;
+    }",(m >= 0 || n <= 0)
+sv-benchmarks\loop-lit,gr2006.c,"while (1) {
+        if (x < 50) {
+            y++;
+        } else {
+            y--;
+        }
+        if (y < 0) break;
+        x++;
+    }",x == 100
+sv-benchmarks\loop-lit,gsv2008.c,"while (x < 0) {
+	x = x + y;
+	y++;
+    }",y > 0
+sv-benchmarks\loop-lit,hhk2008.c,"while (cnt > 0) {
+	cnt = cnt - 1;
+	res = res + 1;
+    }",res == a + b
+sv-benchmarks\loop-lit,jm2006.c,"while(x != 0) {
+        x--;
+        y--;
+    }",y == 0
+sv-benchmarks\loop-lit,jm2006_variant.c,"while(x != 0) {
+        x --;
+        y -= 2;
+        z ++;
+    }",y == -z
+sv-benchmarks\loop-new,count_by_1.c,"for (i = 0; i < LARGE_INT; i++) ;
+    {;
+//@ assert(i == LARGE_INT);
+}",i == LARGE_INT
+sv-benchmarks\loop-new,count_by_1_variant.c,"for (i = 0; i != LARGE_INT; i++) {
+	{;
+//@ assert(i <= LARGE_INT);
+}
+
+    }",i <= LARGE_INT
+sv-benchmarks\loop-new,count_by_2.c,"for (i = 0; i < LARGE_INT; i += 2) ;
+    {;
+//@ assert(i == LARGE_INT);
+}",i == LARGE_INT
+sv-benchmarks\loop-new,count_by_k.c,"for (i = 0; i < LARGE_INT*k; i += k) ;
+    {;
+//@ assert(i == LARGE_INT*k);
+}",i == LARGE_INT*k
+sv-benchmarks\loop-new,count_by_nondet.c,"while(i < LARGE_INT) {
+        int j = unknown_int();
+        if (!(1 <= j && j < LARGE_INT)) return 0;
+        i = i + j;
+        k ++;
+    }",k <= LARGE_INT
+sv-benchmarks\loop-new,gauss_sum.c,"for(i = 1; i <= n; i++) {
+        sum = sum + i;
+    }",2*sum == n*(n+1)
+sv-benchmarks\loop-new,half.c,"for(i = 0; i < 2*k; i++) {
+        if (i % 2 == 0) {
+            n ++;
+        }
+    }",k < 0 || n == k
+sv-benchmarks\loop-simple,nested_1.c,"for(a = 0; a < 6; ++a) {
+
+	}",\false
+sv-benchmarks\loop-zilu,benchmark01_conjunctive.c,"while (unknown_bool()) {
+    x=x+y;
+    y=x;
+  }",y>=1
+sv-benchmarks\loop-zilu,benchmark02_linear.c,"while (i < n) {
+    i++;
+  }",l>=1
+sv-benchmarks\loop-zilu,benchmark03_linear.c,"while (unknown_bool()) {
+    x++;
+    y++;
+    i+=x;
+    j+=y;
+    if (flag) j+=1;
+  }",j>=i
+sv-benchmarks\loop-zilu,benchmark04_conjunctive.c,"while (j<=n-1) {
+    j++;
+    k--;
+  }",k>=0
+sv-benchmarks\loop-zilu,benchmark05_conjunctive.c,"while (x<n) {
+    x++;
+    if (x>y) y++;
+  }",y==n
+sv-benchmarks\loop-zilu,benchmark06_conjunctive.c,"while (unknown_bool()) {
+    if(j==i) {x++;y--;} else {y++;x--;} j++;
+  }",x+y==k
+sv-benchmarks\loop-zilu,benchmark08_conjunctive.c,"while (i<n) {
+    sum=sum+i;
+    i++;
+  }",sum>=0
+sv-benchmarks\loop-zilu,benchmark09_conjunctive.c,"while (x!=0) {
+    x--;
+    y--;
+    if (x<0 || y<0) break;
+  }",y==0
+sv-benchmarks\loop-zilu,benchmark10_conjunctive.c,"while (i<100) {
+    c=c+i;
+    i=i+1;
+    if (i<=0) break;
+  }",c>=0
+sv-benchmarks\loop-zilu,benchmark11_linear.c,"while (x<n) {
+    x++;
+  }",x==n
+sv-benchmarks\loop-zilu,benchmark12_linear.c,"while (unknown_bool()) {
+    if(x>0) y=y+x;
+  }",y>=t
+sv-benchmarks\loop-zilu,benchmark13_conjunctive.c,"while (i <= k) {
+    i++;
+    j=j+1;
+  }",j==i
+sv-benchmarks\loop-zilu,benchmark14_linear.c,"while (i>0) {
+    i--;
+  }",i>=0
+sv-benchmarks\loop-zilu,benchmark15_conjunctive.c,"while (mid > 0) {
+    low = low + 1;
+    high = high - 1;
+    mid = mid - 1;
+  }",low == high
+sv-benchmarks\loop-zilu,benchmark16_conjunctive.c,"while (unknown_bool()) {
+    i = i + 1;
+    k = k - 1;
+  }",1 <= i + k && i + k <= 2 && i >= 1
+sv-benchmarks\loop-zilu,benchmark17_conjunctive.c,"while (i<n) {
+    i++;
+    k++;
+  }",k>=n
+sv-benchmarks\loop-zilu,benchmark18_conjunctive.c,"while (i < n) {
+    i++;k++;
+  }",(i == k) && (k == n)
+sv-benchmarks\loop-zilu,benchmark19_conjunctive.c,"while (j>0 && n>0) {
+    j--;k--;
+  }",(k == 0)
+sv-benchmarks\loop-zilu,benchmark20_conjunctive.c,"while (i<n) {
+    sum = sum + i;
+    i++;
+  }",sum>=0
+sv-benchmarks\loop-zilu,benchmark21_disjunctive.c,"while (1) {
+    if (x+y>-2) {
+      break;
+    }
+    if (x>0) {
+      x++;
+    } else {
+      y++;
+    }
+  }",x>0 || y>0
+sv-benchmarks\loop-zilu,benchmark22_conjunctive.c,"while (unknown_bool()) {
+    x=x+y;
+    y++;
+  }",x >= y
+sv-benchmarks\loop-zilu,benchmark23_conjunctive.c,"while (i<100) {
+    j+=2;
+    i++;
+  }",j==200
+sv-benchmarks\loop-zilu,benchmark24_conjunctive.c,"while (i<n) {
+    k--;
+    i+=2;
+  }",2*k>=n-1
+sv-benchmarks\loop-zilu,benchmark25_linear.c,"while (x<10) {
+    x=x+1;
+  }",x==10
+sv-benchmarks\loop-zilu,benchmark26_linear.c,"while (x<y) {
+    x=x+1;
+  }",x==y
+sv-benchmarks\loop-zilu,benchmark27_linear.c,"while (i<j) {
+    k=k+1;
+    i=i+1;
+  }",k > 0
+sv-benchmarks\loop-zilu,benchmark29_linear.c,"while (x<y) {
+    x=x+100;
+  }",x >= y && x <= y + 99
+sv-benchmarks\loop-zilu,benchmark30_conjunctive.c,"while (unknown_bool()) {
+    x++;
+    y++;
+  }",x == y
+sv-benchmarks\loop-zilu,benchmark31_disjunctive.c,"while (1) {
+    if (x>=0) {
+      break;
+    } else {
+      x=x+y; y++;
+    }
+  }",y>=0
+sv-benchmarks\loop-zilu,benchmark32_linear.c,"while (unknown_bool()) {
+    if(x==1) x=2;
+    else if (x==2) x=1;
+  }",x<=8
+sv-benchmarks\loop-zilu,benchmark33_linear.c,"while (x<100 && x>=0) {
+    x++;
+  }",x>=100
+sv-benchmarks\loop-zilu,benchmark34_conjunctive.c,"while (j<n && n>0) {
+    j++;k--;
+  }",(k == 0)
+sv-benchmarks\loop-zilu,benchmark35_linear.c,"while ((x>=0) && (x<10)) {
+    x=x+1;
+  }",x>=10
+sv-benchmarks\loop-zilu,benchmark36_conjunctive.c,"while (unknown_bool()) {
+    x++;y++;
+  }",x == y && x >= 0
+sv-benchmarks\loop-zilu,benchmark37_conjunctive.c,"while (x > 0) {
+    x--;
+    y--;
+  }",y>=0
+sv-benchmarks\loop-zilu,benchmark38_conjunctive.c,"while (unknown_bool()) {
+    x+=4;y++;
+  }",x == 4*y && x >= 0
+sv-benchmarks\loop-zilu,benchmark39_conjunctive.c,"while (x > 0) {
+    x-=4;
+    y--;
+  }",y>=0
+sv-benchmarks\loop-zilu,benchmark40_polynomial.c,"while (unknown_bool()) {
+    if(x==0) {if (y>0) x++;
+    else x--;} if(x>0) y++;
+    else x--;
+  }",x*y>=0
+sv-benchmarks\loop-zilu,benchmark41_conjunctive.c,"while (unknown_bool()) {
+    x++;y++;z-=2;
+  }",x == y && x >= 0 && x+y+z==0
+sv-benchmarks\loop-zilu,benchmark42_conjunctive.c,"while (x > 0) {
+    x--;
+    y--;
+    z++;
+    z++;
+  }",z<=0
+sv-benchmarks\loop-zilu,benchmark43_conjunctive.c,"while (x < 100 && y < 100) {
+    x=x+1;
+    y=y+1;
+  }",x == 100 || y == 100
+sv-benchmarks\loop-zilu,benchmark45_disjunctive.c,"while (unknown_bool()) {
+    if (x>0) {
+      x++;
+    } else {
+      y++;
+    }
+  }",x>0 || y>0
+sv-benchmarks\loop-zilu,benchmark46_disjunctive.c,"while (unknown_bool()) {
+    if (x>0) {
+      x++;
+    }
+    if (y>0) {
+      y++;
+    } else {
+      z++;
+    }
+  }",x>0 || y>0 || z>0
+sv-benchmarks\loop-zilu,benchmark47_linear.c,"while (x<y) {
+    if (x < 0) x = x + 7;
+    else x = x + 10;
+    if (y < 0) y = y - 10;
+    else y = y + 3;
+  }",x >= y && x <= y + 16
+sv-benchmarks\loop-zilu,benchmark48_linear.c,"while (i<j) {
+    k=k+1;i=i+1;
+  }",k > j - i
+sv-benchmarks\loop-zilu,benchmark49_linear.c,"while (i > 0) {
+    i = i - 1;
+    j = j + 1;
+  }",r > i + j
+sv-benchmarks\loop-zilu,benchmark50_linear.c,"while (xa > 0) {
+    xa--;
+    ya++;
+  }",ya >= 0
+sv-benchmarks\loop-zilu,benchmark51_polynomial.c,"while (unknown_bool()) {
+    if (x>50) x++;
+    if (x == 0) { x ++;
+    } else x--;
+  }",(x>=0) && (x<=50)
+sv-benchmarks\loop-zilu,benchmark52_polynomial.c,"while (i * i < 100) {
+    i = i + 1;
+  }",i == 10
+sv-benchmarks\loop-zilu,benchmark53_polynomial.c,"while (unknown_bool()) {
+    if(x==0) {if (y>0) x++;
+    else x--;} if(x>0) y++;
+    else x--;
+  }",x*y>=0
+sv-benchmarks\loops,count_up_down-1.c,"while(x>0)
+  {
+    x--;
+    y++;
+  }",y==n
+sv-benchmarks\loops,for_infinite_loop_1.c,"for(i=0; 1; i++)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+sv-benchmarks\loops,for_infinite_loop_2.c,"for(i=0; 1; i++)
+  {
+    {;
+//@ assert(x==0);
+}
+
+  }",x==0
+sv-benchmarks\loops,sum01-2.c,"for(i=1; i<=n; i++) {
+    sn = sn + a;
+  }",sn==n*a || sn == 0
+sv-benchmarks\loops,sum03-2.c,"while(1){
+    sn = sn + a;
+    x++;
+    {;
+//@ assert(sn==x*a || sn == 0);
+}
+
+  }",sn==x*a || sn == 0
+sv-benchmarks\loops,sum04-2.c,"for(i=1; i<=SIZE; i++) {
+    sn = sn + a;
+  }",sn==SIZE*a || sn == 0
+sv-benchmarks\loops,terminator_02-2.c,"while(x<100 && z>100) 
+    {
+        _Bool tmp=unknown_bool();
+        if (tmp) {
+            x++;
+        } else {
+            x--;
+            z--;
+        }
+    }",x>=100 || z<=100
+sv-benchmarks\loops,terminator_03-2.c,"while(x<100) {
+            x=x+y;
+        }",y<=0 || (y>0 && x>=100)
+sv-benchmarks\loops,trex03-2.c,"while(x1>0 && x2>0 && x3>0)
+  {
+    if (c1) x1=x1-d1;
+    else if (c2) x2=x2-d2;
+    else x3=x3-d3;
+    c1=unknown_bool();
+    c2=unknown_bool();
+  }",x1==0 || x2==0 || x3==0
+sv-benchmarks\loops,while_infinite_loop_1.c,"while(1)
+  {
+    {;
+//@ assert(x==0);
+}
+    
+  }",x==0
+sv-benchmarks\loops,while_infinite_loop_2.c,"while(1)
+  {
+    {;
+//@ assert(x==0);
+}
+    
+  }",x==0
+sv-benchmarks\loops-crafted-1,iftelse.c,"while( i < n ) {
+    i = i + 3;
+    if(i%2)
+	    j = j+3;
+    else
+	    k = k+3;
+    if(n>0)
+	  {;
+//@ assert( (i/2<=j) );
+}
+
+  }",(i/2<=j)
+sv-benchmarks\loops-crafted-1,loopv1.c,"while(i<n){ 
+ 
+    if(unknown_int())	  
+      i = i + 6; 
+    else
+     i = i + 3;    
+  }",(i%3) == 0
+sv-benchmarks\loops-crafted-1,loopv3.c,"while(i<SIZE){ 
+
+    if(unknown_int())	  
+      i = i + 8; 
+    else
+     i = i + 4;    
+	  
+  }",(j * 4) == i
+sv-benchmarks\loops-crafted-1,mono-crafted_10.c,"while(x<y){	
+		if(x>=5000000)
+			z++;
+		x++;
+	}",z==x
+sv-benchmarks\loops-crafted-1,mono-crafted_11.c,"while (x < 100000000) {
+    if (x < 10000000) {
+      x++;
+    } else {
+      x += 2;
+    }
+  }",(x%2)==0
+sv-benchmarks\loops-crafted-1,mono-crafted_12.c,"while(x<y){	
+		if(x>=5000000)
+			z=z+2;
+		x++;
+	}",!(z%2)
+sv-benchmarks\loops-crafted-1,mono-crafted_6.c,"while(x<1000000){
+		if(x<500000)
+			x++;
+		else{
+			if(x<750000){
+				x++;
+			}
+			else{
+				x=x+2;
+			}
+			y++;
+		}
+	}",x==1000000
+sv-benchmarks\loops-crafted-1,mono-crafted_8.c,"while(x<y){	
+		if(x>=5000000)
+			z--;
+		x++;
+	}",z==0
+sv-benchmarks\loops-crafted-1,mono-crafted_9.c,"while(x < 1000000) {
+		if (x < 500000) {
+			x = x + 1;
+		} else {
+			x = x + 1;
+			y = y + 1;
+		}
+	}",y==x
+sv-benchmarks\loops-crafted-1,Mono1_1-2.c,"while (x < 100000000) {
+    if (x < 10000000) {
+      x++;
+    } else {
+      x += 2;
+    }
+  }",x == 100000000
+sv-benchmarks\loops-crafted-1,sumt2.c,"while( l < n ) {
+	
+	  if(!(l%2))
+	    i = i + 1;
+	  else 
+		  j = j+1;
+    l = l+1;
+  }",(i+j) == l
+sv-benchmarks\loops-crafted-1,sumt3.c,"while( l < n ) {
+	
+	  if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+  }",(i+j+k) == l
+sv-benchmarks\loops-crafted-1,sumt4.c,"while( l < n ) {
+	
+	  if(!(l%4))
+	    v4 = v4 + 1;
+	  else if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+  }",(i+j+k+v4) == l
+sv-benchmarks\loops-crafted-1,sumt5.c,"while( l < n ) {
+	
+	  if(!(l%5))
+	    v3 = v3 + 1;
+	  else if(!(l%4))
+	    v4 = v4 + 1;
+	  else if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+  }",(i+j+k+v4+v3) == l
+sv-benchmarks\loops-crafted-1,sumt6.c,"while( l < n ) {
+	
+	  if(!(l%6))
+	    v2 = v2 + 1;
+	  else if(!(l%5))
+	    v3 = v3 + 1;
+	  else if(!(l%4))
+	    v4 = v4 + 1;
+	  else if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+  }",(i+j+k+v4+v3+v2) == l
+sv-benchmarks\loops-crafted-1,sumt7.c,"while( l < n ) {
+	
+	  if(!(l%7))
+	    v1 = v1 + 1;
+	  else if(!(l%6))
+	    v2 = v2 + 1;
+	  else if(!(l%5))
+	    v3 = v3 + 1;
+	  else if(!(l%4))
+	    v4 = v4 + 1;
+	  else if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+    {;
+//@ assert((i+j+k+v1+v2+v3+v4) == l);
+}
+
+  }",(i+j+k+v1+v2+v3+v4) == l
+sv-benchmarks\loops-crafted-1,sumt8.c,"while( l < n ) {
+	
+	  if(!(l%8))
+	    v5 = v5 + 1;
+	  else if(!(l%7))
+	    v1 = v1 + 1;
+	  else if(!(l%6))
+	    v2 = v2 + 1;
+	  else if(!(l%5))
+	    v3 = v3 + 1;
+	  else if(!(l%4))
+	    v4 = v4 + 1;
+	  else if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+    {;
+//@ assert((i+j+k+v1+v2+v3+v4+v5) == l);
+}
+
+  }",(i+j+k+v1+v2+v3+v4+v5) == l
+sv-benchmarks\loops-crafted-1,sumt9.c,"while( l < n ) {
+	
+	  if(!(l%9))
+	    v6 = v6 + 1;
+	  else if(!(l%8))
+	    v5 = v5 + 1;
+	  else if(!(l%7))
+	    v1 = v1 + 1;
+	  else if(!(l%6))
+	    v2 = v2 + 1;
+	  else if(!(l%5))
+	    v3 = v3 + 1;
+	  else if(!(l%4))
+	    v4 = v4 + 1;
+	  else if(!(l%3))
+	    i = i + 1;
+	  else if(!(l%2)) 
+		  j = j+1;
+	  else 
+	    k = k+1;
+    l = l+1;
+    {;
+//@ assert((i+j+k+v1+v2+v3+v4+v5+v6) == l);
+}
+
+  }",(i+j+k+v1+v2+v3+v4+v5+v6) == l
+sv-benchmarks\loops-crafted-1,sum_natnum.c,"while(i< SIZE){ 
+      i = i + 1; 
+      sum += i;
+  }",sum == ((SIZE *(SIZE+1))/2)
+sv-benchmarks\loops-crafted-1,vnew2.c,"while( i < n ) {
+    i = i + 3;
+    j = j+3;
+    k = k+3;
+  }",i==j && j==k && (i%(SIZE+2))

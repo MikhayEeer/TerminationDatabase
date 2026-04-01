@@ -1,0 +1,30 @@
+source_file: term_25_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_25.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:23
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (w == x + y + z){
+        if (c < 100) y --;
+        c++;
+        x = x + y + c;
+        z = z - y;
+    }
+  invariants:
+  - w == x + y + z
+  - c >= 0
+  - y >= 0
+  - x >= 0
+  - z >= 0
+  explanation: Variable c acts as a bounded counter (0 to 100). A single linear ranking
+    function 100 - c suffices.
+  template_type: lnested
+  template_depth: 1

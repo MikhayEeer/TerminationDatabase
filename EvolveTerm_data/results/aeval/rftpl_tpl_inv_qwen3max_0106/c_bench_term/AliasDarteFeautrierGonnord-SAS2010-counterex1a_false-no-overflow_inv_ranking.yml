@@ -1,0 +1,25 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-counterex1a_false-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-counterex1a_false-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (x >= 0 && 0 <= y && y <= n) {\n    if (b == 0) {\n        y = y +\
+    \ 1;\n        if (__VERIFIER_nondet_int() != 0) {\n            b = 1;\n      \
+    \  }\n    } else {\n        y = y - 1;\n        if (__VERIFIER_nondet_int() !=\
+    \ 0) {\n            x = x - 1;\n            b = 0;\n        }\n    }\n}"
+  invariants:
+  - x >= 0
+  - y >= 0
+  - y <= n
+  explanation: The loop has two distinct phases controlled by b; x decreases only
+    in one phase, while y is bounded. A multi-phase ranking function with depth 2
+    can model progress in each phase.
+  template_type: lmulti
+  template_depth: 2

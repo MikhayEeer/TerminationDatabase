@@ -1,0 +1,5 @@
+{
+  "template_type": "lnested",
+  "template_depth": 1,
+  "explanation": "Termination is guaranteed by the finite range of x (1..99) and the constraint x >= 2*oldx + 10 which restricts transitions. A single component ranking function (e.g., 100 - x) is sufficient to argue that the loop cannot iterate indefinitely within the finite domain."
+}

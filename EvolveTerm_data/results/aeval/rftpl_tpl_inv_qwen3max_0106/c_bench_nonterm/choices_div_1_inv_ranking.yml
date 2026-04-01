@@ -1,0 +1,20 @@
+source_file: choices_div_1_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/choices_div_1.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: "while (j >= 0)\n{\n  int a = __VERIFIER_nondet_int();\n  if (a == 0) { j\
+    \ = j / 2; } else { j = j - 1; }\n}"
+  invariants:
+  - j >= 0
+  explanation: A simple linear ranking function (j) suffices; no need for multi-phase
+    or nested structures.
+  template_type: lnested
+  template_depth: 1

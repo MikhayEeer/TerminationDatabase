@@ -1,0 +1,2084 @@
+directory,filename,clean_path,benchmark_invariant,cpa_invariant,et_invariant,loopy_generated_invariant
+accelerating_invariant_generation/crafted,const_safe1.c,accelerating_invariant_generation/crafted/const_safe1.c,x == 0,,,"x == 0 || y == 0;
+0 <= y && y <= 10"
+accelerating_invariant_generation/crafted,diamond_safe1.c,accelerating_invariant_generation/crafted/diamond_safe1.c,(x % 2) == (y % 2),,,
+accelerating_invariant_generation/crafted,diamond_safe2.c,accelerating_invariant_generation/crafted/diamond_safe2.c,(x % 2) == (y % 2),,,
+accelerating_invariant_generation/crafted,multivar_safe1.c,accelerating_invariant_generation/crafted/multivar_safe1.c,x == y,Supporting invariants [1*main::x - 1*main::y >= 0],x - y == \old(x) - \old(y); x >= \old(x); y >= \old(y); y == \old(y) + x - \old(x),"0 <= x;
+0 <= y;
+x == y"
+accelerating_invariant_generation/crafted,overflow_safe1.c,accelerating_invariant_generation/crafted/overflow_safe1.c,!(x % 2),,x >= \old(x); (x - \old(x)) % 2 == 0; true,
+accelerating_invariant_generation/crafted,phases_safe1.c,accelerating_invariant_generation/crafted/phases_safe1.c,!(x % 2),,, x >= 0xfff0 ==> (x - 0xfff0) % 2 == 0
+accelerating_invariant_generation/crafted,simple_safe1.c,accelerating_invariant_generation/crafted/simple_safe1.c,!(x % 2),,,"x % 2 == 0;
+0 <= x <= 0x10000000"
+accelerating_invariant_generation/crafted,simple_safe2.c,accelerating_invariant_generation/crafted/simple_safe2.c,x >= 0x0fffffff,,x <= 0x0fffffff; x >= \old(x), x >= 0
+accelerating_invariant_generation/crafted,simple_safe3.c,accelerating_invariant_generation/crafted/simple_safe3.c,!(x % 2),,,"0 <= x;
+x % 2 == 0;
+x <= 2 * N"
+accelerating_invariant_generation/crafted,simple_safe4.c,accelerating_invariant_generation/crafted/simple_safe4.c,!(x % 2),,x <= \old(x); x % 2 == \old(x) % 2,"0 <= x <= 0x0ffffff0;
+x % 2 == 0"
+accelerating_invariant_generation/crafted,underapprox_safe2.c,accelerating_invariant_generation/crafted/underapprox_safe2.c,x == 6,,"x >= \old(x); (\old(y) == 0) ==> (y == 0); \old(y) * \pow(2, x) == y * \pow(2, \old(x))","0 <= x <= 6;
+y == 1 << x"
+accelerating_invariant_generation/crafted,underapprox_unsafe1.c,accelerating_invariant_generation/crafted/underapprox_unsafe1.c,y != 12,,y == (1U << x); x <= 6,"0 <= x <= 6;
+y == (1 << x)"
+accelerating_invariant_generation/dagger,barbr.c,accelerating_invariant_generation/dagger/barbr.c,p5 >= open,,,"barber >= 0;
+chair >= 0;
+open >= 0;
+p1 >= 0 && p1 <= 1;
+p2 >= 0 && p2 <= 1;
+p3 >= 0 && p3 <= 1;
+p4 >= 0 && p4 <= 1;
+p5 >= 0 && p5 <= 3;
+p5 >= open"
+accelerating_invariant_generation/dagger,barbrprime.c,accelerating_invariant_generation/dagger/barbrprime.c,p5 <= 3,,0 <= p1 && p1 <= 1; 0 <= p2 && p2 <= 1; 0 <= p3 && p3 <= 1; 0 <= p4 && p4 <= 1; 0 <= p5 && p5 <= 3; barber >= 0; chair >= 0; open >= 0,"barber >= 0;
+chair >= 0;
+open >= 0;
+p1 >= 0 && p1 <= 1;
+p2 >= 0 && p2 <= 1;
+p3 >= 0 && p3 <= 1;
+p4 >= 0 && p4 <= 1;
+p5 >= 0 && p5 <= 3;
+open <= p5"
+accelerating_invariant_generation/dagger,bk-nat.c,accelerating_invariant_generation/dagger/bk-nat.c,exclusive >= 0,,,"exclusive >= 0;
+nonexclusive >= 0;
+unowned >= 0;
+invalid >= 0;
+invalid + unowned + exclusive >= 1"
+accelerating_invariant_generation/dagger,bkley.c,accelerating_invariant_generation/dagger/bkley.c,exclusive >= 0,,,"exclusive >= 0;
+unowned >= 0;
+nonexclusive >= 0;
+invalid >= 1 ==> invalid >= 1;
+invalid + unowned + exclusive + nonexclusive >= 1"
+accelerating_invariant_generation/dagger,cars.c,accelerating_invariant_generation/dagger/cars.c,v1 <= 5,,-5; 5,
+accelerating_invariant_generation/dagger,efm.c,accelerating_invariant_generation/dagger/efm.c,X4 + X5 + X6 -1 >= 0,,,"X1 >= 0;
+X2 >= 0;
+X3 >= 0;
+X4 >= 0;
+X5 >= 0;
+X6 >= 0;
+X1 + X5 >= 1;
+X1 + X2 >= X4 + X5;
+X1 + X2 + X3 >= 1;
+X4 + X5 + X6 - 1 >= 0;
+X4 + X5 + X6 - 1 <= 0;
+X4 + X5 <= 1"
+accelerating_invariant_generation/dagger,ex1.c,accelerating_invariant_generation/dagger/ex1.c,xa + 2*ya >= 0,,,"xa + 2 * ya >= 0;
+xa == 0 && ya == 0 ==> xa + 2 * ya == 0"
+accelerating_invariant_generation/dagger,fig2.c,accelerating_invariant_generation/dagger/fig2.c,3*x >= y,Supporting invariants []; Supporting invariants []; Supporting invariants [2*main::x - 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [8*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [],"y - 2 * x == \at(y - 2 * x, Pre); x >= \at(x, Pre); y >= \at(y, Pre)",
+accelerating_invariant_generation/dagger,lifnat.c,accelerating_invariant_generation/dagger/lifnat.c,Ea + Ma <= 1,,,"I >= 0;
+Sa >= 0;
+Ea >= 0;
+Ma >= 0;
+Sb >= 0;
+Eb >= 0;
+Mb >= 0;
+Ea + Ma <= 1;
+Eb + Mb <= 1;
+I + Sa + Ea + Ma + Sb + Eb + Mb >= 1"
+accelerating_invariant_generation/dagger,lifnatprime.c,accelerating_invariant_generation/dagger/lifnatprime.c,Ea + Ma <= 1,,,"I >= 0;
+Sa >= 0;
+Ea >= 0;
+Ma >= 0;
+Sb >= 0;
+Eb >= 0;
+Mb >= 0;
+Ea + Ma <= 1;
+Eb + Mb <= 1;
+I + Sa + Ea + Ma + Sb + Eb + Mb >= 1"
+accelerating_invariant_generation/dagger,lifo.c,accelerating_invariant_generation/dagger/lifo.c,Ea + Ma <= 1,,,"I >= 0;
+Sa >= 0;
+Ea >= 0;
+Ma >= 0;
+Sb >= 0;
+Eb >= 0;
+Mb >= 0;
+Ea + Ma <= 1;
+Eb + Mb <= 1"
+accelerating_invariant_generation/dagger,seesaw.c,accelerating_invariant_generation/dagger/seesaw.c,-x + 2*y  >= 0,,,"0 <= x;
+0 <= y;
+x <= 2 * y;
+3 * x >= y"
+accelerating_invariant_generation/dagger,substring1.c,accelerating_invariant_generation/dagger/substring1.c,j <= 100,Supporting invariants []; Supporting invariants [1*main::from + 1*main::j - 1*main::i >= 0]; Supporting invariants [-5*main::k - 3*main::j + 5*main::i + 41300 >= 0],"j - i == \at(j, Pre) - \at(i, Pre)","from >= 0;
+k <= 100;
+from <= k;
+i >= from;
+j >= 0;
+i <= k;
+j <= k;
+i - from == j"
+accelerating_invariant_generation/dagger,substring1.c,accelerating_invariant_generation/dagger/substring1.c,j <= 100,Supporting invariants []; Supporting invariants [1*main::from + 1*main::j - 1*main::i >= 0]; Supporting invariants [-5*main::k - 3*main::j + 5*main::i + 41300 >= 0],"j - i == \at(j, Pre) - \at(i, Pre)","from >= 0;
+k <= 100;
+from <= k;
+i >= from;
+j >= 0;
+i <= k;
+j <= k;
+i - from == j"
+accelerating_invariant_generation/dagger,swim.c,accelerating_invariant_generation/dagger/swim.c,x2 + x3 + x4 + x7 == q,,,"x1 >= 0;
+x2 >= 0;
+x3 >= 0;
+x4 >= 0;
+x5 >= 0;
+x6 >= 0;
+x7 >= 0;
+x1 + x2 + x4 + x5 + x6 == p;
+x2 + x3 + x4 + x7 == q;
+x1 + x2 + x4 + x5 + x6 >= 1;
+x2 + x3 + x4 + x7 >= 1"
+accelerating_invariant_generation/dagger,swim1.c,accelerating_invariant_generation/dagger/swim1.c,x2 + x3 + x4 + x7 == q,,,"x1 >= 0;
+x2 >= 0;
+x3 >= 0;
+x4 >= 0;
+x5 >= 0;
+x6 >= 0;
+x7 >= 0;
+x1 + x2 + x4 + x5 + x6 == p;
+x2 + x3 + x4 + x7 == q;
+x1 + x2 + x4 + x6 + x7 >= 1;
+x2 + x3 + x4 + x7 >= 1;
+x1 + x2 + x4 + x5 + x6 >= 1"
+accelerating_invariant_generation/invgen,bind_expands_vars2.c,accelerating_invariant_generation/invgen/bind_expands_vars2.c,cp1_off+mc_i < MAXDATA * 2,Supporting invariants [1*main::MAXDATA > 0],0 <= mc_i && mc_i <= n2; cp1_off + mc_i < MAXDATA * 2," 0 <= mc_i;
+ n2 <= MAXDATA * 2 - n1;
+ cp1_off + mc_i <= MAXDATA * 2;
+ cp1_off <= n1;
+ n1 <= MAXDATA * 2;
+ MAXDATA > 0"
+accelerating_invariant_generation/invgen,bind_expands_vars2.c,accelerating_invariant_generation/invgen/bind_expands_vars2.c,cp1_off+mc_i < MAXDATA * 2,Supporting invariants [1*main::MAXDATA > 0],0 <= mc_i && mc_i <= n2; cp1_off + mc_i < MAXDATA * 2," 0 <= mc_i;
+ n2 <= MAXDATA * 2 - n1;
+ cp1_off + mc_i <= MAXDATA * 2;
+ cp1_off <= n1;
+ n1 <= MAXDATA * 2;
+ MAXDATA > 0"
+accelerating_invariant_generation/invgen,gulwani_cegar1.c,accelerating_invariant_generation/invgen/gulwani_cegar1.c,x < 4,,x - y == \old(x) - \old(y); x % 2 == \old(x) % 2; y % 2 == \old(y) % 2,"0 <= x;
+x <= 2 * y + 2;
+0 <= y;
+y <= 2 * x + 2"
+accelerating_invariant_generation/invgen,gulwani_cegar1.c,accelerating_invariant_generation/invgen/gulwani_cegar1.c,x < 4,,x - y == \old(x) - \old(y); x % 2 == \old(x) % 2; y % 2 == \old(y) % 2,"0 <= x;
+x <= 2 * y + 2;
+0 <= y;
+y <= 2 * x + 2"
+accelerating_invariant_generation/invgen,gulwani_cegar2.c,accelerating_invariant_generation/invgen/gulwani_cegar2.c,0<=m,,x <= n; x >= \old(x)," 0 <= m <= x;
+ n > 0 ==> 0 <= m < n"
+accelerating_invariant_generation/invgen,gulwani_cegar2.c,accelerating_invariant_generation/invgen/gulwani_cegar2.c,0<=m,,x <= n; x >= \old(x)," 0 <= m <= x;
+ n > 0 ==> 0 <= m < n"
+accelerating_invariant_generation/invgen,MADWiFi-encode_ie_ok.c,accelerating_invariant_generation/invgen/MADWiFi-encode_ie_ok.c,0<=p,Supporting invariants [1*main::bufsize > 0],,
+accelerating_invariant_generation/invgen,NetBSD_g_Ctoc.c,accelerating_invariant_generation/invgen/NetBSD_g_Ctoc.c,0 <= BASE_SZ-1,,,"0 <= i;
+i <= BASE_SZ;
+0 <= j;
+j <= BASE_SZ;
+0 <= len;
+len <= BASE_SZ;
+i == j"
+accelerating_invariant_generation/invgen,NetBSD_g_Ctoc.c,accelerating_invariant_generation/invgen/NetBSD_g_Ctoc.c,0 <= BASE_SZ-1,,,"0 <= i;
+i <= BASE_SZ;
+0 <= j;
+j <= BASE_SZ;
+0 <= len;
+len <= BASE_SZ;
+i == j"
+accelerating_invariant_generation/invgen,NetBSD_loop.c,accelerating_invariant_generation/invgen/NetBSD_loop.c,0 <= glob2_p_off,Supporting invariants [1*main::bound_off - 1*main::glob2_pathlim_off >= 0],glob2_pathbuf_off <= glob2_p_off; glob2_p_off <= glob2_pathlim_off; 0 <= glob2_p_off; glob2_p_off < MAXPATHLEN + 1,"glob2_p_off >= glob2_pathbuf_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_pathbuf_off == 0;
+glob2_pathlim_off == MAXPATHLEN"
+accelerating_invariant_generation/invgen,NetBSD_loop.c,accelerating_invariant_generation/invgen/NetBSD_loop.c,0 <= glob2_p_off,Supporting invariants [1*main::bound_off - 1*main::glob2_pathlim_off >= 0],glob2_pathbuf_off <= glob2_p_off; glob2_p_off <= glob2_pathlim_off; 0 <= glob2_p_off; glob2_p_off < MAXPATHLEN + 1,"glob2_p_off >= glob2_pathbuf_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_pathbuf_off == 0;
+glob2_pathlim_off == MAXPATHLEN"
+accelerating_invariant_generation/invgen,NetBSD_loop.c,accelerating_invariant_generation/invgen/NetBSD_loop.c,0 <= glob2_p_off,Supporting invariants [1*main::bound_off - 1*main::glob2_pathlim_off >= 0],glob2_pathbuf_off <= glob2_p_off; glob2_p_off <= glob2_pathlim_off; 0 <= glob2_p_off; glob2_p_off < MAXPATHLEN + 1,"glob2_p_off >= glob2_pathbuf_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_pathbuf_off == 0;
+glob2_pathlim_off == MAXPATHLEN"
+accelerating_invariant_generation/invgen,NetBSD_loop_int.c,accelerating_invariant_generation/invgen/NetBSD_loop_int.c,0 <= glob3_dc,,,"glob3_dc >= 0;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == buf_off;
+glob3_pathend_off == buf_off;
+glob3_pathlim_off == bound_off;
+glob3_pattern_off == pattern_off"
+accelerating_invariant_generation/invgen,NetBSD_loop_int.c,accelerating_invariant_generation/invgen/NetBSD_loop_int.c,0 <= glob3_dc,,,"glob3_dc >= 0;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == buf_off;
+glob3_pathend_off == buf_off;
+glob3_pathlim_off == bound_off;
+glob3_pattern_off == pattern_off"
+accelerating_invariant_generation/invgen,rajamani_1.c,accelerating_invariant_generation/invgen/rajamani_1.c,y>2,,,"0 <= x;
+0 <= y;
+0 <= z;
+0 <= w;
+z == 10 * w;
+x <= y / 100 + w;
+y <= 100 * x + w;
+w <= y / 10;
+y >= 0 ==> x <= y / 100"
+accelerating_invariant_generation/invgen,rajamani_1.c,accelerating_invariant_generation/invgen/rajamani_1.c,y>2,,,"0 <= x;
+0 <= y;
+0 <= z;
+0 <= w;
+z == 10 * w;
+x <= y / 100 + w;
+y <= 100 * x + w;
+w <= y / 10;
+y >= 0 ==> x <= y / 100"
+accelerating_invariant_generation/invgen,sendmail-close-angle.c,accelerating_invariant_generation/invgen/sendmail-close-angle.c,0<=buf,"Supporting invariants [1*main::bufferlen > 0, 3*main::inlen - 2 >= 0]; Supporting invariants [1*main::inlen > 0, 1*main::inlen - 1*main::in - 1*main::buflim + 1*main::buf >= 0]",," 0 <= buf;
+ buf < bufferlen;
+ 0 <= in;
+ in < inlen;
+ buf <= buflim;
+ buflim == bufferlen - 2;
+ buf <= buflim + 1;
+ in <= inlen;
+ buf <= in;
+ buf <= bufferlen - 1;
+ buf == in;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ 0 <= buf <= buflim + 1;
+ 0 <= in < inlen;
+ buf >= in;
+ 0 <= buf && buf <= buflim"
+accelerating_invariant_generation/invgen,sendmail-close-angle.c,accelerating_invariant_generation/invgen/sendmail-close-angle.c,0<=buf,"Supporting invariants [1*main::bufferlen > 0, 3*main::inlen - 2 >= 0]; Supporting invariants [1*main::inlen > 0, 1*main::inlen - 1*main::in - 1*main::buflim + 1*main::buf >= 0]",," 0 <= buf;
+ buf < bufferlen;
+ 0 <= in;
+ in < inlen;
+ buf <= buflim;
+ buflim == bufferlen - 2;
+ buf <= buflim + 1;
+ in <= inlen;
+ buf <= in;
+ buf <= bufferlen - 1;
+ buf == in;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ 0 <= buf <= buflim + 1;
+ 0 <= in < inlen;
+ buf >= in;
+ 0 <= buf && buf <= buflim"
+accelerating_invariant_generation/invgen,sendmail-close-angle.c,accelerating_invariant_generation/invgen/sendmail-close-angle.c,0<=buf,"Supporting invariants [1*main::bufferlen > 0, 3*main::inlen - 2 >= 0]; Supporting invariants [1*main::inlen > 0, 1*main::inlen - 1*main::in - 1*main::buflim + 1*main::buf >= 0]",," 0 <= buf;
+ buf < bufferlen;
+ 0 <= in;
+ in < inlen;
+ buf <= buflim;
+ buflim == bufferlen - 2;
+ buf <= buflim + 1;
+ in <= inlen;
+ buf <= in;
+ buf <= bufferlen - 1;
+ buf == in;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ 0 <= buf <= buflim + 1;
+ 0 <= in < inlen;
+ buf >= in;
+ 0 <= buf && buf <= buflim"
+accelerating_invariant_generation/invgen,sendmail-mime-fromqp.c,accelerating_invariant_generation/invgen/sendmail-mime-fromqp.c,0<=out,,,"0 <= out;
+out < outfilelen;
+0 <= nchar;
+nchar <= out"
+accelerating_invariant_generation/invgen,sendmail-mime-fromqp.c,accelerating_invariant_generation/invgen/sendmail-mime-fromqp.c,0<=out,,,"0 <= out;
+out < outfilelen;
+0 <= nchar;
+nchar <= out"
+accelerating_invariant_generation/invgen,sendmail-mime7to8_arr_three_chars_no_test_ok.c,accelerating_invariant_generation/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c,0<=fb,,,"0 <= fb;
+fb < fbuflen"
+accelerating_invariant_generation/invgen,sendmail-mime7to8_arr_three_chars_no_test_ok.c,accelerating_invariant_generation/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c,0<=fb,,,"0 <= fb;
+fb < fbuflen"
+accelerating_invariant_generation/invgen,simple.c,accelerating_invariant_generation/invgen/simple.c,x<=n,,x >= \old(x); n == \old(n),"0 <= x;
+x <= n"
+accelerating_invariant_generation/invgen,simple.c,accelerating_invariant_generation/invgen/simple.c,x<=n,,x >= \old(x); n == \old(n),"0 <= x;
+x <= n"
+accelerating_invariant_generation/invgen,simple_if.c,accelerating_invariant_generation/invgen/simple_if.c,i > 0,Supporting invariants [1*main::i - 1 >= 0],, i >= 1
+accelerating_invariant_generation/invgen,simple_if.c,accelerating_invariant_generation/invgen/simple_if.c,i > 0,Supporting invariants [1*main::i - 1 >= 0],, i >= 1
+accelerating_invariant_generation/invgen,split.c,accelerating_invariant_generation/invgen/split.c,i == j,"Supporting invariants [1*main::k > 0, 1*main::n >= 0]; Supporting invariants []; Supporting invariants [-3*main::k + 30751 > 0]",,
+accelerating_invariant_generation/invgen,up-nested.c,accelerating_invariant_generation/invgen/up-nested.c,i>= 0,,i == 0; i >= 0; k == 0,"j <= n + 1;
+i == 0;
+k == 0"
+accelerating_invariant_generation/invgen,up-nested.c,accelerating_invariant_generation/invgen/up-nested.c,i>= 0,,i == 0; i >= 0; k == 0,"j <= n + 1;
+i == 0;
+k == 0"
+accelerating_invariant_generation/svcomp,count_up_down_true.c,accelerating_invariant_generation/svcomp/count_up_down_true.c,y==n,,,"0 <= y <= n;
+x + y == n"
+accelerating_invariant_generation/svcomp,for_infinite_loop_1_true.c,accelerating_invariant_generation/svcomp/for_infinite_loop_1_true.c,x==0,,x == 0; i >= 0,"x == 0;
+i >= 0"
+accelerating_invariant_generation/svcomp,for_infinite_loop_2_true.c,accelerating_invariant_generation/svcomp/for_infinite_loop_2_true.c,x==0,,x == 0; i >= 0,"i >= 0;
+x == 0;
+y == 0"
+accelerating_invariant_generation/svcomp,sum01_true.c,accelerating_invariant_generation/svcomp/sum01_true.c,sn==n*a || sn == 0,,,"1 <= i;
+ i <= n + 1 || i == 1;
+ sn == (i-1) * a;
+ 0 <= sn;
+n >= 0 ==> sn >= 0;"
+accelerating_invariant_generation/svcomp,sum03_true.c,accelerating_invariant_generation/svcomp/sum03_true.c,sn==x*a || sn == 0,Supporting invariants [5*main::x - 2*main::sn >= 0]; Supporting invariants [2*main::x - 1*main::sn >= 0]; Supporting invariants [8*main::x - 3*main::sn + 12 > 0]; Supporting invariants [3*main::x - 1*main::sn >= 0]; Supporting invariants [8*main::x - 3*main::sn >= 0]; Supporting invariants []; Supporting invariants [8*main::x - 3*main::sn >= 0]; Supporting invariants [8*main::x - 3*main::sn >= 0]; Supporting invariants [],,"sn % a == 0 || sn == 0;
+x >= 0;
+sn == x * a"
+accelerating_invariant_generation/svcomp,sum04_true.c,accelerating_invariant_generation/svcomp/sum04_true.c,sn==SIZE*a || sn == 0,,sn == \old(sn) + (i - 1) * a; 1 <= i && i <= SIZE + 1,"1 <= i <= SIZE + 1;
+sn == 2 * (i - 1)"
+accelerating_invariant_generation/svcomp,terminator_02_true.c,accelerating_invariant_generation/svcomp/terminator_02_true.c,x>=100 || z<=100,,,"x <= 100;
+z <= 100;
+(x < 100 && 100 < z) ==> (x < z)"
+accelerating_invariant_generation/svcomp,trex03_true.c,accelerating_invariant_generation/svcomp/trex03_true.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 > 0, 1*main::d1 > 0, 1*main::d3 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]",x1 > 0 && x2 > 0 && x3 > 0; x1 <= \old(x1); x2 <= \old(x2); x3 <= \old(x3),"x1 >= 0;
+x2 >= 0;
+x3 >= 0;
+d1 == 1;
+d2 == 1;
+d3 == 1"
+accelerating_invariant_generation/svcomp,while_infinite_loop_1_true.c,accelerating_invariant_generation/svcomp/while_infinite_loop_1_true.c,x==0,,x == 0,x == 0
+accelerating_invariant_generation/svcomp,while_infinite_loop_2_true.c,accelerating_invariant_generation/svcomp/while_infinite_loop_2_true.c,x==0,,x == 0,x == 0
+code2inv,1.c,code2inv/1.c,(x >= y),,,"0 <= y <= 100000;
+x >= y;
+x >= 1"
+code2inv,10.c,code2inv/10.c,(x != 4),,x - y == \old(x - y),"x >= 0;
+y >= 0;
+x <= y + 2;
+y <= x + 2"
+code2inv,10.c,code2inv/10.c,(x != 4),,x - y == \old(x - y),"x >= 0;
+y >= 0;
+x <= y + 2;
+y <= x + 2"
+code2inv,100.c,code2inv/100.c,(y == n),,x + y == \old(x + y); x <= \old(x); y >= \old(y),"x >= 0;
+y >= 0;
+n - x == y"
+code2inv,101.c,code2inv/101.c,(n < 0),,,
+code2inv,102.c,code2inv/102.c,(x == n),,,n >= 0 ==> (x == n || x < n);
+code2inv,103.c,code2inv/103.c,(x == 100),,x <= 100; x >= \old(x),"0 <= x;
+x <= 100"
+code2inv,104.c,code2inv/104.c,(n < 0),,,
+code2inv,105.c,code2inv/105.c,(x == n),,,
+code2inv,107.c,code2inv/107.c,a <= m,,,"k == 0 || k == 1;
+(k == 0 && m < a) || m >= a"
+code2inv,108.c,code2inv/108.c,a <=  m,,," a <= m;
+ k == 0 || m >= a"
+code2inv,109.c,code2inv/109.c,a <=  m,,," 0 <= j <= k;
+ (k > 0) ==> (m >= a)"
+code2inv,11.c,code2inv/11.c,(y != 0),,x - y == \old(x - y)," x >= 0;
+ y >= 0;
+ x - y == \at(x - y, LoopEntry)"
+code2inv,11.c,code2inv/11.c,(y != 0),,x - y == \old(x - y)," x >= 0;
+ y >= 0;
+ x - y == \at(x - y, LoopEntry)"
+code2inv,110.c,code2inv/110.c,(sn == 0),Supporting invariants [1*main::i > 0],,
+code2inv,111.c,code2inv/111.c,(sn == n),Supporting invariants [1*main::i > 0],sn == i - 1; i >= 1; sn >= 0; i <= n + 1,
+code2inv,112.c,code2inv/112.c,(sn == 0),Supporting invariants [1*main::i > 0],"sn - i == \at(sn - i, Pre)","i == 1 || (1 < i && i <= n + 1);
+sn == i - 1;"
+code2inv,113.c,code2inv/113.c,(sn == n),Supporting invariants [1*main::i > 0],,
+code2inv,114.c,code2inv/114.c,(sn == -1),,x - sn == \old(x - sn),sn == x
+code2inv,115.c,code2inv/115.c,(sn == x),,x - sn == \old(x) - \old(sn),"sn >= 0;
+x >= 0;
+sn == x"
+code2inv,116.c,code2inv/116.c,(sn == -1),,,"sn >= 0;
+x >= 0;
+sn == x"
+code2inv,117.c,code2inv/117.c,(sn == x),,,"sn == x;
+sn >= 0;
+x >= 0"
+code2inv,118.c,code2inv/118.c,(sn == 0),,sn - i == \old(sn) - \old(i); i >= \old(i); sn >= \old(sn); i <= size + 1,"i == 1 || 1 <= i <= size + 1;
+sn == i - 1;
+size >= 0 ==> sn <= size;"
+code2inv,119.c,code2inv/119.c,(sn == size),,i - sn == \old(i) - \old(sn); i >= \old(i); sn >= \old(sn),
+code2inv,12.c,code2inv/12.c,(x != 20),,,"x >= 0;
+y >= 0;
+x - y == \at(x, LoopEntry) - \at(y, LoopEntry)"
+code2inv,120.c,code2inv/120.c,(sn == 0),,,"1 <= i <= 9;
+0 <= sn <= 8;
+sn == i - 1"
+code2inv,121.c,code2inv/121.c,(sn == 8),,,"1 <= i <= 9;
+0 <= sn <= 8;
+sn == i - 1"
+code2inv,122.c,code2inv/122.c,(sn == 0),,sn - i == \old(sn) - \old(i); i >= \old(i); sn >= \old(sn),
+code2inv,123.c,code2inv/123.c,(sn == size),,sn == i - 1; i >= 1; sn >= 0,
+code2inv,124.c,code2inv/124.c,(y == 0),,x - y == \old(x) - \old(y),"i == x + (j - y);
+i - x == j - y"
+code2inv,125.c,code2inv/125.c,(i != j),,x - y == \old(x) - \old(y); \old(x) - x == \old(y) - y,"i >= x;
+j >= y;
+i - x == j - y"
+code2inv,126.c,code2inv/126.c,(y == 0),,x - y == \old(x) - \old(y); x - \old(x) == y - \old(y),"i >= x;
+j >= y;
+i - x == j - y"
+code2inv,127.c,code2inv/127.c,(i != j),,,"i >= x;
+j >= y;
+i - x == j - y"
+code2inv,128.c,code2inv/128.c,(x >= 1),Supporting invariants [4*main::x - 3 > 0],,"x >= 1;
+\exists integer k; (k >= 0) && (x == (1 << k))"
+code2inv,129.c,code2inv/129.c,(x >= 1),Supporting invariants [4*main::x - 3 > 0],,"x >= 1;
+x < y ==> x * 2 > x;
+x >= y ==> x >= 1"
+code2inv,13.c,code2inv/13.c,(y != 0),,," x >= 0;
+ y >= 0;
+ (x == 4) ==> (y > 0)"
+code2inv,13.c,code2inv/13.c,(y != 0),,," x >= 0;
+ y >= 0;
+ (x == 4) ==> (y > 0)"
+code2inv,130.c,code2inv/130.c,x2 >= 0,,,
+code2inv,131.c,code2inv/131.c,x3 >= 0,,," x1 >= 0;
+ x2 < 0 || x3 < 0 ==> x1 == 1;
+ d1 == 1;
+ d2 == 1;
+ d3 == 1;
+ x1 <= 1;
+ x2 >= 0 ==> x2 >= x1 - d1;
+ x3 >= 0 ==> x3 >= x1 - d1;
+ 0 <= x1"
+code2inv,132.c,code2inv/132.c,i >= 0,,,i >= 0
+code2inv,133.c,code2inv/133.c,(x == n),,,"0 <= x;
+x <= n"
+code2inv,14.c,code2inv/14.c,(x != 4),,," x >= 0;
+ y >= 0;
+ x - y == \at(x - y, LoopEntry)"
+code2inv,14.c,code2inv/14.c,(x != 4),,," x >= 0;
+ y >= 0;
+ x - y == \at(x - y, LoopEntry)"
+code2inv,15.c,code2inv/15.c,m < n,,,"0 <= m <= x;
+n > 0 ==> m < n;"
+code2inv,15.c,code2inv/15.c,m < n,,,"0 <= m <= x;
+n > 0 ==> m < n;"
+code2inv,16.c,code2inv/16.c,m >= 0,,, 0 <= m && m <= x
+code2inv,16.c,code2inv/16.c,m >= 0,,, 0 <= m && m <= x
+code2inv,17.c,code2inv/17.c,m < n,,,
+code2inv,18.c,code2inv/18.c,m >= 1,,,"x >= 1;
+m >= 1;
+m <= x"
+code2inv,18.c,code2inv/18.c,m >= 1,,,"x >= 1;
+m >= 1;
+m <= x"
+code2inv,19.c,code2inv/19.c,m < n,,," m <= x;
+ (n > 0) ==> (m < n)"
+code2inv,19.c,code2inv/19.c,m < n,,," m <= x;
+ (n > 0) ==> (m < n)"
+code2inv,19.c,code2inv/19.c,m < n,,," m <= x;
+ (n > 0) ==> (m < n)"
+code2inv,2.c,code2inv/2.c,(x >= y),,,"x >= 1;
+y >= 0;
+x >= y;
+y <= 1000"
+code2inv,20.c,code2inv/20.c,m >= 0,,,"0 <= x;
+0 <= m;
+m <= x;
+x < n || x >= n"
+code2inv,20.c,code2inv/20.c,m >= 0,,,"0 <= x;
+0 <= m;
+m <= x;
+x < n || x >= n"
+code2inv,21.c,code2inv/21.c,m < n,,,"1 <= x;
+1 <= m;
+m <= x;
+(n > 1) ==> (m < n);
+(n <= 1) ==> (m == 1)"
+code2inv,22.c,code2inv/22.c,m >= 1,,,"1 <= x;
+1 <= m;
+m <= x;
+x <= n ==> m >= 1"
+code2inv,23.c,code2inv/23.c,(j == 13),,"j >= i; i + 2 * j == \at(i + 2 * j, Pre); i >= \at(i, Pre); j <= \at(j, Pre); i % 2 == \at(i % 2, Pre)"," 1 <= i;
+ i <= 21;
+ j <= 20;
+ (i - 1) % 2 == 0;
+ i % 2 == 1;
+ i >= 1;
+ 1 <= i <= 21;
+ 0 <= j <= 20;
+ j >= i - 2;
+ 20 >= j;
+ j >= i ==> j + i >= 21;
+ j >= 0;
+ 1 <= j;
+ j == 20 - (i - 1)/2;
+ 1 <= i <= 20;
+ 1 <= j <= 20;
+ (i % 2) == 1;
+ 0 <= j;
+ j < i ==> j == 13;
+ j >= i - 7;
+ 1 <= i && i <= 21;
+ 1 <= j && j <= 20;
+ j >= i ==> i % 2 == 1"
+code2inv,23.c,code2inv/23.c,(j == 13),,"j >= i; i + 2 * j == \at(i + 2 * j, Pre); i >= \at(i, Pre); j <= \at(j, Pre); i % 2 == \at(i % 2, Pre)"," 1 <= i;
+ i <= 21;
+ j <= 20;
+ (i - 1) % 2 == 0;
+ i % 2 == 1;
+ i >= 1;
+ 1 <= i <= 21;
+ 0 <= j <= 20;
+ j >= i - 2;
+ 20 >= j;
+ j >= i ==> j + i >= 21;
+ j >= 0;
+ 1 <= j;
+ j == 20 - (i - 1)/2;
+ 1 <= i <= 20;
+ 1 <= j <= 20;
+ (i % 2) == 1;
+ 0 <= j;
+ j < i ==> j == 13;
+ j >= i - 7;
+ 1 <= i && i <= 21;
+ 1 <= j && j <= 20;
+ j >= i ==> i % 2 == 1"
+code2inv,24.c,code2inv/24.c,(j == 6),,,
+code2inv,25.c,code2inv/25.c,(x == 0),,x <= \old(x),"0 <= x <= 10000;
+x >= 0"
+code2inv,28.c,code2inv/28.c,(n < 0),,,
+code2inv,29.c,code2inv/29.c,(x == 0),,," x <= n;
+ n >= 0 ==> x >= 0;
+ n < 0 ==> x == n"
+code2inv,3.c,code2inv/3.c,z >= y,,,"0 <= x <= 5;
+x >= 1 ==> z >= y"
+code2inv,30.c,code2inv/30.c,(x == 0),,,"0 <= x <= 100;
+x <= 100"
+code2inv,30.c,code2inv/30.c,(x == 0),,,"0 <= x <= 100;
+x <= 100"
+code2inv,33.c,code2inv/33.c,(n < 0),,,
+code2inv,34.c,code2inv/34.c,(x == 0),,,"x <= n;
+n - x >= 0;
+(n >= 0) ==> (x >= 0)"
+code2inv,35.c,code2inv/35.c,(c >= 0),,,"0 <= c <= 40;
+c != 40 ==> (c >= 0)"
+code2inv,36.c,code2inv/36.c,(c <= 40),,,0 <= c <= 40
+code2inv,37.c,code2inv/37.c,(c == 40),,,"0 <= c <= 40;
+(c < 0 || c > 40) ==> (c == 40)"
+code2inv,37.c,code2inv/37.c,(c == 40),,,"0 <= c <= 40;
+(c < 0 || c > 40) ==> (c == 40)"
+code2inv,37.c,code2inv/37.c,(c == 40),,,"0 <= c <= 40;
+(c < 0 || c > 40) ==> (c == 40)"
+code2inv,38.c,code2inv/38.c,c >= 0,Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,38.c,code2inv/38.c,c >= 0,Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,39.c,code2inv/39.c,c <= n,Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,39.c,code2inv/39.c,c <= n,Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,39.c,code2inv/39.c,c <= n,Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,4.c,code2inv/4.c,z >= y,,,"0 <= x <= 500;
+(x > 0) ==> (y <= z)"
+code2inv,40.c,code2inv/40.c,(c >= 0),,," c >= 0;
+ n > 0"
+code2inv,41.c,code2inv/41.c,(c <= n),,,"0 <= c && c <= n;
+(c > n) ==> (c == n + 1);
+(c == n) ==> (c == 1)"
+code2inv,41.c,code2inv/41.c,(c <= n),,,"0 <= c && c <= n;
+(c > n) ==> (c == n + 1);
+(c == n) ==> (c == 1)"
+code2inv,42.c,code2inv/42.c,(c == n),,, c >= 0
+code2inv,43.c,code2inv/43.c,(n > -1),,,"c >= 0;
+c <= n + 1;
+n > 0;
+(c > n) ==> (c == c + 1);
+(c == n) ==> (c == 1)"
+code2inv,43.c,code2inv/43.c,(n > -1),,,"c >= 0;
+c <= n + 1;
+n > 0;
+(c > n) ==> (c == c + 1);
+(c == n) ==> (c == 1)"
+code2inv,44.c,code2inv/44.c,(c != n),,," c >= 0;
+ n > 0;
+ (c == n) ==> (c == 1)"
+code2inv,44.c,code2inv/44.c,(c != n),,," c >= 0;
+ n > 0;
+ (c == n) ==> (c == 1)"
+code2inv,45.c,code2inv/45.c,(c >= 0),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"c >= 0;
+n > 0;
+c <= n"
+code2inv,46.c,code2inv/46.c,(c <= n),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,46.c,code2inv/46.c,(c <= n),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,47.c,code2inv/47.c,(c == n),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,48.c,code2inv/48.c,(n > -1),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,49.c,code2inv/49.c,(c != n),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,5.c,code2inv/5.c,z >= y,,, (x > 0) ==> (y <= z)
+code2inv,50.c,code2inv/50.c,(c >= 0),,,0 <= c <= 4
+code2inv,51.c,code2inv/51.c,(c <= 4),,,"c >= 0;
+c <= 4"
+code2inv,52.c,code2inv/52.c,(c == 4),,,"c >= 0;
+c <= 4"
+code2inv,53.c,code2inv/53.c,(c >= 0),,,"c >= 0;
+n > 0"
+code2inv,54.c,code2inv/54.c,(c <= n),,," 0 <= c;
+ c <= n;
+ c >= 0;
+ c <= n + 1;
+ (c == n) ==> (c == 1);
+ 0 <= c <= n + 1;
+ n > 0;
+ (c == 0) ==> (c <= n);
+ (c > 0) ==> (c <= n + 1);
+ (c == n) ==> (c > 0);
+ (c == 1) ==> (c <= n);
+ c == n ==> v1 == 0;
+ c > n ==> v1 > 0"
+code2inv,55.c,code2inv/55.c,(c == n),,," 0 <= c;
+ n > 0"
+code2inv,56.c,code2inv/56.c,(n <= -1),,,"0 <= c <= n + 1;
+n > 0;
+(c <= n) || (c == 1);
+(c > n) ==> (c >= n + 1);
+(c > n) ==> (c == n + 1);
+c != n;"
+code2inv,57.c,code2inv/57.c,(c != n),,,"0 <= c <= 2*n;
+n > 0;
+c <= n;
+c != n;"
+code2inv,58.c,code2inv/58.c,(c >= 0),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,59.c,code2inv/59.c,(c <= n),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c;
+c <= n;
+n > 0"
+code2inv,6.c,code2inv/6.c,z >= y,,, (x > 0) ==> (z >= y)
+code2inv,60.c,code2inv/60.c,(c == n),Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::n > 0],,"0 <= c <= n;
+n > 0"
+code2inv,63.c,code2inv/63.c,y >= 0,Supporting invariants [1*main::x > 0],,"1 <= x <= 11;
+x >= 2 ==> y >= 0;"
+code2inv,64.c,code2inv/64.c,y < 10,Supporting invariants [1*main::x > 0],,"x == 1 || y == 10 - x + 1;
+x == 1 || y < 10;"
+code2inv,65.c,code2inv/65.c,y >= 0,Supporting invariants [1*main::x > 0],,
+code2inv,66.c,code2inv/66.c,y < 100,Supporting invariants [1*main::x > 0],,
+code2inv,67.c,code2inv/67.c,y >= 0,,,"x >= 1;
+x == 1 || x <= n + 1;
+x > 1 ==> y == n - (x - 1);
+n < 0 ==> x == 1;"
+code2inv,68.c,code2inv/68.c,y <= n,,, x > 1 ==> y < n
+code2inv,69.c,code2inv/69.c,y >= 0,,,
+code2inv,7.c,code2inv/7.c,(y != 0),,," x >= 0;
+ y >= 0;
+ x <= y + 10;
+ y <= x + 10"
+code2inv,70.c,code2inv/70.c,y < n,,,
+code2inv,71.c,code2inv/71.c,(z >= 0),Supporting invariants [1*main::z > 0]; Supporting invariants [1*main::y > 0],,"0 <= c <= 36;
+z == 36 * y + c;
+c <= 36 ==> z >= 0"
+code2inv,73.c,code2inv/73.c,(c >= 36),Supporting invariants [1*main::z > 0]; Supporting invariants [1*main::y > 0],z - c == \old(z) - \old(c); z >= \old(z); c >= \old(c); z - \old(z) == c - \old(c),"0 <= c <= 36;
+z >= 36 * y;
+(c < 36) ==> (z <= 36 * y + c)"
+code2inv,74.c,code2inv/74.c,(z >= 0),Supporting invariants [1*main::z > 0]; Supporting invariants [1*main::y > 0],,"c >= 0;
+y >= 0;
+y >= 127;
+z >= 36 * y;
+c <= 36;
+(c < 36) ==> (z == 36 * y + c)"
+code2inv,76.c,code2inv/76.c,(c >= 36),Supporting invariants [1*main::z > 0]; Supporting invariants [1*main::y > 0],z - c == \old(z) - \old(c); z >= \old(z); c >= \old(c),"0 <= c <= 36;
+z == 36 * y + c;
+y >= 127"
+code2inv,77.c,code2inv/77.c,(i < x),Supporting invariants []; Supporting invariants [-1*main::y + 1*main::x + 1 > 0],,"i >= 0;
+i <= y;
+x >= y"
+code2inv,78.c,code2inv/78.c,(0 <= i),Supporting invariants []; Supporting invariants [-1*main::y + 1*main::x + 1 > 0],,"0 <= i;
+i <= x;
+x >= y;
+x >= 0;
+y >= 0"
+code2inv,79.c,code2inv/79.c,(i >= y),Supporting invariants []; Supporting invariants [-1*main::y + 1*main::x + 1 > 0],,"i >= 0;
+i <= y;
+x >= y;
+x >= 0;
+y >= 0"
+code2inv,8.c,code2inv/8.c,(x != 20),,,"x >= 0;
+y >= 0;
+x <= y + 10;
+y <= x + 10"
+code2inv,80.c,code2inv/80.c,(i < x),Supporting invariants []; Supporting invariants [-1*main::y + 1*main::x + 1 > 0],,"i >= 0;
+i <= y;
+x >= 0;
+y >= 0;
+x >= y"
+code2inv,81.c,code2inv/81.c,(0 <= i),Supporting invariants []; Supporting invariants [-1*main::y + 1*main::x + 1 > 0],,"0 <= i;
+i <= y;
+y <= x"
+code2inv,82.c,code2inv/82.c,(i >= y),Supporting invariants []; Supporting invariants [-1*main::y + 1*main::x + 1 > 0],y == \old(y); i >= \old(i); i <= y || i == \old(i),"0 <= i;
+i <= y;
+y <= x;
+x >= 0"
+code2inv,83.c,code2inv/83.c,(y > 0),,, x <= -5000 || (x >= -4999 && y >= 1)
+code2inv,84.c,code2inv/84.c,(y > 0),,,
+code2inv,85.c,code2inv/85.c,(y > 0),,,
+code2inv,86.c,code2inv/86.c,(y > 0),,"2*x - y*(y - 1) == \at(2*x - y*(y - 1), Pre); y >= \at(y, Pre)",
+code2inv,87.c,code2inv/87.c,(lock == 1),,,"x == y ==> lock == 1;
+x != y ==> lock == 0"
+code2inv,88.c,code2inv/88.c,(lock == 1),,,"x <= y;
+lock == 0 || lock == 1;
+lock == 1 ==> x == y;
+lock == 0 ==> x < y"
+code2inv,89.c,code2inv/89.c,(lock == 1),,,"0 <= lock <= 1;
+lock == 1 ==> x == y;
+lock == 0 ==> x == y - 1"
+code2inv,9.c,code2inv/9.c,(y != 0),,x - y == \old(x) - \old(y)," x >= 0;
+ y >= 0;
+ (x == 4) ==> (y != 0)"
+code2inv,90.c,code2inv/90.c,(lock == 1),,,"x <= y;
+y <= x + 1;
+(lock == 0) || (lock == 1);
+(lock == 1) ==> (x == y);
+(lock == 0) ==> (x < y)"
+code2inv,91.c,code2inv/91.c,y>= 0,,,"x == 0;
+y >= 0"
+code2inv,92.c,code2inv/92.c,y>= 0,,,"x == 0;
+y >= 0"
+code2inv,93.c,code2inv/93.c,((3 * n) == (x + y)),,,"0 <= i <= n;
+i <= x <= 2 * i;
+i <= y <= 2 * i;
+(3 * i) == (x + y)"
+code2inv,94.c,code2inv/94.c,((i + (j + k)) > (2 * n)),,," 0 <= i && i <= n + 1;
+ 0 <= j;
+ j >= i * (i - 1) / 2;
+ i >= 0;
+ j >= 0;
+ j == (i * (i + 1)) / 2;
+ i <= n + 1;
+ k >= 0;
+ n >= 0;
+ 0 <= i <= n + 1;
+ j >= i * (i - 1) / 2 - n;
+ 0 <= i;
+ 0 <= k;
+ 0 <= n;
+ 0 <= i <= n+1;
+ 0 <= i && i <= n+1;
+ i >= 1 ==> j >= i;
+ i * (i - 1) <= 2 * j"
+code2inv,95.c,code2inv/95.c,(i == j),,, j == i * y
+code2inv,96.c,code2inv/96.c,(y != 1),,j - i * y == \old(j) - \old(i) * y; i >= \old(i); x == \old(x); y == \old(y),"i >= 0;
+j >= 0;
+y == 1;
+j == i * y"
+code2inv,97.c,code2inv/97.c,(i == j),,," j == 2 * i;
+ y == 2"
+code2inv,98.c,code2inv/98.c,(y != 1),,j - i * y == \old(j) - \old(i) * y; i >= \old(i); x == \old(x); y == \old(y),"0 <= i;
+0 <= j;
+y == 2;
+j == 2 * i"
+code2inv,99.c,code2inv/99.c,(n == (x + y)),,x + y == \old(x + y),"x >= 0;
+y >= 0;
+n == (x + y)"
+LinearArbitrary-SeaHorn/invgen,bind_expands_vars2.c,LinearArbitrary-SeaHorn/invgen/bind_expands_vars2.c,cp1_off+mc_i < MAXDATA * 2,,," 0 <= mc_i;
+ cp1_off + mc_i <= MAXDATA * 2;
+ n1 <= MAXDATA * 2;
+ cp1_off <= n1;
+ n2 <= MAXDATA * 2 - n1"
+LinearArbitrary-SeaHorn/invgen,bind_expands_vars2.c,LinearArbitrary-SeaHorn/invgen/bind_expands_vars2.c,cp1_off+mc_i < MAXDATA * 2,,," 0 <= mc_i;
+ cp1_off + mc_i <= MAXDATA * 2;
+ n1 <= MAXDATA * 2;
+ cp1_off <= n1;
+ n2 <= MAXDATA * 2 - n1"
+LinearArbitrary-SeaHorn/invgen,gulwani_cegar1.c,LinearArbitrary-SeaHorn/invgen/gulwani_cegar1.c,x < 4,,," 0 <= x;
+ 0 <= y;
+ x <= 2 * (y + 1)"
+LinearArbitrary-SeaHorn/invgen,gulwani_cegar1.c,LinearArbitrary-SeaHorn/invgen/gulwani_cegar1.c,x < 4,,," 0 <= x;
+ 0 <= y;
+ x <= 2 * (y + 1)"
+LinearArbitrary-SeaHorn/invgen,gulwani_cegar2.c,LinearArbitrary-SeaHorn/invgen/gulwani_cegar2.c,0<=m,,," 0 <= x;
+ 0 <= m;
+ m <= x;
+ (n > 0 && x >= n) ==> (0 <= m && m < n)"
+LinearArbitrary-SeaHorn/invgen,gulwani_cegar2.c,LinearArbitrary-SeaHorn/invgen/gulwani_cegar2.c,0<=m,,," 0 <= x;
+ 0 <= m;
+ m <= x;
+ (n > 0 && x >= n) ==> (0 <= m && m < n)"
+LinearArbitrary-SeaHorn/invgen,gulwani_fig1a.c,LinearArbitrary-SeaHorn/invgen/gulwani_fig1a.c,y>0,,"2*x - y*(y - 1) == \at(2*x - y*(y - 1), Pre); y >= \at(y, Pre)", x >= 0 ==> y > 0
+LinearArbitrary-SeaHorn/invgen,MADWiFi-encode_ie_ok.c,LinearArbitrary-SeaHorn/invgen/MADWiFi-encode_ie_ok.c,0<=p,,,
+LinearArbitrary-SeaHorn/invgen,NetBSD_g_Ctoc.c,LinearArbitrary-SeaHorn/invgen/NetBSD_g_Ctoc.c,0 <= BASE_SZ-1,,,"0 <= i && i <= BASE_SZ;
+0 <= j && j <= BASE_SZ;
+i == j;
+len == BASE_SZ - i"
+LinearArbitrary-SeaHorn/invgen,NetBSD_g_Ctoc.c,LinearArbitrary-SeaHorn/invgen/NetBSD_g_Ctoc.c,0 <= BASE_SZ-1,,,"0 <= i && i <= BASE_SZ;
+0 <= j && j <= BASE_SZ;
+i == j;
+len == BASE_SZ - i"
+LinearArbitrary-SeaHorn/invgen,NetBSD_loop.c,LinearArbitrary-SeaHorn/invgen/NetBSD_loop.c,0 <= glob2_p_off,,,"glob2_p_off >= glob2_pathbuf_off;
+glob2_pathlim_off == bound_off;
+0 <= glob2_p_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_p_off <= MAXPATHLEN + 1;
+glob2_pathbuf_off == 0;
+bound_off == MAXPATHLEN"
+LinearArbitrary-SeaHorn/invgen,NetBSD_loop.c,LinearArbitrary-SeaHorn/invgen/NetBSD_loop.c,0 <= glob2_p_off,,,"glob2_p_off >= glob2_pathbuf_off;
+glob2_pathlim_off == bound_off;
+0 <= glob2_p_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_p_off <= MAXPATHLEN + 1;
+glob2_pathbuf_off == 0;
+bound_off == MAXPATHLEN"
+LinearArbitrary-SeaHorn/invgen,NetBSD_loop.c,LinearArbitrary-SeaHorn/invgen/NetBSD_loop.c,0 <= glob2_p_off,,,"glob2_p_off >= glob2_pathbuf_off;
+glob2_pathlim_off == bound_off;
+0 <= glob2_p_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_p_off <= MAXPATHLEN + 1;
+glob2_pathbuf_off == 0;
+bound_off == MAXPATHLEN"
+LinearArbitrary-SeaHorn/invgen,NetBSD_loop_int.c,LinearArbitrary-SeaHorn/invgen/NetBSD_loop_int.c,0 <= glob3_dc,,,"0 <= glob3_dc;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == 0;
+glob3_pathend_off == 0;
+glob3_pathlim_off == MAXPATHLEN;
+glob3_pattern_off == 0"
+LinearArbitrary-SeaHorn/invgen,NetBSD_loop_int.c,LinearArbitrary-SeaHorn/invgen/NetBSD_loop_int.c,0 <= glob3_dc,,,"0 <= glob3_dc;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == 0;
+glob3_pathend_off == 0;
+glob3_pathlim_off == MAXPATHLEN;
+glob3_pattern_off == 0"
+LinearArbitrary-SeaHorn/invgen,rajamani_1.c,LinearArbitrary-SeaHorn/invgen/rajamani_1.c,y>2,,,"0 <= x;
+0 <= y;
+0 <= z;
+0 <= w;
+y <= 100 * x;
+z <= 10 * w;
+z >= 100 * (x - w);
+(x >= 4) ==> (y > 2)"
+LinearArbitrary-SeaHorn/invgen,rajamani_1.c,LinearArbitrary-SeaHorn/invgen/rajamani_1.c,y>2,,,"0 <= x;
+0 <= y;
+0 <= z;
+0 <= w;
+y <= 100 * x;
+z <= 10 * w;
+z >= 100 * (x - w);
+(x >= 4) ==> (y > 2)"
+LinearArbitrary-SeaHorn/invgen,sendmail-close-angle.c,LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c,0<=buf,,," 0 <= buf;
+ buf <= bufferlen;
+ 0 <= in;
+ in <= inlen;
+ buf == in || buf == in - 1;
+ buflim == bufferlen - 2;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ buf <= in;
+ (buf == buflim) ==> (in < inlen);
+ in < inlen;
+ buf - in <= 1;
+ buf == in || buf == in + 1;
+ buf == in;
+ 0 <= buf < bufferlen;
+ 0 <= in < inlen;
+ buf <= buflim < bufferlen - 1;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ buf <= buflim;
+ buf <= in <= buf + 1;
+ 0 <= buf <= buflim;
+ 0 <= in <= inlen;
+ 0 <= buf <= bufferlen;
+ in >= buf"
+LinearArbitrary-SeaHorn/invgen,sendmail-close-angle.c,LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c,0<=buf,,," 0 <= buf;
+ buf <= bufferlen;
+ 0 <= in;
+ in <= inlen;
+ buf == in || buf == in - 1;
+ buflim == bufferlen - 2;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ buf <= in;
+ (buf == buflim) ==> (in < inlen);
+ in < inlen;
+ buf - in <= 1;
+ buf == in || buf == in + 1;
+ buf == in;
+ 0 <= buf < bufferlen;
+ 0 <= in < inlen;
+ buf <= buflim < bufferlen - 1;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ buf <= buflim;
+ buf <= in <= buf + 1;
+ 0 <= buf <= buflim;
+ 0 <= in <= inlen;
+ 0 <= buf <= bufferlen;
+ in >= buf"
+LinearArbitrary-SeaHorn/invgen,sendmail-close-angle.c,LinearArbitrary-SeaHorn/invgen/sendmail-close-angle.c,0<=buf,,," 0 <= buf;
+ buf <= bufferlen;
+ 0 <= in;
+ in <= inlen;
+ buf == in || buf == in - 1;
+ buflim == bufferlen - 2;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ buf <= in;
+ (buf == buflim) ==> (in < inlen);
+ in < inlen;
+ buf - in <= 1;
+ buf == in || buf == in + 1;
+ buf == in;
+ 0 <= buf < bufferlen;
+ 0 <= in < inlen;
+ buf <= buflim < bufferlen - 1;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ buf <= buflim;
+ buf <= in <= buf + 1;
+ 0 <= buf <= buflim;
+ 0 <= in <= inlen;
+ 0 <= buf <= bufferlen;
+ in >= buf"
+LinearArbitrary-SeaHorn/invgen,sendmail-mime-fromqp.c,LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c,0<=out,,,"0 <= nchar;
+0 <= out;
+out <= nchar;
+nchar <= outfilelen;
+out < outfilelen"
+LinearArbitrary-SeaHorn/invgen,sendmail-mime-fromqp.c,LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c,0<=out,,,"0 <= nchar;
+0 <= out;
+out <= nchar;
+nchar <= outfilelen;
+out < outfilelen"
+LinearArbitrary-SeaHorn/invgen,sendmail-mime7to8_arr_three_chars_no_test_ok.c,LinearArbitrary-SeaHorn/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c,0<=fb,,,"0 <= fb;
+fb < fbuflen"
+LinearArbitrary-SeaHorn/invgen,sendmail-mime7to8_arr_three_chars_no_test_ok.c,LinearArbitrary-SeaHorn/invgen/sendmail-mime7to8_arr_three_chars_no_test_ok.c,0<=fb,,,"0 <= fb;
+fb < fbuflen"
+LinearArbitrary-SeaHorn/invgen,simple.c,LinearArbitrary-SeaHorn/invgen/simple.c,x<=n,,,"0 <= x;
+x <= n"
+LinearArbitrary-SeaHorn/invgen,simple.c,LinearArbitrary-SeaHorn/invgen/simple.c,x<=n,,,"0 <= x;
+x <= n"
+LinearArbitrary-SeaHorn/invgen,simple_if.c,LinearArbitrary-SeaHorn/invgen/simple_if.c,i > 0,,,"1 <= i;
+(m > 0) ==> i <= 2*i;
+(m <= 0) ==> i <= 3*i"
+LinearArbitrary-SeaHorn/invgen,simple_if.c,LinearArbitrary-SeaHorn/invgen/simple_if.c,i > 0,,,"1 <= i;
+(m > 0) ==> i <= 2*i;
+(m <= 0) ==> i <= 3*i"
+LinearArbitrary-SeaHorn/invgen,split.c,LinearArbitrary-SeaHorn/invgen/split.c,i == j,,0 <= n && n <= 2*k; b ==> i == \old(i) + n; !b ==> i == \old(i),"0 <= n <= 2*k;
+0 <= i <= k;
+0 <= j <= k;
+b == 0 ==> i == j;
+b == 1 ==> i == j - 1;
+n % 2 == 0 ==> b == 0;
+n % 2 == 1 ==> b == 1;
+i + j == n"
+LinearArbitrary-SeaHorn/invgen,up-nested.c,LinearArbitrary-SeaHorn/invgen/up-nested.c,i>= 0,,,"i == 0;
+k == 0;
+j <= n+1"
+LinearArbitrary-SeaHorn/invgen,up-nested.c,LinearArbitrary-SeaHorn/invgen/up-nested.c,i>= 0,,,"i == 0;
+k == 0;
+j <= n+1"
+LinearArbitrary-SeaHorn/llreve,barthe2_merged_safe.c,LinearArbitrary-SeaHorn/llreve/barthe2_merged_safe.c,x2==x1+i1,,," 0 <= x1;
+ 0 <= x2;
+ x1 <= x2;
+ i2 == i1+1;
+ x2 == x1 + i1"
+LinearArbitrary-SeaHorn/llreve,barthe_merged_safe.c,LinearArbitrary-SeaHorn/llreve/barthe_merged_safe.c,j1 == j2,,," j2 == 5 * i + c;
+ x1 == x2;
+ x2 == (5 * i * (i - 1)) / 2 + c * i"
+LinearArbitrary-SeaHorn/llreve,fib_merged_safe.c,LinearArbitrary-SeaHorn/llreve/fib_merged_safe.c,h2==h1+f1,,,
+LinearArbitrary-SeaHorn/llreve,loop4_merged_safe.c,LinearArbitrary-SeaHorn/llreve/loop4_merged_safe.c,j1==j2,,," 0 <= j1 <= 2*i1;
+ 0 <= j2 <= 2*i2;
+ (i1 < 2*n) ==> (j1 == i1);
+ (i2 < n) ==> (j2 == 2*i2)"
+LinearArbitrary-SeaHorn/loops/loop-invgen,MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-invgen/MADWiFi-encode_ie_ok_true-unreach-call_true-termination.c,0<=p,,"0 <= i; i <= ielen; bufsize == \at(bufsize, Pre); bufsize > 2; p == \at(p, Pre) + 2 * i; 0 <= p; p + 1 < \at(bufsize, Pre)",
+LinearArbitrary-SeaHorn/loops/loop-invgen,NetBSD_loop_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-invgen/NetBSD_loop_true-unreach-call_true-termination.c,0 <= glob2_p_off,,glob2_p_off >= glob2_pathbuf_off; glob2_p_off <= glob2_pathlim_off + 1; 0 <= glob2_p_off; glob2_p_off < MAXPATHLEN + 1," 0 <= glob2_p_off;
+ glob2_pathbuf_off == 0;
+ glob2_pathlim_off == MAXPATHLEN;
+ 1 <= MAXPATHLEN < 2147483647"
+LinearArbitrary-SeaHorn/loops/loop-invgen,sendmail-close-angle_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-invgen/sendmail-close-angle_true-unreach-call_true-termination.c,0<=buf,,," 0 <= buf;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ 0 <= in;
+ in <= inlen;
+ buf <= in;
+ in - buf <= buflim + 1;
+ 0 <= buf <= buflim + 1;
+ 0 <= in <= inlen;
+ bufferlen > 1;
+ inlen > 0;
+ bufferlen < inlen;
+ buflim == bufferlen - 2;
+ in < inlen;
+ buf <= buflim;
+ buf <= bufferlen - 1;
+ 0 <= buf <= buflim < bufferlen - 1;
+ buf - in <= buflim;
+ buf <= buflim ==> buf <= in;
+ buf - in <= 1;
+ buf <= buflim ==> buf == in;
+ buf > buflim ==> buf == buflim + 1;
+ buf <= bufferlen;
+ buf == bufferlen - 1 ==> buf == buflim;
+ (buf == buflim) ==> (buf == in);
+ 0 <= buf <= buflim < bufferlen;
+ 0 <= in < inlen;
+ buf == in"
+LinearArbitrary-SeaHorn/loops/loop-lit,afnp2014_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/afnp2014_true-unreach-call_true-termination.c,x >= y,,,"0 <= y <= 1000;
+x >= 1;
+x >= y"
+LinearArbitrary-SeaHorn/loops/loop-lit,bhmr2007_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/bhmr2007_true-unreach-call_true-termination.c,a + b == 3*n,Supporting invariants [-3*main::n + 4000000 >= 0],,"0 <= i && i <= n;
+0 <= a && a <= 2 * i;
+0 <= b && b <= 2 * i;
+a + b == 3 * i"
+LinearArbitrary-SeaHorn/loops/loop-lit,cggmp2005_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_true-unreach-call_true-termination.c,j == 6,,," 1 <= i;
+ i <= 10;
+ j >= 0;
+ j <= 10;
+ i >= 1;
+ i % 2 == 1;
+ j >= i - 4;
+ (j - i) % 3 == 0;
+ 0 <= j <= 10;
+ 1 <= j;
+ 1 <= i <= 11;
+ i <= 1 + 2 * (10 - j);
+ j >= 10 - (1 + (i - 1) / 2);
+ 10 >= j;
+ 0 <= (j - i + 1) % 2;
+ (j >= i) ==> (j >= i - 2);
+ j >= 1;
+ 6 <= j <= 10"
+LinearArbitrary-SeaHorn/loops/loop-lit,cggmp2005_variant_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/cggmp2005_variant_true-unreach-call_true-termination.c,lo == hi,"Supporting invariants [1*main::mid + 2*main::lo > 0, -1000003*main::mid + 1000002*main::hi >= 0]",lo + mid == \old(lo + mid); hi - mid == \old(hi - mid); lo + hi == \old(lo + hi); mid >= 0,"lo >= 0;
+mid >= 0;
+hi >= 0;
+hi == 2*mid + lo"
+LinearArbitrary-SeaHorn/loops/loop-lit,css2003_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/css2003_true-unreach-call_true-termination.c,1 <= i + k && i + k <= 2 && i >= 1,,," 1 <= i && i <= LARGE_INT;
+ i + k >= 1 && i + k <= 2"
+LinearArbitrary-SeaHorn/loops/loop-lit,ddlm2013_true-unreach-call.c,LinearArbitrary-SeaHorn/loops/loop-lit/ddlm2013_true-unreach-call.c,a == b,"Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::flag > 0]; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0, -1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j > 0, -1*main::flag > 0]; Supporting invariants [1*main::j > 0]; Supporting invariants [1*main::j > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0, 1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j > 0]; Supporting invariants [1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []",,
+LinearArbitrary-SeaHorn/loops/loop-lit,gj2007b_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/gj2007b_true-unreach-call_true-termination.c,(m >= 0 || n <= 0),,,
+LinearArbitrary-SeaHorn/loops/loop-lit,gj2007_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/gj2007_true-unreach-call_true-termination.c,y == 100,,,"0 <= x <= 100;
+50 <= y <= 100;
+x <= y;
+x < 50 ==> (y == 50);
+x >= 50 ==> (y == x)"
+LinearArbitrary-SeaHorn/loops/loop-lit,gr2006_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/gr2006_true-unreach-call_true-termination.c,x == 100,,,"0 <= x;
+0 <= y;
+x <= 100;
+y <= x;
+x < 50 ==> y == x;
+x >= 50 ==> y == 100 - x"
+LinearArbitrary-SeaHorn/loops/loop-lit,gsv2008_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/gsv2008_true-unreach-call_true-termination.c,y > 0,,,
+LinearArbitrary-SeaHorn/loops/loop-lit,hhk2008_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/hhk2008_true-unreach-call_true-termination.c,res == a + b,,res + cnt == \old(res) + \old(cnt); res >= \old(res); cnt <= \old(cnt),"cnt >= 0;
+res == a + (b - cnt)"
+LinearArbitrary-SeaHorn/loops/loop-lit,jm2006_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_true-unreach-call_true-termination.c,y == 0,Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0],,"x >= 0;
+y == j - (i - x);
+x == 0 ==> y == j - i"
+LinearArbitrary-SeaHorn/loops/loop-lit,jm2006_variant_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-lit/jm2006_variant_true-unreach-call_true-termination.c,y == -z,,,"0 <= x <= i;
+0 <= z <= i;
+y == j - 2 * (i - x);
+i - x == z"
+LinearArbitrary-SeaHorn/loops/loop-new,count_by_1_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_true-unreach-call_true-termination.c,i == LARGE_INT,,0 <= i; i <= LARGE_INT; 0 <= i && i <= LARGE_INT,"0 <= i;
+i <= LARGE_INT"
+LinearArbitrary-SeaHorn/loops/loop-new,count_by_1_variant_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-new/count_by_1_variant_true-unreach-call_true-termination.c,i <= LARGE_INT,,,"0 <= i;
+i <= LARGE_INT"
+LinearArbitrary-SeaHorn/loops/loop-new,count_by_2_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-new/count_by_2_true-unreach-call_true-termination.c,i == LARGE_INT,,,"0 <= i;
+i <= LARGE_INT;
+i % 2 == 0"
+LinearArbitrary-SeaHorn/loops/loop-new,count_by_k_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-new/count_by_k_true-unreach-call_true-termination.c,i == LARGE_INT*k,,0 <= i; i <= LARGE_INT * k; i % k == 0,"0 <= i;
+i <= LARGE_INT * k;
+i % k == 0 || i == 0 || k == 0;
+0 <= i <= LARGE_INT * k;
+0 <= k && k <= 10;
+0 <= i && i <= LARGE_INT * k;
+i >= 0;
+0 <= k <= 10;"
+LinearArbitrary-SeaHorn/loops/loop-new,count_by_nondet_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-new/count_by_nondet_true-unreach-call_true-termination.c,k <= LARGE_INT,,,
+LinearArbitrary-SeaHorn/loops/loop-new,half_true-unreach-call_true-termination.c,LinearArbitrary-SeaHorn/loops/loop-new/half_true-unreach-call_true-termination.c,k < 0 || n == k,,," i >= 0;
+ 0 <= i;
+ n >= 0;
+ i % 2 == 0 ==> n == i/2;
+ i % 2 == 0 ==> n == i / 2;
+ (k <= LARGE_INT) && (k >= -LARGE_INT);
+ (i % 2 == 0) ==> (n == (i / 2));
+ (i % 2 == 0) ==> (n == i / 2);
+ i % 2 == 1 ==> n == (i+1)/2;
+ (i % 2 == 0) ==> (n == i/2);
+ n == (i+1)/2;
+ (k >= 0 ==> n <= k) && (k < 0 ==> n == 0);
+ -LARGE_INT <= k <= LARGE_INT"
+LinearArbitrary-SeaHorn/loops/loops,count_up_down_true-unreach-call_true-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/count_up_down_true-unreach-call_true-termination.i.annot.c,y==n,,x + y == \old(x) + \old(y); x <= \old(x); y >= \old(y),"x <= n;
+y <= n;
+n == x + y"
+LinearArbitrary-SeaHorn/loops/loops,for_infinite_loop_1_true-unreach-call_false-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_1_true-unreach-call_false-termination.i.annot.c,x==0,,x == 0; i >= 0,"i >= 0;
+x == 0;
+y == 0"
+LinearArbitrary-SeaHorn/loops/loops,for_infinite_loop_2_true-unreach-call_false-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/for_infinite_loop_2_true-unreach-call_false-termination.i.annot.c,x==0,,x == 0; i >= 0,"x == 0;
+y == 0"
+LinearArbitrary-SeaHorn/loops/loops,sum01_true-unreach-call_true-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/sum01_true-unreach-call_true-termination.i.annot.c,sn==n*(2)|| sn == 0,Supporting invariants [1*main::i > 0],1 <= i && i <= n + 1; sn == \old(sn) + 2 * (i - 1),
+LinearArbitrary-SeaHorn/loops/loops,sum03_true-unreach-call_false-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/sum03_true-unreach-call_false-termination.i.annot.c,sn==x*(2)|| sn == 0,Supporting invariants [2*main::x - 1*main::sn >= 0],sn == 2 * x; x <= 1000000,"0 <= x && x <= 1000000;
+sn == 2 * x"
+LinearArbitrary-SeaHorn/loops/loops,sum04_true-unreach-call_true-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/sum04_true-unreach-call_true-termination.i.annot.c,sn==8*(2)|| sn == 0,,,"1 <= i && i <= 9;
+sn >= 0 && sn % 2 == 0;
+sn == 2 * (i - 1)"
+LinearArbitrary-SeaHorn/loops/loops,terminator_02_true-unreach-call_true-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/terminator_02_true-unreach-call_true-termination.i.annot.c,x>=100 || z<=100,,x < 100; z > 100; z == \old(z); x >= \old(x),"x >= -100;
+x <= 100;
+z >= -100;
+z <= 100"
+LinearArbitrary-SeaHorn/loops/loops,terminator_03_true-unreach-call_true-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/terminator_03_true-unreach-call_true-termination.i.annot.c,y<=0 ||(y>0 && x>=100),,,"y <= 1000000;
+x <= x + y;
+y > 0 ==> x < 100 || x >= 100"
+LinearArbitrary-SeaHorn/loops/loops,trex03_true-unreach-call.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/trex03_true-unreach-call.i.annot.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 > 0, 1*main::d1 > 0, 1*main::d3 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]",x1 > 0 && x2 > 0 && x3 > 0; x1 <= \old(x1); x2 <= \old(x2); x3 <= \old(x3),"x1 >= 0;
+x2 >= 0;
+x3 >= 0"
+LinearArbitrary-SeaHorn/loops/loops,while_infinite_loop_1_true-unreach-call_false-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_1_true-unreach-call_false-termination.i.annot.c,x==0,,x == 0,x == 0
+LinearArbitrary-SeaHorn/loops/loops,while_infinite_loop_2_true-unreach-call_false-termination.i.annot.c,LinearArbitrary-SeaHorn/loops/loops/while_infinite_loop_2_true-unreach-call_false-termination.i.annot.c,x==0,,x == 0,x == 0
+LinearArbitrary-SeaHorn/pie/hola,01.c,LinearArbitrary-SeaHorn/pie/hola/01.c,y>=1,,,"x >= 1;
+y >= 1;
+x == y"
+LinearArbitrary-SeaHorn/pie/hola,02.c,LinearArbitrary-SeaHorn/pie/hola/02.c,x==y,Supporting invariants []; Supporting invariants [6*main::y + 4*main::i - 3*main::w - 4 >= 0]; Supporting invariants [17*main::z - 15 >= 0],," x <= y;
+ w >= 0;
+ w % 2 == 0;
+ z >= y;
+ w == 2 * y;
+ x >= 0;
+ y >= 0;
+ 0 <= y;
+ 0 <= x;
+ 0 <= w;
+ z == 1 + y * (y - 1) + x * (x - 1);
+ z % 2 == 1 ==> x == y;
+ z % 2 == 0 ==> x == y - 1;
+ y <= x + w/2;
+ w == 2*y;
+ z % 2 == 1;
+ z >= 1"
+LinearArbitrary-SeaHorn/pie/hola,04.c,LinearArbitrary-SeaHorn/pie/hola/04.c,y>0,,,
+LinearArbitrary-SeaHorn/pie/hola,05.c,LinearArbitrary-SeaHorn/pie/hola/05.c,j>=i,,,"x >= 0 && y >= 0;
+x == y;
+i >= 0 && j >= 0;
+i <= j;
+j <= i + x * (x + 1) / 2"
+LinearArbitrary-SeaHorn/pie/hola,05.c,LinearArbitrary-SeaHorn/pie/hola/05.c,j>=i,,,"x >= 0 && y >= 0;
+x == y;
+i >= 0 && j >= 0;
+i <= j;
+j <= i + x * (x + 1) / 2"
+LinearArbitrary-SeaHorn/pie/hola,07.c,LinearArbitrary-SeaHorn/pie/hola/07.c,a+b == 3*n,,i == \old(i); n == \old(n); b - 2*a == \old(b) - 2*\old(a),"0 <= i <= n;
+0 <= a <= 2*i;
+0 <= b <= 2*i;
+a + b == 3*i"
+LinearArbitrary-SeaHorn/pie/hola,07.c,LinearArbitrary-SeaHorn/pie/hola/07.c,a+b == 3*n,,i == \old(i); n == \old(n); b - 2*a == \old(b) - 2*\old(a),"0 <= i <= n;
+0 <= a <= 2*i;
+0 <= b <= 2*i;
+a + b == 3*i"
+LinearArbitrary-SeaHorn/pie/hola,08.c,LinearArbitrary-SeaHorn/pie/hola/08.c,x < 4 || y > 2,,,"0 <= x;
+0 <= y;
+x < 4 ==> y <= x * 100;
+x >= 4 ==> y >= x + 2"
+LinearArbitrary-SeaHorn/pie/hola,10.c,LinearArbitrary-SeaHorn/pie/hola/10.c,x==y,,," w == 0 || w == 1;
+ z == 0 || z == 1;
+ x >= 0 && x <= y + 1;
+ y >= 0 && y <= x + 1;
+ x >= 0;
+ y >= 0;
+ (w == 1) ==> (x == y);
+ x == y || x == y + 1;
+ (!w && z) ==> x == y;
+ 0 <= x && 0 <= y;
+ w == 1 ==> x == y;
+ w == 1 || w == 0;
+ x <= y + 1;
+ y <= x + 1;
+ w == z ==> x == y;
+ x <= y+1;
+ y <= x+1;
+ (w == 1) ==> (x == y || x == y + 1);
+ (z == 0) ==> (x == y || y == x + 1);
+ x >= 0 && y >= 0;
+ (w == 1 && z == 1) ==> x == y;
+ (w == 0 && z == 0) ==> x == y;
+ (w == 1) ==> (x == y || x == y - 1);
+ (z == 0) ==> (x == y || x == y + 1);
+ (x % 2 == y % 2);
+ 0 <= x;
+ 0 <= y;
+ (z == 0) ==> (x == y);
+ (w == 1) ==> (x == y + z);
+ (z == 1) ==> (y == x + w);
+ (z == 0) ==> (y == x + w - 1);
+ y <= x"
+LinearArbitrary-SeaHorn/pie/hola,10.c,LinearArbitrary-SeaHorn/pie/hola/10.c,x==y,,," w == 0 || w == 1;
+ z == 0 || z == 1;
+ x >= 0 && x <= y + 1;
+ y >= 0 && y <= x + 1;
+ x >= 0;
+ y >= 0;
+ (w == 1) ==> (x == y);
+ x == y || x == y + 1;
+ (!w && z) ==> x == y;
+ 0 <= x && 0 <= y;
+ w == 1 ==> x == y;
+ w == 1 || w == 0;
+ x <= y + 1;
+ y <= x + 1;
+ w == z ==> x == y;
+ x <= y+1;
+ y <= x+1;
+ (w == 1) ==> (x == y || x == y + 1);
+ (z == 0) ==> (x == y || y == x + 1);
+ x >= 0 && y >= 0;
+ (w == 1 && z == 1) ==> x == y;
+ (w == 0 && z == 0) ==> x == y;
+ (w == 1) ==> (x == y || x == y - 1);
+ (z == 0) ==> (x == y || x == y + 1);
+ (x % 2 == y % 2);
+ 0 <= x;
+ 0 <= y;
+ (z == 0) ==> (x == y);
+ (w == 1) ==> (x == y + z);
+ (z == 1) ==> (y == x + w);
+ (z == 0) ==> (y == x + w - 1);
+ y <= x"
+LinearArbitrary-SeaHorn/pie/hola,11.c,LinearArbitrary-SeaHorn/pie/hola/11.c,j == 2*x,,j == \old(j) + 2 * i; 0 <= i && i <= x; x == \old(x),"0 <= i <= x;
+j == 2 * i"
+LinearArbitrary-SeaHorn/pie/hola,11.c,LinearArbitrary-SeaHorn/pie/hola/11.c,j == 2*x,,j == \old(j) + 2 * i; 0 <= i && i <= x; x == \old(x),"0 <= i <= x;
+j == 2 * i"
+LinearArbitrary-SeaHorn/pie/hola,13.c,LinearArbitrary-SeaHorn/pie/hola/13.c,j==2*k+2,,,"j >= 2;
+k >= 0;
+(flag != 0) ==> (k == 0);
+(flag == 0) ==> (j == 2 * k + 2)"
+LinearArbitrary-SeaHorn/pie/hola,13.c,LinearArbitrary-SeaHorn/pie/hola/13.c,j==2*k+2,,,"j >= 2;
+k >= 0;
+(flag != 0) ==> (k == 0);
+(flag == 0) ==> (j == 2 * k + 2)"
+LinearArbitrary-SeaHorn/pie/hola,14.c,LinearArbitrary-SeaHorn/pie/hola/14.c,a>=-m && a<=m,,1 <= j && j <= m + 1; \abs(a - \old(a)) <= j - 1; (a - \old(a) - (j - 1)) % 2 == 0,"1 <= j <= m + 1;
+a >= -j + 1 && a <= j - 1"
+LinearArbitrary-SeaHorn/pie/hola,14.c,LinearArbitrary-SeaHorn/pie/hola/14.c,a>=-m && a<=m,,1 <= j && j <= m + 1; \abs(a - \old(a)) <= j - 1; (a - \old(a) - (j - 1)) % 2 == 0,"1 <= j <= m + 1;
+a >= -j + 1 && a <= j - 1"
+LinearArbitrary-SeaHorn/pie/hola,15.c,LinearArbitrary-SeaHorn/pie/hola/15.c,k>=0,,"k + j == \at(k, Pre); 0 <= j && j <= n; k + j > n; k >= 0","0 <= j <= n;
+k + j >= n"
+LinearArbitrary-SeaHorn/pie/hola,15.c,LinearArbitrary-SeaHorn/pie/hola/15.c,k>=0,,"k + j == \at(k, Pre); 0 <= j && j <= n; k + j > n; k >= 0","0 <= j <= n;
+k + j >= n"
+LinearArbitrary-SeaHorn/pie/hola,16.c,LinearArbitrary-SeaHorn/pie/hola/16.c,y==0,,x - y == \old(x) - \old(y),"i >= 0 ==> x >= 0;
+i <= 0 ==> x <= 0;
+x <= i;
+y == j - (i - x)"
+LinearArbitrary-SeaHorn/pie/hola,16.c,LinearArbitrary-SeaHorn/pie/hola/16.c,y==0,,x - y == \old(x) - \old(y),"i >= 0 ==> x >= 0;
+i <= 0 ==> x <= 0;
+x <= i;
+y == j - (i - x)"
+LinearArbitrary-SeaHorn/pie/hola,18.c,LinearArbitrary-SeaHorn/pie/hola/18.c,j==100,,0 <= b && b <= 100; flag == \old(flag); (flag ==> j == \old(j) + b) && (!flag ==> j == \old(j)); j >= \old(j),"0 <= b <= 100;
+(flag != 0) ==> (j == b);
+(flag == 0) ==> (j == 0)"
+LinearArbitrary-SeaHorn/pie/hola,18.c,LinearArbitrary-SeaHorn/pie/hola/18.c,j==100,,0 <= b && b <= 100; flag == \old(flag); (flag ==> j == \old(j) + b) && (!flag ==> j == \old(j)); j >= \old(j),"0 <= b <= 100;
+(flag != 0) ==> (j == b);
+(flag == 0) ==> (j == 0)"
+LinearArbitrary-SeaHorn/pie/hola,19.c,LinearArbitrary-SeaHorn/pie/hola/19.c,y==n,,,"0 <= x <= n;
+0 <= y <= n;
+y >= m;
+x <= m ==> y == m;
+x > m ==> y == x"
+LinearArbitrary-SeaHorn/pie/hola,19.c,LinearArbitrary-SeaHorn/pie/hola/19.c,y==n,,,"0 <= x <= n;
+0 <= y <= n;
+y >= m;
+x <= m ==> y == m;
+x > m ==> y == x"
+LinearArbitrary-SeaHorn/pie/hola,19.c,LinearArbitrary-SeaHorn/pie/hola/19.c,y==n,,,"0 <= x <= n;
+0 <= y <= n;
+y >= m;
+x <= m ==> y == m;
+x > m ==> y == x"
+LinearArbitrary-SeaHorn/pie/hola,20.c,LinearArbitrary-SeaHorn/pie/hola/20.c,(x+y)== k,,," 0 <= m <= j;
+ x + y == k + 2 * (j - m) ==> j <= m;
+ x + y + 2 * (m - j) == k ==> m <= j;
+ (j != i ==> (x + y) == k) && (j == i ==> (x + y) == k);
+ 0 <= m;
+ j > 0 ==> m < n;
+ 0 <= j;
+ m <= j;
+ (j == 0) ==> ((x + y) == k);
+ \forall integer p; 0 <= p < j ==> ((p != i) ==> (x + y == k));
+ (j <= i) ==> (x + y == k);
+ (0 <= m <= j) || (m == 0 && j == 0);
+ 0 <= m && m <= j;
+ x + y == k;
+ (x + y) == k;
+ 0 <= m < n || m == 0;
+ (j <= i) ==> (m <= j)"
+LinearArbitrary-SeaHorn/pie/hola,20.c,LinearArbitrary-SeaHorn/pie/hola/20.c,(x+y)== k,,," 0 <= m <= j;
+ x + y == k + 2 * (j - m) ==> j <= m;
+ x + y + 2 * (m - j) == k ==> m <= j;
+ (j != i ==> (x + y) == k) && (j == i ==> (x + y) == k);
+ 0 <= m;
+ j > 0 ==> m < n;
+ 0 <= j;
+ m <= j;
+ (j == 0) ==> ((x + y) == k);
+ \forall integer p; 0 <= p < j ==> ((p != i) ==> (x + y == k));
+ (j <= i) ==> (x + y == k);
+ (0 <= m <= j) || (m == 0 && j == 0);
+ 0 <= m && m <= j;
+ x + y == k;
+ (x + y) == k;
+ 0 <= m < n || m == 0;
+ (j <= i) ==> (m <= j)"
+LinearArbitrary-SeaHorn/pie/hola,21.c,LinearArbitrary-SeaHorn/pie/hola/21.c,k>n,,0 <= i && i <= n; n > 0 && n < 10; 2000 * i <= k && k <= 4000 * i; k % 2000 == 0,
+LinearArbitrary-SeaHorn/pie/hola,22.c,LinearArbitrary-SeaHorn/pie/hola/22.c,x==y && y==z,,,
+LinearArbitrary-SeaHorn/pie/hola,23.c,LinearArbitrary-SeaHorn/pie/hola/23.c,sum >= 0,,0 <= i && i <= n; sum == i * (i - 1) / 2,"0 <= i <= n;
+sum >= 0;
+sum == (i*(i-1))/2"
+LinearArbitrary-SeaHorn/pie/hola,23.c,LinearArbitrary-SeaHorn/pie/hola/23.c,sum >= 0,,0 <= i && i <= n; sum == i * (i - 1) / 2,"0 <= i <= n;
+sum >= 0;
+sum == (i*(i-1))/2"
+LinearArbitrary-SeaHorn/pie/hola,30.c,LinearArbitrary-SeaHorn/pie/hola/30.c,c>=0,,0 <= i && i <= 1000; c == i * (i - 1) / 2; c >= 0,"0 <= i <= 1000;
+c >= 0;
+i >= 1000 ==> c >= 0"
+LinearArbitrary-SeaHorn/pie/hola,30.c,LinearArbitrary-SeaHorn/pie/hola/30.c,c>=0,,0 <= i && i <= 1000; c == i * (i - 1) / 2; c >= 0,"0 <= i <= 1000;
+c >= 0;
+i >= 1000 ==> c >= 0"
+LinearArbitrary-SeaHorn/pie/hola,32.c,LinearArbitrary-SeaHorn/pie/hola/32.c,i == j,"Supporting invariants [-4*main::n + 5*main::b >= 0]; Supporting invariants [1*main::k > 0]; Supporting invariants [1*main::n > 0]; Supporting invariants [1*main::i > 0, 1*main::k > 0]; Supporting invariants []; Supporting invariants []",0 <= n && n <= 2 * k; b == 0 || b == 1; i + j == \old(i) + \old(j) + n; i - j + b == \old(i) - \old(j) + \old(b),"0 <= n <= 2*k;
+0 <= i <= n;
+0 <= j <= n;
+b == 0 || b == 1;
+n % 2 == 0 ==> (b == 0 && i == j);
+n % 2 == 1 ==> (b == 1 && i + 1 == j)"
+LinearArbitrary-SeaHorn/pie/hola,37.c,LinearArbitrary-SeaHorn/pie/hola/37.c,0<=m && m<n,,x == \old(x); n == \old(n); m == \old(m) || m == x," 0 <= x;
+ (n > 0) ==> (0 <= m);
+ (n > 0) ==> (m < n);
+ (n <= 0) ==> (m == 0)"
+LinearArbitrary-SeaHorn/pie/hola,37.c,LinearArbitrary-SeaHorn/pie/hola/37.c,0<=m && m<n,,x == \old(x); n == \old(n); m == \old(m) || m == x," 0 <= x;
+ (n > 0) ==> (0 <= m);
+ (n > 0) ==> (m < n);
+ (n <= 0) ==> (m == 0)"
+LinearArbitrary-SeaHorn/pie/hola,37.c,LinearArbitrary-SeaHorn/pie/hola/37.c,0<=m && m<n,,x == \old(x); n == \old(n); m == \old(m) || m == x," 0 <= x;
+ (n > 0) ==> (0 <= m);
+ (n > 0) ==> (m < n);
+ (n <= 0) ==> (m == 0)"
+LinearArbitrary-SeaHorn/pie/hola,38.c,LinearArbitrary-SeaHorn/pie/hola/38.c,x==2*y,,x == i; 2 * y <= i && i <= 2 * y + 1; 0 <= i && i <= n; 0 <= y,"0 <= i;
+0 <= x;
+0 <= y;
+x >= y;
+(i % 2 == 0) ==> (x == 2 * y);
+(i % 2 != 0) ==> (x == 2 * y + 1)"
+LinearArbitrary-SeaHorn/pie/hola,38.c,LinearArbitrary-SeaHorn/pie/hola/38.c,x==2*y,,x == i; 2 * y <= i && i <= 2 * y + 1; 0 <= i && i <= n; 0 <= y,"0 <= i;
+0 <= x;
+0 <= y;
+x >= y;
+(i % 2 == 0) ==> (x == 2 * y);
+(i % 2 != 0) ==> (x == 2 * y + 1)"
+LinearArbitrary-SeaHorn/pie/hola,39.c,LinearArbitrary-SeaHorn/pie/hola/39.c,0 <= glob3_dc,,,"0 <= glob3_dc;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == buf_off;
+glob3_pathend_off == buf_off;
+glob3_pathlim_off == bound_off;
+glob3_pattern_off == pattern_off;
+bound_off == MAXPATHLEN;
+buf_off == 0;
+pattern_off == 0;
+glob3_pathend_off + glob3_dc <= glob3_pathlim_off"
+LinearArbitrary-SeaHorn/pie/hola,39.c,LinearArbitrary-SeaHorn/pie/hola/39.c,0 <= glob3_dc,,,"0 <= glob3_dc;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == buf_off;
+glob3_pathend_off == buf_off;
+glob3_pathlim_off == bound_off;
+glob3_pattern_off == pattern_off;
+bound_off == MAXPATHLEN;
+buf_off == 0;
+pattern_off == 0;
+glob3_pathend_off + glob3_dc <= glob3_pathlim_off"
+LinearArbitrary-SeaHorn/pie/hola,39.c,LinearArbitrary-SeaHorn/pie/hola/39.c,0 <= glob3_dc,,,"0 <= glob3_dc;
+glob3_dc <= MAXPATHLEN;
+glob3_pathbuf_off == buf_off;
+glob3_pathend_off == buf_off;
+glob3_pathlim_off == bound_off;
+glob3_pattern_off == pattern_off;
+bound_off == MAXPATHLEN;
+buf_off == 0;
+pattern_off == 0;
+glob3_pathend_off + glob3_dc <= glob3_pathlim_off"
+LinearArbitrary-SeaHorn/pie/hola,41.c,LinearArbitrary-SeaHorn/pie/hola/41.c,z > 2*n,,,"0 <= i && i <= n + 1;
+j >= 0 && j >= (i * (i - 1)) / 2;
+(flag ==> k >= 0) && (!flag ==> k == 1)"
+LinearArbitrary-SeaHorn/pie/hola,41.c,LinearArbitrary-SeaHorn/pie/hola/41.c,z > 2*n,,,"0 <= i && i <= n + 1;
+j >= 0 && j >= (i * (i - 1)) / 2;
+(flag ==> k >= 0) && (!flag ==> k == 1)"
+LinearArbitrary-SeaHorn/pie/hola,42.c,LinearArbitrary-SeaHorn/pie/hola/42.c,a%2==1,,y == \old(y); x >= \old(x),
+LinearArbitrary-SeaHorn/pie/hola,43.c,LinearArbitrary-SeaHorn/pie/hola/43.c,y>=t,,,"y >= t;
+x >= 0 ==> y >= t + x * i"
+LinearArbitrary-SeaHorn/pie/hola,43.c,LinearArbitrary-SeaHorn/pie/hola/43.c,y>=t,,,"y >= t;
+x >= 0 ==> y >= t + x * i"
+LinearArbitrary-SeaHorn/pie/hola,44.c,LinearArbitrary-SeaHorn/pie/hola/44.c,j == i,,,"i >= 0;
+j >= 0;
+(flag == 1) ==> (n == 1);
+(flag != 1) ==> (n == 2);
+j == i * n"
+LinearArbitrary-SeaHorn/pie/hola,44.c,LinearArbitrary-SeaHorn/pie/hola/44.c,j == i,,,"i >= 0;
+j >= 0;
+(flag == 1) ==> (n == 1);
+(flag != 1) ==> (n == 2);
+j == i * n"
+LinearArbitrary-SeaHorn/pie/hola,46.c,LinearArbitrary-SeaHorn/pie/hola/46.c,x<=1,,," w >= 1;
+ z >= 0;
+ x <= 1;
+ y >= 0;
+ 0 <= x <= 1;
+ 0 <= y;
+ 0 <= z;
+ 1 <= w;
+ x <= w;
+ y <= z;
+ (w % 2 == 1) ==> (x == w / 2);
+ (z % 2 == 0) ==> (y == z / 2);
+ x >= 0;
+ w >= 0;
+ w - x == 1;
+ z - y == 0;
+ 0 <= x;
+ 0 <= w;
+ w == x + 1;
+ z == y;
+ w % 2 == 1 ==> x == \at(x, LoopEntry) + (w - \at(w, LoopEntry)) / 2;
+ z % 2 == 0 ==> y == \at(y, LoopEntry) + (z - \at(z, LoopEntry)) / 2;
+ (w % 2 == 0) ==> (x == w / 2);
+ z % 2 == y % 2;
+ x * 2 <= w;
+ w <= x + 1;
+ z <= y;
+ y <= x + 1"
+LinearArbitrary-SeaHorn/pie/hola,46.c,LinearArbitrary-SeaHorn/pie/hola/46.c,x<=1,,," w >= 1;
+ z >= 0;
+ x <= 1;
+ y >= 0;
+ 0 <= x <= 1;
+ 0 <= y;
+ 0 <= z;
+ 1 <= w;
+ x <= w;
+ y <= z;
+ (w % 2 == 1) ==> (x == w / 2);
+ (z % 2 == 0) ==> (y == z / 2);
+ x >= 0;
+ w >= 0;
+ w - x == 1;
+ z - y == 0;
+ 0 <= x;
+ 0 <= w;
+ w == x + 1;
+ z == y;
+ w % 2 == 1 ==> x == \at(x, LoopEntry) + (w - \at(w, LoopEntry)) / 2;
+ z % 2 == 0 ==> y == \at(y, LoopEntry) + (z - \at(z, LoopEntry)) / 2;
+ (w % 2 == 0) ==> (x == w / 2);
+ z % 2 == y % 2;
+ x * 2 <= w;
+ w <= x + 1;
+ z <= y;
+ y <= x + 1"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,afnp2014_true-unreach-call.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/afnp2014_true-unreach-call.c,x >= y,,0; 1000,"0 <= y <= 1000;
+x >= y;
+x >= 1"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,cegar2.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cegar2.c,(0 <= m) && (m < N),,," 0 <= m && m <= x;
+ N > 0 ==> (0 <= m && m < N)"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,cegar2.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cegar2.v.c,(0 <= m) && (m < N),,," 0 <= m <= x;
+ (N > 0) ==> (0 <= m) && (m < N)"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,cggmp2005_true-unreach-call.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/cggmp2005_true-unreach-call.c,j == 6,,,
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,dec.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/dec.c,x == 0,,0; 100,0 <= x <= 100
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,decn.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/decn.c,x == 0,,x <= \old(x),"0 <= x <= N;
+N - x >= 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,ex14n.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/ex14n.v.c,0 == 1,,, 1 <= x
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,fig1.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig1.c,y > 0,,, x >= 0 ==> y > 0
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,fig1.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig1.v.c,y > 0,,,
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,fig3.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig3.c,lock == 1,,,"x == y ==> lock == 1;
+lock == 0 ==> x != y"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,fig3.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig3.v.c,lock == 1,,,"x == y ==> lock == 1;
+lock == 0 ==> x != y"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,fig9.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig9.c,0 == 1,,,"y >= 0;
+x == 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,fig9.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/fig9.v.c,0 == 1,,,"x == 0;
+y >= 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,form22.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/form22.c,x1 <= x2 && (x2 >= 0 || x2 - x3 <= 2),,,"x1 <= x2;
+x2 >= 0 ==> x1 <= x2;
+x2 < 0 ==> x2 - x3 <= 2"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,form25.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/form25.c,x1 <= 0 && x1 >= x4 + 1 && x2 == x3 && (x4 >= 0 || x4 <= x3),,,"x1 <= 0;
+x1 >= x4 + 1;
+x2 == x3;
+x4 >= 0 || x4 <= x3"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,form27.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/form27.c,0 <= x1 && x1 <= x4 + 1 && x2 == x3 && (x2 <= -1 || x4 <= x2 + 2) && x5 == 0,,,"0 <= x1;
+x1 <= x4 + 1;
+x2 == x3;
+x2 <= -1 || x4 <= x2 + 2;
+x5 == 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,inc.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/inc.c,x == 100,,,0 <= x <= 100
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,incn.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/incn.c,x == N,,,"x >= 0;
+x <= N"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,incn.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/incn.v.c,N < 0 || x == N,,,(N < 0) || (x <= N && N >= 0)
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum01.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum01.c,sn==n*a || sn == 0,Supporting invariants [1*main::i > 0],1 <= i && i <= n + 1; sn == \old(sn) + (i - 1) * a,"(i == 1) || (1 <= i <= n + 1);
+0 <= sn;
+sn == (i - 1) * a;
+(n <= 0) ==> (sn == 0);"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum01.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum01.v.c,sn==n*a || sn == 0,Supporting invariants [1*main::i > 0],,
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum01_safe.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum01_safe.c,sn==n || sn == 0,Supporting invariants [1*main::i > 0],," sn == i - 1;
+ sn >= 0;
+ sn == (i-1) || (n <= 0 && sn == 0);
+ sn == i-1;
+ n >= 0 ==> sn <= n;
+ (n < 1) ==> (sn == 0);
+ sn == 0 ==> i == 1;
+ 0 <= sn && sn <= i-1;
+ sn == (i - 1);
+ 0 <= i;
+ 0 <= sn;
+ 1 <= i"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum01_safe.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum01_safe.v.c,sn==n || sn == 0,Supporting invariants [1*main::i > 0],,
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum03.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum03.c,sn==x*a || sn == 0,Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn + 3 > 0]; Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants []; Supporting invariants [2*main::x - 1*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0],,"sn >= 0;
+x >= 0;
+sn == x * a"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum03.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum03.v.c,sn==x*a || sn == 0,Supporting invariants [4*main::x - 3*main::sn + 2 > 0]; Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn + 2 > 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [],,"sn == x * a;
+0 <= x;
+0 <= sn"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum03_safe.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum03_safe.c,sn==x*1 || sn == 0,Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn + 3 > 0]; Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants []; Supporting invariants [2*main::x - 1*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [4*main::x - 3*main::sn >= 0],,"sn == x;
+sn >= 0;
+x >= 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum03_safe.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum03_safe.v.c,sn==x*1 || sn == 0,Supporting invariants [4*main::x - 3*main::sn + 2 > 0]; Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn + 2 > 0]; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::sn >= 0]; Supporting invariants [],,"sn == x;
+sn >= 0;
+x >= 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum04.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum04.c,sn==SIZE*a || sn == 0,,sn == \old(sn) + (i - 1) * a; 1 <= i && i <= SIZE + 1,"1 <= i && i <= SIZE + 1;
+sn >= 0;
+sn == (i - 1) * a"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum04n.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum04n.c,sn==SIZE*a || sn == 0,,sn == \old(sn) + (i - 1) * a; 1 <= i && i <= SIZE + 1,
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum04n.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum04n.v.c,sn==SIZE*a || sn == 0,,,
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,sum04_safe.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/sum04_safe.c,sn==SIZE*a || sn == 0,,sn == \old(sn) + (i - 1) * a; 1 <= i && i <= SIZE + 1,"1 <= i && i <= SIZE + 1;
+sn == (i - 1) * a"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,trex03.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/trex03.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 > 0, 1*main::d1 > 0, 1*main::d3 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]",,"x1 >= 0 && x2 >= 0 && x3 >= 0;
+d1 == 1 && d2 == 1 && d3 == 1"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,trex03.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/trex03.v.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 - 1 >= 0, 3*main::d3 - 2*main::d2 > 0]; Supporting invariants [3*main::d1 - 2 > 0]; Supporting invariants [1*main::d1 - 1 >= 0]",,"x1 >= 0;
+x2 >= 0;
+x3 >= 0;
+(x1 > 0 && x2 > 0 && x3 > 0) ==> (x1 + x2 + x3 >= 1)"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,trex03_safe.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/trex03_safe.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 > 0, 1*main::d1 > 0, 1*main::d3 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]",,"0 <= x1;
+0 <= x2;
+0 <= x3;
+d1 == 1;
+d2 == 1;
+d3 == 1"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,trex03_safe.v.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/trex03_safe.v.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 - 1 >= 0, 3*main::d3 - 2*main::d2 > 0]; Supporting invariants [3*main::d1 - 2 > 0]; Supporting invariants [1*main::d1 - 1 >= 0]",,"0 <= x1;
+0 <= x2;
+0 <= x3;
+d1 == 1;
+d2 == 1;
+d3 == 1"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,w1.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/w1.c,x == n,,,"0 <= x;
+x <= n;
+n >= 0"
+LinearArbitrary-SeaHorn/pie/ICE/benchmarks,w2.c,LinearArbitrary-SeaHorn/pie/ICE/benchmarks/w2.c,x == n,,n > 0; 0 <= x; x < n," 0 <= x <= n;
+ (input != 0) ==> (0 <= x + 1 <= n);
+ input != 0 ==> x < n;
+ 0 <= x && x <= n;
+ n > 0;
+ 0 <= x;
+ x <= n;
+ input == 0 || input != 0;
+ x >= 0;
+ input ==> (input != 0);
+ input == 0 || x < n;
+ input == 0 ==> x < n"
+LinearArbitrary-SeaHorn/sharma_splitter,cav.c,LinearArbitrary-SeaHorn/sharma_splitter/cav.c,x<=102,,," 0 <= x && x <= 102;
+ flag == 0 || flag == 1;
+ (x <= 50) ==> (y <= x);
+ (x > 50) ==> (y <= 102 - x)"
+LinearArbitrary-SeaHorn/sharma_splitter,ex1.c,LinearArbitrary-SeaHorn/sharma_splitter/ex1.c,y==-2,,,
+LinearArbitrary-SeaHorn/sharma_splitter,ex2.c,LinearArbitrary-SeaHorn/sharma_splitter/ex2.c,z==400,Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [],,
+LinearArbitrary-SeaHorn/sharma_splitter,popl.c,LinearArbitrary-SeaHorn/sharma_splitter/popl.c,y==100,,,"0 <= x <= 100;
+50 <= y <= 150;
+x <= y;
+x <= 50 ==> y == 50;
+x > 50 ==> y == x"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testabs12_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs12_VeriMAP_true.c,!( (i > 100 ) || count < 0 ),,"count - i == \at(count, Pre) - \at(i, Pre); i >= \at(i, Pre); count >= \at(count, Pre)","0 <= i <= 100;
+count >= 0;
+count == \at(count, LoopEntry) + i"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testabs13_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs13_VeriMAP_true.c,!( i>10 ),Supporting invariants [1*main::n > 0],,"0 <= i;
+i <= n;
+n == 10"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testabs15_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs15_VeriMAP_true.c,!( a+b != 3*n ),Supporting invariants [-3*main::a + 4*main::i >= 0]; Supporting invariants [],a + b - 3*i == \old(a) + \old(b) - 3*\old(i); \old(i) <= i; i <= n,"0 <= i <= n;
+a >= 0;
+b >= 0;
+a + b == 3 * i"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testabs7_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs7_VeriMAP_true.c,!( i>10 ),Supporting invariants [1*main::n > 0],,"0 <= i;
+i <= n;
+n == 10"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testabs8_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testabs8_VeriMAP_true.c,!( i>10 ),Supporting invariants [1*main::n > 0],,"0 <= i;
+i <= n;
+n == 10"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop10_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop10_VeriMAP_true.c,!( lock==0 ),Supporting invariants [-3*main::old + 3*main::new - 2 > 0]; Supporting invariants []; Supporting invariants [-3*main::old + 3*main::new - 2 > 0]; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants [-1*main::old + 1*main::new > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants [-1*main::old + 1*main::new > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-2*main::old + 2*main::new - 1 > 0]; Supporting invariants [-1*main::old + 1*main::new > 0]; Supporting invariants []; Supporting invariants [-3*main::old + 3*main::new - 2 > 0]; Supporting invariants []; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants [-1*main::old + 1*main::new > 0]; Supporting invariants []; Supporting invariants [-1*main::old + 1*main::new > 0]; Supporting invariants [-3*main::old + 3*main::new - 2 > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants []; Supporting invariants [-3*main::old + 3*main::new - 2 > 0]; Supporting invariants [-1*main::old + 1*main::new - 1 >= 0]; Supporting invariants [],," lock == 0 || lock == 1;
+ new == old + 1 ==> lock == 0;
+ new != old + 1 ==> lock == 1"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop11_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop11_VeriMAP_true.c,!( e == 3 ),"Supporting invariants []; Supporting invariants [1*main::s > 0]; Supporting invariants [1*main::e > 0]; Supporting invariants [1*main::e > 0, 1*main::s > 0]; Supporting invariants [1*main::e > 0]; Supporting invariants [1*main::s > 0, 1*main::e > 0]; Supporting invariants [1*main::s > 0]; Supporting invariants [1*main::e > 0, 1*main::s > 0]; Supporting invariants [1*main::s > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::s > 0]; Supporting invariants []",,"0 <= e <= 2;
+2 <= s <= 5;
+(s == 2) ==> (e == 0 || e == 1);
+(s == 3) ==> (e == 1 || e == 2);
+(s == 4) ==> (e == 2);
+(s == 5) ==> (e == 2)"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop13_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop13_VeriMAP_true.c,!( lock==0 ),,, lock == 1 || (lock == 0 && new != old)
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop14_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop14_VeriMAP_true.c,!( y > 2 ),,,"0 <= i <= 10;
+y <= 2;
+x >= 0"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop15_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop15_VeriMAP_true.c,!( i>N ),,,"0 <= i;
+i <= N;
+N == 100"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop16_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop16_VeriMAP_true.c,!( x>2 ),Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [],, 1 <= x <= 2
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop17_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop17_VeriMAP_true.c,!( k>0 ),"Supporting invariants [1*main::i >= 0, 1*main::N > 0]; Supporting invariants [1*main::N > 0]",,
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop1_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop1_VeriMAP_true.c,!( x >0 ),"Supporting invariants [1*main::a > 0, 1*main::NONDET > 0]",,"i >= 0;
+x == 0;
+a == 1 || a == 2"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop29_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop29_VeriMAP_true.c,!( x != 50 ),,," 0 <= x <= 100;
+ x < 100 ==> x != 50;
+ (x < 50) ==> (x < 100);
+ x >= 0;
+ x <= 100;
+ 0 <= x;
+ x < 50 ==> x != 50;
+ x >= 50 ==> x == 50;
+ x == 50 ==> x == \at(x, LoopEntry);
+ x < 50 ==> x < 100;
+ x <= 50"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop2_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop2_VeriMAP_true.c,!( x >2 ),,,1 <= x <= 2
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop4_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop4_VeriMAP_true.c,!( a > 1 ),Supporting invariants [-1*main::N + 10 >= 0],, a == 0
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop6_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop6_VeriMAP_true.c,!( y < 0 ),Supporting invariants [4*main::i - 3*main::x >= 0]; Supporting invariants [],,"0 <= i <= 10;
+0 <= x <= i;
+y >= 0;
+z == 1"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop7_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop7_VeriMAP_true.c,!( x > 2 ),,,"1 <= x <= 2;
+y == 0"
+LinearArbitrary-SeaHorn/VeriMAP,TRACER-testloop9_VeriMAP_true.c,LinearArbitrary-SeaHorn/VeriMAP/TRACER-testloop9_VeriMAP_true.c,!( y==6 ),Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0],,
+sv-benchmarks/loop-acceleration,const_1-1.c,sv-benchmarks/loop-acceleration/const_1-1.c,x == 0,,,"0 <= y <= 1024;
+x == 0 || x == 1;
+y >= 1024 ==> x == 0"
+sv-benchmarks/loop-acceleration,diamond_1-1.c,sv-benchmarks/loop-acceleration/diamond_1-1.c,(x % 2) == (y % 2),,,
+sv-benchmarks/loop-acceleration,diamond_2-2.c,sv-benchmarks/loop-acceleration/diamond_2-2.c,(x % 2) == (y % 2),,,
+sv-benchmarks/loop-acceleration,multivar_1-1.c,sv-benchmarks/loop-acceleration/multivar_1-1.c,x == y,Supporting invariants []; Supporting invariants [3*main::x - 3*main::y + 1 > 0],y == x,"x == y;
+x >= 0;
+y >= 0;
+x < 1024 ==> y < 1024;
+x >= 1024 ==> y >= 1024"
+sv-benchmarks/loop-acceleration,overflow_1-1.c,sv-benchmarks/loop-acceleration/overflow_1-1.c,!(x % 2),,,
+sv-benchmarks/loop-acceleration,phases_1-1.c,sv-benchmarks/loop-acceleration/phases_1-1.c,!(x % 2),,," 0 <= x;
+ x % 2 == 1 ==> x < 0xfff0"
+sv-benchmarks/loop-acceleration,phases_2-2.c,sv-benchmarks/loop-acceleration/phases_2-2.c,x == y,,,"x >= 1;
+y > 0;
+x <= y"
+sv-benchmarks/loop-acceleration,simple_1-2.c,sv-benchmarks/loop-acceleration/simple_1-2.c,!(x % 2),,,"x % 2 == 0;
+0 <= x;
+x <= 0x10000000"
+sv-benchmarks/loop-acceleration,simple_2-1.c,sv-benchmarks/loop-acceleration/simple_2-1.c,x >= 0x0fffffff,,, x >= 0
+sv-benchmarks/loop-acceleration,simple_3-2.c,sv-benchmarks/loop-acceleration/simple_3-2.c,!(x % 2),,," x % 2 == 0;
+ x >= N ==> x - N < 2"
+sv-benchmarks/loop-acceleration,simple_4-2.c,sv-benchmarks/loop-acceleration/simple_4-2.c,!(x % 2),,,"x <= 0x0ffffff0;
+x % 2 == 0"
+sv-benchmarks/loop-acceleration,underapprox_1-2.c,sv-benchmarks/loop-acceleration/underapprox_1-2.c,y % 3,,,"0 <= x <= 6;
+y == (1 << x)"
+sv-benchmarks/loop-acceleration,underapprox_2-2.c,sv-benchmarks/loop-acceleration/underapprox_2-2.c,x == 6,,,"0 <= x <= 6;
+y == (1 << x)"
+sv-benchmarks/loop-crafted,simple_vardep_1.c,sv-benchmarks/loop-crafted/simple_vardep_1.c,k == (i + j),Supporting invariants [4*main::k - 9*main::i >= 0],,"i >= 0;
+j >= 0;
+k >= 0;
+i <= k;
+j <= k;
+k == i + j"
+sv-benchmarks/loop-crafted,simple_vardep_2.c,sv-benchmarks/loop-crafted/simple_vardep_2.c,(k == 3*i) && (j == 2*i),Supporting invariants [4*main::k - 9*main::i >= 0],k == 3*i; j == 2*i,"0 <= i;
+0 <= j;
+0 <= k;
+i <= 0x0fffffff / 3;
+j <= 2 * (0x0fffffff / 3);
+k <= 0x0fffffff;
+k == 3 * i;
+j == 2 * i"
+sv-benchmarks/loop-floats-scientific-comp,loop1-1.c,sv-benchmarks/loop-floats-scientific-comp/loop1-1.c,result >= exp,Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::count > 0]; Supporting invariants [1*main::count > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::count > 0]; Supporting invariants []; Supporting invariants [],,
+sv-benchmarks/loop-floats-scientific-comp,loop2-2.c,sv-benchmarks/loop-floats-scientific-comp/loop2-2.c,oddExp >= evenExp,,,
+sv-benchmarks/loop-floats-scientific-comp,loop3.c,sv-benchmarks/loop-floats-scientific-comp/loop3.c,evenExp >= oddExp,,,
+sv-benchmarks/loop-industry-pattern,mod3.c,sv-benchmarks/loop-industry-pattern/mod3.c,x % 3 == 0,,,"0 <= x;
+0 <= y <= 1;
+(y == 0) ==> (x % 3 == 0)"
+sv-benchmarks/loop-invariants,bin-suffix-5.c,sv-benchmarks/loop-invariants/bin-suffix-5.c,(x & 5) == 5,,x >= 5; (x - 5) % 8 == 0,
+sv-benchmarks/loop-invariants,const.c,sv-benchmarks/loop-invariants/const.c,s == 0,,s == 0,s == 0
+sv-benchmarks/loop-invariants,eq1.c,sv-benchmarks/loop-invariants/eq1.c,w == x && y == z,,w - x == \old(w) - \old(x); w >= \old(w); x >= \old(x),"w == x;
+y == z"
+sv-benchmarks/loop-invariants,eq2.c,sv-benchmarks/loop-invariants/eq2.c,y == z,"Supporting invariants [-3*main::w + 3*main::y - 2 >= 0]; Supporting invariants []; Supporting invariants [-1*main::w + 1*main::z > 0, 1*main::z - 1*main::y >= 0]; Supporting invariants [-1*main::x + 1*main::z > 0]; Supporting invariants []; Supporting invariants [-1*main::z + 1*main::y >= 0]; Supporting invariants [-1*main::x + 1*main::z > 0]; Supporting invariants []; Supporting invariants [-1*main::w - 1*main::z + 2*main::y - 1 >= 0]; Supporting invariants [-1*main::w + 2*main::z - 1*main::y - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::z - 1*main::y >= 0]; Supporting invariants [-3*main::x + 3*main::y - 2 >= 0]; Supporting invariants [-2*main::w + 5*main::z - 3*main::y - 2 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::w + 1*main::z > 0, -1*main::z + 1*main::y >= 0]; Supporting invariants []; Supporting invariants [1*main::x - 1*main::w >= 0, -1*main::x + 4*main::z - 3*main::y > 0]; Supporting invariants []; Supporting invariants [-2*main::x + 2*main::z - 1 >= 0, 4*main::x - 5*main::w + 5*main::z - 4*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::w + 1*main::y - 1 >= 0]; Supporting invariants [-1*main::x + 1*main::y - 1 >= 0]; Supporting invariants [1*main::z - 1*main::y >= 0]; Supporting invariants [-1*main::w + 1*main::y > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::z - 1*main::y >= 0]; Supporting invariants [-1*main::x + 1*main::z > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::z + 1*main::y >= 0]; Supporting invariants [-1*main::x + 1*main::z > 0]; Supporting invariants [-2*main::w + 5*main::z - 3*main::y - 2 >= 0]; Supporting invariants []; Supporting invariants [1*main::z - 1*main::y >= 0]; Supporting invariants [-1*main::w + 1*main::y - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::z - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::z > 0]; Supporting invariants [-1*main::w + 1*main::y > 0, -1*main::z + 1*main::y >= 0]; Supporting invariants [-3*main::w + 6*main::z - 3*main::y - 2 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::z - 1*main::y >= 0, -1*main::w + 1*main::y - 1 >= 0]; Supporting invariants [-1*main::w + 1*main::y - 1 >= 0]; Supporting invariants [-1*main::w - 3*main::z + 4*main::y > 0]; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y > 0]; Supporting invariants [-1*main::w + 1*main::y > 0]; Supporting invariants [-3*main::z + 3*main::y + 1 > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y > 0]; Supporting invariants [-1*main::z + 1*main::y >= 0]; Supporting invariants []; Supporting invariants [-1*main::z + 1*main::y >= 0, -1*main::w + 1*main::z > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::w + 1*main::z - 1 >= 0]; Supporting invariants [-1*main::x + 1*main::y > 0]; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::z - 1 >= 0]; Supporting invariants []; Supporting invariants [-1*main::w + 1*main::y > 0]; Supporting invariants [-1*main::x + 1*main::y - 1 >= 0, -1*main::w + 1*main::z > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-2*main::w - 3*main::z + 5*main::y - 2 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::z - 1*main::y >= 0]; Supporting invariants [1*main::z - 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []","y - z == \at(y - z, Pre)",y == z
+sv-benchmarks/loop-invariants,even.c,sv-benchmarks/loop-invariants/even.c,!(x % 2),,x % 2 == 0; x >= 0,
+sv-benchmarks/loop-invariants,mod4.c,sv-benchmarks/loop-invariants/mod4.c,!(x % 4),,x % 4 == 0,
+sv-benchmarks/loop-invariants,odd.c,sv-benchmarks/loop-invariants/odd.c,x % 2,,x >= 1; x % 2 == 1,
+sv-benchmarks/loop-invgen,MADWiFi-encode_ie_ok.c,sv-benchmarks/loop-invgen/MADWiFi-encode_ie_ok.c,0<=p,,,
+sv-benchmarks/loop-invgen,NetBSD_loop.c,sv-benchmarks/loop-invgen/NetBSD_loop.c,0 <= glob2_p_off,,,"glob2_p_off >= glob2_pathbuf_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_pathbuf_off == 0;
+glob2_pathlim_off == MAXPATHLEN;
+MAXPATHLEN >= 1;
+MAXPATHLEN <= 2147483646"
+sv-benchmarks/loop-invgen,NetBSD_loop.c,sv-benchmarks/loop-invgen/NetBSD_loop.c,0 <= glob2_p_off,,,"glob2_p_off >= glob2_pathbuf_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_pathbuf_off == 0;
+glob2_pathlim_off == MAXPATHLEN;
+MAXPATHLEN >= 1;
+MAXPATHLEN <= 2147483646"
+sv-benchmarks/loop-invgen,NetBSD_loop.c,sv-benchmarks/loop-invgen/NetBSD_loop.c,0 <= glob2_p_off,,,"glob2_p_off >= glob2_pathbuf_off;
+glob2_p_off <= glob2_pathlim_off + 1;
+glob2_pathbuf_off == 0;
+glob2_pathlim_off == MAXPATHLEN;
+MAXPATHLEN >= 1;
+MAXPATHLEN <= 2147483646"
+sv-benchmarks/loop-invgen,sendmail-close-angle.c,sv-benchmarks/loop-invgen/sendmail-close-angle.c,0<=buf,,," 0 <= buf;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ 0 <= in;
+ in < inlen;
+ in >= buf;
+ buf <= in;
+ buf <= buflim;
+ buflim == bufferlen - 2;
+ buf <= bufferlen;
+ in <= inlen;
+ in - buf <= 1;
+ inlen > 0;
+ bufferlen > 1;
+ bufferlen < inlen;
+ buf == in;
+ buf >= in;
+ buf < in + 1;
+ buf <= buflim ==> buf < bufferlen - 1;
+ 0 <= buf && buf <= buflim;
+ 0 <= in && in <= inlen"
+sv-benchmarks/loop-invgen,sendmail-close-angle.c,sv-benchmarks/loop-invgen/sendmail-close-angle.c,0<=buf,,," 0 <= buf;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ 0 <= in;
+ in < inlen;
+ in >= buf;
+ buf <= in;
+ buf <= buflim;
+ buflim == bufferlen - 2;
+ buf <= bufferlen;
+ in <= inlen;
+ in - buf <= 1;
+ inlen > 0;
+ bufferlen > 1;
+ bufferlen < inlen;
+ buf == in;
+ buf >= in;
+ buf < in + 1;
+ buf <= buflim ==> buf < bufferlen - 1;
+ 0 <= buf && buf <= buflim;
+ 0 <= in && in <= inlen"
+sv-benchmarks/loop-invgen,sendmail-close-angle.c,sv-benchmarks/loop-invgen/sendmail-close-angle.c,0<=buf,,," 0 <= buf;
+ buf <= buflim + 1;
+ buf < bufferlen;
+ 0 <= in;
+ in < inlen;
+ in >= buf;
+ buf <= in;
+ buf <= buflim;
+ buflim == bufferlen - 2;
+ buf <= bufferlen;
+ in <= inlen;
+ in - buf <= 1;
+ inlen > 0;
+ bufferlen > 1;
+ bufferlen < inlen;
+ buf == in;
+ buf >= in;
+ buf < in + 1;
+ buf <= buflim ==> buf < bufferlen - 1;
+ 0 <= buf && buf <= buflim;
+ 0 <= in && in <= inlen"
+sv-benchmarks/loop-lit,afnp2014.c,sv-benchmarks/loop-lit/afnp2014.c,x >= y,,,"0 <= y <= 1000;
+x >= y;
+x >= 1"
+sv-benchmarks/loop-lit,bhmr2007.c,sv-benchmarks/loop-lit/bhmr2007.c,a + b == 3*n,Supporting invariants [-3*main::n + 4000000 >= 0],,"i >= 0;
+a >= 0;
+b >= 0;
+n >= 0;
+i <= n;
+n <= LARGE_INT;
+a + b == 3*i"
+sv-benchmarks/loop-lit,cggmp2005.c,sv-benchmarks/loop-lit/cggmp2005.c,j == 6,,,"1 <= i <= 11;
+j >= 0;
+i % 2 == 1;
+j <= 10;
+i <= j + 3;
+j == 10 - (i - 1) / 2;"
+sv-benchmarks/loop-lit,cggmp2005_variant.c,sv-benchmarks/loop-lit/cggmp2005_variant.c,lo == hi,"Supporting invariants [1*main::mid + 2*main::lo > 0, -1000003*main::mid + 1000002*main::hi >= 0]","lo + hi == \at(lo + hi, Pre); lo + mid == \at(lo + mid, Pre); hi - mid == \at(hi - mid, Pre); mid >= 0","0 <= lo <= hi;
+hi == 2 * mid + lo;
+0 <= mid <= LARGE_INT"
+sv-benchmarks/loop-lit,css2003.c,sv-benchmarks/loop-lit/css2003.c,1 <= i + k && i + k <= 2 && i >= 1,,," 1 <= i;
+ i + k >= 1 && i + k <= 2"
+sv-benchmarks/loop-lit,ddlm2013.c,sv-benchmarks/loop-lit/ddlm2013.c,a == b,"Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::flag > 0]; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::flag > 0, 1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j > 0, -1*main::flag > 0]; Supporting invariants [1*main::j > 0]; Supporting invariants [1*main::j > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j - 1 >= 0, 1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::j > 0]; Supporting invariants [1*main::flag > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []",,
+sv-benchmarks/loop-lit,gj2007.c,sv-benchmarks/loop-lit/gj2007.c,y == 100,,,"0 <= x && x <= 100;
+50 <= y && y <= 100;
+x <= y;
+x >= 50 ==> y == x;
+x < 50 ==> y == 50"
+sv-benchmarks/loop-lit,gj2007b.c,sv-benchmarks/loop-lit/gj2007b.c,(m >= 0 || n <= 0),,,"x >= 0;
+m >= 0;
+x <= n ==> m <= x;
+x >= n ==> (m < n || n <= 0)"
+sv-benchmarks/loop-lit,gr2006.c,sv-benchmarks/loop-lit/gr2006.c,x == 100,,,"0 <= x <= 100;
+0 <= y <= x;
+x < 50 ==> y == x;
+x >= 50 ==> y == 100 - x"
+sv-benchmarks/loop-lit,gsv2008.c,sv-benchmarks/loop-lit/gsv2008.c,y > 0,,,
+sv-benchmarks/loop-lit,hhk2008.c,sv-benchmarks/loop-lit/hhk2008.c,res == a + b,Supporting invariants [-4*main::cnt - 3*main::res + 6000007000001 > 0],cnt + res == \old(cnt) + \old(res); res - \old(res) == \old(cnt) - cnt,"0 <= cnt <= b;
+a <= res <= a + b;
+res == a + (b - cnt)"
+sv-benchmarks/loop-lit,jm2006.c,sv-benchmarks/loop-lit/jm2006.c,y == 0,Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0],y - x == \old(y) - \old(x)," x >= 0;
+ x <= i;
+ y <= j;
+ i - x == j - y"
+sv-benchmarks/loop-lit,jm2006_variant.c,sv-benchmarks/loop-lit/jm2006_variant.c,y == -z,,x + z == \old(x + z); y - 2*x == \old(y - 2*x); y + 2*z == \old(y + 2*z),"0 <= x <= i;
+0 <= z <= i;
+y == j - 2 * (i - x);
+x + z == i"
+sv-benchmarks/loop-new,count_by_1.c,sv-benchmarks/loop-new/count_by_1.c,i == LARGE_INT,,,"0 <= i;
+i <= LARGE_INT"
+sv-benchmarks/loop-new,count_by_1_variant.c,sv-benchmarks/loop-new/count_by_1_variant.c,i <= LARGE_INT,,,"0 <= i;
+i <= LARGE_INT"
+sv-benchmarks/loop-new,count_by_2.c,sv-benchmarks/loop-new/count_by_2.c,i == LARGE_INT,,i >= 0; i % 2 == 0; i <= LARGE_INT,"i % 2 == 0;
+0 <= i <= LARGE_INT;
+i <= LARGE_INT"
+sv-benchmarks/loop-new,count_by_k.c,sv-benchmarks/loop-new/count_by_k.c,i == LARGE_INT*k,,,"0 <= i;
+i % k == 0 || i == 0;
+i <= LARGE_INT * k;
+0 <= i <= LARGE_INT * k;
+0 <= k <= 10;
+i >= 0;
+i <= LARGE_INT*k;
+0 <= k && k <= 10;
+0 <= i && i <= LARGE_INT * k;"
+sv-benchmarks/loop-new,count_by_nondet.c,sv-benchmarks/loop-new/count_by_nondet.c,k <= LARGE_INT,,," 0 <= k <= LARGE_INT;
+ i >= k"
+sv-benchmarks/loop-new,gauss_sum.c,sv-benchmarks/loop-new/gauss_sum.c,2*sum == n*(n+1),,,"1 <= i && i <= n+1;
+1 <= n && n <= 1000;
+sum == (i-1) * i / 2"
+sv-benchmarks/loop-new,half.c,sv-benchmarks/loop-new/half.c,k < 0 || n == k,,,
+sv-benchmarks/loop-zilu,benchmark01_conjunctive.c,sv-benchmarks/loop-zilu/benchmark01_conjunctive.c,y>=1,,,"x >= 1;
+y >= 1;
+y == x"
+sv-benchmarks/loop-zilu,benchmark02_linear.c,sv-benchmarks/loop-zilu/benchmark02_linear.c,l>=1,,i <= n; i >= \old(i); n == \old(n),"i >= l;
+l > 0"
+sv-benchmarks/loop-zilu,benchmark03_linear.c,sv-benchmarks/loop-zilu/benchmark03_linear.c,j>=i,,,"x >= 0;
+y >= 0;
+i >= 0;
+j >= 0;
+x == y;
+i >= x * (x - 1) / 2;
+j >= i + (flag ? x : 0)"
+sv-benchmarks/loop-zilu,benchmark04_conjunctive.c,sv-benchmarks/loop-zilu/benchmark04_conjunctive.c,k>=0,,j + k == \old(j) + \old(k),"j >= 0;
+k >= n - j;
+j <= n"
+sv-benchmarks/loop-zilu,benchmark05_conjunctive.c,sv-benchmarks/loop-zilu/benchmark05_conjunctive.c,y==n,,,"x >= 0;
+x <= y;
+y <= n"
+sv-benchmarks/loop-zilu,benchmark06_conjunctive.c,sv-benchmarks/loop-zilu/benchmark06_conjunctive.c,x+y==k,,x + y == \old(x + y); i == \old(i); j == \old(j); x >= \old(x); y <= \old(y),"j >= 0;
+k == \at(k, LoopEntry);
+x + y == \at(x + y, LoopEntry)"
+sv-benchmarks/loop-zilu,benchmark08_conjunctive.c,sv-benchmarks/loop-zilu/benchmark08_conjunctive.c,sum>=0,,sum == i * (i - 1) / 2; 0 <= i && i <= n,"i >= 0;
+sum >= 0;
+i <= n;
+sum == i * (i - 1) / 2"
+sv-benchmarks/loop-zilu,benchmark09_conjunctive.c,sv-benchmarks/loop-zilu/benchmark09_conjunctive.c,y==0,,x - y == \old(x) - \old(y); x <= \old(x); y <= \old(y),"0 <= y;
+x == y;
+x >= 0"
+sv-benchmarks/loop-zilu,benchmark10_conjunctive.c,sv-benchmarks/loop-zilu/benchmark10_conjunctive.c,c>=0,,,"0 <= i <= 100;
+0 <= c <= (i * (i - 1)) / 2;
+i == 0 ==> c == 0"
+sv-benchmarks/loop-zilu,benchmark11_linear.c,sv-benchmarks/loop-zilu/benchmark11_linear.c,x==n,,,"x >= 0;
+n > 0;
+x <= n"
+sv-benchmarks/loop-zilu,benchmark12_linear.c,sv-benchmarks/loop-zilu/benchmark12_linear.c,y>=t,,, y >= t
+sv-benchmarks/loop-zilu,benchmark13_conjunctive.c,sv-benchmarks/loop-zilu/benchmark13_conjunctive.c,j==i,Supporting invariants [-1*main::k >= 0],"j - i == \at(j - i, LoopEntry)","i >= 0;
+j >= 0;
+j == i"
+sv-benchmarks/loop-zilu,benchmark14_linear.c,sv-benchmarks/loop-zilu/benchmark14_linear.c,i>=0,,,"i >= 0;
+i <= 200"
+sv-benchmarks/loop-zilu,benchmark15_conjunctive.c,sv-benchmarks/loop-zilu/benchmark15_conjunctive.c,low == high,,,"low >= 0;
+mid >= 0;
+high >= low;
+high - low == 2 * mid"
+sv-benchmarks/loop-zilu,benchmark16_conjunctive.c,sv-benchmarks/loop-zilu/benchmark16_conjunctive.c,1 <= i + k && i + k <= 2 && i >= 1,,"i + k == \at(i + k, Pre)"," 1 <= i;
+ 1 <= i + k <= 2"
+sv-benchmarks/loop-zilu,benchmark17_conjunctive.c,sv-benchmarks/loop-zilu/benchmark17_conjunctive.c,k>=n,,"k - i == \at(k, Pre) - \at(i, Pre); i >= \at(i, Pre); k >= \at(k, Pre); n == \at(n, Pre)"," i >= 0;
+ k >= 0;
+ k == i"
+sv-benchmarks/loop-zilu,benchmark18_conjunctive.c,sv-benchmarks/loop-zilu/benchmark18_conjunctive.c,(i == k) && (k == n),,k - i == \old(k) - \old(i); i >= \old(i); k >= \old(k); k - \old(k) == i - \old(i),"0 <= i <= n;
+0 <= k <= n;
+i == k"
+sv-benchmarks/loop-zilu,benchmark19_conjunctive.c,sv-benchmarks/loop-zilu/benchmark19_conjunctive.c,(k == 0),Supporting invariants [1*main::n > 0],n == \old(n); k - j == \old(k) - \old(j),"0 <= j <= n;
+0 <= k <= n;
+j == k;
+(j == 0) ==> (k == 0);
+(j == n) ==> (k == n)"
+sv-benchmarks/loop-zilu,benchmark20_conjunctive.c,sv-benchmarks/loop-zilu/benchmark20_conjunctive.c,sum>=0,,,"0 <= i;
+i <= n;
+n <= 100;
+sum >= 0;
+sum == (i * (i - 1)) / 2"
+sv-benchmarks/loop-zilu,benchmark21_disjunctive.c,sv-benchmarks/loop-zilu/benchmark21_disjunctive.c,x>0 || y>0,,,"(y > 0 || x > 0);
+x >= \at(x, LoopEntry);
+y >= \at(y, LoopEntry)"
+sv-benchmarks/loop-zilu,benchmark22_conjunctive.c,sv-benchmarks/loop-zilu/benchmark22_conjunctive.c,x >= y,,,"x >= 1;
+y >= 0;
+x >= y"
+sv-benchmarks/loop-zilu,benchmark23_conjunctive.c,sv-benchmarks/loop-zilu/benchmark23_conjunctive.c,j==200,,j - 2*i == \old(j) - 2*\old(i); j == \old(j) + 2*(i - \old(i)),"0 <= i <= 100;
+j == 2 * i"
+sv-benchmarks/loop-zilu,benchmark24_conjunctive.c,sv-benchmarks/loop-zilu/benchmark24_conjunctive.c,2*k>=n-1,,,
+sv-benchmarks/loop-zilu,benchmark25_linear.c,sv-benchmarks/loop-zilu/benchmark25_linear.c,x==10,,,"x >= -2147483648;
+x <= 2147483647;
+x <= 10"
+sv-benchmarks/loop-zilu,benchmark26_linear.c,sv-benchmarks/loop-zilu/benchmark26_linear.c,x==y,,y == \old(y); x >= \old(x),x <= y
+sv-benchmarks/loop-zilu,benchmark27_linear.c,sv-benchmarks/loop-zilu/benchmark27_linear.c,k > 0,,j == \old(j); k - i == \old(k) - \old(i); i >= \old(i); k >= \old(k),"i <= j;
+k >= (i - j) + 1"
+sv-benchmarks/loop-zilu,benchmark29_linear.c,sv-benchmarks/loop-zilu/benchmark29_linear.c,x >= y && x <= y + 99,,y == \old(y); x >= \old(x); (x - \old(x)) % 100 == 0, x >= y ==> x <= y + 99
+sv-benchmarks/loop-zilu,benchmark30_conjunctive.c,sv-benchmarks/loop-zilu/benchmark30_conjunctive.c,x == y,Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants [3*main::x - 3*main::y + 1 > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [3*main::x - 3*main::y + 1 > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants []; Supporting invariants [3*main::x - 3*main::y + 1 > 0]; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants []; Supporting invariants [-3*main::x + 3*main::y + 1 > 0]; Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [],,x == y
+sv-benchmarks/loop-zilu,benchmark31_disjunctive.c,sv-benchmarks/loop-zilu/benchmark31_disjunctive.c,y>=0,,, x >= 0 ==> y >= 0
+sv-benchmarks/loop-zilu,benchmark32_linear.c,sv-benchmarks/loop-zilu/benchmark32_linear.c,x<=8,Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0]; Supporting invariants []; Supporting invariants [1*main::x > 0],,x == 1 || x == 2
+sv-benchmarks/loop-zilu,benchmark33_linear.c,sv-benchmarks/loop-zilu/benchmark33_linear.c,x>=100,,0; 99, x>=0
+sv-benchmarks/loop-zilu,benchmark34_conjunctive.c,sv-benchmarks/loop-zilu/benchmark34_conjunctive.c,(k == 0),,j + k == \old(j) + \old(k); n == \old(n); j >= \old(j); k <= \old(k),"0 <= j <= n;
+k == n - j;
+n > 0"
+sv-benchmarks/loop-zilu,benchmark35_linear.c,sv-benchmarks/loop-zilu/benchmark35_linear.c,x>=10,,, x >= 0
+sv-benchmarks/loop-zilu,benchmark36_conjunctive.c,sv-benchmarks/loop-zilu/benchmark36_conjunctive.c,x == y && x >= 0,Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y + 2 > 0]; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants [-3*main::x + 4*main::y + 2 > 0]; Supporting invariants [4*main::x - 3*main::y + 2 > 0]; Supporting invariants []; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants []; Supporting invariants [-2*main::x + 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants []; Supporting invariants [-3*main::x + 3*main::y + 1 > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants [],,"x == y;
+x >= 0;
+y >= 0"
+sv-benchmarks/loop-zilu,benchmark37_conjunctive.c,sv-benchmarks/loop-zilu/benchmark37_conjunctive.c,y>=0,Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0],x - y == \old(x) - \old(y),"x >= 0;
+y >= 0;
+x == y"
+sv-benchmarks/loop-zilu,benchmark38_conjunctive.c,sv-benchmarks/loop-zilu/benchmark38_conjunctive.c,x == 4*y && x >= 0,Supporting invariants [-1*main::x + 5*main::y + 2 > 0]; Supporting invariants [-1*main::x + 4*main::y >= 0]; Supporting invariants []; Supporting invariants [-1*main::x + 5*main::y + 2 > 0]; Supporting invariants [-1*main::x + 5*main::y >= 0]; Supporting invariants []; Supporting invariants [-1*main::x + 5*main::y + 2 > 0]; Supporting invariants [-1*main::x + 5*main::y >= 0]; Supporting invariants [-1*main::x + 5*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 4*main::y >= 0]; Supporting invariants [-1*main::x + 5*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 5*main::y >= 0]; Supporting invariants [-1*main::x + 5*main::y + 2 > 0]; Supporting invariants [-1*main::x + 5*main::y >= 0],"x - 4*y == \at(x - 4*y, Pre)","x == 4 * y;
+x >= 0;
+y >= 0"
+sv-benchmarks/loop-zilu,benchmark39_conjunctive.c,sv-benchmarks/loop-zilu/benchmark39_conjunctive.c,y>=0,,,"x >= 0;
+x == 4 * y;
+x % 4 == 0"
+sv-benchmarks/loop-zilu,benchmark40_polynomial.c,sv-benchmarks/loop-zilu/benchmark40_polynomial.c,x*y>=0,Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0],,x * y >= 0
+sv-benchmarks/loop-zilu,benchmark41_conjunctive.c,sv-benchmarks/loop-zilu/benchmark41_conjunctive.c,x == y && x >= 0 && x+y+z==0,Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y + 2 > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [8*main::x + 3*main::z >= 0]; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [8*main::x + 3*main::z >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [8*main::x + 3*main::z >= 0],,"x == y;
+x >= 0;
+x + y + z == 0"
+sv-benchmarks/loop-zilu,benchmark42_conjunctive.c,sv-benchmarks/loop-zilu/benchmark42_conjunctive.c,z<=0,,,"x >= 0;
+x + y + z == 0;
+x <= y"
+sv-benchmarks/loop-zilu,benchmark43_conjunctive.c,sv-benchmarks/loop-zilu/benchmark43_conjunctive.c,x == 100 || y == 100,,," x <= 100;
+ y <= 100"
+sv-benchmarks/loop-zilu,benchmark45_disjunctive.c,sv-benchmarks/loop-zilu/benchmark45_disjunctive.c,x>0 || y>0,Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0]; Supporting invariants []; Supporting invariants [1*main::y > 0]; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::y > 0]; Supporting invariants [],x >= \old(x); y >= \old(y); (x > 0) == (\old(x) > 0); x <= 0 ==> x == \old(x); x > 0 ==> y == \old(y),"x > 0 || y > 0;
+\forall int k; 0 <= k < x ==> x > 0;
+\forall int k; 0 <= k < y ==> y > 0"
+sv-benchmarks/loop-zilu,benchmark46_disjunctive.c,sv-benchmarks/loop-zilu/benchmark46_disjunctive.c,x>0 || y>0 || z>0,"Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0, 4*main::x - 3*main::y > 0]; Supporting invariants [1*main::y > 0]; Supporting invariants [3*main::x - 2*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::y > 0]; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0]; Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants [1*main::z > 0, 1*main::y > 0]; Supporting invariants [1*main::x > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [-3*main::x + 11*main::y >= 0]; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0, -4*main::x + 7*main::y >= 0]; Supporting invariants [1*main::y > 0]; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::z > 0, 1*main::x > 0, -2*main::x + 3*main::y >= 0]; Supporting invariants [1*main::x - 1*main::y >= 0]; Supporting invariants [1*main::y > 0]; Supporting invariants [-3*main::x + 4*main::y >= 0]; Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::y > 0, 4*main::x - 3*main::y >= 0]; Supporting invariants [1*main::x > 0]; Supporting invariants [1*main::x > 0, 4*main::x - 3*main::y >= 0]; Supporting invariants [4*main::x - 3*main::y >= 0]; Supporting invariants [-1*main::x + 1*main::y >= 0, 1*main::x > 0]; Supporting invariants []; Supporting invariants [1*main::x > 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [4*main::x - 3*main::y > 0, 1*main::x > 0]; Supporting invariants [1*main::x > 0, -3*main::x + 4*main::y > 0]; Supporting invariants [-3*main::x + 4*main::y > 0]; Supporting invariants [1*main::y > 0]; Supporting invariants [1*main::y > 0]; Supporting invariants [1*main::y > 0, 5*main::x - 3*main::y >= 0]; Supporting invariants [1*main::y > 0]; Supporting invariants []",,x > 0 || y > 0 || z > 0
+sv-benchmarks/loop-zilu,benchmark47_linear.c,sv-benchmarks/loop-zilu/benchmark47_linear.c,x >= y && x <= y + 16,,, x <= y + 16
+sv-benchmarks/loop-zilu,benchmark48_linear.c,sv-benchmarks/loop-zilu/benchmark48_linear.c,k > j - i,,j == \old(j); k - i == \old(k) - \old(i); i >= \old(i); k >= \old(k); k == \old(k) + (i - \old(i)),"i <= j;
+k > 0;
+k >= \at(k, LoopEntry) + (i - \at(i, LoopEntry))"
+sv-benchmarks/loop-zilu,benchmark49_linear.c,sv-benchmarks/loop-zilu/benchmark49_linear.c,r > i + j,,i + j == \old(i) + \old(j)," r == \at(r, LoopEntry);
+ i + j == \at(i, LoopEntry) + \at(j, LoopEntry)"
+sv-benchmarks/loop-zilu,benchmark50_linear.c,sv-benchmarks/loop-zilu/benchmark50_linear.c,ya >= 0,Supporting invariants [1*main::ya > 0],xa + ya == \old(xa + ya); xa >= 0; ya >= \old(ya); xa <= \old(xa)," ya >= -xa;
+ xa + ya > 0"
+sv-benchmarks/loop-zilu,benchmark51_polynomial.c,sv-benchmarks/loop-zilu/benchmark51_polynomial.c,(x>=0) && (x<=50),,,"x >= 0;
+x <= 50"
+sv-benchmarks/loop-zilu,benchmark52_polynomial.c,sv-benchmarks/loop-zilu/benchmark52_polynomial.c,i == 10,,,"-10 <= i <= 10;
+i * i < 100 ==> i < 10;
+i * i >= 100 ==> i >= 10"
+sv-benchmarks/loop-zilu,benchmark53_polynomial.c,sv-benchmarks/loop-zilu/benchmark53_polynomial.c,x*y>=0,Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0]; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants []; Supporting invariants [-1*main::x + 1*main::y >= 0],,"x * y >= 0;
+(x == 0) ==> (y >= 0) || (y <= 0);
+(x > 0) ==> (y >= -1);
+(x < 0) ==> (y <= 1)"
+sv-benchmarks/loops,count_up_down-1.c,sv-benchmarks/loops/count_up_down-1.c,y==n,,x + y == \old(x) + \old(y); x <= \old(x); y >= \old(y),"y == n - x;
+x + y == n"
+sv-benchmarks/loops,for_infinite_loop_1.c,sv-benchmarks/loops/for_infinite_loop_1.c,x==0,,x == 0; i >= 0,x == 0
+sv-benchmarks/loops,for_infinite_loop_2.c,sv-benchmarks/loops/for_infinite_loop_2.c,x==0,,x == 0; i >= 0,"i >= 0;
+x == 0;
+y == 0"
+sv-benchmarks/loops,sum01-2.c,sv-benchmarks/loops/sum01-2.c,sn==n*a || sn == 0,Supporting invariants [1*main::i > 0],,
+sv-benchmarks/loops,sum03-2.c,sv-benchmarks/loops/sum03-2.c,sn==x*a || sn == 0,Supporting invariants [5*main::x - 2*main::sn >= 0]; Supporting invariants [2*main::x - 1*main::sn >= 0]; Supporting invariants [8*main::x - 3*main::sn + 12 > 0]; Supporting invariants [3*main::x - 1*main::sn >= 0]; Supporting invariants [8*main::x - 3*main::sn >= 0]; Supporting invariants []; Supporting invariants [8*main::x - 3*main::sn >= 0]; Supporting invariants [8*main::x - 3*main::sn >= 0]; Supporting invariants [],sn - a * x == \old(sn) - a * \old(x),
+sv-benchmarks/loops,sum04-2.c,sv-benchmarks/loops/sum04-2.c,sn==SIZE*a || sn == 0,,,"1 <= i <= SIZE + 1;
+sn == (i - 1) * a"
+sv-benchmarks/loops,terminator_02-2.c,sv-benchmarks/loops/terminator_02-2.c,x>=100 || z<=100,,, 100 <= z <= 200
+sv-benchmarks/loops,terminator_03-2.c,sv-benchmarks/loops/terminator_03-2.c,y<=0 || (y>0 && x>=100),,,"y <= LIMIT;
+(y <= 0) || (x < 100) ==> x < 100 + y;
+(y <= 0) || (x >= 100) ==> x >= 100"
+sv-benchmarks/loops,trex03-2.c,sv-benchmarks/loops/trex03-2.c,x1==0 || x2==0 || x3==0,"Supporting invariants [1*main::d2 > 0, 1*main::d1 > 0, 1*main::d3 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]; Supporting invariants [1*main::d1 - 1 >= 0]",,"x1 >= 0;
+x2 >= 0;
+x3 >= 0;
+d1 == 1;
+d2 == 1;
+d3 == 1"
+sv-benchmarks/loops,while_infinite_loop_1.c,sv-benchmarks/loops/while_infinite_loop_1.c,x==0,,x == 0,x == 0;
+sv-benchmarks/loops,while_infinite_loop_2.c,sv-benchmarks/loops/while_infinite_loop_2.c,x==0,,x == 0,x == 0;
+sv-benchmarks/loops-crafted-1,iftelse.c,sv-benchmarks/loops-crafted-1/iftelse.c,(i/2<=j),"Supporting invariants [1*SIZE > 0, -3*main::j + 4*main::i >= 0, -4*main::n + 5*SIZE >= 0]",," 0 <= k <= n;
+ i == j + k;
+ i % 3 == 0;
+ j % 3 == 0;
+ k % 3 == 0;
+ (i % 6 == 0) ==> (j == k);
+ (i % 6 != 0) ==> (j == k + 3)"
+sv-benchmarks/loops-crafted-1,loopv1.c,sv-benchmarks/loops-crafted-1/loopv1.c,(i%3) == 0,"Supporting invariants [1*SIZE - 1*main::n >= 0, 1*SIZE > 0]",\old(i) <= i; (i - \old(i)) % 3 == 0," i >= 0;
+ i % 3 == 0"
+sv-benchmarks/loops-crafted-1,loopv3.c,sv-benchmarks/loops-crafted-1/loopv3.c,(j * 4) == i,,i >= \old(i); i % 4 == \old(i) % 4,"0 <= i;
+i % 4 == 0;
+j == 0"
+sv-benchmarks/loops-crafted-1,mono-crafted_10.c,sv-benchmarks/loops-crafted-1/mono-crafted_10.c,z==x,,5000000; 9999999,"0 <= x <= y;
+y == 10000000;
+5000000 <= z <= x + 5000000;
+x >= 5000000 ==> z == x;
+x < 5000000 ==> z == 5000000"
+sv-benchmarks/loops-crafted-1,mono-crafted_11.c,sv-benchmarks/loops-crafted-1/mono-crafted_11.c,(x%2)==0,,,"x <= 100000000;
+x >= 0;
+(x >= 10000000) ==> (x % 2 == 0)"
+sv-benchmarks/loops-crafted-1,mono-crafted_12.c,sv-benchmarks/loops-crafted-1/mono-crafted_12.c,!(z%2),,,"0 <= x <= y;
+y == 10000000;
+z == 2 * (x >= 5000000 ? x - 5000000 : 0)"
+sv-benchmarks/loops-crafted-1,mono-crafted_6.c,sv-benchmarks/loops-crafted-1/mono-crafted_6.c,x==1000000,,,
+sv-benchmarks/loops-crafted-1,mono-crafted_8.c,sv-benchmarks/loops-crafted-1/mono-crafted_8.c,z==0,,0; 9999999," 0 <= x <= y;
+ y == 10000000;
+ (x >= 5000000) ==> (z + x == 10000000);
+ (x < 5000000) ==> (z == 5000000)"
+sv-benchmarks/loops-crafted-1,mono-crafted_9.c,sv-benchmarks/loops-crafted-1/mono-crafted_9.c,y==x,,,"0 <= x <= 1000000;
+500000 <= y <= 1000000;
+x <= y;
+(x < 500000 ==> y == 500000);
+(x >= 500000 ==> y == x)"
+sv-benchmarks/loops-crafted-1,Mono1_1-2.c,sv-benchmarks/loops-crafted-1/Mono1_1-2.c,x == 100000000,,,"0 <= x;
+x <= 100000000;
+x >= 10000000 ==> (x - 10000000) % 2 == 0"
+sv-benchmarks/loops-crafted-1,sumt2.c,sv-benchmarks/loops-crafted-1/sumt2.c,(i+j) == l,"Supporting invariants [1*SIZE > 0, 3*main::l - 2*main::i >= 0, -1*main::n + 1*SIZE >= 0]",,"0 <= l && l <= n;
+0 <= i && i <= n/2 + 1;
+0 <= j && j <= n/2;
+i + j == l;
+l % 2 == 0 ==> i == l/2 && j == l/2;
+l % 2 != 0 ==> i == l/2 + 1 && j == l/2"
+sv-benchmarks/loops-crafted-1,sumt3.c,sv-benchmarks/loops-crafted-1/sumt3.c,(i+j+k) == l,"Supporting invariants [-1*main::n + 1*SIZE >= 0, 1*SIZE > 0]",,"0 <= l <= n;
+0 <= i <= l;
+0 <= j <= l;
+0 <= k <= l;
+i + j + k == l"
+sv-benchmarks/loops-crafted-1,sumt4.c,sv-benchmarks/loops-crafted-1/sumt4.c,(i+j+k+v4) == l,,," 0 <= l <= n;
+ 0 <= i;
+ 0 <= j;
+ 0 <= k;
+ 0 <= v4;
+ l == i + j + k + v4"
+sv-benchmarks/loops-crafted-1,sumt5.c,sv-benchmarks/loops-crafted-1/sumt5.c,(i+j+k+v4+v3) == l,"Supporting invariants [1*SIZE > 0, -1*main::v3 + 1*main::l >= 0]",," 0 <= l <= n;
+ 0 <= i <= l;
+ 0 <= j <= l;
+ 0 <= k <= l;
+ 0 <= v3 <= l;
+ 0 <= v4 <= l;
+ k == l - i - j - v3 - v4"
+sv-benchmarks/loops-crafted-1,sumt6.c,sv-benchmarks/loops-crafted-1/sumt6.c,(i+j+k+v4+v3+v2) == l,Supporting invariants [1*SIZE - 8 >= 0],,"0 <= l <= n;
+0 <= i <= l;
+0 <= j <= l;
+0 <= k <= l;
+0 <= v2 <= l;
+0 <= v3 <= l;
+0 <= v4 <= l;
+(n > 0) ==> (i + j + k + v2 + v3 + v4 == l)"
+sv-benchmarks/loops-crafted-1,sumt7.c,sv-benchmarks/loops-crafted-1/sumt7.c,(i+j+k+v1+v2+v3+v4) == l,Supporting invariants [1*SIZE - 15 >= 0],,"0 <= l && l <= n;
+0 <= i && i <= l;
+0 <= j && j <= l;
+0 <= k && k <= l;
+0 <= v1 && v1 <= l;
+0 <= v2 && v2 <= l;
+0 <= v3 && v3 <= l;
+0 <= v4 && v4 <= l;
+(i + j + k + v1 + v2 + v3 + v4) == l"
+sv-benchmarks/loops-crafted-1,sumt8.c,sv-benchmarks/loops-crafted-1/sumt8.c,(i+j+k+v1+v2+v3+v4+v5) == l,Supporting invariants [1*SIZE - 10 >= 0],,"0 <= l && l <= n;
+0 <= i && i <= l;
+0 <= j && j <= l;
+0 <= k && k <= l;
+0 <= v1 && v1 <= l;
+0 <= v2 && v2 <= l;
+0 <= v3 && v3 <= l;
+0 <= v4 && v4 <= l;
+0 <= v5 && v5 <= l;
+(i + j + k + v1 + v2 + v3 + v4 + v5) == l"
+sv-benchmarks/loops-crafted-1,sumt9.c,sv-benchmarks/loops-crafted-1/sumt9.c,(i+j+k+v1+v2+v3+v4+v5+v6) == l,"Supporting invariants [1*SIZE > 0, -10*main::v6 + 19*main::l >= 0]",,"0 <= l <= n;
+0 <= i <= l;
+0 <= j <= l;
+0 <= k <= l;
+0 <= v1 <= l;
+0 <= v2 <= l;
+0 <= v3 <= l;
+0 <= v4 <= l;
+0 <= v5 <= l;
+0 <= v6 <= l;
+l <= n;
+i + j + k + v1 + v2 + v3 + v4 + v5 + v6 == l"
+sv-benchmarks/loops-crafted-1,sum_natnum.c,sv-benchmarks/loops-crafted-1/sum_natnum.c,sum == ((SIZE *(SIZE+1))/2),Supporting invariants [1*SIZE > 0],0 <= i && i <= SIZE; sum == i * (i + 1) / 2,"0 <= i <= SIZE;
+sum == (i * (i + 1)) / 2"
+sv-benchmarks/loops-crafted-1,vnew2.c,sv-benchmarks/loops-crafted-1/vnew2.c,i==j && j==k && (i%(SIZE+2)),,j - i == \old(j) - \old(i); k - i == \old(k) - \old(i),

@@ -1,0 +1,31 @@
+source_file: AliasDarteFeautrierGonnord-SAS2010-speedpldi3_true-termination_true-no-overflow_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/AliasDarteFeautrierGonnord-SAS2010-speedpldi3_true-termination_true-no-overflow.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:15
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i < n) {
+      if (j < m) {
+        j = j + 1;
+      } else {
+        j = 0;
+        i = i + 1;
+      }
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - i <= n
+  - j <= m
+  explanation: Lexicographic order (n-i, m-j) handles the nested loop behavior. Depth
+    2 is required to track both outer and inner loop counters.
+  template_type: lnested
+  template_depth: 2

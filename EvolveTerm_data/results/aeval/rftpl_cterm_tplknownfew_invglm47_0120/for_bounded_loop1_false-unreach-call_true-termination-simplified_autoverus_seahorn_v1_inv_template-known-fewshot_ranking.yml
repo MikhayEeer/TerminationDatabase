@@ -1,0 +1,29 @@
+source_file: for_bounded_loop1_false-unreach-call_true-termination-simplified_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/for_bounded_loop1_false-unreach-call_true-termination-simplified.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:28
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    for(i=0; i<n; i++)
+    {
+      x = x-y;
+      y = __VERIFIER_nondet_int();
+      x = x+y;
+    }
+  invariants:
+  - i >= 0
+  - i <= n
+  - x == __VERIFIER_nondet_int() + sum_{k=0}^{i-1} (__VERIFIER_nondet_int() - y)
+  - y == __VERIFIER_nondet_int()
+  explanation: The loop counter 'i' strictly increases towards 'n' regardless of the
+    body's logic. A single linear ranking function n - i suffices.
+  template_type: lnested
+  template_depth: 1

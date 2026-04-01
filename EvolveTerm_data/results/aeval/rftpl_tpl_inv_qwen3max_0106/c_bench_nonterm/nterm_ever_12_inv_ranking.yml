@@ -1,0 +1,21 @@
+source_file: nterm_ever_12_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_nonterm/nterm_ever_12.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x <= 98) {\n    x = y%50 + z%50;\n    y ++;\n    z ++;\n}"
+  invariants: []
+  explanation: The loop updates x based on modulo expressions of y and z, which increase
+    each iteration. Although the loop appears non-terminating, if termination is assumed
+    (e.g., under restricted initial states), a multi-phase ranking function may capture
+    piecewise behavior across modulo cycles. Depth 2 allows modeling two distinct
+    phases of variable evolution.
+  template_type: lmulti
+  template_depth: 2

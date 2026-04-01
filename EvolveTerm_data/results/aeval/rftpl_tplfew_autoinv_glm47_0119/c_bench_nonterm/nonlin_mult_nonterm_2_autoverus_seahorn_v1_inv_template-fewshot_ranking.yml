@@ -1,0 +1,26 @@
+source_file: nonlin_mult_nonterm_2_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/nonlin_mult_nonterm_2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:34
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x * y > 0)
+    {
+      x = -x;
+      y = -y;
+    }
+  invariants:
+  - x * y == __VERIFIER_old_int(x) * __VERIFIER_old_int(y)
+  - x * y > 0 || x * y == 0
+  explanation: Single component structure is the simplest default; no complex phase
+    behavior is present.
+  template_type: lnested
+  template_depth: 1

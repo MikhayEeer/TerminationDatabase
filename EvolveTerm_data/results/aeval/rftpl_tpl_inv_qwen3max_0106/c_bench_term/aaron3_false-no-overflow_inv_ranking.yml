@@ -1,0 +1,21 @@
+source_file: aaron3_false-no-overflow_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/aaron3_false-no-overflow.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x >= y && x <= tx + z) {\n    if (__VERIFIER_nondet_int() != 0) {\n\
+    \        z = z - 1;\n        tx = x;\n        x = __VERIFIER_nondet_int();\n \
+    \   } else {\n        y = y + 1;\n    }\n}"
+  invariants: []
+  explanation: 'Two independent progress measures: z decreases in one branch (affecting
+    upper bound), y increases in the other (affecting lower bound). A multi-phase
+    ranking function of depth 2 can combine these.'
+  template_type: lmulti
+  template_depth: 2

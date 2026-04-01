@@ -1,0 +1,32 @@
+source_file: MenloPark_true-no-overflow_true-termination_true-valid-memsafety_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/MenloPark_true-no-overflow_true-termination_true-valid-memsafety.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:55
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0) {
+        x = x - y;
+        y = y - z;
+        z = -z;
+    }
+  invariants:
+  - x >= 0
+  - y == y_init
+  - z == z_init
+  - x == x_init - k*y_init
+  - y == y_init - k*z_init
+  - z == (-1)^k * z_init
+  explanation: Variable x oscillates (increases and decreases), requiring distinct
+    ranking functions for the two phases defined by the sign of z. Depth 1 is insufficient;
+    nested templates fail to capture the linear combination x+y needed for global
+    decrease.
+  template_type: lmulti
+  template_depth: 2

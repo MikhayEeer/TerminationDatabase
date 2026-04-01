@@ -1,0 +1,33 @@
+source_file: determ_term_6_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_6.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:01
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x + y + z != 0)
+    {
+      int oldx = x;
+      x = -y + 1;
+      y = 2*oldx + z;
+      z = z*3;
+    }
+  invariants:
+  - x + y + z != 0
+  - x >= -y + 1
+  - y >= 2*oldx + z
+  - z >= z*3
+  explanation: The loop involves simultaneous updates with multiplicative factors
+    (z*3) and linear dependencies (x, y). A single linear ranking function is insufficient
+    to capture the decreasing measure due to the growth of z and the coupling of variables.
+    A lexicographic (nested) ranking function of depth 2 is required to handle these
+    dependencies and prove termination.
+  template_type: lnested
+  template_depth: 2

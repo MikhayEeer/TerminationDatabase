@@ -1,0 +1,13 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/invgen/bind_expands_vars2.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for (mc_i = 0; mc_i < n2; mc_i++) {\n  \n  {;\n//@ assert(cp1_off+mc_i <\
+    \ MAXDATA * 2);\n}\n\n}"

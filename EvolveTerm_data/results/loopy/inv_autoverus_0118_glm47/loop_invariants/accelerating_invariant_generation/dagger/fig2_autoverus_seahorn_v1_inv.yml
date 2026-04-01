@@ -1,0 +1,42 @@
+source_file: fig2_pmt_yamlv2_extract.yml
+source_path: loop_invariants/accelerating_invariant_generation/dagger/fig2.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:20
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while (unknown_int() ) {
+
+    if (unknown_int()) {x++; y = y+2;}
+    else if (unknown_int()) {
+        if (x >= 4) {x++; y = y+3; z = z+10; w = w+10;}
+    }
+    else if (x >= z && w > y) {x = -x; y = -y; }
+
+    }
+  invariants:
+  - x == old_x
+  - y == old_y
+  - z == old_z
+  - w == old_w
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while (unknown_int() ) {
+
+    if (unknown_int()) {x++; y = y+2;}
+    else if (unknown_int()) {
+        if (x >= 4) {x++; y = y+3; z = z+10; w = w+10;}
+    }
+    else if (x >= z && w > y) {x = -x; y = -y; }
+
+    }

@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/accelerating_invariant_generation/dagger/fig2.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int() ) {\n\nif (unknown_int()) {x++; y = y+2;}\nelse if (unknown_int())\
+    \ {\n    if (x >= 4) {x++; y = y+3; z = z+10; w = w+10;}\n}\nelse if (x >= z &&\
+    \ w > y) {x = -x; y = -y; }\n\n}"

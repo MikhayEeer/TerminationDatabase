@@ -1,0 +1,26 @@
+source_file: determ_term_1_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T11:54
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x != 0) {
+        x = x + y;
+        y = y + 1;
+    }
+  invariants:
+  - x >= y
+  - y >= 0
+  explanation: Termination relies on the non-linear decreasing function x - y^2. Since
+    x increases, simple lexicographic (lnested) templates fail. Multi-phase (lmulti)
+    is required to handle the complex dependency and monotonic increase of variables.
+  template_type: lmulti
+  template_depth: 2

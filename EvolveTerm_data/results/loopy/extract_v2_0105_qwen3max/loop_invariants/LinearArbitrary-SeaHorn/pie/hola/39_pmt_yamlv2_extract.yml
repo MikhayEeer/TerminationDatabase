@@ -1,0 +1,15 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/pie/hola/39.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "for (;;)\n  if (glob3_pathend_off + glob3_dc >= glob3_pathlim_off) break;\n\
+    \  else {\n    \n    glob3_dc++;\n    \n    {;\n//@ assert(0 <= glob3_dc);\n}\n\
+    \n    {;\n//@ assert(glob3_dc < MAXPATHLEN + 1);\n}\n\n    if (unknown()) goto\
+    \ END;\n  }"

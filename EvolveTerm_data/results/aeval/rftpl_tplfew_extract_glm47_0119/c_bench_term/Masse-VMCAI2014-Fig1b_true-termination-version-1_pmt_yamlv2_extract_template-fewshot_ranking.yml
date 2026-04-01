@@ -1,0 +1,28 @@
+source_file: Masse-VMCAI2014-Fig1b_true-termination-version-1_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_term/Masse-VMCAI2014-Fig1b_true-termination-version-1.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:55
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= 100) {
+        if (0 == __VERIFIER_nondet_int()) {
+            x = - 2 * x + 2;
+        } else if (0 == __VERIFIER_nondet_int()) {
+            x = - 3 * x - 2;
+        } else {
+            x = - 4 * x + 2;
+        }
+    }
+  invariants: []
+  explanation: 'Single variable monotone progress: the magnitude of x increases strictly
+    until it exceeds the upper bound 100.'
+  template_type: lnested
+  template_depth: 1

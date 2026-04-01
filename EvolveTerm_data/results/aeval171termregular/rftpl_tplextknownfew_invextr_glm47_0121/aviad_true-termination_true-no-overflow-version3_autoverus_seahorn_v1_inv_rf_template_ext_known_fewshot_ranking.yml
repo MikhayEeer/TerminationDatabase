@@ -1,0 +1,24 @@
+source_file: aviad_true-termination_true-no-overflow-version3_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval_171term_regular/aviad_true-termination_true-no-overflow-version3.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval171termregular/inv_auto_extractv2_glm47_0121/ --output results/aeval171termregular/rftpl_tplextknownfew_invextr_glm47_0121/
+  -m yaml --ranking-mode rf_template_ext_known_fewshot
+pmt_ver: rf_template_ext_known_fewshot
+model: glm-4.7
+time: 2026-01-21T15:47
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (a > 1) {
+      if (a % 10 == 0) a = a / 10;
+        else a = a - 1;
+    }
+  invariants:
+  - a >= 1
+  - a >= 0
+  explanation: Single variable monotone decrease.
+  template_type: llexiext
+  template_depth: 1

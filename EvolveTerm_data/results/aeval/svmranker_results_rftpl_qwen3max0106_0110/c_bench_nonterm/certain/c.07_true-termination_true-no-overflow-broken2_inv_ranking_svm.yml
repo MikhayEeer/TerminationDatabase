@@ -1,0 +1,15 @@
+input_file: results/aeval+Loopy/ranking_results_PmtTpl_qwen3max/aeval/c_bench_nonterm/c.07_true-termination_true-no-overflow-broken2_inv_ranking.yml
+source_file: c.07_true-termination_true-no-overflow-broken2_inv_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lmulti
+  template_depth: 2
+  svm_mode: lmulti
+  status: NONTERM
+  ranking_function: <NestedTemplate.NestedTemplate object at 0x7757fe0e77c0>
+  ranking_functions:
+  - <NestedTemplate.NestedTemplate object at 0x7757fe0e77c0>
+  input_code_source: boogie_path
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/c.07_true-termination_true-no-overflow-broken2.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval/c_bench_nonterm/c.07_true-termination_true-no-overflow-broken2.bpl

@@ -1,0 +1,23 @@
+source_file: term_29_pmt_yamlv2_qwen3-max_auto_inv_qwen3-max_auto.yml
+source_path: data/aeval/c_bench_term/term_29.c
+task: ranking_inference
+command: evolveterm ranking --input results/invariant_results_PmtCot_ExtPmtV2_qwen3max/
+  -r -m yaml --ranking-mode template --retry-empty 2
+pmt_ver: template
+model: qwen3max
+time: 2026/01/06
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: "while (x < N)\n{\n  if      (__VERIFIER_nondet_int() == 0 && z == 1) { y\
+    \ = 5; z = 0; }\n  else if (__VERIFIER_nondet_int() == 0 && z == 0) { y = -3;\
+    \ z = 1; }\n  else if (__VERIFIER_nondet_int() == 0 && z == 1) { y = 7; z = 0;\
+    \ }\n  else if (__VERIFIER_nondet_int() == 0 && z == 0) { y = -2; z = 1; }\n \
+    \ else y = 1;\n\n  x = x + y;\n}"
+  invariants: []
+  explanation: The loop alternates between two modes (z=0 and z=1), with guaranteed
+    progress over two steps. A 2-phase linear ranking function (lmulti, depth=2) can
+    capture the lexicographic decrease across phases.
+  template_type: lmulti
+  template_depth: 2

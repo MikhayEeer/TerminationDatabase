@@ -1,0 +1,29 @@
+source_file: gauss_sum_pmt_yamlv2_extract.yml
+source_path: loop_invariants/sv-benchmarks/loop-new/gauss_sum.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/loopy/extract_v2_0110_glm47/ -r -m yaml --output results/loopy/inv_autoverus_0118_glm47/
+  -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-18T14:13
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    for(i = 1; i <= n; i++) {
+        sum = sum + i;
+    }
+  invariants:
+  - sum == 0 + i*(i-1)/2
+  - i >= 1
+  - i <= n + 1
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    for(i = 1; i <= n; i++) {
+        sum = sum + i;
+    }

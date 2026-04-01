@@ -1,0 +1,30 @@
+source_file: determ_term_5_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/determ_term_5.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/c_bench_term/ -m yaml
+  --ranking-mode template-known-fewshot --output results/aeval/rftpl_cterm_tplknownfew_invglm47_0120/
+pmt_ver: template-known-fewshot
+model: glm-4.7
+time: 2026-01-20T12:14
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (i != j) {
+      i = i + j - k;
+      j = j * 2;
+      k = k - 1;
+    }
+  invariants:
+  - i >= 0
+  - j >= 0
+  - k >= 0
+  - i == i + j - k
+  - j == j * 2
+  - k == k - 1
+  explanation: Variable k decreases by 1 in every iteration. A single linear ranking
+    function f(k) = k is sufficient.
+  template_type: lnested
+  template_depth: 1

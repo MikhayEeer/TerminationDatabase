@@ -1,0 +1,30 @@
+source_file: term_18_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_term/term_18.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:52
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x <= 97) {
+      x = y%50 + z%50;
+      y ++;
+      z ++;
+    }
+  invariants:
+  - x >= 0
+  - y >= 0
+  - z >= 0
+  - x == (y-1)%50 + (z-1)%50
+  - y == y_initial + (x_initial - x)
+  - z == z_initial + (x_initial - x)
+  explanation: Single component suffices as the loop progress is bounded by the monotonic
+    increase of y and z relative to the fixed guard condition.
+  template_type: lnested
+  template_depth: 1

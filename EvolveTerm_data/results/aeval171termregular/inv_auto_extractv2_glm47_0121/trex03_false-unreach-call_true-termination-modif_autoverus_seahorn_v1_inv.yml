@@ -1,0 +1,38 @@
+source_file: trex03_false-unreach-call_true-termination-modif_pmt_yamlv2_extract.yml
+source_path: data/aeval_171term_regular/trex03_false-unreach-call_true-termination-modif.c
+task: invariant_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm invariant
+  --input results/aeval171termregular/extract_v2_glm47_0121/ --output results/aeval171termregular/inv_auto_extractv2_glm47_0121
+  -m yaml -pv autoverus_seahorn_v1
+pmt_ver: autoverus_seahorn_v1
+model: glm-4.7
+time: 2026-01-21T15:32
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: |-
+    while((!(d1 < 1 || d2 < 1 || d3 < 1)) && x1>0 && x2>0 && x3>0)
+    {
+      if (__VERIFIER_nondet_int() == 0) x1=x1-d1;
+      else if (__VERIFIER_nondet_int() == 0) x2=x2-d2;
+      else x3=x3-d3;
+    }
+  invariants:
+  - d1 >= 1
+  - d2 >= 1
+  - d3 >= 1
+  - x1 >= 0
+  - x2 >= 0
+  - x3 >= 0
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: |-
+    while((!(d1 < 1 || d2 < 1 || d3 < 1)) && x1>0 && x2>0 && x3>0)
+    {
+      if (__VERIFIER_nondet_int() == 0) x1=x1-d1;
+      else if (__VERIFIER_nondet_int() == 0) x2=x2-d2;
+      else x3=x3-d3;
+    }

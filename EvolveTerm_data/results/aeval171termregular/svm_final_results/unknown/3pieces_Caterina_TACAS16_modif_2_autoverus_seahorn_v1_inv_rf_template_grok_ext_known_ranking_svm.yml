@@ -1,0 +1,35 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/3pieces_Caterina_TACAS16_modif_2_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: 3pieces_Caterina_TACAS16_modif_2_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lpiecewiseext
+  template_depth: 2
+  svm_mode: lpiecewiseext
+  status: UNKNOWN
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_2.c
+  input_source_stem: 3pieces_Caterina_TACAS16_modif_2
+  template_predicates:
+  - x0 < 10
+  - x0 <= 0
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_2.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_2.bpl
+  input_loop:
+    loop_id: 1
+    code: "while (x != 0)\n{\n    y--;\n    if (x < 10) x = x +1; else x = y;\n}"
+    invariants:
+    - y >= 0
+    - x >= 0
+    explanation: The loop requires a piecewise ranking function because the update
+      rule for `x` changes based on the condition `x < 10`. A depth of 2 is needed
+      to capture the relationship between `x` and `y`, where `y` decreases monotonically
+      and `x`'s behavior depends on `y` and the conditional branch.
+    template_type: lpiecewiseext
+    template_depth: 2
+    template_predicates:
+    - x0 < 10
+    - x0 <= 0
+source_path: data/aeval_171term_regular/3pieces_Caterina_TACAS16_modif_2.c

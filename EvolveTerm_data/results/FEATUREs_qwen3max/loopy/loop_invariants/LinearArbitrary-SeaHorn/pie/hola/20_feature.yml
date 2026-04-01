@@ -1,0 +1,15 @@
+source_path: loop_invariants/LinearArbitrary-SeaHorn/pie/hola/20.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 49
+summary: 验证在循环执行后变量x和y的和是否保持等于k，并检查m的边界条件。

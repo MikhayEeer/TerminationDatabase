@@ -1,0 +1,24 @@
+source_file: PodelskiRybalchenko-2004VMCAI-Ex2-alloca_false-termination-modif2_pmt_yamlv2_extract.yml
+source_path: data/aeval/c_bench_nonterm/PodelskiRybalchenko-2004VMCAI-Ex2-alloca_false-termination-modif2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/extract_v2_0110_glm47/ -r -m yaml --ranking-mode template-fewshot
+  --output results/aeval/rftpl_tplfew_extract_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T18:51
+has_extract: true
+has_invariants: false
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (x >= 0 || d < 0) {
+        d = __VERIFIER_nondet_int();
+        x = 2 *x  + d;
+    }
+  invariants: []
+  explanation: The loop termination depends on the relationship between x and d. A
+    lexicographic ranking function with depth 2 is suitable to capture the decrease
+    in x or the change in d that eventually leads to exit.
+  template_type: lnested
+  template_depth: 2

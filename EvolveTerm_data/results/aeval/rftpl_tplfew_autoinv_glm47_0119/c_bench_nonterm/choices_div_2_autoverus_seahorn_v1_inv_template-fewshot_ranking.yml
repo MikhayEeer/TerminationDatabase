@@ -1,0 +1,25 @@
+source_file: choices_div_2_autoverus_seahorn_v1_inv.yml
+source_path: data/aeval/c_bench_nonterm/choices_div_2.c
+task: ranking_inference
+command: /home/clexma/Desktop/fox3/TermDB/EvolveTerm/.venv_evolve/bin/evolveterm ranking
+  --input results/aeval/invariants_autoveruspmt_exv2_glm47_0115/ -r -m yaml --ranking-mode
+  template-fewshot --output results/aeval/rftpl_tplfew_autoinv_glm47_0119/
+pmt_ver: template-fewshot
+model: glm-4.7
+time: 2026-01-19T15:16
+has_extract: true
+has_invariants: true
+ranking_results:
+- loop_id: 1
+  code: |-
+    while (j >= 0)
+    {
+      int a = __VERIFIER_nondet_int();
+      if (a == 0) { j = j / 2; } else { j = j - d; }
+    }
+  invariants:
+  - j >= 0
+  - d == __VERIFIER_nondet_int()
+  explanation: Single variable j decreases toward 0 in all branches.
+  template_type: lnested
+  template_depth: 1

@@ -1,0 +1,43 @@
+source_file: sendmail-mime-fromqp_pmt_yamlv2_extract.yml
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/invgen/sendmail-mime-fromqp.c
+task: invariant_inference
+command: scripts/build_loopy_invariant_yml.py --csv data/Loopy_dataset_InvarBenchmark/loop_invariants/Loopy_Loopy2GeneratedInvariants.csv
+  --extract-root results/aeval+Loopy/extract_v2_qwen3max/Loopy_dataset_InvarBenchmark/loop_invariants
+  --output-dir data/loopy_loop_invariants_yaml_bench
+pmt_ver: loopy2_generated
+model: loopy2
+time: 2026-01-10T16:37
+has_extract: true
+invariants_result:
+- loop_id: 1
+  code: "while(unknown())\n{\n  \n  if(unknown())\n  {\n    \n    if(unknown())\n\
+    \        \n        goto AFTERLOOP; \n\n    if(unknown())\n    {\n        out =\
+    \ 0;\n        nchar = 0;\n        goto LOOPEND;\n    }\n    else\n    {\n    \
+    \    \n        if(unknown())  goto AFTERLOOP;\n\n        nchar++;\n        if\
+    \ (nchar >= outfilelen)\n          goto AFTERLOOP;\n\n        {;\n    //@ assert(0<=out);\n\
+    \    }\n\n        {;\n    //@ assert(out<outfilelen);\n    }\n\n        out++;\n\
+    \    }\n  }\n  else\n  {\n    \n    nchar++;\n    if (nchar >= outfilelen)\n \
+    \       goto AFTERLOOP;\n\n    {;\n    //@ assert(0<=out);\n    }\n\n    {;\n\
+    \    //@ assert(out<outfilelen);\n    }\n\n    out++;\n\n    if(unknown()) goto\
+    \ AFTERLOOP;\n  }\nLOOPEND:;\n}"
+  invariants:
+  - 0 <= nchar
+  - 0 <= out
+  - out <= nchar
+  - nchar <= outfilelen
+  - out < outfilelen
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while(unknown())\n{\n  \n  if(unknown())\n  {\n    \n    if(unknown())\n\
+    \        \n        goto AFTERLOOP; \n\n    if(unknown())\n    {\n        out =\
+    \ 0;\n        nchar = 0;\n        goto LOOPEND;\n    }\n    else\n    {\n    \
+    \    \n        if(unknown())  goto AFTERLOOP;\n\n        nchar++;\n        if\
+    \ (nchar >= outfilelen)\n          goto AFTERLOOP;\n\n        {;\n    //@ assert(0<=out);\n\
+    \    }\n\n        {;\n    //@ assert(out<outfilelen);\n    }\n\n        out++;\n\
+    \    }\n  }\n  else\n  {\n    \n    nchar++;\n    if (nchar >= outfilelen)\n \
+    \       goto AFTERLOOP;\n\n    {;\n    //@ assert(0<=out);\n    }\n\n    {;\n\
+    \    //@ assert(out<outfilelen);\n    }\n\n    out++;\n\n    if(unknown()) goto\
+    \ AFTERLOOP;\n  }\nLOOPEND:;\n}"

@@ -1,0 +1,15 @@
+source_path: c_bench_term/nonlin_jump_over_1_term.c
+language: C
+program_type: loop
+recur_type: null
+loop_type: Linear
+loops_count: 1
+loops_depth: 1
+loop_condition_variables_count: 2
+has_break: false
+loop_condition_always_true: false
+initial_sat_condition: true
+array_operator: false
+pointer_operator: false
+lines: 15
+summary: 检查非确定性输入x和y，当y大于1时进入循环并根据x除以y的余数调整x的值。

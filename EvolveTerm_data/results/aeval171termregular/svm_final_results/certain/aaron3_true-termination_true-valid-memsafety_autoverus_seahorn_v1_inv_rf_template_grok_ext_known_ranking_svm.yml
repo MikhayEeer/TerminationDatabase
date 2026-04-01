@@ -1,0 +1,36 @@
+input_file: results/aeval171termregular/rftpl_grok_invextr_glm47_0121/aaron3_true-termination_true-valid-memsafety_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+source_file: aaron3_true-termination_true-valid-memsafety_autoverus_seahorn_v1_inv_rf_template_grok_ext_known_ranking.yml
+task: svmranker
+svmranker_result:
+- loop_id: 1
+  template_type: lmultiext
+  template_depth: 2
+  svm_mode: lmultiext
+  status: NONTERM
+  ranking_function: null
+  ranking_functions: []
+  input_code_source: boogie_path
+  input_source_path: data/aeval_171term_regular/aaron3_true-termination_true-valid-memsafety.c
+  input_source_stem: aaron3_true-termination_true-valid-memsafety
+  input_code_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/aaron3_true-termination_true-valid-memsafety.bpl
+  input_boogie_path: /home/clexma/Desktop/fox3/TermDB/TerminationDatabase/Data_boogie/aeval_171term_regular/aaron3_true-termination_true-valid-memsafety.bpl
+  input_loop:
+    loop_id: 1
+    code: "while (x >= y && x <= tx + z) {\n    if (__VERIFIER_nondet_int() != 0)\
+      \ {\n        z = z - 1;\n        tx = x;\n        x = __VERIFIER_nondet_int();\n\
+      \        if(!(-1073741823<=x && x<=1073741823)) return 0;\n    } else {\n  \
+      \      y = y + 1;\n    }\n}"
+    invariants:
+    - x >= y
+    - x <= tx + z
+    - tx >= y
+    - z >= 0
+    - tx + z >= y
+    explanation: The loop termination is proven by the lexicographic ranking function
+      (tx + z - y, z). The first component represents the gap between the upper and
+      lower bounds, which decreases or stays constant. The second component `z` decreases
+      when the gap is maintained. This requires a depth of 2 to capture the lexicographic
+      relationship within the multi-phase framework.
+    template_type: lmultiext
+    template_depth: 2
+source_path: data/aeval_171term_regular/aaron3_true-termination_true-valid-memsafety.c

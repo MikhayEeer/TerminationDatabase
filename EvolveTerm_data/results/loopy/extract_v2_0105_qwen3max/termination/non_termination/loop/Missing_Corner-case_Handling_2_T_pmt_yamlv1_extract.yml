@@ -1,0 +1,12 @@
+source_path: data/Loopy_dataset_InvarBenchmark/termination/non_termination/loop/Missing_Corner-case_Handling_2_T.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "int bits;\nfor( bits = 0 ; val != 0 ; bits++ )\n    val >>= 1;"

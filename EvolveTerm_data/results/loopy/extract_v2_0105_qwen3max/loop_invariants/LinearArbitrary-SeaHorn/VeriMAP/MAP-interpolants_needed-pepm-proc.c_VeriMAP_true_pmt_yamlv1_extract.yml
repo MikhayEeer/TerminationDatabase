@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/LinearArbitrary-SeaHorn/VeriMAP/MAP-interpolants_needed-pepm-proc.c_VeriMAP_true.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv1
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown_int()) {\n    if (unknown_int()) {\n        x = x+1; \n  \
+    \      y = y+2;\n    } else if (unknown_int()) {\n        if (x >= 4) {\n    \
+    \        x = x+1; \n            y = y+3; \n        }\n    } \n}"

@@ -1,0 +1,14 @@
+source_path: data/Loopy_dataset_InvarBenchmark/loop_invariants/code2inv/44.c
+task: extract
+command: ''
+pmt_ver: pmt_yamlv2
+model: qwen3max
+time: ''
+loops_count: -1
+loops_depth: -1
+loops_ids: 1
+loops:
+- id: 1
+  code: "while (unknown()) {\n  {\n    if ( unknown() ) {\n      if ( (c > n) )\n\
+    \      {\n      (c  = (c + 1));\n      }\n    } else {\n      if ( (c == n) )\n\
+    \      {\n      (c  = 1);\n      }\n    }\n\n  }\n\n}"
